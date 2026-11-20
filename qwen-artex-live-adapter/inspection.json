@@ -1,0 +1,89 @@
+{
+  "scope": "offline byte inspection only; no model or tool execution",
+  "seam_files": [
+    {
+      "path": "agent/provider.go",
+      "source_sha256": "f6250ab50f5aab4ee9a184857a50cfc318ee27ef12ed5d30db488a4fd38d4ea0",
+      "build_source_identical": true
+    },
+    {
+      "path": "agent/native_admission.go",
+      "source_sha256": "72f2f2a2ed4361d48094de4f2f099a78df071fc7216e0a69360519dbf7992d80",
+      "build_source_identical": true
+    },
+    {
+      "path": "agent/native_rpc.go",
+      "source_sha256": "e3a62fd78d22ce7ddb142a70657014a0e8ce2f6751773dc1c3dd67f5ca6d0401",
+      "build_source_identical": true
+    },
+    {
+      "path": "agent/native_preflight.go",
+      "source_sha256": "2dcb92ee6498343e3f7580ffc838ce27c24aa6b155a9b4853bbfdf345e69199c",
+      "build_source_identical": true
+    },
+    {
+      "path": "agent/native_executor_config.go",
+      "source_sha256": "f274c6ae0ca1361c22772d3a8c46a81e6f8662c05b88d46f615ebd33b1c0fcc6",
+      "build_source_identical": true
+    },
+    {
+      "path": "agent/native_task_role.go",
+      "source_sha256": "52bff98786d4e48f9a4fa063bc8b38f21823ed5a2eb9ccb194ece84d22bf69d2",
+      "build_source_identical": true
+    },
+    {
+      "path": "agent/worker.go",
+      "source_sha256": "8cc5eddcc2cab1de22d3fee0283c313ff598151281525d0dffb91bbceb0f22e1",
+      "build_source_identical": true
+    },
+    {
+      "path": "server/task_llm.go",
+      "source_sha256": "38646466ec066e4eb4c790f49a85860b0a110103bb173ffb18d6c6cccdb19932",
+      "build_source_identical": true
+    },
+    {
+      "path": "server/server_mgmt.go",
+      "source_sha256": "5fdddd2f1d34cc097db7ddad2eabe2ba9a48652e89b3f579f3ca57de63c62496",
+      "build_source_identical": true
+    },
+    {
+      "path": "server/auth.go",
+      "source_sha256": "9dc4f84b4007be9239f42439d9fa4c6c13133151de70b5d4401cd3bc68fb34ed",
+      "build_source_identical": true
+    },
+    {
+      "path": "nativeexec/adapter.go",
+      "source_sha256": "9b226ce527336d5cbf3636b88e5cbb6aeebfdfbc6ee6df86e8320be2c14887b6",
+      "build_source_identical": true
+    },
+    {
+      "path": "nativeexec/client.go",
+      "source_sha256": "d3e1d1484e1616854090e413313aa2a85bad1bae4eacfbe54f3eb67a05376ab8",
+      "build_source_identical": true
+    },
+    {
+      "path": "db/config.go",
+      "source_sha256": "c405bde4ed5a84173b4736e29c7607e23a5bd8093fa658304292340304f5bb1c",
+      "build_source_identical": true
+    }
+  ],
+  "artifact": {
+    "path": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-ui-asset-final/bin/artex.gz",
+    "gzip_sha256": "8cf8506d32b48d015a9ed85a4306a909b9c0b9339901bd984b6908db2fa26be3",
+    "elf_sha256": "77aa59f362abe0c286bdd3cbd90c05e334c5c0d1779936b17aa42221fb317835",
+    "gzip_bytes": 14341999,
+    "elf_bytes": 40312994,
+    "elf_magic": true
+  },
+  "assertions": {
+    "normal_openai_config_supported": true,
+    "non_native_run_has_no_native_scope": true,
+    "non_native_worker_installs_sdk_defaults": true,
+    "executor_requires_opaque_nativeRPC": true,
+    "private_admission_rejects_other_models": true,
+    "wire_model_hardcoded": true,
+    "all_seam_build_bytes_match": true,
+    "gzip_matches_recorded_artifact": true,
+    "elf_matches_recorded_artifact": true
+  }
+}

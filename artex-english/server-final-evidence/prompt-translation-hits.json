@@ -1,0 +1,61 @@
+{
+  "manager.go": [
+    "任务 id"
+  ],
+  "server.go": [
+    "（规则模式，未配置 LLM）当前态势：资产 %d，待领意图 %d，确认发现 %d。",
+    "可用指令：以\\\"意图 ...\\\"注入意图，\\\"提示 ...\\\"给规划者提示。",
+    "回链地址需以 http:// 或 https:// 开头"
+  ],
+  "assembly.go": [
+    "需要【交互输入】的程序（msfconsole / ssh 交互登录 / mysql、psql、python 等 REPL / 密码或 yes/no 提示 / nc 反弹 shell）不要用 Bash（它没有 stdin、会卡住），改用 shell_open 开交互会话（用完 shell_close）。一次性、非交互命令仍用 Bash。",
+    "以下工具已安装在此 bash 环境中，可直接通过 Bash 调用：",
+    "[tools] 读取工具表失败，按代码默认放行: %v"
+  ],
+  "finding_workflow.go": [
+    "查询记录代理已抓取的目标流量（必须指定 host，可再按 URL 子串或正文关键词过滤）。body_contains 会在已抓取的请求/响应头与正文中做全文搜索，支持任意子串和中文（至少 3 个字符），可用来找响应里的密码、密钥、报错、内网地址等。仅返回极轻量索引(id/method/url/status/resp_len)，不含任何响应内容。默认只返回 3 条、每页最多 10 条；结果多时用 page 翻页（page=0 起）；要看某条的请求/响应原文用 traffic_get(id)。回看已访问资源、找端点先用它，避免重复 curl 同一 URL。"
+  ],
+  "orchestration.go": [
+    "列出所有任务(id/描述/目标/状态/运行时长/父任务/LLM 配置)，编排 agent 用它掌握全局、看哪些任务卡太久、各自用哪个 LLM。运行时长：运行中=创建→现在，终态=创建→最后活动(秒)。llm_profile：任务 planner/worker 用的配置名，(激活配置)=跟随全局激活。",
+    "列出可用的 LLM 配置(profile)：id、名称、模型、格式、是否为当前激活配置。用 id 给 spawn_task 的 llm_profile_id 参数指定子任务专属 LLM（如侦察用便宜模型、利用用强模型）。不含 API Key。",
+    "看指定任务里某个 work(意图)的执行过程：get_task_worker_trace(task_id, intent_id) 看步骤摘要；再带 step_ids=[...] 取那几步完整内容(一次最多 5 个,多传只返回前 5 个)。",
+    "可选：planner 心跳触发间隔(秒)。距上轮规划结束/任务开始满该值且期间无触发 → 触发一轮规划(兜底死锁 + 唤醒去监督飞行中的 worker)。留空或 0 = 默认 600(10min)；",
+    "最后调用 update_finding_report(finding_id=finding_node_id, report, evidence_version=实际读取版本) 保存，",
+    "上面刚有一个漏洞被 report_finding 登记。请读取返回 JSON 的 finding_id（独立漏洞记录 ID）与 finding_node_id（探索节点 ID），",
+    "读指定任务的确认漏洞(含 flag/PoC；每条带 id/task_id/intent_id/vulnclass/severity/摘要/状态)，用 task_id 指定任务。",
+    "新建一个子任务并启动探索引擎，返回 task_id。用于把一件事(如一道题/一个目标)派成独立任务。parent_ref 可选：填当前编排关联的父任务 id 做父子关联。",
+    "可选：对于简单任务可开启，创建时直接下发一条种子意图(内容=描述+目标)让 worker 免等首轮 planner 直接开跑测试；默认 false(走标准先规划再执行)。",
+    "可选：只读继承的来源任务 id 列表(最多 %d 个)。子任务可只读引用这些任务已探明的资产/结论作为起点；与 parent_ref 的纯父子指针不同，这是内容继承。",
+    "★优先批量：多条提示放进 hints 数组一次提交（返回 ids 数组，与 hints 等长同序，失败项 id=0）；单条则省略 hints 直接给顶层 text。",
+    "可选：指定本子任务 planner/worker 用的 LLM 配置 id(见 list_llm_profiles)；留空则继承父任务、再回退全局激活配置",
+    "列出指定任务里跑过哪些 work(意图) + 各自步数，用于发现哪些 work 值得翻看(再用 get_task_worker_trace)。",
+    "先用 get_finding_traffic(finding_id) 读取当前证据清单及其 version（空清单是正常情况，照常写报告）；",
+    "读指定任务的探索图总览(同 graph_overview：资产计数/frontier/发现/覆盖等)，用 task_id 指定任务。",
+    "可选：要取完整内容的步骤 id(一次最多 5 个,多传只返回前 5 个,其余在 omitted_step_ids 里列出)",
+    "若运行指引启用自动绑定，在读取前先核实并关联本次漏洞的流量。节点详情使用 finding_node_id。",
+    "【优先用这个】提示数组，每个元素字段同顶层（text/asset_ids/traffic_refs）。",
+    "在指定任务里按关键字搜索所有 work 的执行过程(返回命中步骤摘要 + intent_id)。",
+    "可选：任务级超时(秒)。到点后触发优雅收尾并进入 timeout 终态；留空或 0 = 不限时",
+    "未找到 finding_id=%d 对应的漏洞记录(先用 report_finding 登记)",
+    "漏洞详细报告撰写：发现漏洞时自动触发，查取证据与执行过程后写 Markdown 报告并回写。",
+    "evidence_version 必须传，否则报告会被永久标记为待更新。不要混用两种编号。",
+    "给指定任务注入战略提示(该任务的 planner 下轮生成意图时会读到)。",
+    "暂停指定任务(停止其 planner/worker 循环)。",
+    "锚定的资产 id（可选，0/1/多个；该任务内的资产 id）",
+    "[单条] Hint content",
+    "意图 id(该任务里的 work)",
+    "可选：父任务 id(做父子关联)",
+    "finding_id 无效",
+    "task_id 为必填",
+    "任务目标(要达成什么)",
+    "task 不存在: ",
+    "任务描述(简短标题)",
+    "要暂停的任务 id",
+    "#%d(已删除)",
+    "goal 为必填",
+    "(激活配置)",
+    "任务 id",
+    "搜索关键字",
+    "报告撰写"
+  ]
+}

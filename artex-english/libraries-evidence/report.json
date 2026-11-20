@@ -1,0 +1,422 @@
+{
+  "status": "production runtime strings translated; comments and test diagnostics remain (partial task completion)",
+  "owned_folders": [
+    "config",
+    "enrich",
+    "evidence",
+    "llmpool",
+    "llmrec",
+    "mcphttp",
+    "notify",
+    "report",
+    "selfupdate",
+    "sidequestion",
+    "traffic",
+    "cmd"
+  ],
+  "changed_paths": [
+    {
+      "path": "source/config/config.go",
+      "before_sha256": "c5b62ed45560fcaeda153a16ace6064bab492e0a9617d49b5cf687b56ef8940a",
+      "after_sha256": "d09d78dd5d860c97ce18439a8e3efad78cf62a3b11568fc6b8039483e4a89db8"
+    },
+    {
+      "path": "source/enrich/enrich.go",
+      "before_sha256": "c8b0c5d672cde6552a44a37cd1dd785839eee9e417893693f2d936a7906d933d",
+      "after_sha256": "abb6923ec19cd410b806f69afc6e761692433095e25b90cdba233d5ba964d47c"
+    },
+    {
+      "path": "source/evidence/store.go",
+      "before_sha256": "0b200c2d5dcd686ff78add7d556ed8520e4d2c951ab4c687c7158abb6e3d846a",
+      "after_sha256": "044db4f01ac177c81d08a91eac55f90c4bc1048fc36b3008eb9ee79f8529236b"
+    },
+    {
+      "path": "source/llmpool/health.go",
+      "before_sha256": "06fe2797853a349d5c7766fd3388aa3851a3351bbbd156ee49a46debf79a4870",
+      "after_sha256": "58418720d4ca62e13538387d11c884a89324a1eb47418e8fcd392ffde6ce46cd"
+    },
+    {
+      "path": "source/llmpool/pool.go",
+      "before_sha256": "eb2d2487a13f776bc45747f3c31ed2c92787444fdfa32a021a582487a548e922",
+      "after_sha256": "9664e39cb116b95e35c63218cb7222a5a3595dbb00541c846b260a8c7111ad52"
+    },
+    {
+      "path": "source/llmrec/llmrec.go",
+      "before_sha256": "fdaa9bcc8f56d7cc70e8f4a20b10b0da18b5ac5b6bea2fd8ebeacf1ff5158b4b",
+      "after_sha256": "79cf689ce010775ac255d20565710e99a4d14a55d766e0b2a99629d49c869b46"
+    },
+    {
+      "path": "source/mcphttp/client.go",
+      "before_sha256": "f24df405715cf29c333671215f05837334be04a226e5aba5d86522ca17947ebf",
+      "after_sha256": "0cced9bd66dc358484c67006c79a183eda4e1663fe6d9730b5d1108e04b62690"
+    },
+    {
+      "path": "source/notify/channel.go",
+      "before_sha256": "8531da63d34352cb5587deb937969e3cbc6f839341bd52f88f3d1b541a205061",
+      "after_sha256": "a4e96097c3126e4c59d11eae77f118d9792012f0e2c86d14843b5a58dd34be15"
+    },
+    {
+      "path": "source/notify/channels_test.go",
+      "before_sha256": "def1a6a5a4312582c3eaaf2f9c4a4a89873b0483acb99f7ea1b37b0b66720e8b",
+      "after_sha256": "a7479bbbb35884b6eebe6de96c2cfa133d97c482532e30fbda91dc03edb4138e"
+    },
+    {
+      "path": "source/notify/dingtalk.go",
+      "before_sha256": "08ee6f2952b36f95c79ece6b6a829752aa09b87efe2a55bf7f7c149e9688ed3a",
+      "after_sha256": "b2cae857ab7a37876e2103c825e602ba952cf21d03dac67def92c8eba9fe49a9"
+    },
+    {
+      "path": "source/notify/email.go",
+      "before_sha256": "d574745b7c7284181d3bf75def6539fd224d71422382a46ff025cea4054e1d5b",
+      "after_sha256": "35c6b1801d02d8ab647e12675a8afb05e3525ea61f8ad69c621832ac71463f81"
+    },
+    {
+      "path": "source/notify/event.go",
+      "before_sha256": "18978157e56472c4f366b4605a2460dbafcf8b83f8ee2031e11a855ebbd6ffa2",
+      "after_sha256": "c56b641a7cf98cb050d8b0d52da6b38eb0ca64fde4620881d4a4eebd0105be3c"
+    },
+    {
+      "path": "source/notify/feishu.go",
+      "before_sha256": "a53a3feb2c295e03260b0fdbc5127358c3362ec88b8cc03266e2189fa023b098",
+      "after_sha256": "6c12ee2efc4bf08c1b9f16fa7f0a8fcc96cc25523a8aaa8209cf7a4e7c68d182"
+    },
+    {
+      "path": "source/notify/filter.go",
+      "before_sha256": "8c4d8558b585faad90350b03586142c97876e4f3d6f84739634fc505046f356e",
+      "after_sha256": "74ea97dcde26c5da0ccc1ec37d8422515f8d9ee9328d9567a571817a692ab8a5"
+    },
+    {
+      "path": "source/notify/html.go",
+      "before_sha256": "508ad2016fecfab8ec7c60dca680d68a54bea8c25d20537a1792bb36bd4b20e0",
+      "after_sha256": "e1fde27114d65e164f685ed3784e97ac7594cda01db84c21bd30ca8da6658a2f"
+    },
+    {
+      "path": "source/notify/http.go",
+      "before_sha256": "313439fe2132c3c61802f8bcd5e6730a387b19fd367ce5e84583e15b786401b0",
+      "after_sha256": "38f91633240cb46f684e62451e1758fe845c70ffb06cb32cbdce82a40f11a5db"
+    },
+    {
+      "path": "source/notify/markdown.go",
+      "before_sha256": "88984b3cb8b5f64b4686cfe03d26e46b9a982d93cc725ce360e01f277286e1bf",
+      "after_sha256": "fd0ec65e6e4a7d4fe22ae22d2ab71beeea7f01706cf50cffddcee35cb0bd53ef"
+    },
+    {
+      "path": "source/notify/mask.go",
+      "before_sha256": "79f699632eb19977f834298d09719b90cb73c40ea7a362a83fadc895a3410cba",
+      "after_sha256": "1a19c7841c0322f2d01a9903113cbd2ff2c08a371015581026276a76027f5a17"
+    },
+    {
+      "path": "source/notify/notify.go",
+      "before_sha256": "d0990e3c574b5d0679c4e907546a6fad0679a60df5800ab2aef3c28d343549b7",
+      "after_sha256": "695e97cb93b5356772a27f488496e6c26fbf41b6ec446f1bdb33f683bdae6568"
+    },
+    {
+      "path": "source/notify/pack_test.go",
+      "before_sha256": "a67c2378c3f5cdd4d7e89952b3443106f53847da58fd3c7af3465b8438e9ad66",
+      "after_sha256": "512ff03184e34454aab9a14ff2033c1c4bc3cb0e0081ce6b78e840cd4f2dcc14"
+    },
+    {
+      "path": "source/notify/render.go",
+      "before_sha256": "d76a407eb8ec59fe197a14bf259afb6e83f10c5d2c443e72ce5d4534d48c7631",
+      "after_sha256": "30dea1a583fe4a05c6e37e1f2f1ea6fe5dac64ef9dc7d52ff5f2f12c1028b514"
+    },
+    {
+      "path": "source/notify/render_test.go",
+      "before_sha256": "9e4654520854bdb58377d2195a167929590d5fd3ffe768a39097b9dafe3b64e9",
+      "after_sha256": "6e8cf88d076c2ea35de0726e3c775045a6c6457812063386a8dc0b9dda5dbbd3"
+    },
+    {
+      "path": "source/notify/telegram.go",
+      "before_sha256": "3729020bfffe04f4fc0f384a81a2ec2293bb525844a74ef93851d1e1cb01a38b",
+      "after_sha256": "5a0ff38c09824838d4c8ae0eb5c4e9bc87425e60dbecc90b0f09cf718fdf3e73"
+    },
+    {
+      "path": "source/notify/webhook.go",
+      "before_sha256": "4fe3ba0c6e064005ec96a0e0692864ffb73bcaac34a4c65af3c9c63cf3fe346d",
+      "after_sha256": "5c978956efdb9547b7a17e13dd6541f876ae82292f349325f18ee172bb5a83be"
+    },
+    {
+      "path": "source/notify/webhook_template_test.go",
+      "before_sha256": "bcb237c1c741110d5edac0c04638200fe2b88e105fb8d3fc6bbbfa928824c26c",
+      "after_sha256": "7c011603d0c2b7e57aad8b3a1fe41961ddbae0a25b5759cacef15df29683a3cd"
+    },
+    {
+      "path": "source/notify/wecom.go",
+      "before_sha256": "49d0cd3e70d033599094982d1911c5051613cf50a728983e6298d4c7c0ae2aa1",
+      "after_sha256": "ce54e585346ae716fba4c54cb9f48123f16e37b4e04e4cc45549470e4910f677"
+    },
+    {
+      "path": "source/report/findings.go",
+      "before_sha256": "a39a0ecb33a33d2dd5562938411943b567d770f610223f0f34147574d68e4b52",
+      "after_sha256": "78298650c50b80a4198a91296af001ae152bb844d256be31d1df5b6b7c55dfeb"
+    },
+    {
+      "path": "source/report/report.go",
+      "before_sha256": "8dfcd845fbdfccd656a32572085a1ecbac4b9ba3d340ae048396699a055952b9",
+      "after_sha256": "2680d8d17ff1efe55a074f026944cb1bdf76d3f86db0047b2fa18eace87bdcc1"
+    },
+    {
+      "path": "source/selfupdate/bootstrap.go",
+      "before_sha256": "9f7a697fdb341ed8751e591ea67cddca7cdeb55a688eb53d5e1cc02b54bcad51",
+      "after_sha256": "6748f20664bb5ba7ce261671d66cba812bff8e4286a4881baa6e94409ea0e676"
+    },
+    {
+      "path": "source/selfupdate/github.go",
+      "before_sha256": "0ad3a5b259387d5a9d55317a36e6aaa2eec96d74f9e30d27020b3560e1afade5",
+      "after_sha256": "ca5a3016eebd2a0ac69d8fd609cf93d5d2e80d8aff392023fb27ed25e2006f60"
+    },
+    {
+      "path": "source/selfupdate/selfupdate.go",
+      "before_sha256": "0b2881d65c0acb6e93cfb010a1dd71f8e968695026d5388bf434f6c9d40dfdfa",
+      "after_sha256": "7b1c5e26d65b039681770a59d8c62883305b1c156f37e3b58aab5042c614956f"
+    },
+    {
+      "path": "source/selfupdate/stage.go",
+      "before_sha256": "a9bd7d4c7744de3f95f8b68d6dac286727198187fc418c1a02f96bdcd5c28c03",
+      "after_sha256": "e36ca1e8c21a3eb2d87710ca8fd1ba6a179f945790424888a2978cf096f1ce16"
+    },
+    {
+      "path": "source/sidequestion/context.go",
+      "before_sha256": "ce1ca2998a26f663c3e458a7bd392c45e626ad7675f0a4225c8fbc45c11c3be0",
+      "after_sha256": "f88502748895965295fa35aa75b98aeccaf61a5c8b8ce2f796d2e52642c490a4"
+    },
+    {
+      "path": "source/sidequestion/context_test.go",
+      "before_sha256": "a58a2fdcc687158d95113f9a7732a6eced3ca41a664833521576de62746cec46",
+      "after_sha256": "3cc74abd9f03f121a3a828f0f3e60253fcba847dedaa5df9091fbc8468e825fa"
+    },
+    {
+      "path": "source/sidequestion/request.go",
+      "before_sha256": "d82c4a743ec79b7a0ce1ce31cfb89fe409fffacc96ec61bf4a92105defe4df06",
+      "after_sha256": "326c315fe34423f9e5c3b1912f780059a611bc88693d79e7c67a2d3d38c50b93"
+    },
+    {
+      "path": "source/sidequestion/service.go",
+      "before_sha256": "e94dc93d6ff71511fcc5ef35229b5e0f54a8ba9463f5c6561ee97d8b3d802e2f",
+      "after_sha256": "e4c8d4feb7fadf25834aa82ad94ebc735dc89637e5dc7e86d0440a4ba4623ce8"
+    },
+    {
+      "path": "source/sidequestion/sidequestion_test.go",
+      "before_sha256": "a988888b698575a58592ac2d3ebf83283c725330378fe598141e70ff19b957cd",
+      "after_sha256": "2d769e2db53089c93ec016df249c5ce81d04e50c8dc0060a78492e4d403b3025"
+    },
+    {
+      "path": "source/traffic/evidence.go",
+      "before_sha256": "f1a789a6a7cdab690a2dd2a7fc95903a08812fbdb693fe5cafa8eb804e399300",
+      "after_sha256": "c0cb69f82d680a4d16c01eff04b132681c3a6f525c62a359bcd9ab6a5fa87efa"
+    },
+    {
+      "path": "source/traffic/traffic.go",
+      "before_sha256": "44f4edec8b8106ccde90a0b898c93769c834e4f68d34581fb31fb8d262aa734d",
+      "after_sha256": "2ded517a82c3a3f85dd682b1e4e5184b81f178754ff39a77b4e4f626236ee735"
+    },
+    {
+      "path": "source/cmd/artex/main.go",
+      "before_sha256": "1262d7c0bc13c429bddb25a101fcaf54d24c6c7ecf55243d83e2ded3c684a301",
+      "after_sha256": "57ee7281d9bcea75d4583222a96dd344641e41046961037a459feddd2ce4650c"
+    },
+    {
+      "path": "source/traffic/english_test.go",
+      "before_sha256": null,
+      "after_sha256": "9d2b434a437f086b604b55aec52a28ec5ab32e4f6fb4d36417c5ff78c9e46b25"
+    },
+    {
+      "path": "source/sidequestion/english_test.go",
+      "before_sha256": null,
+      "after_sha256": "bde536f3e7653abdf57b9eabb7aaf8533ec7ebb79a9bb5567d1bc11dc2f2bffb"
+    },
+    {
+      "path": "source/notify/english_test.go",
+      "before_sha256": null,
+      "after_sha256": "45236eeebdf38259cbef5b957003859e8204d6731f2af46be669712bcce9d409"
+    },
+    {
+      "path": "source/report/english_test.go",
+      "before_sha256": null,
+      "after_sha256": "ec6a90170e45116b9726d1d5dc07c7e4fa4e524a7124f5706a43f471988096ef"
+    },
+    {
+      "path": "source/selfupdate/english_test.go",
+      "before_sha256": null,
+      "after_sha256": "ec2bca0c06d8ea0cb1a42c771b2dca7a3dfa5b308c63f07c039c7c91340832cf"
+    }
+  ],
+  "production_nonenglish_literal_scan": [],
+  "nonliteral_noncomment_token_and_format_verb_issues": [],
+  "remaining_classification_counts": {
+    "intentional_existing_document_path_reference": 1,
+    "remaining_test_comment": 352,
+    "intentional_target_evidence_or_unicode_test_fixture": 40,
+    "remaining_test_diagnostic": 383,
+    "remaining_test_literal_review": 85,
+    "remaining_production_comment": 595
+  },
+  "exact_remaining_inventory": "remaining-classified.json",
+  "exact_next_scope": "next-scope.json",
+  "final_test_results": {
+    "libraries-verified": {
+      "command": [
+        "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+        "test",
+        "-p=1",
+        "-json",
+        "-count=1",
+        "./config",
+        "./llmpool",
+        "./llmrec",
+        "./evidence",
+        "./report",
+        "./selfupdate",
+        "./sidequestion",
+        "./traffic"
+      ],
+      "env": {
+        "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+        "GOMODCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/gomodcache",
+        "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+        "GOPROXY": "off",
+        "GOSUMDB": "off",
+        "GOTOOLCHAIN": "local",
+        "GOFLAGS": "-mod=readonly",
+        "GOMAXPROCS": "2"
+      },
+      "returncode": 0,
+      "seconds": 8.800719738006592,
+      "top_level": {
+        "pass": 104,
+        "fail": 0,
+        "skip": 5
+      },
+      "subtests": {
+        "pass": 23,
+        "fail": 0,
+        "skip": 0
+      },
+      "package_failures": [],
+      "skipped": [
+        "github.com/Autumn-27/artex/llmrec/TestSideUsageRecordedOnceOnConsumerCancellation",
+        "github.com/Autumn-27/artex/evidence/TestEvidenceBindingLifecycle",
+        "github.com/Autumn-27/artex/evidence/TestEvidenceAtomicFailuresAndLegacy",
+        "github.com/Autumn-27/artex/evidence/TestEvidenceConcurrentBindAndDelete",
+        "github.com/Autumn-27/artex/evidence/TestEvidenceGCGraceAndActiveRestore"
+      ]
+    },
+    "notify-verified": {
+      "command": [
+        "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+        "test",
+        "-p=1",
+        "-json",
+        "-count=1",
+        "./notify",
+        "-run",
+        "^Test(English|Masked|MaskConfig|MergeConfig|PrepareConfig|DestinationKeys|SecretKeys|Markdown|TelegramPacking|FeishuPacking|TelegramTitle|TemplateContext|TemplateFuncs|TemplateCannotReach|TemplateRender|TemplateCanOnly|DingTalkSign|FeishuSign|SignAlgorithms|DingTalkNoSecret|ValidateHTTPURL|Truncate|OneLine|AssetLine|SeverityAndStatus|ParseFilter|Match|ChannelValidate|EmailMessageIsWellFormed|EmailEscapesStructuralInjection|EmailSMTPErrorClassification|Registry|PermanentError)"
+      ],
+      "env": {
+        "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+        "GOMODCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/gomodcache",
+        "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+        "GOPROXY": "off",
+        "GOSUMDB": "off",
+        "GOTOOLCHAIN": "local",
+        "GOFLAGS": "-mod=readonly",
+        "GOMAXPROCS": "2"
+      },
+      "returncode": 0,
+      "seconds": 2.09293794631958,
+      "top_level": {
+        "pass": 59,
+        "fail": 0,
+        "skip": 0
+      },
+      "subtests": {
+        "pass": 38,
+        "fail": 0,
+        "skip": 0
+      },
+      "package_failures": [],
+      "skipped": []
+    },
+    "compile-leaf": {
+      "command": [
+        "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+        "test",
+        "-p=1",
+        "-json",
+        "-count=1",
+        "./enrich",
+        "./mcphttp",
+        "-run",
+        "^$"
+      ],
+      "env": {
+        "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+        "GOMODCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/gomodcache",
+        "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+        "GOPROXY": "off",
+        "GOSUMDB": "off",
+        "GOTOOLCHAIN": "local",
+        "GOFLAGS": "-mod=readonly",
+        "GOMAXPROCS": "2"
+      },
+      "returncode": 0,
+      "seconds": 8.042951583862305,
+      "top_level": {
+        "pass": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "subtests": {
+        "pass": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "package_failures": [],
+      "skipped": []
+    }
+  },
+  "aggregate_final_terminal_events": {
+    "top_level": {
+      "pass": 163,
+      "fail": 0,
+      "skip": 5
+    },
+    "subtests": {
+      "pass": 61,
+      "fail": 0,
+      "skip": 0
+    }
+  },
+  "required_english_tests_verified": [
+    "TestEnglishFindingExportsRetainUnicodeData",
+    "TestEnglishNotificationLabels",
+    "TestEnglishNotificationRenderersPreserveUnicodeEvidence",
+    "TestEnglishReportPreservesEvidence",
+    "TestEnglishSideQuestionSafetyInstructions",
+    "TestEnglishTrafficSearchContract",
+    "TestEnglishUpdateDisabled"
+  ],
+  "limitations": [
+    "Four evidence DB tests and one llmrec DB test skipped, not passed; no PostgreSQL startup.",
+    "mcphttp/enrich compiled only; SSE listener integration not executed.",
+    "Notification live HTTP/SMTP delivery tests intentionally not executed: no listeners or external requests.",
+    "cmd/artex banner/log text changed but CLI binary not built or executed; no whole-application build.",
+    "Initial runtime-red included selfupdate/traffic test setup compile errors; corrected RED preserved separately.",
+    "Initial broad library suite failed on untranslated expectation substrings; expectations updated without changing fixtures.",
+    "A new filename regression initially expected literal # but existing sanitizer strips it; assertion corrected to existing __12.md behavior, implementation unchanged.",
+    "Tool auto-lint uses host Go/outside-module context and reports missing symbols/modules; authoritative cached offline Go test receipts are separate.",
+    "No claim of universal non-English removal: production comments, test comments/diagnostics and conservative test-literal review remain."
+  ],
+  "pin_review_required": [
+    "All new source SHA256 values are in changed-paths.json; per-file unified diffs are in diffs/.",
+    "traffic/traffic.go TrafficSearchDescription and tool property/help descriptions changed; regenerate/review native catalog source pins and candidate source manifest before integration build/admission.",
+    "Do not reuse any old binary validation claim; this lane only ran focused cached offline package tests."
+  ],
+  "lessons_handoff": [
+    "Translate exact literal units before generic nouns to avoid partially translated sentences; scan lexical literals afterward.",
+    "Use Go-aware lexical separation so comment translation cannot edit URLs or raw templates; verify nonliteral token identity and format verbs.",
+    "Keep multilingual target evidence and Unicode fixtures verbatim; assert generated renderer labels independently.",
+    "Record full Go JSONL and split top/subtest PASS/FAIL/SKIP; package success can conceal database skips.",
+    "Preserve security explanations and budgets in prompts; translate tool-disabled instructions without changing execution or request controls."
+  ]
+}

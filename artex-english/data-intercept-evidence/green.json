@@ -1,0 +1,96 @@
+{
+  "command": [
+    "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+    "test",
+    "-p",
+    "2",
+    "-json",
+    "./db",
+    "./intercept",
+    "-run",
+    "Test(English|InterceptSourceEnglishLegacy|ApprovalSQLRecognizesEnglishLegacy)",
+    "-count=1",
+    "-timeout=60s"
+  ],
+  "offline": true,
+  "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/data-intercept-evidence/gocache",
+  "cache_note": "Task cache directory with symlinks to retained cache buckets; no large copies.",
+  "returncode": 0,
+  "top_level": {
+    "pass": 5,
+    "fail": 0,
+    "skip": 0
+  },
+  "subtests": {
+    "pass": 11,
+    "fail": 0,
+    "skip": 0
+  },
+  "package_failures": [],
+  "tests": [
+    {
+      "name": "TestInterceptSourceEnglishLegacy/english",
+      "action": "pass"
+    },
+    {
+      "name": "TestInterceptSourceEnglishLegacy/legacy",
+      "action": "pass"
+    },
+    {
+      "name": "TestInterceptSourceEnglishLegacy/rule_precedes_english",
+      "action": "pass"
+    },
+    {
+      "name": "TestInterceptSourceEnglishLegacy/rule_precedes_legacy",
+      "action": "pass"
+    },
+    {
+      "name": "TestInterceptSourceEnglishLegacy/unknown",
+      "action": "pass"
+    },
+    {
+      "name": "TestInterceptSourceEnglishLegacy/embedded_not_prefix",
+      "action": "pass"
+    },
+    {
+      "name": "TestInterceptSourceEnglishLegacy",
+      "action": "pass"
+    },
+    {
+      "name": "TestApprovalSQLRecognizesEnglishLegacy",
+      "action": "pass"
+    },
+    {
+      "name": "TestEnglishJudgeGeneratedReason/allow",
+      "action": "pass"
+    },
+    {
+      "name": "TestEnglishJudgeGeneratedReason/ask",
+      "action": "pass"
+    },
+    {
+      "name": "TestEnglishJudgeGeneratedReason/deny",
+      "action": "pass"
+    },
+    {
+      "name": "TestEnglishJudgeGeneratedReason",
+      "action": "pass"
+    },
+    {
+      "name": "TestEnglishHandleAskSummaryAndCancellation",
+      "action": "pass"
+    },
+    {
+      "name": "TestEnglishVerdictCompatibility/Actual_operation:_Read_file;_Consequence_on_success:_Return_content;_Matched_rule:_A5",
+      "action": "pass"
+    },
+    {
+      "name": "TestEnglishVerdictCompatibility/\u5b9e\u9645\u64cd\u4f5c\uff1a\u8bfb\u53d6\u6587\u4ef6\uff1b\u6210\u529f\u540e\u7684\u540e\u679c\uff1a\u8fd4\u56de\u5185\u5bb9\uff1b\u547d\u4e2d\u89c4\u5219\uff1aA5",
+      "action": "pass"
+    },
+    {
+      "name": "TestEnglishVerdictCompatibility",
+      "action": "pass"
+    }
+  ]
+}

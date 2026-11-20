@@ -1,0 +1,259 @@
+{
+  "status": "All owned explanatory CJK comments translated; functional identifiers, document references and all literals preserved. Not compiled.",
+  "owned_folders": [
+    "config",
+    "enrich",
+    "evidence",
+    "llmpool",
+    "llmrec",
+    "mcphttp",
+    "notify",
+    "report",
+    "selfupdate",
+    "sidequestion",
+    "traffic",
+    "cmd"
+  ],
+  "files_verified": 77,
+  "changed_file_count": 31,
+  "translated_comment_tokens": 947,
+  "translated_production_comment_tokens": 595,
+  "translated_test_comment_tokens": 352,
+  "changed_paths": [
+    {
+      "path": "source/notify/channels_test.go",
+      "before_sha256": "a7479bbbb35884b6eebe6de96c2cfa133d97c482532e30fbda91dc03edb4138e",
+      "after_sha256": "fcdba1dd5020284b536c7290df71124d108561ddd89b3b374b4bc403f4e3b1f4",
+      "diff": "diffs/source__notify__channels_test.go.diff"
+    },
+    {
+      "path": "source/notify/dingtalk.go",
+      "before_sha256": "b2cae857ab7a37876e2103c825e602ba952cf21d03dac67def92c8eba9fe49a9",
+      "after_sha256": "964b2e99b6e9c2f671a00153084b772deaf3222eab2750c65596bab0c183b57d",
+      "diff": "diffs/source__notify__dingtalk.go.diff"
+    },
+    {
+      "path": "source/notify/email.go",
+      "before_sha256": "35c6b1801d02d8ab647e12675a8afb05e3525ea61f8ad69c621832ac71463f81",
+      "after_sha256": "a9c784382d7428bae48477431b3bedd45645b4ac19b7ad44b8096b7ec0b692b0",
+      "diff": "diffs/source__notify__email.go.diff"
+    },
+    {
+      "path": "source/notify/email_test.go",
+      "before_sha256": "eadcc8371fe377c1cfb1d75e95a76f7e50525be842d49dd11f85da3d1049210d",
+      "after_sha256": "aa24c52803733348daaa063a6a8a18a602390781564b917c9602ff446d6d3faa",
+      "diff": "diffs/source__notify__email_test.go.diff"
+    },
+    {
+      "path": "source/notify/feishu.go",
+      "before_sha256": "6c12ee2efc4bf08c1b9f16fa7f0a8fcc96cc25523a8aaa8209cf7a4e7c68d182",
+      "after_sha256": "40716a29305ddadccfa7dbbda164936876bdc13a98b813b2617ff5f1bea77473",
+      "diff": "diffs/source__notify__feishu.go.diff"
+    },
+    {
+      "path": "source/notify/filter.go",
+      "before_sha256": "74ea97dcde26c5da0ccc1ec37d8422515f8d9ee9328d9567a571817a692ab8a5",
+      "after_sha256": "855b4203d79018963f83e06d33f6d7b65d2ecfa62b43a1a41896d29453dd368f",
+      "diff": "diffs/source__notify__filter.go.diff"
+    },
+    {
+      "path": "source/notify/filter_test.go",
+      "before_sha256": "7a0efdf0f1261b7c3d27f3659321fd7c49c19ab07f54d0a677c1ead54b8cb92c",
+      "after_sha256": "f8d60934095e2521e17e383918ea66c8672186c79b3fc92c20650b57ea44acb8",
+      "diff": "diffs/source__notify__filter_test.go.diff"
+    },
+    {
+      "path": "source/notify/html.go",
+      "before_sha256": "e1fde27114d65e164f685ed3784e97ac7594cda01db84c21bd30ca8da6658a2f",
+      "after_sha256": "b93a645801790a97786c9454f5d34468f34642cf3f80aa8fb1669119fe5b68ba",
+      "diff": "diffs/source__notify__html.go.diff"
+    },
+    {
+      "path": "source/notify/http.go",
+      "before_sha256": "38f91633240cb46f684e62451e1758fe845c70ffb06cb32cbdce82a40f11a5db",
+      "after_sha256": "4cb8b38e559eb42f4a6f058a8fb2f5892ce4373b49ee8f7862212741dc3a5ab7",
+      "diff": "diffs/source__notify__http.go.diff"
+    },
+    {
+      "path": "source/notify/http_test.go",
+      "before_sha256": "172311b27802528653ee39d7d267a0ce0a54c1c3542b3eda71e9109d97143b56",
+      "after_sha256": "766a0a2b529565d9abdadcc31ef7140b80eb7abbb59e170e98df87b4effeb528",
+      "diff": "diffs/source__notify__http_test.go.diff"
+    },
+    {
+      "path": "source/notify/markdown.go",
+      "before_sha256": "fd0ec65e6e4a7d4fe22ae22d2ab71beeea7f01706cf50cffddcee35cb0bd53ef",
+      "after_sha256": "f1882ea03f95cae7fcdc7b1a0e9473877d6c31448f674c7da08fdccd47f17dac",
+      "diff": "diffs/source__notify__markdown.go.diff"
+    },
+    {
+      "path": "source/notify/mask.go",
+      "before_sha256": "1a19c7841c0322f2d01a9903113cbd2ff2c08a371015581026276a76027f5a17",
+      "after_sha256": "24d8ef45f2f768d50db50cdb9f620c13942dd4cae8bb07461cc41ab05d19bff6",
+      "diff": "diffs/source__notify__mask.go.diff"
+    },
+    {
+      "path": "source/notify/mask_test.go",
+      "before_sha256": "53ea9af888f7bc343a144c2870067190cb52d7f313ba295242326332be22dbd7",
+      "after_sha256": "647abfa97e612ff58be949d9e3187cb291abdfbb96ae987afa753d2dce007655",
+      "diff": "diffs/source__notify__mask_test.go.diff"
+    },
+    {
+      "path": "source/notify/pack_test.go",
+      "before_sha256": "512ff03184e34454aab9a14ff2033c1c4bc3cb0e0081ce6b78e840cd4f2dcc14",
+      "after_sha256": "042a1ccd85f87f9420e1f8517e1b57c13bf9b1d675cc464b7b2d82ecca31e92a",
+      "diff": "diffs/source__notify__pack_test.go.diff"
+    },
+    {
+      "path": "source/notify/redact_test.go",
+      "before_sha256": "58374171079ebe8dd2a69da3bfb2fbfdf8d37968ea5375abdf2bb36c122d9869",
+      "after_sha256": "b417f2aa080b8b3f0993281e0e66079f224ebd05fb2d4e2623f93093b9c58a1c",
+      "diff": "diffs/source__notify__redact_test.go.diff"
+    },
+    {
+      "path": "source/notify/render.go",
+      "before_sha256": "30dea1a583fe4a05c6e37e1f2f1ea6fe5dac64ef9dc7d52ff5f2f12c1028b514",
+      "after_sha256": "0bbc77fef0403e8ae92394513142df178016b103c68cddd02e6e7d0b06dadc1b",
+      "diff": "diffs/source__notify__render.go.diff"
+    },
+    {
+      "path": "source/notify/render_test.go",
+      "before_sha256": "6e8cf88d076c2ea35de0726e3c775045a6c6457812063386a8dc0b9dda5dbbd3",
+      "after_sha256": "cf48d25eb8726bd5aa4491381a80fa43473c8fd89a46b2f777c9e9fa7a9954b7",
+      "diff": "diffs/source__notify__render_test.go.diff"
+    },
+    {
+      "path": "source/notify/sign_test.go",
+      "before_sha256": "4cf0963abc4f4c2d569f8321234e5772ecead6f525d38e5d0446bdb72b6ebcfa",
+      "after_sha256": "bf9ab3ef76f99285713ab32acbb472c6dec0020d83ff0b6fe31c3c7527cf8ddf",
+      "diff": "diffs/source__notify__sign_test.go.diff"
+    },
+    {
+      "path": "source/notify/ssrf_test.go",
+      "before_sha256": "19e3b46308dcfb8e2bde2614119831ef5574b6e01fffe8ebe8d02e423434b290",
+      "after_sha256": "e7b6643bfff8aea1dc1140acc621c03dc3db9c7e4ceaffd0fb7d7b6d782c59da",
+      "diff": "diffs/source__notify__ssrf_test.go.diff"
+    },
+    {
+      "path": "source/notify/telegram.go",
+      "before_sha256": "5a0ff38c09824838d4c8ae0eb5c4e9bc87425e60dbecc90b0f09cf718fdf3e73",
+      "after_sha256": "ff19d298ec9454b709186564b73458acf39880fff88e0d6dfcb77ce87ac18b0e",
+      "diff": "diffs/source__notify__telegram.go.diff"
+    },
+    {
+      "path": "source/notify/webhook.go",
+      "before_sha256": "5c978956efdb9547b7a17e13dd6541f876ae82292f349325f18ee172bb5a83be",
+      "after_sha256": "6f9de66ead952625165da96d16f07fe2aa76f5f16f4dd002147819900316c488",
+      "diff": "diffs/source__notify__webhook.go.diff"
+    },
+    {
+      "path": "source/notify/webhook_template_test.go",
+      "before_sha256": "7c011603d0c2b7e57aad8b3a1fe41961ddbae0a25b5759cacef15df29683a3cd",
+      "after_sha256": "15d626785f8dfb1b6b275b24ee78ce5e01233b9d2f617ee505241472f3402fb9",
+      "diff": "diffs/source__notify__webhook_template_test.go.diff"
+    },
+    {
+      "path": "source/notify/wecom.go",
+      "before_sha256": "ce54e585346ae716fba4c54cb9f48123f16e37b4e04e4cc45549470e4910f677",
+      "after_sha256": "675c73721baa83b06785b81bce18053e2e60bb18cebee0674546d9bbd7366973",
+      "diff": "diffs/source__notify__wecom.go.diff"
+    },
+    {
+      "path": "source/selfupdate/bootstrap.go",
+      "before_sha256": "6748f20664bb5ba7ce261671d66cba812bff8e4286a4881baa6e94409ea0e676",
+      "after_sha256": "2e79cca24bdc715a53cad6331f82aaeb451ed908aafd9ecdadd635485acdc004",
+      "diff": "diffs/source__selfupdate__bootstrap.go.diff"
+    },
+    {
+      "path": "source/selfupdate/github.go",
+      "before_sha256": "ca5a3016eebd2a0ac69d8fd609cf93d5d2e80d8aff392023fb27ed25e2006f60",
+      "after_sha256": "a4bd754f2ba56ce45d8f723c83c6b103841b4d648676eb4ae6cde004837d1d9b",
+      "diff": "diffs/source__selfupdate__github.go.diff"
+    },
+    {
+      "path": "source/selfupdate/selfupdate.go",
+      "before_sha256": "7b1c5e26d65b039681770a59d8c62883305b1c156f37e3b58aab5042c614956f",
+      "after_sha256": "8c2fe66ce0abdd65216d0f7dda7ff24af3ecfb34b4be099a5e232183ba9f3a07",
+      "diff": "diffs/source__selfupdate__selfupdate.go.diff"
+    },
+    {
+      "path": "source/selfupdate/selfupdate_test.go",
+      "before_sha256": "6d0282c603844da1858e2bef0e37b63c8158c7341a439b2d40016c235b0ba14f",
+      "after_sha256": "9339497ec03613006de3375efdf45b09211f3780168782852e31bef261b4cfaa",
+      "diff": "diffs/source__selfupdate__selfupdate_test.go.diff"
+    },
+    {
+      "path": "source/selfupdate/stage.go",
+      "before_sha256": "e36ca1e8c21a3eb2d87710ca8fd1ba6a179f945790424888a2978cf096f1ce16",
+      "after_sha256": "2d3fbd14b488aa4788360339154440b408126c5fc7114973452469d655f95775",
+      "diff": "diffs/source__selfupdate__stage.go.diff"
+    },
+    {
+      "path": "source/traffic/reclaim_test.go",
+      "before_sha256": "b643534b7a2a6b89217306939bf276ec2db65988836ea886775c2326203ff18f",
+      "after_sha256": "a8dbffb02bdb99ad6a1d5ade48f7ecfb40aa10c0baecdc9cc4478e8c30c05e1e",
+      "diff": "diffs/source__traffic__reclaim_test.go.diff"
+    },
+    {
+      "path": "source/traffic/traffic.go",
+      "before_sha256": "2ded517a82c3a3f85dd682b1e4e5184b81f178754ff39a77b4e4f626236ee735",
+      "after_sha256": "8d55cfddc7ddbcf0e82efb4c5e13ea37bc020109d7b971219ecce3d235be36ea",
+      "diff": "diffs/source__traffic__traffic.go.diff"
+    },
+    {
+      "path": "source/traffic/upgrade_test.go",
+      "before_sha256": "d37b167bb4c0e1f3afb90a1a18dfddc5c7a37493406f80762713228c79f96ba6",
+      "after_sha256": "de9f0d204dfb39763ab2007eec2b3c585ddc655f7dbf5d2523f07472706610f1",
+      "diff": "diffs/source__traffic__upgrade_test.go.diff"
+    }
+  ],
+  "guard_tests": {
+    "original_fixture_pass": true,
+    "comment_only_pass": true,
+    "deliberate_literal_code_change_rejected": true,
+    "checks": [
+      "Tokens",
+      "Literals",
+      "AST"
+    ]
+  },
+  "verification": {
+    "scanner": "go/scanner exact ordered token kinds and spellings, excluding only COMMENT; includes automatically inserted semicolons",
+    "literal_parity": "All STRING and CHAR tokens exactly equal, including English text and Unicode fixtures",
+    "parser": "go/parser without comments, canonical go/format AST output SHA256 exact equality",
+    "format": "All owned Go files parse and match gofmt output",
+    "protected_comments": "Directive/build-tag/copyright/license comments byte-equal",
+    "protected_urls": "Every URL token in original comments retained exactly",
+    "result": "PASS",
+    "application_builds_or_tests_run": false,
+    "application_compiled": false
+  },
+  "counts": {
+    "intentional_existing_document_path_reference": 1,
+    "intentional_target_evidence_or_unicode_test_fixture": 45,
+    "remaining_test_diagnostic": 383,
+    "remaining_test_literal_review": 85,
+    "intentional_english_language_rejection_assertion": 1,
+    "intentional_machine_identifier_or_archive_notation": 5
+  },
+  "remaining_human_explanatory_comment_lines": 0,
+  "production_cjk_literal_lines": 0,
+  "exact_remaining_inventory": "remaining-classified.json",
+  "exact_next_scope": "next-scope.json",
+  "hashmaps": "hashmaps.json",
+  "baseline_snapshot": "originals.json",
+  "baseline_scanner_output": "baseline.json",
+  "final_scanner_output": "after.json",
+  "limitations": [
+    "No full application build or package tests; syntax/format/structural equivalence only.",
+    "Prior library runtime translations were preserved exactly, not redone or revalidated behaviorally.",
+    "Test diagnostics, assertions and purposeful Unicode fixtures remain verbatim for separate review.",
+    "No whole-candidate pin, deployment, or repository-wide English-completion claim.",
+    "Working directory has no .git metadata; diffs use lane-local pretranslation snapshots."
+  ],
+  "lessons_handoff": [
+    "Snapshot after prior runtime translation, then prove exact scanner token, literal and parser identities independently of comment spelling.",
+    "Retain non-English documentation paths and machine-identifier notation; distinguish these from untranslated explanatory prose.",
+    "Use conservative prior literal classifications and preserve test strings; comment-only completion does not imply full English or behavioral test coverage."
+  ]
+}

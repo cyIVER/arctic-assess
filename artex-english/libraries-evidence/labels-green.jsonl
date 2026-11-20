@@ -1,0 +1,8 @@
+{"Time":"2026-11-20T00:14:34.677056668Z","Action":"start","Package":"github.com/Autumn-27/artex/notify"}
+{"Time":"2026-11-20T00:14:34.682479019Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestEnglishNotificationLabels"}
+{"Time":"2026-11-20T00:14:34.682500719Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestEnglishNotificationLabels","Output":"=== RUN   TestEnglishNotificationLabels\n"}
+{"Time":"2026-11-20T00:14:34.68256313Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestEnglishNotificationLabels","Output":"--- PASS: TestEnglishNotificationLabels (0.00s)\n"}
+{"Time":"2026-11-20T00:14:34.682566959Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestEnglishNotificationLabels","Elapsed":0}
+{"Time":"2026-11-20T00:14:34.68257222Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Output":"PASS\n"}
+{"Time":"2026-11-20T00:14:34.683220134Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Output":"ok  \tgithub.com/Autumn-27/artex/notify\t0.006s\n"}
+{"Time":"2026-11-20T00:14:34.683289394Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Elapsed":0.006}

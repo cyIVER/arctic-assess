@@ -1,0 +1,56 @@
+{"Time":"2026-11-20T00:13:37.220468695Z","Action":"start","Package":"github.com/Autumn-27/artex/server"}
+{"Time":"2026-11-20T00:13:37.283682621Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishValidation"}
+{"Time":"2026-11-20T00:13:37.283786271Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishValidation","Output":"=== RUN   TestRuntimeEnglishValidation\n"}
+{"Time":"2026-11-20T00:13:37.283854391Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishValidation/exact_ip"}
+{"Time":"2026-11-20T00:13:37.283860911Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishValidation/exact_ip","Output":"=== RUN   TestRuntimeEnglishValidation/exact_ip\n"}
+{"Time":"2026-11-20T00:13:37.283877842Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishValidation/exact_ip","Output":"--- PASS: TestRuntimeEnglishValidation/exact_ip (0.00s)\n"}
+{"Time":"2026-11-20T00:13:37.283881451Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishValidation/exact_ip","Elapsed":0}
+{"Time":"2026-11-20T00:13:37.283886661Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishValidation/cidr"}
+{"Time":"2026-11-20T00:13:37.283889531Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishValidation/cidr","Output":"=== RUN   TestRuntimeEnglishValidation/cidr\n"}
+{"Time":"2026-11-20T00:13:37.283892922Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishValidation/cidr","Output":"--- PASS: TestRuntimeEnglishValidation/cidr (0.00s)\n"}
+{"Time":"2026-11-20T00:13:37.283896151Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishValidation/cidr","Elapsed":0}
+{"Time":"2026-11-20T00:13:37.283899282Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishValidation/unknown"}
+{"Time":"2026-11-20T00:13:37.283901991Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishValidation/unknown","Output":"=== RUN   TestRuntimeEnglishValidation/unknown\n"}
+{"Time":"2026-11-20T00:13:37.283905341Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishValidation/unknown","Output":"--- PASS: TestRuntimeEnglishValidation/unknown (0.00s)\n"}
+{"Time":"2026-11-20T00:13:37.283908252Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishValidation/unknown","Elapsed":0}
+{"Time":"2026-11-20T00:13:37.283911351Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishValidation","Output":"--- PASS: TestRuntimeEnglishValidation (0.00s)\n"}
+{"Time":"2026-11-20T00:13:37.283914221Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishValidation","Elapsed":0}
+{"Time":"2026-11-20T00:13:37.283917202Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions"}
+{"Time":"2026-11-20T00:13:37.283919831Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions","Output":"=== RUN   TestRuntimeEnglishToolDescriptions\n"}
+{"Time":"2026-11-20T00:13:37.283922711Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions/create_skill"}
+{"Time":"2026-11-20T00:13:37.283925482Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions/create_skill","Output":"=== RUN   TestRuntimeEnglishToolDescriptions/create_skill\n"}
+{"Time":"2026-11-20T00:13:37.283932822Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions/create_skill","Output":"--- PASS: TestRuntimeEnglishToolDescriptions/create_skill (0.00s)\n"}
+{"Time":"2026-11-20T00:13:37.283935991Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions/create_skill","Elapsed":0}
+{"Time":"2026-11-20T00:13:37.283938982Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions/update_skill_file"}
+{"Time":"2026-11-20T00:13:37.283943622Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions/update_skill_file","Output":"=== RUN   TestRuntimeEnglishToolDescriptions/update_skill_file\n"}
+{"Time":"2026-11-20T00:13:37.283947412Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions/update_skill_file","Output":"--- PASS: TestRuntimeEnglishToolDescriptions/update_skill_file (0.00s)\n"}
+{"Time":"2026-11-20T00:13:37.283950352Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions/update_skill_file","Elapsed":0}
+{"Time":"2026-11-20T00:13:37.283955232Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions/create_custom_tool"}
+{"Time":"2026-11-20T00:13:37.283959832Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions/create_custom_tool","Output":"=== RUN   TestRuntimeEnglishToolDescriptions/create_custom_tool\n"}
+{"Time":"2026-11-20T00:13:37.283963312Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions/create_custom_tool","Output":"--- PASS: TestRuntimeEnglishToolDescriptions/create_custom_tool (0.00s)\n"}
+{"Time":"2026-11-20T00:13:37.283973242Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions/create_custom_tool","Elapsed":0}
+{"Time":"2026-11-20T00:13:37.283977282Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions/update_custom_tool"}
+{"Time":"2026-11-20T00:13:37.283980002Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions/update_custom_tool","Output":"=== RUN   TestRuntimeEnglishToolDescriptions/update_custom_tool\n"}
+{"Time":"2026-11-20T00:13:37.283983912Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions/update_custom_tool","Output":"--- PASS: TestRuntimeEnglishToolDescriptions/update_custom_tool (0.00s)\n"}
+{"Time":"2026-11-20T00:13:37.283988022Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions/update_custom_tool","Elapsed":0}
+{"Time":"2026-11-20T00:13:37.284004432Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions/create_mcp"}
+{"Time":"2026-11-20T00:13:37.284009882Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions/create_mcp","Output":"=== RUN   TestRuntimeEnglishToolDescriptions/create_mcp\n"}
+{"Time":"2026-11-20T00:13:37.284015602Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions/create_mcp","Output":"--- PASS: TestRuntimeEnglishToolDescriptions/create_mcp (0.00s)\n"}
+{"Time":"2026-11-20T00:13:37.284020043Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions/create_mcp","Elapsed":0}
+{"Time":"2026-11-20T00:13:37.284024083Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions/update_mcp"}
+{"Time":"2026-11-20T00:13:37.284027563Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions/update_mcp","Output":"=== RUN   TestRuntimeEnglishToolDescriptions/update_mcp\n"}
+{"Time":"2026-11-20T00:13:37.284031772Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions/update_mcp","Output":"--- PASS: TestRuntimeEnglishToolDescriptions/update_mcp (0.00s)\n"}
+{"Time":"2026-11-20T00:13:37.284035952Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions/update_mcp","Elapsed":0}
+{"Time":"2026-11-20T00:13:37.284043013Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions/delete_assets_by_host"}
+{"Time":"2026-11-20T00:13:37.284046683Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions/delete_assets_by_host","Output":"=== RUN   TestRuntimeEnglishToolDescriptions/delete_assets_by_host\n"}
+{"Time":"2026-11-20T00:13:37.284050573Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions/delete_assets_by_host","Output":"--- PASS: TestRuntimeEnglishToolDescriptions/delete_assets_by_host (0.00s)\n"}
+{"Time":"2026-11-20T00:13:37.284057253Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions/delete_assets_by_host","Elapsed":0}
+{"Time":"2026-11-20T00:13:37.284062232Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions","Output":"--- PASS: TestRuntimeEnglishToolDescriptions (0.00s)\n"}
+{"Time":"2026-11-20T00:13:37.284066763Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishToolDescriptions","Elapsed":0}
+{"Time":"2026-11-20T00:13:37.284070173Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishTruncationPreservesUnicode"}
+{"Time":"2026-11-20T00:13:37.284072823Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishTruncationPreservesUnicode","Output":"=== RUN   TestRuntimeEnglishTruncationPreservesUnicode\n"}
+{"Time":"2026-11-20T00:13:37.284075843Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishTruncationPreservesUnicode","Output":"--- PASS: TestRuntimeEnglishTruncationPreservesUnicode (0.00s)\n"}
+{"Time":"2026-11-20T00:13:37.284078783Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishTruncationPreservesUnicode","Elapsed":0}
+{"Time":"2026-11-20T00:13:37.284088193Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Output":"PASS\n"}
+{"Time":"2026-11-20T00:13:37.288364568Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Output":"ok  \tgithub.com/Autumn-27/artex/server\t0.067s\n"}
+{"Time":"2026-11-20T00:13:37.288399557Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Elapsed":0.068}

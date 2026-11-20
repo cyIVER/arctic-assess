@@ -1,0 +1,38 @@
+{
+  "command": [
+    "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+    "test",
+    "-p=1",
+    "-json",
+    "-count=1",
+    "./notify",
+    "-run",
+    "^Test(English|Masked|MaskConfig|MergeConfig|PrepareConfig|DestinationKeys|SecretKeys|Markdown|TelegramPacking|FeishuPacking|TelegramTitle|TemplateContext|TemplateFuncs|TemplateCannotReach|TemplateRender|TemplateCanOnly|DingTalkSign|FeishuSign|SignAlgorithms|DingTalkNoSecret|ValidateHTTPURL|Truncate|OneLine|AssetLine|SeverityAndStatus|ParseFilter|Match|ChannelValidate|EmailMessageIsWellFormed|EmailEscapesStructuralInjection|EmailSMTPErrorClassification|Registry|PermanentError)"
+  ],
+  "env": {
+    "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+    "GOMODCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/gomodcache",
+    "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+    "GOPROXY": "off",
+    "GOSUMDB": "off",
+    "GOTOOLCHAIN": "local",
+    "GOFLAGS": "-mod=readonly",
+    "GOMAXPROCS": "2"
+  },
+  "returncode": 1,
+  "seconds": 2.32293701171875,
+  "top_level": {
+    "pass": 56,
+    "fail": 2,
+    "skip": 0
+  },
+  "subtests": {
+    "pass": 38,
+    "fail": 0,
+    "skip": 0
+  },
+  "package_failures": [
+    "github.com/Autumn-27/artex/notify"
+  ],
+  "skipped": []
+}

@@ -1,0 +1,88 @@
+{
+  "source/enrich/enrich.go": {
+    "intentional_existing_document_path_reference": 1
+  },
+  "source/notify/channels_test.go": {
+    "intentional_target_evidence_or_unicode_test_fixture": 8,
+    "remaining_test_diagnostic": 70,
+    "remaining_test_literal_review": 5
+  },
+  "source/notify/email_test.go": {
+    "remaining_test_diagnostic": 23,
+    "remaining_test_literal_review": 12
+  },
+  "source/notify/english_test.go": {
+    "intentional_target_evidence_or_unicode_test_fixture": 3,
+    "intentional_english_language_rejection_assertion": 1
+  },
+  "source/notify/filter_test.go": {
+    "remaining_test_literal_review": 17,
+    "remaining_test_diagnostic": 8,
+    "intentional_target_evidence_or_unicode_test_fixture": 8
+  },
+  "source/notify/http_test.go": {
+    "remaining_test_literal_review": 10,
+    "remaining_test_diagnostic": 11
+  },
+  "source/notify/mask.go": {
+    "intentional_machine_identifier_or_archive_notation": 1
+  },
+  "source/notify/mask_test.go": {
+    "remaining_test_diagnostic": 37,
+    "remaining_test_literal_review": 12
+  },
+  "source/notify/pack_test.go": {
+    "remaining_test_diagnostic": 21,
+    "intentional_target_evidence_or_unicode_test_fixture": 8,
+    "remaining_test_literal_review": 9
+  },
+  "source/notify/redact_test.go": {
+    "remaining_test_literal_review": 11,
+    "intentional_target_evidence_or_unicode_test_fixture": 1,
+    "remaining_test_diagnostic": 14
+  },
+  "source/notify/render_test.go": {
+    "remaining_test_literal_review": 7,
+    "intentional_target_evidence_or_unicode_test_fixture": 1,
+    "remaining_test_diagnostic": 23
+  },
+  "source/notify/sign_test.go": {
+    "remaining_test_diagnostic": 10
+  },
+  "source/notify/ssrf_test.go": {
+    "remaining_test_diagnostic": 16
+  },
+  "source/notify/webhook_template_test.go": {
+    "remaining_test_diagnostic": 9,
+    "remaining_test_literal_review": 2,
+    "intentional_target_evidence_or_unicode_test_fixture": 1
+  },
+  "source/report/english_test.go": {
+    "intentional_target_evidence_or_unicode_test_fixture": 2
+  },
+  "source/selfupdate/github.go": {
+    "intentional_machine_identifier_or_archive_notation": 1
+  },
+  "source/selfupdate/selfupdate_test.go": {
+    "intentional_machine_identifier_or_archive_notation": 2,
+    "remaining_test_diagnostic": 49
+  },
+  "source/selfupdate/stage.go": {
+    "intentional_machine_identifier_or_archive_notation": 1
+  },
+  "source/sidequestion/context_test.go": {
+    "intentional_target_evidence_or_unicode_test_fixture": 4
+  },
+  "source/traffic/reclaim_test.go": {
+    "remaining_test_diagnostic": 22,
+    "intentional_target_evidence_or_unicode_test_fixture": 2
+  },
+  "source/traffic/traffic_store_test.go": {
+    "remaining_test_diagnostic": 52,
+    "intentional_target_evidence_or_unicode_test_fixture": 5
+  },
+  "source/traffic/upgrade_test.go": {
+    "intentional_target_evidence_or_unicode_test_fixture": 2,
+    "remaining_test_diagnostic": 18
+  }
+}

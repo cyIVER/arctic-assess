@@ -1,0 +1,356 @@
+[
+  {
+    "path": "db/exploration.go",
+    "line": 79,
+    "old": " 仅意图假删除(state='deleted')时非空",
+    "new": " Nonempty only for soft-deleted intents (state='deleted')"
+  },
+  {
+    "path": "db/config.go",
+    "line": 19,
+    "old": " LLM 出站代理(http/https/socks5);空=用环境变量",
+    "new": " LLM outbound proxy (http/https/socks5); empty uses environment variables"
+  },
+  {
+    "path": "db/config.go",
+    "line": 448,
+    "old": " 绑定的 LLM 配置;nil=跟随任务/会话 pin,再回退全局激活",
+    "new": " Bound LLM profile; nil follows task/conversation pin, then global active profile"
+  },
+  {
+    "path": "db/config.go",
+    "line": 449,
+    "old": " 单次运行最大轮次;0=不限制",
+    "new": " Maximum turns per run; 0 means unlimited"
+  },
+  {
+    "path": "db/config.go",
+    "line": 450,
+    "old": " worker 单次运行墙钟上限(秒);0=不限制",
+    "new": " Worker per-run wall-clock limit in seconds; 0 means unlimited"
+  },
+  {
+    "path": "db/config.go",
+    "line": 451,
+    "old": " 是否启用网络搜索(受系统全局开关门控)",
+    "new": " Enable web search (gated by the global system switch)"
+  },
+  {
+    "path": "db/config.go",
+    "line": 452,
+    "old": " 是否启用交互式 shell(持久 PTY 会话工具族)",
+    "new": " Enable interactive shell (persistent PTY session tool family)"
+  },
+  {
+    "path": "db/config.go",
+    "line": 453,
+    "old": " 收尾提示词(超时/步数耗尽时的 settlement 提示);空=用代码内置默认",
+    "new": " Wrap-up prompt for timeout/turn exhaustion; empty uses the built-in default"
+  },
+  {
+    "path": "db/config.go",
+    "line": 454,
+    "old": " 收尾阶段自身的轮数预算;0=用代码内置默认(按 agent)",
+    "new": " Wrap-up turn budget; 0 uses the per-agent built-in default"
+  },
+  {
+    "path": "db/config.go",
+    "line": 471,
+    "old": " llm_profile_id 可空:未绑定时为 NULL",
+    "new": " llm_profile_id is nullable: NULL when unbound"
+  },
+  {
+    "path": "db/asset_intercept_match.go",
+    "line": 175,
+    "old": " 被拒原因（不含资产标识）；Allowed=true 时为空",
+    "new": " Denial reason (excluding asset identity); empty when Allowed=true"
+  },
+  {
+    "path": "db/asset_intercept_match.go",
+    "line": 200,
+    "old": " 可读原因",
+    "new": " Human-readable reason"
+  },
+  {
+    "path": "db/triggers.go",
+    "line": 24,
+    "old": " 各触发条件的独立用户消息",
+    "new": " Separate user message for each trigger condition"
+  },
+  {
+    "path": "db/triggers.go",
+    "line": 30,
+    "old": " 选中的工具 key 列表(DB 存 JSON 文本)",
+    "new": " Selected tool keys (stored as JSON text)"
+  },
+  {
+    "path": "db/triggers.go",
+    "line": 160,
+    "old": " tool-call only: 入参(JSON 文本)",
+    "new": " tool-call only: Input arguments (JSON text)"
+  },
+  {
+    "path": "db/triggers.go",
+    "line": 162,
+    "old": " tool-call only: 工具返回是否为错误",
+    "new": " tool-call only: Whether the tool result is an error"
+  },
+  {
+    "path": "db/db.go",
+    "line": 179,
+    "old": " 建行时的默认交互式 shell 开关；ON CONFLICT 不覆盖用户后续手动开关",
+    "new": " Default interactive-shell setting on insert; ON CONFLICT preserves later user toggles"
+  },
+  {
+    "path": "db/db.go",
+    "line": 180,
+    "old": " 建行时的单次 run 墙钟上限(秒)；nil=用种子默认(1200)，0=不限时",
+    "new": " Initial per-run wall-clock limit in seconds; nil uses seed default (1200), 0 means unlimited"
+  },
+  {
+    "path": "db/notification_delivery.go",
+    "line": 216,
+    "old": "nolint:errcheck // 提交成功后是 no-op",
+    "new": "nolint:errcheck // No-op after successful commit"
+  },
+  {
+    "path": "db/intercept.go",
+    "line": 40,
+    "old": " 规则 message 或模型判定理由(前缀 [模型])",
+    "new": " Rule message or model decision reason (current or legacy model prefix)"
+  },
+  {
+    "path": "db/task_scope.go",
+    "line": 280,
+    "old": " 资产覆盖度功能是否开启；false 时其余字段为零值",
+    "new": " Whether asset coverage is enabled; false leaves all other fields at zero values"
+  },
+  {
+    "path": "db/task_scope.go",
+    "line": 281,
+    "old": " 0 → 范围未锚定",
+    "new": " 0 means scope not anchored"
+  },
+  {
+    "path": "db/task_scope.go",
+    "line": 282,
+    "old": " 范围内资产数",
+    "new": " Number of in-scope assets"
+  },
+  {
+    "path": "db/task_scope.go",
+    "line": 283,
+    "old": " 已测(约)",
+    "new": " Tested (approximate)"
+  },
+  {
+    "path": "db/task_scope.go",
+    "line": 284,
+    "old": " 覆盖度；分母 0 时 null",
+    "new": " Coverage; null when denominator is zero"
+  },
+  {
+    "path": "db/task_scope.go",
+    "line": 285,
+    "old": " 按资产类型的 总数/已测",
+    "new": " Total/tested counts by asset type"
+  },
+  {
+    "path": "db/tools.go",
+    "line": 20,
+    "old": " 自定义工具执行规格(kind!=builtin)",
+    "new": " Custom tool execution specification (kind!=builtin)"
+  },
+  {
+    "path": "db/tools.go",
+    "line": 21,
+    "old": " schema 延迟(走 SearchExtraTools/ExecuteExtraTool)",
+    "new": " Deferred schema (via SearchExtraTools/ExecuteExtraTool)"
+  },
+  {
+    "path": "db/tasks.go",
+    "line": 15,
+    "old": " 可选任务名称;空=未命名",
+    "new": " Optional task name; empty means unnamed"
+  },
+  {
+    "path": "db/tasks.go",
+    "line": 38,
+    "old": " 父任务 id(编排 spawn 记录;空=顶层)",
+    "new": " Parent task ID (orchestration spawn record; empty for top-level tasks)"
+  },
+  {
+    "path": "db/tasks.go",
+    "line": 40,
+    "old": " 进入终态(done/failed/timeout)的时刻;非终态为 nil",
+    "new": " Time of entering a terminal state (done/failed/timeout); nil otherwise"
+  },
+  {
+    "path": "db/tasks.go",
+    "line": 42,
+    "old": " 0=不限时",
+    "new": " 0 means no time limit"
+  },
+  {
+    "path": "db/tasks.go",
+    "line": 43,
+    "old": " 首次真正开始运行的时刻(非 created_at);nil=尚未运行",
+    "new": " First actual run start time (not created_at); nil if not started"
+  },
+  {
+    "path": "db/tasks.go",
+    "line": 44,
+    "old": " = first_run_at + timeout_seconds;nil=不限或未运行",
+    "new": " = first_run_at + timeout_seconds; nil if unlimited or not started"
+  },
+  {
+    "path": "db/tasks.go",
+    "line": 147,
+    "old": " 可选任务名称;空=未命名",
+    "new": " Optional task name; empty means unnamed"
+  },
+  {
+    "path": "db/notification.go",
+    "line": 283,
+    "old": "nolint:errcheck // 提交成功后是 no-op",
+    "new": "nolint:errcheck // No-op after successful commit"
+  },
+  {
+    "path": "db/notification.go",
+    "line": 531,
+    "old": " 最老的待发投递距今毫秒数",
+    "new": " Age of the oldest pending delivery in milliseconds"
+  },
+  {
+    "path": "db/findings.go",
+    "line": 27,
+    "old": " 漏洞名称(可读标题);为空时前端回退展示 VulnClass",
+    "new": " Finding name (display title); empty falls back to VulnClass in the frontend"
+  },
+  {
+    "path": "db/findings.go",
+    "line": 34,
+    "old": " 详细报告(Markdown);仅 GetFinding 填充,列表查询不带",
+    "new": " Detailed Markdown report; populated only by GetFinding, omitted from list queries"
+  },
+  {
+    "path": "db/findings.go",
+    "line": 41,
+    "old": " 待处理",
+    "new": " Pending"
+  },
+  {
+    "path": "db/findings.go",
+    "line": 42,
+    "old": " 处理中",
+    "new": " In progress"
+  },
+  {
+    "path": "db/findings.go",
+    "line": 43,
+    "old": " 已确认(真实漏洞,未修复)",
+    "new": " Confirmed (real finding, not fixed)"
+  },
+  {
+    "path": "db/findings.go",
+    "line": 44,
+    "old": " 已处理",
+    "new": " Resolved"
+  },
+  {
+    "path": "db/findings.go",
+    "line": 45,
+    "old": " 已修复",
+    "new": " Fixed"
+  },
+  {
+    "path": "db/findings.go",
+    "line": 46,
+    "old": " 误报",
+    "new": " False positive"
+  },
+  {
+    "path": "db/findings.go",
+    "line": 47,
+    "old": " 忽略",
+    "new": " Ignored"
+  },
+  {
+    "path": "db/findings.go",
+    "line": 48,
+    "old": " 重复",
+    "new": " Duplicate"
+  },
+  {
+    "path": "db/findings.go",
+    "line": 49,
+    "old": " 风险接受",
+    "new": " Risk accepted"
+  },
+  {
+    "path": "db/findings.go",
+    "line": 64,
+    "old": " 严重",
+    "new": " Critical"
+  },
+  {
+    "path": "db/findings.go",
+    "line": 65,
+    "old": " 高",
+    "new": " High"
+  },
+  {
+    "path": "db/findings.go",
+    "line": 66,
+    "old": " 中",
+    "new": " Medium"
+  },
+  {
+    "path": "db/findings.go",
+    "line": 67,
+    "old": " 低",
+    "new": " Low"
+  },
+  {
+    "path": "db/findings.go",
+    "line": 156,
+    "old": " 任务 id(字符串形式;空/非法 = 不按任务筛选)",
+    "new": " Task ID (string; empty/invalid disables task filtering)"
+  },
+  {
+    "path": "db/findings.go",
+    "line": 157,
+    "old": " 名称/类型/摘要/证据/报告正文的模糊检索关键词",
+    "new": " Fuzzy-search keyword for name/type/summary/evidence/report body"
+  },
+  {
+    "path": "db/findings.go",
+    "line": 164,
+    "old": " 子树里所有资产 id",
+    "new": " All asset IDs in the subtree"
+  },
+  {
+    "path": "db/findings.go",
+    "line": 165,
+    "old": " 只要「未关联资产」的发现",
+    "new": " Include only findings without linked assets"
+  },
+  {
+    "path": "db/findings.go",
+    "line": 166,
+    "old": " 选中的节点在当前筛选下不存在 → 结果恒空",
+    "new": " Selected node absent under current filters: always empty results"
+  },
+  {
+    "path": "db/findings.go",
+    "line": 285,
+    "old": " 可选任务名称;空=未命名",
+    "new": " Optional task name; empty means unnamed"
+  },
+  {
+    "path": "db/findings.go",
+    "line": 543,
+    "old": " 可选任务名称;空=未命名",
+    "new": " Optional task name; empty means unnamed"
+  }
+]

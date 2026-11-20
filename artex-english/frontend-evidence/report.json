@@ -1,0 +1,379 @@
+{
+  "status": "frontend source complete; backend integration and compiled qualification pending; changelog partial",
+  "scope": "Only isolated staged source/web/**, authorized source/CHANGELOG.md, and frontend-evidence/** changed",
+  "changed_paths": [
+    "web/next.config.mjs",
+    "web/src/app/(main)/chat/page.tsx",
+    "web/src/app/(main)/function/commands/page.tsx",
+    "web/src/app/(main)/function/findings/_components/findings-table.tsx",
+    "web/src/app/(main)/function/findings/detail/page.tsx",
+    "web/src/app/(main)/function/llm-records/page.tsx",
+    "web/src/app/(main)/function/tasks/detail/_tabs/broadcast-tab.tsx",
+    "web/src/app/(main)/function/tasks/detail/_tabs/findings-tab.tsx",
+    "web/src/app/(main)/function/tasks/detail/_tabs/overview-tab.tsx",
+    "web/src/app/(main)/function/tasks/detail/_tabs/sessions-tab.tsx",
+    "web/src/app/(main)/function/tasks/page.tsx",
+    "web/src/app/(main)/function/traffic/page.tsx",
+    "web/src/app/(main)/function/workspace/page.tsx",
+    "web/src/app/(main)/system/intercept/page.tsx",
+    "web/src/app/(main)/system/notify/_components/delivery-list.tsx",
+    "web/src/app/(main)/system/skills/page.tsx",
+    "web/src/components/agent-editor.tsx",
+    "web/src/components/approval-records.tsx",
+    "web/src/components/exploration-graph.tsx",
+    "web/src/components/finding-retest-panel.tsx",
+    "web/src/components/finding-traffic-panel.tsx",
+    "web/src/components/side-question-workspace.tsx",
+    "web/src/components/traffic-evidence-viewer.tsx",
+    "web/src/components/traffic-picker-dialog.tsx",
+    "web/src/components/transcript.tsx",
+    "web/src/components/ui/calendar.tsx",
+    "web/src/components/ui/chart.tsx",
+    "web/src/lib/chat-mentions.test.mjs",
+    "web/src/lib/chat-mentions.ts",
+    "web/src/lib/english-interface.test.mjs",
+    "web/src/lib/mock/handler.ts",
+    "CHANGELOG.md"
+  ],
+  "tests": {
+    "command": "node --test src/lib/chat-mentions.test.mjs src/lib/activity-merge.test.mjs src/lib/english-interface.test.mjs",
+    "exit_code": 0,
+    "tests": 11,
+    "passed": 11,
+    "failed": 0,
+    "skipped": 0,
+    "receipts": [
+      "red-tests.json",
+      "model-marker-red.json",
+      "final-tests.json",
+      "syntax-checks.json"
+    ],
+    "syntax_checks_passed": 4
+  },
+  "build_limits": {
+    "node": "v24.14.1",
+    "node_modules_available": false,
+    "ancestor_node_modules_available": false,
+    "tsc_on_PATH": false,
+    "next_on_PATH": false,
+    "build_typecheck_lint": "Not run: cached frontend dependencies and compiler unavailable. No installs, downloads, fallback tooling, build, browser, deployment, or compiled-asset changes performed. Node syntax checks are not TSX compilation."
+  },
+  "nonenglish_remaining": [
+    {
+      "path": "web/src/components/approval-records.tsx",
+      "line": 53,
+      "snippet": "return /^\\[(?:Model|模型)\\]/.test(row.reason ?? \"\") ? \"model\" : \"unknown\";",
+      "classification": "Legacy model reason-marker detection/removal, now also accepting [Model]; not display text"
+    },
+    {
+      "path": "web/src/components/approval-records.tsx",
+      "line": 112,
+      "snippet": "const reason = row.reason?.replace(/^\\[(?:Model|模型)\\]\\s*/, \"\");",
+      "classification": "Legacy model reason-marker detection/removal, now also accepting [Model]; not display text"
+    },
+    {
+      "path": "web/src/components/approval-records.tsx",
+      "line": 373,
+      "snippet": "{current.reason?.replace(/^\\[(?:Model|模型)\\]\\s*/, \"\") || \"No approval reason recorded\"}",
+      "classification": "Legacy model reason-marker detection/removal, now also accepting [Model]; not display text"
+    },
+    {
+      "path": "web/src/components/approval-records.tsx",
+      "line": 487,
+      "snippet": "text={audit.initial_reason.replace(/^\\[(?:Model|模型)\\]\\s*/, \"\")}",
+      "classification": "Legacy model reason-marker detection/removal, now also accepting [Model]; not display text"
+    },
+    {
+      "path": "web/src/components/transcript.tsx",
+      "line": 201,
+      "snippet": "const m = /Tool\\s+(\\S+)\\s+requests approval/.exec(step.summary) ?? /工具\\s+(\\S+)\\s+请求/.exec(step.summary);",
+      "classification": "Legacy backend approval-summary parser, with English parser first"
+    },
+    {
+      "path": "web/src/lib/chat-mentions.test.mjs",
+      "line": 7,
+      "snippet": "assert.equal(activeMention(\"已选 @[漏洞#1 X]\", 12), null);",
+      "classification": "Purposeful multilingual user-input / historical-token regression fixture; English assertions preserve supplied record labels"
+    },
+    {
+      "path": "web/src/lib/chat-mentions.test.mjs",
+      "line": 8,
+      "snippet": "assert.deepEqual(activeMention(\"查看@漏洞 后面的文字\", 5), { start: 2, end: 5, query: \"漏洞\" });",
+      "classification": "Purposeful multilingual user-input / historical-token regression fixture; English assertions preserve supplied record labels"
+    },
+    {
+      "path": "web/src/lib/chat-mentions.test.mjs",
+      "line": 9,
+      "snippet": "assert.equal(activeMention(\"@漏洞\\n下一行\", 8), null);",
+      "classification": "Purposeful multilingual user-input / historical-token regression fixture; English assertions preserve supplied record labels"
+    },
+    {
+      "path": "web/src/lib/chat-mentions.test.mjs",
+      "line": 14,
+      "snippet": "assert.equal(mentionSearch(\"漏\").categories[0].kind, \"finding\");",
+      "classification": "Purposeful multilingual user-input / historical-token regression fixture; English assertions preserve supplied record labels"
+    },
+    {
+      "path": "web/src/lib/chat-mentions.test.mjs",
+      "line": 15,
+      "snippet": "assert.equal(mentionSearch(\"漏洞\").kind, \"finding\");",
+      "classification": "Purposeful multilingual user-input / historical-token regression fixture; English assertions preserve supplied record labels"
+    },
+    {
+      "path": "web/src/lib/chat-mentions.test.mjs",
+      "line": 16,
+      "snippet": "assert.equal(mentionSearch(\"漏洞SQL注入\").query, \"SQL注入\");",
+      "classification": "Purposeful multilingual user-input / historical-token regression fixture; English assertions preserve supplied record labels"
+    },
+    {
+      "path": "web/src/lib/chat-mentions.test.mjs",
+      "line": 18,
+      "snippet": "assert.equal(mentionSearch(\"接口 GET /api\").query, \"GET /api\");",
+      "classification": "Purposeful multilingual user-input / historical-token regression fixture; English assertions preserve supplied record labels"
+    },
+    {
+      "path": "web/src/lib/chat-mentions.test.mjs",
+      "line": 23,
+      "snippet": "const first = mentionToken({ kind: \"finding\", id: 12, label: \"标题[1]\\n描述\" });",
+      "classification": "Purposeful multilingual user-input / historical-token regression fixture; English assertions preserve supplied record labels"
+    },
+    {
+      "path": "web/src/lib/chat-mentions.test.mjs",
+      "line": 25,
+      "snippet": "const value = `分析 ${first} 和 ${second}`;",
+      "classification": "Purposeful multilingual user-input / historical-token regression fixture; English assertions preserve supplied record labels"
+    },
+    {
+      "path": "web/src/lib/chat-mentions.test.mjs",
+      "line": 28,
+      "snippet": "assert.equal(selected[0].label, \"Finding #12 · 标题（1） 描述\");",
+      "classification": "Purposeful multilingual user-input / historical-token regression fixture; English assertions preserve supplied record labels"
+    },
+    {
+      "path": "web/src/lib/chat-mentions.ts",
+      "line": 2,
+      "snippet": "{ kind: \"finding\", label: \"Finding\", alias: \"finding\", legacy: \"漏洞\" },",
+      "classification": "Legacy multilingual input aliases and persisted-token parser; category labels and new tokens are English"
+    },
+    {
+      "path": "web/src/lib/chat-mentions.ts",
+      "line": 3,
+      "snippet": "{ kind: \"asset\", label: \"Asset\", alias: \"asset\", legacy: \"资产\" },",
+      "classification": "Legacy multilingual input aliases and persisted-token parser; category labels and new tokens are English"
+    },
+    {
+      "path": "web/src/lib/chat-mentions.ts",
+      "line": 4,
+      "snippet": "{ kind: \"company\", label: \"Company\", alias: \"company\", legacy: \"企业\" },",
+      "classification": "Legacy multilingual input aliases and persisted-token parser; category labels and new tokens are English"
+    },
+    {
+      "path": "web/src/lib/chat-mentions.ts",
+      "line": 5,
+      "snippet": "{ kind: \"endpoint\", label: \"Endpoint\", alias: \"api\", legacy: \"接口\" },",
+      "classification": "Legacy multilingual input aliases and persisted-token parser; category labels and new tokens are English"
+    },
+    {
+      "path": "web/src/lib/chat-mentions.ts",
+      "line": 7,
+      "snippet": "{ kind: \"app\", label: \"App\", alias: \"app\", legacy: \"应用\" },",
+      "classification": "Legacy multilingual input aliases and persisted-token parser; category labels and new tokens are English"
+    },
+    {
+      "path": "web/src/lib/chat-mentions.ts",
+      "line": 8,
+      "snippet": "{ kind: \"root_domain\", label: \"Domain\", alias: \"domain\", legacy: \"域名\" },",
+      "classification": "Legacy multilingual input aliases and persisted-token parser; category labels and new tokens are English"
+    },
+    {
+      "path": "web/src/lib/chat-mentions.ts",
+      "line": 9,
+      "snippet": "{ kind: \"subdomain\", label: \"Subdomain\", alias: \"subdomain\", legacy: \"子域名\" },",
+      "classification": "Legacy multilingual input aliases and persisted-token parser; category labels and new tokens are English"
+    },
+    {
+      "path": "web/src/lib/chat-mentions.ts",
+      "line": 10,
+      "snippet": "{ kind: \"service\", label: \"Service\", alias: \"service\", legacy: \"服务\" },",
+      "classification": "Legacy multilingual input aliases and persisted-token parser; category labels and new tokens are English"
+    },
+    {
+      "path": "web/src/lib/chat-mentions.ts",
+      "line": 56,
+      "snippet": "return [...value.matchAll(/@\\[(Finding|Asset|Company|Endpoint|IP|App|Domain|Subdomain|Service|漏洞|资产|企业|接口|应用|域名|子域名|服务)#([0-9]+)(?: ([^\\]\\r\\n]*))?\\]/g)].map(",
+      "classification": "Legacy multilingual input aliases and persisted-token parser; category labels and new tokens are English"
+    },
+    {
+      "path": "web/src/lib/english-interface.test.mjs",
+      "line": 13,
+      "snippet": "const token = mentionToken({ kind: \"finding\", id: 42, label: \"用户 supplied evidence\" });",
+      "classification": "Purposeful multilingual user-input / historical-token regression fixture; English assertions preserve supplied record labels"
+    },
+    {
+      "path": "web/src/lib/english-interface.test.mjs",
+      "line": 14,
+      "snippet": "assert.equal(token, \"@[Finding#42 用户 supplied evidence]\");",
+      "classification": "Purposeful multilingual user-input / historical-token regression fixture; English assertions preserve supplied record labels"
+    },
+    {
+      "path": "web/src/lib/english-interface.test.mjs",
+      "line": 15,
+      "snippet": "assert.equal(selectedMentions(token)[0].label, \"Finding #42 · 用户 supplied evidence\");",
+      "classification": "Purposeful multilingual user-input / historical-token regression fixture; English assertions preserve supplied record labels"
+    },
+    {
+      "path": "web/src/lib/english-interface.test.mjs",
+      "line": 16,
+      "snippet": "assert.equal(selectedMentions(\"@[漏洞#42 historical evidence]\")[0].token, \"@[漏洞#42 historical evidence]\");",
+      "classification": "Purposeful multilingual user-input / historical-token regression fixture; English assertions preserve supplied record labels"
+    },
+    {
+      "path": "web/src/lib/english-interface.test.mjs",
+      "line": 24,
+      "snippet": "assert.equal(detect({ reason: \"[模型] historical reason\" }), \"model\");",
+      "classification": "Purposeful multilingual user-input / historical-token regression fixture; English assertions preserve supplied record labels"
+    },
+    {
+      "path": "web/src/lib/company-scope.ts",
+      "line": 169,
+      "snippet": "if (/icp|备案/i.test(value)) return { line, rule: { kind: \"icp\", value } };",
+      "classification": "Functional ICP registration detection pattern; preserve multilingual scope input"
+    },
+    {
+      "path": "web/src/lib/mock/handler.ts",
+      "line": 2436,
+      "snippet": "row.decision_source || (row.rule_id ? \"rule\" : /^\\[(?:Model|模型)\\]/.test(row.reason ?? \"\") ? \"model\" : \"unknown\");",
+      "classification": "Legacy model reason-marker detection/removal, now also accepting [Model]; not display text"
+    },
+    {
+      "path": "web/src/app/(main)/system/skills/page.tsx",
+      "line": 370,
+      "snippet": "if (!overwrite && /already exists|已存在/i.test(msg)) {",
+      "classification": "Legacy error recognition retained alongside English already exists"
+    },
+    {
+      "path": "web/src/app/(main)/function/tasks/page.tsx",
+      "line": 155,
+      "snippet": "if (desc.includes(UPLOAD_MARKER) || desc.includes(\"【上传文件（绝对路径）】\")) {",
+      "classification": "Historical upload-header or legacy archive-error recognition; new header and error alternative are English"
+    },
+    {
+      "path": "web/src/app/(main)/function/tasks/page.tsx",
+      "line": 1690,
+      "snippet": "if (!/archive not found|archive does not exist|归档不存在/i.test(state.reason.message)) return;",
+      "classification": "Historical upload-header or legacy archive-error recognition; new header and error alternative are English"
+    }
+  ],
+  "changelog": {
+    "translated": "Header, introductory sentence and entire Unreleased section (lines 1-13). All versions/dates/links/inline code retained.",
+    "incomplete": true,
+    "reason": "Expanded 77 KB history exceeds original bounded frontend task; no shortening or invented history. Remaining release sections untouched.",
+    "remaining_CJK_lines": 452,
+    "remaining_sections": [
+      {
+        "section": "## [0.3.15] - 2026-10-07",
+        "start_line": 15,
+        "end_line": 113,
+        "remaining_CJK_lines": 58
+      },
+      {
+        "section": "## [0.3.14] - 2026-09-24",
+        "start_line": 114,
+        "end_line": 139,
+        "remaining_CJK_lines": 11
+      },
+      {
+        "section": "## [0.3.13] - 2026-09-19",
+        "start_line": 140,
+        "end_line": 179,
+        "remaining_CJK_lines": 20
+      },
+      {
+        "section": "## [0.3.12] - 2026-09-17",
+        "start_line": 180,
+        "end_line": 250,
+        "remaining_CJK_lines": 34
+      },
+      {
+        "section": "## [0.3.11] - 2026-09-15",
+        "start_line": 251,
+        "end_line": 305,
+        "remaining_CJK_lines": 23
+      },
+      {
+        "section": "## [0.3.10] - 2026-09-13",
+        "start_line": 306,
+        "end_line": 344,
+        "remaining_CJK_lines": 20
+      },
+      {
+        "section": "## [0.3.9] - 2026-09-11",
+        "start_line": 345,
+        "end_line": 441,
+        "remaining_CJK_lines": 50
+      },
+      {
+        "section": "## [0.3.8] - 2026-09-09",
+        "start_line": 442,
+        "end_line": 513,
+        "remaining_CJK_lines": 34
+      },
+      {
+        "section": "## [0.3.7] - 2026-08-31",
+        "start_line": 514,
+        "end_line": 577,
+        "remaining_CJK_lines": 29
+      },
+      {
+        "section": "## [0.3.6] - 2026-08-27",
+        "start_line": 578,
+        "end_line": 608,
+        "remaining_CJK_lines": 12
+      },
+      {
+        "section": "## [0.3.5] - 2026-08-25",
+        "start_line": 609,
+        "end_line": 657,
+        "remaining_CJK_lines": 21
+      },
+      {
+        "section": "## [0.3.4] - 2026-08-24",
+        "start_line": 658,
+        "end_line": 706,
+        "remaining_CJK_lines": 22
+      },
+      {
+        "section": "## [0.3.3] - 2026-08-23",
+        "start_line": 707,
+        "end_line": 855,
+        "remaining_CJK_lines": 92
+      },
+      {
+        "section": "## [0.3.2] - 2026-08-20",
+        "start_line": 856,
+        "end_line": 906,
+        "remaining_CJK_lines": 26
+      }
+    ]
+  },
+  "critical_backend_handoff": [
+    "server/chat_mentions.go currently recognizes only localized tokens. Before integrating, extend chatMentionPattern and chatMentionKinds to accept Finding=>finding, Asset=>asset, Company=>company, Endpoint=>endpoint, IP=>ip, App=>app, Domain=>root_domain, Subdomain=>subdomain, Service=>service, retaining existing localized aliases. New frontend tokens are English; legacy parsing remains. Cross-stack mention behavior is NOT qualified until this backend contract change/tests land.",
+    "Backend approval summaries should use Tool <name> requests approval (#<id>); frontend accepts this and old localized summaries. Model reason marker should be [Model]; frontend accepts and strips both forms.",
+    "Skill conflict detection accepts already exists and old localized message. Archive restore detection accepts archive not found or archive does not exist and old message. Preserve these meanings during backend translation."
+  ],
+  "functional_doc_exceptions": [
+    "skills/api-recon/reference.md:52",
+    "skills/api-recon/scripts/preload.js:192"
+  ],
+  "functional_doc_exceptions_reason": "Parent-reviewed multilingual authentication-failure detection regex; intentionally unchanged, not untranslated documentation prose.",
+  "lessons_handoff": [
+    "Human-facing category labels also encode persisted chat wire tokens; translate labels only with matching server parser aliases and legacy draft compatibility.",
+    "Locale literals add frontend translation scope beyond CJK line inventory.",
+    "Do not convert semantic detection regex or Unicode fixtures to ASCII to obtain a clean language scan."
+  ],
+  "verification_limits": [
+    "No browser/runtime visual qualification or compiled frontend build; dependencies missing.",
+    "No current UI/cloud/service/model/deployment changes.",
+    "Remaining non-English frontend source literals classified individually in remaining-nonenglish.json; user/target evidence is not translated."
+  ]
+}

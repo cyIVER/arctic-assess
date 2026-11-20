@@ -1,0 +1,52 @@
+{"Time":"2026-11-19T23:50:19.83342492Z","Action":"start","Package":"github.com/Autumn-27/artex/server"}
+{"Time":"2026-11-19T23:50:19.925899989Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility"}
+{"Time":"2026-11-19T23:50:19.925973869Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility","Output":"=== RUN   TestChatMentionEnglishLegacyCompatibility\n"}
+{"Time":"2026-11-19T23:50:19.92599413Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Finding"}
+{"Time":"2026-11-19T23:50:19.92600306Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Finding","Output":"=== RUN   TestChatMentionEnglishLegacyCompatibility/Finding\n"}
+{"Time":"2026-11-19T23:50:19.926012519Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Finding","Output":"--- PASS: TestChatMentionEnglishLegacyCompatibility/Finding (0.00s)\n"}
+{"Time":"2026-11-19T23:50:19.92601722Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Finding","Elapsed":0}
+{"Time":"2026-11-19T23:50:19.92602479Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Asset"}
+{"Time":"2026-11-19T23:50:19.92602839Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Asset","Output":"=== RUN   TestChatMentionEnglishLegacyCompatibility/Asset\n"}
+{"Time":"2026-11-19T23:50:19.92603325Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Asset","Output":"--- PASS: TestChatMentionEnglishLegacyCompatibility/Asset (0.00s)\n"}
+{"Time":"2026-11-19T23:50:19.92603866Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Asset","Elapsed":0}
+{"Time":"2026-11-19T23:50:19.92604281Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Company"}
+{"Time":"2026-11-19T23:50:19.92604662Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Company","Output":"=== RUN   TestChatMentionEnglishLegacyCompatibility/Company\n"}
+{"Time":"2026-11-19T23:50:19.92605114Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Company","Output":"--- PASS: TestChatMentionEnglishLegacyCompatibility/Company (0.00s)\n"}
+{"Time":"2026-11-19T23:50:19.92605606Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Company","Elapsed":0}
+{"Time":"2026-11-19T23:50:19.92606037Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Endpoint"}
+{"Time":"2026-11-19T23:50:19.92606406Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Endpoint","Output":"=== RUN   TestChatMentionEnglishLegacyCompatibility/Endpoint\n"}
+{"Time":"2026-11-19T23:50:19.92606911Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Endpoint","Output":"--- PASS: TestChatMentionEnglishLegacyCompatibility/Endpoint (0.00s)\n"}
+{"Time":"2026-11-19T23:50:19.92607311Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Endpoint","Elapsed":0}
+{"Time":"2026-11-19T23:50:19.9260772Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/IP"}
+{"Time":"2026-11-19T23:50:19.92608104Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/IP","Output":"=== RUN   TestChatMentionEnglishLegacyCompatibility/IP\n"}
+{"Time":"2026-11-19T23:50:19.92608574Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/IP","Output":"--- PASS: TestChatMentionEnglishLegacyCompatibility/IP (0.00s)\n"}
+{"Time":"2026-11-19T23:50:19.9260921Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/IP","Elapsed":0}
+{"Time":"2026-11-19T23:50:19.92609617Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/App"}
+{"Time":"2026-11-19T23:50:19.92609981Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/App","Output":"=== RUN   TestChatMentionEnglishLegacyCompatibility/App\n"}
+{"Time":"2026-11-19T23:50:19.92610413Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/App","Output":"--- PASS: TestChatMentionEnglishLegacyCompatibility/App (0.00s)\n"}
+{"Time":"2026-11-19T23:50:19.926108Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/App","Elapsed":0}
+{"Time":"2026-11-19T23:50:19.92611202Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Domain"}
+{"Time":"2026-11-19T23:50:19.926115731Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Domain","Output":"=== RUN   TestChatMentionEnglishLegacyCompatibility/Domain\n"}
+{"Time":"2026-11-19T23:50:19.92612498Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Domain","Output":"--- PASS: TestChatMentionEnglishLegacyCompatibility/Domain (0.00s)\n"}
+{"Time":"2026-11-19T23:50:19.926129011Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Domain","Elapsed":0}
+{"Time":"2026-11-19T23:50:19.926132981Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Subdomain"}
+{"Time":"2026-11-19T23:50:19.926136741Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Subdomain","Output":"=== RUN   TestChatMentionEnglishLegacyCompatibility/Subdomain\n"}
+{"Time":"2026-11-19T23:50:19.92614136Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Subdomain","Output":"--- PASS: TestChatMentionEnglishLegacyCompatibility/Subdomain (0.00s)\n"}
+{"Time":"2026-11-19T23:50:19.92614551Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Subdomain","Elapsed":0}
+{"Time":"2026-11-19T23:50:19.926149611Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Service"}
+{"Time":"2026-11-19T23:50:19.926153251Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Service","Output":"=== RUN   TestChatMentionEnglishLegacyCompatibility/Service\n"}
+{"Time":"2026-11-19T23:50:19.926157591Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Service","Output":"--- PASS: TestChatMentionEnglishLegacyCompatibility/Service (0.00s)\n"}
+{"Time":"2026-11-19T23:50:19.928587344Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Service","Elapsed":0}
+{"Time":"2026-11-19T23:50:19.928618504Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility","Output":"--- PASS: TestChatMentionEnglishLegacyCompatibility (0.00s)\n"}
+{"Time":"2026-11-19T23:50:19.928624854Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility","Elapsed":0}
+{"Time":"2026-11-19T23:50:19.928642974Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionParsing"}
+{"Time":"2026-11-19T23:50:19.928647974Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionParsing","Output":"=== RUN   TestChatMentionParsing\n"}
+{"Time":"2026-11-19T23:50:19.928654354Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionParsing","Output":"--- PASS: TestChatMentionParsing (0.00s)\n"}
+{"Time":"2026-11-19T23:50:19.928658425Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionParsing","Elapsed":0}
+{"Time":"2026-11-19T23:50:19.928662814Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionBoundedJSON"}
+{"Time":"2026-11-19T23:50:19.928666694Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionBoundedJSON","Output":"=== RUN   TestChatMentionBoundedJSON\n"}
+{"Time":"2026-11-19T23:50:20.043250664Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionBoundedJSON","Output":"--- PASS: TestChatMentionBoundedJSON (0.12s)\n"}
+{"Time":"2026-11-19T23:50:20.043429034Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionBoundedJSON","Elapsed":0.12}
+{"Time":"2026-11-19T23:50:20.043583946Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Output":"PASS\n"}
+{"Time":"2026-11-19T23:50:20.051433559Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Output":"ok  \tgithub.com/Autumn-27/artex/server\t0.217s\n"}
+{"Time":"2026-11-19T23:50:20.051473559Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Elapsed":0.218}

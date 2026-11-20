@@ -1,0 +1,924 @@
+{
+  "source/CHANGELOG.md": {
+    "release_headings": true,
+    "heading_levels": true,
+    "bullets": true,
+    "links": true,
+    "inline_code": true,
+    "fences": true,
+    "unreleased": true,
+    "line_count": true
+  },
+  "source/db/activity_page_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/asset_dsl.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/asset_intercept.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/asset_intercept_match.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/asset_intercept_match_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/assets.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/assets_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/chat_mentions.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/commands.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/companies.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/companies_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/company_lock_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/company_scope.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/company_scope_consistency_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/company_scope_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/config.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/config_max_tokens_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/config_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/constants.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/constraints.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/conversation.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/conversation_pin_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/customtool_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/db.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/db_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/digest.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/exploration.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/exploration_sources.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/exploration_sources_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/exploration_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/exploration_tokens_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/finding_assets.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/finding_assets_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/finding_retests.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/finding_retests_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/finding_traffic.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/finding_traffic_archive.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/finding_traffic_archive_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/findings.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/findings_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/intent_admission.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/intent_control_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/intent_delete_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/intercept.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/intercept_detail.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/intercept_detail_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/intercept_english_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/intercept_execution.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/intercept_execution_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/intercept_filter_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/intercept_restore_english_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/intercept_seed_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/jsonb_clean_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/llm_records_migrate_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/llm_usage.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/llmhealth.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/llmretry.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/llmretry_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/logs.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/native_catalog_readonly.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/native_global_source.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/nkey.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/notification.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/notification_delivery.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/notification_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/settings.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/settings_insert_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/side_questions.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/side_questions_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/skill_usage.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/skill_usage_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/task_archive_aggregate_stats.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/task_archives.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/task_archives_restore.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/task_archives_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/task_assets.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/task_assets_context.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/task_assets_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/task_categories.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/task_categories_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/task_context.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/task_context_lock_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/task_context_unit_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/task_delete_concurrency_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/task_intercept.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/task_list_performance_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/task_metadata_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/task_queue_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/task_scope.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/task_scope_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/task_source_limit_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/task_templates.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/task_templates_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/tasks.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/tasks_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/testmain_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/tool_usage.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/tool_usage_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/tools.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/db/triggers.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/intercept/english_generated_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/intercept/english_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/intercept/intercept.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/intercept/prompt.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/intercept/prompt_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/intercept/review_context.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/intercept/review_context_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/intercept/trace.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/intercept/trace_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/assembly.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/assembly_order_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/assembly_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/asset_intercept.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/assets.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/assets_scope_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/auth.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/auth_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/broadcast.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/chat_llm_resolve_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/chat_mentions.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/chat_mentions_english_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/chat_mentions_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/chatupload.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/commands.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/constraints_api.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/conversation_status_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/conversations.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/core_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/customtool.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/customtool_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/dto.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/engine.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/engine_cancelcause_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/engine_emptyturn_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/engine_llm_calls_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/engine_timeout.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/finding_retests.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/finding_retests_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/finding_traffic.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/finding_traffic_export.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/finding_traffic_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/finding_workflow.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/finding_workflow_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/findings_groups.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/findings_groups_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/goals.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/goals_api.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/goals_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/inheritance_api_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/inheritance_dto_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/intent_intervention.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/intercept.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/intercept_detail_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/intercept_filter_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/intercept_live_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/intercept_review_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/llmpool.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/llmpool_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/llmrec_raw_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/llmretry.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/llmretry_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/logsink.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/manager.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/manager_delete_files_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/manager_lifecycle_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/mcpdiscover.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/mgmt_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/native_admission_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/native_completion_pg_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/native_concurrency_pg_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/native_observation.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/native_preflight.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/native_preflight_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/native_reporter.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/native_task_llm_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/native_tool_resolver.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/notifier.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/notify_api.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/notify_api_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/orchestration.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/parse_target_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/platform_tools.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/platform_tools_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/prompt_vars_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/runtime_english_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/scheduler.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/server.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/server_mgmt.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/side_questions.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/side_questions_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/skill_upload_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/skill_usage.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/skill_zip.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/static_files.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/static_files_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/sync_scopesentry.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/task_admission_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/task_archive_package.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/task_archive_package_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/task_archives.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/task_archives_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/task_assets.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/task_categories.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/task_categories_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/task_control.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/task_control_routes_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/task_delete_barrier_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/task_intercept.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/task_llm.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/task_llm_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/task_metadata.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/task_metadata_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/task_resolution.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/task_templates.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/task_templates_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/testmain_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/tool_usage.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/tool_usage_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/tools_wire_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/trigger_merge_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/triggers.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/update.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/update_disabled_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/update_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/webui_embed.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/webui_stub.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/worker_message_test.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  },
+  "source/server/workspace.go": {
+    "noncomment_bytes_equal": true,
+    "literal_bytes_equal": true
+  }
+}

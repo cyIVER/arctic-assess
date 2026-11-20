@@ -1,0 +1,8 @@
+test_actual_driver_validation_to_first_mutation_boundary (__main__.Tests.test_actual_driver_validation_to_first_mutation_boundary) ... ok
+test_bootstrap_is_isolated_no_environment_or_key (__main__.Tests.test_bootstrap_is_isolated_no_environment_or_key) ... ok
+test_stage_actual_pins_and_extra_pycache_denial (__main__.Tests.test_stage_actual_pins_and_extra_pycache_denial) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 2.963s
+
+OK

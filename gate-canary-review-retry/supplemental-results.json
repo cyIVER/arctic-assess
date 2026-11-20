@@ -1,0 +1,95 @@
+{
+  "guardian_checkpoint_seam": {
+    "checkpoint": {
+      "status": "verified",
+      "requirement": "already-private-default-quiescent",
+      "vm": {
+        "name": "vindler-lab-01",
+        "id": "590620893136303309",
+        "disk_id": "521979503200711885",
+        "project": "syncfall-ir-range",
+        "zone": "us-central1-a"
+      },
+      "created": 1000,
+      "deadline": 1600,
+      "parent_scope_lease": "UNIT_ONLY",
+      "default_service_changes_owner": "parent"
+    },
+    "guardian_result": {
+      "type": "Blocked",
+      "reason": "preflight stale/scope"
+    },
+    "runner_calls": 0,
+    "canary_requires_exact_verified_object": true,
+    "guardian_requires_READY_plus_default_inventory_external_stop": true,
+    "compatible": false
+  },
+  "archive_hash_consumes_original_fd": {
+    "passed": true,
+    "pathname_swapped": true,
+    "note": "Returned hash describes opened archive object; protected parent/no-writer invariant still required for final pathname."
+  },
+  "review_replay": {
+    "returncode": 0,
+    "result": {
+      "quota_collision": {
+        "exception": "FileExistsError",
+        "preexisting_file_deleted": false
+      },
+      "selfconsistent_unreviewed_input": {
+        "accepted_by_current_validator": false,
+        "real_approval": false,
+        "helper_is_public_non_executable": true
+      },
+      "pinned_writable_ancestor": {
+        "accepted": false,
+        "ancestor_mode": "0777",
+        "same_entrypoint_positive_first": true
+      },
+      "scope": "UNIT_ONLY actual reviewer operations; not authority/runtime proof"
+    }
+  },
+  "default_cli": {
+    "returncode": 2,
+    "stdout": {
+      "status": "BLOCKED",
+      "reason": "explicit --live plus current parent-approved input required",
+      "runtime_proof": false,
+      "unresolved_gates": [
+        "current-parent-scope-lease",
+        "new-reviewed-proxy-source-helper",
+        "independent-code-reviews",
+        "fresh-provider-controller-guard",
+        "parent-default-docker-quiescence",
+        "actual-guest-canary-observations"
+      ]
+    },
+    "stderr": ""
+  },
+  "inventory": {
+    "old_tests": 37,
+    "new_collected": 54,
+    "old_missing": [],
+    "required_guest_cases": [
+      "aggregate-output-exhaustion",
+      "app-data",
+      "confinement",
+      "environment-proxy",
+      "fifo-create",
+      "fifo-read",
+      "fixture-http",
+      "fixture-ordinary-swap",
+      "fixture-symlink-swap",
+      "host-absence",
+      "inflight-cancellation",
+      "phase-restart",
+      "quota-enospc",
+      "setsid-success",
+      "timeout-setsid",
+      "work-ordinary-swap",
+      "work-symlink-swap"
+    ],
+    "required_guest_count": 17,
+    "guest_executed": 0
+  }
+}

@@ -1,0 +1,362 @@
+{
+  "server/task_intercept.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/task_control.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/sync_scopesentry.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/assets.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/manager.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/server.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/webui_embed.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/finding_traffic.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/chatupload.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/task_resolution.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/goals.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/conversations.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/native_observation.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/llmpool.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/finding_retests.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/constraints_api.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/broadcast.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/engine.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/task_llm.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/llmretry.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/chat_mentions.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/triggers.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/task_assets.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/tool_usage.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/skill_usage.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/side_questions.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/auth.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/task_templates.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/logsink.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/task_metadata.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/intercept.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/webui_stub.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/goals_api.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/task_categories.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/assembly.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/skill_zip.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/platform_tools.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/asset_intercept.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/workspace.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/engine_timeout.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/scheduler.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/intent_intervention.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/notifier.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/findings_groups.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/static_files.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/finding_workflow.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/orchestration.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/task_archives.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/task_archive_package.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/dto.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/finding_traffic_export.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/customtool.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/commands.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/mcpdiscover.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/notify_api.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/server_mgmt.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/native_tool_resolver.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/native_preflight.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/native_reporter.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  },
+  "server/update.go": {
+    "json_tags_preserved": true,
+    "map_keys_preserved": true,
+    "routes_preserved": true,
+    "regexes_preserved": true
+  }
+}

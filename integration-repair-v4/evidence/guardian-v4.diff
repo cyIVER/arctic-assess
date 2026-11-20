@@ -1,0 +1,62 @@
+--- artex-worker-live-guard-final/guard.py
++++ guardian/guard.py
+@@ -227,6 +227,21 @@
+         finally: self.controller_release(token)
+ 
+ VERSIONS={'docker.io':'29.1.3-0ubuntu3~24.04.2','containerd':'2.2.1-0ubuntu1~24.04.4','runc':'1.3.4-0ubuntu1~24.04.1'}
++def validate_checkpoint(p,c,now):
++    """V4 single exact immutable contract; same body in standalone guardian."""
++    lease=c['parent_scope_lease']
++    number=lambda v:type(v) in (int,float) and math.isfinite(v)
++    need(type(lease) is dict and set(lease)=={'handle','vm','created','deadline','lane'},'checkpoint typed lease')
++    need(type(lease['handle']) is str and 0<len(lease['handle'])<=256 and lease['vm']==c['vm'] and lease['lane']==c['lane'],'checkpoint lease scope')
++    need(all(number(lease[k]) for k in ('created','deadline')) and number(c['external_stop']) and number(now),'checkpoint finite scope')
++    need(all(k not in c or (type(c[k]) is type(lease[k]) and c[k]==lease[k]) for k in ('created','deadline')),'checkpoint phase scope')
++    need(type(p) is dict and type(p.get('schema')) is int and p['schema']==1,'checkpoint schema')
++    need(all(number(p.get(k)) for k in ('created','deadline','external_stop')),'checkpoint strict timestamps')
++    expected={'schema':1,'status':'verified','requirement':'already-private-default-quiescent','vm':c['vm'],'created':lease['created'],'deadline':lease['deadline'],'parent_scope_lease':lease['handle'],'default_service_changes_owner':'parent','external_stop':c['external_stop'],'default_inventory':{'containers':[],'images':[],'volumes':[]}}
++    need(p==expected,'parent preflight checkpoint')
++    need(0<=now-p['created']<=120 and now<p['deadline'] and p['external_stop']>=p['deadline']+30,'checkpoint stale/deadline')
++    return p
++
+ def guest_inventory(scope,runner=run_command,clock=utc,read=protected):
+     """Fresh inactive state + package integrity. No Docker API call/socket activation."""
+     start=time.monotonic()
+@@ -235,9 +250,9 @@
+         r=runner(argv,timeout=left);need(r.returncode==0,'guest inventory command');return r.stdout.strip()
+     raw=read(scope['preflight']['path'],scope['preflight']['sha256'])
+     p=json.loads(raw)
+-    need(p['vm']==VM and p['status']=='READY' and finite(p['created']) and 0<=clock()-p['created']<=120,'preflight stale/scope')
+-    need(p['default_inventory']=={'containers':[],'images':[],'volumes':[]},'default inventory nonempty')
+-    need(p['external_stop']==scope['external_stop'],'preflight deadline')
++    need(digest(raw)==scope['preflight']['sha256'],'checkpoint returned bytes pin')
++    need(scope['vm']==VM,'preflight VM')
++    validate_checkpoint(p,scope,clock())
+     versions=checked(['/usr/bin/dpkg-query','-W','-f=${Package}=${Version}\n','docker.io','containerd','runc'])
+     need(set(versions.splitlines())=={k+'='+v for k,v in VERSIONS.items()},'package versions')
+     need(not checked(['/usr/bin/dpkg','--verify','docker.io','containerd','runc']),'package integrity')
+@@ -301,9 +316,14 @@
+         while utc()<scope['external_stop']: server.handle_request()
+ 
+ def client_status(scope,key,clock=utc):
++    deadline=time.monotonic()+10
++    def remaining():
++        left=deadline-time.monotonic();need(left>0,'client deadline');return left
+     p={'route':ROUTE,'nonce':secrets.token_hex(32),'time':clock()}
+-    with socket.create_connection(('127.0.0.1',GUEST_PORT),timeout=10) as s:
+-        s.settimeout(10);write_frame(s,{'payload':p,'mac':mac(key,p)});response=read_frame(s)
++    with socket.create_connection(('127.0.0.1',GUEST_PORT),timeout=remaining()) as s:
++        s.settimeout(remaining());write_frame(s,{'payload':p,'mac':mac(key,p)})
++        remaining();response=read_frame(s,deadline)
++    remaining()
+     need(set(response)=={'payload','mac'},'response envelope'); r=response['payload']
+     need(isinstance(response['mac'],str) and hmac.compare_digest(mac(key,r),response['mac']),'response auth')
+     need(set(r)=={'nonce','time','status'} and r['nonce']==p['nonce'] and finite(r['time']) and abs(clock()-r['time'])<=10,'response freshness')
+@@ -311,6 +331,7 @@
+               'controller_id':scope['controller_id'],'guard_created':scope['guard_created'],
+               'default_docker_quiescent':True,'preflight_checkpoint_sha256':scope['preflight']['sha256']}
+     need(r['status']==expected and clock()<scope['external_stop'],'status binding/expiry')
++    remaining()
+     return r['status']
+ 
+ def main(argv):

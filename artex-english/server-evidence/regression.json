@@ -1,0 +1,296 @@
+{
+  "command": [
+    "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+    "test",
+    "-p",
+    "2",
+    "-json",
+    "./server",
+    "-run",
+    "^Test(ChatMention(EnglishLegacyCompatibility|FrontendGeneratedTokens|Parsing|BoundedJSON)|AuthStatusFailsClosedWhenDataSourceUnavailable|AuthInitFailsClosedWhenDataSourceUnavailable|ValidatePassword|ValidSkillName|SkillRelPath|UploadSkill.*|SkillNameFromFrontmatterQuoted|IsThinkingOnlyTurn|SteerHooksStopNudgesEmptyTurn|ResolveRetryUnconfigured|SameProviderRetryDisabled|RetryRuleClamp|TaskArchivePackage.*)$",
+    "-count=1",
+    "-timeout=90s"
+  ],
+  "environment": {
+    "PATH": "/usr/bin:/bin",
+    "HOME": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local",
+    "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+    "GOMODCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/gomodcache",
+    "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+    "GOTMPDIR": "/home/iveri/.hermes/cache/scratch",
+    "GOENV": "off",
+    "GOTOOLCHAIN": "local",
+    "GOPROXY": "off",
+    "GOSUMDB": "off",
+    "GOFLAGS": "-mod=readonly",
+    "CGO_ENABLED": "0",
+    "GOMAXPROCS": "2",
+    "GOMEMLIMIT": "1GiB",
+    "TMPDIR": "/home/iveri/.hermes/cache/scratch"
+  },
+  "returncode": 1,
+  "top_level": {
+    "pass": 20,
+    "fail": 1,
+    "skip": 2
+  },
+  "subtests": {
+    "pass": 40,
+    "fail": 0,
+    "skip": 0
+  },
+  "tests": [
+    {
+      "name": "TestAuthStatusFailsClosedWhenDataSourceUnavailable",
+      "action": "skip"
+    },
+    {
+      "name": "TestAuthInitFailsClosedWhenDataSourceUnavailable",
+      "action": "skip"
+    },
+    {
+      "name": "TestValidatePassword/\u7a7a",
+      "action": "pass"
+    },
+    {
+      "name": "TestValidatePassword/\u4e03\u4f4d",
+      "action": "pass"
+    },
+    {
+      "name": "TestValidatePassword/\u516b\u4f4d",
+      "action": "pass"
+    },
+    {
+      "name": "TestValidatePassword/\u516b\u4e2a\u6c49\u5b57\u6309\u5b57\u7b26\u6570\u800c\u975e\u5b57\u8282\u6570\u8ba1",
+      "action": "pass"
+    },
+    {
+      "name": "TestValidatePassword/\u4e09\u4e2a\u6c49\u5b57\u591f_9_\u5b57\u8282\u4f46\u53ea\u6709_3_\u4e2a\u5b57\u7b26",
+      "action": "pass"
+    },
+    {
+      "name": "TestValidatePassword/72_\u5b57\u8282",
+      "action": "pass"
+    },
+    {
+      "name": "TestValidatePassword/73_\u5b57\u8282\u8d85\u51fa_bcrypt_\u4e0a\u9650",
+      "action": "pass"
+    },
+    {
+      "name": "TestValidatePassword",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionFrontendGeneratedTokens/finding",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionFrontendGeneratedTokens/asset",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionFrontendGeneratedTokens/company",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionFrontendGeneratedTokens/endpoint",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionFrontendGeneratedTokens/ip",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionFrontendGeneratedTokens/app",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionFrontendGeneratedTokens/root_domain",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionFrontendGeneratedTokens/subdomain",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionFrontendGeneratedTokens/service",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionFrontendGeneratedTokens",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionEnglishLegacyCompatibility/Finding",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionEnglishLegacyCompatibility/Asset",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionEnglishLegacyCompatibility/Company",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionEnglishLegacyCompatibility/Endpoint",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionEnglishLegacyCompatibility/IP",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionEnglishLegacyCompatibility/App",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionEnglishLegacyCompatibility/Domain",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionEnglishLegacyCompatibility/Subdomain",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionEnglishLegacyCompatibility/Service",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionEnglishLegacyCompatibility",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionParsing",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionBoundedJSON",
+      "action": "pass"
+    },
+    {
+      "name": "TestIsThinkingOnlyTurn/\u4ec5\u601d\u8003",
+      "action": "pass"
+    },
+    {
+      "name": "TestIsThinkingOnlyTurn/\u601d\u8003+\u5de5\u5177",
+      "action": "pass"
+    },
+    {
+      "name": "TestIsThinkingOnlyTurn/\u601d\u8003+\u6b63\u6587",
+      "action": "pass"
+    },
+    {
+      "name": "TestIsThinkingOnlyTurn/\u6b63\u6587\u53ea\u6709\u7a7a\u767d\u5b57\u7b26",
+      "action": "pass"
+    },
+    {
+      "name": "TestIsThinkingOnlyTurn/\u5b8c\u5168\u7a7a\u7684_assistant_\u56de\u5408",
+      "action": "pass"
+    },
+    {
+      "name": "TestIsThinkingOnlyTurn/\u6700\u540e\u4e00\u6761\u662f\u5de5\u5177\u7ed3\u679c",
+      "action": "pass"
+    },
+    {
+      "name": "TestIsThinkingOnlyTurn/\u6ca1\u6709_assistant_\u6d88\u606f",
+      "action": "pass"
+    },
+    {
+      "name": "TestIsThinkingOnlyTurn/\u7a7a\u5386\u53f2",
+      "action": "pass"
+    },
+    {
+      "name": "TestIsThinkingOnlyTurn",
+      "action": "pass"
+    },
+    {
+      "name": "TestSteerHooksStopNudgesEmptyTurn/\u7a7a\u8f6c\u56de\u5408\u6ce8\u5165\u7eed\u8dd1\u6307\u4ee4",
+      "action": "pass"
+    },
+    {
+      "name": "TestSteerHooksStopNudgesEmptyTurn/\u6709\u6b63\u6587\u6216\u5de5\u5177\u65f6\u4e0d\u4ecb\u5165",
+      "action": "pass"
+    },
+    {
+      "name": "TestSteerHooksStopNudgesEmptyTurn/\u8fbe\u5230\u4e0a\u9650\u540e\u653e\u884c\u6536\u573a",
+      "action": "pass"
+    },
+    {
+      "name": "TestSteerHooksStopNudgesEmptyTurn/\u914d\u7f6e\u5173\u95ed\u65f6\u4e0d\u4ecb\u5165",
+      "action": "pass"
+    },
+    {
+      "name": "TestSteerHooksStopNudgesEmptyTurn/inner_\u51b3\u5b9a\u786c\u505c\u65f6\u4e0d\u53e0\u52a0",
+      "action": "pass"
+    },
+    {
+      "name": "TestSteerHooksStopNudgesEmptyTurn/inner_\u5df2\u8981\u7eed\u8dd1\u65f6\u4e0d\u53e0\u52a0",
+      "action": "pass"
+    },
+    {
+      "name": "TestSteerHooksStopNudgesEmptyTurn/\u672a\u88c5\u8ba1\u6570\u5668\u65f6\u884c\u4e3a\u4e0d\u53d8",
+      "action": "pass"
+    },
+    {
+      "name": "TestSteerHooksStopNudgesEmptyTurn",
+      "action": "pass"
+    },
+    {
+      "name": "TestResolveRetryUnconfigured",
+      "action": "pass"
+    },
+    {
+      "name": "TestSameProviderRetryDisabled",
+      "action": "pass"
+    },
+    {
+      "name": "TestRetryRuleClamp",
+      "action": "pass"
+    },
+    {
+      "name": "TestValidSkillName",
+      "action": "pass"
+    },
+    {
+      "name": "TestSkillRelPath",
+      "action": "pass"
+    },
+    {
+      "name": "TestUploadSkillZstdAndChineseNames",
+      "action": "pass"
+    },
+    {
+      "name": "TestUploadSkillGBKNames",
+      "action": "pass"
+    },
+    {
+      "name": "TestUploadSkillUnsupportedMethod",
+      "action": "pass"
+    },
+    {
+      "name": "TestUploadSkillEncrypted",
+      "action": "pass"
+    },
+    {
+      "name": "TestUploadSkillRejectsTraversal",
+      "action": "fail"
+    },
+    {
+      "name": "TestSkillNameFromFrontmatterQuoted",
+      "action": "pass"
+    },
+    {
+      "name": "TestTaskArchivePackageFilesRoundTrip",
+      "action": "pass"
+    },
+    {
+      "name": "TestTaskArchivePackageSkipsSymlink",
+      "action": "pass"
+    },
+    {
+      "name": "TestTaskArchivePackageRejectsTraversal",
+      "action": "pass"
+    }
+  ]
+}

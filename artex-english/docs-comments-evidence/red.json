@@ -1,0 +1,11 @@
+{
+  "same_byte_lexical_positive": true,
+  "comment_translation_positive": true,
+  "identifier_mutation_rejected": true,
+  "literal_mutation_rejected": true,
+  "baseline_files": 229,
+  "changelog_required_versions": true,
+  "baseline_cjk_lines": 452,
+  "parser_available": false,
+  "note": "No cached Go parser binary located; builds forbidden. Lexical guard tested before edits; no parse/compile claim."
+}

@@ -1,0 +1,23 @@
+[
+  "source/CHANGELOG.md",
+  "source/db/asset_dsl.go",
+  "source/db/asset_intercept.go",
+  "source/db/asset_intercept_match.go",
+  "source/db/asset_intercept_match_test.go",
+  "source/db/assets.go",
+  "source/db/assets_test.go",
+  "source/db/companies.go",
+  "source/db/company_scope.go",
+  "source/db/company_scope_consistency_test.go",
+  "source/db/company_scope_test.go",
+  "source/db/config.go",
+  "source/db/constants.go",
+  "source/db/db.go",
+  "source/db/exploration.go",
+  "source/server/assets.go",
+  "source/server/auth_test.go",
+  "source/server/chat_llm_resolve_test.go",
+  "source/server/conversations.go",
+  "source/server/customtool.go",
+  "source/server/engine.go"
+]

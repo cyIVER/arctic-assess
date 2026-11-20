@@ -1,0 +1,118 @@
+{"Time":"2026-11-20T00:14:32.76434752Z","Action":"start","Package":"github.com/Autumn-27/artex/report"}
+{"Time":"2026-11-20T00:14:32.770594876Z","Action":"run","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence"}
+{"Time":"2026-11-20T00:14:32.770658267Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"=== RUN   TestEnglishReportPreservesEvidence\n"}
+{"Time":"2026-11-20T00:14:32.770894437Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"    english_test.go:7: missing \"# Penetration Test Report\" in # 渗透测试报告 — 未命名任务\n"}
+{"Time":"2026-11-20T00:14:32.770924717Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.770930077Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        - **任务目标**：（未指定）\n"}
+{"Time":"2026-11-20T00:14:32.770933407Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        - **生成时间**：1970-01-01 00:00:00\n"}
+{"Time":"2026-11-20T00:14:32.770965438Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.770971878Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        ## 摘要\n"}
+{"Time":"2026-11-20T00:14:32.770981788Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.770986258Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        - 确认发现：**1** 个\n"}
+{"Time":"2026-11-20T00:14:32.770990928Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        - 资产：\n"}
+{"Time":"2026-11-20T00:14:32.770996778Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771001008Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        ## 发现\n"}
+{"Time":"2026-11-20T00:14:32.771004858Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771008848Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        ### 1. [HIGH] Finding\n"}
+{"Time":"2026-11-20T00:14:32.771014798Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771024558Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771028848Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771032808Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        **PoC / 证据：**\n"}
+{"Time":"2026-11-20T00:14:32.771036878Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771040998Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        ```\n"}
+{"Time":"2026-11-20T00:14:32.771044678Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        用户原始证据 \u003ctag\u003e\n"}
+{"Time":"2026-11-20T00:14:32.77126924Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        ```\n"}
+{"Time":"2026-11-20T00:14:32.77128017Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.77128458Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"    english_test.go:7: missing \"**Task goal**\" in # 渗透测试报告 — 未命名任务\n"}
+{"Time":"2026-11-20T00:14:32.77128969Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.77129374Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        - **任务目标**：（未指定）\n"}
+{"Time":"2026-11-20T00:14:32.77129841Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        - **生成时间**：1970-01-01 00:00:00\n"}
+{"Time":"2026-11-20T00:14:32.77130276Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.77130648Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        ## 摘要\n"}
+{"Time":"2026-11-20T00:14:32.77131069Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.77131482Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        - 确认发现：**1** 个\n"}
+{"Time":"2026-11-20T00:14:32.77131848Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        - 资产：\n"}
+{"Time":"2026-11-20T00:14:32.77132238Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.77132605Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        ## 发现\n"}
+{"Time":"2026-11-20T00:14:32.77132987Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.77134504Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        ### 1. [HIGH] Finding\n"}
+{"Time":"2026-11-20T00:14:32.7713492Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771352981Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.77135684Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771361261Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        **PoC / 证据：**\n"}
+{"Time":"2026-11-20T00:14:32.771365981Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.77137093Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        ```\n"}
+{"Time":"2026-11-20T00:14:32.77137552Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        用户原始证据 \u003ctag\u003e\n"}
+{"Time":"2026-11-20T00:14:32.771380001Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        ```\n"}
+{"Time":"2026-11-20T00:14:32.771384791Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771389141Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"    english_test.go:7: missing \"## Summary\" in # 渗透测试报告 — 未命名任务\n"}
+{"Time":"2026-11-20T00:14:32.771394401Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.77139841Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        - **任务目标**：（未指定）\n"}
+{"Time":"2026-11-20T00:14:32.771403011Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        - **生成时间**：1970-01-01 00:00:00\n"}
+{"Time":"2026-11-20T00:14:32.771407491Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771413531Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        ## 摘要\n"}
+{"Time":"2026-11-20T00:14:32.771417351Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771421591Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        - 确认发现：**1** 个\n"}
+{"Time":"2026-11-20T00:14:32.771426161Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        - 资产：\n"}
+{"Time":"2026-11-20T00:14:32.77143102Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.77145788Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        ## 发现\n"}
+{"Time":"2026-11-20T00:14:32.77146271Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.77146553Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        ### 1. [HIGH] Finding\n"}
+{"Time":"2026-11-20T00:14:32.7714684Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.77147112Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.77147379Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.77147645Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        **PoC / 证据：**\n"}
+{"Time":"2026-11-20T00:14:32.77147969Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771483461Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        ```\n"}
+{"Time":"2026-11-20T00:14:32.771487301Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        用户原始证据 \u003ctag\u003e\n"}
+{"Time":"2026-11-20T00:14:32.771494061Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        ```\n"}
+{"Time":"2026-11-20T00:14:32.77150704Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771511351Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"    english_test.go:7: missing \"## Findings\" in # 渗透测试报告 — 未命名任务\n"}
+{"Time":"2026-11-20T00:14:32.771516431Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771586871Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        - **任务目标**：（未指定）\n"}
+{"Time":"2026-11-20T00:14:32.771591571Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        - **生成时间**：1970-01-01 00:00:00\n"}
+{"Time":"2026-11-20T00:14:32.771596051Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771600161Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        ## 摘要\n"}
+{"Time":"2026-11-20T00:14:32.771604231Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771608211Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        - 确认发现：**1** 个\n"}
+{"Time":"2026-11-20T00:14:32.771612311Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        - 资产：\n"}
+{"Time":"2026-11-20T00:14:32.771616201Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771620131Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        ## 发现\n"}
+{"Time":"2026-11-20T00:14:32.771624081Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771628102Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        ### 1. [HIGH] Finding\n"}
+{"Time":"2026-11-20T00:14:32.771636622Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771640561Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771649072Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771652851Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        **PoC / 证据：**\n"}
+{"Time":"2026-11-20T00:14:32.771656552Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771660081Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        ```\n"}
+{"Time":"2026-11-20T00:14:32.771663971Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        用户原始证据 \u003ctag\u003e\n"}
+{"Time":"2026-11-20T00:14:32.771668162Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        ```\n"}
+{"Time":"2026-11-20T00:14:32.771671722Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771675602Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"    english_test.go:7: missing \"**PoC / Evidence:**\" in # 渗透测试报告 — 未命名任务\n"}
+{"Time":"2026-11-20T00:14:32.771680002Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771685102Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        - **任务目标**：（未指定）\n"}
+{"Time":"2026-11-20T00:14:32.771687962Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        - **生成时间**：1970-01-01 00:00:00\n"}
+{"Time":"2026-11-20T00:14:32.771690812Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771706402Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        ## 摘要\n"}
+{"Time":"2026-11-20T00:14:32.771710542Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771714922Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        - 确认发现：**1** 个\n"}
+{"Time":"2026-11-20T00:14:32.771718852Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        - 资产：\n"}
+{"Time":"2026-11-20T00:14:32.771722942Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771726462Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        ## 发现\n"}
+{"Time":"2026-11-20T00:14:32.771729872Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771733402Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        ### 1. [HIGH] Finding\n"}
+{"Time":"2026-11-20T00:14:32.771737262Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771740802Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771744462Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771748162Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        **PoC / 证据：**\n"}
+{"Time":"2026-11-20T00:14:32.771752122Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771756272Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        ```\n"}
+{"Time":"2026-11-20T00:14:32.771760232Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        用户原始证据 \u003ctag\u003e\n"}
+{"Time":"2026-11-20T00:14:32.771764562Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        ```\n"}
+{"Time":"2026-11-20T00:14:32.771768272Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"        \n"}
+{"Time":"2026-11-20T00:14:32.771779442Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"--- FAIL: TestEnglishReportPreservesEvidence (0.00s)\n"}
+{"Time":"2026-11-20T00:14:32.771783873Z","Action":"fail","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Elapsed":0}
+{"Time":"2026-11-20T00:14:32.771791722Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Output":"FAIL\n"}
+{"Time":"2026-11-20T00:14:32.772277975Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Output":"FAIL\tgithub.com/Autumn-27/artex/report\t0.008s\n"}
+{"Time":"2026-11-20T00:14:32.772300515Z","Action":"fail","Package":"github.com/Autumn-27/artex/report","Elapsed":0.008}

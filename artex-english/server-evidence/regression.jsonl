@@ -1,0 +1,267 @@
+{"Time":"2026-11-19T23:55:21.9265708Z","Action":"start","Package":"github.com/Autumn-27/artex/server"}
+{"Time":"2026-11-19T23:55:21.998964278Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestAuthStatusFailsClosedWhenDataSourceUnavailable"}
+{"Time":"2026-11-19T23:55:21.998999347Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestAuthStatusFailsClosedWhenDataSourceUnavailable","Output":"=== RUN   TestAuthStatusFailsClosedWhenDataSourceUnavailable\n"}
+{"Time":"2026-11-19T23:55:21.999436709Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestAuthStatusFailsClosedWhenDataSourceUnavailable","Output":"    auth_test.go:19: postgres unavailable (未找到数据库配置：环境变量 ARTEX_PG_DSN 未设置，且配置文件 /home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/source/server/config.json 未提供 database（dsn 或 host/user/dbname）。请创建该配置文件或设置环境变量后重试)\n"}
+{"Time":"2026-11-19T23:55:21.999841602Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestAuthStatusFailsClosedWhenDataSourceUnavailable","Output":"--- SKIP: TestAuthStatusFailsClosedWhenDataSourceUnavailable (0.00s)\n"}
+{"Time":"2026-11-19T23:55:21.999888022Z","Action":"skip","Package":"github.com/Autumn-27/artex/server","Test":"TestAuthStatusFailsClosedWhenDataSourceUnavailable","Elapsed":0}
+{"Time":"2026-11-19T23:55:21.999941942Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestAuthInitFailsClosedWhenDataSourceUnavailable"}
+{"Time":"2026-11-19T23:55:21.999993383Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestAuthInitFailsClosedWhenDataSourceUnavailable","Output":"=== RUN   TestAuthInitFailsClosedWhenDataSourceUnavailable\n"}
+{"Time":"2026-11-19T23:55:22.000039683Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestAuthInitFailsClosedWhenDataSourceUnavailable","Output":"    auth_test.go:45: postgres unavailable (未找到数据库配置：环境变量 ARTEX_PG_DSN 未设置，且配置文件 /home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/source/server/config.json 未提供 database（dsn 或 host/user/dbname）。请创建该配置文件或设置环境变量后重试)\n"}
+{"Time":"2026-11-19T23:55:22.000364755Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestAuthInitFailsClosedWhenDataSourceUnavailable","Output":"--- SKIP: TestAuthInitFailsClosedWhenDataSourceUnavailable (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.000407155Z","Action":"skip","Package":"github.com/Autumn-27/artex/server","Test":"TestAuthInitFailsClosedWhenDataSourceUnavailable","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.000436166Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword"}
+{"Time":"2026-11-19T23:55:22.000450026Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword","Output":"=== RUN   TestValidatePassword\n"}
+{"Time":"2026-11-19T23:55:22.000507366Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword/空"}
+{"Time":"2026-11-19T23:55:22.000552296Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword/空","Output":"=== RUN   TestValidatePassword/空\n"}
+{"Time":"2026-11-19T23:55:22.000558755Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword/空","Output":"--- PASS: TestValidatePassword/空 (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.000564846Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword/空","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.000569326Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword/七位"}
+{"Time":"2026-11-19T23:55:22.000576276Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword/七位","Output":"=== RUN   TestValidatePassword/七位\n"}
+{"Time":"2026-11-19T23:55:22.000580946Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword/七位","Output":"--- PASS: TestValidatePassword/七位 (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.000585446Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword/七位","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.000589346Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword/八位"}
+{"Time":"2026-11-19T23:55:22.000593226Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword/八位","Output":"=== RUN   TestValidatePassword/八位\n"}
+{"Time":"2026-11-19T23:55:22.000597656Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword/八位","Output":"--- PASS: TestValidatePassword/八位 (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.000601676Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword/八位","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.000606036Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword/八个汉字按字符数而非字节数计"}
+{"Time":"2026-11-19T23:55:22.000610196Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword/八个汉字按字符数而非字节数计","Output":"=== RUN   TestValidatePassword/八个汉字按字符数而非字节数计\n"}
+{"Time":"2026-11-19T23:55:22.000671967Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword/八个汉字按字符数而非字节数计","Output":"--- PASS: TestValidatePassword/八个汉字按字符数而非字节数计 (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.000692396Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword/八个汉字按字符数而非字节数计","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.000722607Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword/三个汉字够_9_字节但只有_3_个字符"}
+{"Time":"2026-11-19T23:55:22.000727157Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword/三个汉字够_9_字节但只有_3_个字符","Output":"=== RUN   TestValidatePassword/三个汉字够_9_字节但只有_3_个字符\n"}
+{"Time":"2026-11-19T23:55:22.000732407Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword/三个汉字够_9_字节但只有_3_个字符","Output":"--- PASS: TestValidatePassword/三个汉字够_9_字节但只有_3_个字符 (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.000739947Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword/三个汉字够_9_字节但只有_3_个字符","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.000747277Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword/72_字节"}
+{"Time":"2026-11-19T23:55:22.000752937Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword/72_字节","Output":"=== RUN   TestValidatePassword/72_字节\n"}
+{"Time":"2026-11-19T23:55:22.001586912Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword/72_字节","Output":"--- PASS: TestValidatePassword/72_字节 (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.001600582Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword/72_字节","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.001606522Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword/73_字节超出_bcrypt_上限"}
+{"Time":"2026-11-19T23:55:22.001611132Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword/73_字节超出_bcrypt_上限","Output":"=== RUN   TestValidatePassword/73_字节超出_bcrypt_上限\n"}
+{"Time":"2026-11-19T23:55:22.001616942Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword/73_字节超出_bcrypt_上限","Output":"--- PASS: TestValidatePassword/73_字节超出_bcrypt_上限 (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.001621542Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword/73_字节超出_bcrypt_上限","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.001626222Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword","Output":"--- PASS: TestValidatePassword (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.001633342Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestValidatePassword","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.001637142Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens"}
+{"Time":"2026-11-19T23:55:22.001641032Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens","Output":"=== RUN   TestChatMentionFrontendGeneratedTokens\n"}
+{"Time":"2026-11-19T23:55:22.002058384Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/finding"}
+{"Time":"2026-11-19T23:55:22.002144715Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/finding","Output":"=== RUN   TestChatMentionFrontendGeneratedTokens/finding\n"}
+{"Time":"2026-11-19T23:55:22.002240946Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/finding","Output":"--- PASS: TestChatMentionFrontendGeneratedTokens/finding (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.002277886Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/finding","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.002334526Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/asset"}
+{"Time":"2026-11-19T23:55:22.002355446Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/asset","Output":"=== RUN   TestChatMentionFrontendGeneratedTokens/asset\n"}
+{"Time":"2026-11-19T23:55:22.002388326Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/asset","Output":"--- PASS: TestChatMentionFrontendGeneratedTokens/asset (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.002603357Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/asset","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.002676958Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/company"}
+{"Time":"2026-11-19T23:55:22.002714358Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/company","Output":"=== RUN   TestChatMentionFrontendGeneratedTokens/company\n"}
+{"Time":"2026-11-19T23:55:22.002734898Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/company","Output":"--- PASS: TestChatMentionFrontendGeneratedTokens/company (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.002782688Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/company","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.002798549Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/endpoint"}
+{"Time":"2026-11-19T23:55:22.002811819Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/endpoint","Output":"=== RUN   TestChatMentionFrontendGeneratedTokens/endpoint\n"}
+{"Time":"2026-11-19T23:55:22.00293098Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/endpoint","Output":"--- PASS: TestChatMentionFrontendGeneratedTokens/endpoint (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.00296384Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/endpoint","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.0030167Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/ip"}
+{"Time":"2026-11-19T23:55:22.00302809Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/ip","Output":"=== RUN   TestChatMentionFrontendGeneratedTokens/ip\n"}
+{"Time":"2026-11-19T23:55:22.0030342Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/ip","Output":"--- PASS: TestChatMentionFrontendGeneratedTokens/ip (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.00303867Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/ip","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.00304309Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/app"}
+{"Time":"2026-11-19T23:55:22.00304656Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/app","Output":"=== RUN   TestChatMentionFrontendGeneratedTokens/app\n"}
+{"Time":"2026-11-19T23:55:22.003051541Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/app","Output":"--- PASS: TestChatMentionFrontendGeneratedTokens/app (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.00306427Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/app","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.00306844Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/root_domain"}
+{"Time":"2026-11-19T23:55:22.003089351Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/root_domain","Output":"=== RUN   TestChatMentionFrontendGeneratedTokens/root_domain\n"}
+{"Time":"2026-11-19T23:55:22.003094921Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/root_domain","Output":"--- PASS: TestChatMentionFrontendGeneratedTokens/root_domain (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.003103071Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/root_domain","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.003107391Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/subdomain"}
+{"Time":"2026-11-19T23:55:22.003111681Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/subdomain","Output":"=== RUN   TestChatMentionFrontendGeneratedTokens/subdomain\n"}
+{"Time":"2026-11-19T23:55:22.003116391Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/subdomain","Output":"--- PASS: TestChatMentionFrontendGeneratedTokens/subdomain (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.003120521Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/subdomain","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.003124281Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/service"}
+{"Time":"2026-11-19T23:55:22.003128111Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/service","Output":"=== RUN   TestChatMentionFrontendGeneratedTokens/service\n"}
+{"Time":"2026-11-19T23:55:22.003134531Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/service","Output":"--- PASS: TestChatMentionFrontendGeneratedTokens/service (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.003141281Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens/service","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.003144451Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens","Output":"--- PASS: TestChatMentionFrontendGeneratedTokens (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.003150251Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionFrontendGeneratedTokens","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.003153151Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility"}
+{"Time":"2026-11-19T23:55:22.003156091Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility","Output":"=== RUN   TestChatMentionEnglishLegacyCompatibility\n"}
+{"Time":"2026-11-19T23:55:22.003158941Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Finding"}
+{"Time":"2026-11-19T23:55:22.003161601Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Finding","Output":"=== RUN   TestChatMentionEnglishLegacyCompatibility/Finding\n"}
+{"Time":"2026-11-19T23:55:22.003165061Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Finding","Output":"--- PASS: TestChatMentionEnglishLegacyCompatibility/Finding (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.003167981Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Finding","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.003170741Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Asset"}
+{"Time":"2026-11-19T23:55:22.003173331Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Asset","Output":"=== RUN   TestChatMentionEnglishLegacyCompatibility/Asset\n"}
+{"Time":"2026-11-19T23:55:22.003176511Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Asset","Output":"--- PASS: TestChatMentionEnglishLegacyCompatibility/Asset (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.003179431Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Asset","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.003182241Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Company"}
+{"Time":"2026-11-19T23:55:22.003184701Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Company","Output":"=== RUN   TestChatMentionEnglishLegacyCompatibility/Company\n"}
+{"Time":"2026-11-19T23:55:22.003187841Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Company","Output":"--- PASS: TestChatMentionEnglishLegacyCompatibility/Company (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.003190641Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Company","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.003193321Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Endpoint"}
+{"Time":"2026-11-19T23:55:22.003197521Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Endpoint","Output":"=== RUN   TestChatMentionEnglishLegacyCompatibility/Endpoint\n"}
+{"Time":"2026-11-19T23:55:22.003200771Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Endpoint","Output":"--- PASS: TestChatMentionEnglishLegacyCompatibility/Endpoint (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.003203582Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Endpoint","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.003206382Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/IP"}
+{"Time":"2026-11-19T23:55:22.003210711Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/IP","Output":"=== RUN   TestChatMentionEnglishLegacyCompatibility/IP\n"}
+{"Time":"2026-11-19T23:55:22.003213942Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/IP","Output":"--- PASS: TestChatMentionEnglishLegacyCompatibility/IP (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.00321788Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/IP","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.003221021Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/App"}
+{"Time":"2026-11-19T23:55:22.003223751Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/App","Output":"=== RUN   TestChatMentionEnglishLegacyCompatibility/App\n"}
+{"Time":"2026-11-19T23:55:22.003227221Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/App","Output":"--- PASS: TestChatMentionEnglishLegacyCompatibility/App (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.003230231Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/App","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.00323312Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Domain"}
+{"Time":"2026-11-19T23:55:22.00323569Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Domain","Output":"=== RUN   TestChatMentionEnglishLegacyCompatibility/Domain\n"}
+{"Time":"2026-11-19T23:55:22.003238921Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Domain","Output":"--- PASS: TestChatMentionEnglishLegacyCompatibility/Domain (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.003241901Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Domain","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.003245621Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Subdomain"}
+{"Time":"2026-11-19T23:55:22.00324833Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Subdomain","Output":"=== RUN   TestChatMentionEnglishLegacyCompatibility/Subdomain\n"}
+{"Time":"2026-11-19T23:55:22.003251791Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Subdomain","Output":"--- PASS: TestChatMentionEnglishLegacyCompatibility/Subdomain (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.003254951Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Subdomain","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.003258291Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Service"}
+{"Time":"2026-11-19T23:55:22.003261661Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Service","Output":"=== RUN   TestChatMentionEnglishLegacyCompatibility/Service\n"}
+{"Time":"2026-11-19T23:55:22.003264901Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Service","Output":"--- PASS: TestChatMentionEnglishLegacyCompatibility/Service (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.003267871Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Service","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.003270991Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility","Output":"--- PASS: TestChatMentionEnglishLegacyCompatibility (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.003274761Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.003278671Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionParsing"}
+{"Time":"2026-11-19T23:55:22.003281581Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionParsing","Output":"=== RUN   TestChatMentionParsing\n"}
+{"Time":"2026-11-19T23:55:22.003285111Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionParsing","Output":"--- PASS: TestChatMentionParsing (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.003287991Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionParsing","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.003290731Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionBoundedJSON"}
+{"Time":"2026-11-19T23:55:22.003293311Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionBoundedJSON","Output":"=== RUN   TestChatMentionBoundedJSON\n"}
+{"Time":"2026-11-19T23:55:22.114421807Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionBoundedJSON","Output":"--- PASS: TestChatMentionBoundedJSON (0.11s)\n"}
+{"Time":"2026-11-19T23:55:22.114460407Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionBoundedJSON","Elapsed":0.11}
+{"Time":"2026-11-19T23:55:22.114488957Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn"}
+{"Time":"2026-11-19T23:55:22.114493667Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn","Output":"=== RUN   TestIsThinkingOnlyTurn\n"}
+{"Time":"2026-11-19T23:55:22.114503327Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/仅思考"}
+{"Time":"2026-11-19T23:55:22.114508467Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/仅思考","Output":"=== RUN   TestIsThinkingOnlyTurn/仅思考\n"}
+{"Time":"2026-11-19T23:55:22.114513437Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/仅思考","Output":"--- PASS: TestIsThinkingOnlyTurn/仅思考 (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.114540467Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/仅思考","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.114545237Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/思考+工具"}
+{"Time":"2026-11-19T23:55:22.114549168Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/思考+工具","Output":"=== RUN   TestIsThinkingOnlyTurn/思考+工具\n"}
+{"Time":"2026-11-19T23:55:22.114557888Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/思考+工具","Output":"--- PASS: TestIsThinkingOnlyTurn/思考+工具 (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.114562197Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/思考+工具","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.114566618Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/思考+正文"}
+{"Time":"2026-11-19T23:55:22.114570187Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/思考+正文","Output":"=== RUN   TestIsThinkingOnlyTurn/思考+正文\n"}
+{"Time":"2026-11-19T23:55:22.114575157Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/思考+正文","Output":"--- PASS: TestIsThinkingOnlyTurn/思考+正文 (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.114579187Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/思考+正文","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.114585458Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/正文只有空白字符"}
+{"Time":"2026-11-19T23:55:22.114589288Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/正文只有空白字符","Output":"=== RUN   TestIsThinkingOnlyTurn/正文只有空白字符\n"}
+{"Time":"2026-11-19T23:55:22.114594128Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/正文只有空白字符","Output":"--- PASS: TestIsThinkingOnlyTurn/正文只有空白字符 (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.114598748Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/正文只有空白字符","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.114602788Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/完全空的_assistant_回合"}
+{"Time":"2026-11-19T23:55:22.114606408Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/完全空的_assistant_回合","Output":"=== RUN   TestIsThinkingOnlyTurn/完全空的_assistant_回合\n"}
+{"Time":"2026-11-19T23:55:22.114618968Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/完全空的_assistant_回合","Output":"--- PASS: TestIsThinkingOnlyTurn/完全空的_assistant_回合 (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.114623268Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/完全空的_assistant_回合","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.114627168Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/最后一条是工具结果"}
+{"Time":"2026-11-19T23:55:22.114630988Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/最后一条是工具结果","Output":"=== RUN   TestIsThinkingOnlyTurn/最后一条是工具结果\n"}
+{"Time":"2026-11-19T23:55:22.114651478Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/最后一条是工具结果","Output":"--- PASS: TestIsThinkingOnlyTurn/最后一条是工具结果 (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.114655758Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/最后一条是工具结果","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.114662018Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/没有_assistant_消息"}
+{"Time":"2026-11-19T23:55:22.114665548Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/没有_assistant_消息","Output":"=== RUN   TestIsThinkingOnlyTurn/没有_assistant_消息\n"}
+{"Time":"2026-11-19T23:55:22.114669958Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/没有_assistant_消息","Output":"--- PASS: TestIsThinkingOnlyTurn/没有_assistant_消息 (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.114674148Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/没有_assistant_消息","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.114678088Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/空历史"}
+{"Time":"2026-11-19T23:55:22.114681998Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/空历史","Output":"=== RUN   TestIsThinkingOnlyTurn/空历史\n"}
+{"Time":"2026-11-19T23:55:22.114686338Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/空历史","Output":"--- PASS: TestIsThinkingOnlyTurn/空历史 (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.114690169Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn/空历史","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.114694308Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn","Output":"--- PASS: TestIsThinkingOnlyTurn (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.114698228Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestIsThinkingOnlyTurn","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.114703769Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn"}
+{"Time":"2026-11-19T23:55:22.114707299Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn","Output":"=== RUN   TestSteerHooksStopNudgesEmptyTurn\n"}
+{"Time":"2026-11-19T23:55:22.114711278Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/空转回合注入续跑指令"}
+{"Time":"2026-11-19T23:55:22.114715539Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/空转回合注入续跑指令","Output":"=== RUN   TestSteerHooksStopNudgesEmptyTurn/空转回合注入续跑指令\n"}
+{"Time":"2026-11-19T23:55:22.114723518Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/空转回合注入续跑指令","Output":"2026/11/19 23:55:22 [work worker-1 · #1] 空转回合(仅思考、无正文无工具)，注入续跑指令 (1/2)\n"}
+{"Time":"2026-11-19T23:55:22.114729499Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/空转回合注入续跑指令","Output":"--- PASS: TestSteerHooksStopNudgesEmptyTurn/空转回合注入续跑指令 (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.114733819Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/空转回合注入续跑指令","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.114738029Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/有正文或工具时不介入"}
+{"Time":"2026-11-19T23:55:22.114741949Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/有正文或工具时不介入","Output":"=== RUN   TestSteerHooksStopNudgesEmptyTurn/有正文或工具时不介入\n"}
+{"Time":"2026-11-19T23:55:22.114750599Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/有正文或工具时不介入","Output":"--- PASS: TestSteerHooksStopNudgesEmptyTurn/有正文或工具时不介入 (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.114754959Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/有正文或工具时不介入","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.114759109Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/达到上限后放行收场"}
+{"Time":"2026-11-19T23:55:22.114763329Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/达到上限后放行收场","Output":"=== RUN   TestSteerHooksStopNudgesEmptyTurn/达到上限后放行收场\n"}
+{"Time":"2026-11-19T23:55:22.114767739Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/达到上限后放行收场","Output":"2026/11/19 23:55:22 [work ] 空转回合(仅思考、无正文无工具)，注入续跑指令 (1/5)\n"}
+{"Time":"2026-11-19T23:55:22.114771969Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/达到上限后放行收场","Output":"2026/11/19 23:55:22 [work ] 空转回合(仅思考、无正文无工具)，注入续跑指令 (2/5)\n"}
+{"Time":"2026-11-19T23:55:22.114776419Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/达到上限后放行收场","Output":"2026/11/19 23:55:22 [work ] 空转回合(仅思考、无正文无工具)，注入续跑指令 (3/5)\n"}
+{"Time":"2026-11-19T23:55:22.114780729Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/达到上限后放行收场","Output":"2026/11/19 23:55:22 [work ] 空转回合(仅思考、无正文无工具)，注入续跑指令 (4/5)\n"}
+{"Time":"2026-11-19T23:55:22.114787069Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/达到上限后放行收场","Output":"2026/11/19 23:55:22 [work ] 空转回合(仅思考、无正文无工具)，注入续跑指令 (5/5)\n"}
+{"Time":"2026-11-19T23:55:22.114791189Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/达到上限后放行收场","Output":"2026/11/19 23:55:22 [work ] 空转回合(仅思考、无正文无工具)已达续跑上限 5，放行收场\n"}
+{"Time":"2026-11-19T23:55:22.114797279Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/达到上限后放行收场","Output":"--- PASS: TestSteerHooksStopNudgesEmptyTurn/达到上限后放行收场 (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.114801389Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/达到上限后放行收场","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.114805749Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/配置关闭时不介入"}
+{"Time":"2026-11-19T23:55:22.114809359Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/配置关闭时不介入","Output":"=== RUN   TestSteerHooksStopNudgesEmptyTurn/配置关闭时不介入\n"}
+{"Time":"2026-11-19T23:55:22.114813809Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/配置关闭时不介入","Output":"--- PASS: TestSteerHooksStopNudgesEmptyTurn/配置关闭时不介入 (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.114817989Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/配置关闭时不介入","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.114821649Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/inner_决定硬停时不叠加"}
+{"Time":"2026-11-19T23:55:22.11482549Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/inner_决定硬停时不叠加","Output":"=== RUN   TestSteerHooksStopNudgesEmptyTurn/inner_决定硬停时不叠加\n"}
+{"Time":"2026-11-19T23:55:22.114830179Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/inner_决定硬停时不叠加","Output":"--- PASS: TestSteerHooksStopNudgesEmptyTurn/inner_决定硬停时不叠加 (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.114834479Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/inner_决定硬停时不叠加","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.114841149Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/inner_已要续跑时不叠加"}
+{"Time":"2026-11-19T23:55:22.114845119Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/inner_已要续跑时不叠加","Output":"=== RUN   TestSteerHooksStopNudgesEmptyTurn/inner_已要续跑时不叠加\n"}
+{"Time":"2026-11-19T23:55:22.11485653Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/inner_已要续跑时不叠加","Output":"--- PASS: TestSteerHooksStopNudgesEmptyTurn/inner_已要续跑时不叠加 (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.1148609Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/inner_已要续跑时不叠加","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.11486533Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/未装计数器时行为不变"}
+{"Time":"2026-11-19T23:55:22.11486898Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/未装计数器时行为不变","Output":"=== RUN   TestSteerHooksStopNudgesEmptyTurn/未装计数器时行为不变\n"}
+{"Time":"2026-11-19T23:55:22.11487359Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/未装计数器时行为不变","Output":"--- PASS: TestSteerHooksStopNudgesEmptyTurn/未装计数器时行为不变 (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.114879319Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn/未装计数器时行为不变","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.11488363Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn","Output":"--- PASS: TestSteerHooksStopNudgesEmptyTurn (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.11488805Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestSteerHooksStopNudgesEmptyTurn","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.11489224Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestResolveRetryUnconfigured"}
+{"Time":"2026-11-19T23:55:22.11489616Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestResolveRetryUnconfigured","Output":"=== RUN   TestResolveRetryUnconfigured\n"}
+{"Time":"2026-11-19T23:55:22.11490086Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestResolveRetryUnconfigured","Output":"--- PASS: TestResolveRetryUnconfigured (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.11490442Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestResolveRetryUnconfigured","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.1149081Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestSameProviderRetryDisabled"}
+{"Time":"2026-11-19T23:55:22.114912Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestSameProviderRetryDisabled","Output":"=== RUN   TestSameProviderRetryDisabled\n"}
+{"Time":"2026-11-19T23:55:22.11492246Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestSameProviderRetryDisabled","Output":"--- PASS: TestSameProviderRetryDisabled (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.11492633Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestSameProviderRetryDisabled","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.11493011Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestRetryRuleClamp"}
+{"Time":"2026-11-19T23:55:22.11495675Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestRetryRuleClamp","Output":"=== RUN   TestRetryRuleClamp\n"}
+{"Time":"2026-11-19T23:55:22.11496126Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestRetryRuleClamp","Output":"--- PASS: TestRetryRuleClamp (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.11496494Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestRetryRuleClamp","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.11496884Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestValidSkillName"}
+{"Time":"2026-11-19T23:55:22.114974851Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestValidSkillName","Output":"=== RUN   TestValidSkillName\n"}
+{"Time":"2026-11-19T23:55:22.114981211Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestValidSkillName","Output":"--- PASS: TestValidSkillName (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.11498515Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestValidSkillName","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.11499059Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestSkillRelPath"}
+{"Time":"2026-11-19T23:55:22.114995531Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestSkillRelPath","Output":"=== RUN   TestSkillRelPath\n"}
+{"Time":"2026-11-19T23:55:22.115001781Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestSkillRelPath","Output":"--- PASS: TestSkillRelPath (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.1150056Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestSkillRelPath","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.115012691Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestUploadSkillZstdAndChineseNames"}
+{"Time":"2026-11-19T23:55:22.11501612Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestUploadSkillZstdAndChineseNames","Output":"=== RUN   TestUploadSkillZstdAndChineseNames\n"}
+{"Time":"2026-11-19T23:55:22.119375235Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestUploadSkillZstdAndChineseNames","Output":"--- PASS: TestUploadSkillZstdAndChineseNames (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.119489085Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestUploadSkillZstdAndChineseNames","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.119508006Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestUploadSkillGBKNames"}
+{"Time":"2026-11-19T23:55:22.119550385Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestUploadSkillGBKNames","Output":"=== RUN   TestUploadSkillGBKNames\n"}
+{"Time":"2026-11-19T23:55:22.122574732Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestUploadSkillGBKNames","Output":"--- PASS: TestUploadSkillGBKNames (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.122594642Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestUploadSkillGBKNames","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.122599142Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestUploadSkillUnsupportedMethod"}
+{"Time":"2026-11-19T23:55:22.122603482Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestUploadSkillUnsupportedMethod","Output":"=== RUN   TestUploadSkillUnsupportedMethod\n"}
+{"Time":"2026-11-19T23:55:22.122607173Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestUploadSkillUnsupportedMethod","Output":"--- PASS: TestUploadSkillUnsupportedMethod (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.122610642Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestUploadSkillUnsupportedMethod","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.122613912Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestUploadSkillEncrypted"}
+{"Time":"2026-11-19T23:55:22.122616762Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestUploadSkillEncrypted","Output":"=== RUN   TestUploadSkillEncrypted\n"}
+{"Time":"2026-11-19T23:55:22.122620352Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestUploadSkillEncrypted","Output":"--- PASS: TestUploadSkillEncrypted (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.122623482Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestUploadSkillEncrypted","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.122626573Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestUploadSkillRejectsTraversal"}
+{"Time":"2026-11-19T23:55:22.122629242Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestUploadSkillRejectsTraversal","Output":"=== RUN   TestUploadSkillRejectsTraversal\n"}
+{"Time":"2026-11-19T23:55:22.122632322Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestUploadSkillRejectsTraversal","Output":"    skill_upload_test.go:230: error = \"Archive contains an invalid path demo/../../evil.sh：invalid path: '..' not allowed\", want Invalid path\n"}
+{"Time":"2026-11-19T23:55:22.122637213Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestUploadSkillRejectsTraversal","Output":"--- FAIL: TestUploadSkillRejectsTraversal (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.122640183Z","Action":"fail","Package":"github.com/Autumn-27/artex/server","Test":"TestUploadSkillRejectsTraversal","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.122643042Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestSkillNameFromFrontmatterQuoted"}
+{"Time":"2026-11-19T23:55:22.122645613Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestSkillNameFromFrontmatterQuoted","Output":"=== RUN   TestSkillNameFromFrontmatterQuoted\n"}
+{"Time":"2026-11-19T23:55:22.122649322Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestSkillNameFromFrontmatterQuoted","Output":"--- PASS: TestSkillNameFromFrontmatterQuoted (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.122652493Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestSkillNameFromFrontmatterQuoted","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.122655383Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestTaskArchivePackageFilesRoundTrip"}
+{"Time":"2026-11-19T23:55:22.122658053Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestTaskArchivePackageFilesRoundTrip","Output":"=== RUN   TestTaskArchivePackageFilesRoundTrip\n"}
+{"Time":"2026-11-19T23:55:22.144329225Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestTaskArchivePackageFilesRoundTrip","Output":"--- PASS: TestTaskArchivePackageFilesRoundTrip (0.02s)\n"}
+{"Time":"2026-11-19T23:55:22.144442916Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestTaskArchivePackageFilesRoundTrip","Elapsed":0.02}
+{"Time":"2026-11-19T23:55:22.144497177Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestTaskArchivePackageSkipsSymlink"}
+{"Time":"2026-11-19T23:55:22.144502266Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestTaskArchivePackageSkipsSymlink","Output":"=== RUN   TestTaskArchivePackageSkipsSymlink\n"}
+{"Time":"2026-11-19T23:55:22.148595049Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestTaskArchivePackageSkipsSymlink","Output":"2026/11/19 23:55:22 [task-archive] 跳过符号链接（归档不支持，不影响其它文件）：/home/iveri/.hermes/cache/scratch/TestTaskArchivePackageSkipsSymlink3038560361/001/payload/link.txt\n"}
+{"Time":"2026-11-19T23:55:22.163202732Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestTaskArchivePackageSkipsSymlink","Output":"--- PASS: TestTaskArchivePackageSkipsSymlink (0.02s)\n"}
+{"Time":"2026-11-19T23:55:22.163289132Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestTaskArchivePackageSkipsSymlink","Elapsed":0.02}
+{"Time":"2026-11-19T23:55:22.163353882Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestTaskArchivePackageRejectsTraversal"}
+{"Time":"2026-11-19T23:55:22.163358602Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestTaskArchivePackageRejectsTraversal","Output":"=== RUN   TestTaskArchivePackageRejectsTraversal\n"}
+{"Time":"2026-11-19T23:55:22.16477787Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestTaskArchivePackageRejectsTraversal","Output":"--- PASS: TestTaskArchivePackageRejectsTraversal (0.00s)\n"}
+{"Time":"2026-11-19T23:55:22.16484823Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestTaskArchivePackageRejectsTraversal","Elapsed":0}
+{"Time":"2026-11-19T23:55:22.164918961Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Output":"FAIL\n"}
+{"Time":"2026-11-19T23:55:22.171700289Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Output":"FAIL\tgithub.com/Autumn-27/artex/server\t0.245s\n"}
+{"Time":"2026-11-19T23:55:22.171746339Z","Action":"fail","Package":"github.com/Autumn-27/artex/server","Elapsed":0.245}

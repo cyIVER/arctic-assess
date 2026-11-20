@@ -1,0 +1,20 @@
+{"Time":"2026-11-20T00:16:21.484494492Z","Action":"start","Package":"github.com/Autumn-27/artex/selfupdate"}
+{"Time":"2026-11-20T00:16:21.491322602Z","Action":"run","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestEnglishUpdateDisabled"}
+{"Time":"2026-11-20T00:16:21.491418882Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestEnglishUpdateDisabled","Output":"=== RUN   TestEnglishUpdateDisabled\n"}
+{"Time":"2026-11-20T00:16:21.491429932Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestEnglishUpdateDisabled","Output":"    english_test.go:3: 在线更新已禁用：本地构建不检查或下载远程版本\n"}
+{"Time":"2026-11-20T00:16:21.491439953Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestEnglishUpdateDisabled","Output":"--- FAIL: TestEnglishUpdateDisabled (0.00s)\n"}
+{"Time":"2026-11-20T00:16:21.491574423Z","Action":"fail","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestEnglishUpdateDisabled","Elapsed":0}
+{"Time":"2026-11-20T00:16:21.491584412Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Output":"FAIL\n"}
+{"Time":"2026-11-20T00:16:21.492511508Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Output":"FAIL\tgithub.com/Autumn-27/artex/selfupdate\t0.007s\n"}
+{"Time":"2026-11-20T00:16:21.492608089Z","Action":"fail","Package":"github.com/Autumn-27/artex/selfupdate","Elapsed":0.008}
+{"Time":"2026-11-20T00:16:23.088303283Z","Action":"start","Package":"github.com/Autumn-27/artex/traffic"}
+{"Time":"2026-11-20T00:16:23.094283128Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestEnglishTrafficSearchContract"}
+{"Time":"2026-11-20T00:16:23.094363398Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestEnglishTrafficSearchContract","Output":"=== RUN   TestEnglishTrafficSearchContract\n"}
+{"Time":"2026-11-20T00:16:23.094373018Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestEnglishTrafficSearchContract","Output":"    english_test.go:3: missing \"host is required\"\n"}
+{"Time":"2026-11-20T00:16:23.094377968Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestEnglishTrafficSearchContract","Output":"    english_test.go:3: missing \"Chinese\"\n"}
+{"Time":"2026-11-20T00:16:23.094381708Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestEnglishTrafficSearchContract","Output":"    english_test.go:3: empty host: host 为必填参数\n"}
+{"Time":"2026-11-20T00:16:23.094390458Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestEnglishTrafficSearchContract","Output":"--- FAIL: TestEnglishTrafficSearchContract (0.00s)\n"}
+{"Time":"2026-11-20T00:16:23.094394478Z","Action":"fail","Package":"github.com/Autumn-27/artex/traffic","Test":"TestEnglishTrafficSearchContract","Elapsed":0}
+{"Time":"2026-11-20T00:16:23.094399258Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Output":"FAIL\n"}
+{"Time":"2026-11-20T00:16:23.095208333Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Output":"FAIL\tgithub.com/Autumn-27/artex/traffic\t0.007s\n"}
+{"Time":"2026-11-20T00:16:23.095231113Z","Action":"fail","Package":"github.com/Autumn-27/artex/traffic","Elapsed":0.007}

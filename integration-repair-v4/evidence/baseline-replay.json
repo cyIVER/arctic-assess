@@ -1,0 +1,13 @@
+{
+  "tests": 2,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "loader_errors": [],
+  "ids": [
+    "before_fix.BeforeFix.test_actual_final_client_accepts18_virtual_seconds",
+    "before_fix.BeforeFix.test_actual_mutual_rejection_after_both_own_positive_controls"
+  ],
+  "successful": true,
+  "runtime_qualified": false
+}

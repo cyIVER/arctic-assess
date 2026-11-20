@@ -1,0 +1,395 @@
+--- v2/README.md
++++ v3/README.md
+@@ -1,4 +1,8 @@
+-# Guest canary v2 — LOCAL qualified, real guest BLOCKED
++# Guest canary v3 — LOCAL corrected candidate, real guest BLOCKED
++
++**v3 authoritative handoff: `V3-REPORT.md`, `GUARD-INTERFACE.md`, `report.json`, `source-identity.json` and `FREEZE.json`.** Run `PYTHONDONTWRITEBYTECODE=1 TMPDIR=/home/iveri/.hermes/cache/scratch python verify_v3.py`. The content below is the preserved inherited v2 design/regression history; its v2 live invocation and admission contract are superseded by v3, not an activation instruction. No real guest proof exists.
++
++## Inherited v2 design and regression history
+ 
+ No runtime activation occurred: no VM/cloud/Docker/mount/target listener/model/credentials/control-plane operations. This is the **literal no-model isolation lane**, never native normal-catalog/async-queue/SQL-membership goal acceptance. Old `../artex-worker-guest-canary` remains immutable; its actual 25-test suite was rerun read-only and all original source hashes + FREEZE were checked.
+ 
+--- v2/driver.py
++++ v3/driver.py
+@@ -19,6 +19,7 @@
+ # No hardcoded forever-INCOMPLETE status. Actual guest evidence must satisfy all.
+ UNIMPLEMENTED=[]
+ REQUIRED_CASES={'environment-proxy','inflight-cancellation','phase-restart','aggregate-output-exhaustion'}
++ALL_REQUIRED_CASES=REQUIRED_CASES|{'confinement','app-data','host-absence','fixture-http','quota-enospc','setsid-success','timeout-setsid','fifo-create','fifo-read','work-ordinary-swap','work-symlink-swap','fixture-ordinary-swap','fixture-symlink-swap'}
+ EXTERNAL_GATES=['current-parent-scope-lease','new-reviewed-proxy-source-helper','independent-code-reviews','fresh-provider-controller-guard','parent-default-docker-quiescence','actual-guest-canary-observations']
+ 
+ def bounded_transport(policy,phase):
+@@ -27,6 +28,7 @@
+ 
+ def inspect_conditions(v):
+     h=v['HostConfig'];cfg=v['Config']
++    need(all(type(h[k]) is int for k in ('PidsLimit','Memory','MemorySwap')),'strict runtime resource integers')
+     need(cfg['User']=='1001:1002' and h['ReadonlyRootfs'] is True,'independent user/rootfs')
+     need(h['NetworkMode']=='none' and h['PidMode']=='private' and h['IpcMode']=='private','independent namespaces')
+     need(h['CapDrop']==['ALL'] and 'no-new-privileges' in h['SecurityOpt'],'independent caps/nnp')
+@@ -145,7 +147,7 @@
+         policy=Policy(image,str(data),1001,1002,c['docker_cli'],c['daemon'])
+         observed=ObservedDriver(bounded_transport(policy,phase),c,r,phase)
+         broker=Broker(policy,[],driver=observed,reviewed=True)
+-        control=ControlServer(str(root/'control.sock'),key,os.getuid(),broker);control.start()
++        control,caller_path,control_path,client_dir,exec_dir=prepare_caller(c,key,broker,ControlServer)
+         binding={'PhaseID':'literal-canary-'+root.name[-12:],'Generation':1,'TaskID':1,'ExplorationID':1,'IntentID':1,'Role':'worker','SessionID':'exp1-worker-i1','ExecutorID':'canary-h2','NetworkPolicyID':'owned-loopback-only'}
+         scope=Scope(binding,str(work),str(fixture),ScopeBudget(phase),quota_bytes=LIMIT)
+         def attach_charge(s):
+@@ -158,9 +160,9 @@
+             guard(c,r,clock()) # real ControlServer/Broker performs budget denial
+             request={'Binding':binding_override or binding,'Tool':tool,'Input':inputs,'ToolUseID':'literal-canary-'+str(len(receipt['canaries']))}
+             receipt.setdefault('requests',[]).append(request) # full public literal payload; never HMAC/key
+-            raw=r.run([c['caller']],timeout=min(20,c['deadline']-clock()),cap=65536,payload=json.dumps({'Socket':str(root/'control.sock'),'Key':base64.b64encode(key).decode(),'Request':request}).encode())
++            raw=call_caller(r,[str(caller_path)],timeout=min(20,c['deadline']-clock()),cap=65536,payload=json.dumps({'Socket':str(control_path),'Key':base64.b64encode(key).decode(),'Request':request}).encode())
+             return json.loads(raw)
+-        normal=probes.requests(origin,port,[str(root/'host-public-private-canary'),str(root/'native-canary.key'),str(root/'control.sock')])
++        normal=probes.requests(origin,port,[str(root/'host-public-private-canary'),str(root/'native-canary.key'),str(control_path),str(caller_path)])
+         normal.append(('environment-proxy','Bash',{'command':probes.environment_proxy(origin)},'json'))
+         for name,tool,inputs,expected in normal:
+             start=len(observed.effects);before_ledger=target.ledger()
+@@ -223,7 +225,7 @@
+         need(scope.quota is scope2.quota,'scope registration reset shared phase quota')
+         receipt['canaries'].append({'name':'aggregate-output-exhaustion','facts':exhaust_output(phase,lambda tool,inputs:call(tool,inputs,binding_override=binding2),observed)})
+         receipt['subset_runtime_observed']=True
+-        receipt['missing_canaries']=sorted(REQUIRED_CASES-{x['name'] for x in receipt['canaries']})
++        receipt['missing_canaries']=sorted(ALL_REQUIRED_CASES-{x['name'] for x in receipt['canaries']})
+         need(not receipt['missing_canaries'],'required runtime canary missing')
+         receipt['status']='OBSERVED_PENDING_CLEANUP'
+     except BaseException as exc:
+@@ -260,7 +262,7 @@
+                 receipt['unmounted']=True
+             except Exception as exc:safe=False;receipt['archive_unmount_error_class']=type(exc).__name__
+         receipt['quarantined']=not safe
+-        receipt['missing_canaries']=sorted(REQUIRED_CASES-{x['name'] for x in receipt['canaries']})
++        receipt['missing_canaries']=sorted(ALL_REQUIRED_CASES-{x['name'] for x in receipt['canaries']})
+         if safe and receipt['status']=='OBSERVED_PENDING_CLEANUP' and receipt.get('unmounted') and receipt.get('old_inventory_preserved'):
+             receipt['status']='COMPLETE';receipt['runtime_proof']=True
+         receipt['commands']=r.events
+@@ -275,7 +277,8 @@
+     if not args.live or not args.config:
+         print(json.dumps({'status':'BLOCKED','reason':'explicit --live plus current parent-approved input required','runtime_proof':False,'unresolved_gates':EXTERNAL_GATES}));return 2
+     try:
+-        c=json.loads(Path(args.config).read_bytes());receipt,rc,retained=run(c)
++        from admission_v3 import protected_json
++        c=protected_json(args.config);receipt,rc,retained=run(c)
+         print(json.dumps({'status':receipt['status'],'receipt':str(Path(c['root'])/'receipt.json'),'runtime_proof':receipt['runtime_proof'],'quarantined':receipt['quarantined']}))
+         if retained:
+             # Parent's external absolute STOP overrides this retention hold.
+--- v2/fixture_service.py
++++ v3/fixture_service.py
+@@ -6,6 +6,15 @@
+ import signal
+ import time
+ from guest import need
++
++def close_child_fds(keep):
++    # proc list is captured before closes; all controller/quota/key descriptors
++    # and stdio are dropped. Retain only the one startup report pipe.
++    for name in os.listdir('/proc/self/fd'):
++        fd=int(name)
++        if fd!=keep:
++            try:os.close(fd)
++            except OSError:pass
+ 
+ class Target:
+     def __init__(self, module_bytes, state):self.module_bytes=module_bytes;self.state=Path(state);self.pid=None
+@@ -17,6 +26,7 @@
+             os.close(r)
+             try:
+                 os.setgroups([]);os.setgid(1002);os.setuid(1001)
++                os.chdir(self.state);close_child_fds(w)
+                 ns={'__name__':'owned_fixture'};exec(compile(self.module_bytes,'owned-fixture-reviewed','exec'),ns)
+                 server=ns['create_server'](('127.0.0.1',0),str(self.state))
+                 os.write(w,json.dumps({'port':server.server_address[1],'uid':os.getuid(),'pid':os.getpid()}).encode()+b'\n');os.close(w)
+--- v2/guest.py
++++ v3/guest.py
+@@ -17,7 +17,8 @@
+ import threading
+ import time
+ 
+-HERE=Path(__file__).resolve().parent
++HERE=Path(os.path.abspath(__file__)).parent
++TRUSTED_UID=0 # Never configured by JSON/environment. Unit tests patch explicitly.
+ BASE='sha256:de6c8e66f6c0a7b34e043dac442d02e0d6e67e009814b78ce73effd51cf32683'
+ PINS='90e5a9a6faae63a033a59c884533d089d868b7ba8850b0cb58c2c2a3110b5af9'
+ HELPER='22b2710376814c792c94962e4d9943125fe387aa7b696664117f102ec3fd8ba1'
+@@ -29,41 +30,58 @@
+ def need(value, reason):
+     if not value: raise Blocked(reason)
+ 
+-def pinned(path, digest, cap=134217728):
+-    need(isinstance(path,str) and Path(path).is_absolute() and str(Path(path))==path,'artifact path')
++def trusted_directory(fd):
++    s=os.fstat(fd)
++    need(stat.S_ISDIR(s.st_mode) and s.st_uid in (0,TRUSTED_UID) and not s.st_mode&0o022,'untrusted artifact ancestry')
++
++def pinned(path, digest, cap=134217728, *, executable=False, elf=False):
++    need(isinstance(path,str) and Path(path).is_absolute() and str(Path(path))==path and '..' not in Path(path).parts,'artifact path')
+     need(isinstance(digest,str) and re.fullmatch('[0-9a-f]{64}',digest),'artifact pin')
+     fd=os.open('/',os.O_RDONLY|os.O_DIRECTORY)
+     try:
++        trusted_directory(fd)
+         for part in Path(path).parts[1:-1]:
+             nxt=os.open(part,os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW,dir_fd=fd); os.close(fd);fd=nxt
++            trusted_directory(fd)
+         leaf=os.open(Path(path).name,os.O_RDONLY|os.O_NOFOLLOW|os.O_NONBLOCK,dir_fd=fd)
+         try:
+             s=os.fstat(leaf)
+-            need(stat.S_ISREG(s.st_mode) and not s.st_mode&0o022 and s.st_size<=cap,'artifact type/mode/size')
++            need(stat.S_ISREG(s.st_mode) and s.st_uid==TRUSTED_UID and s.st_nlink==1 and not s.st_mode&0o022 and s.st_size<=cap,'artifact owner/type/mode/size')
++            need(not executable or bool(s.st_mode&0o111),'artifact not executable')
+             with os.fdopen(leaf,'rb',closefd=False) as f: data=f.read(cap+1)
+             need(len(data)<=cap and hashlib.sha256(data).hexdigest()==digest,'artifact drift')
++            need(not elf or data[:4]==b'\x7fELF','artifact not ELF')
+             return data
+         finally: os.close(leaf)
+     finally: os.close(fd)
+ 
+ def validate_snapshot(c, now, *, current=False):
+     try:
+-        need(c['schema']==1 and c['lane']=='literal-no-model-isolation' and c['vm']==VM,'scope')
++        need(type(c['schema']) is int and c['schema']==1 and c['lane']=='literal-no-model-isolation' and c['vm']==VM,'scope')
++        import math
++        for field in ('created','deadline','external_stop','guard_created','budget_ceiling_usd','spent_usd','reserve_usd'):
++            need(type(c[field]) in (int,float) and math.isfinite(c[field]),'strict finite numeric '+field)
++        for field in ('socket_uid','socket_inode','socket_device'):
++            need(type(c['owner'][field]) is int,'strict socket identity '+field)
+         need(type(c['created']) in (int,float) and type(c['deadline']) in (int,float) and 0<=now-c['created']<=120 and 30<c['deadline']-now<=600,'stale task approval/deadline')
+         need(c['external_stop']>=c['deadline']+30 and 0<c['external_stop']-c['guard_created']<=3600 and c['guard_created']<=now,'absolute STOP')
+         need(c['budget_ceiling_usd']==2 and 0<=c['spent_usd'] and c['spent_usd']+c['reserve_usd']<=2 and c['reserve_usd']>=.50,'cost headroom')
+         need(c['daemon']==DAEMON and c['baseline_image']==BASE and c.get('pause_default_service',False) is False,'daemon/base/service authority')
+         need(re.fullmatch('/run/artex-canary-[a-f0-9]{12}',c['root']) and not Path(c['root']).exists(),'fresh short root')
++        if current:
++            nonce=c['root'][-12:]
++            need(not any(os.path.lexists(p) for p in (c['root'],'/run/artex-client-'+nonce,'/run/artex-exec-'+nonce,'/run/artex-target-'+nonce)),'all guest staging paths must be fresh')
+         need(c['owner']['socket_uid']==os.getuid() and c['owner']['socket_inode']>0 and c['owner']['socket_device']>=0,'daemon owner')
+         need(set(c['inventory'])=={'containers','images','volumes'} and all(isinstance(v,list) and len(v)==len(set(v)) for v in c['inventory'].values()),'inventory IDs')
+         need([len(c['inventory'][k]) for k in ('containers','images','volumes')]==[9,44,4],'standing inventory cardinality')
+         handles=c['reviews']; need(set(handles)=={'source','host','helper','orchestrator','caller','guard','fixture'},'all review handles required')
+         if current:
+-            from admission_v2 import require_current
++            from admission_v3 import require_current
+             require_current(c)
+         for kind,h in handles.items():
+             pinned(h['path'],h['sha256'])
+             r=json.loads(pinned(h['review_path'],h['review_sha256'],1048576))
++            need(all(type(r.get(k)) in (int,float) for k in ('created','deadline')),'strict review timestamps')
+             expected={'status':'approved','kind':kind,'object_sha256':h['sha256'],'vm':VM,'created':c['created'],'deadline':c['deadline']}
+             if current:expected.update(parent_scope_lease=c['parent_scope_lease']['handle'],code_review_handle=r.get('code_review_handle'))
+             need(r==expected,'unapproved/current object review')
+@@ -80,9 +98,9 @@
+         allowed_dependencies={'vendor/runtime.py','vendor/lifecycle.py'}
+         for name,digest in own.items():
+             need(Path(name).name==name or name in allowed_dependencies,'own manifest name')
+-            pinned(str((HERE/name).resolve()),digest)
++            pinned(str(HERE/name),digest)
+         need({'guest.py','probes.py','driver.py','fixture_service.py','reviewed_imports.py','image_stage.py'}|allowed_dependencies<=set(own),'own source coverage')
+-        if current:need({'v2_cases.py','admission_v2.py','restart_probe.py','bounded_transport.py','caller.go'}<=set(own),'v2 source coverage')
++        if current:need({'v2_cases.py','admission_v3.py','restart_probe.py','bounded_transport.py','caller.go'}<=set(own),'v3 source coverage')
+         need(c['reviews']['caller']['path']==c['caller'] and c['reviews']['guard']['path']==c['guard_status'] and c['reviews']['fixture']['path']==c['fixture_module'],'review executable binding')
+         need(c['docker_cli'].startswith('/') and c['python'].startswith('/'),'absolute executables')
+         return c
+@@ -95,9 +113,10 @@
+ class Runner:
+     """Bounded commands; clean environment; stdin never retained in command receipts."""
+     def __init__(self): self.events=[]
+-    def run(self, argv, *, timeout=3, cap=131072, payload=b'', env=None):
+-        need(0<timeout<=120 and 0<cap<=1048576,'caller bounds')
+-        p=subprocess.Popen(argv,stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE,start_new_session=True,env=env or {'PATH':'/usr/bin:/bin','HOME':'/nonexistent','LANG':'C'})
++    def run(self, argv, *, timeout=3, cap=131072, payload=b'', env=None, caller=False):
++        need(type(caller) is bool and type(timeout) in (int,float) and type(cap) is int and 0<timeout<=120 and 0<cap<=1048576,'caller bounds')
++        identity={'user':1001,'group':1002,'extra_groups':[]} if caller else {}
++        p=subprocess.Popen(argv,stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE,start_new_session=True,close_fds=True,cwd='/',env=env or {'PATH':'/usr/bin:/bin','HOME':'/nonexistent','LANG':'C'},**identity)
+         end=time.monotonic()+timeout; out=bytearray();err=bytearray();pending=memoryview(payload);sel=selectors.DefaultSelector()
+         try:
+             for stream in (p.stdin,p.stdout,p.stderr):os.set_blocking(stream.fileno(),False)
+@@ -130,10 +149,31 @@
+             p.wait()
+             for s in (p.stdin,p.stdout,p.stderr):s.close()
+ 
++def call_caller(runner,argv,**kwargs):
++    return runner.run(argv,caller=True,**kwargs)
++
++def prepare_caller(c,key,broker,server_type):
++    """Guest-root only, fresh root-controlled public executable and UDS trees."""
++    nonce=Path(c['root']).name[-12:]
++    client=Path('/run/artex-client-'+nonce);public=Path('/run/artex-exec-'+nonce)
++    # Exclusive mkdir, never chmod/chown an existing path.
++    client.mkdir(mode=0o711);public.mkdir(mode=0o755)
++    os.chmod(client,0o711);os.chmod(public,0o755)
++    need(client.stat().st_uid==TRUSTED_UID and public.stat().st_uid==TRUSTED_UID,'caller root-controlled staging')
++    executable=public/'caller'
++    with executable.open('xb') as f:
++        f.write(pinned(c['caller'],c['reviews']['caller']['sha256']));f.flush();os.fsync(f.fileno());os.fchmod(f.fileno(),0o555)
++    pinned(str(executable),c['reviews']['caller']['sha256'])
++    sock=client/'control.sock';control=server_type(str(sock),key,1001,broker);control.start()
++    os.chown(sock,1001,1002);os.chmod(sock,0o600)
++    return control,executable,sock,client,public
++
+ def guard(c,runner,now):
+     need(now<c['deadline'] and now<c['external_stop'],'deadline ended')
+-    status=json.loads(runner.run([c['guard_status'],'--status'],timeout=2,cap=8192))
++    status=json.loads(runner.run([c['guard_status'],'--status'],timeout=min(12,c['deadline']-now),cap=8192))
+     need(status.get('alive') is True,'typed live-controller status')
++    need(all(type(status.get(k)) in (int,float) for k in ('stop_at','guard_created')),'typed guard timestamps')
++    if 'preflight' in c:need(status.get('default_docker_quiescent') is True,'typed daemon proof')
+     expected={'alive':True,'provider_state':'RUNNING','vm':VM,'stop_at':c['external_stop'],'controller_id':c['controller_id'],'guard_created':c['guard_created']}
+     if 'preflight' in c:expected.update(default_docker_quiescent=True,preflight_checkpoint_sha256=c['preflight']['sha256'])
+     need(status==expected,'independent stop-controller/provider/default-quiescence readback')
+@@ -159,31 +199,43 @@
+ def checkpoint(work,archive):
+     """Archive only ordinary valuable workspace leaves; no socket or fixture tree."""
+     work=Path(work); archive=Path(archive);need(work not in archive.parents,'archive outside quota')
+-    expected={};total=0
+-    # Workers are already settled and admission permanently fenced by caller.
+-    with archive.open('xb') as f:
+-        os.chmod(archive,0o600)
+-        with tarfile.open(fileobj=f,mode='w',format=tarfile.USTAR_FORMAT) as t:
+-            for p in sorted(work.rglob('*')):
+-                s=p.lstat();need(not stat.S_ISLNK(s.st_mode),'archive symlink')
+-                if stat.S_ISDIR(s.st_mode):continue
+-                need(stat.S_ISREG(s.st_mode) and s.st_nlink==1,'archive special file')
+-                total+=s.st_size;need(total<=LIMIT,'archive 64MiB cap')
+-                data=p.read_bytes();name=str(p.relative_to(work));expected[name]=hashlib.sha256(data).hexdigest()
+-                import io
+-                ti=tarfile.TarInfo(name);ti.size=len(data);ti.mode=0o600;t.addfile(ti,io.BytesIO(data))
+-        f.flush();os.fsync(f.fileno())
+-    need(archive.stat().st_size<=LIMIT,'archive file exceeds 64MiB')
+-    got={}
+-    with tarfile.open(archive,'r:') as t:
+-        for member in t:
+-            need(member.isfile() and member.name not in got and not Path(member.name).is_absolute() and '..' not in Path(member.name).parts,'archive member')
+-            got[member.name]=hashlib.sha256(t.extractfile(member).read()).hexdigest()
+-    need(got==expected,'archive readback mismatch')
++    expected={};total=0;got={}
++    # Caller has fenced admission and settled all containers before entry.
++    rootfd=os.open(work,os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW)
++    try:
++        with archive.open('x+b') as f:
++            os.fchmod(f.fileno(),0o600)
++            with tarfile.open(fileobj=f,mode='w',format=tarfile.USTAR_FORMAT) as t:
++                for directory,dirs,files,dfd in os.fwalk('.',dir_fd=rootfd,follow_symlinks=False):
++                    for name in dirs:
++                        need(stat.S_ISDIR(os.stat(name,dir_fd=dfd,follow_symlinks=False).st_mode),'archive directory symlink')
++                    for leafname in sorted(files):
++                        before=os.stat(leafname,dir_fd=dfd,follow_symlinks=False)
++                        need(stat.S_ISREG(before.st_mode) and before.st_nlink==1,'archive special file')
++                        fd=os.open(leafname,os.O_RDONLY|os.O_NOFOLLOW|os.O_NONBLOCK,dir_fd=dfd)
++                        try:
++                            s=os.fstat(fd)
++                            need(stat.S_ISREG(s.st_mode) and s.st_nlink==1 and (s.st_dev,s.st_ino)==(before.st_dev,before.st_ino),'archive leaf identity')
++                            total+=s.st_size;need(total<=LIMIT,'archive 64MiB cap')
++                            with os.fdopen(fd,'rb',closefd=False) as src:data=src.read(s.st_size+1)
++                            after=os.fstat(fd);leaf=os.stat(leafname,dir_fd=dfd,follow_symlinks=False)
++                            need(len(data)==s.st_size and (after.st_dev,after.st_ino,after.st_size,after.st_mtime_ns,after.st_ctime_ns)==(s.st_dev,s.st_ino,s.st_size,s.st_mtime_ns,s.st_ctime_ns) and (leaf.st_dev,leaf.st_ino)==(s.st_dev,s.st_ino) and after.st_nlink==1,'archive leaf changed')
++                        finally:os.close(fd)
++                        name=str(Path(directory)/leafname);expected[name]=hashlib.sha256(data).hexdigest()
++                        import io
++                        ti=tarfile.TarInfo(name);ti.size=len(data);ti.mode=0o600;t.addfile(ti,io.BytesIO(data))
++            f.flush();os.fsync(f.fileno());need(os.fstat(f.fileno()).st_size<=LIMIT,'archive file exceeds 64MiB')
++            f.seek(0)
++            with tarfile.open(fileobj=f,mode='r:') as t:
++                for member in t:
++                    need(member.isfile() and member.name not in got and not Path(member.name).is_absolute() and '..' not in Path(member.name).parts,'archive member')
++                    got[member.name]=hashlib.sha256(t.extractfile(member).read()).hexdigest()
++            need(got==expected,'archive readback mismatch');f.seek(0);archive_hash=hashlib.sha256(f.read()).hexdigest()
++    finally:os.close(rootfd)
+     d=os.open(archive.parent,os.O_RDONLY|os.O_DIRECTORY)
+     try:os.fsync(d)
+     finally:os.close(d)
+-    return {'members':got,'bytes':total,'archive_sha256':hashlib.sha256(archive.read_bytes()).hexdigest()}
++    return {'members':got,'bytes':total,'archive_sha256':archive_hash}
+ 
+ def save(path,value):
+     with open(path,'x') as f:os.chmod(path,0o600);json.dump(value,f,sort_keys=True,indent=2);f.flush();os.fsync(f.fileno())
+--- v2/probes.py
++++ v3/probes.py
+@@ -34,22 +34,31 @@
+ print(json.dumps({'absent_paths':paths,'host_public_env_absent':True,'forbidden_mounts':[]}))
+ '''
+ QUOTA=r'''
+-import os,errno,json,time
++import os,errno,json,time,sys,stat
+ names=[];n=0;enospc=False;end=time.monotonic()+4
+ try:
+  for i in range(20):
+   assert time.monotonic()<end
+-  name='/work/canary-fill-%02d'%i;names.append(name)
++  name='/work/canary-fill-%02d'%i
+   with open(name,'xb',buffering=0) as f:
++   owned=os.fstat(f.fileno());names.append((name,owned.st_dev,owned.st_ino))
+    for j in range(7):
+     b=b'x'*1048576
+     while b:
+      w=f.write(b);n+=w;b=b[w:]
+ except OSError as e:
+- assert e.errno==errno.ENOSPC;enospc=True
++ if e.errno!=errno.ENOSPC:raise
++ enospc=True
+ finally:
+- for name in names:
+-  if os.path.exists(name):os.unlink(name)
++ original_error=sys.exc_info()[0];cleanup_errors=[]
++ for name,dev,ino in names:
++  try:
++   s=os.stat(name,follow_symlinks=False)
++   if not stat.S_ISREG(s.st_mode) or (s.st_dev,s.st_ino)!=(dev,ino):raise RuntimeError('filler replaced; refusing unlink')
++   os.unlink(name)
++  except FileNotFoundError:pass
++  except BaseException as e:cleanup_errors.append(e)
++ if cleanup_errors and original_error is None:raise cleanup_errors[0]
+ assert enospc and n<67108864 and n>50331648
+ assert os.statvfs('/work').f_blocks*os.statvfs('/work').f_frsize==67108864
+ print(json.dumps({'enospc':enospc,'bytes_written':n,'remaining_fillers':[x for x in os.listdir('/work') if x.startswith('canary-fill-')],'capacity':67108864}))
+@@ -114,7 +123,7 @@
+  return [('confinement','Bash',{'command':command(CONFINEMENT)},'json'),('app-data','Bash',{'command':command(APPDATA)},'json'),('host-absence','Bash',{'command':command(absence)},'json'),('fixture-http','Bash',{'command':http_probe(origin,port)},'json'),('quota-enospc','Bash',{'command':command(QUOTA)},'json'),('setsid-success','Bash',{'command':SETSID},'json'),('timeout-setsid','Bash',{'command':"setsid sh -c 'sleep 60' >/dev/null 2>&1 & sleep 60",'timeout_ms':1000},'error-or-outer-timeout'),('fifo-create','Bash',{'command':command(FIFO)},'json'),('fifo-read','Read',{'file_path':'/work/canary-fifo'},'outer-timeout')]
+ 
+ def facts(result, expected):
+- if not isinstance(result,dict) or result.get('version')!=1:raise ValueError('result envelope')
++ if not isinstance(result,dict) or type(result.get('version')) is not int or result.get('version')!=1:raise ValueError('result envelope')
+  r=result['result']
+  if expected=='error':
+   if r['IsError'] is not True:raise ValueError('expected tool error')
+--- v2/reviewed_imports.py
++++ v3/reviewed_imports.py
+@@ -20,5 +20,5 @@
+         module('hostbroker' if name=='__init__' else 'hostbroker.'+name,path,pinned(str(path),manifest['host'][rel]),name=='__init__')
+     own=json.loads(pinned(c['reviews']['orchestrator']['path'],c['reviews']['orchestrator']['sha256']))
+     for name in ('runtime','lifecycle'):
+-        rel='vendor/'+name+'.py';path=(HERE/rel).resolve()
++        rel='vendor/'+name+'.py';path=HERE/rel
+         module(name,path,pinned(str(path),own[rel]))
+--- v2/stage_reviewed.py
++++ v3/stage_reviewed.py
+@@ -10,16 +10,26 @@
+ def stage(original,destination,manifest_sha256=PINS,helper_sha256=HELPER):
+     original=Path(original);destination=Path(destination)
+     def read(path,digest):
+-        fd=os.open(path,os.O_RDONLY|os.O_NOFOLLOW|os.O_NONBLOCK)
++        need(path.is_absolute() and '..' not in path.parts,'stage absolute source path')
++        parent=os.open('/',os.O_RDONLY|os.O_DIRECTORY)
++        try:
++            for part in path.parts[1:-1]:
++                nxt=os.open(part,os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW,dir_fd=parent);os.close(parent);parent=nxt
++            fd=os.open(path.name,os.O_RDONLY|os.O_NOFOLLOW|os.O_NONBLOCK,dir_fd=parent)
++        finally:os.close(parent)
+         try:
+             s=os.fstat(fd);need(stat.S_ISREG(s.st_mode) and s.st_size<=134217728,'stage input type/size')
+             with os.fdopen(fd,'rb',closefd=False) as f:b=f.read(134217729)
+             need(hashlib.sha256(b).hexdigest()==digest,'stage input digest');return b
+         finally:os.close(fd)
+     raw=read(original/'receipts/final-pins.json',manifest_sha256);manifest=json.loads(raw)
+-    destination.mkdir(mode=0o700) # no existing destination overwrite
++    destination.mkdir(mode=0o700);os.chmod(destination,0o700) # fresh only
+     def write(path,b,mode=0o644):
+-        path.parent.mkdir(parents=True,exist_ok=True,mode=0o700)
++        parent=destination
++        for part in path.relative_to(destination).parts[:-1]:
++            parent=parent/part
++            if not parent.exists():parent.mkdir(mode=0o700);os.chmod(parent,0o700)
++            need(not parent.is_symlink() and parent.is_dir() and not parent.stat().st_mode&0o022,'stage destination ancestry')
+         with path.open('xb') as f:os.chmod(path,mode);f.write(b);f.flush();os.fsync(f.fileno())
+     for group in ('source','host'):
+         need(isinstance(manifest[group],dict) and bool(manifest[group]),'reviewed manifest members')

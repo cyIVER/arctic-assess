@@ -1,0 +1,9 @@
+{
+  "scope": "UNIT_ONLY_CONTRACT_NO_AUTHORITY",
+  "v3_checkpoint_accepted_by_actual_v3_predicate": true,
+  "v3_checkpoint_guard_denial": "preflight stale/scope",
+  "guard_ready_checkpoint_accepted_by_actual_v3_predicate": false,
+  "external_commands": [],
+  "defect": "The same context-bound preflight path/hash cannot satisfy both contracts.",
+  "admission_source_sha256": "5aefde551ac5f900400c520162a2e582d5903a8cce2dac22ad6e9d8dc21a4387"
+}

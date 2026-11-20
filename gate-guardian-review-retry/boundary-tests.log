@@ -1,0 +1,8 @@
+test_actual_guest_timeout_limited_by_remaining_phase_deadline (__main__.BoundaryTests.test_actual_guest_timeout_limited_by_remaining_phase_deadline) ... ok
+test_client10_is_not_an_end_to_end10_second_deadline (__main__.BoundaryTests.test_client10_is_not_an_end_to_end10_second_deadline) ... ok
+test_real_vps_status_shape_matches_actual_guest_guard_and_timeout12 (__main__.BoundaryTests.test_real_vps_status_shape_matches_actual_guest_guard_and_timeout12) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.007s
+
+OK

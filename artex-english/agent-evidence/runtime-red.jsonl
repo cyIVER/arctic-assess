@@ -1,0 +1,9 @@
+{"Time":"2026-11-20T00:03:07.897135446Z","Action":"start","Package":"github.com/Autumn-27/artex/agent"}
+{"Time":"2026-11-20T00:03:07.905069571Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishRuntimeGuidancePreservesUnicode"}
+{"Time":"2026-11-20T00:03:07.905103201Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishRuntimeGuidancePreservesUnicode","Output":"=== RUN   TestEnglishRuntimeGuidancePreservesUnicode\n"}
+{"Time":"2026-11-20T00:03:07.905134261Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishRuntimeGuidancePreservesUnicode","Output":"    english_prompts_test.go:62: built-in prompt contains untranslated prose: \"\\n\\n【你领到的意图（本次唯一任务：只做这一条、只产生事实、做完即停）】：\\n{\\\"summary\\\":\\\"evidence\\\"}\\n意图 id: 11（写回 record_fact / report_finding 时传它）\"\n"}
+{"Time":"2026-11-20T00:03:07.905150491Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishRuntimeGuidancePreservesUnicode","Output":"--- FAIL: TestEnglishRuntimeGuidancePreservesUnicode (0.00s)\n"}
+{"Time":"2026-11-20T00:03:07.905156381Z","Action":"fail","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishRuntimeGuidancePreservesUnicode","Elapsed":0}
+{"Time":"2026-11-20T00:03:07.905162941Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Output":"FAIL\n"}
+{"Time":"2026-11-20T00:03:07.90666873Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Output":"FAIL\tgithub.com/Autumn-27/artex/agent\t0.009s\n"}
+{"Time":"2026-11-20T00:03:07.90670702Z","Action":"fail","Package":"github.com/Autumn-27/artex/agent","Elapsed":0.01}

@@ -1,0 +1,575 @@
+{
+  "status": "PARTIAL: generated runtime/API/default prose translated; comments and test prose remain",
+  "changed_path_count": 43,
+  "changed_paths": [
+    "server/assembly.go",
+    "server/asset_intercept.go",
+    "server/constraints_api.go",
+    "server/conversations.go",
+    "server/customtool.go",
+    "server/engine.go",
+    "server/engine_timeout.go",
+    "server/finding_retests.go",
+    "server/finding_traffic.go",
+    "server/finding_workflow.go",
+    "server/findings_groups.go",
+    "server/findings_groups_test.go",
+    "server/goals.go",
+    "server/goals_api.go",
+    "server/intent_intervention.go",
+    "server/intercept.go",
+    "server/llmpool.go",
+    "server/llmretry.go",
+    "server/llmretry_test.go",
+    "server/manager.go",
+    "server/mcpdiscover.go",
+    "server/native_reporter.go",
+    "server/notifier.go",
+    "server/notify_api.go",
+    "server/notify_api_test.go",
+    "server/orchestration.go",
+    "server/platform_tools.go",
+    "server/runtime_english_test.go",
+    "server/scheduler.go",
+    "server/server.go",
+    "server/server_mgmt.go",
+    "server/side_questions.go",
+    "server/sync_scopesentry.go",
+    "server/task_archive_package.go",
+    "server/task_assets.go",
+    "server/task_control.go",
+    "server/task_intercept.go",
+    "server/task_llm.go",
+    "server/task_metadata.go",
+    "server/trigger_merge_test.go",
+    "server/triggers.go",
+    "server/webui_embed.go",
+    "server/webui_stub.go"
+  ],
+  "tests": {
+    "command": [
+      "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+      "test",
+      "-p",
+      "2",
+      "-json",
+      "./server",
+      "-run",
+      "^Test(RuntimeEnglish|ChatMention|Merge|FinalTrigger|TaskContext|UploadSkill|ValidatePassword|Auth|Skill|Update|TaskLLM|LLMRetry|Intercept)",
+      "-count=1",
+      "-timeout=90s"
+    ],
+    "environment": {
+      "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+      "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "GOFLAGS": "-mod=readonly"
+    },
+    "returncode": 0,
+    "top_level": {
+      "pass": 38,
+      "fail": 0,
+      "skip": 11
+    },
+    "subtests": {
+      "pass": 39,
+      "fail": 0,
+      "skip": 0
+    },
+    "package_failures": [],
+    "tests": [
+      {
+        "name": "TestAuthStatusFailsClosedWhenDataSourceUnavailable",
+        "action": "skip"
+      },
+      {
+        "name": "TestAuthInitFailsClosedWhenDataSourceUnavailable",
+        "action": "skip"
+      },
+      {
+        "name": "TestValidatePassword/空",
+        "action": "pass"
+      },
+      {
+        "name": "TestValidatePassword/七位",
+        "action": "pass"
+      },
+      {
+        "name": "TestValidatePassword/八位",
+        "action": "pass"
+      },
+      {
+        "name": "TestValidatePassword/八个汉字按字符数而非字节数计",
+        "action": "pass"
+      },
+      {
+        "name": "TestValidatePassword/三个汉字够_9_字节但只有_3_个字符",
+        "action": "pass"
+      },
+      {
+        "name": "TestValidatePassword/72_字节",
+        "action": "pass"
+      },
+      {
+        "name": "TestValidatePassword/73_字节超出_bcrypt_上限",
+        "action": "pass"
+      },
+      {
+        "name": "TestValidatePassword",
+        "action": "pass"
+      },
+      {
+        "name": "TestChatMentionFrontendGeneratedTokens/finding",
+        "action": "pass"
+      },
+      {
+        "name": "TestChatMentionFrontendGeneratedTokens/asset",
+        "action": "pass"
+      },
+      {
+        "name": "TestChatMentionFrontendGeneratedTokens/company",
+        "action": "pass"
+      },
+      {
+        "name": "TestChatMentionFrontendGeneratedTokens/endpoint",
+        "action": "pass"
+      },
+      {
+        "name": "TestChatMentionFrontendGeneratedTokens/ip",
+        "action": "pass"
+      },
+      {
+        "name": "TestChatMentionFrontendGeneratedTokens/app",
+        "action": "pass"
+      },
+      {
+        "name": "TestChatMentionFrontendGeneratedTokens/root_domain",
+        "action": "pass"
+      },
+      {
+        "name": "TestChatMentionFrontendGeneratedTokens/subdomain",
+        "action": "pass"
+      },
+      {
+        "name": "TestChatMentionFrontendGeneratedTokens/service",
+        "action": "pass"
+      },
+      {
+        "name": "TestChatMentionFrontendGeneratedTokens",
+        "action": "pass"
+      },
+      {
+        "name": "TestChatMentionEnglishLegacyCompatibility/Finding",
+        "action": "pass"
+      },
+      {
+        "name": "TestChatMentionEnglishLegacyCompatibility/Asset",
+        "action": "pass"
+      },
+      {
+        "name": "TestChatMentionEnglishLegacyCompatibility/Company",
+        "action": "pass"
+      },
+      {
+        "name": "TestChatMentionEnglishLegacyCompatibility/Endpoint",
+        "action": "pass"
+      },
+      {
+        "name": "TestChatMentionEnglishLegacyCompatibility/IP",
+        "action": "pass"
+      },
+      {
+        "name": "TestChatMentionEnglishLegacyCompatibility/App",
+        "action": "pass"
+      },
+      {
+        "name": "TestChatMentionEnglishLegacyCompatibility/Domain",
+        "action": "pass"
+      },
+      {
+        "name": "TestChatMentionEnglishLegacyCompatibility/Subdomain",
+        "action": "pass"
+      },
+      {
+        "name": "TestChatMentionEnglishLegacyCompatibility/Service",
+        "action": "pass"
+      },
+      {
+        "name": "TestChatMentionEnglishLegacyCompatibility",
+        "action": "pass"
+      },
+      {
+        "name": "TestChatMentionParsing",
+        "action": "pass"
+      },
+      {
+        "name": "TestChatMentionPagination",
+        "action": "skip"
+      },
+      {
+        "name": "TestChatMentionWorkerReceivesServerDetails",
+        "action": "skip"
+      },
+      {
+        "name": "TestChatMentionBoundedJSON",
+        "action": "pass"
+      },
+      {
+        "name": "TestChatMentionCatalogAndContext",
+        "action": "skip"
+      },
+      {
+        "name": "TestChatMentionConversationReceivesServerDetails",
+        "action": "skip"
+      },
+      {
+        "name": "TestInterceptDetailHTTP",
+        "action": "skip"
+      },
+      {
+        "name": "TestInterceptFilterHTTP",
+        "action": "skip"
+      },
+      {
+        "name": "TestSkillTools",
+        "action": "pass"
+      },
+      {
+        "name": "TestRuntimeEnglishApprovalCompatibility",
+        "action": "pass"
+      },
+      {
+        "name": "TestRuntimeEnglishTaskContext",
+        "action": "pass"
+      },
+      {
+        "name": "TestRuntimeEnglishValidation/exact_ip",
+        "action": "pass"
+      },
+      {
+        "name": "TestRuntimeEnglishValidation/cidr",
+        "action": "pass"
+      },
+      {
+        "name": "TestRuntimeEnglishValidation/unknown",
+        "action": "pass"
+      },
+      {
+        "name": "TestRuntimeEnglishValidation",
+        "action": "pass"
+      },
+      {
+        "name": "TestRuntimeEnglishToolDescriptions/create_skill",
+        "action": "pass"
+      },
+      {
+        "name": "TestRuntimeEnglishToolDescriptions/update_skill_file",
+        "action": "pass"
+      },
+      {
+        "name": "TestRuntimeEnglishToolDescriptions/create_custom_tool",
+        "action": "pass"
+      },
+      {
+        "name": "TestRuntimeEnglishToolDescriptions/update_custom_tool",
+        "action": "pass"
+      },
+      {
+        "name": "TestRuntimeEnglishToolDescriptions/create_mcp",
+        "action": "pass"
+      },
+      {
+        "name": "TestRuntimeEnglishToolDescriptions/update_mcp",
+        "action": "pass"
+      },
+      {
+        "name": "TestRuntimeEnglishToolDescriptions/delete_assets_by_host",
+        "action": "pass"
+      },
+      {
+        "name": "TestRuntimeEnglishToolDescriptions",
+        "action": "pass"
+      },
+      {
+        "name": "TestRuntimeEnglishTruncationPreservesUnicode",
+        "action": "pass"
+      },
+      {
+        "name": "TestSkillRelPath",
+        "action": "pass"
+      },
+      {
+        "name": "TestUploadSkillZstdAndChineseNames",
+        "action": "pass"
+      },
+      {
+        "name": "TestUploadSkillGBKNames",
+        "action": "pass"
+      },
+      {
+        "name": "TestUploadSkillUnsupportedMethod",
+        "action": "pass"
+      },
+      {
+        "name": "TestUploadSkillEncrypted",
+        "action": "pass"
+      },
+      {
+        "name": "TestUploadSkillRejectsTraversal",
+        "action": "pass"
+      },
+      {
+        "name": "TestSkillNameFromFrontmatterQuoted",
+        "action": "pass"
+      },
+      {
+        "name": "TestTaskLLMResolutionRejectsInvalidExplicitProfile",
+        "action": "skip"
+      },
+      {
+        "name": "TestTaskLLMResolutionPrefersAgentBindingOverTaskChain",
+        "action": "skip"
+      },
+      {
+        "name": "TestTaskLLMResolutionReportsDatabaseFailure",
+        "action": "skip"
+      },
+      {
+        "name": "TestTaskLLMStreamDoesNotSwitchForOrdinaryErrors/openai:_status_429:_rate_limit_exceeded",
+        "action": "pass"
+      },
+      {
+        "name": "TestTaskLLMStreamDoesNotSwitchForOrdinaryErrors/openai:_status_401:_invalid_api_key",
+        "action": "pass"
+      },
+      {
+        "name": "TestTaskLLMStreamDoesNotSwitchForOrdinaryErrors/openai:_status_500:_internal_server_error",
+        "action": "pass"
+      },
+      {
+        "name": "TestTaskLLMStreamDoesNotSwitchForOrdinaryErrors/dial_tcp:_network_is_unreachable",
+        "action": "pass"
+      },
+      {
+        "name": "TestTaskLLMStreamDoesNotSwitchForOrdinaryErrors",
+        "action": "pass"
+      },
+      {
+        "name": "TestTaskLLMRuntimeErrorSkipsWorkerReplay",
+        "action": "pass"
+      },
+      {
+        "name": "TestTaskLLMStreamRetriesTransientPreCommitOnSameProvider",
+        "action": "pass"
+      },
+      {
+        "name": "TestTaskLLMStreamSurfacesTransientAfterRetriesExhausted",
+        "action": "pass"
+      },
+      {
+        "name": "TestTaskLLMStreamDoesNotRetryDeterministicRejection",
+        "action": "pass"
+      },
+      {
+        "name": "TestMergeAllRunsWritesTaskGoalOnce",
+        "action": "pass"
+      },
+      {
+        "name": "TestMergeAllRunsGroupsInterleavedTasks",
+        "action": "pass"
+      },
+      {
+        "name": "TestMergeTriggeredRunsWritesTaskGoalOnce",
+        "action": "pass"
+      },
+      {
+        "name": "TestFinalTriggerMessageSingleFirePrependsHeaderOnce",
+        "action": "pass"
+      },
+      {
+        "name": "TestTaskContextHeaderEmptyForIntervalFire",
+        "action": "pass"
+      },
+      {
+        "name": "TestTaskContextHeaderTruncatesLongGoal",
+        "action": "pass"
+      },
+      {
+        "name": "TestTaskLLMStreamAdvancesAfterMidStreamQuotaWithoutReplay",
+        "action": "pass"
+      },
+      {
+        "name": "TestTaskLLMStreamStopsWhenChainExhausted",
+        "action": "pass"
+      },
+      {
+        "name": "TestTaskLLMStreamRetriesStalePreStreamFailureAgainstReplacementChain",
+        "action": "pass"
+      },
+      {
+        "name": "TestTaskLLMStreamRetriesAfterNonContentStartEvent",
+        "action": "pass"
+      },
+      {
+        "name": "TestTaskLLMStreamRetriesPreStreamQuotaOnNextProfile",
+        "action": "pass"
+      },
+      {
+        "name": "TestTaskLLMStateRejectsOlderRevision",
+        "action": "pass"
+      },
+      {
+        "name": "TestAuthoritativeTaskResolverDoesNotFallBackWhenChainUnavailable",
+        "action": "pass"
+      },
+      {
+        "name": "TestTaskLLMStreamMarkFailureAfterToolStartSkipsWorkerReplay",
+        "action": "pass"
+      },
+      {
+        "name": "TestTaskLLMStateSnapshotIsConcurrentAndDetached",
+        "action": "pass"
+      }
+    ]
+  },
+  "required_test_names_verified": [
+    "TestRuntimeEnglishApprovalCompatibility",
+    "TestRuntimeEnglishTaskContext",
+    "TestRuntimeEnglishValidation",
+    "TestRuntimeEnglishToolDescriptions",
+    "TestRuntimeEnglishTruncationPreservesUnicode",
+    "TestChatMentionEnglishLegacyCompatibility",
+    "TestChatMentionFrontendGeneratedTokens",
+    "TestMergeAllRunsWritesTaskGoalOnce",
+    "TestMergeAllRunsGroupsInterleavedTasks",
+    "TestUploadSkillRejectsTraversal"
+  ],
+  "skipped_tests": [
+    "TestAuthStatusFailsClosedWhenDataSourceUnavailable",
+    "TestAuthInitFailsClosedWhenDataSourceUnavailable",
+    "TestChatMentionPagination",
+    "TestChatMentionWorkerReceivesServerDetails",
+    "TestChatMentionCatalogAndContext",
+    "TestChatMentionConversationReceivesServerDetails",
+    "TestInterceptDetailHTTP",
+    "TestInterceptFilterHTTP",
+    "TestTaskLLMResolutionRejectsInvalidExplicitProfile",
+    "TestTaskLLMResolutionPrefersAgentBindingOverTaskChain",
+    "TestTaskLLMResolutionReportsDatabaseFailure"
+  ],
+  "remaining_nonenglish": {
+    "line_count": 1263,
+    "file_count": 55,
+    "classification_counts": {
+      "untranslated_comment": 944,
+      "test_fixture_or_assertion_review_required_not_all_exempt": 298,
+      "functional_exception_legacy_mention_aliases": 3,
+      "functional_exception_persisted_legacy_title": 1,
+      "functional_exception_multilingual_log_classification": 2,
+      "functional_exception_exact_legacy_prompt_migration_sentinel": 3,
+      "functional_exception_multilingual_and_legacy_regression_fixture": 7,
+      "functional_exception_multilingual_input_recognition": 4,
+      "functional_exception_multilingual_mention_fixture": 1
+    },
+    "per_file": {
+      "server/assembly.go": 1,
+      "server/assets.go": 1,
+      "server/assets_scope_test.go": 2,
+      "server/auth_test.go": 17,
+      "server/chat_llm_resolve_test.go": 6,
+      "server/chat_mentions.go": 3,
+      "server/chat_mentions_english_test.go": 8,
+      "server/chat_mentions_test.go": 23,
+      "server/conversations.go": 8,
+      "server/core_test.go": 1,
+      "server/customtool.go": 18,
+      "server/engine.go": 90,
+      "server/engine_emptyturn_test.go": 39,
+      "server/engine_timeout.go": 19,
+      "server/finding_retests_test.go": 8,
+      "server/finding_traffic_test.go": 3,
+      "server/finding_workflow_test.go": 5,
+      "server/findings_groups.go": 3,
+      "server/findings_groups_test.go": 1,
+      "server/goals.go": 11,
+      "server/intercept_detail_test.go": 1,
+      "server/intercept_filter_test.go": 2,
+      "server/intercept_live_test.go": 8,
+      "server/intercept_review_test.go": 3,
+      "server/llmpool.go": 1,
+      "server/llmpool_test.go": 1,
+      "server/llmretry.go": 21,
+      "server/llmretry_test.go": 2,
+      "server/logsink.go": 2,
+      "server/manager.go": 43,
+      "server/mgmt_test.go": 2,
+      "server/notifier.go": 131,
+      "server/notify_api.go": 40,
+      "server/notify_api_test.go": 231,
+      "server/orchestration.go": 101,
+      "server/platform_tools.go": 3,
+      "server/runtime_english_test.go": 7,
+      "server/scheduler.go": 1,
+      "server/server.go": 179,
+      "server/server_mgmt.go": 35,
+      "server/skill_upload_test.go": 31,
+      "server/sync_scopesentry.go": 7,
+      "server/task_archive_package.go": 3,
+      "server/task_archive_package_test.go": 1,
+      "server/task_categories_test.go": 1,
+      "server/task_delete_barrier_test.go": 1,
+      "server/task_llm.go": 46,
+      "server/task_llm_test.go": 1,
+      "server/task_metadata_test.go": 1,
+      "server/task_templates_test.go": 3,
+      "server/testdata/english_mentions.json": 1,
+      "server/trigger_merge_test.go": 7,
+      "server/triggers.go": 1,
+      "server/update.go": 49,
+      "server/update_test.go": 29
+    },
+    "inventory": "remaining-nonenglish.json",
+    "limitations": "CJK lexical scan is not a proof of every language. Test review category includes purposeful evidence fixtures and untranslated names/assertions, not a blanket exemption."
+  },
+  "api_contract": {
+    "go_scanner_nonstring_noncomment_structure_unchanged": true,
+    "production_files_checked": 60,
+    "json_tags_map_keys_routes_regexes_preserved": true,
+    "sql_structure_preserved": true,
+    "sql_receipt": "sql-contract-check.json",
+    "legacy_reporter_migration_sentinel_exact": true,
+    "approval_compatibility": "Server activityDTO transparently preserves both [Model]/[模型] and English/legacy approval summaries, verified with production DTO entrypoint. DB classification/producer behavior remains peer-owned and real approval HTTP tests skip without PostgreSQL.",
+    "mention_compatibility": "All nine English and legacy aliases passed actual production parser tests, including frontend-generated fixtures.",
+    "reporter_context": "Task: #<id> header now matches agent prompt while retaining user description/goal verbatim; merge grouping and bounds regressions pass."
+  },
+  "tdd": {
+    "runtime_red": "red.jsonl: 3 top-level failures and 10 subtest failures before translations; same entrypoints green",
+    "task_context_red": "context-red.jsonl: Task: # prefix assertion failed before header change",
+    "approval_dto": "Existing-behavior regression added after translations; immediately passed, not claimed as new RED",
+    "broader_translation": "Other prose/comment changes are batch translation edits, not individually test-first",
+    "retained_failed_regression": "focused.jsonl has two stale merge assertions for prior output decoration. Repaired exact generated-output assertions without weakening event counts, user evidence, grouping or bounds."
+  },
+  "evidence": {
+    "before": "before-sha256.json",
+    "after": "after-sha256.json",
+    "patch": "server-final.patch",
+    "baseline": "baseline.json",
+    "raw_final": "final-pinned.jsonl",
+    "contract": "token-structure-check.json and literal-contract-check.json",
+    "format": "gofmt.json"
+  },
+  "limits": [
+    "Only server source and NEW server-final-evidence written; prior server-evidence untouched.",
+    "No PostgreSQL startup, network/package installation, listeners, model calls or whole-app build. PostgreSQL-dependent skips are not passes.",
+    "Cached offline toolchain compiled the actual server import graph successfully. Concurrent peer agent edits mean this is focused server evidence, not coherent whole-application qualification.",
+    "Saved/custom user prompts are not rewritten; exact legacy migration sentinel retained. Existing migrations and admission/budget/security logic unchanged.",
+    "Remaining untranslated comments and test prose require another pass. No claim that the whole server is English."
+  ],
+  "lessons_handoff": [
+    "Exact persisted default-prompt sentinel strings are compatibility data; restore them byte-for-byte after any phrase translations.",
+    "Treat approval reasons and summaries as opaque evidence in server DTOs; peer DB classifiers must retain both producer generations.",
+    "Compare Go scanner structure and literal contracts alongside executed regressions when translating large source surfaces."
+  ],
+  "disk_free_bytes": 1219407872
+}

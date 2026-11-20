@@ -1,0 +1,94 @@
+{
+  "command": [
+    "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+    "test",
+    "-p",
+    "2",
+    "-json",
+    "./server",
+    "-run",
+    "^TestRuntimeEnglish",
+    "-count=1",
+    "-timeout=90s"
+  ],
+  "environment": {
+    "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+    "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+    "GOPROXY": "off",
+    "GOSUMDB": "off",
+    "GOFLAGS": "-mod=readonly"
+  },
+  "returncode": 1,
+  "top_level": {
+    "pass": 0,
+    "fail": 3,
+    "skip": 0
+  },
+  "subtests": {
+    "pass": 0,
+    "fail": 10,
+    "skip": 0
+  },
+  "package_failures": [
+    {
+      "Time": "2026-11-20T00:11:06.590878103Z",
+      "Action": "fail",
+      "Package": "github.com/Autumn-27/artex/server",
+      "Elapsed": 0.079
+    }
+  ],
+  "tests": [
+    {
+      "name": "TestRuntimeEnglishValidation/exact_ip",
+      "action": "fail"
+    },
+    {
+      "name": "TestRuntimeEnglishValidation/cidr",
+      "action": "fail"
+    },
+    {
+      "name": "TestRuntimeEnglishValidation/unknown",
+      "action": "fail"
+    },
+    {
+      "name": "TestRuntimeEnglishValidation",
+      "action": "fail"
+    },
+    {
+      "name": "TestRuntimeEnglishToolDescriptions/create_skill",
+      "action": "fail"
+    },
+    {
+      "name": "TestRuntimeEnglishToolDescriptions/update_skill_file",
+      "action": "fail"
+    },
+    {
+      "name": "TestRuntimeEnglishToolDescriptions/create_custom_tool",
+      "action": "fail"
+    },
+    {
+      "name": "TestRuntimeEnglishToolDescriptions/update_custom_tool",
+      "action": "fail"
+    },
+    {
+      "name": "TestRuntimeEnglishToolDescriptions/create_mcp",
+      "action": "fail"
+    },
+    {
+      "name": "TestRuntimeEnglishToolDescriptions/update_mcp",
+      "action": "fail"
+    },
+    {
+      "name": "TestRuntimeEnglishToolDescriptions/delete_assets_by_host",
+      "action": "fail"
+    },
+    {
+      "name": "TestRuntimeEnglishToolDescriptions",
+      "action": "fail"
+    },
+    {
+      "name": "TestRuntimeEnglishTruncationPreservesUnicode",
+      "action": "fail"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "references": {
+    "coordination-20261119/gate-app-readiness-retry/READINESS.md": "324166b084b9f142bb23b3a7de6818ff9a5e47deed4a4d3f6880f821f145178a",
+    "coordination-20261119/gate-app-readiness-retry/report.json": "62cd3e8354d8d3f9d6da43ba25209a67fa75ba303cb02b558b47c5914d473961",
+    "artex-worker-admission/source-manifest.json": "8d813a7b6b2d26ed4a2361ab9238c6d85145244f1f9104826a8688c9fe1b199c",
+    "artex-worker-admission/baseline-source-manifest.json": "067d40ffd666de7ed2cb9306939f9b768ff0823bb86e0f902b0f3a8b6a8a1b64",
+    "artex-worker-admission/receipts/REPORT.md": "113220b813c703023e9df5f8b7ec7248228cf1daacf39b9188c26f9e9e1a0496",
+    "artex-worker-admission/receipts/test-summary.json": "16de855b8b8a4cf5e608d4cfd854b0befd0476c43881bfa41fcad968a365e310",
+    "artex-worker-admission/receipts/20261119-215904-3998898.log": "a7e272ecf957755852f1d9043f743399eaf0e6e730a54704b197d279ee8eeead",
+    "artex-worker-admission/receipts/20261119-215926-3999758.log": "91146f03ab5e90f2057837b6cd8806a45b4af2b83f3c09c545c4630d129d9f9b",
+    "artex-worker-assessment-runner/runner-source-manifest.json": "04b16274d6760332d50182f715cf29e6490093f44d987bd843451eb5dd4cb242",
+    "artex-worker-assessment-runner/HANDOFF.md": "c2ec4d9fea90862f71943f0ccbf2d46152ebf85cc7c7429b50df74804a5872e2",
+    "artex-ui-asset-final/source-inventory.json": "d4ca442defdfb684ef77502af1ef530979887ac6ef8ec055cc1af4d771426203",
+    "artex-native-app-final-build/guest-static-assets.json": "d4ca442defdfb684ef77502af1ef530979887ac6ef8ec055cc1af4d771426203",
+    "artex-ui-asset-final/local-build-receipt.json": "258c561f4b3b95e052a546aa4b8a2dc2e577bb00c01765df0d3024169108368c",
+    "artex-ui-asset-final/session-result.json": "14ff958e2289874c0044cecb87766a4d7e8e302648cb863f94f71a11d526b130",
+    "artex-ui-asset-final/report.json": "1ecdf4b85dca72acad6c0e9eb187b39a6293b1fe186301dec17db00b88eba223",
+    "artex-ui-asset-final/ledger-proposed.json": "a45a8f024380c15a72282931e0c03fcc9911e83b8446230115c423fc84c79371",
+    "artex-standing-cost-ledger.json": "a08420f565a2ad43975b8db1e859d531c17f98f811cba9a5ec838a0547456787",
+    "artex-ui-asset-final/final-instance-readback.json": "170361d20f137aeb4735ed93f07aed5c3d07694a44f8198632026c3d4b1d6085",
+    "artex-ui-asset-final/final-disk-readback.json": "491c70550b5f790cb7dc322068c640f9121e90fc66d65ebf90fbc7a39b088df3",
+    "artex-worker-integration/BOOTSTRAP-ORDER-NOTE.md": "74fcc5f8a97834e5e5a2bf53531da130045636156072259c1643b1f8f9d88d1e"
+  }
+}

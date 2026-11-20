@@ -1,0 +1,197 @@
+[
+  {
+    "path": "server/task_intercept.go",
+    "old": "action 必须是 block 或 allow",
+    "new": "action must be block or allow"
+  },
+  {
+    "path": "server/sync_scopesentry.go",
+    "old": "已截断",
+    "new": "truncated"
+  },
+  {
+    "path": "server/task_resolution.go",
+    "old": "LLM 配置不存在",
+    "new": "LLM profile does not exist"
+  },
+  {
+    "path": "server/task_resolution.go",
+    "old": "LLM 配置未设置 API Key",
+    "new": "LLM profile has no API Key"
+  },
+  {
+    "path": "server/task_resolution.go",
+    "old": "LLM 配置格式或参数无效",
+    "new": "Invalid LLM profile format or parameters"
+  },
+  {
+    "path": "server/task_resolution.go",
+    "old": "任务 LLM 配置链额度已耗尽",
+    "new": "Task LLM profile chain budget exhausted"
+  },
+  {
+    "path": "server/task_resolution.go",
+    "old": "全局配置",
+    "new": "Global configuration"
+  },
+  {
+    "path": "server/task_resolution.go",
+    "old": "没有可用的 LLM 配置",
+    "new": "No available LLM profile"
+  },
+  {
+    "path": "server/conversations.go",
+    "old": "（出错：",
+    "new": " (Error: "
+  },
+  {
+    "path": "server/conversations.go",
+    "old": "【任务 #%d %s（目标：%s）】",
+    "new": "[Task #%d %s (goal: %s)]"
+  },
+  {
+    "path": "server/conversations.go",
+    "old": "【任务 #%d %s】",
+    "new": "[Task #%d %s]"
+  },
+  {
+    "path": "server/conversations.go",
+    "old": "【本会话合并了任务 #%d 的 %d 条触发事件，请一并处理】",
+    "new": "[Task #%d: this conversation combines %d trigger events; process them together]"
+  },
+  {
+    "path": "server/conversations.go",
+    "old": "── 触发 %d ──",
+    "new": "-- Trigger %d --"
+  },
+  {
+    "path": "server/conversations.go",
+    "old": "合并触发 · task#%d · %d 条",
+    "new": "Merged triggers · task#%d · %d events"
+  },
+  {
+    "path": "server/conversations.go",
+    "old": "【本会话合并了队列中的 %d 条触发事件（共 %d 个任务），请一并处理】",
+    "new": "[This conversation combines %d queued trigger events across %d tasks; process them together]"
+  },
+  {
+    "path": "server/conversations.go",
+    "old": "── 触发 %d（task#%d）──",
+    "new": "-- Trigger %d (task#%d) --"
+  },
+  {
+    "path": "server/conversations.go",
+    "old": "合并触发 · 全部 · %d 条",
+    "new": "Merged triggers · all · %d events"
+  },
+  {
+    "path": "server/engine.go",
+    "old": "fk_violation(23503,父exploration不存在)",
+    "new": "fk_violation(23503,parent exploration does not exist)"
+  },
+  {
+    "path": "server/engine.go",
+    "old": "%w: 意图 %d 当前没有运行中的 work（可能已结束或未被领取）",
+    "new": "%w: intent %d has no running work (it may have finished or not been claimed)"
+  },
+  {
+    "path": "server/engine.go",
+    "old": "%w: 意图 %d 正在执行 %s 操作",
+    "new": "%w: intent %d is performing operation %s"
+  },
+  {
+    "path": "server/engine.go",
+    "old": "等待意图 %d %s 收尾: %w",
+    "new": "Waiting for intent %d %s to settle: %w"
+  },
+  {
+    "path": "server/engine.go",
+    "old": "等待意图 %d %s 收尾: %w",
+    "new": "Waiting for intent %d %s to settle: %w"
+  },
+  {
+    "path": "server/engine.go",
+    "old": "%w: 意图 %d 不再是 %s 状态",
+    "new": "%w: intent %d is no longer in state %s"
+  },
+  {
+    "path": "server/engine.go",
+    "old": "纠偏Message must not be empty",
+    "new": "Intervention message must not be empty"
+  },
+  {
+    "path": "server/engine.go",
+    "old": "意图 %d 当前没有运行中的 work（可能已结束或未被领取）",
+    "new": "Intent %d has no running work (it may have finished or not been claimed)"
+  },
+  {
+    "path": "server/engine.go",
+    "old": "【空转提醒】你上一轮只输出了思考过程，既没有给出正文回复，也没有调用任何工具，",
+    "new": "[Empty-turn reminder] Your previous turn produced only reasoning, with neither a response nor any tool call, "
+  },
+  {
+    "path": "server/engine.go",
+    "old": "这一轮等于没有产出。请直接执行你刚才想好的下一步：要么调用工具，要么给出结论文字。不要重复思考。",
+    "new": "so it produced no actionable output. Execute the next step you already planned: either call a tool or provide your conclusion. Do not repeat your reasoning."
+  },
+  {
+    "path": "server/engine.go",
+    "old": "【规划者实时纠偏】",
+    "new": "[Live planner intervention]"
+  },
+  {
+    "path": "server/engine.go",
+    "old": "（这是规划者对本意图的即时指令；本次工具调用未执行，请据此调整下一步。若与你当前打算冲突，以此为准。）",
+    "new": "(This is the planner's immediate instruction for this intent; this tool call was not executed. Adjust your next step accordingly. If it conflicts with your current plan, follow this instruction.)"
+  },
+  {
+    "path": "server/engine.go",
+    "old": "意图 %d 当前没有运行中的 work（可能已结束或未被领取）",
+    "new": "Intent %d has no running work (it may have finished or not been claimed)"
+  },
+  {
+    "path": "server/engine.go",
+    "old": "目标已全部达成，直投意图已执行完毕，任务结束",
+    "new": "All goals achieved and directly submitted intents completed; task finished"
+  },
+  {
+    "path": "server/engine.go",
+    "old": "第 %d 轮规划",
+    "new": "Planning round %d"
+  },
+  {
+    "path": "server/engine.go",
+    "old": "worker 尚未就绪",
+    "new": "Worker is not ready"
+  },
+  {
+    "path": "server/platform_tools.go",
+    "old": "skill 已存在: ",
+    "new": "Skill already exists: "
+  },
+  {
+    "path": "server/engine_timeout.go",
+    "old": "任务超时收尾·终局判定(第 %d 轮)",
+    "new": "Task timeout wrap-up: final assessment (round %d)"
+  },
+  {
+    "path": "server/scheduler.go",
+    "old": "已截断",
+    "new": "truncated"
+  },
+  {
+    "path": "server/chat_mentions_test.go",
+    "old": "已截断",
+    "new": "truncated"
+  },
+  {
+    "path": "server/server_mgmt.go",
+    "old": "服务端当前时间（每次运行实时刷新；可与固定起始时间相减判断已用时长）",
+    "new": "Current server time (refreshed on every run; subtract a fixed start time to determine elapsed time)"
+  },
+  {
+    "path": "server/server_mgmt.go",
+    "old": "服务端数据根目录（所有任务/会话产物的根；各 agent 实际写盘在其下的子目录，如 <DataDir>/<taskID>）",
+    "new": "Server data root (root for all task and conversation artifacts; agents write in subdirectories such as <DataDir>/<taskID>)"
+  }
+]

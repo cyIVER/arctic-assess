@@ -1,0 +1,92 @@
+{
+  "command": [
+    "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+    "test",
+    "-p",
+    "2",
+    "-json",
+    "./server",
+    "-run",
+    "^TestChatMention(EnglishLegacyCompatibility|Parsing|BoundedJSON)$",
+    "-count=1",
+    "-timeout=90s"
+  ],
+  "environment": {
+    "PATH": "/usr/bin:/bin",
+    "HOME": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local",
+    "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+    "GOMODCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/gomodcache",
+    "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+    "GOTMPDIR": "/home/iveri/.hermes/cache/scratch",
+    "GOENV": "off",
+    "GOTOOLCHAIN": "local",
+    "GOPROXY": "off",
+    "GOSUMDB": "off",
+    "GOFLAGS": "-mod=readonly",
+    "CGO_ENABLED": "0",
+    "GOMAXPROCS": "2",
+    "GOMEMLIMIT": "1GiB",
+    "TMPDIR": "/home/iveri/.hermes/cache/scratch"
+  },
+  "returncode": 1,
+  "top_level": {
+    "pass": 2,
+    "fail": 1,
+    "skip": 0
+  },
+  "subtests": {
+    "pass": 1,
+    "fail": 8,
+    "skip": 0
+  },
+  "tests": [
+    {
+      "name": "TestChatMentionEnglishLegacyCompatibility/Finding",
+      "action": "fail"
+    },
+    {
+      "name": "TestChatMentionEnglishLegacyCompatibility/Asset",
+      "action": "fail"
+    },
+    {
+      "name": "TestChatMentionEnglishLegacyCompatibility/Company",
+      "action": "fail"
+    },
+    {
+      "name": "TestChatMentionEnglishLegacyCompatibility/Endpoint",
+      "action": "fail"
+    },
+    {
+      "name": "TestChatMentionEnglishLegacyCompatibility/IP",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionEnglishLegacyCompatibility/App",
+      "action": "fail"
+    },
+    {
+      "name": "TestChatMentionEnglishLegacyCompatibility/Domain",
+      "action": "fail"
+    },
+    {
+      "name": "TestChatMentionEnglishLegacyCompatibility/Subdomain",
+      "action": "fail"
+    },
+    {
+      "name": "TestChatMentionEnglishLegacyCompatibility/Service",
+      "action": "fail"
+    },
+    {
+      "name": "TestChatMentionEnglishLegacyCompatibility",
+      "action": "fail"
+    },
+    {
+      "name": "TestChatMentionParsing",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionBoundedJSON",
+      "action": "pass"
+    }
+  ]
+}

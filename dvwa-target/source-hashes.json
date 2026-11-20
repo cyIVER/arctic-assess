@@ -1,0 +1,22 @@
+{
+  "source-setup.php": {
+    "bytes": 5552,
+    "sha256": "97082455623767a43eef6ef6ced586f9884e6cdd5d50bdcc5151b3a0d6a17028"
+  },
+  "source-config_config.inc.php.dist": {
+    "bytes": 2437,
+    "sha256": "fb3633e82bdfc394e4b3440e9549a0885ed7d3ad70bb73ecd73abd9a9130df3b"
+  },
+  "source-Dockerfile": {
+    "bytes": 1030,
+    "sha256": "a19f27e97070de51cc852b0aa7a1d3b7f601de539c0f03dfada1bfc1820a39bd"
+  },
+  "source-compose.yml": {
+    "bytes": 726,
+    "sha256": "c9f84fe4f3e21666594efc718580d2b27a4ff97e05dc4144615aca43fe4d65de"
+  },
+  "source-dvwa_includes_DBMS_MySQL.php": {
+    "bytes": 7085,
+    "sha256": "65b1c7f0714aba81e433a0bdef4a90cd3fb3e103a51984672030081d453b1feb"
+  }
+}

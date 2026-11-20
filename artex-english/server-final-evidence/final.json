@@ -1,0 +1,387 @@
+{
+  "command": [
+    "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+    "test",
+    "-p",
+    "2",
+    "-json",
+    "./server",
+    "-run",
+    "^Test(RuntimeEnglish|ChatMention|Merge|FinalTrigger|TaskContext|UploadSkill|ValidatePassword|Auth|Skill|Update|TaskLLM|LLMRetry|Intercept)",
+    "-count=1",
+    "-timeout=90s"
+  ],
+  "environment": {
+    "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+    "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+    "GOPROXY": "off",
+    "GOSUMDB": "off",
+    "GOFLAGS": "-mod=readonly"
+  },
+  "returncode": 0,
+  "top_level": {
+    "pass": 38,
+    "fail": 0,
+    "skip": 11
+  },
+  "subtests": {
+    "pass": 39,
+    "fail": 0,
+    "skip": 0
+  },
+  "package_failures": [],
+  "tests": [
+    {
+      "name": "TestAuthStatusFailsClosedWhenDataSourceUnavailable",
+      "action": "skip"
+    },
+    {
+      "name": "TestAuthInitFailsClosedWhenDataSourceUnavailable",
+      "action": "skip"
+    },
+    {
+      "name": "TestValidatePassword/\u7a7a",
+      "action": "pass"
+    },
+    {
+      "name": "TestValidatePassword/\u4e03\u4f4d",
+      "action": "pass"
+    },
+    {
+      "name": "TestValidatePassword/\u516b\u4f4d",
+      "action": "pass"
+    },
+    {
+      "name": "TestValidatePassword/\u516b\u4e2a\u6c49\u5b57\u6309\u5b57\u7b26\u6570\u800c\u975e\u5b57\u8282\u6570\u8ba1",
+      "action": "pass"
+    },
+    {
+      "name": "TestValidatePassword/\u4e09\u4e2a\u6c49\u5b57\u591f_9_\u5b57\u8282\u4f46\u53ea\u6709_3_\u4e2a\u5b57\u7b26",
+      "action": "pass"
+    },
+    {
+      "name": "TestValidatePassword/72_\u5b57\u8282",
+      "action": "pass"
+    },
+    {
+      "name": "TestValidatePassword/73_\u5b57\u8282\u8d85\u51fa_bcrypt_\u4e0a\u9650",
+      "action": "pass"
+    },
+    {
+      "name": "TestValidatePassword",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionFrontendGeneratedTokens/finding",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionFrontendGeneratedTokens/asset",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionFrontendGeneratedTokens/company",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionFrontendGeneratedTokens/endpoint",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionFrontendGeneratedTokens/ip",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionFrontendGeneratedTokens/app",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionFrontendGeneratedTokens/root_domain",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionFrontendGeneratedTokens/subdomain",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionFrontendGeneratedTokens/service",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionFrontendGeneratedTokens",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionEnglishLegacyCompatibility/Finding",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionEnglishLegacyCompatibility/Asset",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionEnglishLegacyCompatibility/Company",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionEnglishLegacyCompatibility/Endpoint",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionEnglishLegacyCompatibility/IP",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionEnglishLegacyCompatibility/App",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionEnglishLegacyCompatibility/Domain",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionEnglishLegacyCompatibility/Subdomain",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionEnglishLegacyCompatibility/Service",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionEnglishLegacyCompatibility",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionParsing",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionPagination",
+      "action": "skip"
+    },
+    {
+      "name": "TestChatMentionWorkerReceivesServerDetails",
+      "action": "skip"
+    },
+    {
+      "name": "TestChatMentionBoundedJSON",
+      "action": "pass"
+    },
+    {
+      "name": "TestChatMentionCatalogAndContext",
+      "action": "skip"
+    },
+    {
+      "name": "TestChatMentionConversationReceivesServerDetails",
+      "action": "skip"
+    },
+    {
+      "name": "TestInterceptDetailHTTP",
+      "action": "skip"
+    },
+    {
+      "name": "TestInterceptFilterHTTP",
+      "action": "skip"
+    },
+    {
+      "name": "TestSkillTools",
+      "action": "pass"
+    },
+    {
+      "name": "TestRuntimeEnglishApprovalCompatibility",
+      "action": "pass"
+    },
+    {
+      "name": "TestRuntimeEnglishTaskContext",
+      "action": "pass"
+    },
+    {
+      "name": "TestRuntimeEnglishValidation/exact_ip",
+      "action": "pass"
+    },
+    {
+      "name": "TestRuntimeEnglishValidation/cidr",
+      "action": "pass"
+    },
+    {
+      "name": "TestRuntimeEnglishValidation/unknown",
+      "action": "pass"
+    },
+    {
+      "name": "TestRuntimeEnglishValidation",
+      "action": "pass"
+    },
+    {
+      "name": "TestRuntimeEnglishToolDescriptions/create_skill",
+      "action": "pass"
+    },
+    {
+      "name": "TestRuntimeEnglishToolDescriptions/update_skill_file",
+      "action": "pass"
+    },
+    {
+      "name": "TestRuntimeEnglishToolDescriptions/create_custom_tool",
+      "action": "pass"
+    },
+    {
+      "name": "TestRuntimeEnglishToolDescriptions/update_custom_tool",
+      "action": "pass"
+    },
+    {
+      "name": "TestRuntimeEnglishToolDescriptions/create_mcp",
+      "action": "pass"
+    },
+    {
+      "name": "TestRuntimeEnglishToolDescriptions/update_mcp",
+      "action": "pass"
+    },
+    {
+      "name": "TestRuntimeEnglishToolDescriptions/delete_assets_by_host",
+      "action": "pass"
+    },
+    {
+      "name": "TestRuntimeEnglishToolDescriptions",
+      "action": "pass"
+    },
+    {
+      "name": "TestRuntimeEnglishTruncationPreservesUnicode",
+      "action": "pass"
+    },
+    {
+      "name": "TestSkillRelPath",
+      "action": "pass"
+    },
+    {
+      "name": "TestUploadSkillZstdAndChineseNames",
+      "action": "pass"
+    },
+    {
+      "name": "TestUploadSkillGBKNames",
+      "action": "pass"
+    },
+    {
+      "name": "TestUploadSkillUnsupportedMethod",
+      "action": "pass"
+    },
+    {
+      "name": "TestUploadSkillEncrypted",
+      "action": "pass"
+    },
+    {
+      "name": "TestUploadSkillRejectsTraversal",
+      "action": "pass"
+    },
+    {
+      "name": "TestSkillNameFromFrontmatterQuoted",
+      "action": "pass"
+    },
+    {
+      "name": "TestTaskLLMResolutionRejectsInvalidExplicitProfile",
+      "action": "skip"
+    },
+    {
+      "name": "TestTaskLLMResolutionPrefersAgentBindingOverTaskChain",
+      "action": "skip"
+    },
+    {
+      "name": "TestTaskLLMResolutionReportsDatabaseFailure",
+      "action": "skip"
+    },
+    {
+      "name": "TestTaskLLMStreamDoesNotSwitchForOrdinaryErrors/openai:_status_429:_rate_limit_exceeded",
+      "action": "pass"
+    },
+    {
+      "name": "TestTaskLLMStreamDoesNotSwitchForOrdinaryErrors/openai:_status_401:_invalid_api_key",
+      "action": "pass"
+    },
+    {
+      "name": "TestTaskLLMStreamDoesNotSwitchForOrdinaryErrors/openai:_status_500:_internal_server_error",
+      "action": "pass"
+    },
+    {
+      "name": "TestTaskLLMStreamDoesNotSwitchForOrdinaryErrors/dial_tcp:_network_is_unreachable",
+      "action": "pass"
+    },
+    {
+      "name": "TestTaskLLMStreamDoesNotSwitchForOrdinaryErrors",
+      "action": "pass"
+    },
+    {
+      "name": "TestTaskLLMRuntimeErrorSkipsWorkerReplay",
+      "action": "pass"
+    },
+    {
+      "name": "TestTaskLLMStreamRetriesTransientPreCommitOnSameProvider",
+      "action": "pass"
+    },
+    {
+      "name": "TestTaskLLMStreamSurfacesTransientAfterRetriesExhausted",
+      "action": "pass"
+    },
+    {
+      "name": "TestTaskLLMStreamDoesNotRetryDeterministicRejection",
+      "action": "pass"
+    },
+    {
+      "name": "TestMergeAllRunsWritesTaskGoalOnce",
+      "action": "pass"
+    },
+    {
+      "name": "TestMergeAllRunsGroupsInterleavedTasks",
+      "action": "pass"
+    },
+    {
+      "name": "TestMergeTriggeredRunsWritesTaskGoalOnce",
+      "action": "pass"
+    },
+    {
+      "name": "TestFinalTriggerMessageSingleFirePrependsHeaderOnce",
+      "action": "pass"
+    },
+    {
+      "name": "TestTaskContextHeaderEmptyForIntervalFire",
+      "action": "pass"
+    },
+    {
+      "name": "TestTaskContextHeaderTruncatesLongGoal",
+      "action": "pass"
+    },
+    {
+      "name": "TestTaskLLMStreamRetriesPreStreamQuotaOnNextProfile",
+      "action": "pass"
+    },
+    {
+      "name": "TestTaskLLMStreamStopsWhenChainExhausted",
+      "action": "pass"
+    },
+    {
+      "name": "TestAuthoritativeTaskResolverDoesNotFallBackWhenChainUnavailable",
+      "action": "pass"
+    },
+    {
+      "name": "TestTaskLLMStreamMarkFailureAfterToolStartSkipsWorkerReplay",
+      "action": "pass"
+    },
+    {
+      "name": "TestTaskLLMStreamAdvancesAfterMidStreamQuotaWithoutReplay",
+      "action": "pass"
+    },
+    {
+      "name": "TestTaskLLMStreamRetriesStalePreStreamFailureAgainstReplacementChain",
+      "action": "pass"
+    },
+    {
+      "name": "TestTaskLLMStreamRetriesAfterNonContentStartEvent",
+      "action": "pass"
+    },
+    {
+      "name": "TestTaskLLMStateRejectsOlderRevision",
+      "action": "pass"
+    },
+    {
+      "name": "TestTaskLLMStateSnapshotIsConcurrentAndDetached",
+      "action": "pass"
+    }
+  ]
+}

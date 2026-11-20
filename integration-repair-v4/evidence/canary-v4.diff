@@ -1,0 +1,52 @@
+--- artex-worker-guest-canary-v3/admission_v3.py
++++ canary/admission_v3.py
+@@ -1,5 +1,5 @@
+ """Concrete artifact tuple plus protected parent-installed scoped authority."""
+-import hashlib,json,os,stat
++import hashlib,json,os,stat,math
+ from pathlib import Path
+ import guest
+ from guest import need,pinned
+@@ -25,7 +25,22 @@
+             return json.loads(raw)
+         finally:os.close(leaf)
+     finally:os.close(fd)
+-def require_current(c):
++def validate_checkpoint(p,c,now):
++    """V4 single exact immutable contract; same body in standalone guardian."""
++    lease=c['parent_scope_lease']
++    number=lambda v:type(v) in (int,float) and math.isfinite(v)
++    need(type(lease) is dict and set(lease)=={'handle','vm','created','deadline','lane'},'checkpoint typed lease')
++    need(type(lease['handle']) is str and 0<len(lease['handle'])<=256 and lease['vm']==c['vm'] and lease['lane']==c['lane'],'checkpoint lease scope')
++    need(all(number(lease[k]) for k in ('created','deadline')) and number(c['external_stop']) and number(now),'checkpoint finite scope')
++    need(all(k not in c or (type(c[k]) is type(lease[k]) and c[k]==lease[k]) for k in ('created','deadline')),'checkpoint phase scope')
++    need(type(p) is dict and type(p.get('schema')) is int and p['schema']==1,'checkpoint schema')
++    need(all(number(p.get(k)) for k in ('created','deadline','external_stop')),'checkpoint strict timestamps')
++    expected={'schema':1,'status':'verified','requirement':'already-private-default-quiescent','vm':c['vm'],'created':lease['created'],'deadline':lease['deadline'],'parent_scope_lease':lease['handle'],'default_service_changes_owner':'parent','external_stop':c['external_stop'],'default_inventory':{'containers':[],'images':[],'volumes':[]}}
++    need(p==expected,'parent preflight checkpoint')
++    need(0<=now-p['created']<=120 and now<p['deadline'] and p['external_stop']>=p['deadline']+30,'checkpoint stale/deadline')
++    return p
++
++def require_current(c,now=None):
+     need(c.get('source_profile')=='reviewed-environment-proxy-v3','concrete proxy654 profile required')
+     h=c['reviews'];need(h['host']['sha256']==h['source']['sha256'],'single source+host manifest')
+     manifest=json.loads(pinned(h['source']['path'],h['source']['sha256']))
+@@ -59,6 +74,4 @@
+         need(review.get('parent_scope_lease')==lease['handle'],'report lease binding')
+         need(type(review.get('code_review_handle')) is str and bool(review['code_review_handle']),'report reference missing')
+     pf=c['preflight'];checkpoint=json.loads(pinned(pf['path'],pf['sha256']))
+-    need(all(type(checkpoint.get(k)) in (int,float) for k in ('created','deadline')),'strict preflight timestamps')
+-    need(checkpoint=={'status':'verified','requirement':'already-private-default-quiescent','vm':c['vm'],'created':c['created'],'deadline':c['deadline'],'parent_scope_lease':lease['handle'],'default_service_changes_owner':'parent'},'parent preflight checkpoint')
+-    return checkpoint
++    return validate_checkpoint(checkpoint,c,c['created'] if now is None else now)
+--- artex-worker-guest-canary-v3/guest.py
++++ canary/guest.py
+@@ -77,7 +77,7 @@
+         handles=c['reviews']; need(set(handles)=={'source','host','helper','orchestrator','caller','guard','fixture'},'all review handles required')
+         if current:
+             from admission_v3 import require_current
+-            require_current(c)
++            require_current(c,now)
+         for kind,h in handles.items():
+             pinned(h['path'],h['sha256'])
+             r=json.loads(pinned(h['review_path'],h['review_sha256'],1048576))

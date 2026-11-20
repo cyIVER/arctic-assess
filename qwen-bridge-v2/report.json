@@ -1,0 +1,17 @@
+{
+  "verdict": "OFFLINE_CANDIDATE_EXTERNAL_SOURCE_ISOLATION_BLOCKED",
+  "tests": {"command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest -v test_gateway_v2 test_bridge", "passed": 21, "failed": 0, "skipped": 0, "red": "inherited handler partial header active after 1.6s", "receipt": "test-results.txt", "receipt_sha256": "99301be70162ef8705442cb91c333f1672e56724f73dd2fe401b6d901b8f969a"},
+  "source_sha256": {
+    "peer_bridge.py": "f5aa88e790a243080ddadd9ad829c5973dae088ad358eefbbe4942a276508228",
+    "peer_guest_gateway.py": "19285c1420ebd10e7e922f5e379b1a2faaf376a1529dde35b0728091196f93c6",
+    "peer_test_bridge.py": "a8c78783ec47f26229e8591ee77a4dc02a43e37a0b755214f639e208b5637e70",
+    "peer_HANDOFF.md": "6798956e65612e655cf78ce53b01e6cb5ca8b870a151afd773b29bda4519da1e",
+    "final_bridge.py": "f5aa88e790a243080ddadd9ad829c5973dae088ad358eefbbe4942a276508228",
+    "final_guest_gateway.py": "3570b9facf8c4f03ff92f30f4431c53117cd4cd6f317f69c9190fff8fd85251a",
+    "final_test_bridge.py": "a8c78783ec47f26229e8591ee77a4dc02a43e37a0b755214f639e208b5637e70",
+    "final_HANDOFF.md": "6798956e65612e655cf78ce53b01e6cb5ca8b870a151afd773b29bda4519da1e",
+    "final_test_gateway_v2.py": "019d67ad7a262a729117cb8b7934f0fab1058afde633196b4808cf8b6f6be309"
+  },
+  "limits": {"preauth_seconds": 1, "preauth_header_bytes": 8192, "max_concurrent_handlers": 4, "per_request_seconds": 60},
+  "external_gate": "Source-restricted guest route, DVWA key/mount isolation, ARTEX profile and single process deadline independently unverified; no live permission conferred."
+}

@@ -1,0 +1,9 @@
+{"Time":"2026-11-20T00:30:28.795977193Z","Action":"start","Package":"command-line-arguments"}
+{"Time":"2026-11-20T00:30:28.79999872Z","Action":"run","Package":"command-line-arguments","Test":"TestPrivatePostgresApprovalHistoryArchive"}
+{"Time":"2026-11-20T00:30:28.80002867Z","Action":"output","Package":"command-line-arguments","Test":"TestPrivatePostgresApprovalHistoryArchive","Output":"=== RUN   TestPrivatePostgresApprovalHistoryArchive\n"}
+{"Time":"2026-11-20T00:30:29.114608909Z","Action":"output","Package":"command-line-arguments","Test":"TestPrivatePostgresApprovalHistoryArchive","Output":"    qualification_test.go:91: cancellation not persisted\n"}
+{"Time":"2026-11-20T00:30:29.114666869Z","Action":"output","Package":"command-line-arguments","Test":"TestPrivatePostgresApprovalHistoryArchive","Output":"--- FAIL: TestPrivatePostgresApprovalHistoryArchive (0.30s)\n"}
+{"Time":"2026-11-20T00:30:29.114671349Z","Action":"fail","Package":"command-line-arguments","Test":"TestPrivatePostgresApprovalHistoryArchive","Elapsed":0.3}
+{"Time":"2026-11-20T00:30:29.114688289Z","Action":"output","Package":"command-line-arguments","Output":"FAIL\n"}
+{"Time":"2026-11-20T00:30:29.116717458Z","Action":"output","Package":"command-line-arguments","Output":"FAIL\tcommand-line-arguments\t0.320s\n"}
+{"Time":"2026-11-20T00:30:29.116767278Z","Action":"fail","Package":"command-line-arguments","Elapsed":0.321}

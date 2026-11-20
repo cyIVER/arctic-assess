@@ -1,0 +1,76 @@
+source/agent/cancelcause.go
+30|User paused the task
+31|The user paused the task via POST /api/tasks/{id}/control, action=pause. This Planner/Worker run was actively canceled; running intents return to frontier(open), to be reclaimed and restarted from the beginning after task resume
+32|Orchestrator Agent paused the task
+33|The orchestrator Agent called pause_task to pause this task. This Planner/Worker run was actively canceled; running intents return to frontier(open) and restart after resume
+34|Task deleted
+35|The task is being deleted (DELETE /api/tasks/{id}); the deletion barrier canceled its running Planner, Workers and main Agent. This run's results will no longer be used
+36|Backend restored the task's paused state
+37|At startup the backend restored the persisted paused task state. This run was canceled; normally no Agent is running during recovery
+38|Planner determined that task goals were met
+39|The planner determined task goals were met and set the task to done, then canceled remaining Workers. These intents are marked stopped, not failed
+40|Task-timeout wrap-up wait exhausted
+41|After task timeout, running Workers were allowed to wrap up gracefully, but the 90-second drain grace expired, triggering hard cancellation. Intents are marked exhausted; facts and assets already written during wrap-up are retained
+44|Planner terminated this intent
+45|The planner called kill_work to terminate this intent, usually because it was off-track or no longer useful. The intent is marked stopped and will not be automatically reclaimed
+46|User paused this Worker intent
+47|The user paused a running Worker. This call was canceled and the intent becomes paused; registered intents, facts, findings and activities are retained. It restarts from the beginning after resume
+48|User deleted this Worker intent
+49|The user deleted a running Worker. This call was canceled; after the Worker leaves the write region, the server applies the selected deletion mode: soft deletion marks it deleted and retains all output, while hard deletion cascades to the intent and downstream nodes supported only by it
+50|Worker finished normally and released its context
+51|The Worker finished normally; the engine releases context resources in detachWork. This is not an interruption; if shown as one, cancellation raced with finalization events
+52|New run rejected while task is paused
+53|The engine refuses new execution contexts while the task is paused, preventing a claim/pause race from starting a Worker. Claimed intents return to the frontier
+56|User stopped this conversation turn
+57|The user clicked Stop to abort this main Agent or conversation Agent run. Existing activities are retained; another message can be sent
+58|Task pause also stopped the main Agent conversation
+59|When the user paused the task, its running main Agent conversation was canceled too. Existing activities are retained; this message will not automatically replay after task resume
+60|Conversation turn finished normally and released its context
+61|This conversation turn finished normally; the server is releasing its context resources. This is not an interruption; if shown as one, cancellation raced with finalization events
+64|Backend process is shutting down
+65|The backend received SIGINT or SIGTERM and is restarting, updating or shutting down. All running Agents are canceled; after restart, leftover running intents reset to open and execute again
+66|Per-run hard timeout backstop triggered
+67|The run exceeded its soft wall-clock budget and extra grace, indicating a model request or tool did not return for too long and normal turn-boundary wrap-up could not execute. Inspect the last tool call that had not returned before interruption
+82|Upstream context reached its deadline
+83|Upstream context reached its deadline, but its creator did not attach a named cause via WithTimeoutCause: 
+85|Canceling caller supplied no named cause
+86|Upstream context was canceled without a named cause via context.WithCancelCause; register a cause in agent/cancelcause.go and wire it into the cancellation site
+source/agent/terminalreason.go
+34|The model completed this round normally without a text summary; use this round's tool-call records for facts and assets
+35|MaxTurns reached: the SDK wrapped up and wrote facts/assets; the intent becomes exhausted so the planner can continue in another direction, not failed
+36|Per-run wall-clock budget MaxDuration reached: running tools are interrupted and wrap-up begins in place to write identified facts/assets; the intent becomes exhausted
+37|Model/API call failed (network, authentication, rate limiting, provider 5xx, etc.); after retries the intent becomes blocked because transport failure prevented meaningful exploration. Inspect get_worker_trace before redispatching or changing approach
+38|Context hard limit reached; request blocked before sending. Narrow the intent or compress tool output
+39|Prompt too long and compression retries exhausted; cannot continue
+40|Current model does not support this round's multimodal content; use a vision-capable model or avoid tool images
+41|Stop hook prevented ending this round, then continuation failed; check whether task Guard rules are too strict
+42|A tool/hook stopped execution, e.g. out-of-scope target or disabled command; inspect the final tool_result denial explanation
+43|Run canceled during model output streaming
+44|Run canceled during tool execution
+62|Cancellation reason unavailable
+64|execution
+67|model output
+69|tool execution
+71|0=(Run interrupted: |1=; stopped during |2=; incomplete)
+73|0=(Run budget reached (|1=); facts written during wrap-up|2=; no text summary)
+76|0=(No text summary; terminal state |1=: |2=)
+83|- **Terminal state**: `%s` - %s\n
+87|- **Interruption reason** (`%s`): %s\n
+89|- **Interruption reason**: unavailable; canceling caller may not have attached a named cause with context.WithCancelCause\n
+93|- **Underlying error**: `%v`\n
+96|- **Partial output generated before cancellation**:\n\n
+101|- **Executed**: %d model turns\n
+104|- **Run elapsed**: %s\n
+107|- **Total tokens**: input %d / output %d / cache read %d / cache write %d\n
+111|- **Tool calls**: run ended before any tool call was issued\n
+113|- **Tool executing at interruption**: `%s` (ran for %s, **NO RESULT RETURNED**)\n\n  ```json\n  %s\n  ```\n
+116|- **Last tool before interruption**: `%s` (returned normally)\n
+133|Run context canceled, but no underlying Terminal event was emitted
+135|Unknown terminal state; harness may have added a TerminalReason. Update reasonHint
+141|%d turns
+149|; elapsed 
+source/agent/compaction.go
+465|Member nodes (to compress):\n
+488|- #%d produces/derives→ #%d
+493|\nLineage edges between members (parent→child):\n
+499|\nCommon parents / context anchors (NOT members; only explain which intent produced these results):\n

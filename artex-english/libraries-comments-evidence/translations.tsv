@@ -1,0 +1,179 @@
+32	dingTalkChannel implements a DingTalk custom bot.
+33	Platform constraints that shape this implementation:
+34	  - Each bot is limited to 20 messages/minute; excess messages may be silently dropped (even with HTTP 200),
+35	    so rate limiting must be client-side; see DefaultRatePerMin.
+36	  - Security supports signing, custom keywords, or an IP allowlist. Signing is the only option independent of
+37	    message content, so only signing is supported (as are bare webhooks with all three options disabled).
+38	  - Both success and failure return HTTP 200; inspect errcode in the body, or failed deliveries
+39	    will be recorded as successful.
+40	The DingTalk Webhook URL contains access_token and is itself a credential; mask it entirely.
+41	The destination is the DingTalk Webhook URL itself; changing it requires explicitly resupplying the signing key for the new URL.
+42	Send delivers one message. Use ActionCard with a button for a single item with a backlink; otherwise use markdown.
+43	DingTalk markdown has no explicit byte limit, but cap it defensively against oversized evidence fields.
+44	DingTalk embeds business errors in HTTP 200 responses.
+45	301000 means signature verification failed; 310000 means keyword mismatch. Both are configuration errors
+46	that retries cannot repair.
+47	dingTalkSignedURL appends timestamp and sign to the webhook using the official signing rules.
+48	Rule: string to sign = timestamp + "\n" + secret; the HMAC-SHA256 **key is also secret**.
+49	Base64-encode the result, then URL-encode it. timestamp is in milliseconds. Return unchanged when secret is empty,
+50	to support bots without signing enabled.
+51	Do not pass err through: url.Parse error text includes the full URL, including access_token.
+52	validateHTTPURL checks URL validity and supported schemes, and checks literal IP destinations for internal addresses.
+53	Two important details:
+54	 1. **Errors must be redacted.** url.Parse returns *url.Error, whose Error() includes
+55	    **the complete original URL**. These providers embed credentials in URLs (DingTalk access_token,
+56	    WeCom key, Telegram bot token, Feishu hook id). Previously a direct `return err`
+57	    leaked credentials through the invalid-URL error into the test endpoint's 400 response,
+58	    delivery last_error records, server logs, and delivery-history responses.
+59	 2. **Check literal IPs immediately**; defer domain checks to dialing (blockInternalDial is the final
+60	    enforcement point and also handles DNS rebinding). This early check provides feedback when saving configuration,
+61	    rather than waiting for the first failed delivery.
+62	Scheme restrictions are defensive: file:///gopher:// and similar schemes can produce unexpected http.Client
+63	behavior (already blocked by the scheme check, with no reason to expose this surface).
+64	emailDialTimeout / emailSessionTimeout bound connection establishment and the entire SMTP session, respectively.
+65	net/smtp has no timeout mechanism. Without these two bounds, a stalled peer can leave
+66	the delivery goroutine blocked forever. Since the dispatcher processes serially in one goroutine,
+67	that would stop the entire notification system.
+68	emailChannel implements SMTP email delivery.
+69	Email has no platform rate limit, but should not spam recipients; use a generous default.
+70	Mask only the password. SMTP host, account, and recipients are not secrets; masking them only complicates editing.
+71	host/port determine which server receives the password; tls determines transport encryption. Changing any of these
+72	requires explicitly resupplying the password, so disabling TLS also requires explicit credentials rather than an incidental edit.
+73	STARTTLS: upgrade when supported. Never send credentials in a plaintext session (see auth below).
+74	smtp.PlainAuth refuses to send credentials over an unencrypted connection unless the destination is localhost.
+75	This is **correct** security behavior and must not be bypassed, but explain the cause clearly;
+76	otherwise users see only "unencrypted connection" without knowing how to fix it.
+77	A failed Quit does not change the fact that the server accepted the message; ignore that error.
+78	Email is not truncated (the entire HTML body is sent); count the whole batch as delivered.
+79	emailDial establishes an SMTP connection.
+80	implicitTLS=true uses immediate TLS, as on port 465; false connects in plaintext on 25/587 and then uses
+81	STARTTLS. Do not mix them: a plaintext greeting to port 465 causes an immediate disconnect.
+82	Set the session deadline **at connection establishment**, not afterward: net/smtp.Client hides the underlying
+83	connection in an unexported field. Once handed over, the previously set deadline is the only
+84	fallback. It also covers blocking during the handshake.
+85	Control attaches blockInternalDial, sharing the HTTP channels' guard. Without it SMTP
+86	would leave an SSRF gap: host values such as 169.254.169.254 or 127.0.0.1 could connect directly,
+87	and smtp.NewClient handshake failures include the peer's response line in errors, which last_error
+88	exposes through delivery history, creating a semi-blind read primitive. Timing differences between refusal and timeout
+89	could also probe ports. Dial-time enforcement is final and also covers DNS rebinding.
+90	smtpStageError classifies a stage failure as retryable or permanent using the SMTP reply code.
+91	The distinction matters because SMTP 4xx and 5xx have entirely different semantics:
+92	  - 4xx (450 greylisting, 451 local error, 452 insufficient storage) are **temporary** refusals;
+93	    retry later. Greylisting in particular occurs on nearly every first delivery attempt.
+94	  - 5xx (550 unknown user, 553 invalid address) are permanent refusals; retrying is pointless.
+95	Classifying all failures as permanent would move **every** notification to failed on its first
+96	attempt against a greylisting server, precisely where automatic retries are most useful.
+97	Read the first three digits of the error text as the reply code; if unavailable, treat it as retryable
+98	(prefer an extra retry over permanently rejecting a potentially transient failure because parsing failed).
+99	smtpReplyCode extracts the leading three-digit reply code from SMTP error text, or returns 0 if absent.
+100	net/smtp exposes no error-code field, so parse text in the form "450 4.7.1 ...".
+101	buildEmailMessage assembles a complete RFC 5322 message.
+102	Base64-encode the body for two reasons: SMTP limits lines to 1000 bytes, while HTML
+103	bodies (especially batch emails) easily exceed that; base64 also never produces lines starting with ".",
+104	avoiding SMTP dot-stuffing concerns.
+105	Chinese subjects require RFC 2047 encoding, or clients display garbled text.
+106	Email has no hard length limit, so do not truncate the body.
+107	Wrap base64 at 76 characters per line, per RFC 2045.
+148	feishuChannel implements Feishu (including Lark) custom bots using interactive cards.
+149	Platform characteristics:
+150	  - The signing algorithm **differs** from DingTalk and is easy to get wrong; see feishuSign.
+151	  - Like DingTalk, business errors appear in HTTP 200 bodies (code != 0).
+152	  - Card headers support color templates; map severity to colors for quick recognition in message lists.
+153	Feishu custom bots allow approximately 5 requests/second, equivalent to 100 requests/minute.
+154	The last Webhook URL segment uniquely identifies the bot and is a credential.
+155	Likewise, changing the Webhook URL requires explicitly resupplying the signing key for the new URL.
+156	Signing parameters are at the same level as the message and appear only when secret is configured.
+157	Some Feishu hook versions use these field names; support them too.
+158	feishuSign computes a signature according to the official Feishu rules.
+159	This is particularly easy to get wrong; the official example is:
+160	That means **key = timestamp + "\n" + secret, with an empty message**, not the intuitive
+161	"key=secret, message=stringToSign", which is DingTalk's algorithm. The two algorithms reverse these roles;
+162	copying the other provider's implementation necessarily fails signature verification (19021).
+163	feishuSeverityTemplate maps vulnerability severity to card header color templates.
+164	Use grey for unknown severity, not blue, to avoid confusion with low.
+165	feishuMaxCardBytes is a conservative card-content limit. Feishu rejects an entire oversized card;
+166	choose a value well below the official limit to allow for JSON wrapper overhead.
+167	feishuCard builds an interactive card and returns it with **the number of items actually included**.
+168	kept serves the same purpose as in markdownBody: only items actually included should be marked delivered.
+169	Pack whole items before constructing the header: the header describes the remaining N items continuing in the next message,
+170	so N must come from the number actually fitted.
+171	feishuItemLines renders the lark_md body of a single vulnerability.
+172	Like markdown, lark_md parses links and emphasis, so all externally sourced
+173	fields pass through markdownText (single-line conversion and escaping); otherwise a vulnerability title
+174	could become a clickable external link in Feishu.
+175	feishuBatchLine renders one entry in a batch card.
+176	Filter is the contract for notification_channels.filter, a JSONB column containing channel-instance filters.
+177	All fields are optional; omitted means no filtering, also the fallback for malformed configuration; see ParseFilter.
+178	MinSeverity is the minimum severity threshold (low/medium/high/critical); empty means no threshold.
+179	Empty TaskIDs / AssetIDs arrays mean unrestricted; otherwise the event must intersect them.
+180	Empty VulnClassInclude accepts all; otherwise vulnclass must match at least one keyword.
+181	VulnClassExclude rejects any keyword match (exclusion takes precedence over inclusion).
+182	Matching uses case-insensitive substrings, safer than regex: invalid user regex cannot silently disable the channel.
+183	OnStatusChange controls whether the channel receives vulnerability status-change events (meaningful only in realtime mode).
+184	ParseFilter parses channel filter configuration.
+185	**Never returns an error.** This is deliberate: malformed filter configuration falls back to a zero-value
+186	Filter (= no filtering = match all), because in a vulnerability notification system **an extra notification is better than
+187	silently missing a critical one**. Treating parse failure as no delivery gives users a channel that looks configured
+188	but sends nothing, the worst failure mode.
+189	On parse failure, f remains zero-valued, meaning no filtering.
+190	ValidMinSeverity reports whether s is a valid severity threshold (empty means no threshold).
+191	Validate checks fields with **restricted values** when saving a channel.
+192	Why reject at write time: Match evaluates unknown thresholds as `rank >= 0`, always true;
+193	thus a typo in min_severity ("hgih") **silently disables filtering** and
+194	pushes everything. This aligns with the package's preference for extra delivery over missed delivery,
+195	but users believe severity filtering is active while every vulnerability floods the group,
+196	with no indication of misconfiguration. Reject such silent degradation at the input boundary.
+197	Validate is used **only for writes**. Reads retain ParseFilter's tolerant semantics,
+198	so existing invalid values do not prevent loading the entire channel.
+199	Match decides whether an event should be delivered to a channel with this filter.
+200	**Never returns an error**, for the same reason as ParseFilter: internal anomalies count as matches.
+201	Evaluation order: event type -> severity threshold -> task/asset scope -> vulnerability-class keywords.
+202	Only explicitly enabled channels receive status-change events. Disabled by default because most users
+203	expect notifications about newly discovered vulnerabilities, not a log of every status transition.
+204	Exclusion first: any excluded keyword rejects the event even if it also matches the include list.
+205	Linear scans suffice for these small sets, each typically a few dozen manually selected values;
+206	building a map costs more than it saves.
+207	containsAnyFold reports whether s contains any keyword, case-insensitively.
+217	This file renders email HTML bodies. Deliberately use inline styles and simple tables instead of modern CSS:
+218	email clients (especially Outlook and domestic enterprise mail) vary greatly in their support for
+219	<style> blocks and flex/grid; inline styles are the only consistently rendered option.
+220	htmlSeverityColor returns the severity accent color for the left border and title.
+221	htmlTitle returns the email subject.
+222	htmlBody renders the email HTML body. maxRunes<=0 means no truncation.
+223	htmlBatchIntro renders the batch email introduction: item count and severity distribution.
+224	htmlItem renders one vulnerability. full=true includes summary and backlink (single-item delivery);
+225	false compresses it to one line (batch list).
+226	htmlEscape escapes HTML text. Vulnerability titles and summaries come from targets and model output,
+227	which are untrusted; omitting escaping permits arbitrary HTML, including external images, in email.
+228	htmlEscapeAttr escapes HTML attribute values, handling quotes in addition to text escaping
+229	to prevent URL quotes from prematurely closing the href attribute.
+230	allowLocalTargets controls delivery to loopback / link-local addresses.
+231	Denied by default. IM bots and public mail servers should not use these ranges, while they can reach
+232	sensitive destinations: management ports of colocated services and cloud metadata endpoints
+233	(169.254.169.254, which can expose instance credentials). Administrators configure delivery URLs, but XSS/CSRF
+234	hijacking an admin session, or another person sharing the JWT, could alter configuration to read responses:
+235	doJSON stores the first 200 response-body bytes from 4xx/5xx responses in last_error, and delivery history
+236	echoes it back, providing a semi-blind read primitive.
+237	However, a local SMTP relay (postfix on 127.0.0.1:25) is common for self-hosted mail,
+238	so a blanket ban would block legitimate users. Provide an explicit escape hatch rather than hardcoded access:
+239	set ARTEX_NOTIFY_ALLOW_LOCAL=1 to allow it.
+240	Export AllowLocalTargetsEnv so tests can explicitly enable this: tests in this package and server
+241	frequently use httptest receivers on 127.0.0.1, which the guard otherwise blocks.
+242	isBlockedDialIP reports whether a destination IP is in a range denied for delivery by default.
+243	Reject only loopback, link-local (including cloud metadata 169.254.169.254), unspecified, and multicast addresses.
+244	**Do not reject** RFC1918 private networks: internal Mattermost / SMTP relays are common legitimate deployments;
+245	blocking them would make the feature unusable in real environments. This tradeoff is deliberate:
+246	block genuinely sensitive destinations without disabling normal deployments.
+247	Unmap IPv4-mapped IPv6 (::ffff:127.0.0.1) before checking, or it can bypass validation.
+248	blockInternalDial is the http.Transport dialer's Control hook; it checks the destination
+249	**when establishing the connection**.
+250	Why enforce at dial time rather than only when saving configuration: this is the final enforcement point.
+251	It covers two ways around configuration validation: DNS rebinding (resolving to a public IP at validation,
+252	then an internal IP at connection time) and redirects (cross-host redirects are already denied, but same-host redirects
+253	may still target another path).
+254	notifyTransport adds only a dial guard to the default Transport.
+255	Clone preserves all default tuning (connection pooling, HTTP/2, timeouts, proxy, etc.),
+256	avoiding unrelated behavior changes just to add one check.
+257	httpClient is shared by all channel deliveries.
+258	Deliberately **do not** reuse the project's global outbound proxy (GlobalProxy on the server side): it carries penetration
+259	test target traffic, often through unstable tunnels. Notification availability must not depend on target-network instability.

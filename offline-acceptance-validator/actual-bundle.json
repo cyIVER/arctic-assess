@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "reports": [
+    {
+      "kind": "canary",
+      "path": "inputs/canary-review.json",
+      "sha256": "bf44a15dd49f0b8a2c66841671d49988ad6e67f77c94abadcc67d5de0f0a5438",
+      "bytes": 13853,
+      "provenance": "ACTUAL_FROZEN_INPUT"
+    },
+    {
+      "kind": "native",
+      "path": "inputs/limited-native.json",
+      "sha256": "e37fc5e0b17222c86562df719330f74123dc057df9ae304e8b8e697745108d09",
+      "bytes": 12074,
+      "provenance": "ACTUAL_FROZEN_INPUT"
+    }
+  ],
+  "attachments": [
+    {
+      "kind": "local_log",
+      "path": "inputs/canary-local-tests.log",
+      "sha256": "76bb59b4df6f283e47e6e960e0f4430e1b1a47660ff431d026f06f8607532aa7",
+      "bytes": 4469,
+      "provenance": "ACTUAL_FROZEN_INPUT"
+    }
+  ]
+}

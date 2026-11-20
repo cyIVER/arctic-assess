@@ -1,0 +1,15 @@
+test_hash_mismatch (test_verify_handoff.VerificationTests.test_hash_mismatch) ... ok
+test_malformed_manifest (test_verify_handoff.VerificationTests.test_malformed_manifest) ... ok
+test_missing_file (test_verify_handoff.VerificationTests.test_missing_file) ... ok
+test_missing_json (test_verify_handoff.VerificationTests.test_missing_json) ... ok
+test_required_fail_not_accepted (test_verify_handoff.VerificationTests.test_required_fail_not_accepted) ... ok
+test_required_pass_positive (test_verify_handoff.VerificationTests.test_required_pass_positive) ... ok
+test_required_skips_and_missing_not_accepted (test_verify_handoff.VerificationTests.test_required_skips_and_missing_not_accepted) ... ok
+test_symlink_rejected (test_verify_handoff.VerificationTests.test_symlink_rejected) ... ok
+test_truncated_and_duplicate_json (test_verify_handoff.VerificationTests.test_truncated_and_duplicate_json) ... ok
+test_valid_actual_map (test_verify_handoff.VerificationTests.test_valid_actual_map) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.007s
+
+OK

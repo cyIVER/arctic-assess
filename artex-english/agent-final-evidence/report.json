@@ -1,0 +1,2471 @@
+{
+  "status": "Owned agent/guard English generated prose and comment translation complete; build and independent review pending",
+  "changed_paths": [
+    "source/agent/assembly.go",
+    "source/agent/cancelcause.go",
+    "source/agent/capture.go",
+    "source/agent/capture_usage_test.go",
+    "source/agent/chat.go",
+    "source/agent/coldgraph.go",
+    "source/agent/coldgraph_test.go",
+    "source/agent/compaction.go",
+    "source/agent/english_tools_final_test.go",
+    "source/agent/finding_recorder.go",
+    "source/agent/finding_recorder_test.go",
+    "source/agent/goals.go",
+    "source/agent/insert_assets_test.go",
+    "source/agent/mainagent.go",
+    "source/agent/noa.go",
+    "source/agent/planner.go",
+    "source/agent/prompt.go",
+    "source/agent/provider.go",
+    "source/agent/retester.go",
+    "source/agent/side_questions_test.go",
+    "source/agent/terminalreason.go",
+    "source/agent/terminalreason_test.go",
+    "source/agent/toolcatalog.go",
+    "source/agent/tools.go",
+    "source/agent/tools_digest.go",
+    "source/agent/tools_insert.go",
+    "source/agent/tools_nil_store_test.go",
+    "source/agent/worker.go"
+  ],
+  "changed_path_count": 28,
+  "new_test": "source/agent/english_tools_final_test.go",
+  "ownership": "Only source/agent/** modified; source/guard/** preserved. New agent-final-evidence/** receipts; prior reports untouched.",
+  "accomplished": [
+    "English descriptions and nested argument documentation across all 25 domain tool catalog seeds. Machine tool names, keys, schema structure, required fields and enum values preserved.",
+    "English tool refusals/errors, exploration write summaries, coverage hints, trace help, terminal/cancellation explanations, provider diagnostics and connection-test wording.",
+    "English retester and graph-compression prompts with original evidence thresholds, scope restrictions, output protocol and budgets retained. Original eight already-translated role bodies were not rewritten.",
+    "Translated remaining explanatory comments; actual non-English document paths retained as identifiers.",
+    "Kept Unicode user content, evidence fixtures, template overrides, ICP data and quota detection. Updated only matching legacy expected prose without dropping assertions."
+  ],
+  "tests": {
+    "english-green": {
+      "command": [
+        "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+        "test",
+        "-p=1",
+        "-json",
+        "-count=1",
+        "./agent",
+        "./guard",
+        "-run",
+        "TestEnglishDomainTool|TestEnglishTerminalAndAuxiliary"
+      ],
+      "env": {
+        "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+        "GOMODCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/gomodcache",
+        "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+        "GOPROXY": "off",
+        "GOSUMDB": "off",
+        "GOTOOLCHAIN": "local",
+        "GOFLAGS": "-mod=readonly",
+        "GOMAXPROCS": "2",
+        "TMPDIR": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/agent-final-evidence/scratch",
+        "GOTMPDIR": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/agent-final-evidence/scratch"
+      },
+      "returncode": 0,
+      "seconds": 8.829014461953193,
+      "top_level": {
+        "pass": 3,
+        "fail": 0,
+        "skip": 0
+      },
+      "subtests": {
+        "pass": 63,
+        "fail": 0,
+        "skip": 0
+      },
+      "package_failures": [],
+      "tests": [
+        "TestEnglishDomainToolCatalog/graph_overview",
+        "TestEnglishDomainToolCatalog/list_findings",
+        "TestEnglishDomainToolCatalog/list_facts",
+        "TestEnglishDomainToolCatalog/node_detail",
+        "TestEnglishDomainToolCatalog/expand_digest",
+        "TestEnglishDomainToolCatalog/get_worker_output",
+        "TestEnglishDomainToolCatalog/get_worker_trace",
+        "TestEnglishDomainToolCatalog/search_all_worker_traces",
+        "TestEnglishDomainToolCatalog/add_hint",
+        "TestEnglishDomainToolCatalog/add_intent",
+        "TestEnglishDomainToolCatalog/steer_work",
+        "TestEnglishDomainToolCatalog/set_goals",
+        "TestEnglishDomainToolCatalog/set_constraints",
+        "TestEnglishDomainToolCatalog/insert_assets",
+        "TestEnglishDomainToolCatalog/add_company_scope",
+        "TestEnglishDomainToolCatalog/list_assets",
+        "TestEnglishDomainToolCatalog/report_finding",
+        "TestEnglishDomainToolCatalog/record_fact",
+        "TestEnglishDomainToolCatalog/add_task_scope",
+        "TestEnglishDomainToolCatalog/list_untested_assets",
+        "TestEnglishDomainToolCatalog/list_goals",
+        "TestEnglishDomainToolCatalog/prove_goal",
+        "TestEnglishDomainToolCatalog/goal_met",
+        "TestEnglishDomainToolCatalog/kill_work",
+        "TestEnglishDomainToolCatalog/list_companies",
+        "TestEnglishDomainToolCatalog",
+        "TestEnglishDomainToolErrors/insert_assets",
+        "TestEnglishDomainToolErrors/add_company_scope",
+        "TestEnglishDomainToolErrors/list_assets",
+        "TestEnglishDomainToolErrors/list_companies",
+        "TestEnglishDomainToolErrors/add_task_scope",
+        "TestEnglishDomainToolErrors/list_untested_assets",
+        "TestEnglishDomainToolErrors/set_goals",
+        "TestEnglishDomainToolErrors/set_constraints",
+        "TestEnglishDomainToolErrors/node_detail",
+        "TestEnglishDomainToolErrors/kill_work",
+        "TestEnglishDomainToolErrors/steer_work",
+        "TestEnglishDomainToolErrors",
+        "TestEnglishTerminalAndAuxiliaryGuidance/paused_by_user",
+        "TestEnglishTerminalAndAuxiliaryGuidance/paused_by_orchestrator",
+        "TestEnglishTerminalAndAuxiliaryGuidance/task_deleted",
+        "TestEnglishTerminalAndAuxiliaryGuidance/paused_on_reload",
+        "TestEnglishTerminalAndAuxiliaryGuidance/goal_met",
+        "TestEnglishTerminalAndAuxiliaryGuidance/settle_drain_timeout",
+        "TestEnglishTerminalAndAuxiliaryGuidance/killed_by_planner",
+        "TestEnglishTerminalAndAuxiliaryGuidance/work_paused_by_user",
+        "TestEnglishTerminalAndAuxiliaryGuidance/work_cancelled_by_user",
+        "TestEnglishTerminalAndAuxiliaryGuidance/work_finished",
+        "TestEnglishTerminalAndAuxiliaryGuidance/paused_race_guard",
+        "TestEnglishTerminalAndAuxiliaryGuidance/chat_stopped_by_user",
+        "TestEnglishTerminalAndAuxiliaryGuidance/chat_paused_with_task",
+        "TestEnglishTerminalAndAuxiliaryGuidance/chat_turn_finished",
+        "TestEnglishTerminalAndAuxiliaryGuidance/shutdown",
+        "TestEnglishTerminalAndAuxiliaryGuidance/run_hard_timeout",
+        "TestEnglishTerminalAndAuxiliaryGuidance/stop_hook_prevented",
+        "TestEnglishTerminalAndAuxiliaryGuidance/hook_stopped",
+        "TestEnglishTerminalAndAuxiliaryGuidance/aborted_streaming",
+        "TestEnglishTerminalAndAuxiliaryGuidance/completed",
+        "TestEnglishTerminalAndAuxiliaryGuidance/blocking_limit",
+        "TestEnglishTerminalAndAuxiliaryGuidance/aborted_tools",
+        "TestEnglishTerminalAndAuxiliaryGuidance/max_turns",
+        "TestEnglishTerminalAndAuxiliaryGuidance/timeout",
+        "TestEnglishTerminalAndAuxiliaryGuidance/model_error",
+        "TestEnglishTerminalAndAuxiliaryGuidance/prompt_too_long",
+        "TestEnglishTerminalAndAuxiliaryGuidance/image_error",
+        "TestEnglishTerminalAndAuxiliaryGuidance"
+      ],
+      "failure_output": [],
+      "skip_output": []
+    },
+    "side-safe": {
+      "command": [
+        "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+        "test",
+        "-p=1",
+        "-json",
+        "-count=1",
+        "./agent",
+        "./guard",
+        "-run",
+        "^TestSideActualChatCheckpointToolResultAndTranscriptIsolation$"
+      ],
+      "env": {
+        "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+        "GOMODCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/gomodcache",
+        "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+        "GOPROXY": "off",
+        "GOSUMDB": "off",
+        "GOTOOLCHAIN": "local",
+        "GOFLAGS": "-mod=readonly",
+        "GOMAXPROCS": "2",
+        "TMPDIR": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/agent-final-evidence/scratch",
+        "GOTMPDIR": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/agent-final-evidence/scratch"
+      },
+      "returncode": 0,
+      "seconds": 4.562256672885269,
+      "top_level": {
+        "pass": 1,
+        "fail": 0,
+        "skip": 0
+      },
+      "subtests": {
+        "pass": 2,
+        "fail": 0,
+        "skip": 0
+      },
+      "package_failures": [],
+      "tests": [
+        "TestSideActualChatCheckpointToolResultAndTranscriptIsolation/atomic",
+        "TestSideActualChatCheckpointToolResultAndTranscriptIsolation/stream",
+        "TestSideActualChatCheckpointToolResultAndTranscriptIsolation"
+      ],
+      "failure_output": [],
+      "skip_output": []
+    },
+    "final-verified": {
+      "command": [
+        "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+        "test",
+        "-p=1",
+        "-json",
+        "-count=1",
+        "./agent",
+        "./guard",
+        "-run",
+        "^(TestEnglish.*|TestUnicode.*|TestFindingWorkflow.*|TestBuiltinToolSeeds|TestDecorateTool.*|TestRenderSystem.*|TestChatNow.*|TestChatDataDir.*|TestChatUnknown.*|TestWorkerSystem.*|TestDeferredSystem.*|TestPreToolUse.*|TestAbort.*|TestTerminal.*|TestReasonHint.*|TestFirstLine.*|TestDomainToolsSurviveNilStores|TestExplorationToolRefusesWithoutTask|TestGuardPanic.*|TestOverviewTextBudget.*|TestIsQuotaExhaustedMessage|TestQuotaAwareTransportOnlyNormalizesExplicitQuota429|TestCaptureRunPersistsUsage.*|TestHotCold.*|TestDebounce.*|TestGrouping.*|TestSignature.*|TestStampOps|TestProxyEnv.*|TestConfigFromOpenAIResponses|TestSessionHeader.*|TestWorkerSessionID.*|TestWorkerChatMarker.*|TestSeedUnlock.*|TestUnlockGating.*|TestSideActualChatCheckpointToolResultAndTranscriptIsolation)$"
+      ],
+      "env": {
+        "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+        "GOMODCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/gomodcache",
+        "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+        "GOPROXY": "off",
+        "GOSUMDB": "off",
+        "GOTOOLCHAIN": "local",
+        "GOFLAGS": "-mod=readonly",
+        "GOMAXPROCS": "2",
+        "TMPDIR": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/agent-final-evidence/scratch",
+        "GOTMPDIR": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/agent-final-evidence/scratch"
+      },
+      "returncode": 0,
+      "seconds": 2.5146640399470925,
+      "top_level": {
+        "pass": 61,
+        "fail": 0,
+        "skip": 0
+      },
+      "subtests": {
+        "pass": 88,
+        "fail": 0,
+        "skip": 0
+      },
+      "package_failures": [],
+      "tests": [
+        "TestCaptureRunPersistsUsageOnProviderFailure",
+        "TestCaptureRunPersistsUsageOnCancellation",
+        "TestHotCold_AnyLiveBranchKeepsChainHot",
+        "TestHotCold_WholeChainFoldsWhenAllSettled",
+        "TestDebounce_RecentlyCooledNotEligible",
+        "TestGrouping_SharedParentRescuesFlatFanout",
+        "TestGrouping_LoneColdChildStaysSingleton",
+        "TestSignature_StableAndVersionSensitive",
+        "TestStampOps",
+        "TestDeferredSystem_NoGlobal",
+        "TestDeferredSystem_WithGlobal",
+        "TestDeferredSystem_GatedNotInBlock",
+        "TestSeedUnlockFromHistory",
+        "TestUnlockGatingFlow",
+        "TestEnglishStandalonePrompts/auto",
+        "TestEnglishStandalonePrompts/pentest",
+        "TestEnglishStandalonePrompts/assistant",
+        "TestEnglishStandalonePrompts/reporter",
+        "TestEnglishStandalonePrompts",
+        "TestEnglishWrapupPolicies/planner",
+        "TestEnglishWrapupPolicies/mainagent",
+        "TestEnglishWrapupPolicies/generic",
+        "TestEnglishWrapupPolicies/worker_task",
+        "TestEnglishWrapupPolicies/planner_task",
+        "TestEnglishWrapupPolicies",
+        "TestUnicodePromptOverridePreserved",
+        "TestEnglishOrchestrationBodies/worker",
+        "TestEnglishOrchestrationBodies/auto",
+        "TestEnglishOrchestrationBodies/pentest",
+        "TestEnglishOrchestrationBodies/goals",
+        "TestEnglishOrchestrationBodies/planner",
+        "TestEnglishOrchestrationBodies/mainagent",
+        "TestEnglishOrchestrationBodies/worker_wrapup",
+        "TestEnglishOrchestrationBodies/traffic",
+        "TestEnglishOrchestrationBodies/artifacts",
+        "TestEnglishOrchestrationBodies/worker_artifacts",
+        "TestEnglishOrchestrationBodies/goals_scope",
+        "TestEnglishOrchestrationBodies",
+        "TestEnglishReporterToolMetadata",
+        "TestEnglishRuntimeGuidancePreservesUnicode",
+        "TestEnglishDomainToolCatalog/graph_overview",
+        "TestEnglishDomainToolCatalog/list_findings",
+        "TestEnglishDomainToolCatalog/list_facts",
+        "TestEnglishDomainToolCatalog/node_detail",
+        "TestEnglishDomainToolCatalog/expand_digest",
+        "TestEnglishDomainToolCatalog/get_worker_output",
+        "TestEnglishDomainToolCatalog/get_worker_trace",
+        "TestEnglishDomainToolCatalog/search_all_worker_traces",
+        "TestEnglishDomainToolCatalog/add_hint",
+        "TestEnglishDomainToolCatalog/add_intent",
+        "TestEnglishDomainToolCatalog/steer_work",
+        "TestEnglishDomainToolCatalog/set_goals",
+        "TestEnglishDomainToolCatalog/set_constraints",
+        "TestEnglishDomainToolCatalog/insert_assets",
+        "TestEnglishDomainToolCatalog/add_company_scope",
+        "TestEnglishDomainToolCatalog/list_assets",
+        "TestEnglishDomainToolCatalog/report_finding",
+        "TestEnglishDomainToolCatalog/record_fact",
+        "TestEnglishDomainToolCatalog/add_task_scope",
+        "TestEnglishDomainToolCatalog/list_untested_assets",
+        "TestEnglishDomainToolCatalog/list_goals",
+        "TestEnglishDomainToolCatalog/prove_goal",
+        "TestEnglishDomainToolCatalog/goal_met",
+        "TestEnglishDomainToolCatalog/kill_work",
+        "TestEnglishDomainToolCatalog/list_companies",
+        "TestEnglishDomainToolCatalog",
+        "TestEnglishDomainToolErrors/insert_assets",
+        "TestEnglishDomainToolErrors/add_company_scope",
+        "TestEnglishDomainToolErrors/list_assets",
+        "TestEnglishDomainToolErrors/list_companies",
+        "TestEnglishDomainToolErrors/add_task_scope",
+        "TestEnglishDomainToolErrors/list_untested_assets",
+        "TestEnglishDomainToolErrors/set_goals",
+        "TestEnglishDomainToolErrors/set_constraints",
+        "TestEnglishDomainToolErrors/node_detail",
+        "TestEnglishDomainToolErrors/kill_work",
+        "TestEnglishDomainToolErrors/steer_work",
+        "TestEnglishDomainToolErrors",
+        "TestEnglishTerminalAndAuxiliaryGuidance/paused_by_user",
+        "TestEnglishTerminalAndAuxiliaryGuidance/paused_by_orchestrator",
+        "TestEnglishTerminalAndAuxiliaryGuidance/task_deleted",
+        "TestEnglishTerminalAndAuxiliaryGuidance/paused_on_reload",
+        "TestEnglishTerminalAndAuxiliaryGuidance/goal_met",
+        "TestEnglishTerminalAndAuxiliaryGuidance/settle_drain_timeout",
+        "TestEnglishTerminalAndAuxiliaryGuidance/killed_by_planner",
+        "TestEnglishTerminalAndAuxiliaryGuidance/work_paused_by_user",
+        "TestEnglishTerminalAndAuxiliaryGuidance/work_cancelled_by_user",
+        "TestEnglishTerminalAndAuxiliaryGuidance/work_finished",
+        "TestEnglishTerminalAndAuxiliaryGuidance/paused_race_guard",
+        "TestEnglishTerminalAndAuxiliaryGuidance/chat_stopped_by_user",
+        "TestEnglishTerminalAndAuxiliaryGuidance/chat_paused_with_task",
+        "TestEnglishTerminalAndAuxiliaryGuidance/chat_turn_finished",
+        "TestEnglishTerminalAndAuxiliaryGuidance/shutdown",
+        "TestEnglishTerminalAndAuxiliaryGuidance/run_hard_timeout",
+        "TestEnglishTerminalAndAuxiliaryGuidance/image_error",
+        "TestEnglishTerminalAndAuxiliaryGuidance/aborted_streaming",
+        "TestEnglishTerminalAndAuxiliaryGuidance/completed",
+        "TestEnglishTerminalAndAuxiliaryGuidance/model_error",
+        "TestEnglishTerminalAndAuxiliaryGuidance/prompt_too_long",
+        "TestEnglishTerminalAndAuxiliaryGuidance/stop_hook_prevented",
+        "TestEnglishTerminalAndAuxiliaryGuidance/hook_stopped",
+        "TestEnglishTerminalAndAuxiliaryGuidance/aborted_tools",
+        "TestEnglishTerminalAndAuxiliaryGuidance/max_turns",
+        "TestEnglishTerminalAndAuxiliaryGuidance/timeout",
+        "TestEnglishTerminalAndAuxiliaryGuidance/blocking_limit",
+        "TestEnglishTerminalAndAuxiliaryGuidance",
+        "TestFindingWorkflowSharedAssemblyAndSwitch",
+        "TestChatNowVarRenders",
+        "TestChatDataDirVarRenders",
+        "TestChatUnknownVarFallsBack",
+        "TestWorkerSystemHasNoPerIntentData",
+        "TestWorkerSystemPrefixStableAcrossIntents",
+        "TestDeferredSystemWithTailEmptyTailMatchesDeferredSystem",
+        "TestRenderSystemOverrideAndFallback",
+        "TestConfigFromOpenAIResponses",
+        "TestProxyEnvEmptyIsNil",
+        "TestProxyEnvSetsAllProxyForSocks5",
+        "TestProxyEnvInjectsCAWhenRecording",
+        "TestSessionHeaderInjectedFromContext",
+        "TestSessionHeaderSkippedWhenKeyEmpty",
+        "TestSessionHeaderSkippedWhenNoSessionID",
+        "TestSideActualChatCheckpointToolResultAndTranscriptIsolation/atomic",
+        "TestSideActualChatCheckpointToolResultAndTranscriptIsolation/stream",
+        "TestSideActualChatCheckpointToolResultAndTranscriptIsolation",
+        "TestReasonHintCoversEveryTerminalReason",
+        "TestAbortCausePropagatesThroughRunContextChain",
+        "TestAbortReasonFallbacks",
+        "TestTerminalTextAbortedNamesCauseAndHangingTool",
+        "TestTerminalTextDirectContextCancellationKeepsCause",
+        "TestTerminalTextAbortedPreservesPartialOutput",
+        "TestTerminalTextCompletedToolNotBlamed",
+        "TestTerminalTextNonAbortReasons",
+        "TestAbortCausesAreWellFormed",
+        "TestFirstLineCapsByRuneNotByte",
+        "TestBuiltinToolSeeds",
+        "TestDecorateToolInjectsDefaults",
+        "TestDomainToolsSurviveNilStores",
+        "TestExplorationToolRefusesWithoutTask",
+        "TestGuardPanicConvertsPanicToToolError",
+        "TestOverviewTextBudgetIsFairAndUTF8Safe",
+        "TestWorkerSessionIDIsStablePerIntent",
+        "TestWorkerChatMarkerOnlyMatchesItsNormalUserTurn",
+        "TestIsQuotaExhaustedMessage",
+        "TestQuotaAwareTransportOnlyNormalizesExplicitQuota429/quota",
+        "TestQuotaAwareTransportOnlyNormalizesExplicitQuota429/ordinary_rate_limit",
+        "TestQuotaAwareTransportOnlyNormalizesExplicitQuota429/server_error",
+        "TestQuotaAwareTransportOnlyNormalizesExplicitQuota429",
+        "TestEnglishPlatformBlockPreservesReason",
+        "TestPreToolUsePassthrough"
+      ],
+      "failure_output": [
+        {
+          "Time": "2026-11-20T00:23:47.540907066Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestGuardPanicConvertsPanicToToolError",
+          "Output": "\t/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/source/agent/tools_nil_store_test.go:58 +0x39\n"
+        },
+        {
+          "Time": "2026-11-20T00:23:47.540947036Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestGuardPanicConvertsPanicToToolError",
+          "Output": "\t/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/source/agent/tools_nil_store_test.go:61 +0x136\n"
+        }
+      ],
+      "skip_output": [
+        {
+          "Time": "2026-11-20T00:23:47.521160522Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestSessionHeaderSkippedWhenKeyEmpty",
+          "Output": "=== RUN   TestSessionHeaderSkippedWhenKeyEmpty\n"
+        },
+        {
+          "Time": "2026-11-20T00:23:47.521168282Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestSessionHeaderSkippedWhenKeyEmpty",
+          "Output": "--- PASS: TestSessionHeaderSkippedWhenKeyEmpty (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:23:47.521184713Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestSessionHeaderSkippedWhenNoSessionID",
+          "Output": "=== RUN   TestSessionHeaderSkippedWhenNoSessionID\n"
+        },
+        {
+          "Time": "2026-11-20T00:23:47.521249653Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestSessionHeaderSkippedWhenNoSessionID",
+          "Output": "--- PASS: TestSessionHeaderSkippedWhenNoSessionID (0.00s)\n"
+        }
+      ]
+    },
+    "final-safe": {
+      "command": [
+        "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+        "test",
+        "-p=1",
+        "-json",
+        "-count=1",
+        "./agent",
+        "./guard",
+        "-run",
+        "^(TestEnglish.*|TestUnicode.*|TestFindingWorkflow.*|TestBuiltinToolSeeds|TestDecorateTool.*|TestRenderSystem.*|TestChatNow.*|TestChatDataDir.*|TestChatUnknown.*|TestWorkerSystem.*|TestDeferredSystem.*|TestPreToolUse.*|TestAbort.*|TestTerminal.*|TestReasonHint.*|TestFirstLine.*|TestDomainToolsSurviveNilStores|TestExplorationToolRefusesWithoutTask|TestGuardPanic.*|TestOverviewTextBudget.*|TestIsQuotaExhaustedMessage|TestQuotaAwareTransportOnlyNormalizesExplicitQuota429|TestCaptureRunPersistsUsage.*|TestHotCold.*|TestDebounce.*|TestGrouping.*|TestSignature.*|TestStampOps|TestProxyEnv.*|TestConfigFromOpenAIResponses|TestSessionHeader.*|TestWorkerSessionID.*|TestWorkerChatMarker.*|TestSeedUnlock.*|TestUnlockGating.*)$"
+      ],
+      "env": {
+        "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+        "GOMODCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/gomodcache",
+        "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+        "GOPROXY": "off",
+        "GOSUMDB": "off",
+        "GOTOOLCHAIN": "local",
+        "GOFLAGS": "-mod=readonly",
+        "GOMAXPROCS": "2",
+        "TMPDIR": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/agent-final-evidence/scratch",
+        "GOTMPDIR": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/agent-final-evidence/scratch"
+      },
+      "returncode": 0,
+      "seconds": 10.754071245435625,
+      "top_level": {
+        "pass": 60,
+        "fail": 0,
+        "skip": 0
+      },
+      "subtests": {
+        "pass": 86,
+        "fail": 0,
+        "skip": 0
+      },
+      "package_failures": [],
+      "tests": [
+        "TestCaptureRunPersistsUsageOnProviderFailure",
+        "TestCaptureRunPersistsUsageOnCancellation",
+        "TestHotCold_AnyLiveBranchKeepsChainHot",
+        "TestHotCold_WholeChainFoldsWhenAllSettled",
+        "TestDebounce_RecentlyCooledNotEligible",
+        "TestGrouping_SharedParentRescuesFlatFanout",
+        "TestGrouping_LoneColdChildStaysSingleton",
+        "TestSignature_StableAndVersionSensitive",
+        "TestStampOps",
+        "TestDeferredSystem_NoGlobal",
+        "TestDeferredSystem_WithGlobal",
+        "TestDeferredSystem_GatedNotInBlock",
+        "TestSeedUnlockFromHistory",
+        "TestUnlockGatingFlow",
+        "TestEnglishStandalonePrompts/pentest",
+        "TestEnglishStandalonePrompts/assistant",
+        "TestEnglishStandalonePrompts/reporter",
+        "TestEnglishStandalonePrompts/auto",
+        "TestEnglishStandalonePrompts",
+        "TestEnglishWrapupPolicies/mainagent",
+        "TestEnglishWrapupPolicies/generic",
+        "TestEnglishWrapupPolicies/worker_task",
+        "TestEnglishWrapupPolicies/planner_task",
+        "TestEnglishWrapupPolicies/planner",
+        "TestEnglishWrapupPolicies",
+        "TestUnicodePromptOverridePreserved",
+        "TestEnglishOrchestrationBodies/goals",
+        "TestEnglishOrchestrationBodies/planner",
+        "TestEnglishOrchestrationBodies/mainagent",
+        "TestEnglishOrchestrationBodies/worker",
+        "TestEnglishOrchestrationBodies/auto",
+        "TestEnglishOrchestrationBodies/pentest",
+        "TestEnglishOrchestrationBodies/goals_scope",
+        "TestEnglishOrchestrationBodies/worker_wrapup",
+        "TestEnglishOrchestrationBodies/traffic",
+        "TestEnglishOrchestrationBodies/artifacts",
+        "TestEnglishOrchestrationBodies/worker_artifacts",
+        "TestEnglishOrchestrationBodies",
+        "TestEnglishReporterToolMetadata",
+        "TestEnglishRuntimeGuidancePreservesUnicode",
+        "TestEnglishDomainToolCatalog/graph_overview",
+        "TestEnglishDomainToolCatalog/list_findings",
+        "TestEnglishDomainToolCatalog/list_facts",
+        "TestEnglishDomainToolCatalog/node_detail",
+        "TestEnglishDomainToolCatalog/expand_digest",
+        "TestEnglishDomainToolCatalog/get_worker_output",
+        "TestEnglishDomainToolCatalog/get_worker_trace",
+        "TestEnglishDomainToolCatalog/search_all_worker_traces",
+        "TestEnglishDomainToolCatalog/add_hint",
+        "TestEnglishDomainToolCatalog/add_intent",
+        "TestEnglishDomainToolCatalog/steer_work",
+        "TestEnglishDomainToolCatalog/set_goals",
+        "TestEnglishDomainToolCatalog/set_constraints",
+        "TestEnglishDomainToolCatalog/insert_assets",
+        "TestEnglishDomainToolCatalog/add_company_scope",
+        "TestEnglishDomainToolCatalog/list_assets",
+        "TestEnglishDomainToolCatalog/report_finding",
+        "TestEnglishDomainToolCatalog/record_fact",
+        "TestEnglishDomainToolCatalog/add_task_scope",
+        "TestEnglishDomainToolCatalog/list_untested_assets",
+        "TestEnglishDomainToolCatalog/list_goals",
+        "TestEnglishDomainToolCatalog/prove_goal",
+        "TestEnglishDomainToolCatalog/goal_met",
+        "TestEnglishDomainToolCatalog/kill_work",
+        "TestEnglishDomainToolCatalog/list_companies",
+        "TestEnglishDomainToolCatalog",
+        "TestEnglishDomainToolErrors/insert_assets",
+        "TestEnglishDomainToolErrors/add_company_scope",
+        "TestEnglishDomainToolErrors/list_assets",
+        "TestEnglishDomainToolErrors/list_companies",
+        "TestEnglishDomainToolErrors/add_task_scope",
+        "TestEnglishDomainToolErrors/list_untested_assets",
+        "TestEnglishDomainToolErrors/set_goals",
+        "TestEnglishDomainToolErrors/set_constraints",
+        "TestEnglishDomainToolErrors/node_detail",
+        "TestEnglishDomainToolErrors/kill_work",
+        "TestEnglishDomainToolErrors/steer_work",
+        "TestEnglishDomainToolErrors",
+        "TestEnglishTerminalAndAuxiliaryGuidance/paused_by_user",
+        "TestEnglishTerminalAndAuxiliaryGuidance/paused_by_orchestrator",
+        "TestEnglishTerminalAndAuxiliaryGuidance/task_deleted",
+        "TestEnglishTerminalAndAuxiliaryGuidance/paused_on_reload",
+        "TestEnglishTerminalAndAuxiliaryGuidance/goal_met",
+        "TestEnglishTerminalAndAuxiliaryGuidance/settle_drain_timeout",
+        "TestEnglishTerminalAndAuxiliaryGuidance/killed_by_planner",
+        "TestEnglishTerminalAndAuxiliaryGuidance/work_paused_by_user",
+        "TestEnglishTerminalAndAuxiliaryGuidance/work_cancelled_by_user",
+        "TestEnglishTerminalAndAuxiliaryGuidance/work_finished",
+        "TestEnglishTerminalAndAuxiliaryGuidance/paused_race_guard",
+        "TestEnglishTerminalAndAuxiliaryGuidance/chat_stopped_by_user",
+        "TestEnglishTerminalAndAuxiliaryGuidance/chat_paused_with_task",
+        "TestEnglishTerminalAndAuxiliaryGuidance/chat_turn_finished",
+        "TestEnglishTerminalAndAuxiliaryGuidance/shutdown",
+        "TestEnglishTerminalAndAuxiliaryGuidance/run_hard_timeout",
+        "TestEnglishTerminalAndAuxiliaryGuidance/aborted_streaming",
+        "TestEnglishTerminalAndAuxiliaryGuidance/max_turns",
+        "TestEnglishTerminalAndAuxiliaryGuidance/model_error",
+        "TestEnglishTerminalAndAuxiliaryGuidance/blocking_limit",
+        "TestEnglishTerminalAndAuxiliaryGuidance/prompt_too_long",
+        "TestEnglishTerminalAndAuxiliaryGuidance/stop_hook_prevented",
+        "TestEnglishTerminalAndAuxiliaryGuidance/hook_stopped",
+        "TestEnglishTerminalAndAuxiliaryGuidance/aborted_tools",
+        "TestEnglishTerminalAndAuxiliaryGuidance/completed",
+        "TestEnglishTerminalAndAuxiliaryGuidance/timeout",
+        "TestEnglishTerminalAndAuxiliaryGuidance/image_error",
+        "TestEnglishTerminalAndAuxiliaryGuidance",
+        "TestFindingWorkflowSharedAssemblyAndSwitch",
+        "TestChatNowVarRenders",
+        "TestChatDataDirVarRenders",
+        "TestChatUnknownVarFallsBack",
+        "TestWorkerSystemHasNoPerIntentData",
+        "TestWorkerSystemPrefixStableAcrossIntents",
+        "TestDeferredSystemWithTailEmptyTailMatchesDeferredSystem",
+        "TestRenderSystemOverrideAndFallback",
+        "TestConfigFromOpenAIResponses",
+        "TestProxyEnvEmptyIsNil",
+        "TestProxyEnvSetsAllProxyForSocks5",
+        "TestProxyEnvInjectsCAWhenRecording",
+        "TestSessionHeaderInjectedFromContext",
+        "TestSessionHeaderSkippedWhenKeyEmpty",
+        "TestSessionHeaderSkippedWhenNoSessionID",
+        "TestReasonHintCoversEveryTerminalReason",
+        "TestAbortCausePropagatesThroughRunContextChain",
+        "TestAbortReasonFallbacks",
+        "TestTerminalTextAbortedNamesCauseAndHangingTool",
+        "TestTerminalTextDirectContextCancellationKeepsCause",
+        "TestTerminalTextAbortedPreservesPartialOutput",
+        "TestTerminalTextCompletedToolNotBlamed",
+        "TestTerminalTextNonAbortReasons",
+        "TestAbortCausesAreWellFormed",
+        "TestFirstLineCapsByRuneNotByte",
+        "TestBuiltinToolSeeds",
+        "TestDecorateToolInjectsDefaults",
+        "TestDomainToolsSurviveNilStores",
+        "TestExplorationToolRefusesWithoutTask",
+        "TestGuardPanicConvertsPanicToToolError",
+        "TestOverviewTextBudgetIsFairAndUTF8Safe",
+        "TestWorkerSessionIDIsStablePerIntent",
+        "TestWorkerChatMarkerOnlyMatchesItsNormalUserTurn",
+        "TestIsQuotaExhaustedMessage",
+        "TestQuotaAwareTransportOnlyNormalizesExplicitQuota429/quota",
+        "TestQuotaAwareTransportOnlyNormalizesExplicitQuota429/ordinary_rate_limit",
+        "TestQuotaAwareTransportOnlyNormalizesExplicitQuota429/server_error",
+        "TestQuotaAwareTransportOnlyNormalizesExplicitQuota429",
+        "TestEnglishPlatformBlockPreservesReason",
+        "TestPreToolUsePassthrough"
+      ],
+      "failure_output": [
+        {
+          "Time": "2026-11-20T00:20:34.657561584Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestGuardPanicConvertsPanicToToolError",
+          "Output": "\t/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/source/agent/tools_nil_store_test.go:58 +0x39\n"
+        },
+        {
+          "Time": "2026-11-20T00:20:34.657587315Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestGuardPanicConvertsPanicToToolError",
+          "Output": "\t/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/source/agent/tools_nil_store_test.go:61 +0x136\n"
+        }
+      ],
+      "skip_output": [
+        {
+          "Time": "2026-11-20T00:20:34.655437362Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestSessionHeaderSkippedWhenKeyEmpty",
+          "Output": "=== RUN   TestSessionHeaderSkippedWhenKeyEmpty\n"
+        },
+        {
+          "Time": "2026-11-20T00:20:34.655443772Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestSessionHeaderSkippedWhenKeyEmpty",
+          "Output": "--- PASS: TestSessionHeaderSkippedWhenKeyEmpty (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:20:34.655461603Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestSessionHeaderSkippedWhenNoSessionID",
+          "Output": "=== RUN   TestSessionHeaderSkippedWhenNoSessionID\n"
+        },
+        {
+          "Time": "2026-11-20T00:20:34.655466652Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestSessionHeaderSkippedWhenNoSessionID",
+          "Output": "--- PASS: TestSessionHeaderSkippedWhenNoSessionID (0.00s)\n"
+        }
+      ]
+    },
+    "focused": {
+      "command": [
+        "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+        "test",
+        "-p=1",
+        "-json",
+        "-count=1",
+        "./agent",
+        "./guard",
+        "-run",
+        "TestEnglish|TestUnicode|TestFindingWorkflow|TestBuiltinToolSeeds|TestDecorateTool|TestRenderSystem|TestChatNow|TestChatDataDir|TestChatUnknown|TestWorkerSystem|TestDeferredSystem|TestPreToolUse|TestAbort|TestTerminal|TestWriteCounts|TestInsertAssets|TestAssetInput|TestAssetIntercept|TestRecord|TestAddIntent|TestGoal|TestConstraint|TestProveGoal|TestQuota|TestNative|TestTool|TestCold|TestDigest|TestCapture|TestActivity|TestRetry|TestNoa"
+      ],
+      "env": {
+        "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+        "GOMODCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/gomodcache",
+        "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+        "GOPROXY": "off",
+        "GOSUMDB": "off",
+        "GOTOOLCHAIN": "local",
+        "GOFLAGS": "-mod=readonly",
+        "GOMAXPROCS": "2",
+        "TMPDIR": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/agent-final-evidence/scratch",
+        "GOTMPDIR": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/agent-final-evidence/scratch"
+      },
+      "returncode": 1,
+      "seconds": 6.096878529991955,
+      "top_level": {
+        "pass": 58,
+        "fail": 6,
+        "skip": 10
+      },
+      "subtests": {
+        "pass": 153,
+        "fail": 0,
+        "skip": 0
+      },
+      "package_failures": [
+        {
+          "Time": "2026-11-20T00:19:02.929337685Z",
+          "Action": "fail",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Elapsed": 0.45
+        }
+      ],
+      "tests": [
+        "TestCaptureApprovalLifecycle",
+        "TestCaptureRunPersistsUsageOnProviderFailure",
+        "TestCaptureRunPersistsUsageOnCancellation",
+        "TestDeferredSystem_NoGlobal",
+        "TestDeferredSystem_WithGlobal",
+        "TestDeferredSystem_GatedNotInBlock",
+        "TestEnglishStandalonePrompts/assistant",
+        "TestEnglishStandalonePrompts/reporter",
+        "TestEnglishStandalonePrompts/auto",
+        "TestEnglishStandalonePrompts/pentest",
+        "TestEnglishStandalonePrompts",
+        "TestEnglishWrapupPolicies/generic",
+        "TestEnglishWrapupPolicies/worker_task",
+        "TestEnglishWrapupPolicies/planner_task",
+        "TestEnglishWrapupPolicies/planner",
+        "TestEnglishWrapupPolicies/mainagent",
+        "TestEnglishWrapupPolicies",
+        "TestUnicodePromptOverridePreserved",
+        "TestEnglishOrchestrationBodies/pentest",
+        "TestEnglishOrchestrationBodies/goals",
+        "TestEnglishOrchestrationBodies/planner",
+        "TestEnglishOrchestrationBodies/mainagent",
+        "TestEnglishOrchestrationBodies/worker",
+        "TestEnglishOrchestrationBodies/auto",
+        "TestEnglishOrchestrationBodies/artifacts",
+        "TestEnglishOrchestrationBodies/worker_artifacts",
+        "TestEnglishOrchestrationBodies/goals_scope",
+        "TestEnglishOrchestrationBodies/worker_wrapup",
+        "TestEnglishOrchestrationBodies/traffic",
+        "TestEnglishOrchestrationBodies",
+        "TestEnglishReporterToolMetadata",
+        "TestEnglishRuntimeGuidancePreservesUnicode",
+        "TestEnglishDomainToolCatalog/graph_overview",
+        "TestEnglishDomainToolCatalog/list_findings",
+        "TestEnglishDomainToolCatalog/list_facts",
+        "TestEnglishDomainToolCatalog/node_detail",
+        "TestEnglishDomainToolCatalog/expand_digest",
+        "TestEnglishDomainToolCatalog/get_worker_output",
+        "TestEnglishDomainToolCatalog/get_worker_trace",
+        "TestEnglishDomainToolCatalog/search_all_worker_traces",
+        "TestEnglishDomainToolCatalog/add_hint",
+        "TestEnglishDomainToolCatalog/add_intent",
+        "TestEnglishDomainToolCatalog/steer_work",
+        "TestEnglishDomainToolCatalog/set_goals",
+        "TestEnglishDomainToolCatalog/set_constraints",
+        "TestEnglishDomainToolCatalog/insert_assets",
+        "TestEnglishDomainToolCatalog/add_company_scope",
+        "TestEnglishDomainToolCatalog/list_assets",
+        "TestEnglishDomainToolCatalog/report_finding",
+        "TestEnglishDomainToolCatalog/record_fact",
+        "TestEnglishDomainToolCatalog/add_task_scope",
+        "TestEnglishDomainToolCatalog/list_untested_assets",
+        "TestEnglishDomainToolCatalog/list_goals",
+        "TestEnglishDomainToolCatalog/prove_goal",
+        "TestEnglishDomainToolCatalog/goal_met",
+        "TestEnglishDomainToolCatalog/kill_work",
+        "TestEnglishDomainToolCatalog/list_companies",
+        "TestEnglishDomainToolCatalog",
+        "TestEnglishDomainToolErrors/insert_assets",
+        "TestEnglishDomainToolErrors/add_company_scope",
+        "TestEnglishDomainToolErrors/list_assets",
+        "TestEnglishDomainToolErrors/list_companies",
+        "TestEnglishDomainToolErrors/add_task_scope",
+        "TestEnglishDomainToolErrors/list_untested_assets",
+        "TestEnglishDomainToolErrors/set_goals",
+        "TestEnglishDomainToolErrors/set_constraints",
+        "TestEnglishDomainToolErrors/node_detail",
+        "TestEnglishDomainToolErrors/kill_work",
+        "TestEnglishDomainToolErrors/steer_work",
+        "TestEnglishDomainToolErrors",
+        "TestEnglishTerminalAndAuxiliaryGuidance/paused_by_user",
+        "TestEnglishTerminalAndAuxiliaryGuidance/paused_by_orchestrator",
+        "TestEnglishTerminalAndAuxiliaryGuidance/task_deleted",
+        "TestEnglishTerminalAndAuxiliaryGuidance/paused_on_reload",
+        "TestEnglishTerminalAndAuxiliaryGuidance/goal_met",
+        "TestEnglishTerminalAndAuxiliaryGuidance/settle_drain_timeout",
+        "TestEnglishTerminalAndAuxiliaryGuidance/killed_by_planner",
+        "TestEnglishTerminalAndAuxiliaryGuidance/work_paused_by_user",
+        "TestEnglishTerminalAndAuxiliaryGuidance/work_cancelled_by_user",
+        "TestEnglishTerminalAndAuxiliaryGuidance/work_finished",
+        "TestEnglishTerminalAndAuxiliaryGuidance/paused_race_guard",
+        "TestEnglishTerminalAndAuxiliaryGuidance/chat_stopped_by_user",
+        "TestEnglishTerminalAndAuxiliaryGuidance/chat_paused_with_task",
+        "TestEnglishTerminalAndAuxiliaryGuidance/chat_turn_finished",
+        "TestEnglishTerminalAndAuxiliaryGuidance/shutdown",
+        "TestEnglishTerminalAndAuxiliaryGuidance/run_hard_timeout",
+        "TestEnglishTerminalAndAuxiliaryGuidance/completed",
+        "TestEnglishTerminalAndAuxiliaryGuidance/timeout",
+        "TestEnglishTerminalAndAuxiliaryGuidance/model_error",
+        "TestEnglishTerminalAndAuxiliaryGuidance/blocking_limit",
+        "TestEnglishTerminalAndAuxiliaryGuidance/prompt_too_long",
+        "TestEnglishTerminalAndAuxiliaryGuidance/image_error",
+        "TestEnglishTerminalAndAuxiliaryGuidance/hook_stopped",
+        "TestEnglishTerminalAndAuxiliaryGuidance/max_turns",
+        "TestEnglishTerminalAndAuxiliaryGuidance/stop_hook_prevented",
+        "TestEnglishTerminalAndAuxiliaryGuidance/aborted_streaming",
+        "TestEnglishTerminalAndAuxiliaryGuidance/aborted_tools",
+        "TestEnglishTerminalAndAuxiliaryGuidance",
+        "TestFindingWorkflowSharedAssemblyAndSwitch",
+        "TestInsertAssetsSubdomainSideEffects",
+        "TestInsertAssetsMultiIPSubdomain",
+        "TestInsertAssetsHTTPServiceTechnologies",
+        "TestInsertAssetsOtherService",
+        "TestInsertAssetsMixedBatch",
+        "TestInsertAssetsDedup",
+        "TestInsertAssetsRejectsHostnameIPPerItem",
+        "TestNativeRejectedSettingsNeverOpenKey/URI",
+        "TestNativeRejectedSettingsNeverOpenKey/badURI",
+        "TestNativeRejectedSettingsNeverOpenKey/thinking",
+        "TestNativeRejectedSettingsNeverOpenKey/reasoning",
+        "TestNativeRejectedSettingsNeverOpenKey/header",
+        "TestNativeRejectedSettingsNeverOpenKey",
+        "TestNativeNormaNonStreamingEmptyTools",
+        "TestNativePolicyAdmission/valid",
+        "TestNativePolicyAdmission/missing",
+        "TestNativePolicyAdmission/malformed",
+        "TestNativePolicyAdmission/mode",
+        "TestNativePolicyAdmission/model",
+        "TestNativePolicyAdmission/host",
+        "TestNativePolicyAdmission/capability",
+        "TestNativePolicyAdmission",
+        "TestNativePolicySymlinkAndOwnership",
+        "TestNativeSecretJSON",
+        "TestNativeRejectUnsupportedOptions",
+        "TestNativeBashGuardBeforeExecutor",
+        "TestNativeGoPythonSynthetic",
+        "TestNativeExecutorPrivateConfigBeforeKey/valid",
+        "TestNativeExecutorPrivateConfigBeforeKey/unreviewed",
+        "TestNativeExecutorPrivateConfigBeforeKey/task",
+        "TestNativeExecutorPrivateConfigBeforeKey/exploration",
+        "TestNativeExecutorPrivateConfigBeforeKey/phase",
+        "TestNativeExecutorPrivateConfigBeforeKey/generation",
+        "TestNativeExecutorPrivateConfigBeforeKey/executor",
+        "TestNativeExecutorPrivateConfigBeforeKey/network",
+        "TestNativeExecutorPrivateConfigBeforeKey/origin",
+        "TestNativeExecutorPrivateConfigBeforeKey/relative_socket",
+        "TestNativeExecutorPrivateConfigBeforeKey/unclean_socket",
+        "TestNativeExecutorPrivateConfigBeforeKey/unknown",
+        "TestNativeExecutorPrivateConfigBeforeKey/nonprivate_config",
+        "TestNativeExecutorPrivateConfigBeforeKey/config_symlink",
+        "TestNativeExecutorPrivateConfigBeforeKey/nonprivate_key",
+        "TestNativeExecutorPrivateConfigBeforeKey/key_symlink",
+        "TestNativeExecutorPrivateConfigBeforeKey/short_key",
+        "TestNativeExecutorPrivateConfigBeforeKey/long_key",
+        "TestNativeExecutorPrivateConfigBeforeKey/hardlink_key",
+        "TestNativeExecutorPrivateConfigBeforeKey/nonprivate_dir",
+        "TestNativeExecutorPrivateConfigBeforeKey",
+        "TestNativeObservationPrivateLoader/valid",
+        "TestNativeObservationPrivateLoader/policy_changed",
+        "TestNativeObservationPrivateLoader/phase_changed",
+        "TestNativeObservationPrivateLoader/revoked",
+        "TestNativeObservationPrivateLoader/wrong_task",
+        "TestNativeObservationPrivateLoader/fixture_cannot_mint_public_status",
+        "TestNativeObservationPrivateLoader",
+        "TestNativeQueuedPhaseDenialsDoNotReserve/cancel",
+        "TestNativeQueuedPhaseDenialsDoNotReserve/revoke",
+        "TestNativeQueuedPhaseDenialsDoNotReserve/expiry",
+        "TestNativeQueuedPhaseDenialsDoNotReserve",
+        "TestNativeRoleBoundComplete/unmarked",
+        "TestNativeRoleBoundComplete/chat_not_role",
+        "TestNativeRoleBoundComplete/task",
+        "TestNativeRoleBoundComplete/intent",
+        "TestNativeRoleBoundComplete/exploration",
+        "TestNativeRoleBoundComplete/session",
+        "TestNativeRoleBoundComplete/catalog_removed_support",
+        "TestNativeRoleBoundComplete/catalog_drift",
+        "TestNativeRoleBoundComplete/payload",
+        "TestNativeRoleBoundComplete/canceled",
+        "TestNativeRoleBoundComplete",
+        "TestNativeRoleBindScopeAndStop",
+        "TestNativeRoleExpiredAfterBinding",
+        "TestNativeRoleActualNormaLoop",
+        "TestNativeRolePhaseReloadAndAggregateBudget",
+        "TestNativeRoleRevokeCancelsInflight",
+        "TestNativeCoreAssemblyNeverCallsController",
+        "TestNativeDomainCallRequiresDBScope",
+        "TestNativeMainRejectsMissingDBBeforePreparation",
+        "TestNativeRoleMissingBindingResolverDeniesCatalog",
+        "TestNativePlannerRejectsMissingDBBeforePreparation",
+        "TestNativePlannerCatalogDropsHostTools",
+        "TestNativeWorkerNoExecutorBeforePreparation",
+        "TestNativeRolePhasePermitBeforeKey/valid_positive_control",
+        "TestNativeRolePhasePermitBeforeKey/unknown",
+        "TestNativeRolePhasePermitBeforeKey/expired",
+        "TestNativeRolePhasePermitBeforeKey/too_long",
+        "TestNativeRolePhasePermitBeforeKey/task_zero",
+        "TestNativeRolePhasePermitBeforeKey/origin_path",
+        "TestNativeRolePhasePermitBeforeKey/calls",
+        "TestNativeRolePhasePermitBeforeKey/bytes",
+        "TestNativeRolePhasePermitBeforeKey/no_roles",
+        "TestNativeRolePhasePermitBeforeKey/unknown_role",
+        "TestNativeRolePhasePermitBeforeKey/support",
+        "TestNativeRolePhasePermitBeforeKey/session",
+        "TestNativeRolePhasePermitBeforeKey/worker_no_intent",
+        "TestNativeRolePhasePermitBeforeKey/bad_digest",
+        "TestNativeRolePhasePermitBeforeKey/nonprivate",
+        "TestNativeRolePhasePermitBeforeKey/duplicate_field",
+        "TestNativeRolePhasePermitBeforeKey",
+        "TestNativeIdentityDisabled",
+        "TestNativeRPCSyntheticNoTarget",
+        "TestNativeWorkerTaskTemplate",
+        "TestNativeTaskBindingRequiresRealStore",
+        "TestNativeRoleAssemblyNoMCP",
+        "TestChatNowVarRenders",
+        "TestChatDataDirVarRenders",
+        "TestChatUnknownVarFallsBack",
+        "TestWorkerSystemHasNoPerIntentData",
+        "TestWorkerSystemPrefixStableAcrossIntents",
+        "TestDeferredSystemWithTailEmptyTailMatchesDeferredSystem",
+        "TestRenderSystemOverrideAndFallback",
+        "TestCapturePropagatesThroughNormaProvider",
+        "TestAbortCausePropagatesThroughRunContextChain",
+        "TestAbortReasonFallbacks",
+        "TestTerminalTextAbortedNamesCauseAndHangingTool",
+        "TestTerminalTextDirectContextCancellationKeepsCause",
+        "TestTerminalTextAbortedPreservesPartialOutput",
+        "TestTerminalTextCompletedToolNotBlamed",
+        "TestTerminalTextNonAbortReasons",
+        "TestAbortCausesAreWellFormed",
+        "TestBuiltinToolSeeds",
+        "TestDecorateToolInjectsDefaults",
+        "TestQuotaAwareTransportOnlyNormalizesExplicitQuota429/quota",
+        "TestQuotaAwareTransportOnlyNormalizesExplicitQuota429/ordinary_rate_limit",
+        "TestQuotaAwareTransportOnlyNormalizesExplicitQuota429/server_error",
+        "TestQuotaAwareTransportOnlyNormalizesExplicitQuota429",
+        "TestEnglishPlatformBlockPreservesReason",
+        "TestPreToolUsePassthrough"
+      ],
+      "failure_output": [
+        {
+          "Time": "2026-11-20T00:19:02.528250488Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestCaptureApprovalLifecycle",
+          "Output": "    capture_approval_test.go:22: no test database configured\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.546782055Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestInsertAssetsSubdomainSideEffects",
+          "Output": "    insert_assets_test.go:48: no database config (Database configuration not found: environment variable ARTEX_PG_DSN is unset and configuration file /home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/source/agent/config.json does not provide database (dsn or host/user/dbname). Create this configuration file or set the environment variable and retry)\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.548574505Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestInsertAssetsMultiIPSubdomain",
+          "Output": "    insert_assets_test.go:117: no database config (Database configuration not found: environment variable ARTEX_PG_DSN is unset and configuration file /home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/source/agent/config.json does not provide database (dsn or host/user/dbname). Create this configuration file or set the environment variable and retry)\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.548607526Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestInsertAssetsHTTPServiceTechnologies",
+          "Output": "    insert_assets_test.go:165: no database config (Database configuration not found: environment variable ARTEX_PG_DSN is unset and configuration file /home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/source/agent/config.json does not provide database (dsn or host/user/dbname). Create this configuration file or set the environment variable and retry)\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.548633426Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestInsertAssetsOtherService",
+          "Output": "    insert_assets_test.go:248: no database config (Database configuration not found: environment variable ARTEX_PG_DSN is unset and configuration file /home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/source/agent/config.json does not provide database (dsn or host/user/dbname). Create this configuration file or set the environment variable and retry)\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.548664317Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestInsertAssetsMixedBatch",
+          "Output": "    insert_assets_test.go:309: no database config (Database configuration not found: environment variable ARTEX_PG_DSN is unset and configuration file /home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/source/agent/config.json does not provide database (dsn or host/user/dbname). Create this configuration file or set the environment variable and retry)\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.548689466Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestInsertAssetsDedup",
+          "Output": "    insert_assets_test.go:367: no database config (Database configuration not found: environment variable ARTEX_PG_DSN is unset and configuration file /home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/source/agent/config.json does not provide database (dsn or host/user/dbname). Create this configuration file or set the environment variable and retry)\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.548712967Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestInsertAssetsRejectsHostnameIPPerItem",
+          "Output": "    insert_assets_test.go:405: no database config (Database configuration not found: environment variable ARTEX_PG_DSN is unset and configuration file /home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/source/agent/config.json does not provide database (dsn or host/user/dbname). Create this configuration file or set the environment variable and retry)\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.548741337Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeRejectedSettingsNeverOpenKey",
+          "Output": "    native_admission_order_test.go:17: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.550671768Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeNormaNonStreamingEmptyTools",
+          "Output": "    native_admission_order_test.go:69: Python fixture required\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.551190031Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativePolicyAdmission/valid",
+          "Output": "    native_admission_test.go:48: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.554904102Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativePolicyAdmission/missing",
+          "Output": "    native_admission_test.go:48: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.557074075Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativePolicyAdmission/malformed",
+          "Output": "    native_admission_test.go:48: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.560193163Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativePolicyAdmission/mode",
+          "Output": "    native_admission_test.go:48: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.562759378Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativePolicyAdmission/model",
+          "Output": "    native_admission_test.go:48: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.564589408Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativePolicyAdmission/host",
+          "Output": "    native_admission_test.go:48: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.564623778Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativePolicyAdmission/capability",
+          "Output": "    native_admission_test.go:48: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.56658485Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativePolicySymlinkAndOwnership",
+          "Output": "    native_admission_test.go:72: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.56667537Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeBashGuardBeforeExecutor",
+          "Output": "    native_admission_test.go:111: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.567680526Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeGoPythonSynthetic",
+          "Output": "    native_crosslanguage_test.go:4: retained Python jsonschema unavailable; not cross-language proof\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.57175225Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeExecutorPrivateConfigBeforeKey/valid",
+          "Output": "    native_executor_config_test.go:15: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.578562669Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeExecutorPrivateConfigBeforeKey/unreviewed",
+          "Output": "    native_executor_config_test.go:15: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.58037419Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeExecutorPrivateConfigBeforeKey/task",
+          "Output": "    native_executor_config_test.go:15: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.582795484Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeExecutorPrivateConfigBeforeKey/exploration",
+          "Output": "    native_executor_config_test.go:15: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.584457103Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeExecutorPrivateConfigBeforeKey/phase",
+          "Output": "    native_executor_config_test.go:15: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.58730186Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeExecutorPrivateConfigBeforeKey/generation",
+          "Output": "    native_executor_config_test.go:15: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.587589501Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeExecutorPrivateConfigBeforeKey/executor",
+          "Output": "    native_executor_config_test.go:15: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.589778223Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeExecutorPrivateConfigBeforeKey/network",
+          "Output": "    native_executor_config_test.go:15: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.591583724Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeExecutorPrivateConfigBeforeKey/origin",
+          "Output": "    native_executor_config_test.go:15: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.592758071Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeExecutorPrivateConfigBeforeKey/relative_socket",
+          "Output": "    native_executor_config_test.go:15: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.594613862Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeExecutorPrivateConfigBeforeKey/unclean_socket",
+          "Output": "    native_executor_config_test.go:15: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.603456193Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeExecutorPrivateConfigBeforeKey/unknown",
+          "Output": "    native_executor_config_test.go:15: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.603500363Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeExecutorPrivateConfigBeforeKey/nonprivate_config",
+          "Output": "    native_executor_config_test.go:15: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.606880872Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeExecutorPrivateConfigBeforeKey/config_symlink",
+          "Output": "    native_executor_config_test.go:15: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.609087085Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeExecutorPrivateConfigBeforeKey/nonprivate_key",
+          "Output": "    native_executor_config_test.go:15: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.611345798Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeExecutorPrivateConfigBeforeKey/key_symlink",
+          "Output": "    native_executor_config_test.go:15: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.616256397Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeExecutorPrivateConfigBeforeKey/short_key",
+          "Output": "    native_executor_config_test.go:15: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.619243874Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeExecutorPrivateConfigBeforeKey/long_key",
+          "Output": "    native_executor_config_test.go:15: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.621769599Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeExecutorPrivateConfigBeforeKey/hardlink_key",
+          "Output": "    native_executor_config_test.go:15: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.623645259Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeExecutorPrivateConfigBeforeKey/nonprivate_dir",
+          "Output": "    native_executor_config_test.go:15: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.625961382Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeObservationPrivateLoader/valid",
+          "Output": "    native_observation_test.go:15: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.627564292Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeObservationPrivateLoader/valid",
+          "Output": "    native_observation_test.go:94: actual Go policy loader opened service.key once; executor config verified using raw32 key without any socket listener; observation itself does not reread service.key\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.628718049Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeObservationPrivateLoader/policy_changed",
+          "Output": "    native_observation_test.go:15: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.63075482Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeObservationPrivateLoader/phase_changed",
+          "Output": "    native_observation_test.go:15: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.632723252Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeObservationPrivateLoader/revoked",
+          "Output": "    native_observation_test.go:15: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.63577579Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeObservationPrivateLoader/wrong_task",
+          "Output": "    native_observation_test.go:15: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.637343159Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeObservationPrivateLoader/fixture_cannot_mint_public_status",
+          "Output": "    native_observation_test.go:15: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.63943067Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeQueuedPhaseDenialsDoNotReserve/cancel",
+          "Output": "    native_queue_test.go:16: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.678315755Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeQueuedPhaseDenialsDoNotReserve/revoke",
+          "Output": "    native_queue_test.go:16: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.702121033Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeQueuedPhaseDenialsDoNotReserve/expiry",
+          "Output": "    native_queue_test.go:16: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.785925657Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeRoleBoundComplete",
+          "Output": "    native_role_admission_test.go:81: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.790546374Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeRoleBindScopeAndStop",
+          "Output": "    native_role_admission_test.go:151: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.795564732Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeRoleExpiredAfterBinding",
+          "Output": "    native_role_admission_test.go:174: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.799667977Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeRoleActualNormaLoop",
+          "Output": "    native_role_admission_test.go:182: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.799688367Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeRoleActualNormaLoop",
+          "Output": "    native_role_admission_test.go:191: actual Norma loop and actual add_intent catalog; no DB handler invoked, no assessment acceptance\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.799719797Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeRolePhaseReloadAndAggregateBudget",
+          "Output": "    native_role_admission_test.go:195: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.800951914Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeRoleRevokeCancelsInflight",
+          "Output": "    native_role_admission_test.go:234: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.804248683Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeCoreAssemblyNeverCallsController",
+          "Output": "    native_role_launch_test.go:12: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.805813252Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeDomainCallRequiresDBScope",
+          "Output": "    native_role_launch_test.go:37: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.810150907Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeMainRejectsMissingDBBeforePreparation",
+          "Output": "    native_role_launch_test.go:52: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.814773113Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeRoleMissingBindingResolverDeniesCatalog",
+          "Output": "    native_role_launch_test.go:71: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.81591609Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativePlannerRejectsMissingDBBeforePreparation",
+          "Output": "    native_role_launch_test.go:90: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.822820071Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativePlannerCatalogDropsHostTools",
+          "Output": "    native_role_launch_test.go:108: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.825851228Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeWorkerNoExecutorBeforePreparation",
+          "Output": "    native_role_launch_test.go:120: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.831899243Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeRolePhasePermitBeforeKey/valid_positive_control",
+          "Output": "    native_role_permit_test.go:76: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.8329938Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeRolePhasePermitBeforeKey/valid_positive_control",
+          "Output": "    native_role_permit_test.go:82: positive private phase reaches exactly one synthetic key open\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.835930336Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeRolePhasePermitBeforeKey/unknown",
+          "Output": "    native_role_permit_test.go:109: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.839810519Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeRolePhasePermitBeforeKey/expired",
+          "Output": "    native_role_permit_test.go:109: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.84517945Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeRolePhasePermitBeforeKey/too_long",
+          "Output": "    native_role_permit_test.go:109: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.846658468Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeRolePhasePermitBeforeKey/task_zero",
+          "Output": "    native_role_permit_test.go:109: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.846738819Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeRolePhasePermitBeforeKey/origin_path",
+          "Output": "    native_role_permit_test.go:109: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.847831474Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeRolePhasePermitBeforeKey/calls",
+          "Output": "    native_role_permit_test.go:109: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.848985452Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeRolePhasePermitBeforeKey/bytes",
+          "Output": "    native_role_permit_test.go:109: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.852406001Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeRolePhasePermitBeforeKey/no_roles",
+          "Output": "    native_role_permit_test.go:109: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.855032687Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeRolePhasePermitBeforeKey/unknown_role",
+          "Output": "    native_role_permit_test.go:109: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.857019738Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeRolePhasePermitBeforeKey/support",
+          "Output": "    native_role_permit_test.go:109: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.86262061Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeRolePhasePermitBeforeKey/session",
+          "Output": "    native_role_permit_test.go:109: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.868135202Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeRolePhasePermitBeforeKey/worker_no_intent",
+          "Output": "    native_role_permit_test.go:109: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.868568044Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeRolePhasePermitBeforeKey/bad_digest",
+          "Output": "    native_role_permit_test.go:109: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.870647207Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeRolePhasePermitBeforeKey/nonprivate",
+          "Output": "    native_role_permit_test.go:119: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.871359121Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeRolePhasePermitBeforeKey/duplicate_field",
+          "Output": "    native_role_permit_test.go:130: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.889735877Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeWorkerTaskTemplate",
+          "Output": "    native_task_role_test.go:10: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.893492759Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeTaskBindingRequiresRealStore",
+          "Output": "    native_task_scope_test.go:16: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.898708139Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeRoleAssemblyNoMCP",
+          "Output": "    native_task_scope_test.go:29: fixture directory mode before=0775 after=0700\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.912995062Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestTerminalTextAbortedNamesCauseAndHangingTool",
+          "Output": "    terminalreason_test.go:78: unexpected summary: \"(Run interrupted: Planner terminated this intent; stopped during tool execution; elapsed 7 turns / 1m30s; incomplete)\"\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.913412493Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestTerminalTextAbortedNamesCauseAndHangingTool",
+          "Output": "--- FAIL: TestTerminalTextAbortedNamesCauseAndHangingTool (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.913936576Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestTerminalTextDirectContextCancellationKeepsCause",
+          "Output": "    terminalreason_test.go:92: direct context cancellation lost cause: \"(Run interrupted: User stopped this conversation turn; stopped during execution; elapsed 0s; incomplete)\"\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.91449351Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestTerminalTextDirectContextCancellationKeepsCause",
+          "Output": "--- FAIL: TestTerminalTextDirectContextCancellationKeepsCause (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.916553422Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestTerminalTextAbortedPreservesPartialOutput",
+          "Output": "    terminalreason_test.go:107: abort summary lost cause: \"(Run interrupted: User paused the task; stopped during model output; elapsed 0s; incomplete)\"\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.916572382Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestTerminalTextAbortedPreservesPartialOutput",
+          "Output": "--- FAIL: TestTerminalTextAbortedPreservesPartialOutput (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.916591802Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestTerminalTextCompletedToolNotBlamed",
+          "Output": "    terminalreason_test.go:122: completed tool was blamed:\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.916792734Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestTerminalTextCompletedToolNotBlamed",
+          "Output": "--- FAIL: TestTerminalTextCompletedToolNotBlamed (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.916841684Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestTerminalTextNonAbortReasons",
+          "Output": "    terminalreason_test.go:130: unexpected max_turns summary: \"(Run budget reached (max_turns); facts written during wrap-up; elapsed 0s; no text summary)\"\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.916847134Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestTerminalTextNonAbortReasons",
+          "Output": "--- FAIL: TestTerminalTextNonAbortReasons (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.921552131Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestAbortCausesAreWellFormed",
+          "Output": "    terminalreason_test.go:154: goal_met has invalid short text: \"Planner determined that task goals were met\"\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.921584192Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestAbortCausesAreWellFormed",
+          "Output": "    terminalreason_test.go:154: work_finished has invalid short text: \"Worker finished normally and released its context\"\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.921589352Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestAbortCausesAreWellFormed",
+          "Output": "    terminalreason_test.go:154: chat_paused_with_task has invalid short text: \"Task pause also stopped the main Agent conversation\"\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.921594442Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestAbortCausesAreWellFormed",
+          "Output": "    terminalreason_test.go:154: chat_turn_finished has invalid short text: \"Conversation turn finished normally and released its context\"\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.921604011Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestAbortCausesAreWellFormed",
+          "Output": "--- FAIL: TestAbortCausesAreWellFormed (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.925968337Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Output": "FAIL\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.928746732Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Output": "FAIL\tgithub.com/Autumn-27/artex/agent\t0.444s\n"
+        }
+      ],
+      "skip_output": [
+        {
+          "Time": "2026-11-20T00:19:02.528250488Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestCaptureApprovalLifecycle",
+          "Output": "    capture_approval_test.go:22: no test database configured\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.528267008Z",
+          "Action": "skip",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestCaptureApprovalLifecycle",
+          "Elapsed": 0
+        },
+        {
+          "Time": "2026-11-20T00:19:02.546782055Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestInsertAssetsSubdomainSideEffects",
+          "Output": "    insert_assets_test.go:48: no database config (Database configuration not found: environment variable ARTEX_PG_DSN is unset and configuration file /home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/source/agent/config.json does not provide database (dsn or host/user/dbname). Create this configuration file or set the environment variable and retry)\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.546864326Z",
+          "Action": "skip",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestInsertAssetsSubdomainSideEffects",
+          "Elapsed": 0
+        },
+        {
+          "Time": "2026-11-20T00:19:02.548574505Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestInsertAssetsMultiIPSubdomain",
+          "Output": "    insert_assets_test.go:117: no database config (Database configuration not found: environment variable ARTEX_PG_DSN is unset and configuration file /home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/source/agent/config.json does not provide database (dsn or host/user/dbname). Create this configuration file or set the environment variable and retry)\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.548587396Z",
+          "Action": "skip",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestInsertAssetsMultiIPSubdomain",
+          "Elapsed": 0
+        },
+        {
+          "Time": "2026-11-20T00:19:02.548607526Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestInsertAssetsHTTPServiceTechnologies",
+          "Output": "    insert_assets_test.go:165: no database config (Database configuration not found: environment variable ARTEX_PG_DSN is unset and configuration file /home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/source/agent/config.json does not provide database (dsn or host/user/dbname). Create this configuration file or set the environment variable and retry)\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.548619026Z",
+          "Action": "skip",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestInsertAssetsHTTPServiceTechnologies",
+          "Elapsed": 0
+        },
+        {
+          "Time": "2026-11-20T00:19:02.548633426Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestInsertAssetsOtherService",
+          "Output": "    insert_assets_test.go:248: no database config (Database configuration not found: environment variable ARTEX_PG_DSN is unset and configuration file /home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/source/agent/config.json does not provide database (dsn or host/user/dbname). Create this configuration file or set the environment variable and retry)\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.548650356Z",
+          "Action": "skip",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestInsertAssetsOtherService",
+          "Elapsed": 0
+        },
+        {
+          "Time": "2026-11-20T00:19:02.548664317Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestInsertAssetsMixedBatch",
+          "Output": "    insert_assets_test.go:309: no database config (Database configuration not found: environment variable ARTEX_PG_DSN is unset and configuration file /home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/source/agent/config.json does not provide database (dsn or host/user/dbname). Create this configuration file or set the environment variable and retry)\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.548674666Z",
+          "Action": "skip",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestInsertAssetsMixedBatch",
+          "Elapsed": 0
+        },
+        {
+          "Time": "2026-11-20T00:19:02.548689466Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestInsertAssetsDedup",
+          "Output": "    insert_assets_test.go:367: no database config (Database configuration not found: environment variable ARTEX_PG_DSN is unset and configuration file /home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/source/agent/config.json does not provide database (dsn or host/user/dbname). Create this configuration file or set the environment variable and retry)\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.548699586Z",
+          "Action": "skip",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestInsertAssetsDedup",
+          "Elapsed": 0
+        },
+        {
+          "Time": "2026-11-20T00:19:02.548712967Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestInsertAssetsRejectsHostnameIPPerItem",
+          "Output": "    insert_assets_test.go:405: no database config (Database configuration not found: environment variable ARTEX_PG_DSN is unset and configuration file /home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/source/agent/config.json does not provide database (dsn or host/user/dbname). Create this configuration file or set the environment variable and retry)\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.548728197Z",
+          "Action": "skip",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestInsertAssetsRejectsHostnameIPPerItem",
+          "Elapsed": 0
+        },
+        {
+          "Time": "2026-11-20T00:19:02.550709338Z",
+          "Action": "skip",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeNormaNonStreamingEmptyTools",
+          "Elapsed": 0
+        },
+        {
+          "Time": "2026-11-20T00:19:02.567680526Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeGoPythonSynthetic",
+          "Output": "    native_crosslanguage_test.go:4: retained Python jsonschema unavailable; not cross-language proof\n"
+        },
+        {
+          "Time": "2026-11-20T00:19:02.567792407Z",
+          "Action": "skip",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestNativeGoPythonSynthetic",
+          "Elapsed": 0
+        }
+      ]
+    },
+    "english-red": {
+      "command": [
+        "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+        "test",
+        "-p=1",
+        "-json",
+        "-count=1",
+        "./agent",
+        "./guard",
+        "-run",
+        "TestEnglishDomainTool|TestEnglishTerminalAndAuxiliary"
+      ],
+      "env": {
+        "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+        "GOMODCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/gomodcache",
+        "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+        "GOPROXY": "off",
+        "GOSUMDB": "off",
+        "GOTOOLCHAIN": "local",
+        "GOFLAGS": "-mod=readonly",
+        "GOMAXPROCS": "2",
+        "TMPDIR": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/agent-final-evidence/scratch",
+        "GOTMPDIR": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/agent-final-evidence/scratch"
+      },
+      "returncode": 1,
+      "seconds": 6.419431475922465,
+      "top_level": {
+        "pass": 0,
+        "fail": 3,
+        "skip": 0
+      },
+      "subtests": {
+        "pass": 0,
+        "fail": 63,
+        "skip": 0
+      },
+      "package_failures": [
+        {
+          "Time": "2026-11-20T00:10:44.8763939Z",
+          "Action": "fail",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Elapsed": 0.018
+        }
+      ],
+      "tests": [
+        "TestEnglishDomainToolCatalog/graph_overview",
+        "TestEnglishDomainToolCatalog/list_findings",
+        "TestEnglishDomainToolCatalog/list_facts",
+        "TestEnglishDomainToolCatalog/node_detail",
+        "TestEnglishDomainToolCatalog/expand_digest",
+        "TestEnglishDomainToolCatalog/get_worker_output",
+        "TestEnglishDomainToolCatalog/get_worker_trace",
+        "TestEnglishDomainToolCatalog/search_all_worker_traces",
+        "TestEnglishDomainToolCatalog/add_hint",
+        "TestEnglishDomainToolCatalog/add_intent",
+        "TestEnglishDomainToolCatalog/steer_work",
+        "TestEnglishDomainToolCatalog/set_goals",
+        "TestEnglishDomainToolCatalog/set_constraints",
+        "TestEnglishDomainToolCatalog/insert_assets",
+        "TestEnglishDomainToolCatalog/add_company_scope",
+        "TestEnglishDomainToolCatalog/list_assets",
+        "TestEnglishDomainToolCatalog/report_finding",
+        "TestEnglishDomainToolCatalog/record_fact",
+        "TestEnglishDomainToolCatalog/add_task_scope",
+        "TestEnglishDomainToolCatalog/list_untested_assets",
+        "TestEnglishDomainToolCatalog/list_goals",
+        "TestEnglishDomainToolCatalog/prove_goal",
+        "TestEnglishDomainToolCatalog/goal_met",
+        "TestEnglishDomainToolCatalog/kill_work",
+        "TestEnglishDomainToolCatalog/list_companies",
+        "TestEnglishDomainToolCatalog",
+        "TestEnglishDomainToolErrors/insert_assets",
+        "TestEnglishDomainToolErrors/add_company_scope",
+        "TestEnglishDomainToolErrors/list_assets",
+        "TestEnglishDomainToolErrors/list_companies",
+        "TestEnglishDomainToolErrors/add_task_scope",
+        "TestEnglishDomainToolErrors/list_untested_assets",
+        "TestEnglishDomainToolErrors/set_goals",
+        "TestEnglishDomainToolErrors/set_constraints",
+        "TestEnglishDomainToolErrors/node_detail",
+        "TestEnglishDomainToolErrors/kill_work",
+        "TestEnglishDomainToolErrors/steer_work",
+        "TestEnglishDomainToolErrors",
+        "TestEnglishTerminalAndAuxiliaryGuidance/paused_by_user",
+        "TestEnglishTerminalAndAuxiliaryGuidance/paused_by_orchestrator",
+        "TestEnglishTerminalAndAuxiliaryGuidance/task_deleted",
+        "TestEnglishTerminalAndAuxiliaryGuidance/paused_on_reload",
+        "TestEnglishTerminalAndAuxiliaryGuidance/goal_met",
+        "TestEnglishTerminalAndAuxiliaryGuidance/settle_drain_timeout",
+        "TestEnglishTerminalAndAuxiliaryGuidance/killed_by_planner",
+        "TestEnglishTerminalAndAuxiliaryGuidance/work_paused_by_user",
+        "TestEnglishTerminalAndAuxiliaryGuidance/work_cancelled_by_user",
+        "TestEnglishTerminalAndAuxiliaryGuidance/work_finished",
+        "TestEnglishTerminalAndAuxiliaryGuidance/paused_race_guard",
+        "TestEnglishTerminalAndAuxiliaryGuidance/chat_stopped_by_user",
+        "TestEnglishTerminalAndAuxiliaryGuidance/chat_paused_with_task",
+        "TestEnglishTerminalAndAuxiliaryGuidance/chat_turn_finished",
+        "TestEnglishTerminalAndAuxiliaryGuidance/shutdown",
+        "TestEnglishTerminalAndAuxiliaryGuidance/run_hard_timeout",
+        "TestEnglishTerminalAndAuxiliaryGuidance/timeout",
+        "TestEnglishTerminalAndAuxiliaryGuidance/stop_hook_prevented",
+        "TestEnglishTerminalAndAuxiliaryGuidance/hook_stopped",
+        "TestEnglishTerminalAndAuxiliaryGuidance/aborted_streaming",
+        "TestEnglishTerminalAndAuxiliaryGuidance/aborted_tools",
+        "TestEnglishTerminalAndAuxiliaryGuidance/model_error",
+        "TestEnglishTerminalAndAuxiliaryGuidance/blocking_limit",
+        "TestEnglishTerminalAndAuxiliaryGuidance/prompt_too_long",
+        "TestEnglishTerminalAndAuxiliaryGuidance/image_error",
+        "TestEnglishTerminalAndAuxiliaryGuidance/completed",
+        "TestEnglishTerminalAndAuxiliaryGuidance/max_turns",
+        "TestEnglishTerminalAndAuxiliaryGuidance"
+      ],
+      "failure_output": [
+        {
+          "Time": "2026-11-20T00:10:44.869590791Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolCatalog/graph_overview",
+          "Output": "--- FAIL: TestEnglishDomainToolCatalog/graph_overview (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.869661491Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolCatalog/list_findings",
+          "Output": "--- FAIL: TestEnglishDomainToolCatalog/list_findings (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.869765102Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolCatalog/list_facts",
+          "Output": "--- FAIL: TestEnglishDomainToolCatalog/list_facts (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.869840072Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolCatalog/node_detail",
+          "Output": "--- FAIL: TestEnglishDomainToolCatalog/node_detail (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.869920393Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolCatalog/expand_digest",
+          "Output": "--- FAIL: TestEnglishDomainToolCatalog/expand_digest (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.869945773Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolCatalog/get_worker_output",
+          "Output": "--- FAIL: TestEnglishDomainToolCatalog/get_worker_output (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.870075103Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolCatalog/get_worker_trace",
+          "Output": "--- FAIL: TestEnglishDomainToolCatalog/get_worker_trace (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.870106583Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolCatalog/search_all_worker_traces",
+          "Output": "--- FAIL: TestEnglishDomainToolCatalog/search_all_worker_traces (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.870290065Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolCatalog/add_hint",
+          "Output": "--- FAIL: TestEnglishDomainToolCatalog/add_hint (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.870337765Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolCatalog/add_intent",
+          "Output": "--- FAIL: TestEnglishDomainToolCatalog/add_intent (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.870374366Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolCatalog/steer_work",
+          "Output": "--- FAIL: TestEnglishDomainToolCatalog/steer_work (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.870415395Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolCatalog/set_goals",
+          "Output": "--- FAIL: TestEnglishDomainToolCatalog/set_goals (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.870443276Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolCatalog/set_constraints",
+          "Output": "--- FAIL: TestEnglishDomainToolCatalog/set_constraints (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.870476016Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolCatalog/insert_assets",
+          "Output": "--- FAIL: TestEnglishDomainToolCatalog/insert_assets (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.870509096Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolCatalog/add_company_scope",
+          "Output": "--- FAIL: TestEnglishDomainToolCatalog/add_company_scope (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.870589257Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolCatalog/list_assets",
+          "Output": "--- FAIL: TestEnglishDomainToolCatalog/list_assets (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.870620597Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolCatalog/report_finding",
+          "Output": "--- FAIL: TestEnglishDomainToolCatalog/report_finding (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.870675467Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolCatalog/record_fact",
+          "Output": "--- FAIL: TestEnglishDomainToolCatalog/record_fact (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.870709828Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolCatalog/add_task_scope",
+          "Output": "--- FAIL: TestEnglishDomainToolCatalog/add_task_scope (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.870737208Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolCatalog/list_untested_assets",
+          "Output": "--- FAIL: TestEnglishDomainToolCatalog/list_untested_assets (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.870765708Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolCatalog/list_goals",
+          "Output": "--- FAIL: TestEnglishDomainToolCatalog/list_goals (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.870795068Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolCatalog/prove_goal",
+          "Output": "--- FAIL: TestEnglishDomainToolCatalog/prove_goal (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.870825237Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolCatalog/goal_met",
+          "Output": "--- FAIL: TestEnglishDomainToolCatalog/goal_met (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.870850288Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolCatalog/kill_work",
+          "Output": "--- FAIL: TestEnglishDomainToolCatalog/kill_work (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.870886758Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolCatalog/list_companies",
+          "Output": "--- FAIL: TestEnglishDomainToolCatalog/list_companies (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.870896328Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolCatalog",
+          "Output": "--- FAIL: TestEnglishDomainToolCatalog (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.87113555Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolErrors/insert_assets",
+          "Output": "--- FAIL: TestEnglishDomainToolErrors/insert_assets (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.87118781Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolErrors/add_company_scope",
+          "Output": "--- FAIL: TestEnglishDomainToolErrors/add_company_scope (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.871252061Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolErrors/list_assets",
+          "Output": "--- FAIL: TestEnglishDomainToolErrors/list_assets (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.871313701Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolErrors/list_companies",
+          "Output": "--- FAIL: TestEnglishDomainToolErrors/list_companies (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.871347471Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolErrors/add_task_scope",
+          "Output": "--- FAIL: TestEnglishDomainToolErrors/add_task_scope (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.871380391Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolErrors/list_untested_assets",
+          "Output": "--- FAIL: TestEnglishDomainToolErrors/list_untested_assets (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.871404902Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolErrors/set_goals",
+          "Output": "--- FAIL: TestEnglishDomainToolErrors/set_goals (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.871429562Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolErrors/set_constraints",
+          "Output": "--- FAIL: TestEnglishDomainToolErrors/set_constraints (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.871467772Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolErrors/node_detail",
+          "Output": "--- FAIL: TestEnglishDomainToolErrors/node_detail (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.871497773Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolErrors/kill_work",
+          "Output": "--- FAIL: TestEnglishDomainToolErrors/kill_work (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.871610472Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolErrors/steer_work",
+          "Output": "--- FAIL: TestEnglishDomainToolErrors/steer_work (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.871624682Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishDomainToolErrors",
+          "Output": "--- FAIL: TestEnglishDomainToolErrors (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.871691522Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishTerminalAndAuxiliaryGuidance/paused_by_user",
+          "Output": "--- FAIL: TestEnglishTerminalAndAuxiliaryGuidance/paused_by_user (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.871716533Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishTerminalAndAuxiliaryGuidance/paused_by_orchestrator",
+          "Output": "--- FAIL: TestEnglishTerminalAndAuxiliaryGuidance/paused_by_orchestrator (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.871740463Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishTerminalAndAuxiliaryGuidance/task_deleted",
+          "Output": "--- FAIL: TestEnglishTerminalAndAuxiliaryGuidance/task_deleted (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.871767083Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishTerminalAndAuxiliaryGuidance/paused_on_reload",
+          "Output": "--- FAIL: TestEnglishTerminalAndAuxiliaryGuidance/paused_on_reload (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.871795203Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishTerminalAndAuxiliaryGuidance/goal_met",
+          "Output": "--- FAIL: TestEnglishTerminalAndAuxiliaryGuidance/goal_met (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.871819523Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishTerminalAndAuxiliaryGuidance/settle_drain_timeout",
+          "Output": "--- FAIL: TestEnglishTerminalAndAuxiliaryGuidance/settle_drain_timeout (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.871845784Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishTerminalAndAuxiliaryGuidance/killed_by_planner",
+          "Output": "--- FAIL: TestEnglishTerminalAndAuxiliaryGuidance/killed_by_planner (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.871873754Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishTerminalAndAuxiliaryGuidance/work_paused_by_user",
+          "Output": "--- FAIL: TestEnglishTerminalAndAuxiliaryGuidance/work_paused_by_user (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.871899524Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishTerminalAndAuxiliaryGuidance/work_cancelled_by_user",
+          "Output": "--- FAIL: TestEnglishTerminalAndAuxiliaryGuidance/work_cancelled_by_user (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.871925154Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishTerminalAndAuxiliaryGuidance/work_finished",
+          "Output": "--- FAIL: TestEnglishTerminalAndAuxiliaryGuidance/work_finished (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.871952124Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishTerminalAndAuxiliaryGuidance/paused_race_guard",
+          "Output": "--- FAIL: TestEnglishTerminalAndAuxiliaryGuidance/paused_race_guard (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.871981705Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishTerminalAndAuxiliaryGuidance/chat_stopped_by_user",
+          "Output": "--- FAIL: TestEnglishTerminalAndAuxiliaryGuidance/chat_stopped_by_user (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.872722349Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishTerminalAndAuxiliaryGuidance/chat_paused_with_task",
+          "Output": "--- FAIL: TestEnglishTerminalAndAuxiliaryGuidance/chat_paused_with_task (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.872756649Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishTerminalAndAuxiliaryGuidance/chat_turn_finished",
+          "Output": "--- FAIL: TestEnglishTerminalAndAuxiliaryGuidance/chat_turn_finished (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.872803Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishTerminalAndAuxiliaryGuidance/shutdown",
+          "Output": "--- FAIL: TestEnglishTerminalAndAuxiliaryGuidance/shutdown (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.87284308Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishTerminalAndAuxiliaryGuidance/run_hard_timeout",
+          "Output": "--- FAIL: TestEnglishTerminalAndAuxiliaryGuidance/run_hard_timeout (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.87287468Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishTerminalAndAuxiliaryGuidance/timeout",
+          "Output": "--- FAIL: TestEnglishTerminalAndAuxiliaryGuidance/timeout (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.872925271Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishTerminalAndAuxiliaryGuidance/stop_hook_prevented",
+          "Output": "--- FAIL: TestEnglishTerminalAndAuxiliaryGuidance/stop_hook_prevented (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.872961551Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishTerminalAndAuxiliaryGuidance/hook_stopped",
+          "Output": "--- FAIL: TestEnglishTerminalAndAuxiliaryGuidance/hook_stopped (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.873001821Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishTerminalAndAuxiliaryGuidance/aborted_streaming",
+          "Output": "--- FAIL: TestEnglishTerminalAndAuxiliaryGuidance/aborted_streaming (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.873073702Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishTerminalAndAuxiliaryGuidance/aborted_tools",
+          "Output": "--- FAIL: TestEnglishTerminalAndAuxiliaryGuidance/aborted_tools (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.873120741Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishTerminalAndAuxiliaryGuidance/model_error",
+          "Output": "--- FAIL: TestEnglishTerminalAndAuxiliaryGuidance/model_error (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.873149131Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishTerminalAndAuxiliaryGuidance/blocking_limit",
+          "Output": "--- FAIL: TestEnglishTerminalAndAuxiliaryGuidance/blocking_limit (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.873172741Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishTerminalAndAuxiliaryGuidance/prompt_too_long",
+          "Output": "--- FAIL: TestEnglishTerminalAndAuxiliaryGuidance/prompt_too_long (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.873200942Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishTerminalAndAuxiliaryGuidance/image_error",
+          "Output": "--- FAIL: TestEnglishTerminalAndAuxiliaryGuidance/image_error (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.873225152Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishTerminalAndAuxiliaryGuidance/completed",
+          "Output": "--- FAIL: TestEnglishTerminalAndAuxiliaryGuidance/completed (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.873251352Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishTerminalAndAuxiliaryGuidance/max_turns",
+          "Output": "--- FAIL: TestEnglishTerminalAndAuxiliaryGuidance/max_turns (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.873316692Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Test": "TestEnglishTerminalAndAuxiliaryGuidance",
+          "Output": "--- FAIL: TestEnglishTerminalAndAuxiliaryGuidance (0.00s)\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.87449947Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Output": "FAIL\n"
+        },
+        {
+          "Time": "2026-11-20T00:10:44.87637246Z",
+          "Action": "output",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Output": "FAIL\tgithub.com/Autumn-27/artex/agent\t0.018s\n"
+        }
+      ],
+      "skip_output": []
+    }
+  },
+  "production_structure_check": {
+    "files": {
+      "source/agent/assembly.go": true,
+      "source/agent/cancelcause.go": true,
+      "source/agent/capture.go": true,
+      "source/agent/chat.go": true,
+      "source/agent/coldgraph.go": true,
+      "source/agent/compaction.go": true,
+      "source/agent/constraints.go": true,
+      "source/agent/deferred.go": true,
+      "source/agent/finding_recorder.go": true,
+      "source/agent/finding_workflow.go": true,
+      "source/agent/goals.go": true,
+      "source/agent/mainagent.go": true,
+      "source/agent/native_admission.go": true,
+      "source/agent/native_catalog_preflight.go": true,
+      "source/agent/native_domain.go": true,
+      "source/agent/native_executor_config.go": true,
+      "source/agent/native_observation.go": true,
+      "source/agent/native_pg_fixture.go": true,
+      "source/agent/native_preflight.go": true,
+      "source/agent/native_reporter.go": true,
+      "source/agent/native_role.go": true,
+      "source/agent/native_rpc.go": true,
+      "source/agent/native_task_role.go": true,
+      "source/agent/native_tool_resolver.go": true,
+      "source/agent/native_transport_pg_fixture.go": true,
+      "source/agent/noa.go": true,
+      "source/agent/planner.go": true,
+      "source/agent/prompt.go": true,
+      "source/agent/promptcatalog.go": true,
+      "source/agent/provider.go": true,
+      "source/agent/reporter_factories.go": true,
+      "source/agent/retester.go": true,
+      "source/agent/runinfo.go": true,
+      "source/agent/side_questions.go": true,
+      "source/agent/taskclock.go": true,
+      "source/agent/terminalreason.go": true,
+      "source/agent/toolcatalog.go": true,
+      "source/agent/tools.go": true,
+      "source/agent/tools_digest.go": true,
+      "source/agent/tools_insert.go": true,
+      "source/agent/worker.go": true,
+      "source/agent/wrapup.go": true,
+      "source/guard/guard.go": true
+    },
+    "method": "Go scanner ignores comments and masks string/character values for structure. All identifiers, numeric literals, operators and control flow equal baseline. Separately checks existing non-Han literals (machine keys, tool names, enums, SQL etc.) unchanged, apart from two translated terminal-summary punctuation literals. Natural-language equivalence still requires review.",
+    "production_token_structure_unchanged": true,
+    "role_prompt_files_all_literal_values_preserved": {
+      "source/agent/goals.go": true,
+      "source/agent/mainagent.go": true,
+      "source/agent/planner.go": true,
+      "source/agent/prompt.go": true,
+      "source/agent/promptcatalog.go": true,
+      "source/agent/reporter_factories.go": true,
+      "source/agent/worker.go": true,
+      "source/agent/wrapup.go": true
+    },
+    "unexpected_non_Han_literal_changes": null
+  },
+  "nonenglish_remaining": {
+    "counts_by_classification": {
+      "functional_icp_registration_fixture": 1,
+      "functional_unicode_override_fixture": 19,
+      "functional_document_path": 2,
+      "functional_multilingual_quota_detection": 1,
+      "functional_multilingual_quota_fixture": 1,
+      "functional_user_target_evidence_fixture": 4,
+      "functional_unicode_evidence_fixture": 4
+    },
+    "total_lines": 32,
+    "untranslated_production_or_comments": [],
+    "inventory": "remaining-nonenglish.json",
+    "prior_reconciliation": "prior-classification-reconciliation.json"
+  },
+  "artifacts": {
+    "hashes": "hashes.json",
+    "diff": "translation.diff",
+    "baseline": "baseline.json",
+    "structure": "structure.json"
+  },
+  "limits": [
+    "No full application build, deployment, UI activation, model-enabled test, migration or independent natural-language/security review.",
+    "Final-safe and side-safe are focused offline regressions, not database persistence or end-to-end proof. PostgreSQL-dependent cases in the earlier broad run skipped; no database was provisioned.",
+    "Intermediate focused run failed six existing terminal tests: five old Chinese message assertions, plus the existing 40-rune short-label limit. Updated only translated expectations, shortened English labels to retain that limit, then passed final-safe.",
+    "Scope deviation: the initial focused regex was too broad and selected TestNativeRPCSyntheticNoTarget and TestCapturePropagatesThroughNormaProvider, whose existing tests start transient local httptest loopback listeners. Both returned; tests use deferred Close and the test process exited. No external provider/model endpoint was called. Final-safe explicitly excludes listener-bearing and native tests.",
+    "Go package compilation/tests used the retained toolchain/cache, GOPROXY=off, GOSUMDB=off, GOTOOLCHAIN=local, readonly modules. No dependencies installed/downloaded, no whole-app build. Scratch stayed under new evidence directory.",
+    "Filesystem was near full (1.5G available initially, 1.2G at last check). No disk failure or deletion occurred."
+  ],
+  "catalog_identity_warning": "Tool descriptions and schema descriptions changed, so any catalog hash/binding digest/native phase permit derived from their previous text is stale. Recompute/review identities and obtain fresh explicit approval before model-enabled UI use; do not reuse or silently remint prior approved permits. This pass did not activate or modify admission/budget/security behavior.",
+  "cross_stack_handoff": [
+    "Server must emit English Task: # context; intercept/database producer and parser compatibility for [Model] and Tool approval summaries remain owned by other workers.",
+    "source/agent/side_questions_test.go expectation aligned to already-English source/sidequestion/service.go; source/sidequestion was read only.",
+    "Existing persisted/custom prompt/tool overrides are deliberately not migrated: source English seeds do not rewrite a deployed database."
+  ],
+  "lessons_handoff": [
+    "Inspect focused test bodies before selecting broad prefixes: offline can still start local httptest listeners, and DB skips are not passes. Use explicit listener-free test allowlists for no-listener tasks.",
+    "Translate whole natural-language literals, preserving protocol keys and multilingual evidence/detectors. Compare Go token structure and pre-existing non-Han literals separately; language scans must classify legitimate residual Unicode.",
+    "English expansion can violate existing rune limits; shorten translated labels rather than relaxing tests or limits."
+  ]
+}

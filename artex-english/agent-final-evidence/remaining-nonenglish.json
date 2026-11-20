@@ -1,0 +1,226 @@
+[
+  {
+    "path": "source/agent/blackboard_inheritance_test.go",
+    "line": 42,
+    "text": "\ticp := fmt.Sprintf(\"京 ICP 备 %d 号\", companyID)",
+    "classification": "functional_icp_registration_fixture",
+    "rationale": "ICP registry-format test data, not generated human-facing prose."
+  },
+  {
+    "path": "source/agent/english_prompts_test.go",
+    "line": 58,
+    "text": "\tconst userText = \"用户原文 — preserve supplied content\"",
+    "classification": "functional_unicode_override_fixture",
+    "rationale": "User/custom template override and Unicode budget fixture; original supplied content must remain unchanged."
+  },
+  {
+    "path": "source/agent/english_prompts_test.go",
+    "line": 92,
+    "text": "\tconst original = \"用户 evidence\"",
+    "classification": "functional_unicode_override_fixture",
+    "rationale": "User/custom template override and Unicode budget fixture; original supplied content must remain unchanged."
+  },
+  {
+    "path": "source/agent/english_prompts_test.go",
+    "line": 93,
+    "text": "\tintent := &db.Node{ID: 11, Payload: json.RawMessage(`{\"summary\":\"用户 evidence\"}`)}",
+    "classification": "functional_unicode_override_fixture",
+    "rationale": "User/custom template override and Unicode budget fixture; original supplied content must remain unchanged."
+  },
+  {
+    "path": "source/agent/prompt_now_test.go",
+    "line": 18,
+    "text": "\t\t\treturn \"当前时间：{{.Now}}\", true",
+    "classification": "functional_unicode_override_fixture",
+    "rationale": "User/custom template override and Unicode budget fixture; original supplied content must remain unchanged."
+  },
+  {
+    "path": "source/agent/prompt_now_test.go",
+    "line": 24,
+    "text": "\tif !strings.Contains(out, \"当前时间：\") {",
+    "classification": "functional_unicode_override_fixture",
+    "rationale": "User/custom template override and Unicode budget fixture; original supplied content must remain unchanged."
+  },
+  {
+    "path": "source/agent/prompt_now_test.go",
+    "line": 41,
+    "text": "\t\treturn \"数据根目录：{{.DataDir}}\", true",
+    "classification": "functional_unicode_override_fixture",
+    "rationale": "User/custom template override and Unicode budget fixture; original supplied content must remain unchanged."
+  },
+  {
+    "path": "source/agent/prompt_now_test.go",
+    "line": 45,
+    "text": "\tif !strings.Contains(out, \"数据根目录：/app/data\") {",
+    "classification": "functional_unicode_override_fixture",
+    "rationale": "User/custom template override and Unicode budget fixture; original supplied content must remain unchanged."
+  },
+  {
+    "path": "source/agent/prompt_now_test.go",
+    "line": 57,
+    "text": "\t\treturn \"引用了不存在的变量：{{.Bogus}}\", true",
+    "classification": "functional_unicode_override_fixture",
+    "rationale": "User/custom template override and Unicode budget fixture; original supplied content must remain unchanged."
+  },
+  {
+    "path": "source/agent/prompt_now_test.go",
+    "line": 61,
+    "text": "\tif strings.Contains(out, \"引用了不存在的变量\") {",
+    "classification": "functional_unicode_override_fixture",
+    "rationale": "User/custom template override and Unicode budget fixture; original supplied content must remain unchanged."
+  },
+  {
+    "path": "source/agent/prompt_test.go",
+    "line": 20,
+    "text": "\t\t\treturn \"目标:{{.Goal}} 范围:{{.Scope}}\", true",
+    "classification": "functional_unicode_override_fixture",
+    "rationale": "User/custom template override and Unicode budget fixture; original supplied content must remain unchanged."
+  },
+  {
+    "path": "source/agent/prompt_test.go",
+    "line": 24,
+    "text": "\tif got := renderSystem(\"planner\", \"DEFAULT\", PlannerVars{Goal: \"拿下X\", Scope: \"*.x.com\"}); got != \"目标:拿下X 范围:*.x.com\" {",
+    "classification": "functional_unicode_override_fixture",
+    "rationale": "User/custom template override and Unicode budget fixture; original supplied content must remain unchanged."
+  },
+  {
+    "path": "source/agent/prompt_test.go",
+    "line": 37,
+    "text": "\tgot := plannerSystem(\"拿下X\", \"/data\", \"/data\")",
+    "classification": "functional_unicode_override_fixture",
+    "rationale": "User/custom template override and Unicode budget fixture; original supplied content must remain unchanged."
+  },
+  {
+    "path": "source/agent/prompt_test.go",
+    "line": 38,
+    "text": "\tif !strings.HasPrefix(got, \"PLANNER 拿下X\") {",
+    "classification": "functional_unicode_override_fixture",
+    "rationale": "User/custom template override and Unicode budget fixture; original supplied content must remain unchanged."
+  },
+  {
+    "path": "source/agent/prompt_test.go",
+    "line": 51,
+    "text": "\t\treturn \"{{if .ProxyAddr}}走代理 {{.ProxyAddr}}{{else}}手动{{end}}\", true",
+    "classification": "functional_unicode_override_fixture",
+    "rationale": "User/custom template override and Unicode budget fixture; original supplied content must remain unchanged."
+  },
+  {
+    "path": "source/agent/prompt_test.go",
+    "line": 54,
+    "text": "\tif !strings.HasPrefix(recording, \"走代理 127.0.0.1:8080\") {",
+    "classification": "functional_unicode_override_fixture",
+    "rationale": "User/custom template override and Unicode budget fixture; original supplied content must remain unchanged."
+  },
+  {
+    "path": "source/agent/prompt_test.go",
+    "line": 69,
+    "text": "\tif !strings.HasPrefix(egressOnly, \"走代理 127.0.0.1:8080\") {",
+    "classification": "functional_unicode_override_fixture",
+    "rationale": "User/custom template override and Unicode budget fixture; original supplied content must remain unchanged."
+  },
+  {
+    "path": "source/agent/prompt_test.go",
+    "line": 76,
+    "text": "\tif !strings.HasPrefix(noProxy, \"手动\") {",
+    "classification": "functional_unicode_override_fixture",
+    "rationale": "User/custom template override and Unicode budget fixture; original supplied content must remain unchanged."
+  },
+  {
+    "path": "source/agent/provider.go",
+    "line": 2,
+    "text": "// agent-core SDK) to the dual SQLite graph. See docs/ARTEX-架构设计.md",
+    "classification": "functional_document_path",
+    "rationale": "Actual referenced document path is an identifier, retained exactly; surrounding comment is English."
+  },
+  {
+    "path": "source/agent/provider.go",
+    "line": 337,
+    "text": "\t\t\"余额不足\", \"额度不足\", \"额度已用尽\", \"欠费\",",
+    "classification": "functional_multilingual_quota_detection",
+    "rationale": "Quota detection must continue recognizing real Chinese provider errors."
+  },
+  {
+    "path": "source/agent/provider_quota_test.go",
+    "line": 27,
+    "text": "\t\t`账户余额不足，请充值`,",
+    "classification": "functional_multilingual_quota_fixture",
+    "rationale": "Positive control for Chinese provider-quota recognition."
+  },
+  {
+    "path": "source/agent/review_context_test.go",
+    "line": 29,
+    "text": "\texpID, err := d.CreateExploration(\"只操作隔离测试目录\", \"验证创建和清理\")",
+    "classification": "functional_user_target_evidence_fixture",
+    "rationale": "Original task instructions, constraints and forbidden-context markers test isolation; do not translate user/evidence data."
+  },
+  {
+    "path": "source/agent/review_context_test.go",
+    "line": 82,
+    "text": "\t\t\t_, err := ts.AddConstraint(\"deny\", \"禁止后续清理\", \"human\")",
+    "classification": "functional_user_target_evidence_fixture",
+    "rationale": "Original task instructions, constraints and forbidden-context markers test isolation; do not translate user/evidence data."
+  },
+  {
+    "path": "source/agent/review_context_test.go",
+    "line": 89,
+    "text": "\tintentPayload := map[string]any{\"summary\": \"创建并清理\", \"extra\": \"FULL_INTENT_SENTINEL\"}",
+    "classification": "functional_user_target_evidence_fixture",
+    "rationale": "Original task instructions, constraints and forbidden-context markers test isolation; do not translate user/evidence data."
+  },
+  {
+    "path": "source/agent/review_context_test.go",
+    "line": 110,
+    "text": "\t\tfor _, forbidden := range []string{\"创建并清理\", \"PARENT_BACKGROUND_SENTINEL\", `\"background\"`, \"只操作隔离测试目录\", \"验证创建和清理\", \"禁止后续清理\", \"FULL_INTENT_SENTINEL\", \"全局探索态势\", `\"task_id\"`, `\"task\"`, `\"turn_input\"`, `\"worker_intent\"`, `\"history\"`, `\"history_truncated\"`, `\"correlation\"`, \"Created a new fixture\"} {",
+    "classification": "functional_user_target_evidence_fixture",
+    "rationale": "Original task instructions, constraints and forbidden-context markers test isolation; do not translate user/evidence data."
+  },
+  {
+    "path": "source/agent/terminalreason_test.go",
+    "line": 104,
+    "text": "\t\tText:   \"已经生成的半段回答\",",
+    "classification": "functional_unicode_evidence_fixture",
+    "rationale": "Partial model output and rune-safe truncation fixtures must remain Unicode, not translated."
+  },
+  {
+    "path": "source/agent/terminalreason_test.go",
+    "line": 109,
+    "text": "\tif !strings.Contains(detail, \"已经生成的半段回答\") {",
+    "classification": "functional_unicode_evidence_fixture",
+    "rationale": "Partial model output and rune-safe truncation fixtures must remain Unicode, not translated."
+  },
+  {
+    "path": "source/agent/terminalreason_test.go",
+    "line": 163,
+    "text": "\tif got := firstLine(strings.Repeat(\"恢复\", 10), 5); got != \"恢复恢复恢…\" {",
+    "classification": "functional_unicode_evidence_fixture",
+    "rationale": "Partial model output and rune-safe truncation fixtures must remain Unicode, not translated."
+  },
+  {
+    "path": "source/agent/terminalreason_test.go",
+    "line": 166,
+    "text": "\tif got := firstLine(\"头\\n尾\", 100); got != \"头\" {",
+    "classification": "functional_unicode_evidence_fixture",
+    "rationale": "Partial model output and rune-safe truncation fixtures must remain Unicode, not translated."
+  },
+  {
+    "path": "source/agent/tools_overview_test.go",
+    "line": 21,
+    "text": "\tgot := budget.take(strings.Repeat(\"中\", 10), 20)",
+    "classification": "functional_unicode_override_fixture",
+    "rationale": "User/custom template override and Unicode budget fixture; original supplied content must remain unchanged."
+  },
+  {
+    "path": "source/agent/wrapup.go",
+    "line": 104,
+    "text": "// ---------- Task-level timeout wrap-up (see docs/任务级超时与收尾设计.md) ----------",
+    "classification": "functional_document_path",
+    "rationale": "Actual referenced document path is an identifier, retained exactly; surrounding comment is English."
+  },
+  {
+    "path": "source/guard/english_messages_test.go",
+    "line": 10,
+    "text": "\tconst reason = \"用户 supplied policy reason\"",
+    "classification": "functional_unicode_override_fixture",
+    "rationale": "User/custom template override and Unicode budget fixture; original supplied content must remain unchanged."
+  }
+]

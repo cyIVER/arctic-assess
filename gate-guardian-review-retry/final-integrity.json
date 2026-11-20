@@ -1,0 +1,83 @@
+{
+  "source_exact_set_unchanged": true,
+  "source_file_count": 58,
+  "added": [],
+  "removed": [],
+  "changed": [],
+  "free_bytes": 2050314240,
+  "owned_artifacts": {
+    "verification.json": {
+      "sha256": "f5e4793550ad729be683728f6c07209c91cba2a0b4ac242807b18f54a6fbe737",
+      "bytes": 364
+    },
+    "boundary-tests.log": {
+      "sha256": "c98a331297fd880deffb7c8065d44506ec26e0ae0e13b86287967489a551d6cf",
+      "bytes": 560
+    },
+    "after.json": {
+      "sha256": "d5dba4fd8f07a469afd8ae38f4b9db117843da57de0bc7a679a1e243de7ce2a1",
+      "bytes": 9218
+    },
+    "REVIEW.md": {
+      "sha256": "2eb04788eff9d52f00665453bc74418895b40016f5b65c748fcebbc4f930a971",
+      "bytes": 11966
+    },
+    "report.json": {
+      "sha256": "9b169397f70d36dc07ddf3f50ce2c85b7961ae9fa16d297f80eb5ddcf9056127",
+      "bytes": 6734
+    },
+    "unit-tests.log": {
+      "sha256": "73d557a4d56af10d629a1f8c375ae68a5db9693d6596d8f0998832452004e66b",
+      "bytes": 2661
+    },
+    "contract-reproduction.json": {
+      "sha256": "87f696601d14f43d96f826f47a34dd3833ef76cd9c9a22c924a0992279394da7",
+      "bytes": 443
+    },
+    "test_review_boundaries.py": {
+      "sha256": "bc9cd7464b20125d4fa4a45ab9bfc46e03fd7d864ec79e883e0a584fa23dc6b8",
+      "bytes": 3758
+    },
+    "before.json": {
+      "sha256": "d5dba4fd8f07a469afd8ae38f4b9db117843da57de0bc7a679a1e243de7ce2a1",
+      "bytes": 9218
+    },
+    "reproduce_contract.py": {
+      "sha256": "274c306e5adc2c20d4c3deb5fddf5d65984928aa76380b8bbc71360eb8b66e62",
+      "bytes": 2795
+    },
+    "integration-copy/guest.py": {
+      "sha256": "c51d2f0bddef4fe38af25378b3589437fc018fd8ed0bc07fd0ae3a5b714b3326",
+      "bytes": 16207
+    },
+    "unit-copy/verify.py": {
+      "sha256": "ad8ef603916605d8338dd64d2590275add3229d97b2961ac4615c955f1fdf2b6",
+      "bytes": 1300
+    },
+    "unit-copy/evidence.json": {
+      "sha256": "de779d42a0de5271314385c4b56dd54e0736623e2286c3c9600d067ede307519",
+      "bytes": 3448
+    },
+    "unit-copy/artifact-hashes.json": {
+      "sha256": "eb50d3627a49a42bc49a0a5f7bffa075b7db3a084abb4fbd204a297acf74b89e",
+      "bytes": 428
+    },
+    "unit-copy/test_guard.py": {
+      "sha256": "1bffcaf8ba0f1f0e757e46b3406331da62e83b0ad2a7f99bf1c7a6ebc28d7492",
+      "bytes": 5853
+    },
+    "unit-copy/README.md": {
+      "sha256": "a25d86352d6bbd8c4db486ed6e33bf92438a5eee3177a059e0e07813c54491f2",
+      "bytes": 10929
+    },
+    "unit-copy/guard.py": {
+      "sha256": "4dbee74525efc94a4262d7e297c0922e5ffeeba5c5583b6466454898d6f8a0cd",
+      "bytes": 18338
+    },
+    "unit-copy/test_security.py": {
+      "sha256": "11e14db83463b54b50e40335914a0ba42a855541f9bd105385466ebfee49da33",
+      "bytes": 11807
+    }
+  },
+  "self_exclusion": "final-integrity.json excludes its own bytes"
+}

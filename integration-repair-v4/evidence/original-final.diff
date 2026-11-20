@@ -1,0 +1,173 @@
+--- original/guard.py
++++ final/guard.py
+@@ -1,6 +1,6 @@
+ #!/usr/bin/python3 -I
+-"""Read-only task guard. Import has no effects. Live deployment is an external root gate.
+-Trust: parent root/kernel and reviewed root-owned code, NOT caller JSON or worker UID1001.
++"""Read-only task guard. Import has no effects. Deployment requires parent review.
++Trust: VPS coordinator UID1000, guest root/kernel; NOT caller JSON or guest UID1001.
+ No cloud/SSH execution except --serve authenticated status; no mutation commands exist.
+ """
+ import datetime
+@@ -26,7 +26,13 @@
+ SOURCE='/opt/artex-live-guard/guard.py'
+ ALLOWLIST='/opt/artex-live-guard/allowlist.json'
+ CONTEXT='/run/artex-parent/run-context.json'
+-GCLOUD='/opt/artex-live-guard/google-cloud-sdk/bin/gcloud'
++# Fixed trusted launcher role, never selected by request/config metadata.
++HOST_UID=1000
++HOST_ROOT='/home/iveri/.hermes/cache/scratch/artex-live-guard-v2'
++HOST_SOURCE=HOST_ROOT+'/guard.py'
++HOST_CONTEXT=HOST_ROOT+'/run-context.json'
++SDK=HOST_ROOT+'/google-cloud-sdk'
++GCLOUD=SDK+'/bin/gcloud'
+ VPS_PORT=18773
+ GUEST_PORT=18774
+ ROUTE='artex-live-guard-v1/status'
+@@ -43,8 +49,16 @@
+ def finite(x): return type(x) in (int,float) and math.isfinite(x)
+ def utc(): return time.time()
+ 
+-def protected(path,sha=None,private=False,cap=1048576):
+-    """No symlinks anywhere; root-owned ancestry; no worker/group writes."""
++def protected(path,sha=None,private=False,cap=1048576,host=False):
++    """Guest root-only; host UID1000/root with proven exclusive700 ancestry.
++
++    A writable ancestor BEFORE the shield always denies (rename attack).
++    Below the shield only trusted owners may exist; public files still deny writes.
++    host is a trusted code-only constructor argument, never JSON/RPC authority.
++    """
++    if host: need(os.getuid()==HOST_UID and os.geteuid()==HOST_UID,'host UID')
++    owners=(0,HOST_UID) if host else (0,)
++    shield=False
+     p=Path(path)
+     need(p.is_absolute() and str(p)==path and '..' not in p.parts,'protected path')
+     fd=os.open('/',os.O_RDONLY|os.O_DIRECTORY)
+@@ -52,12 +66,15 @@
+         for part in p.parts[1:-1]:
+             nxt=os.open(part,os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW,dir_fd=fd)
+             os.close(fd); fd=nxt
+-            s=os.fstat(fd); need(s.st_uid==0 and not s.st_mode&0o022,'protected ancestor')
++            s=os.fstat(fd)
++            need(s.st_uid in owners and (not s.st_mode&0o022 or (host and shield)),'protected ancestor')
++            if host and stat.S_IMODE(s.st_mode)==0o700: shield=True
++        if host: need(shield,'missing host privacy shield')
+         if private: need(stat.S_IMODE(os.fstat(fd).st_mode)==0o700,'private directory')
+         leaf=os.open(p.name,os.O_RDONLY|os.O_NOFOLLOW|os.O_NONBLOCK,dir_fd=fd)
+         try:
+             s=os.fstat(leaf)
+-            need(stat.S_ISREG(s.st_mode) and s.st_uid==0 and not s.st_mode&0o022 and s.st_size<=cap,'protected file')
++            need(stat.S_ISREG(s.st_mode) and s.st_uid in owners and not s.st_mode&0o022 and s.st_size<=cap,'protected file')
+             if private: need(stat.S_IMODE(s.st_mode)==0o600,'private file')
+             with os.fdopen(leaf,'rb',closefd=False) as f: data=f.read(cap+1)
+             need(len(data)<=cap,'file cap')
+@@ -68,41 +85,60 @@
+ 
+ def pinned_object(ref): return json.loads(protected(ref['path'],ref['sha256']))
+ 
++def verify_sdk(root,manifest):
++    """Code-only private snapshot, no links. Manifest itself is parent-pinned.
++
++    Do not aim this at account/config/cache directories. No auto-discovery/copy.
++    """
++    sdk=Path(root); actual=set()
++    need(isinstance(manifest,dict) and bool(manifest),'SDK manifest')
++    for parent,dirs,files in os.walk(sdk,followlinks=False):
++        for p in [Path(parent)]+[Path(parent)/n for n in dirs]:
++            s=p.lstat()
++            need(stat.S_ISDIR(s.st_mode) and s.st_uid in (0,HOST_UID) and not s.st_mode&0o022,'SDK directory')
++        for name in files:
++            p=Path(parent)/name;rel=str(p.relative_to(sdk));actual.add(rel)
++            need(rel in manifest,'SDK unreviewed file')
++            protected(str(p),manifest[rel],cap=134217728,host=True)
++    need(actual==set(manifest) and 'bin/gcloud' in actual,'SDK manifest completeness')
++
+ def load_scope(role='guest'):
+-    need(os.geteuid()==0,'root-only')
++    need(role in ('guest','vps'),'fixed role')
++    host=role=='vps'
++    need((os.getuid()==HOST_UID and os.geteuid()==HOST_UID) if host else os.geteuid()==0,'host UID' if host else 'root-only')
++    source=HOST_SOURCE if host else SOURCE
++    root=HOST_ROOT if host else ROOT
++    context=HOST_CONTEXT if host else CONTEXT
++    allowlist=HOST_ROOT+'/allowlist.json' if host else ALLOWLIST
++    def read(path,*args,**kw):
++        if host: need(Path(path).is_relative_to(HOST_ROOT),'host task boundary')
++        return protected(path,*args,host=True,**kw) if host else protected(path,*args,**kw)
++    def pinned(ref):return json.loads(read(ref['path'],ref['sha256']))
+     # This allowlist is installed by the parent AFTER independent source review.
+     # It is not a caller-selectable review path or approval metadata supplied to RPC.
+-    a=json.loads(protected(ALLOWLIST)); code=protected(SOURCE,a['guard_sha256'])
+-    need(Path(__file__).absolute()==Path(SOURCE),'canonical entrypoint')
+-    c=json.loads(protected(ROOT+'/parent.json',private=True))
+-    ctx=json.loads(protected(CONTEXT,private=True))
++    a=json.loads(read(allowlist)); code=read(source,a['guard_sha256'])
++    need(Path(__file__).absolute()==Path(source),'canonical entrypoint')
++    c=json.loads(read(root+'/parent.json',private=True))
++    ctx=json.loads(read(context,private=True))
++    # Shared context always pins the GUEST canonical path and SAME source bytes.
+     need(ctx['guardian_implementation']=={'path':SOURCE,'sha256':digest(code)},'context source pin')
+     for key in ('vm','lane','guard_created','external_stop','controller_id','preflight'):
+         need(c[key]==ctx[key],'parent context binding')
+     need(c['parent_scope_lease']==ctx['parent_scope_lease'],'parent lease binding')
+     need(ctx['guardian_review']==a['guardian_review'],'canonical review binding')
+-    review=pinned_object(a['guardian_review'])
++    review=pinned(a['guardian_review'])
+     need(review['status']=='approved' and review['object_sha256']==digest(code),'review source binding')
+     need(c['schema']==1 and c['vm']==VM and c['lane']=='literal-no-model-isolation','parent scope')
+     need(all(finite(c[k]) for k in ('guard_created','external_stop')) and c['guard_created']<=utc()<c['external_stop'] and 0<c['external_stop']-c['guard_created']<=5400,'parent lease')
+     if role!='vps': return c
++    need(c['controller']['uid']==HOST_UID,'fixed controller UID')
+     need(c['controller']['script']['sha256']==a['controller_sha256'],'reviewed controller source')
+     protected(c['controller']['exe'],a['controller_exe_sha256'],cap=134217728)
+-    # SDK is a protected, complete reviewed code manifest, not a credential copy.
+-    manifest=pinned_object(a['gcloud_manifest'])
+-    sdk=Path('/opt/artex-live-guard/google-cloud-sdk')
+-    actual=set()
+-    for parent,dirs,files in os.walk(sdk,followlinks=False):
+-        for name in dirs:
+-            p=Path(parent)/name; s=p.lstat()
+-            need(stat.S_ISDIR(s.st_mode) and s.st_uid==0 and not s.st_mode&0o022,'SDK directory')
+-        for name in files:
+-            p=Path(parent)/name; rel=str(p.relative_to(sdk)); actual.add(rel)
+-            need(rel in manifest,'SDK unreviewed file');protected(str(p),manifest[rel],cap=134217728)
+-    need(actual==set(manifest) and 'bin/gcloud' in actual,'SDK manifest completeness')
+-    # Reviewed controller bytes/config are immutable throughout the guard lifetime.
+-    protected(c['controller']['script']['path'],c['controller']['script']['sha256'])
+-    checkpoint=pinned_object(c['controller']['checkpoint'])
++    protected(str(Path('/usr/bin/python3').resolve()),a['sdk_python_sha256'],cap=134217728)
++    # Snapshot contains only reviewed official SDK code, never auth context.
++    verify_sdk(SDK,pinned(a['gcloud_manifest']))
++    read(c['controller']['script']['path'],c['controller']['script']['sha256'])
++    checkpoint=pinned(c['controller']['checkpoint'])
+     need(checkpoint['deadline']==datetime.datetime.fromtimestamp(c['external_stop'],datetime.timezone.utc).isoformat()
+          or timestamp(checkpoint['deadline'])==c['external_stop'],'controller deadline')
+     need(Path(c['controller']['checkpoint']['path'])==Path(c['controller']['script']['path']).parent/'approval-checkpoint.json','controller checkpoint location')
+@@ -116,7 +152,7 @@
+     # Existing normal gcloud account context only. Never read/copy/log its files.
+     return subprocess.run(argv,capture_output=True,text=True,timeout=timeout,
+         env={'PATH':'/usr/bin:/bin','HOME':'/home/iveri','PYTHONDONTWRITEBYTECODE':'1',
+-             'CLOUDSDK_PYTHON':'/usr/bin/python3','LANG':'C.UTF-8'},stdin=subprocess.DEVNULL)
++             'CLOUDSDK_PYTHON':'/usr/bin/python3','CLOUDSDK_PYTHON_ARGS':'-I -B','LANG':'C.UTF-8'},stdin=subprocess.DEVNULL)
+ 
+ def proc_identity(c):
+     pid=c['pid']; need(type(pid)is int and pid>1 and pid!=os.getpid(),'external PID')
+@@ -179,7 +215,7 @@
+             disk=query(BASE+['compute','disks','describe',VM['name'],'--zone='+VM['zone'],'--format=json'])
+             need(disk['id']==VM['disk_id'] and disk['name']==VM['name'],'disk identity')
+             # No SSH fallback: an absent existing mux hits /usr/bin/false, not a new IAP session.
+-            guest=query(['/usr/bin/ssh','-S',ROOT+'/iap.sock','-o','ControlMaster=no','-o','ProxyCommand=/usr/bin/false',
++            guest=query(['/usr/bin/ssh','-S',HOST_ROOT+'/iap.sock','-o','ControlMaster=no','-o','ProxyCommand=/usr/bin/false',
+                 '-o','BatchMode=yes','-o','ConnectTimeout=2','vindleradmin@vindler-lab-01',
+                 'sudo -n /usr/bin/python3 -I -B /opt/artex-live-guard/guard.py --guest-inventory'])
+             need(guest=={'default_docker_quiescent':True,'checkpoint_sha256':c['preflight']['sha256']},'default daemon/checkpoint')
+@@ -283,7 +319,8 @@
+         c=load_scope('vps' if argv==['--serve'] else 'guest')
+         if argv==['--guest-inventory']: result=guest_inventory(c)
+         else:
+-            key=protected(ROOT+'/transport.key',private=True,cap=32);need(len(key)==32,'transport key')
++            host=argv==['--serve']
++            key=protected((HOST_ROOT if host else ROOT)+'/transport.key',private=True,cap=32,host=host);need(len(key)==32,'transport key')
+             if argv==['--serve']:serve(c,key);return 0
+             result=client_status(c,key)
+         print(json.dumps(result,separators=(',',':')));return 0

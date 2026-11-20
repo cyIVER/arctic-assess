@@ -1,0 +1,121 @@
+{
+  "source/notify/channels_test.go": {
+    "remaining_test_comment": 31,
+    "remaining_test_diagnostic": 70,
+    "remaining_test_literal_review": 5
+  },
+  "source/notify/dingtalk.go": {
+    "remaining_production_comment": 32
+  },
+  "source/notify/email.go": {
+    "remaining_production_comment": 44
+  },
+  "source/notify/email_test.go": {
+    "remaining_test_comment": 40,
+    "remaining_test_diagnostic": 23,
+    "remaining_test_literal_review": 12
+  },
+  "source/notify/feishu.go": {
+    "remaining_production_comment": 28
+  },
+  "source/notify/filter.go": {
+    "remaining_production_comment": 32
+  },
+  "source/notify/filter_test.go": {
+    "remaining_test_comment": 9,
+    "remaining_test_literal_review": 17,
+    "remaining_test_diagnostic": 8
+  },
+  "source/notify/html.go": {
+    "remaining_production_comment": 13
+  },
+  "source/notify/http.go": {
+    "remaining_production_comment": 74
+  },
+  "source/notify/http_test.go": {
+    "remaining_test_comment": 16,
+    "remaining_test_literal_review": 10,
+    "remaining_test_diagnostic": 11
+  },
+  "source/notify/markdown.go": {
+    "remaining_production_comment": 52
+  },
+  "source/notify/mask.go": {
+    "remaining_production_comment": 73
+  },
+  "source/notify/mask_test.go": {
+    "remaining_test_diagnostic": 37,
+    "remaining_test_comment": 51,
+    "remaining_test_literal_review": 12
+  },
+  "source/notify/pack_test.go": {
+    "remaining_test_comment": 27,
+    "remaining_test_diagnostic": 21,
+    "remaining_test_literal_review": 9
+  },
+  "source/notify/redact_test.go": {
+    "remaining_test_comment": 33,
+    "remaining_test_literal_review": 11,
+    "remaining_test_diagnostic": 14
+  },
+  "source/notify/render.go": {
+    "remaining_production_comment": 41
+  },
+  "source/notify/render_test.go": {
+    "remaining_test_comment": 20,
+    "remaining_test_literal_review": 7,
+    "remaining_test_diagnostic": 23
+  },
+  "source/notify/sign_test.go": {
+    "remaining_test_comment": 10,
+    "remaining_test_diagnostic": 10
+  },
+  "source/notify/ssrf_test.go": {
+    "remaining_test_comment": 45,
+    "remaining_test_diagnostic": 16
+  },
+  "source/notify/telegram.go": {
+    "remaining_production_comment": 26
+  },
+  "source/notify/webhook.go": {
+    "remaining_production_comment": 33
+  },
+  "source/notify/webhook_template_test.go": {
+    "remaining_test_comment": 24,
+    "remaining_test_diagnostic": 9,
+    "remaining_test_literal_review": 2
+  },
+  "source/notify/wecom.go": {
+    "remaining_production_comment": 17
+  },
+  "source/selfupdate/bootstrap.go": {
+    "remaining_production_comment": 43
+  },
+  "source/selfupdate/github.go": {
+    "remaining_production_comment": 14
+  },
+  "source/selfupdate/selfupdate.go": {
+    "remaining_production_comment": 38
+  },
+  "source/selfupdate/selfupdate_test.go": {
+    "remaining_test_comment": 34,
+    "remaining_test_diagnostic": 49
+  },
+  "source/selfupdate/stage.go": {
+    "remaining_production_comment": 30
+  },
+  "source/traffic/reclaim_test.go": {
+    "remaining_test_diagnostic": 22,
+    "remaining_test_comment": 2
+  },
+  "source/traffic/traffic.go": {
+    "remaining_production_comment": 5
+  },
+  "source/traffic/traffic_store_test.go": {
+    "remaining_test_diagnostic": 52
+  },
+  "source/traffic/upgrade_test.go": {
+    "remaining_test_comment": 10,
+    "remaining_test_diagnostic": 18
+  }
+}

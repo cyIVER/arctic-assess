@@ -1,0 +1,20 @@
+test_actual_blocked_canary_cannot_be_overridden_by_local_pass (test_validate.ReadinessTests.test_actual_blocked_canary_cannot_be_overridden_by_local_pass) ... ok
+test_limited_native_chat_is_not_full_assessment (test_validate.ReadinessTests.test_limited_native_chat_is_not_full_assessment) ... FAIL
+test_synthetic_complete_control_is_unit_only (test_validate.ReadinessTests.test_synthetic_complete_control_is_unit_only) ... ok
+
+======================================================================
+FAIL: test_limited_native_chat_is_not_full_assessment (test_validate.ReadinessTests.test_limited_native_chat_is_not_full_assessment)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 39, in test_limited_native_chat_is_not_full_assessment
+    self.assertEqual(result['readiness'], 'BLOCKED')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'REVIEW_REQUIRED' != 'BLOCKED'
+- REVIEW_REQUIRED
++ BLOCKED
+
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=1)

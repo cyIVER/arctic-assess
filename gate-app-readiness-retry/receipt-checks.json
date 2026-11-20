@@ -1,0 +1,84 @@
+{
+  "runner_manifest": {
+    "declared": 13,
+    "verified": 13,
+    "changed": [],
+    "missing": []
+  },
+  "producer_receipt_counts": [
+    {
+      "path": "20261119-215904-3998898.log",
+      "counts": {
+        "pass": 52
+      },
+      "package_terminals": [
+        "pass"
+      ],
+      "skips": []
+    },
+    {
+      "path": "20261119-215926-3999758.log",
+      "counts": {
+        "pass": 97,
+        "skip": 2
+      },
+      "package_terminals": [
+        "pass"
+      ],
+      "skips": [
+        {
+          "test": "TestNativeNormaNonStreamingEmptyTools",
+          "reason": "=== RUN   TestNativeNormaNonStreamingEmptyTools\n    native_admission_order_test.go:69: Python fixture required\n--- SKIP: TestNativeNormaNonStreamingEmptyTools (0.00s)\n"
+        },
+        {
+          "test": "TestNativeGoPythonSynthetic",
+          "reason": "=== RUN   TestNativeGoPythonSynthetic\n    native_crosslanguage_test.go:4: retained Python jsonschema unavailable; not cross-language proof\n--- SKIP: TestNativeGoPythonSynthetic (0.00s)\n"
+        }
+      ]
+    }
+  ],
+  "original_ui_map_equal": true,
+  "build_source_manifest_files": 669,
+  "build_source_changed": [],
+  "build_source_missing": [],
+  "build_source_extra_verification": "generated overlay entries recorded in local-build-receipt; no builds executed",
+  "saved_cloud_only": {
+    "observed_utc": "2026-11-19T22:34:19.448006+00:00",
+    "project": "syncfall-ir-range",
+    "zone": "us-central1-a",
+    "name": "vindler-lab-01",
+    "vm_id": "590620893136303309",
+    "vm_status": "TERMINATED",
+    "disk_id": "521979503200711885",
+    "disk_status": "READY",
+    "disk_size_gb": "100",
+    "auto_delete": false,
+    "service_accounts": [],
+    "has_external_ip": false,
+    "provider_stop": {
+      "automaticRestart": false,
+      "instanceTerminationAction": "STOP",
+      "onHostMaintenance": "MIGRATE",
+      "preemptible": false,
+      "provisioningModel": "STANDARD",
+      "terminationTime": "2026-11-19T22:59:03Z"
+    },
+    "live_checked": false
+  },
+  "budget": {
+    "authoritative_last_settled": "artex-ui-asset-retry",
+    "historical_compute_usd": "0.4716137476682435999999999999",
+    "unsettled_final_compute_usd": "0.015635998",
+    "proposed_total_usd": "0.4872497456682435999999999999",
+    "headroom_after_final_and_contingency_usd": "1.012750254331756400000000000",
+    "proposal_30min_compute_usd": "0.13402284",
+    "after_proposed_30min_and_contingency_usd": "0.878727414331756400000000000",
+    "final_settlement_not_applied_by_this_lane": true
+  },
+  "handoffs": {
+    "artex-worker-admission/HANDOFF.md": false,
+    "artex-worker-admission/receipts/REPORT.md": true,
+    "artex-ui-asset-final/HANDOFF.md": false,
+    "artex-worker-assessment-runner/HANDOFF.md": true
+  }
+}

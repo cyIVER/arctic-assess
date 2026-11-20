@@ -1,0 +1,242 @@
+source/agent/tools_insert.go
+59|(unknown)
+125|Batch-register newly discovered assets; multiple types may be mixed (see the type enum).\n
+126|Required fields by type: root_domain→domain; ip→ip (IPv4/IPv6, not a hostname); subdomain→domain; app→app_name; service(HTTP)→url; service(non-HTTP)→service_name+port (at least one of ip/domain); endpoint→url+method. See individual descriptions for other fields.\n
+127|auth/technologies/params are append-merged, not overwritten.\n
+128|Returns: {results:[{index,id,type}], errors:[{index,error}]}
+133|Asset array; each element is one asset record
+138|Asset type
+141|Root domain or subdomain (required for root_domain/subdomain)
+142|ICP registration number (optional)
+143|DNS record type: A/AAAA/CNAME/MX, etc. (optional for subdomain)
+147|DNS record values (optional for subdomain, e.g. [\"1.2.3.4\",\"2.3.4.5\"])
+150|IP address: must be IPv4/IPv6, not a hostname (use type=subdomain and domain for hostnames). Required for ip; optional for service/endpoint to link an IP
+154|Domains bound to this IP (optional for ip)
+158|Open ports (optional for ip)
+160|Port number
+161|Service name, e.g. http/ssh/mysql (optional)
+165|Application name (required for app)
+166|Bundle ID (optional for app)
+167|Application category (optional)
+168|Application description (optional)
+169|Application ICP registration (optional)
+170|Owning company id (optional for app; apps cannot be attributed automatically via scope, so specify explicitly. Returned by add_company_scope)
+172|Full URL including scheme and port (required for HTTP services; service_type is automatically set to http)
+173|HTTP response status code, e.g. 200/301/403/404 (optional)
+176|HTTP response body size in bytes (optional)
+178|Page <title> content (optional)
+179|Favicon MMH3 hash (optional)
+183|Fingerprints/technologies, e.g. [\"Nginx\",\"Vue\",\"Bootstrap\"] (optional)
+187|Discovered authentication information; each entry includes type/username/password, etc. (optional, append without overwriting)
+191|Service name, e.g. ssh/mysql/redis (required for non-HTTP service)
+192|Port number (required for non-HTTP service)
+194|HTTP method: GET/POST/PUT/PATCH/DELETE, etc. (required for endpoint)
+197|Request parameters; each entry includes location(query/body/header/path)/name/value/type (optional, append without overwriting)
+205|insert_assets unavailable: AssetStore is not initialized
+247|Asset %s %s; insertion denied
+349|Registered by Agent via insert_assets
+351|Registered by Worker intent #%d via insert_assets
+380|Add domain/IP/CIDR/ICP registration/company keywords to a company's asset scope. Domains, networks and ICP automatically claim matching assets; keywords are only scope hints for the Agent.\n
+381|Company names are unique: create company if absent, otherwise reuse it and merge scope.\n
+382|One scope entry per line; automatically recognizes root domains / URLs / individual IPs / CIDR networks / ICP registrations / company keywords.\n
+383|Always supply reason explaining attribution (whois/certificate/ASN, etc.).\n
+384|Guardrails: reject bare TLDs and overly broad networks (IPv4 prefix /16-/32, IPv6 prefix /32-/128). Invalid lines are skipped and returned in errors.
+386|Company name (create if absent, reuse if present; unique)
+387|Asset scope, one entry per line: domain / URL / IP / CIDR / ICP registration / company keyword
+388|Attribution basis (evidence/source); always provide
+389|Company logo URL (optional; only used for newly created companies)
+393|add_company_scope unavailable: CompanyStore is not initialized
+405|company must not be empty
+409|Failed to create/get company: 
+434|Add test scope to the CURRENT TASK: its authorization boundary and asset coverage denominator.\n
+435|Supported kind: company(all assets under a company) / root_domain(entire root domain, including all subdomains) / subdomain(one exact subdomain) / ip / cidr / icp / keyword.\n
+436|Worker-discovered hosts are automatically scoped as exact subdomains. Use this tool to DELIBERATELY WIDEN scope to a whole root domain/company, or add a specific subdomain/IP.\n
+437|value: company name or id (company must exist); domain for root_domain/subdomain; IP or network for ip/cidr; registration number or company keyword for icp/keyword.\n
+438|Always supply an auditable reason. Use entries for multiple items.
+440|Batch: [{kind, value}]. kind∈company/root_domain/subdomain/ip/cidr/icp/keyword.
+441|[Single] company / root_domain / subdomain / ip / cidr / icp / keyword
+442|[Single] Company name or id / domain / IP / CIDR / ICP / keyword
+443|Basis for adding scope (for audit); always provide
+447|add_task_scope unavailable: AssetStore is not initialized
+450|add_task_scope requires task context (no current task)
+490|Query assets within the CURRENT AND DIRECTLY LINKED TASK scopes that are not covered by fact anchors. Linked scope is read-only; decide for yourself whether more testing is needed.\n
+491|Optional asset type filter: root_domain/subdomain/service/app/endpoint/ip.\n
+492|Pagination: page starts at 1, page_size defaults to 10. Returns {assets:[{id,type,label}], total, page, page_size}. Requires task context.
+494|Optional asset type filter: root_domain/subdomain/service/app/endpoint/ip
+495|Page number, starting at 1 (default 1)
+496|Items per page (default 10)
+500|list_untested_assets unavailable: AssetStore is not initialized
+503|list_untested_assets requires task context
+533|Query the asset store via DSL or fetch directly by id/ids; supports pagination. Returns only assets in the CURRENT AND DIRECTLY LINKED TASK test scopes.\n
+534|DSL: field=value fuzzy(ILIKE) | field==value exact | field!=value exclude | numeric fields support > >= < <= | bare words=full-text fuzzy; combine with AND/OR (AND has higher precedence), group with parentheses. Specify asset type in the separate type parameter, not DSL.\n
+535|Without id/ids, dsl must be nonempty (unconditional full-store queries are not allowed).\n
+536|Fields: domain(root/subdomain/service domain), root_domain, ip, url, page_title, icp, service_name, app_name, method(e.g. GET/POST), service_type(http|other), record_type(e.g. A/CNAME), technology(array, =fuzzy ==exact), port/status_code/company_id(integers).\n
+537|Examples: status_code>=400 AND technology=shiro ; (port==80 OR port==443) AND technology=nginx
+539|DSL query expression (see tool description for syntax/fields). Must be nonempty without id/ids.
+540|Asset type filter: root_domain|ip|subdomain|app|service|endpoint (separate field, can combine with dsl; type alone is insufficient, dsl is still required)
+541|Fetch one asset id directly (optional; mutually exclusive with dsl/type)
+542|Fetch multiple asset ids directly (optional; mutually exclusive with dsl/type)
+543|Result limit, default 10 (optional)
+544|Pagination offset, default 0 (optional)
+548|list_assets unavailable: AssetStore is not initialized
+573|dsl must not be empty without id/ids: unconditional queries of all assets are not allowed; supply query conditions
+576|DSL error: 
+590|List companies in the asset store with their asset scope and attributed asset counts. Use this to discover companies and 
+591|obtain company_id (for linking apps in insert_assets or filtering list_assets by company_id).
+592|Optional search filters company names by case-insensitive substring; empty returns all.
+594|Company name substring filter (optional, case-insensitive); empty returns all
+598|list_companies unavailable: CompanyStore is not initialized
+606|Failed to query companies: 
+source/agent/tools.go
+155|facts%d assets%d findings%d
+331| requires task context (exploration graph): this agent is not running inside a task and cannot access its exploration graph. Use this tool within a task, or use cross-task read tools with task_id (get_task_node_detail / list_task_findings / get_task_graph).
+349|(Exploration graph) Distilled situational overview: asset counts, sites without endpoints, frontier, findings, and hints (human/main-agent strategic guidance that must inform new intents). Call this first when planning.
+538|coverage is a rough asset-testing estimate (including endpoints and other related assets), for reference only: includes scope and fact anchors from the current and directly linked tasks; linked scope is read-only. Container assets/large enumerations can lower it; do not infer testing is complete. Use add_task_scope to extend current-task scope and list_untested_assets to inspect untested assets [usually unnecessary; proceed according to the task].
+541|Scope not anchored
+908|List CONFIRMED FINDINGS for this task and directly linked tasks (compact: id+task_id+intent_id+vulnclass+severity+summary+state). Linked entries carry source_task_id/inherited=true and are read-only. Findings only; use list_facts for exploration facts and node_detail(id) for details.
+946|List exploration facts/conclusions from this task and directly linked tasks, newest first (compact id+summary+state; long summaries truncated, full text via node_detail(id)). Optional parameters: limit(default 20, max 100), before(cursor: pass next_before from the previous page for older results; omitted/0=newest), q(summary keyword filter). Returns {facts, total, has_more, next_before}; total is the filtered count; continue with next_before when has_more=true. Linked entries carry source_task_id/inherited=true and are read-only. Use list_findings for vulnerabilities.
+948|Result count, default 20, maximum 100
+949|Cursor: return only older facts with id below this value; omitted or 0 = newest page
+950|Case-insensitive fact summary keyword filter; omitted = no filter
+999|Get a full exploration graph node by id from this task or directly linked tasks. Inherited nodes carry source_task_id/inherited=true and are read-only. Only exploration node ids from list_facts/list_findings/graph_overview; for assets use list_assets/asset_neighbors.
+1000|Exploration graph node id (not an asset id)
+1008|id is required
+1015|Exploration node %d not found. For assets use list_assets / asset_neighbors (asset and exploration node ids belong to different spaces; do not pass asset ids to node_detail).
+1040|summary must not be empty
+1047|parent_id %d does not exist in this task or directly linked tasks: parent_ids must be existing fact/finding node ids; leave parent_ids empty for a new top-level direction
+1050|parent_id %d is a %q node and cannot anchor an intent: intents must anchor to confirmed fact/finding nodes, not intents/goals/hints; leave parent_ids empty for a new top-level direction
+1062|Asset intercept validation failed: %w
+1066|Assets bound to intent %s failed test-scope validation; stop testing the related assets: 
+1098|Create exploration directions in the frontier and link them into the exploration graph. An intent is an open-ended direction, not a fixed category: describe what to explore/verify/exploit in one summary sentence.\n
+1099|Prefer batching: submit multiple new directions in intents in one call to reduce round trips. Returns ids in the same order and length as intents (failed item id=0, details in errors). For one item omit intents and supply top-level summary.
+1101|Preferred: array of new directions, processed in order. Each element uses the top-level fields below (summary/asset_ids/parent_ids/priority). Returned ids have the same length and order.
+1102|[Single] One sentence: what to explore and why. A clear direction is sufficient; asset ids are not a prerequisite.
+1103|TARGET ASSET ids for this direction (provide whenever possible, 0/1/multiple; asset ids from list_assets, NOT exploration node ids): sites/endpoints/parameters/hosts to test or attack. Always supply when a direction concerns specific assets. This structured target marker supports coverage deduplication and asset lineage. Leave empty only for truly global reconnaissance without specific target assets.
+1104|Upstream anchor ids (optional, 0/1/multiple): existing CONFIRMED fact/finding nodes that jointly motivated this direction. Only existing fact/finding ids, NOT intent/goal/hint ids: intents must be discovery-driven and grounded in confirmed knowledge. Supply multiple ids when appropriate; leave empty for a new top-level reconnaissance direction (automatically linked to the task's origin fact).
+1105|Priority 0-10, default 5
+1155|List this task's goal nodes and states (open/met) to assess completion.
+1164|Call when a finding/fact proves a goal: link the evidence node to the goal and mark the goal met.
+1166|Goal node id
+1167|Finding/fact node id proving the goal
+1168|Why this evidence satisfies the goal
+1179|goal_id and evidence_id are required
+1183|goal_id must be a goal node in this task (linked-task goals are read-only)
+1187|evidence_id must be a fact/finding node in this task or directly linked tasks
+1203|All %d goals are met (last triggered by goal %d)
+1204|goal %d marked met; all goals in this task are met, so the task is automatically complete
+1212|IMMEDIATELY END THE WHOLE TASK: call only when ALL task goals are genuinely achieved and the entire task is complete. One goal/flag/finding is NOT sufficient; use prove_goal for that goal. This does NOT end a planning round: if there are no new intents or workers are still running, simply end the round WITHOUT this tool (zero intents is normal). Prefer proving each goal with prove_goal; goal_met bypasses individual proofs to conclude globally.
+1213|Completion rationale: evidence that goals are genuinely achieved, NOT merely a reason to end this round such as no new directions
+1226|Record a confirmed finding; provide verifiable command output/logs in evidence. In task context supply current intent_id. Returned finding_id is a separate finding-record ID; finding_node_id is the exploration node ID (also retained on the first line).
+1227|vulnclass=Vulnerability class|name=Vulnerability name|summary=Finding summary
+1228|intent_id=Current task intent id|description=Affected asset ids
+1229|Evidence/PoC text
+1230|Optional: hint node ID for this finding in the current task; automatically carries its structured traffic_refs. Cannot reference inherited hints or hints for other findings
+1231|Optional: for HTTP/HTTPS findings, search and individually verify that requests/responses support the conclusion, then supply real IDs in reproduction order. For TCP/non-HTTP findings, no capture, or no exact match, omit or pass []; reporting is not blocked. Explain in evidence and supply other verifiable evidence. Do not guess IDs, infer association from domain/time, or repeat probes just to capture traffic. Roles: baseline normal control / proof vulnerability proof / verification additional verification / supporting auxiliary evidence.
+1232|traffic_id=Real traffic ID returned by traffic_search|note=How this traffic supports the finding
+1245|report_finding requires task context; platform chat should hand off to the relevant task via add_task_hint, carrying existing traffic_refs for the task Agent to register. Use bind_finding_traffic to supplement existing findings.
+1256|evidence_hint_id must be a valid hint node ID; omit when there is no handoff hint
+1267|Traffic evidence store unavailable; finding was not registered
+1296|Finding saved without traffic bindings. TCP/no-capture cases may proceed normally; if verified HTTP traffic exists, attach it using available bind_finding_traffic or the finding page before completing evidence handoff. Do not create duplicate findings.
+1298|Finding saved. Agent automatic traffic binding is disabled; traffic can be linked manually on the page.
+1325|summary must not be empty
+1344|intent_id must be an intent in this task (linked-task intents are read-only)
+1360|Write exploration facts/conclusions to the graph, linked to the producing intent_id. Record positive results (fingerprints/enumeration) and negative results (port closed/parameter not injectable/no login entry found).\n
+1361|Combine multiple observations from one exploration into ONE fact whenever possible: summary is one sentence synthesizing the conclusion; detail holds relevant observations. Example: fingerprint intent → one fact {summary:'Identified site X technology stack and response characteristics', detail:'nginx 1.25 / Vue3 / 200 / title=.. / body_len=..'}, not separate facts for status, fingerprint and title. An intent normally yields one fact; fragmentation causes unbounded graph growth.\n
+1362|Use facts to batch DISTINCT conclusions (intent_id may be omitted per item to use top-level intent_id). Returns ids in the same length and order as facts.\n
+1363|Record only conclusions ACTUALLY SEEN in tool output; do not invent. evidence and confidence prevent inaccurate conclusions from contaminating the graph:\n
+1364|  · evidence=ONE concise line of key evidence (command + the one or two most probative output lines). Details belong in detail; do not paste large output blocks here.\n
+1365|  · confidence=observed (directly seen in output) | inferred (deduced from observations).\n
+1366|  · Negative conclusions (not injectable/port closed/no entry found) must state only observations + tentative interpretation. The planner decides whether to abandon the direction using the global picture. Always supply evidence; mark inferred if methods are not exhausted or evidence is weak (including one probe or mere appearance); use observed only when genuinely exhausted and directly seen.
+1368|For multiple DISTINCT conclusions: fact array; each item uses the top-level fields below (summary/detail/evidence/confidence/intent_id/asset_ids). Omitted intent_id uses top-level intent_id. Returned ids match the array length and order.
+1369|One sentence SYNTHESIZING this exploration's conclusion (a summary of detail)
+1370|Producing intent id (your assigned intent; default for batch items)
+1371|Related details: place the multiple observations from this exploration here
+1372|ONE concise line of key evidence: command + the one or two most probative output lines. Do not paste large outputs (put details in detail).
+1373|observed (directly seen in output) | inferred (deduced). Label negative conclusions honestly.
+1374|Related asset ids (optional, 0/1/multiple): assets this fact concerns
+1423|Agent automatic traffic binding is disabled; hint carrying traffic_refs was not saved. Enable it in system settings or hand off text only
+1426|text must not be empty
+1458|text must not be empty
+1482|Add exploration goals to the CURRENT TASK. A goal is a final deliverable/verifiable outcome, not an attack step or reconnaissance action.\n
+1483|Prefer batching: submit goals in one array; returned ids match its length and order (failed item id=0, details in errors). For one item omit goals and supply top-level text.\n
+1484|Optional vulnclass: associated vulnerability class (e.g. SQLi/IDOR); leave empty for business-logic goals. The system assesses and marks goals met; this tool only adds them.
+1486|Preferred: new goals processed in order. Each item: text(required, one independently verifiable final goal) + vulnclass(optional). Returned ids match this array's length and order.
+1487|[Single] One independently verifiable final goal
+1488|[Single] Associated vulnerability class if known, e.g. SQLi/IDOR; may be empty for business-logic goals
+1492|set_goals unavailable: ExplorationStore is not initialized
+1558|text must not be empty
+1565|type must be allow or deny
+1575|Add operational constraints to the CURRENT TASK to define exploration boundaries: type=allow(permitted operations) or deny(prohibited operations).\n
+1576|Constraints specify which operations may/may not be performed (e.g. test only the current port; do not scan others / no writes to the production database / passive reconnaissance only), not goals or attack steps.\n
+1577|Prefer batching: submit constraints in one array; returned ids match its length and order (failed item id=0, details in errors). For one item omit constraints and supply top-level text/type.\n
+1578|Register only constraints EXPLICITLY stated in task goals/description; do not invent them. When unsure of type, use deny (more conservative).
+1580|Preferred: new constraints processed in order. Each item: text(required, one constraint) + type(allow|deny). Returned ids match this array's length and order.
+1581|[Single] One operational constraint
+1582|[Single] allow(permitted) or deny(prohibited); defaults to deny
+1586|set_constraints unavailable: ExplorationStore is not initialized
+1623|Attach human/main-agent strategic hints to the exploration graph; the planner reads them when generating its next intents.\n
+1624|Prefer batching: submit hints in one array to reduce round trips. Returned ids match the hints length and order (failed item id=0, details in errors). For one item omit hints and supply top-level text.
+1626|description=Preferred: new hints processed in order. Each item uses the top-level fields below (text/asset_ids/traffic_refs). Returned ids match the array's length and order.|text=Hint text
+1627|[Single] Hint text, e.g. focus on authenticated endpoints
+1629|Anchored asset ids (optional, 0/1/multiple)
+1683|Terminate a running intent(work) that is off-track or no longer useful. The intent becomes stopped and is not automatically reclaimed. Inspect get_worker_output before deciding.
+1684|Intent id to terminate (= work handle)
+1687|kill_work is currently unavailable
+1695|intent_id is required
+1699|intent_id must be an intent in this task (linked-task intents are read-only)
+1704|Termination signal sent to work for intent %d
+1713|Inject live steering instructions into a running intent(work) without interruption or losing progress: the worker receives them before its next action and adjusts. Use for within-intent corrections such as stop X and focus on Y; if the entire direction is wrong, use kill_work and create a new intent instead. Inspect get_worker_output first.
+1715|Intent id to steer (= work handle)
+1716|Worker steering instructions: clearly state what to stop and what to focus on
+1720|steer_work is currently unavailable
+1729|intent_id is required
+1733|intent_id must be an intent in this task (linked-task intents are read-only)
+1736|message is required
+1741|Steering instructions injected into work for intent %d (effective before the next action)
+1747|Get final output for an intent(work) in this task or directly linked tasks. Linked results carry source_task_id/inherited=true and are read-only. Normal completion returns its summary; stopped/abnormal work returns its last output before interruption.
+1748|Intent id (= work handle)
+1756|intent_id is required
+1763|intent_id does not belong to this task or directly linked tasks
+1786|(This work has no output yet)
+1789|(This work has no output yet)
+1829|Inspect an intent(work)'s execution trace (unlike get_worker_output, which only returns its final conclusion). Three modes:\n
+1830|1. intent_id only → summaries of every step (summary≤100 characters, includes step_id; action outline only, not full output);\n
+1831|2. intent_id + q → summaries of matching steps (searches summaries and full output; still returns summaries only; use mode 3 for content);\n
+1832|3. intent_id + step_ids → full detail of those steps; at most 5 per call. Excess ids are reported in notice/omitted_step_ids and only the first 5 are returned.\n
+1833|Typical flow: use mode 1/2 to locate step_id, then mode 3 for full output. Excludes thinking steps. Supports directly linked task history; linked results carry source_task_id/inherited=true and are read-only.
+1835|Intent id (= work handle)
+1836|Keyword: return steps matching in summary/full output (optional; mutually exclusive with step_ids)
+1837|step_ids for full content (from mode 1/2; max 5 per call, only first 5 returned, excess listed in omitted_step_ids)
+1838|Result limit for summaries/search (optional)
+1850|intent_id is required
+1857|intent_id does not belong to this task or directly linked tasks
+1905|At most %d full steps per call; returned the first %d (%v), omitted %d: %v. 
+1906|If these suffice, do not fetch the rest; if needed, call again with those step_ids.
+1938|[Usually not recommended: the system already supplies most information] Search OTHER work traces in THIS TASK by keyword(q), to recover observations a worker saw but did not record as facts (paths/tokens/errors, etc.).
+1939|Automatically excludes your own intent's steps, which are already in your context.
+1940|Returns only matching step summaries (summary≤100 characters), each with intent_id; use get_worker_trace(intent_id, step_ids=[...]) for full content.
+1942|Keyword (search all work step summaries and full outputs)
+1943|Result limit, default 100 (optional)
+1952|q is required
+1987|[Usually not recommended: the system already supplies most information] Index of executed work(intents) in THIS TASK: intent_id + one-sentence direction(summary) + state.
+1988|As a worker you cannot see the exploration graph; discover work worth reviewing here, then use get_worker_trace(intent_id) for steps and get_worker_trace(intent_id, step_ids=[...]) for detail.
+1989|Only executed states (running/done/exhausted/blocked/stopped), not unexecuted open intents. Your task boundary remains your assigned intent; reviewing other work is only for reusing observations/avoiding duplication.
+1991|Filter by summary keyword (optional)
+1992|Result limit, default 50 (optional)
+source/agent/tools_digest.go
+122|Expand a cold digest: return compact members (id/summary/state/confidence), shaped like overview recent_facts/recent_done_intents. Use node_detail(member_id) for full details/evidence.
+126|Digest node id (from overview cold_digests)
+137|#%d is not a digest node (not found in this task or directly linked tasks)
+source/agent/capture.go
+88|Execution error: 
+source/agent/noa.go
+42|Failed to enable noa compression; falling back to built-in compression: 
+source/agent/chat.go
+90|File output policy
+source/agent/provider.go
+457|[llm-test] %s / %s @ %s — No HTTP request sent (configuration parsing or connection failed)
+462|[llm-test] %s / %s @ %s — Attempt %d/%d HTTP %d\nResponse body: %s
+472|(empty)
+476|…(truncated, %d bytes total)
+510|You are a connection test. Output only the two characters OK. Do not reason, explain, or output anything else.
+525|Model returned no content (request succeeded but no text was returned)

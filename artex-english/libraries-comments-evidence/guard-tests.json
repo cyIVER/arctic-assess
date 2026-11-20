@@ -1,0 +1,10 @@
+{
+  "original_fixture_pass": true,
+  "comment_only_pass": true,
+  "deliberate_literal_code_change_rejected": true,
+  "checks": [
+    "Tokens",
+    "Literals",
+    "AST"
+  ]
+}

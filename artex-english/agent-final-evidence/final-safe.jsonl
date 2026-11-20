@@ -1,0 +1,620 @@
+{"Time":"2026-11-20T00:20:34.631654805Z","Action":"start","Package":"github.com/Autumn-27/artex/agent"}
+{"Time":"2026-11-20T00:20:34.64108218Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestCaptureRunPersistsUsageOnProviderFailure"}
+{"Time":"2026-11-20T00:20:34.64112734Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestCaptureRunPersistsUsageOnProviderFailure","Output":"=== RUN   TestCaptureRunPersistsUsageOnProviderFailure\n"}
+{"Time":"2026-11-20T00:20:34.642440548Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestCaptureRunPersistsUsageOnProviderFailure","Output":"--- PASS: TestCaptureRunPersistsUsageOnProviderFailure (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.642470308Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestCaptureRunPersistsUsageOnProviderFailure","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.642478928Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestCaptureRunPersistsUsageOnCancellation"}
+{"Time":"2026-11-20T00:20:34.642484108Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestCaptureRunPersistsUsageOnCancellation","Output":"=== RUN   TestCaptureRunPersistsUsageOnCancellation\n"}
+{"Time":"2026-11-20T00:20:34.643254242Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestCaptureRunPersistsUsageOnCancellation","Output":"--- PASS: TestCaptureRunPersistsUsageOnCancellation (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.643281953Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestCaptureRunPersistsUsageOnCancellation","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.643287913Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestHotCold_AnyLiveBranchKeepsChainHot"}
+{"Time":"2026-11-20T00:20:34.643293022Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestHotCold_AnyLiveBranchKeepsChainHot","Output":"=== RUN   TestHotCold_AnyLiveBranchKeepsChainHot\n"}
+{"Time":"2026-11-20T00:20:34.643353793Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestHotCold_AnyLiveBranchKeepsChainHot","Output":"--- PASS: TestHotCold_AnyLiveBranchKeepsChainHot (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.643359983Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestHotCold_AnyLiveBranchKeepsChainHot","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.643364803Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestHotCold_WholeChainFoldsWhenAllSettled"}
+{"Time":"2026-11-20T00:20:34.643369243Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestHotCold_WholeChainFoldsWhenAllSettled","Output":"=== RUN   TestHotCold_WholeChainFoldsWhenAllSettled\n"}
+{"Time":"2026-11-20T00:20:34.643379043Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestHotCold_WholeChainFoldsWhenAllSettled","Output":"--- PASS: TestHotCold_WholeChainFoldsWhenAllSettled (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.643383963Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestHotCold_WholeChainFoldsWhenAllSettled","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.643424013Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestDebounce_RecentlyCooledNotEligible"}
+{"Time":"2026-11-20T00:20:34.643428804Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestDebounce_RecentlyCooledNotEligible","Output":"=== RUN   TestDebounce_RecentlyCooledNotEligible\n"}
+{"Time":"2026-11-20T00:20:34.643460663Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestDebounce_RecentlyCooledNotEligible","Output":"--- PASS: TestDebounce_RecentlyCooledNotEligible (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.643466114Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestDebounce_RecentlyCooledNotEligible","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.643472914Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestGrouping_SharedParentRescuesFlatFanout"}
+{"Time":"2026-11-20T00:20:34.643477424Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestGrouping_SharedParentRescuesFlatFanout","Output":"=== RUN   TestGrouping_SharedParentRescuesFlatFanout\n"}
+{"Time":"2026-11-20T00:20:34.643537594Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestGrouping_SharedParentRescuesFlatFanout","Output":"--- PASS: TestGrouping_SharedParentRescuesFlatFanout (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.643549804Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestGrouping_SharedParentRescuesFlatFanout","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.643556684Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestGrouping_LoneColdChildStaysSingleton"}
+{"Time":"2026-11-20T00:20:34.643561235Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestGrouping_LoneColdChildStaysSingleton","Output":"=== RUN   TestGrouping_LoneColdChildStaysSingleton\n"}
+{"Time":"2026-11-20T00:20:34.643571904Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestGrouping_LoneColdChildStaysSingleton","Output":"--- PASS: TestGrouping_LoneColdChildStaysSingleton (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.643576694Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestGrouping_LoneColdChildStaysSingleton","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.643583624Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestSignature_StableAndVersionSensitive"}
+{"Time":"2026-11-20T00:20:34.643587944Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestSignature_StableAndVersionSensitive","Output":"=== RUN   TestSignature_StableAndVersionSensitive\n"}
+{"Time":"2026-11-20T00:20:34.643643885Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestSignature_StableAndVersionSensitive","Output":"--- PASS: TestSignature_StableAndVersionSensitive (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.643651515Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestSignature_StableAndVersionSensitive","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.643658395Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestStampOps"}
+{"Time":"2026-11-20T00:20:34.643664025Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestStampOps","Output":"=== RUN   TestStampOps\n"}
+{"Time":"2026-11-20T00:20:34.643673145Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestStampOps","Output":"--- PASS: TestStampOps (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.643677725Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestStampOps","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.643685945Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestDeferredSystem_NoGlobal"}
+{"Time":"2026-11-20T00:20:34.643690476Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestDeferredSystem_NoGlobal","Output":"=== RUN   TestDeferredSystem_NoGlobal\n"}
+{"Time":"2026-11-20T00:20:34.643767315Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestDeferredSystem_NoGlobal","Output":"--- PASS: TestDeferredSystem_NoGlobal (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.643782525Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestDeferredSystem_NoGlobal","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.643790175Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestDeferredSystem_WithGlobal"}
+{"Time":"2026-11-20T00:20:34.643794385Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestDeferredSystem_WithGlobal","Output":"=== RUN   TestDeferredSystem_WithGlobal\n"}
+{"Time":"2026-11-20T00:20:34.643799225Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestDeferredSystem_WithGlobal","Output":"--- PASS: TestDeferredSystem_WithGlobal (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.643803385Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestDeferredSystem_WithGlobal","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.643825485Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestDeferredSystem_GatedNotInBlock"}
+{"Time":"2026-11-20T00:20:34.643829485Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestDeferredSystem_GatedNotInBlock","Output":"=== RUN   TestDeferredSystem_GatedNotInBlock\n"}
+{"Time":"2026-11-20T00:20:34.643834135Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestDeferredSystem_GatedNotInBlock","Output":"--- PASS: TestDeferredSystem_GatedNotInBlock (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.643838276Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestDeferredSystem_GatedNotInBlock","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.643842116Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestSeedUnlockFromHistory"}
+{"Time":"2026-11-20T00:20:34.643845766Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestSeedUnlockFromHistory","Output":"=== RUN   TestSeedUnlockFromHistory\n"}
+{"Time":"2026-11-20T00:20:34.643915686Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestSeedUnlockFromHistory","Output":"--- PASS: TestSeedUnlockFromHistory (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.643920416Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestSeedUnlockFromHistory","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.643926146Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestUnlockGatingFlow"}
+{"Time":"2026-11-20T00:20:34.643929926Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestUnlockGatingFlow","Output":"=== RUN   TestUnlockGatingFlow\n"}
+{"Time":"2026-11-20T00:20:34.643934486Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestUnlockGatingFlow","Output":"--- PASS: TestUnlockGatingFlow (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.643943036Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestUnlockGatingFlow","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.643950556Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishStandalonePrompts"}
+{"Time":"2026-11-20T00:20:34.643954286Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishStandalonePrompts","Output":"=== RUN   TestEnglishStandalonePrompts\n"}
+{"Time":"2026-11-20T00:20:34.644004917Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishStandalonePrompts/pentest"}
+{"Time":"2026-11-20T00:20:34.644008826Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishStandalonePrompts/pentest","Output":"=== RUN   TestEnglishStandalonePrompts/pentest\n"}
+{"Time":"2026-11-20T00:20:34.644061067Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishStandalonePrompts/pentest","Output":"--- PASS: TestEnglishStandalonePrompts/pentest (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.644112358Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishStandalonePrompts/pentest","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.644119007Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishStandalonePrompts/assistant"}
+{"Time":"2026-11-20T00:20:34.644122787Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishStandalonePrompts/assistant","Output":"=== RUN   TestEnglishStandalonePrompts/assistant\n"}
+{"Time":"2026-11-20T00:20:34.644127467Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishStandalonePrompts/assistant","Output":"--- PASS: TestEnglishStandalonePrompts/assistant (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.644131688Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishStandalonePrompts/assistant","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.644137627Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishStandalonePrompts/reporter"}
+{"Time":"2026-11-20T00:20:34.644143617Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishStandalonePrompts/reporter","Output":"=== RUN   TestEnglishStandalonePrompts/reporter\n"}
+{"Time":"2026-11-20T00:20:34.644158678Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishStandalonePrompts/reporter","Output":"--- PASS: TestEnglishStandalonePrompts/reporter (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.644168278Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishStandalonePrompts/reporter","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.644174038Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishStandalonePrompts/auto"}
+{"Time":"2026-11-20T00:20:34.644178048Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishStandalonePrompts/auto","Output":"=== RUN   TestEnglishStandalonePrompts/auto\n"}
+{"Time":"2026-11-20T00:20:34.644196388Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishStandalonePrompts/auto","Output":"--- PASS: TestEnglishStandalonePrompts/auto (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.644200578Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishStandalonePrompts/auto","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.644206408Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishStandalonePrompts","Output":"--- PASS: TestEnglishStandalonePrompts (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.644210428Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishStandalonePrompts","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.644246599Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishWrapupPolicies"}
+{"Time":"2026-11-20T00:20:34.644250578Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishWrapupPolicies","Output":"=== RUN   TestEnglishWrapupPolicies\n"}
+{"Time":"2026-11-20T00:20:34.644288119Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishWrapupPolicies/mainagent"}
+{"Time":"2026-11-20T00:20:34.644291879Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishWrapupPolicies/mainagent","Output":"=== RUN   TestEnglishWrapupPolicies/mainagent\n"}
+{"Time":"2026-11-20T00:20:34.644297988Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishWrapupPolicies/mainagent","Output":"--- PASS: TestEnglishWrapupPolicies/mainagent (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.644302199Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishWrapupPolicies/mainagent","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.644321719Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishWrapupPolicies/generic"}
+{"Time":"2026-11-20T00:20:34.644325849Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishWrapupPolicies/generic","Output":"=== RUN   TestEnglishWrapupPolicies/generic\n"}
+{"Time":"2026-11-20T00:20:34.644342779Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishWrapupPolicies/generic","Output":"--- PASS: TestEnglishWrapupPolicies/generic (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.644348009Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishWrapupPolicies/generic","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.644353709Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishWrapupPolicies/worker_task"}
+{"Time":"2026-11-20T00:20:34.644357579Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishWrapupPolicies/worker_task","Output":"=== RUN   TestEnglishWrapupPolicies/worker_task\n"}
+{"Time":"2026-11-20T00:20:34.644363649Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishWrapupPolicies/worker_task","Output":"--- PASS: TestEnglishWrapupPolicies/worker_task (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.644367699Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishWrapupPolicies/worker_task","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.644377599Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishWrapupPolicies/planner_task"}
+{"Time":"2026-11-20T00:20:34.644381229Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishWrapupPolicies/planner_task","Output":"=== RUN   TestEnglishWrapupPolicies/planner_task\n"}
+{"Time":"2026-11-20T00:20:34.644385669Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishWrapupPolicies/planner_task","Output":"--- PASS: TestEnglishWrapupPolicies/planner_task (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.6444172Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishWrapupPolicies/planner_task","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.644421979Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishWrapupPolicies/planner"}
+{"Time":"2026-11-20T00:20:34.64442584Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishWrapupPolicies/planner","Output":"=== RUN   TestEnglishWrapupPolicies/planner\n"}
+{"Time":"2026-11-20T00:20:34.64443196Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishWrapupPolicies/planner","Output":"--- PASS: TestEnglishWrapupPolicies/planner (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.64443605Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishWrapupPolicies/planner","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.644697331Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishWrapupPolicies","Output":"--- PASS: TestEnglishWrapupPolicies (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.64471503Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishWrapupPolicies","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.644720931Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestUnicodePromptOverridePreserved"}
+{"Time":"2026-11-20T00:20:34.644724611Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestUnicodePromptOverridePreserved","Output":"=== RUN   TestUnicodePromptOverridePreserved\n"}
+{"Time":"2026-11-20T00:20:34.644733971Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestUnicodePromptOverridePreserved","Output":"--- PASS: TestUnicodePromptOverridePreserved (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.644744351Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestUnicodePromptOverridePreserved","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.644748311Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies"}
+{"Time":"2026-11-20T00:20:34.644752201Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies","Output":"=== RUN   TestEnglishOrchestrationBodies\n"}
+{"Time":"2026-11-20T00:20:34.644836741Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/goals"}
+{"Time":"2026-11-20T00:20:34.644845191Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/goals","Output":"=== RUN   TestEnglishOrchestrationBodies/goals\n"}
+{"Time":"2026-11-20T00:20:34.644855111Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/goals","Output":"--- PASS: TestEnglishOrchestrationBodies/goals (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.644865492Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/goals","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.644904032Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/planner"}
+{"Time":"2026-11-20T00:20:34.644908312Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/planner","Output":"=== RUN   TestEnglishOrchestrationBodies/planner\n"}
+{"Time":"2026-11-20T00:20:34.645022513Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/planner","Output":"--- PASS: TestEnglishOrchestrationBodies/planner (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.645038333Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/planner","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.645045583Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/mainagent"}
+{"Time":"2026-11-20T00:20:34.645049383Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/mainagent","Output":"=== RUN   TestEnglishOrchestrationBodies/mainagent\n"}
+{"Time":"2026-11-20T00:20:34.645055723Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/mainagent","Output":"--- PASS: TestEnglishOrchestrationBodies/mainagent (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.645060203Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/mainagent","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.645266174Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/worker"}
+{"Time":"2026-11-20T00:20:34.645275014Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/worker","Output":"=== RUN   TestEnglishOrchestrationBodies/worker\n"}
+{"Time":"2026-11-20T00:20:34.645281004Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/worker","Output":"--- PASS: TestEnglishOrchestrationBodies/worker (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.645285414Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/worker","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.645289984Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/auto"}
+{"Time":"2026-11-20T00:20:34.645293793Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/auto","Output":"=== RUN   TestEnglishOrchestrationBodies/auto\n"}
+{"Time":"2026-11-20T00:20:34.645299244Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/auto","Output":"--- PASS: TestEnglishOrchestrationBodies/auto (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.645303504Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/auto","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.645307594Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/pentest"}
+{"Time":"2026-11-20T00:20:34.645311374Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/pentest","Output":"=== RUN   TestEnglishOrchestrationBodies/pentest\n"}
+{"Time":"2026-11-20T00:20:34.645318034Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/pentest","Output":"--- PASS: TestEnglishOrchestrationBodies/pentest (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.645322164Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/pentest","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.645326264Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/goals_scope"}
+{"Time":"2026-11-20T00:20:34.645329924Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/goals_scope","Output":"=== RUN   TestEnglishOrchestrationBodies/goals_scope\n"}
+{"Time":"2026-11-20T00:20:34.645338464Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/goals_scope","Output":"--- PASS: TestEnglishOrchestrationBodies/goals_scope (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.645342584Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/goals_scope","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.645348514Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/worker_wrapup"}
+{"Time":"2026-11-20T00:20:34.645359114Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/worker_wrapup","Output":"=== RUN   TestEnglishOrchestrationBodies/worker_wrapup\n"}
+{"Time":"2026-11-20T00:20:34.645381544Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/worker_wrapup","Output":"--- PASS: TestEnglishOrchestrationBodies/worker_wrapup (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.645398474Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/worker_wrapup","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.645418085Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/traffic"}
+{"Time":"2026-11-20T00:20:34.645421914Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/traffic","Output":"=== RUN   TestEnglishOrchestrationBodies/traffic\n"}
+{"Time":"2026-11-20T00:20:34.645427905Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/traffic","Output":"--- PASS: TestEnglishOrchestrationBodies/traffic (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.645431855Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/traffic","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.645572546Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/artifacts"}
+{"Time":"2026-11-20T00:20:34.645584386Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/artifacts","Output":"=== RUN   TestEnglishOrchestrationBodies/artifacts\n"}
+{"Time":"2026-11-20T00:20:34.645596316Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/artifacts","Output":"--- PASS: TestEnglishOrchestrationBodies/artifacts (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.645602176Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/artifacts","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.645608016Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/worker_artifacts"}
+{"Time":"2026-11-20T00:20:34.645611966Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/worker_artifacts","Output":"=== RUN   TestEnglishOrchestrationBodies/worker_artifacts\n"}
+{"Time":"2026-11-20T00:20:34.645620886Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/worker_artifacts","Output":"--- PASS: TestEnglishOrchestrationBodies/worker_artifacts (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.645628716Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies/worker_artifacts","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.645650686Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies","Output":"--- PASS: TestEnglishOrchestrationBodies (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.645661207Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishOrchestrationBodies","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.645671287Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishReporterToolMetadata"}
+{"Time":"2026-11-20T00:20:34.645675216Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishReporterToolMetadata","Output":"=== RUN   TestEnglishReporterToolMetadata\n"}
+{"Time":"2026-11-20T00:20:34.645755817Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishReporterToolMetadata","Output":"--- PASS: TestEnglishReporterToolMetadata (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.645786947Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishReporterToolMetadata","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.645796967Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishRuntimeGuidancePreservesUnicode"}
+{"Time":"2026-11-20T00:20:34.645800797Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishRuntimeGuidancePreservesUnicode","Output":"=== RUN   TestEnglishRuntimeGuidancePreservesUnicode\n"}
+{"Time":"2026-11-20T00:20:34.645939128Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishRuntimeGuidancePreservesUnicode","Output":"--- PASS: TestEnglishRuntimeGuidancePreservesUnicode (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.645948529Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishRuntimeGuidancePreservesUnicode","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.645955889Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog"}
+{"Time":"2026-11-20T00:20:34.645963518Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog","Output":"=== RUN   TestEnglishDomainToolCatalog\n"}
+{"Time":"2026-11-20T00:20:34.64636189Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/graph_overview"}
+{"Time":"2026-11-20T00:20:34.64637143Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/graph_overview","Output":"=== RUN   TestEnglishDomainToolCatalog/graph_overview\n"}
+{"Time":"2026-11-20T00:20:34.646426501Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/graph_overview","Output":"--- PASS: TestEnglishDomainToolCatalog/graph_overview (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.646433401Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/graph_overview","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.646467381Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/list_findings"}
+{"Time":"2026-11-20T00:20:34.646471531Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/list_findings","Output":"=== RUN   TestEnglishDomainToolCatalog/list_findings\n"}
+{"Time":"2026-11-20T00:20:34.646514031Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/list_findings","Output":"--- PASS: TestEnglishDomainToolCatalog/list_findings (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.646518751Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/list_findings","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.646553441Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/list_facts"}
+{"Time":"2026-11-20T00:20:34.646557532Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/list_facts","Output":"=== RUN   TestEnglishDomainToolCatalog/list_facts\n"}
+{"Time":"2026-11-20T00:20:34.646772292Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/list_facts","Output":"--- PASS: TestEnglishDomainToolCatalog/list_facts (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.646842402Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/list_facts","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.646852493Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/node_detail"}
+{"Time":"2026-11-20T00:20:34.646856703Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/node_detail","Output":"=== RUN   TestEnglishDomainToolCatalog/node_detail\n"}
+{"Time":"2026-11-20T00:20:34.646907633Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/node_detail","Output":"--- PASS: TestEnglishDomainToolCatalog/node_detail (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.646914183Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/node_detail","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.646927533Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/expand_digest"}
+{"Time":"2026-11-20T00:20:34.646931213Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/expand_digest","Output":"=== RUN   TestEnglishDomainToolCatalog/expand_digest\n"}
+{"Time":"2026-11-20T00:20:34.646938023Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/expand_digest","Output":"--- PASS: TestEnglishDomainToolCatalog/expand_digest (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.646942534Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/expand_digest","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.646948254Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/get_worker_output"}
+{"Time":"2026-11-20T00:20:34.646951983Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/get_worker_output","Output":"=== RUN   TestEnglishDomainToolCatalog/get_worker_output\n"}
+{"Time":"2026-11-20T00:20:34.646990984Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/get_worker_output","Output":"--- PASS: TestEnglishDomainToolCatalog/get_worker_output (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.646996894Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/get_worker_output","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.647002554Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/get_worker_trace"}
+{"Time":"2026-11-20T00:20:34.647008314Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/get_worker_trace","Output":"=== RUN   TestEnglishDomainToolCatalog/get_worker_trace\n"}
+{"Time":"2026-11-20T00:20:34.647044794Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/get_worker_trace","Output":"--- PASS: TestEnglishDomainToolCatalog/get_worker_trace (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.647054064Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/get_worker_trace","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.647062784Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/search_all_worker_traces"}
+{"Time":"2026-11-20T00:20:34.647068604Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/search_all_worker_traces","Output":"=== RUN   TestEnglishDomainToolCatalog/search_all_worker_traces\n"}
+{"Time":"2026-11-20T00:20:34.647103545Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/search_all_worker_traces","Output":"--- PASS: TestEnglishDomainToolCatalog/search_all_worker_traces (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.647108465Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/search_all_worker_traces","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.647114564Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/add_hint"}
+{"Time":"2026-11-20T00:20:34.647118315Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/add_hint","Output":"=== RUN   TestEnglishDomainToolCatalog/add_hint\n"}
+{"Time":"2026-11-20T00:20:34.647194175Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/add_hint","Output":"--- PASS: TestEnglishDomainToolCatalog/add_hint (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.647203685Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/add_hint","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.647213905Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/add_intent"}
+{"Time":"2026-11-20T00:20:34.647217725Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/add_intent","Output":"=== RUN   TestEnglishDomainToolCatalog/add_intent\n"}
+{"Time":"2026-11-20T00:20:34.647279626Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/add_intent","Output":"--- PASS: TestEnglishDomainToolCatalog/add_intent (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.647285986Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/add_intent","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.647318956Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/steer_work"}
+{"Time":"2026-11-20T00:20:34.647323326Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/steer_work","Output":"=== RUN   TestEnglishDomainToolCatalog/steer_work\n"}
+{"Time":"2026-11-20T00:20:34.647329356Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/steer_work","Output":"--- PASS: TestEnglishDomainToolCatalog/steer_work (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.647333636Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/steer_work","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.647398257Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/set_goals"}
+{"Time":"2026-11-20T00:20:34.647402377Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/set_goals","Output":"=== RUN   TestEnglishDomainToolCatalog/set_goals\n"}
+{"Time":"2026-11-20T00:20:34.647406657Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/set_goals","Output":"--- PASS: TestEnglishDomainToolCatalog/set_goals (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.647411217Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/set_goals","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.647417077Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/set_constraints"}
+{"Time":"2026-11-20T00:20:34.647420967Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/set_constraints","Output":"=== RUN   TestEnglishDomainToolCatalog/set_constraints\n"}
+{"Time":"2026-11-20T00:20:34.647462037Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/set_constraints","Output":"--- PASS: TestEnglishDomainToolCatalog/set_constraints (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.647467967Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/set_constraints","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.647475617Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/insert_assets"}
+{"Time":"2026-11-20T00:20:34.647479297Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/insert_assets","Output":"=== RUN   TestEnglishDomainToolCatalog/insert_assets\n"}
+{"Time":"2026-11-20T00:20:34.647665487Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/insert_assets","Output":"--- PASS: TestEnglishDomainToolCatalog/insert_assets (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.647676607Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/insert_assets","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.647691438Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/add_company_scope"}
+{"Time":"2026-11-20T00:20:34.647697498Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/add_company_scope","Output":"=== RUN   TestEnglishDomainToolCatalog/add_company_scope\n"}
+{"Time":"2026-11-20T00:20:34.647766618Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/add_company_scope","Output":"--- PASS: TestEnglishDomainToolCatalog/add_company_scope (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.647781208Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/add_company_scope","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.647794928Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/list_assets"}
+{"Time":"2026-11-20T00:20:34.647799318Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/list_assets","Output":"=== RUN   TestEnglishDomainToolCatalog/list_assets\n"}
+{"Time":"2026-11-20T00:20:34.647937769Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/list_assets","Output":"--- PASS: TestEnglishDomainToolCatalog/list_assets (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.64794455Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/list_assets","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.647965569Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/report_finding"}
+{"Time":"2026-11-20T00:20:34.6479697Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/report_finding","Output":"=== RUN   TestEnglishDomainToolCatalog/report_finding\n"}
+{"Time":"2026-11-20T00:20:34.64805963Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/report_finding","Output":"--- PASS: TestEnglishDomainToolCatalog/report_finding (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.64807108Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/report_finding","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.648075301Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/record_fact"}
+{"Time":"2026-11-20T00:20:34.64807904Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/record_fact","Output":"=== RUN   TestEnglishDomainToolCatalog/record_fact\n"}
+{"Time":"2026-11-20T00:20:34.648204791Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/record_fact","Output":"--- PASS: TestEnglishDomainToolCatalog/record_fact (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.648213342Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/record_fact","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.648217902Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/add_task_scope"}
+{"Time":"2026-11-20T00:20:34.648221711Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/add_task_scope","Output":"=== RUN   TestEnglishDomainToolCatalog/add_task_scope\n"}
+{"Time":"2026-11-20T00:20:34.648228121Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/add_task_scope","Output":"--- PASS: TestEnglishDomainToolCatalog/add_task_scope (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.648232192Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/add_task_scope","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.648238481Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/list_untested_assets"}
+{"Time":"2026-11-20T00:20:34.648243222Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/list_untested_assets","Output":"=== RUN   TestEnglishDomainToolCatalog/list_untested_assets\n"}
+{"Time":"2026-11-20T00:20:34.648249371Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/list_untested_assets","Output":"--- PASS: TestEnglishDomainToolCatalog/list_untested_assets (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.648260002Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/list_untested_assets","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.648266222Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/list_goals"}
+{"Time":"2026-11-20T00:20:34.648269782Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/list_goals","Output":"=== RUN   TestEnglishDomainToolCatalog/list_goals\n"}
+{"Time":"2026-11-20T00:20:34.648274312Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/list_goals","Output":"--- PASS: TestEnglishDomainToolCatalog/list_goals (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.648278462Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/list_goals","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.648284312Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/prove_goal"}
+{"Time":"2026-11-20T00:20:34.648287882Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/prove_goal","Output":"=== RUN   TestEnglishDomainToolCatalog/prove_goal\n"}
+{"Time":"2026-11-20T00:20:34.648378382Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/prove_goal","Output":"--- PASS: TestEnglishDomainToolCatalog/prove_goal (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.648383241Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/prove_goal","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.648388912Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/goal_met"}
+{"Time":"2026-11-20T00:20:34.648392632Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/goal_met","Output":"=== RUN   TestEnglishDomainToolCatalog/goal_met\n"}
+{"Time":"2026-11-20T00:20:34.648417192Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/goal_met","Output":"--- PASS: TestEnglishDomainToolCatalog/goal_met (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.648421302Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/goal_met","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.648455392Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/kill_work"}
+{"Time":"2026-11-20T00:20:34.648459232Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/kill_work","Output":"=== RUN   TestEnglishDomainToolCatalog/kill_work\n"}
+{"Time":"2026-11-20T00:20:34.648501612Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/kill_work","Output":"--- PASS: TestEnglishDomainToolCatalog/kill_work (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.648506072Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/kill_work","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.648510252Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/list_companies"}
+{"Time":"2026-11-20T00:20:34.648514303Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/list_companies","Output":"=== RUN   TestEnglishDomainToolCatalog/list_companies\n"}
+{"Time":"2026-11-20T00:20:34.648529162Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/list_companies","Output":"--- PASS: TestEnglishDomainToolCatalog/list_companies (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.648541713Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog/list_companies","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.648552703Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog","Output":"--- PASS: TestEnglishDomainToolCatalog (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.648559153Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolCatalog","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.648565103Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors"}
+{"Time":"2026-11-20T00:20:34.648569373Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors","Output":"=== RUN   TestEnglishDomainToolErrors\n"}
+{"Time":"2026-11-20T00:20:34.648672554Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/insert_assets"}
+{"Time":"2026-11-20T00:20:34.648676944Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/insert_assets","Output":"=== RUN   TestEnglishDomainToolErrors/insert_assets\n"}
+{"Time":"2026-11-20T00:20:34.648837365Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/insert_assets","Output":"--- PASS: TestEnglishDomainToolErrors/insert_assets (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.648851845Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/insert_assets","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.648857555Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/add_company_scope"}
+{"Time":"2026-11-20T00:20:34.648861325Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/add_company_scope","Output":"=== RUN   TestEnglishDomainToolErrors/add_company_scope\n"}
+{"Time":"2026-11-20T00:20:34.649112316Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/add_company_scope","Output":"--- PASS: TestEnglishDomainToolErrors/add_company_scope (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.649122806Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/add_company_scope","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.649127916Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/list_assets"}
+{"Time":"2026-11-20T00:20:34.649132196Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/list_assets","Output":"=== RUN   TestEnglishDomainToolErrors/list_assets\n"}
+{"Time":"2026-11-20T00:20:34.649136896Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/list_assets","Output":"--- PASS: TestEnglishDomainToolErrors/list_assets (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.649141386Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/list_assets","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.649145766Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/list_companies"}
+{"Time":"2026-11-20T00:20:34.649149336Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/list_companies","Output":"=== RUN   TestEnglishDomainToolErrors/list_companies\n"}
+{"Time":"2026-11-20T00:20:34.649153596Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/list_companies","Output":"--- PASS: TestEnglishDomainToolErrors/list_companies (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.649158236Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/list_companies","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.649162116Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/add_task_scope"}
+{"Time":"2026-11-20T00:20:34.649165796Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/add_task_scope","Output":"=== RUN   TestEnglishDomainToolErrors/add_task_scope\n"}
+{"Time":"2026-11-20T00:20:34.649176926Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/add_task_scope","Output":"--- PASS: TestEnglishDomainToolErrors/add_task_scope (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.649181116Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/add_task_scope","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.649185436Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/list_untested_assets"}
+{"Time":"2026-11-20T00:20:34.649189746Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/list_untested_assets","Output":"=== RUN   TestEnglishDomainToolErrors/list_untested_assets\n"}
+{"Time":"2026-11-20T00:20:34.649194836Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/list_untested_assets","Output":"--- PASS: TestEnglishDomainToolErrors/list_untested_assets (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.649199076Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/list_untested_assets","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.649203067Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/set_goals"}
+{"Time":"2026-11-20T00:20:34.649206806Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/set_goals","Output":"=== RUN   TestEnglishDomainToolErrors/set_goals\n"}
+{"Time":"2026-11-20T00:20:34.649211456Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/set_goals","Output":"--- PASS: TestEnglishDomainToolErrors/set_goals (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.649215437Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/set_goals","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.649219566Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/set_constraints"}
+{"Time":"2026-11-20T00:20:34.649223256Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/set_constraints","Output":"=== RUN   TestEnglishDomainToolErrors/set_constraints\n"}
+{"Time":"2026-11-20T00:20:34.649227877Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/set_constraints","Output":"--- PASS: TestEnglishDomainToolErrors/set_constraints (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.649234526Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/set_constraints","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.649238397Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/node_detail"}
+{"Time":"2026-11-20T00:20:34.649242037Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/node_detail","Output":"=== RUN   TestEnglishDomainToolErrors/node_detail\n"}
+{"Time":"2026-11-20T00:20:34.649246256Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/node_detail","Output":"--- PASS: TestEnglishDomainToolErrors/node_detail (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.649250437Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/node_detail","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.649254237Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/kill_work"}
+{"Time":"2026-11-20T00:20:34.649257927Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/kill_work","Output":"=== RUN   TestEnglishDomainToolErrors/kill_work\n"}
+{"Time":"2026-11-20T00:20:34.649262017Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/kill_work","Output":"--- PASS: TestEnglishDomainToolErrors/kill_work (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.649272427Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/kill_work","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.649276387Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/steer_work"}
+{"Time":"2026-11-20T00:20:34.649280537Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/steer_work","Output":"=== RUN   TestEnglishDomainToolErrors/steer_work\n"}
+{"Time":"2026-11-20T00:20:34.649287117Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/steer_work","Output":"--- PASS: TestEnglishDomainToolErrors/steer_work (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.649291407Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors/steer_work","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.649299977Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors","Output":"--- PASS: TestEnglishDomainToolErrors (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.649304267Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishDomainToolErrors","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.649309947Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance"}
+{"Time":"2026-11-20T00:20:34.649313537Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance","Output":"=== RUN   TestEnglishTerminalAndAuxiliaryGuidance\n"}
+{"Time":"2026-11-20T00:20:34.649317457Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/paused_by_user"}
+{"Time":"2026-11-20T00:20:34.649321217Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/paused_by_user","Output":"=== RUN   TestEnglishTerminalAndAuxiliaryGuidance/paused_by_user\n"}
+{"Time":"2026-11-20T00:20:34.649328897Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/paused_by_user","Output":"--- PASS: TestEnglishTerminalAndAuxiliaryGuidance/paused_by_user (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.649333167Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/paused_by_user","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.649337628Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/paused_by_orchestrator"}
+{"Time":"2026-11-20T00:20:34.649341487Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/paused_by_orchestrator","Output":"=== RUN   TestEnglishTerminalAndAuxiliaryGuidance/paused_by_orchestrator\n"}
+{"Time":"2026-11-20T00:20:34.649351647Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/paused_by_orchestrator","Output":"--- PASS: TestEnglishTerminalAndAuxiliaryGuidance/paused_by_orchestrator (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.649356038Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/paused_by_orchestrator","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.649361777Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/task_deleted"}
+{"Time":"2026-11-20T00:20:34.649365718Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/task_deleted","Output":"=== RUN   TestEnglishTerminalAndAuxiliaryGuidance/task_deleted\n"}
+{"Time":"2026-11-20T00:20:34.649401218Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/task_deleted","Output":"--- PASS: TestEnglishTerminalAndAuxiliaryGuidance/task_deleted (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.649409198Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/task_deleted","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.649414968Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/paused_on_reload"}
+{"Time":"2026-11-20T00:20:34.649418828Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/paused_on_reload","Output":"=== RUN   TestEnglishTerminalAndAuxiliaryGuidance/paused_on_reload\n"}
+{"Time":"2026-11-20T00:20:34.649424988Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/paused_on_reload","Output":"--- PASS: TestEnglishTerminalAndAuxiliaryGuidance/paused_on_reload (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.649429108Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/paused_on_reload","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.649433478Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/goal_met"}
+{"Time":"2026-11-20T00:20:34.649437198Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/goal_met","Output":"=== RUN   TestEnglishTerminalAndAuxiliaryGuidance/goal_met\n"}
+{"Time":"2026-11-20T00:20:34.650142662Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/goal_met","Output":"--- PASS: TestEnglishTerminalAndAuxiliaryGuidance/goal_met (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.650158802Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/goal_met","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.650164282Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/settle_drain_timeout"}
+{"Time":"2026-11-20T00:20:34.650168342Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/settle_drain_timeout","Output":"=== RUN   TestEnglishTerminalAndAuxiliaryGuidance/settle_drain_timeout\n"}
+{"Time":"2026-11-20T00:20:34.650173432Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/settle_drain_timeout","Output":"--- PASS: TestEnglishTerminalAndAuxiliaryGuidance/settle_drain_timeout (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.650179602Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/settle_drain_timeout","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.650184033Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/killed_by_planner"}
+{"Time":"2026-11-20T00:20:34.650187732Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/killed_by_planner","Output":"=== RUN   TestEnglishTerminalAndAuxiliaryGuidance/killed_by_planner\n"}
+{"Time":"2026-11-20T00:20:34.650192082Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/killed_by_planner","Output":"--- PASS: TestEnglishTerminalAndAuxiliaryGuidance/killed_by_planner (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.650196302Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/killed_by_planner","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.650200642Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/work_paused_by_user"}
+{"Time":"2026-11-20T00:20:34.650204593Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/work_paused_by_user","Output":"=== RUN   TestEnglishTerminalAndAuxiliaryGuidance/work_paused_by_user\n"}
+{"Time":"2026-11-20T00:20:34.650209243Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/work_paused_by_user","Output":"--- PASS: TestEnglishTerminalAndAuxiliaryGuidance/work_paused_by_user (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.650220003Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/work_paused_by_user","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.650224052Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/work_cancelled_by_user"}
+{"Time":"2026-11-20T00:20:34.650227662Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/work_cancelled_by_user","Output":"=== RUN   TestEnglishTerminalAndAuxiliaryGuidance/work_cancelled_by_user\n"}
+{"Time":"2026-11-20T00:20:34.650232153Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/work_cancelled_by_user","Output":"--- PASS: TestEnglishTerminalAndAuxiliaryGuidance/work_cancelled_by_user (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.650236353Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/work_cancelled_by_user","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.650240363Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/work_finished"}
+{"Time":"2026-11-20T00:20:34.650244003Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/work_finished","Output":"=== RUN   TestEnglishTerminalAndAuxiliaryGuidance/work_finished\n"}
+{"Time":"2026-11-20T00:20:34.650250303Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/work_finished","Output":"--- PASS: TestEnglishTerminalAndAuxiliaryGuidance/work_finished (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.650254293Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/work_finished","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.650258063Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/paused_race_guard"}
+{"Time":"2026-11-20T00:20:34.650261803Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/paused_race_guard","Output":"=== RUN   TestEnglishTerminalAndAuxiliaryGuidance/paused_race_guard\n"}
+{"Time":"2026-11-20T00:20:34.650266153Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/paused_race_guard","Output":"--- PASS: TestEnglishTerminalAndAuxiliaryGuidance/paused_race_guard (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.650270313Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/paused_race_guard","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.650274323Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/chat_stopped_by_user"}
+{"Time":"2026-11-20T00:20:34.650277963Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/chat_stopped_by_user","Output":"=== RUN   TestEnglishTerminalAndAuxiliaryGuidance/chat_stopped_by_user\n"}
+{"Time":"2026-11-20T00:20:34.650282403Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/chat_stopped_by_user","Output":"--- PASS: TestEnglishTerminalAndAuxiliaryGuidance/chat_stopped_by_user (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.650286413Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/chat_stopped_by_user","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.650290243Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/chat_paused_with_task"}
+{"Time":"2026-11-20T00:20:34.650294023Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/chat_paused_with_task","Output":"=== RUN   TestEnglishTerminalAndAuxiliaryGuidance/chat_paused_with_task\n"}
+{"Time":"2026-11-20T00:20:34.650313763Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/chat_paused_with_task","Output":"--- PASS: TestEnglishTerminalAndAuxiliaryGuidance/chat_paused_with_task (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.650318053Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/chat_paused_with_task","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.650322023Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/chat_turn_finished"}
+{"Time":"2026-11-20T00:20:34.650325733Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/chat_turn_finished","Output":"=== RUN   TestEnglishTerminalAndAuxiliaryGuidance/chat_turn_finished\n"}
+{"Time":"2026-11-20T00:20:34.650330203Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/chat_turn_finished","Output":"--- PASS: TestEnglishTerminalAndAuxiliaryGuidance/chat_turn_finished (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.650334523Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/chat_turn_finished","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.650338443Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/shutdown"}
+{"Time":"2026-11-20T00:20:34.650342463Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/shutdown","Output":"=== RUN   TestEnglishTerminalAndAuxiliaryGuidance/shutdown\n"}
+{"Time":"2026-11-20T00:20:34.650347253Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/shutdown","Output":"--- PASS: TestEnglishTerminalAndAuxiliaryGuidance/shutdown (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.650351404Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/shutdown","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.650355453Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/run_hard_timeout"}
+{"Time":"2026-11-20T00:20:34.650359324Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/run_hard_timeout","Output":"=== RUN   TestEnglishTerminalAndAuxiliaryGuidance/run_hard_timeout\n"}
+{"Time":"2026-11-20T00:20:34.650364044Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/run_hard_timeout","Output":"--- PASS: TestEnglishTerminalAndAuxiliaryGuidance/run_hard_timeout (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.650368164Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/run_hard_timeout","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.650372164Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/aborted_streaming"}
+{"Time":"2026-11-20T00:20:34.650376154Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/aborted_streaming","Output":"=== RUN   TestEnglishTerminalAndAuxiliaryGuidance/aborted_streaming\n"}
+{"Time":"2026-11-20T00:20:34.650380754Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/aborted_streaming","Output":"--- PASS: TestEnglishTerminalAndAuxiliaryGuidance/aborted_streaming (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.650385004Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/aborted_streaming","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.650388924Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/max_turns"}
+{"Time":"2026-11-20T00:20:34.650396594Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/max_turns","Output":"=== RUN   TestEnglishTerminalAndAuxiliaryGuidance/max_turns\n"}
+{"Time":"2026-11-20T00:20:34.650402264Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/max_turns","Output":"--- PASS: TestEnglishTerminalAndAuxiliaryGuidance/max_turns (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.650406844Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/max_turns","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.650411034Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/model_error"}
+{"Time":"2026-11-20T00:20:34.650414944Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/model_error","Output":"=== RUN   TestEnglishTerminalAndAuxiliaryGuidance/model_error\n"}
+{"Time":"2026-11-20T00:20:34.650420694Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/model_error","Output":"--- PASS: TestEnglishTerminalAndAuxiliaryGuidance/model_error (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.650424974Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/model_error","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.650430874Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/blocking_limit"}
+{"Time":"2026-11-20T00:20:34.650434564Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/blocking_limit","Output":"=== RUN   TestEnglishTerminalAndAuxiliaryGuidance/blocking_limit\n"}
+{"Time":"2026-11-20T00:20:34.650439124Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/blocking_limit","Output":"--- PASS: TestEnglishTerminalAndAuxiliaryGuidance/blocking_limit (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.650443694Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/blocking_limit","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.650447734Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/prompt_too_long"}
+{"Time":"2026-11-20T00:20:34.650451474Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/prompt_too_long","Output":"=== RUN   TestEnglishTerminalAndAuxiliaryGuidance/prompt_too_long\n"}
+{"Time":"2026-11-20T00:20:34.650456954Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/prompt_too_long","Output":"--- PASS: TestEnglishTerminalAndAuxiliaryGuidance/prompt_too_long (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.650461584Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/prompt_too_long","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.650465635Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/stop_hook_prevented"}
+{"Time":"2026-11-20T00:20:34.650469355Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/stop_hook_prevented","Output":"=== RUN   TestEnglishTerminalAndAuxiliaryGuidance/stop_hook_prevented\n"}
+{"Time":"2026-11-20T00:20:34.650474174Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/stop_hook_prevented","Output":"--- PASS: TestEnglishTerminalAndAuxiliaryGuidance/stop_hook_prevented (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.650478424Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/stop_hook_prevented","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.650486195Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/hook_stopped"}
+{"Time":"2026-11-20T00:20:34.650490054Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/hook_stopped","Output":"=== RUN   TestEnglishTerminalAndAuxiliaryGuidance/hook_stopped\n"}
+{"Time":"2026-11-20T00:20:34.650502315Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/hook_stopped","Output":"--- PASS: TestEnglishTerminalAndAuxiliaryGuidance/hook_stopped (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.650506904Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/hook_stopped","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.650511575Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/aborted_tools"}
+{"Time":"2026-11-20T00:20:34.650515365Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/aborted_tools","Output":"=== RUN   TestEnglishTerminalAndAuxiliaryGuidance/aborted_tools\n"}
+{"Time":"2026-11-20T00:20:34.650531685Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/aborted_tools","Output":"--- PASS: TestEnglishTerminalAndAuxiliaryGuidance/aborted_tools (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.650538475Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/aborted_tools","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.650542695Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/completed"}
+{"Time":"2026-11-20T00:20:34.650546855Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/completed","Output":"=== RUN   TestEnglishTerminalAndAuxiliaryGuidance/completed\n"}
+{"Time":"2026-11-20T00:20:34.650551585Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/completed","Output":"--- PASS: TestEnglishTerminalAndAuxiliaryGuidance/completed (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.650557665Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/completed","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.650561615Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/timeout"}
+{"Time":"2026-11-20T00:20:34.650565455Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/timeout","Output":"=== RUN   TestEnglishTerminalAndAuxiliaryGuidance/timeout\n"}
+{"Time":"2026-11-20T00:20:34.650570255Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/timeout","Output":"--- PASS: TestEnglishTerminalAndAuxiliaryGuidance/timeout (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.650574775Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/timeout","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.650578965Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/image_error"}
+{"Time":"2026-11-20T00:20:34.650582825Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/image_error","Output":"=== RUN   TestEnglishTerminalAndAuxiliaryGuidance/image_error\n"}
+{"Time":"2026-11-20T00:20:34.650587235Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/image_error","Output":"--- PASS: TestEnglishTerminalAndAuxiliaryGuidance/image_error (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.650591475Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance/image_error","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.650599855Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance","Output":"--- PASS: TestEnglishTerminalAndAuxiliaryGuidance (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.650604705Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestEnglishTerminalAndAuxiliaryGuidance","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.650608636Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestFindingWorkflowSharedAssemblyAndSwitch"}
+{"Time":"2026-11-20T00:20:34.650612276Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestFindingWorkflowSharedAssemblyAndSwitch","Output":"=== RUN   TestFindingWorkflowSharedAssemblyAndSwitch\n"}
+{"Time":"2026-11-20T00:20:34.653432061Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestFindingWorkflowSharedAssemblyAndSwitch","Output":"--- PASS: TestFindingWorkflowSharedAssemblyAndSwitch (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.654662938Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestFindingWorkflowSharedAssemblyAndSwitch","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.654684728Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestChatNowVarRenders"}
+{"Time":"2026-11-20T00:20:34.654688938Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestChatNowVarRenders","Output":"=== RUN   TestChatNowVarRenders\n"}
+{"Time":"2026-11-20T00:20:34.654694518Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestChatNowVarRenders","Output":"--- PASS: TestChatNowVarRenders (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.654698438Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestChatNowVarRenders","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.654702438Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestChatDataDirVarRenders"}
+{"Time":"2026-11-20T00:20:34.654705588Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestChatDataDirVarRenders","Output":"=== RUN   TestChatDataDirVarRenders\n"}
+{"Time":"2026-11-20T00:20:34.654709668Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestChatDataDirVarRenders","Output":"--- PASS: TestChatDataDirVarRenders (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.654715008Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestChatDataDirVarRenders","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.654718488Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestChatUnknownVarFallsBack"}
+{"Time":"2026-11-20T00:20:34.654721748Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestChatUnknownVarFallsBack","Output":"=== RUN   TestChatUnknownVarFallsBack\n"}
+{"Time":"2026-11-20T00:20:34.654725909Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestChatUnknownVarFallsBack","Output":"--- PASS: TestChatUnknownVarFallsBack (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.654730989Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestChatUnknownVarFallsBack","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.654734339Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestWorkerSystemHasNoPerIntentData"}
+{"Time":"2026-11-20T00:20:34.654737549Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestWorkerSystemHasNoPerIntentData","Output":"=== RUN   TestWorkerSystemHasNoPerIntentData\n"}
+{"Time":"2026-11-20T00:20:34.654741269Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestWorkerSystemHasNoPerIntentData","Output":"--- PASS: TestWorkerSystemHasNoPerIntentData (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.654744909Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestWorkerSystemHasNoPerIntentData","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.654748328Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestWorkerSystemPrefixStableAcrossIntents"}
+{"Time":"2026-11-20T00:20:34.654760459Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestWorkerSystemPrefixStableAcrossIntents","Output":"=== RUN   TestWorkerSystemPrefixStableAcrossIntents\n"}
+{"Time":"2026-11-20T00:20:34.654770639Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestWorkerSystemPrefixStableAcrossIntents","Output":"--- PASS: TestWorkerSystemPrefixStableAcrossIntents (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.654776279Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestWorkerSystemPrefixStableAcrossIntents","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.654781059Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestDeferredSystemWithTailEmptyTailMatchesDeferredSystem"}
+{"Time":"2026-11-20T00:20:34.654798919Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestDeferredSystemWithTailEmptyTailMatchesDeferredSystem","Output":"=== RUN   TestDeferredSystemWithTailEmptyTailMatchesDeferredSystem\n"}
+{"Time":"2026-11-20T00:20:34.654805059Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestDeferredSystemWithTailEmptyTailMatchesDeferredSystem","Output":"--- PASS: TestDeferredSystemWithTailEmptyTailMatchesDeferredSystem (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.654809859Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestDeferredSystemWithTailEmptyTailMatchesDeferredSystem","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.654823909Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestRenderSystemOverrideAndFallback"}
+{"Time":"2026-11-20T00:20:34.654828359Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestRenderSystemOverrideAndFallback","Output":"=== RUN   TestRenderSystemOverrideAndFallback\n"}
+{"Time":"2026-11-20T00:20:34.655060141Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestRenderSystemOverrideAndFallback","Output":"--- PASS: TestRenderSystemOverrideAndFallback (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.655073361Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestRenderSystemOverrideAndFallback","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.655081111Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestIsQuotaExhaustedMessage"}
+{"Time":"2026-11-20T00:20:34.655085551Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestIsQuotaExhaustedMessage","Output":"=== RUN   TestIsQuotaExhaustedMessage\n"}
+{"Time":"2026-11-20T00:20:34.655090871Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestIsQuotaExhaustedMessage","Output":"=== PAUSE TestIsQuotaExhaustedMessage\n"}
+{"Time":"2026-11-20T00:20:34.655094931Z","Action":"pause","Package":"github.com/Autumn-27/artex/agent","Test":"TestIsQuotaExhaustedMessage"}
+{"Time":"2026-11-20T00:20:34.655101541Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestQuotaAwareTransportOnlyNormalizesExplicitQuota429"}
+{"Time":"2026-11-20T00:20:34.655106291Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestQuotaAwareTransportOnlyNormalizesExplicitQuota429","Output":"=== RUN   TestQuotaAwareTransportOnlyNormalizesExplicitQuota429\n"}
+{"Time":"2026-11-20T00:20:34.655111021Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestQuotaAwareTransportOnlyNormalizesExplicitQuota429","Output":"=== PAUSE TestQuotaAwareTransportOnlyNormalizesExplicitQuota429\n"}
+{"Time":"2026-11-20T00:20:34.655114971Z","Action":"pause","Package":"github.com/Autumn-27/artex/agent","Test":"TestQuotaAwareTransportOnlyNormalizesExplicitQuota429"}
+{"Time":"2026-11-20T00:20:34.655130031Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestConfigFromOpenAIResponses"}
+{"Time":"2026-11-20T00:20:34.655134031Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestConfigFromOpenAIResponses","Output":"=== RUN   TestConfigFromOpenAIResponses\n"}
+{"Time":"2026-11-20T00:20:34.655194512Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestConfigFromOpenAIResponses","Output":"--- PASS: TestConfigFromOpenAIResponses (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.655199882Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestConfigFromOpenAIResponses","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.655207022Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestProxyEnvEmptyIsNil"}
+{"Time":"2026-11-20T00:20:34.655213522Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestProxyEnvEmptyIsNil","Output":"=== RUN   TestProxyEnvEmptyIsNil\n"}
+{"Time":"2026-11-20T00:20:34.655221992Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestProxyEnvEmptyIsNil","Output":"--- PASS: TestProxyEnvEmptyIsNil (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.655235362Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestProxyEnvEmptyIsNil","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.655241592Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestProxyEnvSetsAllProxyForSocks5"}
+{"Time":"2026-11-20T00:20:34.655245931Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestProxyEnvSetsAllProxyForSocks5","Output":"=== RUN   TestProxyEnvSetsAllProxyForSocks5\n"}
+{"Time":"2026-11-20T00:20:34.655252511Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestProxyEnvSetsAllProxyForSocks5","Output":"--- PASS: TestProxyEnvSetsAllProxyForSocks5 (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.655258631Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestProxyEnvSetsAllProxyForSocks5","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.655266871Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestProxyEnvInjectsCAWhenRecording"}
+{"Time":"2026-11-20T00:20:34.655270891Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestProxyEnvInjectsCAWhenRecording","Output":"=== RUN   TestProxyEnvInjectsCAWhenRecording\n"}
+{"Time":"2026-11-20T00:20:34.655302961Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestProxyEnvInjectsCAWhenRecording","Output":"--- PASS: TestProxyEnvInjectsCAWhenRecording (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.655307361Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestProxyEnvInjectsCAWhenRecording","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.655318302Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestSessionHeaderInjectedFromContext"}
+{"Time":"2026-11-20T00:20:34.655322312Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestSessionHeaderInjectedFromContext","Output":"=== RUN   TestSessionHeaderInjectedFromContext\n"}
+{"Time":"2026-11-20T00:20:34.655420772Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestSessionHeaderInjectedFromContext","Output":"--- PASS: TestSessionHeaderInjectedFromContext (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.655429183Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestSessionHeaderInjectedFromContext","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.655433642Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestSessionHeaderSkippedWhenKeyEmpty"}
+{"Time":"2026-11-20T00:20:34.655437362Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestSessionHeaderSkippedWhenKeyEmpty","Output":"=== RUN   TestSessionHeaderSkippedWhenKeyEmpty\n"}
+{"Time":"2026-11-20T00:20:34.655443772Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestSessionHeaderSkippedWhenKeyEmpty","Output":"--- PASS: TestSessionHeaderSkippedWhenKeyEmpty (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.655447943Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestSessionHeaderSkippedWhenKeyEmpty","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.655452063Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestSessionHeaderSkippedWhenNoSessionID"}
+{"Time":"2026-11-20T00:20:34.655461603Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestSessionHeaderSkippedWhenNoSessionID","Output":"=== RUN   TestSessionHeaderSkippedWhenNoSessionID\n"}
+{"Time":"2026-11-20T00:20:34.655466652Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestSessionHeaderSkippedWhenNoSessionID","Output":"--- PASS: TestSessionHeaderSkippedWhenNoSessionID (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.655471132Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestSessionHeaderSkippedWhenNoSessionID","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.655477563Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestReasonHintCoversEveryTerminalReason"}
+{"Time":"2026-11-20T00:20:34.655481523Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestReasonHintCoversEveryTerminalReason","Output":"=== RUN   TestReasonHintCoversEveryTerminalReason\n"}
+{"Time":"2026-11-20T00:20:34.655485833Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestReasonHintCoversEveryTerminalReason","Output":"--- PASS: TestReasonHintCoversEveryTerminalReason (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.655489963Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestReasonHintCoversEveryTerminalReason","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.655494143Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestAbortCausePropagatesThroughRunContextChain"}
+{"Time":"2026-11-20T00:20:34.655497923Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestAbortCausePropagatesThroughRunContextChain","Output":"=== RUN   TestAbortCausePropagatesThroughRunContextChain\n"}
+{"Time":"2026-11-20T00:20:34.655504363Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestAbortCausePropagatesThroughRunContextChain","Output":"--- PASS: TestAbortCausePropagatesThroughRunContextChain (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.655508583Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestAbortCausePropagatesThroughRunContextChain","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.655514863Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestAbortReasonFallbacks"}
+{"Time":"2026-11-20T00:20:34.655543923Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestAbortReasonFallbacks","Output":"=== RUN   TestAbortReasonFallbacks\n"}
+{"Time":"2026-11-20T00:20:34.655554504Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestAbortReasonFallbacks","Output":"--- PASS: TestAbortReasonFallbacks (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.655560413Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestAbortReasonFallbacks","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.655566123Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestTerminalTextAbortedNamesCauseAndHangingTool"}
+{"Time":"2026-11-20T00:20:34.655569733Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestTerminalTextAbortedNamesCauseAndHangingTool","Output":"=== RUN   TestTerminalTextAbortedNamesCauseAndHangingTool\n"}
+{"Time":"2026-11-20T00:20:34.656575499Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestTerminalTextAbortedNamesCauseAndHangingTool","Output":"--- PASS: TestTerminalTextAbortedNamesCauseAndHangingTool (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.65658836Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestTerminalTextAbortedNamesCauseAndHangingTool","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.6565934Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestTerminalTextDirectContextCancellationKeepsCause"}
+{"Time":"2026-11-20T00:20:34.65659837Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestTerminalTextDirectContextCancellationKeepsCause","Output":"=== RUN   TestTerminalTextDirectContextCancellationKeepsCause\n"}
+{"Time":"2026-11-20T00:20:34.656603579Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestTerminalTextDirectContextCancellationKeepsCause","Output":"--- PASS: TestTerminalTextDirectContextCancellationKeepsCause (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.6566138Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestTerminalTextDirectContextCancellationKeepsCause","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.65661821Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestTerminalTextAbortedPreservesPartialOutput"}
+{"Time":"2026-11-20T00:20:34.65662198Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestTerminalTextAbortedPreservesPartialOutput","Output":"=== RUN   TestTerminalTextAbortedPreservesPartialOutput\n"}
+{"Time":"2026-11-20T00:20:34.65662687Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestTerminalTextAbortedPreservesPartialOutput","Output":"--- PASS: TestTerminalTextAbortedPreservesPartialOutput (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.65663135Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestTerminalTextAbortedPreservesPartialOutput","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.65663542Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestTerminalTextCompletedToolNotBlamed"}
+{"Time":"2026-11-20T00:20:34.65663925Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestTerminalTextCompletedToolNotBlamed","Output":"=== RUN   TestTerminalTextCompletedToolNotBlamed\n"}
+{"Time":"2026-11-20T00:20:34.65664448Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestTerminalTextCompletedToolNotBlamed","Output":"--- PASS: TestTerminalTextCompletedToolNotBlamed (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.65664911Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestTerminalTextCompletedToolNotBlamed","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.65665504Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestTerminalTextNonAbortReasons"}
+{"Time":"2026-11-20T00:20:34.65665935Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestTerminalTextNonAbortReasons","Output":"=== RUN   TestTerminalTextNonAbortReasons\n"}
+{"Time":"2026-11-20T00:20:34.65666381Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestTerminalTextNonAbortReasons","Output":"--- PASS: TestTerminalTextNonAbortReasons (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.65666786Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestTerminalTextNonAbortReasons","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.6566719Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestAbortCausesAreWellFormed"}
+{"Time":"2026-11-20T00:20:34.656682671Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestAbortCausesAreWellFormed","Output":"=== RUN   TestAbortCausesAreWellFormed\n"}
+{"Time":"2026-11-20T00:20:34.656687271Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestAbortCausesAreWellFormed","Output":"--- PASS: TestAbortCausesAreWellFormed (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.656692511Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestAbortCausesAreWellFormed","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.6566987Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestFirstLineCapsByRuneNotByte"}
+{"Time":"2026-11-20T00:20:34.6567025Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestFirstLineCapsByRuneNotByte","Output":"=== RUN   TestFirstLineCapsByRuneNotByte\n"}
+{"Time":"2026-11-20T00:20:34.656706791Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestFirstLineCapsByRuneNotByte","Output":"--- PASS: TestFirstLineCapsByRuneNotByte (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.656710881Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestFirstLineCapsByRuneNotByte","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.65671529Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestBuiltinToolSeeds"}
+{"Time":"2026-11-20T00:20:34.656723361Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestBuiltinToolSeeds","Output":"=== RUN   TestBuiltinToolSeeds\n"}
+{"Time":"2026-11-20T00:20:34.656728371Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestBuiltinToolSeeds","Output":"--- PASS: TestBuiltinToolSeeds (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.656732401Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestBuiltinToolSeeds","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.656736771Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestDecorateToolInjectsDefaults"}
+{"Time":"2026-11-20T00:20:34.656740371Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestDecorateToolInjectsDefaults","Output":"=== RUN   TestDecorateToolInjectsDefaults\n"}
+{"Time":"2026-11-20T00:20:34.656744801Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestDecorateToolInjectsDefaults","Output":"--- PASS: TestDecorateToolInjectsDefaults (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.656749291Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestDecorateToolInjectsDefaults","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.656753421Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestDomainToolsSurviveNilStores"}
+{"Time":"2026-11-20T00:20:34.656757071Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestDomainToolsSurviveNilStores","Output":"=== RUN   TestDomainToolsSurviveNilStores\n"}
+{"Time":"2026-11-20T00:20:34.657345594Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestDomainToolsSurviveNilStores","Output":"--- PASS: TestDomainToolsSurviveNilStores (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.657357564Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestDomainToolsSurviveNilStores","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.657363234Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestExplorationToolRefusesWithoutTask"}
+{"Time":"2026-11-20T00:20:34.657367514Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestExplorationToolRefusesWithoutTask","Output":"=== RUN   TestExplorationToolRefusesWithoutTask\n"}
+{"Time":"2026-11-20T00:20:34.657372524Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestExplorationToolRefusesWithoutTask","Output":"--- PASS: TestExplorationToolRefusesWithoutTask (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.657376734Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestExplorationToolRefusesWithoutTask","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.657383624Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestGuardPanicConvertsPanicToToolError"}
+{"Time":"2026-11-20T00:20:34.657387724Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestGuardPanicConvertsPanicToToolError","Output":"=== RUN   TestGuardPanicConvertsPanicToToolError\n"}
+{"Time":"2026-11-20T00:20:34.657464715Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestGuardPanicConvertsPanicToToolError","Output":"2026/11/20 00:20:34 [tools] boom panic: nil map write\n"}
+{"Time":"2026-11-20T00:20:34.657471025Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestGuardPanicConvertsPanicToToolError","Output":"goroutine 107 [running]:\n"}
+{"Time":"2026-11-20T00:20:34.657475295Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestGuardPanicConvertsPanicToToolError","Output":"runtime/debug.Stack()\n"}
+{"Time":"2026-11-20T00:20:34.657479625Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestGuardPanicConvertsPanicToToolError","Output":"\t/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/src/runtime/debug/stack.go:26 +0x5e\n"}
+{"Time":"2026-11-20T00:20:34.657484235Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestGuardPanicConvertsPanicToToolError","Output":"github.com/Autumn-27/artex/agent.(*guardedTool).Call.func1()\n"}
+{"Time":"2026-11-20T00:20:34.657512195Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestGuardPanicConvertsPanicToToolError","Output":"\t/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/source/agent/assembly.go:111 +0x85\n"}
+{"Time":"2026-11-20T00:20:34.657528495Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestGuardPanicConvertsPanicToToolError","Output":"panic({0xf99ce0?, 0x11efac0?})\n"}
+{"Time":"2026-11-20T00:20:34.657552624Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestGuardPanicConvertsPanicToToolError","Output":"\t/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/src/runtime/panic.go:860 +0x13a\n"}
+{"Time":"2026-11-20T00:20:34.657557174Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestGuardPanicConvertsPanicToToolError","Output":"github.com/Autumn-27/artex/agent.TestGuardPanicConvertsPanicToToolError.func1({0x13000000000000?, 0x0?}, {0x7557d264a00?, 0x0?, 0x1b46ac0?}, 0x1?)\n"}
+{"Time":"2026-11-20T00:20:34.657561584Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestGuardPanicConvertsPanicToToolError","Output":"\t/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/source/agent/tools_nil_store_test.go:58 +0x39\n"}
+{"Time":"2026-11-20T00:20:34.657565835Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestGuardPanicConvertsPanicToToolError","Output":"github.com/Autumn-27/norma/tool.(*builtTool).Call(0x11febf8?, {0x11febf8?, 0x1b67da0?}, {0x3134acefc458?, 0x0?, 0x75500000004?}, 0x3134acd75d20?)\n"}
+{"Time":"2026-11-20T00:20:34.657570165Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestGuardPanicConvertsPanicToToolError","Output":"\t/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/gomodcache/github.com/!autumn-27/norma@v0.4.3/tool/tool.go:162 +0x66\n"}
+{"Time":"2026-11-20T00:20:34.657574384Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestGuardPanicConvertsPanicToToolError","Output":"github.com/Autumn-27/artex/agent.(*guardedTool).Call(0x3134acd75f20, {0x11febf8, 0x1b67da0}, {0x3134acefc458, 0x2, 0x2}, 0x0)\n"}
+{"Time":"2026-11-20T00:20:34.657578485Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestGuardPanicConvertsPanicToToolError","Output":"\t/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/source/agent/assembly.go:121 +0x153\n"}
+{"Time":"2026-11-20T00:20:34.657582955Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestGuardPanicConvertsPanicToToolError","Output":"github.com/Autumn-27/artex/agent.TestGuardPanicConvertsPanicToToolError(0x3134aceae908)\n"}
+{"Time":"2026-11-20T00:20:34.657587315Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestGuardPanicConvertsPanicToToolError","Output":"\t/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/source/agent/tools_nil_store_test.go:61 +0x136\n"}
+{"Time":"2026-11-20T00:20:34.657591395Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestGuardPanicConvertsPanicToToolError","Output":"testing.tRunner(0x3134aceae908, 0x11e6ed8)\n"}
+{"Time":"2026-11-20T00:20:34.657595475Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestGuardPanicConvertsPanicToToolError","Output":"\t/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/src/testing/testing.go:2036 +0xea\n"}
+{"Time":"2026-11-20T00:20:34.657599765Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestGuardPanicConvertsPanicToToolError","Output":"created by testing.(*T).Run in goroutine 1\n"}
+{"Time":"2026-11-20T00:20:34.657603995Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestGuardPanicConvertsPanicToToolError","Output":"\t/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/src/testing/testing.go:2101 +0x4c5\n"}
+{"Time":"2026-11-20T00:20:34.657630415Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestGuardPanicConvertsPanicToToolError","Output":"--- PASS: TestGuardPanicConvertsPanicToToolError (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.657635125Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestGuardPanicConvertsPanicToToolError","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.657639925Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestOverviewTextBudgetIsFairAndUTF8Safe"}
+{"Time":"2026-11-20T00:20:34.657644555Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestOverviewTextBudgetIsFairAndUTF8Safe","Output":"=== RUN   TestOverviewTextBudgetIsFairAndUTF8Safe\n"}
+{"Time":"2026-11-20T00:20:34.657652345Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestOverviewTextBudgetIsFairAndUTF8Safe","Output":"--- PASS: TestOverviewTextBudgetIsFairAndUTF8Safe (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.657658775Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestOverviewTextBudgetIsFairAndUTF8Safe","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.657663035Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestWorkerSessionIDIsStablePerIntent"}
+{"Time":"2026-11-20T00:20:34.657666725Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestWorkerSessionIDIsStablePerIntent","Output":"=== RUN   TestWorkerSessionIDIsStablePerIntent\n"}
+{"Time":"2026-11-20T00:20:34.657671276Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestWorkerSessionIDIsStablePerIntent","Output":"--- PASS: TestWorkerSessionIDIsStablePerIntent (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.657675525Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestWorkerSessionIDIsStablePerIntent","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.657680085Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestWorkerChatMarkerOnlyMatchesItsNormalUserTurn"}
+{"Time":"2026-11-20T00:20:34.657683985Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestWorkerChatMarkerOnlyMatchesItsNormalUserTurn","Output":"=== RUN   TestWorkerChatMarkerOnlyMatchesItsNormalUserTurn\n"}
+{"Time":"2026-11-20T00:20:34.657705206Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestWorkerChatMarkerOnlyMatchesItsNormalUserTurn","Output":"--- PASS: TestWorkerChatMarkerOnlyMatchesItsNormalUserTurn (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.657709556Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestWorkerChatMarkerOnlyMatchesItsNormalUserTurn","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.657713655Z","Action":"cont","Package":"github.com/Autumn-27/artex/agent","Test":"TestIsQuotaExhaustedMessage"}
+{"Time":"2026-11-20T00:20:34.657717676Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestIsQuotaExhaustedMessage","Output":"=== CONT  TestIsQuotaExhaustedMessage\n"}
+{"Time":"2026-11-20T00:20:34.657722265Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestIsQuotaExhaustedMessage","Output":"--- PASS: TestIsQuotaExhaustedMessage (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.657726425Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestIsQuotaExhaustedMessage","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.657730096Z","Action":"cont","Package":"github.com/Autumn-27/artex/agent","Test":"TestQuotaAwareTransportOnlyNormalizesExplicitQuota429"}
+{"Time":"2026-11-20T00:20:34.657733766Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestQuotaAwareTransportOnlyNormalizesExplicitQuota429","Output":"=== CONT  TestQuotaAwareTransportOnlyNormalizesExplicitQuota429\n"}
+{"Time":"2026-11-20T00:20:34.657738376Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestQuotaAwareTransportOnlyNormalizesExplicitQuota429/quota"}
+{"Time":"2026-11-20T00:20:34.657747416Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestQuotaAwareTransportOnlyNormalizesExplicitQuota429/quota","Output":"=== RUN   TestQuotaAwareTransportOnlyNormalizesExplicitQuota429/quota\n"}
+{"Time":"2026-11-20T00:20:34.657754536Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestQuotaAwareTransportOnlyNormalizesExplicitQuota429/quota","Output":"--- PASS: TestQuotaAwareTransportOnlyNormalizesExplicitQuota429/quota (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.657758786Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestQuotaAwareTransportOnlyNormalizesExplicitQuota429/quota","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.657762816Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestQuotaAwareTransportOnlyNormalizesExplicitQuota429/ordinary_rate_limit"}
+{"Time":"2026-11-20T00:20:34.657766736Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestQuotaAwareTransportOnlyNormalizesExplicitQuota429/ordinary_rate_limit","Output":"=== RUN   TestQuotaAwareTransportOnlyNormalizesExplicitQuota429/ordinary_rate_limit\n"}
+{"Time":"2026-11-20T00:20:34.657782606Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestQuotaAwareTransportOnlyNormalizesExplicitQuota429/ordinary_rate_limit","Output":"--- PASS: TestQuotaAwareTransportOnlyNormalizesExplicitQuota429/ordinary_rate_limit (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.657787006Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestQuotaAwareTransportOnlyNormalizesExplicitQuota429/ordinary_rate_limit","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.657790986Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestQuotaAwareTransportOnlyNormalizesExplicitQuota429/server_error"}
+{"Time":"2026-11-20T00:20:34.657794906Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestQuotaAwareTransportOnlyNormalizesExplicitQuota429/server_error","Output":"=== RUN   TestQuotaAwareTransportOnlyNormalizesExplicitQuota429/server_error\n"}
+{"Time":"2026-11-20T00:20:34.657799346Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestQuotaAwareTransportOnlyNormalizesExplicitQuota429/server_error","Output":"--- PASS: TestQuotaAwareTransportOnlyNormalizesExplicitQuota429/server_error (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.657803546Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestQuotaAwareTransportOnlyNormalizesExplicitQuota429/server_error","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.657807846Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestQuotaAwareTransportOnlyNormalizesExplicitQuota429","Output":"--- PASS: TestQuotaAwareTransportOnlyNormalizesExplicitQuota429 (0.00s)\n"}
+{"Time":"2026-11-20T00:20:34.657811706Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestQuotaAwareTransportOnlyNormalizesExplicitQuota429","Elapsed":0}
+{"Time":"2026-11-20T00:20:34.657823117Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Output":"PASS\n"}
+{"Time":"2026-11-20T00:20:34.659864659Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Output":"ok  \tgithub.com/Autumn-27/artex/agent\t0.028s\n"}
+{"Time":"2026-11-20T00:20:34.659890419Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Elapsed":0.028}
+{"Time":"2026-11-20T00:20:35.218088195Z","Action":"start","Package":"github.com/Autumn-27/artex/guard"}
+{"Time":"2026-11-20T00:20:35.224031859Z","Action":"run","Package":"github.com/Autumn-27/artex/guard","Test":"TestEnglishPlatformBlockPreservesReason"}
+{"Time":"2026-11-20T00:20:35.22407351Z","Action":"output","Package":"github.com/Autumn-27/artex/guard","Test":"TestEnglishPlatformBlockPreservesReason","Output":"=== RUN   TestEnglishPlatformBlockPreservesReason\n"}
+{"Time":"2026-11-20T00:20:35.2241061Z","Action":"output","Package":"github.com/Autumn-27/artex/guard","Test":"TestEnglishPlatformBlockPreservesReason","Output":"--- PASS: TestEnglishPlatformBlockPreservesReason (0.00s)\n"}
+{"Time":"2026-11-20T00:20:35.22412297Z","Action":"pass","Package":"github.com/Autumn-27/artex/guard","Test":"TestEnglishPlatformBlockPreservesReason","Elapsed":0}
+{"Time":"2026-11-20T00:20:35.22413056Z","Action":"run","Package":"github.com/Autumn-27/artex/guard","Test":"TestPreToolUsePassthrough"}
+{"Time":"2026-11-20T00:20:35.22413479Z","Action":"output","Package":"github.com/Autumn-27/artex/guard","Test":"TestPreToolUsePassthrough","Output":"=== RUN   TestPreToolUsePassthrough\n"}
+{"Time":"2026-11-20T00:20:35.22414509Z","Action":"output","Package":"github.com/Autumn-27/artex/guard","Test":"TestPreToolUsePassthrough","Output":"--- PASS: TestPreToolUsePassthrough (0.00s)\n"}
+{"Time":"2026-11-20T00:20:35.22414984Z","Action":"pass","Package":"github.com/Autumn-27/artex/guard","Test":"TestPreToolUsePassthrough","Elapsed":0}
+{"Time":"2026-11-20T00:20:35.22415413Z","Action":"output","Package":"github.com/Autumn-27/artex/guard","Output":"PASS\n"}
+{"Time":"2026-11-20T00:20:35.225275776Z","Action":"output","Package":"github.com/Autumn-27/artex/guard","Output":"ok  \tgithub.com/Autumn-27/artex/guard\t0.007s\n"}
+{"Time":"2026-11-20T00:20:35.225325597Z","Action":"pass","Package":"github.com/Autumn-27/artex/guard","Elapsed":0.007}

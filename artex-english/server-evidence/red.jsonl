@@ -1,0 +1,60 @@
+{"Time":"2026-11-19T23:49:55.605190407Z","Action":"start","Package":"github.com/Autumn-27/artex/server"}
+{"Time":"2026-11-19T23:49:55.671590801Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility"}
+{"Time":"2026-11-19T23:49:55.671630762Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility","Output":"=== RUN   TestChatMentionEnglishLegacyCompatibility\n"}
+{"Time":"2026-11-19T23:49:55.671676702Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Finding"}
+{"Time":"2026-11-19T23:49:55.671682382Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Finding","Output":"=== RUN   TestChatMentionEnglishLegacyCompatibility/Finding\n"}
+{"Time":"2026-11-19T23:49:55.671686982Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Finding","Output":"    chat_mentions_english_test.go:23: token Finding: refs=[] err=\u003cnil\u003e\n"}
+{"Time":"2026-11-19T23:49:55.671698242Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Finding","Output":"--- FAIL: TestChatMentionEnglishLegacyCompatibility/Finding (0.00s)\n"}
+{"Time":"2026-11-19T23:49:55.671703552Z","Action":"fail","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Finding","Elapsed":0}
+{"Time":"2026-11-19T23:49:55.671709382Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Asset"}
+{"Time":"2026-11-19T23:49:55.671712782Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Asset","Output":"=== RUN   TestChatMentionEnglishLegacyCompatibility/Asset\n"}
+{"Time":"2026-11-19T23:49:55.671716532Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Asset","Output":"    chat_mentions_english_test.go:23: token Asset: refs=[] err=\u003cnil\u003e\n"}
+{"Time":"2026-11-19T23:49:55.671724542Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Asset","Output":"--- FAIL: TestChatMentionEnglishLegacyCompatibility/Asset (0.00s)\n"}
+{"Time":"2026-11-19T23:49:55.671728882Z","Action":"fail","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Asset","Elapsed":0}
+{"Time":"2026-11-19T23:49:55.671732852Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Company"}
+{"Time":"2026-11-19T23:49:55.671736182Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Company","Output":"=== RUN   TestChatMentionEnglishLegacyCompatibility/Company\n"}
+{"Time":"2026-11-19T23:49:55.671740102Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Company","Output":"    chat_mentions_english_test.go:23: token Company: refs=[] err=\u003cnil\u003e\n"}
+{"Time":"2026-11-19T23:49:55.671744642Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Company","Output":"--- FAIL: TestChatMentionEnglishLegacyCompatibility/Company (0.00s)\n"}
+{"Time":"2026-11-19T23:49:55.671748912Z","Action":"fail","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Company","Elapsed":0}
+{"Time":"2026-11-19T23:49:55.671753142Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Endpoint"}
+{"Time":"2026-11-19T23:49:55.671756763Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Endpoint","Output":"=== RUN   TestChatMentionEnglishLegacyCompatibility/Endpoint\n"}
+{"Time":"2026-11-19T23:49:55.671761462Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Endpoint","Output":"    chat_mentions_english_test.go:23: token Endpoint: refs=[] err=\u003cnil\u003e\n"}
+{"Time":"2026-11-19T23:49:55.671770752Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Endpoint","Output":"--- FAIL: TestChatMentionEnglishLegacyCompatibility/Endpoint (0.00s)\n"}
+{"Time":"2026-11-19T23:49:55.671775373Z","Action":"fail","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Endpoint","Elapsed":0}
+{"Time":"2026-11-19T23:49:55.671780893Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/IP"}
+{"Time":"2026-11-19T23:49:55.671787512Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/IP","Output":"=== RUN   TestChatMentionEnglishLegacyCompatibility/IP\n"}
+{"Time":"2026-11-19T23:49:55.671792702Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/IP","Output":"--- PASS: TestChatMentionEnglishLegacyCompatibility/IP (0.00s)\n"}
+{"Time":"2026-11-19T23:49:55.671796352Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/IP","Elapsed":0}
+{"Time":"2026-11-19T23:49:55.671800392Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/App"}
+{"Time":"2026-11-19T23:49:55.671806173Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/App","Output":"=== RUN   TestChatMentionEnglishLegacyCompatibility/App\n"}
+{"Time":"2026-11-19T23:49:55.671809563Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/App","Output":"    chat_mentions_english_test.go:23: token App: refs=[] err=\u003cnil\u003e\n"}
+{"Time":"2026-11-19T23:49:55.671813512Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/App","Output":"--- FAIL: TestChatMentionEnglishLegacyCompatibility/App (0.00s)\n"}
+{"Time":"2026-11-19T23:49:55.671817943Z","Action":"fail","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/App","Elapsed":0}
+{"Time":"2026-11-19T23:49:55.671821633Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Domain"}
+{"Time":"2026-11-19T23:49:55.671830073Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Domain","Output":"=== RUN   TestChatMentionEnglishLegacyCompatibility/Domain\n"}
+{"Time":"2026-11-19T23:49:55.671834223Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Domain","Output":"    chat_mentions_english_test.go:23: token Domain: refs=[] err=\u003cnil\u003e\n"}
+{"Time":"2026-11-19T23:49:55.671840033Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Domain","Output":"--- FAIL: TestChatMentionEnglishLegacyCompatibility/Domain (0.00s)\n"}
+{"Time":"2026-11-19T23:49:55.671843823Z","Action":"fail","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Domain","Elapsed":0}
+{"Time":"2026-11-19T23:49:55.671847493Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Subdomain"}
+{"Time":"2026-11-19T23:49:55.671852923Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Subdomain","Output":"=== RUN   TestChatMentionEnglishLegacyCompatibility/Subdomain\n"}
+{"Time":"2026-11-19T23:49:55.671856873Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Subdomain","Output":"    chat_mentions_english_test.go:23: token Subdomain: refs=[] err=\u003cnil\u003e\n"}
+{"Time":"2026-11-19T23:49:55.671862103Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Subdomain","Output":"--- FAIL: TestChatMentionEnglishLegacyCompatibility/Subdomain (0.00s)\n"}
+{"Time":"2026-11-19T23:49:55.671867543Z","Action":"fail","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Subdomain","Elapsed":0}
+{"Time":"2026-11-19T23:49:55.671872713Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Service"}
+{"Time":"2026-11-19T23:49:55.671880043Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Service","Output":"=== RUN   TestChatMentionEnglishLegacyCompatibility/Service\n"}
+{"Time":"2026-11-19T23:49:55.671893603Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Service","Output":"    chat_mentions_english_test.go:23: token Service: refs=[] err=\u003cnil\u003e\n"}
+{"Time":"2026-11-19T23:49:55.671899853Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Service","Output":"--- FAIL: TestChatMentionEnglishLegacyCompatibility/Service (0.00s)\n"}
+{"Time":"2026-11-19T23:49:55.671969023Z","Action":"fail","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility/Service","Elapsed":0}
+{"Time":"2026-11-19T23:49:55.672001453Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility","Output":"--- FAIL: TestChatMentionEnglishLegacyCompatibility (0.00s)\n"}
+{"Time":"2026-11-19T23:49:55.672055684Z","Action":"fail","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionEnglishLegacyCompatibility","Elapsed":0}
+{"Time":"2026-11-19T23:49:55.672092494Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionParsing"}
+{"Time":"2026-11-19T23:49:55.672096424Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionParsing","Output":"=== RUN   TestChatMentionParsing\n"}
+{"Time":"2026-11-19T23:49:55.672208175Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionParsing","Output":"--- PASS: TestChatMentionParsing (0.00s)\n"}
+{"Time":"2026-11-19T23:49:55.674635818Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionParsing","Elapsed":0}
+{"Time":"2026-11-19T23:49:55.674655178Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionBoundedJSON"}
+{"Time":"2026-11-19T23:49:55.674659478Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionBoundedJSON","Output":"=== RUN   TestChatMentionBoundedJSON\n"}
+{"Time":"2026-11-19T23:49:55.763380565Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionBoundedJSON","Output":"--- PASS: TestChatMentionBoundedJSON (0.09s)\n"}
+{"Time":"2026-11-19T23:49:55.763493306Z","Action":"pass","Package":"github.com/Autumn-27/artex/server","Test":"TestChatMentionBoundedJSON","Elapsed":0.09}
+{"Time":"2026-11-19T23:49:55.763644055Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Output":"FAIL\n"}
+{"Time":"2026-11-19T23:49:55.768334162Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Output":"FAIL\tgithub.com/Autumn-27/artex/server\t0.163s\n"}
+{"Time":"2026-11-19T23:49:55.768360992Z","Action":"fail","Package":"github.com/Autumn-27/artex/server","Elapsed":0.163}

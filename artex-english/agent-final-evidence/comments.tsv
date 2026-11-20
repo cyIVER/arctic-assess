@@ -1,0 +1,185 @@
+source/agent/chat.go
+88|wording ("payload", "capture response bodies") that would be odd in a general assistant.
+180|Use the recording proxy; load its CA to verify MITM-reissued HTTPS certificates.
+183|Optional web search: ddgs needs no key; brave-free needs BraveKey; tavily needs TavilyKey.
+184|WebSearchProxy is a separate egress proxy (http/https/socks5), unrelated to the traffic-recording MITM proxy; empty means direct.
+193|Bash subprocesses use the proxy and trust its CA by default.
+200|Use the SDK truncation default (30000 characters in tool.Capture).
+202|At the step budget, SDK wrap-up emits a summary. Prompt and wrap-up turns are editable per agent key
+203|(separate for custom agents; empty/0 uses the generic default of 10 turns).
+205|Use Provider.Complete when the profile selects non-streaming.
+206|0 omits the cap and uses the server default.
+228|Experimental: noa takes over context compression when enabled; persistent archives live under <workDir>/noa/<SessionID>.
+source/agent/capture_usage_test.go
+36|Respect iterator protocol: stop immediately when yield returns false; never call it again.
+62|Respect iterator protocol: stop immediately when yield returns false; never call it again.
+source/agent/insert_assets_test.go
+45|Subdomain insertion automatically creates root_domain + IP assets and binds the domain to IP.
+114|Multi-IP subdomain: retain all IPs in record_value[] and create each IP asset.
+162|HTTP service insertion: technologies round-trip; when IP exists, write domain and port to its IP asset.
+245|Non-HTTP service: generate c_segment automatically; IP asset contains open_ports and bound_domains.
+306|Mixed batch inserts multiple asset types in one call.
+364|Idempotent writes: inserting the same asset twice returns the same ID.
+401|A batch item with a hostname in ip fails alone; other items are still stored,
+402|and the error carries index and correction advice so the Agent can fix it next round.
+source/agent/prompt.go
+36|half-rendered prompt. Callers append the code-owned tail (trafficTool / artifact
+37|output policy) AFTER this, so those cannot be edited away via the DB body.
+source/agent/goals.go
+84|desc is the task's free-text description (background: target scope, flag count, rules of engagement, etc.).
+125|Goal decomposition is a one-shot call without a transcript store, so agentcore does not attach
+126|a session id to ctx (only attached when a writer exists; see agentcore.Prompt). Gateways using
+127|session-id headers for prompt caching/sticky routing (opencode zen returns 400 without x-opencode-session,
+128|MissingSessionID) read that context value. Without it chat works but decomposition returns 400.
+129|Attach a stable id explicitly: decomposition requests in the same exploration share it for caching,
+130|without colliding with planner/worker names, allowing correct attribution by llmrec.parseSession.
+142|set_constraints is always available (independent of asset store). The body already instructs extraction
+143|of operational constraints before goal decomposition (editable in agent UI); just wire the tool here.
+175|The three steps (extract constraints → register scope → decompose goals) each need a tool call; allow enough turns for set_goals before wrap-up.
+177|Use Provider.Complete when the profile selects non-streaming.
+178|0 omits the cap and uses the server default.
+source/agent/compaction.go
+83|Already running or within cooldown; derived state is eventually consistent, so compress next round.
+89|Compression calls the provider directly (prov.Complete in compress), bypassing the agentcore
+90|session loop, so ctx lacks a session id. Gateways using session-id headers for prompt caching/sticky
+91|routing (opencode zen returns 400 without x-opencode-session) would not receive that header.
+92|Attach an exploration-stable id here: all compression requests in one exploration share it,
+93|both sending the header and letting llmrec attribute call tokens to that exploration (previously missing).
+191|(§5.1 recompress from source), then reconciles against the active digests by signature:
+284|generationFor computes a digest's recompression generation (§1): 1 for a fresh fold; for a major
+458|as context ("common parent #p"), which are NOT members.
+source/agent/mainagent.go
+85|prompt, seeded into agent_prompts. Goal is a {{.Goal}} template var; the artifact
+86|output policy tail is code-owned (artifactSpec), appended after rendering.
+130|Generic debounced wake-up for writes without a dedicated callback.
+131|set_goals adds goals → return completed/paused tasks to running.
+132|set_goals adds goals → record one human-added-goals planner trigger.
+133|add_hint adds hints → record one human-added-N-strategic-hints planner trigger.
+135|Domain tools + SDK defaults (Read/Write/Edit/MultiEdit/LS/Glob/Grep/Bash).
+136|When asset coverage is disabled, remove add_task_scope/list_untested_assets from the prompt.
+144|Create this task's working directory <workDir>/tasks/<taskID> first.
+156|Use recording proxy; load its CA to verify MITM-reissued HTTPS certificates.
+159|Optional web search: ddgs needs no key; brave-free needs BraveKey; tavily needs TavilyKey.
+160|WebSearchProxy is separate egress (http/https/socks5), unrelated to traffic-recording MITM proxy; empty means direct.
+169|Bash subprocesses use the proxy and trust its CA by default.
+170|Task working directory <workDir>/tasks/<taskID>.
+174|Session-local temporary planning todos (TodoWrite); discarded on exit.
+175|Step budget → SDK wrap-up emits a user-facing progress summary. Prompt/turns are editable (default 10 turns).
+177|Use Provider.Complete when the profile selects non-streaming.
+178|0 omits the cap and uses the server default.
+189|Experimental: noa takes over context compression when enabled; persistent archives live under <workDir>/noa/<SessionID>.
+190|Session ids follow the same segment-aware rules as transcripts, aligning archival and recovery.
+source/agent/coldgraph.go
+194|parent nodes that anchor them (§3.1 "parents are anchors, not members"): anchors are fed to the
+source/agent/assembly.go
+39|Built-in base tools remain in code, unchanged and never visibility-filtered.
+source/agent/tools_digest.go
+85|overview folds exactly as that task folds itself (§2 cross-task: "use the same
+86|display logic for the current and linked tasks"). A revived (now hot) covered member is NOT
+147|Linked-task members: read-only, with inheritance markers (§2).
+source/agent/noa.go
+17|noa is norma v0.4.0's model-driven context compression, exposed as an experimental toggle
+18|in system settings. It is mutually exclusive with built-in compaction. noaadapter.Enable is
+19|the sole entrypoint, installing the Compactor, Compress tool and three persistent prompts.
+20|Without Enable, built-in compaction remains active. Each agent's injected noaEnabledFn is read
+21|once per run, so toggling affects later runs without rebuilding the agent.
+23|enableNoa wires noa into opts when enabled by the resolver. archiveRoot is the persistent base
+24|directory for original compressed content (global workDir; all agents use <workDir>/noa rather than
+25|separate task/intent directories). Globally unique sessionID names the archive subdirectory.
+27|Experimental noa failures must not interrupt real tasks: report via onWarn and fall back to built-in compression.
+28|On success clear opts.Compaction to avoid agentcore's two-context-managers warning.
+46|Compactor overrides Compaction, but coexistence warns every run; explicitly clear it.
+source/agent/coldgraph_test.go
+17|Appendix snapshot 1: a→b→c, b→d, with d live (running) and c settled/inactive.
+40|Appendix snapshot 2: once d also finishes, a/b/c/d are all cold and connected → one block.
+source/agent/worker.go
+38|Unlike the other three backends, DeepSeek has no directly callable search API.
+39|Search exists only inside its Anthropic-compatible messages endpoint (web_search_20250305 server
+40|tool), so every search consumes a model call and its requests originate on DeepSeek servers,
+41|not via the local Proxy and not in local traffic records.
+48|DeepSeek* comes from the active LLM profile (official DeepSeek endpoint in anthropic format only),
+49|not a separate configuration; it changes with the LLM profile.
+336|Coverage helps planners assess undertested types and scope expansion; this conflicts with the worker's
+337|mandate to execute only its assigned intent, not pursue uncovered targets. Remove it from this view.
+338|data is a new worker-specific map, so deleting keys does not affect the planner.
+393|report_finding wakes the planner immediately after persistence, carrying intent + finding.
+398|Workers deliberately omit MultiEdit/Glob/Grep: use Edit for precise edits and Bash(grep/find) for search,
+399|reducing the tool surface and low-value calls. Other SDK defaults (Read/Write/Edit/LS/Bash/Sleep) remain.
+409|The intent is the worker's SOLE responsibility and run-wide invariant. Put it, startup instructions and
+410|raw anchored target assets in the system prompt: rebuilt every run and never removed by compaction.
+411|The intent remains throughout long runs; resumption does not depend on retaining the initial transcript
+412|message. Per-intent variability sacrifices cross-intent system caching deliberately: losing intent is worse.
+413|This differs deliberately from the planner's situational user turn: a planner generates intents and has
+414|no single mandate; a worker does. Only degradable, potentially stale global overview stays in startup user input.
+415|The engine creates this intent's private working directory <workDir>/tasks/<taskID>/i<intentID> first.
+423|Inject operational constraints into the system prompt for strict worker compliance.
+425|Append intent → anchored assets → startup instructions to system, like constraintBlock.
+433|Assets explicitly targeted by this intent automatically enter task scope at the same conservative
+434|granularity as insertAssets. upsertTaskScope's ON CONFLICT DO NOTHING and uq_task_scope
+435|unique index prevent duplicates; reruns/retries are idempotent no-ops.
+436|Do not accumulate test scope (denominator) when asset coverage is disabled.
+447|Task deadline from ctx clamps wall-clock budget and selects wrap-up text (see taskclock.go).
+462|WebFetch uses the recording proxy; HTTP is recorded like curl. Load the proxy CA so MITM-reissued
+463|HTTPS certificates VERIFY normally, rather than disabling verification. Empty proxy means direct.
+467|Optional web search: ddgs needs no key; brave-free needs BraveKey; tavily needs TavilyKey.
+468|WebSearchProxy is separate egress (http/https/socks5), unrelated to traffic-recording MITM proxy; empty means direct.
+477|Bash subprocess HTTP uses recording proxy + trusted CA by default (no -x/-k needed).
+481|Wall-clock budget, checked at turn boundaries without mid-step interruption; 0 = unlimited. Task deadline
+482|clamps to min(own budget, remaining time), entering wrap-up when the task expires (see taskclock.go).
+484|Turn or duration budget → SDK wrap-up round (Bash hidden), persisting identified results.
+485|When task-deadline-clamped, PromptByReason maps timeout to task-timeout wrap-up,
+486|and turn exhaustion within the window to per-run wrap-up. Unclamped remains per-run only.
+489|Full output preserved on disk. Use SDK truncation default (30000 characters).
+492|Session-local temporary planning todos (TodoWrite); discarded on exit.
+493|Use Provider.Complete when the profile selects non-streaming.
+494|0 omits the cap and uses the server default.
+510|Intent / startup instructions / anchored assets are already in system (sysBody assembly above).
+511|This startup user message carries only degradable global overview; compaction may safely remove it.
+512|If overview marshaling unusually fails/returns empty, use a startup phrase rather than an empty first message.
+518|Experimental: noa takes over context compression when enabled; persistent archives live under <workDir>/noa/<SessionID>.
+source/agent/planner.go
+157|"finding" — worker reported a finding on IntentID (Detail = summary).
+158|"goal" — human (via main agent set_goals) added one OR MORE goals in a
+159|single call (Goals = newly added goal text, 1+ items; set_goals supports batches).
+160|"goal_deleted" — human deleted a goal in overview goal management (Detail = deleted text).
+161|"goal_edited" — human edited a goal in overview goal management (OldGoal→NewGoal text).
+162|"cancelled" — human deleted intent IntentID (Detail = deletion reason). The intent is
+168|Kind=="cancelled": summary captured before deletion (hard-deleted nodes cannot be queried).
+169|Kind=="goal": goal texts added by this set_goals call (one or more).
+170|Kind=="goal_edited": previous goal text.
+171|Kind=="goal_edited": updated goal text.
+172|Kind=="hint": hint texts added by this add_hint call (one or more).
+206|Prefer Summary captured at deletion; hard-deleted nodes no longer exist for intentSummary.
+388|Domain tools + SDK defaults (Read/Write/Edit/MultiEdit/LS/Glob/Grep/Bash).
+389|When asset coverage is disabled, remove add_task_scope/list_untested_assets from the prompt.
+397|Put key situation (just-completed intents + prefetched full graph) in this round's user input below;
+398|system retains static planning text only. This stabilizes system for caching, at the cost that long rounds
+399|may compact situation (planner rounds are normally short, low risk). Append situational to input below.
+401|Task deadline/endgame mode arrives via ctx (see taskclock.go). In the final round append task-timeout
+402|planner wrap-up to this round's user input with situational as the current operating instructions,
+403|so it only makes final goal assessments and creates no new intents.
+408|Create this task's working directory <workDir>/tasks/<taskID> first.
+413|Inject operational constraints into system to bound exploration.
+416|Planner has no own wall-clock budget; deadline clamps MaxDuration to remaining time, entering
+417|wrap-up at task expiry (timeout → task-timeout text; step budget → per-run text).
+431|Use recording proxy; load its CA to verify MITM-reissued HTTPS certificates.
+434|Optional web search: ddgs needs no key; brave-free needs BraveKey; tavily needs TavilyKey.
+435|WebSearchProxy is separate egress (http/https/socks5), unrelated to traffic-recording MITM proxy; empty means direct.
+444|Bash subprocesses use the proxy and trust its CA by default.
+445|Task working directory <workDir>/tasks/<taskID>.
+448|0 = unlimited; with deadline = remaining time.
+450|Share planning todos across wake-ups so serial chains survive rounds (new session, same store).
+452|This round's step budget → SDK wrap-up persists decisions (add_intent for directions,
+453|prove_goal for evidence, TodoWrite for serial chains), not an end to planning: later wake-ups continue it.
+454|Use PromptByReason when task-deadline-clamped (see wrapupSettlementForTask).
+456|Use Provider.Complete when the profile selects non-streaming.
+457|0 omits the cap and uses the server default.
+463|Experimental: noa takes over context compression when enabled; persistent archives live under <workDir>/noa/<SessionID>.
+473|Situation (completed intents + full graph) is in this round's user input below, alongside
+474|instructions and cross-wake todos (regenerable model planning notes belong in user input).
+475|Opening depends on actual changes: changes point to the actual-changes block below; no changes
+476|(heartbeat/hint/resume) must not falsely claim the graph changed; ask to review running intents instead.
+480|On heartbeat/no-change wake, no open or running intents means exploration has stalled (no workers
+481|or queued directions). Explicitly require new directions this round rather than an empty review loop.
+488|MaxDuration interrupts running tools at wall-clock expiry and wraps up in place on a live ctx.
+489|A stuck round cannot bypass wrap-up; no outer hard ctx needed. ctx handles pause / kill / shutdown only.

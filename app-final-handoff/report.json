@@ -1,0 +1,106 @@
+{
+  "activation_authorized": false,
+  "assessment_accepted": false,
+  "determinism": {
+    "actual_runs": 2,
+    "byte_identical": true,
+    "output_sha256": "82910b080ffc36e7977934e1f22b09505294a120dc136f7443cf2f4fdfb18ce7"
+  },
+  "historical_producer_counts": {
+    "agent_pass": 97,
+    "agent_skip": 2,
+    "runtime_proof": false,
+    "server_pass": 52,
+    "source": "artex-worker-admission/receipts/REPORT.md and readiness report; not newly recomputed aggregate"
+  },
+  "historical_report_preserved": true,
+  "independent_parent_review": "OUTSTANDING",
+  "ledger_proposal_arithmetic_verified": true,
+  "lessons_location": "HANDOFF.md only",
+  "local_only": true,
+  "owned_file_sha256": {
+    "HANDOFF.md": "925e8765f6f650b285bb7f1870a2c6c3b183338125bf1035374ec8d621d2b6c3",
+    "green-final.txt": "698023aab0f19a44f0bdf65f731dccdf1df8226031f662421ea596b696c9b8e5",
+    "green.txt": "c419323c106af48371f781b8ecee5a288a720321470f5a2e60f41bfd60cd1f76",
+    "pins.json": "bf907a3ddbb87cefb19455f723ddb2eae352b6afb5c114a301a2dd003d6fff31",
+    "red.txt": "ec2a67c545eddb4cd55f612870097978f1b26c8b6ac09509ac5a9d45d5d28312",
+    "test_verify_handoff.py": "a3a4d24275b5a08adaf1fd738c0bc8179690681b1cb917c1264a71523efe5c46",
+    "verification-repeat.json": "82910b080ffc36e7977934e1f22b09505294a120dc136f7443cf2f4fdfb18ce7",
+    "verification.json": "82910b080ffc36e7977934e1f22b09505294a120dc136f7443cf2f4fdfb18ce7",
+    "verify_handoff.py": "f67b00bdfc6fccada5a5ce3a5ea3c71eeab16b960bfb34735e9b1a8a7f36bb0c"
+  },
+  "remaining_gates": [
+    "Actual UID1001 default production fixed /run/artex-native startup and authenticated no-intent200",
+    "Same-entrypoint negative ordering/effect-counter proof",
+    "Required skipped Python fixture and Go/Python cross-language coverage",
+    "No-dispatch bootstrap lifecycle, current immutable guest/helper/image/fixture identities and fresh canary",
+    "Separate approved model-created-intent assessment, finding/report, revoke and model-off persistence/JWT/UI readback",
+    "Settle final export charge exactly once in shared ledger; any later session accounting belongs to its owner",
+    "Fresh operator/coordinator session scope, exclusivity and controller/provider STOP/identity/budget readbacks",
+    "Independent parent review"
+  ],
+  "runtime_accepted": false,
+  "shared_ledger_written": false,
+  "source_ownership_changed": false,
+  "status": "LOCAL_HANDOFF_COMPLETE_RUNTIME_HOLD",
+  "superseded_gaps": [
+    "Missing retained UI bytes",
+    "Missing durable actual669 production binary",
+    "Missing final local reconciliation record (this NEW handoff only)"
+  ],
+  "tests": {
+    "chronology": "fixtures and callable zero-result seam before behavioral RED; implementation then GREEN",
+    "final_errors": 0,
+    "final_failures": 0,
+    "final_green": "green-final.txt",
+    "final_skips": 0,
+    "green": "green.txt",
+    "red": "red.txt",
+    "red_failed_assertions_including_subtests": 14,
+    "runner": "stdlib unittest",
+    "top_level_tests": 10
+  },
+  "verification": {
+    "activation_authorized": false,
+    "assessment_accepted": false,
+    "cost_ledger": {
+      "last_settled_session": "artex-ui-asset-retry",
+      "ledger_modified": false,
+      "proposal_additional_compute_estimate_usd": "0.015635998",
+      "proposal_session": "artex-ui-asset-final",
+      "proposal_unsettled": true
+    },
+    "historical_invalid_report": {
+      "error": "invalid_json:/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-ui-asset-final/report.json:Unterminated string starting at: line 454 column 15 (char 45008)",
+      "path": "artex-ui-asset-final/report.json",
+      "sha256": "1ecdf4b85dca72acad6c0e9eb187b39a6293b1fe186301dec17db00b88eba223"
+    },
+    "local_byte_verification": "PASS",
+    "production_binary_bytes": 40312994,
+    "production_binary_sha256": "77aa59f362abe0c286bdd3cbd90c05e334c5c0d1779936b17aa42221fb317835",
+    "qualification_complete": false,
+    "required_skips": [
+      {
+        "reason": "=== RUN   TestNativeNormaNonStreamingEmptyTools\n    native_admission_order_test.go:69: Python fixture required\n--- SKIP: TestNativeNormaNonStreamingEmptyTools (0.00s)\n",
+        "test": "TestNativeNormaNonStreamingEmptyTools"
+      },
+      {
+        "reason": "=== RUN   TestNativeGoPythonSynthetic\n    native_crosslanguage_test.go:4: retained Python jsonschema unavailable; not cross-language proof\n--- SKIP: TestNativeGoPythonSynthetic (0.00s)\n",
+        "test": "TestNativeGoPythonSynthetic"
+      }
+    ],
+    "required_test_gaps": [
+      "TestNativeGoPythonSynthetic:skip",
+      "TestNativeNormaNonStreamingEmptyTools:skip"
+    ],
+    "runtime_accepted": false,
+    "source_pin": "c3de72f42c8b9e4246e98d84f452254cf812cc0a66bec1748a0665ac28e47f95",
+    "verified_file_counts": {
+      "admission": 669,
+      "baseline": 665,
+      "generated_build_source": 1039,
+      "runner": 13,
+      "ui": 370
+    }
+  }
+}

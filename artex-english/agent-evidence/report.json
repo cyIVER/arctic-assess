@@ -1,0 +1,810 @@
+{
+  "status": "partial: all built-in editable agent prompt bodies translated; remaining domain tool catalog descriptions/messages/comments require follow-up",
+  "ownership": "Only source/agent/**, source/guard/** and new agent-evidence/** written. No server/frontend/db/library/deployment changes.",
+  "changed_paths": [
+    "agent/constraints.go",
+    "agent/english_prompts_test.go",
+    "agent/finding_workflow.go",
+    "agent/goals.go",
+    "agent/mainagent.go",
+    "agent/planner.go",
+    "agent/prompt.go",
+    "agent/prompt_prefix_test.go",
+    "agent/prompt_test.go",
+    "agent/promptcatalog.go",
+    "agent/reporter_factories.go",
+    "agent/worker.go",
+    "agent/wrapup.go",
+    "guard/english_messages_test.go",
+    "guard/guard.go"
+  ],
+  "changed_path_count": 15,
+  "original_subset_pins": "original-subset-pins.json",
+  "original_subset_snapshot": "original-subset.json",
+  "original_file_count": 84,
+  "diff": "translation.diff",
+  "accomplished": [
+    "English Auto, solo pentest, assistant fallback, reporter, goals, planner, worker and mainagent prompt bodies; English requested instead of Chinese in fallback/reporter output policies.",
+    "English scope-decomposition and artifact/traffic tails, wrap-up and task-timeout prompts, worker launch/resume/user-input framing, planner event/wakeup/todo framing, constraints framing, finding evidence handoff guidance, reporter tool descriptions and schema descriptions.",
+    "English guard denial/cancellation/approval-timeout framing explicitly identifies ARTEX platform control, not target defense, preserving raw policy/user reasons.",
+    "Existing Unicode user prompt overrides, original evidence, target payloads, quota detection and multilingual fixtures retained.",
+    "Existing tests retain all assertions; only generated artifact heading and generated intent label expectations translated."
+  ],
+  "production_structure_check": {
+    "files": {
+      "agent/constraints.go": true,
+      "agent/finding_workflow.go": true,
+      "agent/goals.go": true,
+      "agent/mainagent.go": true,
+      "agent/planner.go": true,
+      "agent/prompt.go": true,
+      "agent/promptcatalog.go": true,
+      "agent/reporter_factories.go": true,
+      "agent/worker.go": true,
+      "agent/wrapup.go": true,
+      "guard/guard.go": true
+    },
+    "method": "Go scanner tokens equal after masking string/character values and omitting comments; verifies no control-flow, identifiers, numeric budgets, names of Go APIs, permissions or admission code edits. Does not prove natural-language semantic equivalence.",
+    "production_token_structure_unchanged": true
+  },
+  "tests": {
+    "english-green-fixed": {
+      "command": [
+        "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+        "test",
+        "-p=1",
+        "-json",
+        "-count=1",
+        "./agent",
+        "./guard",
+        "-run",
+        "TestEnglish|TestUnicodePromptOverride"
+      ],
+      "env": {
+        "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+        "GOMODCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/gomodcache",
+        "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+        "GOPROXY": "off",
+        "GOSUMDB": "off",
+        "GOTOOLCHAIN": "local",
+        "GOFLAGS": "-mod=readonly",
+        "GOMAXPROCS": "2"
+      },
+      "returncode": 0,
+      "seconds": 5.806737422943115,
+      "top_level": {
+        "pass": 4,
+        "fail": 0,
+        "skip": 0
+      },
+      "subtests": {
+        "pass": 9,
+        "fail": 0,
+        "skip": 0
+      },
+      "package_failures": [],
+      "tests": [
+        "TestEnglishStandalonePrompts/auto",
+        "TestEnglishStandalonePrompts/pentest",
+        "TestEnglishStandalonePrompts/assistant",
+        "TestEnglishStandalonePrompts/reporter",
+        "TestEnglishStandalonePrompts",
+        "TestEnglishWrapupPolicies/planner",
+        "TestEnglishWrapupPolicies/mainagent",
+        "TestEnglishWrapupPolicies/generic",
+        "TestEnglishWrapupPolicies/worker_task",
+        "TestEnglishWrapupPolicies/planner_task",
+        "TestEnglishWrapupPolicies",
+        "TestUnicodePromptOverridePreserved",
+        "TestEnglishPlatformBlockPreservesReason"
+      ]
+    },
+    "english-green": {
+      "command": [
+        "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+        "test",
+        "-p=1",
+        "-json",
+        "-count=1",
+        "./agent",
+        "./guard",
+        "-run",
+        "TestEnglish|TestUnicodePromptOverride"
+      ],
+      "env": {
+        "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+        "GOMODCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/gomodcache",
+        "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+        "GOPROXY": "off",
+        "GOSUMDB": "off",
+        "GOTOOLCHAIN": "local",
+        "GOFLAGS": "-mod=readonly",
+        "GOMAXPROCS": "2"
+      },
+      "returncode": 1,
+      "seconds": 5.603320360183716,
+      "top_level": {
+        "pass": 3,
+        "fail": 1,
+        "skip": 0
+      },
+      "subtests": {
+        "pass": 9,
+        "fail": 0,
+        "skip": 0
+      },
+      "package_failures": [
+        {
+          "Time": "2026-11-19T23:58:58.260353288Z",
+          "Action": "fail",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Elapsed": 0.015
+        }
+      ],
+      "tests": [
+        "TestEnglishStandalonePrompts/pentest",
+        "TestEnglishStandalonePrompts/assistant",
+        "TestEnglishStandalonePrompts/reporter",
+        "TestEnglishStandalonePrompts/auto",
+        "TestEnglishStandalonePrompts",
+        "TestEnglishWrapupPolicies/planner",
+        "TestEnglishWrapupPolicies/mainagent",
+        "TestEnglishWrapupPolicies/generic",
+        "TestEnglishWrapupPolicies/worker_task",
+        "TestEnglishWrapupPolicies/planner_task",
+        "TestEnglishWrapupPolicies",
+        "TestUnicodePromptOverridePreserved",
+        "TestEnglishPlatformBlockPreservesReason"
+      ]
+    },
+    "final-verified": {
+      "command": [
+        "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+        "test",
+        "-p=1",
+        "-json",
+        "-count=1",
+        "./agent",
+        "./guard",
+        "-run",
+        "TestEnglish|TestUnicodePromptOverride|TestFindingWorkflowSharedAssemblyAndSwitch|TestBuiltinToolSeeds|TestDecorateToolInjectsDefaults|TestRenderSystem|TestChatNow|TestChatDataDir|TestChatUnknown|TestWorkerSystem|TestDeferredSystem|TestPreToolUse"
+      ],
+      "env": {
+        "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+        "GOMODCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/gomodcache",
+        "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+        "GOPROXY": "off",
+        "GOSUMDB": "off",
+        "GOTOOLCHAIN": "local",
+        "GOFLAGS": "-mod=readonly",
+        "GOMAXPROCS": "2"
+      },
+      "returncode": 0,
+      "seconds": 8.35851502418518,
+      "top_level": {
+        "pass": 21,
+        "fail": 0,
+        "skip": 0
+      },
+      "subtests": {
+        "pass": 20,
+        "fail": 0,
+        "skip": 0
+      },
+      "package_failures": [],
+      "tests": [
+        "TestDeferredSystem_NoGlobal",
+        "TestDeferredSystem_WithGlobal",
+        "TestDeferredSystem_GatedNotInBlock",
+        "TestEnglishStandalonePrompts/auto",
+        "TestEnglishStandalonePrompts/pentest",
+        "TestEnglishStandalonePrompts/assistant",
+        "TestEnglishStandalonePrompts/reporter",
+        "TestEnglishStandalonePrompts",
+        "TestEnglishWrapupPolicies/mainagent",
+        "TestEnglishWrapupPolicies/generic",
+        "TestEnglishWrapupPolicies/worker_task",
+        "TestEnglishWrapupPolicies/planner_task",
+        "TestEnglishWrapupPolicies/planner",
+        "TestEnglishWrapupPolicies",
+        "TestUnicodePromptOverridePreserved",
+        "TestEnglishOrchestrationBodies/goals",
+        "TestEnglishOrchestrationBodies/planner",
+        "TestEnglishOrchestrationBodies/mainagent",
+        "TestEnglishOrchestrationBodies/worker",
+        "TestEnglishOrchestrationBodies/auto",
+        "TestEnglishOrchestrationBodies/pentest",
+        "TestEnglishOrchestrationBodies/traffic",
+        "TestEnglishOrchestrationBodies/artifacts",
+        "TestEnglishOrchestrationBodies/worker_artifacts",
+        "TestEnglishOrchestrationBodies/goals_scope",
+        "TestEnglishOrchestrationBodies/worker_wrapup",
+        "TestEnglishOrchestrationBodies",
+        "TestEnglishReporterToolMetadata",
+        "TestEnglishRuntimeGuidancePreservesUnicode",
+        "TestFindingWorkflowSharedAssemblyAndSwitch",
+        "TestChatNowVarRenders",
+        "TestChatDataDirVarRenders",
+        "TestChatUnknownVarFallsBack",
+        "TestWorkerSystemHasNoPerIntentData",
+        "TestWorkerSystemPrefixStableAcrossIntents",
+        "TestDeferredSystemWithTailEmptyTailMatchesDeferredSystem",
+        "TestRenderSystemOverrideAndFallback",
+        "TestBuiltinToolSeeds",
+        "TestDecorateToolInjectsDefaults",
+        "TestEnglishPlatformBlockPreservesReason",
+        "TestPreToolUsePassthrough"
+      ]
+    },
+    "final-complete": {
+      "command": [
+        "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+        "test",
+        "-p=1",
+        "-json",
+        "-count=1",
+        "./agent",
+        "./guard",
+        "-run",
+        "TestEnglish|TestUnicodePromptOverride|TestFindingWorkflowSharedAssemblyAndSwitch|TestBuiltinToolSeeds|TestDecorateToolInjectsDefaults|TestRenderSystem|TestChatNow|TestChatDataDir|TestChatUnknown|TestWorkerSystem|TestDeferredSystem|TestPreToolUse"
+      ],
+      "env": {
+        "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+        "GOMODCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/gomodcache",
+        "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+        "GOPROXY": "off",
+        "GOSUMDB": "off",
+        "GOTOOLCHAIN": "local",
+        "GOFLAGS": "-mod=readonly",
+        "GOMAXPROCS": "2"
+      },
+      "returncode": 0,
+      "seconds": 7.840943098068237,
+      "top_level": {
+        "pass": 21,
+        "fail": 0,
+        "skip": 0
+      },
+      "subtests": {
+        "pass": 20,
+        "fail": 0,
+        "skip": 0
+      },
+      "package_failures": [],
+      "tests": [
+        "TestDeferredSystem_NoGlobal",
+        "TestDeferredSystem_WithGlobal",
+        "TestDeferredSystem_GatedNotInBlock",
+        "TestEnglishStandalonePrompts/auto",
+        "TestEnglishStandalonePrompts/pentest",
+        "TestEnglishStandalonePrompts/assistant",
+        "TestEnglishStandalonePrompts/reporter",
+        "TestEnglishStandalonePrompts",
+        "TestEnglishWrapupPolicies/worker_task",
+        "TestEnglishWrapupPolicies/planner_task",
+        "TestEnglishWrapupPolicies/planner",
+        "TestEnglishWrapupPolicies/mainagent",
+        "TestEnglishWrapupPolicies/generic",
+        "TestEnglishWrapupPolicies",
+        "TestUnicodePromptOverridePreserved",
+        "TestEnglishOrchestrationBodies/goals",
+        "TestEnglishOrchestrationBodies/planner",
+        "TestEnglishOrchestrationBodies/mainagent",
+        "TestEnglishOrchestrationBodies/worker",
+        "TestEnglishOrchestrationBodies/auto",
+        "TestEnglishOrchestrationBodies/pentest",
+        "TestEnglishOrchestrationBodies/traffic",
+        "TestEnglishOrchestrationBodies/artifacts",
+        "TestEnglishOrchestrationBodies/worker_artifacts",
+        "TestEnglishOrchestrationBodies/goals_scope",
+        "TestEnglishOrchestrationBodies/worker_wrapup",
+        "TestEnglishOrchestrationBodies",
+        "TestEnglishReporterToolMetadata",
+        "TestEnglishRuntimeGuidancePreservesUnicode",
+        "TestFindingWorkflowSharedAssemblyAndSwitch",
+        "TestChatNowVarRenders",
+        "TestChatDataDirVarRenders",
+        "TestChatUnknownVarFallsBack",
+        "TestWorkerSystemHasNoPerIntentData",
+        "TestWorkerSystemPrefixStableAcrossIntents",
+        "TestDeferredSystemWithTailEmptyTailMatchesDeferredSystem",
+        "TestRenderSystemOverrideAndFallback",
+        "TestBuiltinToolSeeds",
+        "TestDecorateToolInjectsDefaults",
+        "TestEnglishPlatformBlockPreservesReason",
+        "TestPreToolUsePassthrough"
+      ]
+    },
+    "orchestration-red": {
+      "command": [
+        "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+        "test",
+        "-p=1",
+        "-json",
+        "-count=1",
+        "./agent",
+        "-run",
+        "TestEnglishOrchestrationBodies|TestEnglishReporterToolMetadata"
+      ],
+      "env": {
+        "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+        "GOMODCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/gomodcache",
+        "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+        "GOPROXY": "off",
+        "GOSUMDB": "off",
+        "GOTOOLCHAIN": "local",
+        "GOFLAGS": "-mod=readonly",
+        "GOMAXPROCS": "2"
+      },
+      "returncode": 1,
+      "seconds": 5.2665629386901855,
+      "top_level": {
+        "pass": 0,
+        "fail": 2,
+        "skip": 0
+      },
+      "subtests": {
+        "pass": 2,
+        "fail": 9,
+        "skip": 0
+      },
+      "package_failures": [
+        {
+          "Time": "2026-11-19T23:59:56.403822867Z",
+          "Action": "fail",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Elapsed": 0.015
+        }
+      ],
+      "tests": [
+        "TestEnglishOrchestrationBodies/mainagent",
+        "TestEnglishOrchestrationBodies/worker",
+        "TestEnglishOrchestrationBodies/auto",
+        "TestEnglishOrchestrationBodies/pentest",
+        "TestEnglishOrchestrationBodies/goals",
+        "TestEnglishOrchestrationBodies/planner",
+        "TestEnglishOrchestrationBodies/goals_scope",
+        "TestEnglishOrchestrationBodies/worker_wrapup",
+        "TestEnglishOrchestrationBodies/traffic",
+        "TestEnglishOrchestrationBodies/artifacts",
+        "TestEnglishOrchestrationBodies/worker_artifacts",
+        "TestEnglishOrchestrationBodies",
+        "TestEnglishReporterToolMetadata"
+      ]
+    },
+    "runtime-red": {
+      "command": [
+        "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+        "test",
+        "-p=1",
+        "-json",
+        "-count=1",
+        "./agent",
+        "-run",
+        "TestEnglishRuntimeGuidancePreservesUnicode"
+      ],
+      "env": {
+        "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+        "GOMODCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/gomodcache",
+        "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+        "GOPROXY": "off",
+        "GOSUMDB": "off",
+        "GOTOOLCHAIN": "local",
+        "GOFLAGS": "-mod=readonly",
+        "GOMAXPROCS": "2"
+      },
+      "returncode": 1,
+      "seconds": 5.124825477600098,
+      "top_level": {
+        "pass": 0,
+        "fail": 1,
+        "skip": 0
+      },
+      "subtests": {
+        "pass": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "package_failures": [
+        {
+          "Time": "2026-11-20T00:03:07.90670702Z",
+          "Action": "fail",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Elapsed": 0.01
+        }
+      ],
+      "tests": [
+        "TestEnglishRuntimeGuidancePreservesUnicode"
+      ]
+    },
+    "english-red": {
+      "command": [
+        "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+        "test",
+        "-p=1",
+        "-json",
+        "-count=1",
+        "./agent",
+        "./guard",
+        "-run",
+        "TestEnglish|TestUnicodePromptOverride"
+      ],
+      "env": {
+        "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+        "GOMODCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/gomodcache",
+        "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+        "GOPROXY": "off",
+        "GOSUMDB": "off",
+        "GOTOOLCHAIN": "local",
+        "GOFLAGS": "-mod=readonly",
+        "GOMAXPROCS": "2"
+      },
+      "returncode": 1,
+      "seconds": 96.63169193267822,
+      "top_level": {
+        "pass": 1,
+        "fail": 3,
+        "skip": 0
+      },
+      "subtests": {
+        "pass": 0,
+        "fail": 9,
+        "skip": 0
+      },
+      "package_failures": [
+        {
+          "Time": "2026-11-19T23:57:13.950563385Z",
+          "Action": "fail",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Elapsed": 0.017
+        },
+        {
+          "Time": "2026-11-19T23:57:14.804568698Z",
+          "Action": "fail",
+          "Package": "github.com/Autumn-27/artex/guard",
+          "Elapsed": 0.019
+        }
+      ],
+      "tests": [
+        "TestEnglishStandalonePrompts/reporter",
+        "TestEnglishStandalonePrompts/auto",
+        "TestEnglishStandalonePrompts/pentest",
+        "TestEnglishStandalonePrompts/assistant",
+        "TestEnglishStandalonePrompts",
+        "TestEnglishWrapupPolicies/planner",
+        "TestEnglishWrapupPolicies/mainagent",
+        "TestEnglishWrapupPolicies/generic",
+        "TestEnglishWrapupPolicies/worker_task",
+        "TestEnglishWrapupPolicies/planner_task",
+        "TestEnglishWrapupPolicies",
+        "TestUnicodePromptOverridePreserved",
+        "TestEnglishPlatformBlockPreservesReason"
+      ]
+    },
+    "final-focused": {
+      "command": [
+        "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+        "test",
+        "-p=1",
+        "-json",
+        "-count=1",
+        "./agent",
+        "./guard",
+        "-run",
+        "TestEnglish|TestUnicodePromptOverride|TestFindingWorkflowSharedAssemblyAndSwitch|TestBuiltinToolSeeds|TestDecorateToolInjectsDefaults|TestRenderSystem|TestChatNow|TestChatDataDir|TestChatUnknown|TestWorkerSystem|TestDeferredSystem|TestPreToolUse"
+      ],
+      "env": {
+        "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+        "GOMODCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/gomodcache",
+        "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+        "GOPROXY": "off",
+        "GOSUMDB": "off",
+        "GOTOOLCHAIN": "local",
+        "GOFLAGS": "-mod=readonly",
+        "GOMAXPROCS": "2"
+      },
+      "returncode": 0,
+      "seconds": 15.1933434009552,
+      "top_level": {
+        "pass": 21,
+        "fail": 0,
+        "skip": 0
+      },
+      "subtests": {
+        "pass": 20,
+        "fail": 0,
+        "skip": 0
+      },
+      "package_failures": [],
+      "tests": [
+        "TestDeferredSystem_NoGlobal",
+        "TestDeferredSystem_WithGlobal",
+        "TestDeferredSystem_GatedNotInBlock",
+        "TestEnglishStandalonePrompts/reporter",
+        "TestEnglishStandalonePrompts/auto",
+        "TestEnglishStandalonePrompts/pentest",
+        "TestEnglishStandalonePrompts/assistant",
+        "TestEnglishStandalonePrompts",
+        "TestEnglishWrapupPolicies/planner",
+        "TestEnglishWrapupPolicies/mainagent",
+        "TestEnglishWrapupPolicies/generic",
+        "TestEnglishWrapupPolicies/worker_task",
+        "TestEnglishWrapupPolicies/planner_task",
+        "TestEnglishWrapupPolicies",
+        "TestUnicodePromptOverridePreserved",
+        "TestEnglishOrchestrationBodies/goals",
+        "TestEnglishOrchestrationBodies/planner",
+        "TestEnglishOrchestrationBodies/mainagent",
+        "TestEnglishOrchestrationBodies/worker",
+        "TestEnglishOrchestrationBodies/auto",
+        "TestEnglishOrchestrationBodies/pentest",
+        "TestEnglishOrchestrationBodies/worker_artifacts",
+        "TestEnglishOrchestrationBodies/goals_scope",
+        "TestEnglishOrchestrationBodies/worker_wrapup",
+        "TestEnglishOrchestrationBodies/traffic",
+        "TestEnglishOrchestrationBodies/artifacts",
+        "TestEnglishOrchestrationBodies",
+        "TestEnglishReporterToolMetadata",
+        "TestEnglishRuntimeGuidancePreservesUnicode",
+        "TestFindingWorkflowSharedAssemblyAndSwitch",
+        "TestChatNowVarRenders",
+        "TestChatDataDirVarRenders",
+        "TestChatUnknownVarFallsBack",
+        "TestWorkerSystemHasNoPerIntentData",
+        "TestWorkerSystemPrefixStableAcrossIntents",
+        "TestDeferredSystemWithTailEmptyTailMatchesDeferredSystem",
+        "TestRenderSystemOverrideAndFallback",
+        "TestBuiltinToolSeeds",
+        "TestDecorateToolInjectsDefaults",
+        "TestEnglishPlatformBlockPreservesReason",
+        "TestPreToolUsePassthrough"
+      ]
+    },
+    "orchestration-green": {
+      "command": [
+        "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+        "test",
+        "-p=1",
+        "-json",
+        "-count=1",
+        "./agent",
+        "./guard",
+        "-run",
+        "TestEnglish|TestUnicodePromptOverride|TestBuiltinToolSeeds|TestDecorateToolInjectsDefaults|TestRenderSystem|TestChatNow|TestChatDataDir|TestChatUnknown|TestWorkerSystem|TestDeferredSystem|TestPreToolUse"
+      ],
+      "env": {
+        "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+        "GOMODCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/gomodcache",
+        "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+        "GOPROXY": "off",
+        "GOSUMDB": "off",
+        "GOTOOLCHAIN": "local",
+        "GOFLAGS": "-mod=readonly",
+        "GOMAXPROCS": "2"
+      },
+      "returncode": 1,
+      "seconds": 9.97303056716919,
+      "top_level": {
+        "pass": 18,
+        "fail": 1,
+        "skip": 0
+      },
+      "subtests": {
+        "pass": 20,
+        "fail": 0,
+        "skip": 0
+      },
+      "package_failures": [
+        {
+          "Time": "2026-11-20T00:02:25.078358196Z",
+          "Action": "fail",
+          "Package": "github.com/Autumn-27/artex/agent",
+          "Elapsed": 0.027
+        }
+      ],
+      "tests": [
+        "TestDeferredSystem_NoGlobal",
+        "TestDeferredSystem_WithGlobal",
+        "TestDeferredSystem_GatedNotInBlock",
+        "TestEnglishStandalonePrompts/pentest",
+        "TestEnglishStandalonePrompts/assistant",
+        "TestEnglishStandalonePrompts/reporter",
+        "TestEnglishStandalonePrompts/auto",
+        "TestEnglishStandalonePrompts",
+        "TestEnglishWrapupPolicies/planner",
+        "TestEnglishWrapupPolicies/mainagent",
+        "TestEnglishWrapupPolicies/generic",
+        "TestEnglishWrapupPolicies/worker_task",
+        "TestEnglishWrapupPolicies/planner_task",
+        "TestEnglishWrapupPolicies",
+        "TestUnicodePromptOverridePreserved",
+        "TestEnglishOrchestrationBodies/goals",
+        "TestEnglishOrchestrationBodies/planner",
+        "TestEnglishOrchestrationBodies/mainagent",
+        "TestEnglishOrchestrationBodies/worker",
+        "TestEnglishOrchestrationBodies/auto",
+        "TestEnglishOrchestrationBodies/pentest",
+        "TestEnglishOrchestrationBodies/goals_scope",
+        "TestEnglishOrchestrationBodies/worker_wrapup",
+        "TestEnglishOrchestrationBodies/traffic",
+        "TestEnglishOrchestrationBodies/artifacts",
+        "TestEnglishOrchestrationBodies/worker_artifacts",
+        "TestEnglishOrchestrationBodies",
+        "TestEnglishReporterToolMetadata",
+        "TestChatNowVarRenders",
+        "TestChatDataDirVarRenders",
+        "TestChatUnknownVarFallsBack",
+        "TestWorkerSystemHasNoPerIntentData",
+        "TestWorkerSystemPrefixStableAcrossIntents",
+        "TestDeferredSystemWithTailEmptyTailMatchesDeferredSystem",
+        "TestRenderSystemOverrideAndFallback",
+        "TestBuiltinToolSeeds",
+        "TestDecorateToolInjectsDefaults",
+        "TestEnglishPlatformBlockPreservesReason",
+        "TestPreToolUsePassthrough"
+      ]
+    }
+  },
+  "final_test_receipt": "final-complete.json",
+  "test_limits": [
+    "Focused offline agent/guard packages only; no model calls, network requests, DB fixture, server, frontend build, whole-app build or end-to-end run.",
+    "Go file-write lint diagnostics ran outside module context; authoritative package test compilation succeeds in retained Go 1.26.3 toolchain.",
+    "Initial RED receipts are genuine missing-English assertion failures. An intermediate GREEN attempt exposed missing finding_node_id documentation; fixed implementation, not assertion. Another exposed old artifact-header expectations; translated expected heading without removing assertions."
+  ],
+  "nonenglish_remaining": {
+    "inventory": "remaining-nonenglish.json",
+    "counts_by_classification": {
+      "remaining_comment": 399,
+      "remaining_production_text": 338,
+      "functional_exception": 41
+    },
+    "pending_files": {
+      "agent/assembly.go": 2,
+      "agent/cancelcause.go": 36,
+      "agent/capture.go": 1,
+      "agent/capture_usage_test.go": 2,
+      "agent/chat.go": 12,
+      "agent/coldgraph.go": 1,
+      "agent/coldgraph_test.go": 2,
+      "agent/compaction.go": 26,
+      "agent/finding_recorder.go": 1,
+      "agent/goals.go": 12,
+      "agent/insert_assets_test.go": 8,
+      "agent/mainagent.go": 20,
+      "agent/noa.go": 12,
+      "agent/planner.go": 45,
+      "agent/prompt.go": 2,
+      "agent/provider.go": 68,
+      "agent/retester.go": 10,
+      "agent/terminalreason.go": 33,
+      "agent/toolcatalog.go": 36,
+      "agent/tools.go": 242,
+      "agent/tools_digest.go": 6,
+      "agent/tools_insert.go": 116,
+      "agent/worker.go": 44
+    }
+  },
+  "cross_stack_handoff": [
+    "Read frontend-evidence/report.json. Model reason marker must be [Model]; approval summary must be Tool <name> requests approval (#<id>), with old parser aliases retained where required. No producers of these markers found in owned agent/guard source; server/intercept owners must qualify them.",
+    "Reporter trigger prompt now describes Task: #<id>; server must emit corresponding English context. Tool-returned data/user content must remain unmodified.",
+    "Existing stored/custom prompts are deliberately not rewritten: seed changes affect new/default prompts, not existing DB overrides. Candidate source translation does not migrate a deployed database."
+  ],
+  "exact_next_scope": [
+    {
+      "path": "agent/assembly.go",
+      "pending_CJK_lines": 2
+    },
+    {
+      "path": "agent/cancelcause.go",
+      "pending_CJK_lines": 36
+    },
+    {
+      "path": "agent/capture.go",
+      "pending_CJK_lines": 1
+    },
+    {
+      "path": "agent/capture_usage_test.go",
+      "pending_CJK_lines": 2
+    },
+    {
+      "path": "agent/chat.go",
+      "pending_CJK_lines": 12
+    },
+    {
+      "path": "agent/coldgraph.go",
+      "pending_CJK_lines": 1
+    },
+    {
+      "path": "agent/coldgraph_test.go",
+      "pending_CJK_lines": 2
+    },
+    {
+      "path": "agent/compaction.go",
+      "pending_CJK_lines": 26
+    },
+    {
+      "path": "agent/finding_recorder.go",
+      "pending_CJK_lines": 1
+    },
+    {
+      "path": "agent/goals.go",
+      "pending_CJK_lines": 12
+    },
+    {
+      "path": "agent/insert_assets_test.go",
+      "pending_CJK_lines": 8
+    },
+    {
+      "path": "agent/mainagent.go",
+      "pending_CJK_lines": 20
+    },
+    {
+      "path": "agent/noa.go",
+      "pending_CJK_lines": 12
+    },
+    {
+      "path": "agent/planner.go",
+      "pending_CJK_lines": 45
+    },
+    {
+      "path": "agent/prompt.go",
+      "pending_CJK_lines": 2
+    },
+    {
+      "path": "agent/provider.go",
+      "pending_CJK_lines": 68
+    },
+    {
+      "path": "agent/retester.go",
+      "pending_CJK_lines": 10
+    },
+    {
+      "path": "agent/terminalreason.go",
+      "pending_CJK_lines": 33
+    },
+    {
+      "path": "agent/toolcatalog.go",
+      "pending_CJK_lines": 36
+    },
+    {
+      "path": "agent/tools.go",
+      "pending_CJK_lines": 242
+    },
+    {
+      "path": "agent/tools_digest.go",
+      "pending_CJK_lines": 6
+    },
+    {
+      "path": "agent/tools_insert.go",
+      "pending_CJK_lines": 116
+    },
+    {
+      "path": "agent/worker.go",
+      "pending_CJK_lines": 44
+    }
+  ],
+  "next_priority": "Finish agent/tools.go, agent/tools_insert.go, agent/toolcatalog.go, agent/terminalreason.go, agent/cancelcause.go, agent/compaction.go, agent/provider.go, agent/chat.go, agent/retester.go, agent/noa.go; remaining comments in modified role files. Add English tool-schema/error/summary tests before each slice. Preserve quota regex/input fixtures and translate matching legacy expectation strings only alongside production text.",
+  "lessons_handoff": [
+    "English UI alone is insufficient: editable seed bodies, code-owned tails, resumed inputs and dynamically appended evidence guidance all reach the model.",
+    "Do not translate original Unicode evidence/DB overrides or semantic multilingual detection patterns to make a language scan empty.",
+    "Masking literal values in Go scanner tokens detects accidental control-flow/identifier/budget edits; preserve string-concatenation structure too. It is not proof of natural-language semantic equivalence."
+  ],
+  "completion_limit": "Bounded pass stopped partial rather than bulk substituting or weakening security/protocol tests. Full requested all-English conversion is not complete.",
+  "final_sha256": {
+    "agent/constraints.go": "e5e2eabb2b8ed6cbbd31f3ecf585fc4bb65bc845e831b8fe8b5908da11f8202d",
+    "agent/english_prompts_test.go": "29e54fbf8c7e6a415d56138efe61be3024c063f9025fa530f0215121a2536944",
+    "agent/finding_workflow.go": "7d80eedc85023848f4d5eeaafae23ec1a9f2710b9546445d4b70e390e1b17f40",
+    "agent/goals.go": "f6c0848689fa219d6d593a8a380c19822718c90a85aae6094d253eef8b5f7dd7",
+    "agent/mainagent.go": "4b0d90237a2523dabc5c74788ca98949b8f631ddb525a037c58e4e714885e828",
+    "agent/planner.go": "acd1403acfbfc36c33303f620bc6b1cd8bf4ff9c8f1de42030535aacd743929f",
+    "agent/prompt.go": "fa1fe0fef25c3b8877dd5b7b5879069bbeb3cb65fcb5c41eeadec0af79e45eb2",
+    "agent/prompt_prefix_test.go": "aad2211d2a39e5439e0c90c570a2a0742898e1a9d6427e9ce3688a66a9cbcd67",
+    "agent/prompt_test.go": "77d0b9867fb815468affc64c9fd30785e197e6630a29a998d4339cb25d3ec530",
+    "agent/promptcatalog.go": "7b93451443b4f7fa5cb4a4d457c8bd1be5188aa40ffc68369051c2b7d81df293",
+    "agent/reporter_factories.go": "fa5ac919a1cf318b29ee17c7fee3efb8e09cdc7aa5a288c335936ff7f912c759",
+    "agent/worker.go": "e02d4b465216f18ec2243325d328bf1b747c825f924a13e76d4c1113c5915597",
+    "agent/wrapup.go": "280bea298d623579e1402215825b317fd9318c62720ac3f87438f8efc4d2ac61",
+    "guard/english_messages_test.go": "e15196ebd6b417e0c512b08ac4d87122bae46c17d883cef66c2bce2a5ff3a5b2",
+    "guard/guard.go": "3519f87e49af4a4d1ecc5f9c7f11575c1790ada5358364b839912950e7aded02"
+  }
+}

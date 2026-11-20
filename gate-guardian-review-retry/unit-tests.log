@@ -1,0 +1,25 @@
+test_default_missing_scope_blocked (test_guard.ReadbackTests.test_default_missing_scope_blocked) ... ok
+test_expiry_overflow_and_wrong_scope (test_guard.ReadbackTests.test_expiry_overflow_and_wrong_scope) ... ok
+test_no_cache_on_query_failure (test_guard.ReadbackTests.test_no_cache_on_query_failure) ... ok
+test_no_pid_and_bad_default_and_disk (test_guard.ReadbackTests.test_no_pid_and_bad_default_and_disk) ... ok
+test_positive_fresh_real_readback_commands (test_guard.ReadbackTests.test_positive_fresh_real_readback_commands) ... ok
+test_provider_fail_closed (test_guard.ReadbackTests.test_provider_fail_closed) ... ok
+test_active_override_package_stale_inventory_deny (test_security.Guest.test_active_override_package_stale_inventory_deny) ... ok
+test_default_socket_listener_denied_even_if_units_inactive (test_security.Guest.test_default_socket_listener_denied_even_if_units_inactive) ... ok
+test_positive_reads_actual_package_and_service_commands (test_security.Guest.test_positive_reads_actual_package_and_service_commands) ... ok
+test_controller_missing_and_current_rpc_process_denied (test_security.PathsAndProcess.test_controller_missing_and_current_rpc_process_denied) ... ok
+test_controller_real_local_fixture_lifetime_and_identity_mismatch (test_security.PathsAndProcess.test_controller_real_local_fixture_lifetime_and_identity_mismatch) ... ok
+test_default_entrypoint_missing_input_exit2_no_stdout (test_security.PathsAndProcess.test_default_entrypoint_missing_input_exit2_no_stdout) ... ok
+test_exec_boundary_only_fixed_gcloud_read_and_mux_inventory (test_security.PathsAndProcess.test_exec_boundary_only_fixed_gcloud_read_and_mux_inventory) ... ok
+test_protected_file_positive_synthetic_root_then_mode_symlink_hash_denials (test_security.PathsAndProcess.test_protected_file_positive_synthetic_root_then_mode_symlink_hash_denials) ... ok
+test_root_context_source_review_and_lease_bindings (test_security.PathsAndProcess.test_root_context_source_review_and_lease_bindings) ... ok
+test_unprotected_tree_and_noncanonical_origin_denied (test_security.PathsAndProcess.test_unprotected_tree_and_noncanonical_origin_denied) ... ok
+test_authenticated_request_calls_readback (test_security.RPC.test_authenticated_request_calls_readback) ... ok
+test_missing_wrong_key_and_caller_scope_fields (test_security.RPC.test_missing_wrong_key_and_caller_scope_fields) ... ok
+test_private_socketpair_frame_effect (test_security.RPC.test_private_socketpair_frame_effect) ... ok
+test_replay_stale_and_overflow (test_security.RPC.test_replay_stale_and_overflow) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.108s
+
+OK

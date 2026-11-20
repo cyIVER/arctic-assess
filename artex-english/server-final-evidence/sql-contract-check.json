@@ -1,0 +1,14 @@
+{
+  "server/finding_retests.go": [
+    {
+      "before": "`INSERT INTO agents(key,name,description,role,builtin,enabled)\n\tVALUES ($1,'漏洞复测','从漏洞详情手动启动，读取原证据并保存独立复测结论。','assistant',false,true)\n\tON CONFLICT (key) DO NOTHING RETURNING id`",
+      "after": "`INSERT INTO agents(key,name,description,role,builtin,enabled)\n\tVALUES ($1,'Finding retest','Manually started from finding details; reads original evidence and saves an independent retest result.','assistant',false,true)\n\tON CONFLICT (key) DO NOTHING RETURNING id`",
+      "sql_structure_preserved": true
+    },
+    {
+      "before": "`INSERT INTO agent_prompts(agent_id,version,template_text,note,updated_by)\n\t\tVALUES ($1,1,$2,'内置默认','system') RETURNING id`",
+      "after": "`INSERT INTO agent_prompts(agent_id,version,template_text,note,updated_by)\n\t\tVALUES ($1,1,$2,'Built-in default','system') RETURNING id`",
+      "sql_structure_preserved": true
+    }
+  ]
+}

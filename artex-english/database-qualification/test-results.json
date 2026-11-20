@@ -1,0 +1,237 @@
+[
+  {
+    "command": [
+      "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+      "test",
+      "-p",
+      "1",
+      "-json",
+      "./db",
+      "./intercept",
+      "-run",
+      "^(TestOpenSeed|TestInterceptApprovalFilters|TestInterceptExecutionNavigation|TestTaskArchiveDatabaseRoundTrip|TestInterceptSourceEnglishLegacy|TestApprovalSQLRecognizesEnglishLegacy|TestRestoreApprovalEnglishLegacyEvidence|TestTaskArchiveFormatCompatibility|TestEnglishJudgeGeneratedReason|TestEnglishHandleAskSummaryAndCancellation|TestEnglishVerdictCompatibility|TestEnglishGeneratedDefaultsPreserveSuppliedNames|TestEnglishVerdictStrictRejections)$",
+      "-count=1",
+      "-timeout=180s"
+    ],
+    "returncode": 0,
+    "top_level": {
+      "pass": 13,
+      "fail": 0,
+      "skip": 0
+    },
+    "subtests": {
+      "pass": 25,
+      "fail": 0,
+      "skip": 0
+    },
+    "required": {
+      "TestOpenSeed": "pass",
+      "TestInterceptApprovalFilters": "pass",
+      "TestInterceptExecutionNavigation": "pass",
+      "TestTaskArchiveDatabaseRoundTrip": "pass",
+      "TestInterceptSourceEnglishLegacy": "pass",
+      "TestApprovalSQLRecognizesEnglishLegacy": "pass",
+      "TestRestoreApprovalEnglishLegacyEvidence": "pass",
+      "TestTaskArchiveFormatCompatibility": "pass",
+      "TestEnglishJudgeGeneratedReason": "pass",
+      "TestEnglishHandleAskSummaryAndCancellation": "pass",
+      "TestEnglishVerdictCompatibility": "pass",
+      "TestEnglishGeneratedDefaultsPreserveSuppliedNames": "pass",
+      "TestEnglishVerdictStrictRejections": "pass"
+    },
+    "tests": [
+      {
+        "name": "TestOpenSeed",
+        "action": "pass"
+      },
+      {
+        "name": "TestInterceptSourceEnglishLegacy/english",
+        "action": "pass"
+      },
+      {
+        "name": "TestInterceptSourceEnglishLegacy/legacy",
+        "action": "pass"
+      },
+      {
+        "name": "TestInterceptSourceEnglishLegacy/rule_precedes_english",
+        "action": "pass"
+      },
+      {
+        "name": "TestInterceptSourceEnglishLegacy/rule_precedes_legacy",
+        "action": "pass"
+      },
+      {
+        "name": "TestInterceptSourceEnglishLegacy/unknown",
+        "action": "pass"
+      },
+      {
+        "name": "TestInterceptSourceEnglishLegacy/embedded_not_prefix",
+        "action": "pass"
+      },
+      {
+        "name": "TestInterceptSourceEnglishLegacy",
+        "action": "pass"
+      },
+      {
+        "name": "TestApprovalSQLRecognizesEnglishLegacy",
+        "action": "pass"
+      },
+      {
+        "name": "TestInterceptExecutionNavigation/conversation_scope_and_old_paginated_call",
+        "action": "pass"
+      },
+      {
+        "name": "TestInterceptExecutionNavigation/task_sessions_and_result_pairing",
+        "action": "pass"
+      },
+      {
+        "name": "TestInterceptExecutionNavigation",
+        "action": "pass"
+      },
+      {
+        "name": "TestInterceptApprovalFilters/all",
+        "action": "pass"
+      },
+      {
+        "name": "TestInterceptApprovalFilters/pending",
+        "action": "pass"
+      },
+      {
+        "name": "TestInterceptApprovalFilters/allowed",
+        "action": "pass"
+      },
+      {
+        "name": "TestInterceptApprovalFilters/denied",
+        "action": "pass"
+      },
+      {
+        "name": "TestInterceptApprovalFilters/timeout",
+        "action": "pass"
+      },
+      {
+        "name": "TestInterceptApprovalFilters/model",
+        "action": "pass"
+      },
+      {
+        "name": "TestInterceptApprovalFilters/rule",
+        "action": "pass"
+      },
+      {
+        "name": "TestInterceptApprovalFilters/unknown",
+        "action": "pass"
+      },
+      {
+        "name": "TestInterceptApprovalFilters",
+        "action": "pass"
+      },
+      {
+        "name": "TestRestoreApprovalEnglishLegacyEvidence/english",
+        "action": "pass"
+      },
+      {
+        "name": "TestRestoreApprovalEnglishLegacyEvidence/legacy",
+        "action": "pass"
+      },
+      {
+        "name": "TestRestoreApprovalEnglishLegacyEvidence/rule",
+        "action": "pass"
+      },
+      {
+        "name": "TestRestoreApprovalEnglishLegacyEvidence/unknown",
+        "action": "pass"
+      },
+      {
+        "name": "TestRestoreApprovalEnglishLegacyEvidence",
+        "action": "pass"
+      },
+      {
+        "name": "TestTaskArchiveFormatCompatibility",
+        "action": "pass"
+      },
+      {
+        "name": "TestTaskArchiveDatabaseRoundTrip",
+        "action": "pass"
+      },
+      {
+        "name": "TestEnglishGeneratedDefaultsPreserveSuppliedNames",
+        "action": "pass"
+      },
+      {
+        "name": "TestEnglishVerdictStrictRejections",
+        "action": "pass"
+      },
+      {
+        "name": "TestEnglishJudgeGeneratedReason/allow",
+        "action": "pass"
+      },
+      {
+        "name": "TestEnglishJudgeGeneratedReason/ask",
+        "action": "pass"
+      },
+      {
+        "name": "TestEnglishJudgeGeneratedReason/deny",
+        "action": "pass"
+      },
+      {
+        "name": "TestEnglishJudgeGeneratedReason",
+        "action": "pass"
+      },
+      {
+        "name": "TestEnglishHandleAskSummaryAndCancellation",
+        "action": "pass"
+      },
+      {
+        "name": "TestEnglishVerdictCompatibility/Actual_operation:_Read_file;_Consequence_on_success:_Return_content;_Matched_rule:_A5",
+        "action": "pass"
+      },
+      {
+        "name": "TestEnglishVerdictCompatibility/\u5b9e\u9645\u64cd\u4f5c\uff1a\u8bfb\u53d6\u6587\u4ef6\uff1b\u6210\u529f\u540e\u7684\u540e\u679c\uff1a\u8fd4\u56de\u5185\u5bb9\uff1b\u547d\u4e2d\u89c4\u5219\uff1aA5",
+        "action": "pass"
+      },
+      {
+        "name": "TestEnglishVerdictCompatibility",
+        "action": "pass"
+      }
+    ],
+    "package_failures": [],
+    "byte_drift": [],
+    "lexical_noncomment_drift": []
+  },
+  {
+    "command": [
+      "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+      "test",
+      "-p",
+      "1",
+      "-json",
+      "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/database-qualification/qualification_v2_test.go",
+      "-run",
+      "^TestPrivatePostgresApprovalHistoryArchive$",
+      "-count=1",
+      "-timeout=180s"
+    ],
+    "returncode": 0,
+    "top_level": {
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    "subtests": {
+      "pass": 0,
+      "fail": 0,
+      "skip": 0
+    },
+    "required": {
+      "TestPrivatePostgresApprovalHistoryArchive": "pass"
+    },
+    "tests": [
+      {
+        "name": "TestPrivatePostgresApprovalHistoryArchive",
+        "action": "pass"
+      }
+    ],
+    "package_failures": [],
+    "byte_drift": [],
+    "lexical_noncomment_drift": []
+  }
+]

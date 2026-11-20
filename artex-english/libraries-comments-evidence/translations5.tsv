@@ -1,0 +1,147 @@
+1	singleMsg builds one message with quotes and newlines. The title/summary deliberately include `"` and `\n`:
+2	these are precisely the inputs most likely to produce invalid JSON through template interpolation.
+3	batchMsg builds a batch summary message.
+4	capturePost starts a fake receiver and returns request bodies and headers to the assertion function.
+5	TestDingTalkBusinessErrorIsPermanent locks down HTTP 200 with nonzero errcode.
+6	Ignoring errcode records failed delivery as success, a pitfall shared by domestic IM platforms.
+7	Build a Chinese batch summary long enough to exceed 4096 bytes.
+8	A configured secret requires signing parameters, or Feishu rejects it with 19021.
+9	Card elements should include a button whose url points to vulnerability details.
+10	Titles and summaries come from targets/model output and are untrusted.
+11	This is why the default template exists: quotes and newlines in titles make naive
+12	`"title": "{{.Title}}"` interpolation invalid JSON; {{json .}} avoids that.
+13	Numbers must be JSON numbers, not strings (json:"...,string" would cause this pitfall).
+14	Chinese subjects require RFC 2047 encoding to avoid garbled client display.
+15	The body is base64; decoding should yield valid HTML.
+16	The original title appears in text content: double quotes are valid HTML text and need no escaping.
+17	Assert verbatim preservation to prevent unnecessary quote escaping that would display Chinese quotes
+18	as &quot;.
+19	TestEmailEscapesStructuralInjection covers the injections email bodies actually need to prevent:
+20	vulnerability titles and summaries are untrusted target/model output. Text positions must escape
+21	& < > to prevent injected tags; attribute positions must also escape quotes to prevent closing href.
+22	Backlinks use administrator-configured public_base_url and are relatively trusted, but attributes must still
+23	escape quotes, or a quoted URL could close href and inject an event handler.
+24	Validation errors are shown directly to configurators; identify missing fields rather than merely saying configuration is invalid.
+25	TestEmailSMTPErrorClassification locks down SMTP 4xx/5xx semantics.
+26	Treating 4xx as permanent would make a greylisting server move each notification to failed on its first
+27	attempt, precisely where automatic retries should help.
+28	If no reply code is available, classify as retryable: prefer an extra attempt over permanently rejecting a potentially transient
+29	failure.
+30	Whatever the classification, preserve original text for troubleshooting.
+31	All six channels are required; missing one silently removes it from the UI dropdown.
+108	This file adds email protocol tests. Previously email.Send coverage was zero:
+109	no test exercised SMTP, despite its having the largest protocol surface of the six channels
+110	and many failure modes (handshake, authentication, envelope, and DATA have distinct semantics).
+111	Use a minimal real SMTP server rather than mocking net/smtp:
+112	most email-channel risk lies in communicating with an actual SMTP server;
+113	mocking that interaction would leave it untested.
+114	fakeSMTP is a minimal SMTP server supporting greet/EHLO/AUTH/MAIL/RCPT/DATA/QUIT
+115	and configurable reply codes for particular stages.
+116	rcptReply is the RCPT TO reply, defaulting to 250.
+117	mailReply is the MAIL FROM reply, defaulting to 250.
+118	advertiseAuth advertises AUTH PLAIN in EHLO when true.
+119	Do not advertise STARTTLS: exercise plaintext (the envelope logic is under test, not TLS).
+120	Simplification: accept the PLAIN initial response directly, even if it spans lines.
+121	The envelope must reach sender, two recipients, and DATA.
+122	The body is base64 HTML and must contain actual vulnerability content, still recognizable after encoding.
+123	All recipients must appear in the To header.
+124	Do not send AUTH without a configured account; some relays reject it.
+125	TestEmailSendClassifiesSMTPReplies directly verifies the audit fix:
+126	5xx is permanent; 4xx (greylisting) is retryable.
+127	Preserve server text so users know whether to contact the administrator or correct the address.
+128	net/smtp PlainAuth refuses credentials on unencrypted connections unless the destination is localhost.
+129	This is **correct** security behavior and must not be bypassed; provide an actionable error.
+130	Use a non-localhost hostname to trigger it.
+131	Not localhost.
+132	Either connection failure or refusal to send credentials passes; the key is **never** silently transmitting the password.
+133	Email has the most configuration fields; omissions otherwise surface only at delivery. Check each
+134	is rejected early. Assertions require errors to identify the missing field.
+135	TestEmailConfigTolerance covers configuration decoding tolerance: JSONB numbers are float64,
+136	but users may enter ports as strings in the UI; arrays may also be a single string.
+137	Port as a string.
+138	Single string rather than an array.
+139	Boolean as a string.
+140	TestFilterValidateRejectsTypo directly verifies the audit fix:
+141	reject threshold typos at write time, or filtering silently degrades to pushing everything.
+142	Realistic typos; all must be rejected.
+143	Errors should guide users toward a correction.
+144	TestFilterValidateIsWriteTimeOnly locks down strict writes and tolerant reads:
+145	existing invalid database values must not prevent channel loading, suddenly stopping historical channels.
+146	No error.
+147	The channel can still evaluate events without panic or blocking.
+208	Malformed JSON, empty input, and incorrectly typed fields must all fall back to a zero-value Filter,
+209	meaning no filtering. This enforces the preference for extra notifications over missed ones:
+210	returning errors or partial parses here could silently discard all critical notifications after a one-character typo.
+211	A zero-value Filter must match any event.
+212	Unknown severity ranks as 0 and should be blocked by any nonempty threshold (do not send when uncertain).
+213	Exclusion wins over inclusion: matching both must reject the event.
+214	Ignore whitespace-only keywords, or matching degenerates to all strings containing spaces.
+215	Disabled by default: vulnerability notifications usually mean new discoveries, not status-transition logs.
+216	Creation events are unaffected by on_status_change.
+304	This file covers doJSON HTTP-layer error classification.
+305	Why test separately: channel adapters handle platform business codes (DingTalk errcode,
+306	Feishu code, Telegram ok), while doJSON centrally classifies the **HTTP layer**;
+307	these are independent defenses. Without this one, a gateway 503 could be permanent,
+308	abandoning retries, while a 403 could waste three backoff rounds.
+309	Errors must include the status code so users can distinguish configuration mistakes from peer failure.
+310	Assert numeric codes, not Go's English StatusText: the original package wording was Chinese
+311	like the rest of the project; numeric codes provide stable, language-independent assertions.
+312	TestDoJSONIncludesResponseSnippet covers snippet: include the peer's error explanation,
+313	or users know only that delivery failed, not why it was refused.
+314	TestDoJSONSnippetIsSingleLineAndBounded constrains snippet shape:
+315	peer responses flow directly into last_error and frontend tables; multiline or oversized text breaks layout and payload bounds.
+316	Response with newlines, tabs, and 5000 characters of oversized content.
+317	A 200-character snippet plus fixed prefix must remain far smaller than the original response.
+318	TestDoJSONRejectsOversizedResponse confirms bounded reads: an oversized peer response
+319	must not be read entirely into memory (each delivery-history record stores last_error).
+445	Keep the final 6 characters so users can recognize the bot.
+446	For short credentials, exposing the final 6 characters would expose the whole credential.
+447	Preserve noncredential fields unchanged so the UI can display them.
+448	For unrecognized channels, prefer empty configuration over exposing raw content that may contain credentials.
+449	Masking is presentation-only; it must never alter the real stored value.
+450	The user changed only method; the browser submits the masked value plus the new method.
+451	Preserve omitted fields (partial-update semantics).
+452	TestPrepareConfigUpdateBlocksDestinationSwap enforces the package's most important security invariant:
+453	**changing the destination must not carry old credentials along**.
+454	These cases use actual attack-shaped inputs (destination-only edits omitting credentials),
+455	not valid defensive inputs; testing only the latter could pass even with ineffective protection.
+456	wantMissing lists credential keys expected to be named in the error.
+457	Masked values mean reusing old credentials, which must also be rejected when the destination changes.
+458	The error must tell the operator how to fix the problem.
+459	TestPrepareConfigUpdateAllowsLegitimateEdits is the inverse: do not falsely block normal edits,
+460	or users may bypass or remove the guard as too annoying.
+461	TestPrepareConfigUpdatePortTypeTolerance covers an easy false positive:
+462	frontend ports are JSON numbers (float64), as are values read from storage,
+463	but actual value types may differ (int vs float64). Direct == could classify an unchanged value as changed,
+464	prompting password re-entry after only a name edit; false alarms undermine trust in the protection.
+465	Submit the same port as int.
+466	Actually changing the port must be blocked.
+467	TestPrepareConfigUpdateSurvivesRepeatedSaveWithBlankDestination covers optional
+468	destination fields: blank Telegram base_url uses the official API.
+469	Previously the second save permanently broke saving:
+470	Creation stores base_url:"" (creation stores frontend config directly, bypassing MergeConfig).
+471	-> First save: MergeConfig treats the empty string as explicit clearing and deletes the key.
+472	-> Second save: incoming remains "", stored lacks the key; incorrectly classified as a destination change.
+473	-> bot_token is masked -> 400 requiring credentials to be re-entered with the changed destination.
+474	The user changed nothing but cannot save again without repasting the Bot Token.
+475	Frontend buildConfig() submits a value for each defined channel field: credentials use masked values,
+476	empty text boxes use empty strings. Reproduce its full output, not just changed keys.
+477	First save: only the channel name changed; config is returned unchanged.
+478	Second save: identical submission; the user changed nothing.
+479	Third save confirms saving remains consistently successful, not merely a one-time exception.
+480	Credentials must remain throughout, unaffected by empty-string clearing.
+481	TestPrepareConfigUpdateStillGuardsBlankDestinationChanges pairs with the previous
+482	assertion: equating empty strings with missing keys **must not** permit actual destination changes.
+483	Both directions can expose credentials: Telegram Bot Token is in the URL path,
+484	so changing base_url sends the Token to the new address.
+485	Direction one: blank (official URL) to a self-hosted address.
+486	Direction two: clearing a self-hosted address (returning to the official API) also changes the destination.
+487	Like SecretKeys, omitting destination-key declarations leaves a channel outside PrepareConfigUpdate's protection.
+488	The compiler requires every channel to implement SecretKeys; additionally ensure no channel
+489	returns an empty slice, which would expose its credentials in plaintext to the browser.
+490	TestPrepareConfigUpdateRejectsMaskedInContainer covers an audit finding:
+491	when a masked sentinel is embedded in a **nonstring** structure (such as webhook.headers),
+492	MergeConfig recognizes only prefixed strings as masked, so literal "__masked__" would be
+493	stored as a real header value, silently breaking authentication without an error.
+494	Masked sentinel embedded in an object.
+495	Submitting the whole object with actual new values is still accepted.

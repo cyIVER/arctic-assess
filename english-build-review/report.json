@@ -1,0 +1,121 @@
+{
+  "verdict": "BLOCKED_FOR_DEPLOYMENT; offline source/build identity accepted at scoped level only",
+  "scope": "read-only English build source, frontend assets, frozen admission baseline, candidate tree; no runtime, target or cloud qualification",
+  "provenance": "local SHA-256 identities; manifests/receipts are unsigned and not independently attested",
+  "binary": {
+    "path": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/english-build/artex-english",
+    "sha256": "769a4c0ffde5ee65d31f2a2c763aa3f6a2d84cae44b122282e1a261cb04bfe6d",
+    "bytes": 40325282,
+    "elf": "ELF 64-bit x86-64 statically linked stripped (file command)",
+    "build_tag_embedui": true,
+    "source_embed": "server/webui_embed.go //go:build embedui and //go:embed all:webui/dist",
+    "go_version": "go1.26.10"
+  },
+  "source": {
+    "count": 685,
+    "source_map_sha256": "7e8a7261c1b9c0e6b66db8ef59dd994f7e3f3b6da53eaf6dda4d864a26debed0",
+    "candidate_parity": true,
+    "frozen_original_verified": true,
+    "frozen_count": 669,
+    "modified_from_frozen": 214,
+    "added_from_frozen": [
+      "agent/english_prompts_test.go",
+      "agent/english_tools_final_test.go",
+      "db/intercept_english_test.go",
+      "db/intercept_restore_english_test.go",
+      "guard/english_messages_test.go",
+      "intercept/english_generated_test.go",
+      "intercept/english_test.go",
+      "notify/english_test.go",
+      "report/english_test.go",
+      "selfupdate/english_test.go",
+      "server/chat_mentions_english_test.go",
+      "server/runtime_english_test.go",
+      "server/testdata/english_mentions.json",
+      "sidequestion/english_test.go",
+      "traffic/english_test.go",
+      "web/src/lib/english-interface.test.mjs"
+    ],
+    "removed_from_frozen": [],
+    "candidate_baseline_manifest_is_frozen_not_candidate": true
+  },
+  "assets": {
+    "count": 370,
+    "map_sha256": "eb188a0d120cbc1b56c66a9c4c0f338183b83c9eb70909e79a19e846097d7939",
+    "static_receipt_parity": true,
+    "web_out_parity": true,
+    "routes": {
+      "root": "index.html",
+      "login": "login/index.html",
+      "models": "system/llm/index.html"
+    },
+    "observed_english_label_files": {
+      "Login": [
+        "_next/static/chunks/1seyiek94djop.js"
+      ],
+      "Models": [
+        "_next/static/chunks/1seyiek94djop.js",
+        "_next/static/chunks/3u8cwl3_btps5.js"
+      ],
+      "Overview": [
+        "_next/static/chunks/1seyiek94djop.js",
+        "_next/static/chunks/36ka7e3wbf19_.js",
+        "_next/static/chunks/1hdgerrpg_tse.js",
+        "_next/static/chunks/0a9v2vlqupsik.js"
+      ],
+      "Finding": [
+        "_next/static/chunks/1gvvi79592gtz.js",
+        "_next/static/chunks/1c2hcjhwy935r.js",
+        "_next/static/chunks/24-k0dqdpzn4k.js",
+        "_next/static/chunks/1dq5qinflh75m.js",
+        "_next/static/chunks/1seyiek94djop.js",
+        "_next/static/chunks/36ka7e3wbf19_.js"
+      ],
+      "Add test assets": [
+        "_next/static/chunks/0a9v2vlqupsik.js"
+      ]
+    },
+    "secret_pattern_hits": {
+      "private_key": [],
+      "gcp_private_key": [],
+      "openai_style_key": [],
+      "aws_access_key": [],
+      "google_api_key": []
+    }
+  },
+  "frontend": {
+    "manifest_source_count": 211,
+    "manifest_source_hashes_match": true,
+    "candidate_frontend_source_matches": true,
+    "generated_unlisted_file": "next-env.d.ts"
+  },
+  "tests": {
+    "command": "GOPROXY=off GOSUMDB=off GOTOOLCHAIN=local /home/iveri/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.26.3.linux-amd64/bin/go test -tags embedui -count=1 ./agent ./db ./intercept ./server -run ... -timeout 90s",
+    "db": "PASS 0.018s",
+    "intercept": "PASS 0.009s",
+    "agent": "SETUP FAIL: missing modules with GOPROXY=off",
+    "server": "SETUP FAIL: missing modules with GOPROXY=off",
+    "skipped": "No network/download/install, PostgreSQL, listeners, model endpoints, runtime help, cloud or target"
+  },
+  "observations": [
+    "provider routing retains openai and openai-responses formats and profile selection; candidate build source exactly equals English candidate, but no live routing proof",
+    "auth fail-closed branches remain in focused source diff; messages translated, not auth gates",
+    "intercept model marker updated to [Model] while SQL and Go source classifier accept [Model] and legacy [模型]; rule_id precedence retained",
+    "frontend and server accept both new and legacy mention tokens; bounded references and invalid IDs tested in server source but server test not runnable offline",
+    "built UI English strings observed in hashed JS, not merely source; regex scan is limited and does not establish absence of all secrets",
+    "English tool catalog text changes invalidate old native role/catalog digest approvals; no native executor pass claimed"
+  ],
+  "blocking_issues": [
+    {
+      "id": "offline-suite-incomplete",
+      "path": "agent and server test packages",
+      "reproducer": "the tests.command above",
+      "details": "Module cache lacks github.com/golang-jwt/jwt/v5, brotli, klauspost/compress, x/crypto, miekg/dns, dnsx, go-mitmproxy, modernc.org/sqlite; GOPROXY=off prevents lookup. No dependency download permitted."
+    },
+    {
+      "id": "unqualified-execution",
+      "path": "English binary and native role catalog",
+      "details": "No live model/tool/UI/DB runtime proof or refreshed native role catalog digests; deployment authorization must remain separate."
+    }
+  ]
+}

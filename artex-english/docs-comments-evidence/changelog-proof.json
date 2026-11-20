@@ -1,0 +1,145 @@
+{
+  "all_structure_fields_equal": {
+    "release_headings": true,
+    "heading_levels": true,
+    "bullets": true,
+    "links": true,
+    "inline_code": true,
+    "fences": true,
+    "unreleased": true,
+    "line_count": true
+  },
+  "per_release_entry_counts_before": [
+    {
+      "heading": "## [Unreleased]",
+      "bullet_count": 5
+    },
+    {
+      "heading": "## [0.3.15] - 2026-10-07",
+      "bullet_count": 36
+    },
+    {
+      "heading": "## [0.3.14] - 2026-09-24",
+      "bullet_count": 5
+    },
+    {
+      "heading": "## [0.3.13] - 2026-09-19",
+      "bullet_count": 10
+    },
+    {
+      "heading": "## [0.3.12] - 2026-09-17",
+      "bullet_count": 20
+    },
+    {
+      "heading": "## [0.3.11] - 2026-09-15",
+      "bullet_count": 13
+    },
+    {
+      "heading": "## [0.3.10] - 2026-09-13",
+      "bullet_count": 13
+    },
+    {
+      "heading": "## [0.3.9] - 2026-09-11",
+      "bullet_count": 30
+    },
+    {
+      "heading": "## [0.3.8] - 2026-09-09",
+      "bullet_count": 18
+    },
+    {
+      "heading": "## [0.3.7] - 2026-08-31",
+      "bullet_count": 18
+    },
+    {
+      "heading": "## [0.3.6] - 2026-08-27",
+      "bullet_count": 6
+    },
+    {
+      "heading": "## [0.3.5] - 2026-08-25",
+      "bullet_count": 13
+    },
+    {
+      "heading": "## [0.3.4] - 2026-08-24",
+      "bullet_count": 12
+    },
+    {
+      "heading": "## [0.3.3] - 2026-08-23",
+      "bullet_count": 68
+    },
+    {
+      "heading": "## [0.3.2] - 2026-08-20",
+      "bullet_count": 27
+    }
+  ],
+  "per_release_entry_counts_after": [
+    {
+      "heading": "## [Unreleased]",
+      "bullet_count": 5
+    },
+    {
+      "heading": "## [0.3.15] - 2026-10-07",
+      "bullet_count": 36
+    },
+    {
+      "heading": "## [0.3.14] - 2026-09-24",
+      "bullet_count": 5
+    },
+    {
+      "heading": "## [0.3.13] - 2026-09-19",
+      "bullet_count": 10
+    },
+    {
+      "heading": "## [0.3.12] - 2026-09-17",
+      "bullet_count": 20
+    },
+    {
+      "heading": "## [0.3.11] - 2026-09-15",
+      "bullet_count": 13
+    },
+    {
+      "heading": "## [0.3.10] - 2026-09-13",
+      "bullet_count": 13
+    },
+    {
+      "heading": "## [0.3.9] - 2026-09-11",
+      "bullet_count": 30
+    },
+    {
+      "heading": "## [0.3.8] - 2026-09-09",
+      "bullet_count": 18
+    },
+    {
+      "heading": "## [0.3.7] - 2026-08-31",
+      "bullet_count": 18
+    },
+    {
+      "heading": "## [0.3.6] - 2026-08-27",
+      "bullet_count": 6
+    },
+    {
+      "heading": "## [0.3.5] - 2026-08-25",
+      "bullet_count": 13
+    },
+    {
+      "heading": "## [0.3.4] - 2026-08-24",
+      "bullet_count": 12
+    },
+    {
+      "heading": "## [0.3.3] - 2026-08-23",
+      "bullet_count": 68
+    },
+    {
+      "heading": "## [0.3.2] - 2026-08-20",
+      "bullet_count": 27
+    }
+  ],
+  "inline_code_rule": "Exact per-line multiset: tokens may move within their original prose line for English grammar; none added, removed or changed.",
+  "cjk_lines_before": 452,
+  "cjk_lines_after": 7,
+  "unfinished_prose_outside_inline_code": 0,
+  "post_edit_structural_mutation_tests_rejected": [
+    "removed_release",
+    "changed_link",
+    "removed_entry"
+  ]
+}

@@ -1,0 +1,968 @@
+[
+  {
+    "path": "source/db/asset_dsl.go",
+    "line": 556,
+    "old": "// instead of the whole shared库. taskID<=0 (non-task contexts: Auto / pentest / chat)",
+    "new": "// instead of the whole shared database. taskID<=0 (non-task contexts: Auto / pentest / chat)"
+  },
+  {
+    "path": "source/db/asset_intercept.go",
+    "line": 17,
+    "old": "// 全局规则(asset_intercept_rules)不带此列，恒为空，视为拦截。",
+    "new": "// Global rules (asset_intercept_rules) lack this column; it is always empty and means block."
+  },
+  {
+    "path": "source/db/asset_intercept.go",
+    "line": 16,
+    "old": "// Action 仅用于任务级规则：'block'=拦截 'allow'=允许(白名单)。",
+    "new": "// Action applies only to task-level rules: 'block' rejects; 'allow' permits (allowlist)."
+  },
+  {
+    "path": "source/db/asset_intercept_match.go",
+    "line": 234,
+    "old": "// 既无拦截规则、也无启用的允许规则 → 无需判定，全部放行。",
+    "new": "// With neither block rules nor enabled allow rules, skip evaluation and allow all."
+  },
+  {
+    "path": "source/db/asset_intercept_match.go",
+    "line": 216,
+    "old": "// 无 id 时快速返回。用全局 GetByIDs（不受任务范围过滤）以保证拦截不被 scope 削弱。",
+    "new": "// Return early without IDs. Global GetByIDs bypasses task-scope filters so scope cannot weaken interception."
+  },
+  {
+    "path": "source/db/asset_intercept_match.go",
+    "line": 215,
+    "old": "// 被拒的资产。拦截规则 = 全局 ∪ 任务级 block；允许规则 = 任务级 allow（仅本任务）。",
+    "new": "// rejected assets. Block rules are global plus task block rules; allow rules belong only to this task."
+  },
+  {
+    "path": "source/db/asset_intercept_match.go",
+    "line": 214,
+    "old": "// CheckAssetsIntercept 按 id 载入资产，逐个执行「先拦截后允许」闸门判定，返回所有",
+    "new": "// CheckAssetsIntercept loads assets by ID, evaluates block before allow for each, and returns all"
+  },
+  {
+    "path": "source/db/asset_intercept_match.go",
+    "line": 209,
+    "old": "// （如 agent 工具）也能读取规则。",
+    "new": "// (such as agent tools) can also read rules."
+  },
+  {
+    "path": "source/db/asset_intercept_match.go",
+    "line": 208,
+    "old": "// ListAssetInterceptRules 是 *DB 同名方法的透传，让只持有 AssetStore 的调用方",
+    "new": "// ListAssetInterceptRules forwards to the *DB method so callers holding only AssetStore"
+  },
+  {
+    "path": "source/db/asset_intercept_match.go",
+    "line": 203,
+    "old": "// Describe 返回一条可读的说明：资产信息 + 原因。",
+    "new": "// Describe returns a readable explanation: asset information plus reason."
+  },
+  {
+    "path": "source/db/asset_intercept_match.go",
+    "line": 197,
+    "old": "// AssetInterceptHit 描述一个被闸门拒绝的资产（拦截命中 或 不在允许范围）。",
+    "new": "// AssetInterceptHit describes an asset rejected by a block match or exclusion from the allowed scope."
+  },
+  {
+    "path": "source/db/asset_intercept_match.go",
+    "line": 184,
+    "old": "// 避免「未配置允许规则」把所有资产挡掉。",
+    "new": "// so an unconfigured allowlist does not block every asset."
+  },
+  {
+    "path": "source/db/asset_intercept_match.go",
+    "line": 183,
+    "old": "// allowRules 为空/无启用项时，允许闸门不生效（即不启用白名单，全部放行），",
+    "new": "// Empty allowRules or no enabled entries disable the allow gate (no allowlist, all allowed),"
+  },
+  {
+    "path": "source/db/asset_intercept_match.go",
+    "line": 181,
+    "old": "//  3. 否则放行。",
+    "new": "//  3. Otherwise allow."
+  },
+  {
+    "path": "source/db/asset_intercept_match.go",
+    "line": 180,
+    "old": "//  2. 否则若 allowRules 存在启用项且都不命中 → 拒绝（不在允许范围）。",
+    "new": "//  2. Otherwise, enabled allowRules with no match reject as outside the allowed scope."
+  },
+  {
+    "path": "source/db/asset_intercept_match.go",
+    "line": 179,
+    "old": "//  1. 命中任一启用的 blockRules → 拒绝（拦截原因）。",
+    "new": "//  1. Any enabled blockRules match rejects with the interception reason."
+  },
+  {
+    "path": "source/db/asset_intercept_match.go",
+    "line": 178,
+    "old": "// EvaluateAssetGate 执行任务级闸门判定：",
+    "new": "// EvaluateAssetGate evaluates the task-level gate:"
+  },
+  {
+    "path": "source/db/asset_intercept_match.go",
+    "line": 172,
+    "old": "// AssetGateDecision 是「先拦截后允许」闸门对一组候选串的判定结果。",
+    "new": "// AssetGateDecision is the block-before-allow gate decision for a set of candidates."
+  },
+  {
+    "path": "source/db/asset_intercept_match.go",
+    "line": 162,
+    "old": "// hasEnabledRule 判断规则集里是否存在任一启用规则。",
+    "new": "// hasEnabledRule reports whether the rule set contains any enabled rule."
+  },
+  {
+    "path": "source/db/asset_intercept_match.go",
+    "line": 146,
+    "old": "// InterceptLabel 返回资产的简短标识，用于给 agent 的说明消息。",
+    "new": "// InterceptLabel returns a short asset identifier for explanatory messages to the agent."
+  },
+  {
+    "path": "source/db/asset_intercept_match.go",
+    "line": 118,
+    "old": "// URL 的 host 会被拆出并归类，使「只带 URL」的服务类资产也能被 域名/IP 规则命中。",
+    "new": "// URL hosts are extracted and classified so URL-only service assets can also match domain/IP rules."
+  },
+  {
+    "path": "source/db/asset_intercept_match.go",
+    "line": 117,
+    "old": "// interceptCandidates 提取一个已落库资产用于拦截匹配的 域名/IP/URL 候选串。",
+    "new": "// interceptCandidates extracts domain/IP/URL candidates from a stored asset for interception matching."
+  },
+  {
+    "path": "source/db/asset_intercept_match.go",
+    "line": 104,
+    "old": "// 供 insert_assets 用原始输入（尚未落库的 assetInputItem）匹配。",
+    "new": "// Used by insert_assets to match raw input (assetInputItem not yet persisted)."
+  },
+  {
+    "path": "source/db/asset_intercept_match.go",
+    "line": 103,
+    "old": "// MatchAssetInterceptRules 返回第一条命中给定 域名/IP/URL 候选串的启用规则，及命中的具体值。",
+    "new": "// MatchAssetInterceptRules returns the first enabled rule matching domain/IP/URL candidates and its matched value."
+  },
+  {
+    "path": "source/db/asset_intercept_match.go",
+    "line": 44,
+    "old": "// matchOne 判断单条启用规则是否命中给定的域名/IP/URL 候选串，返回命中的具体值。",
+    "new": "// matchOne checks one enabled rule against domain/IP/URL candidates and returns the matching value."
+  },
+  {
+    "path": "source/db/asset_intercept_match.go",
+    "line": 35,
+    "old": "// Reason 返回一条可读的命中原因，形如：命中资产拦截规则 [Domain (fuzzy): .gov.cn]（备注）。",
+    "new": "// Reason returns a readable match reason, such as an asset rule [Domain (fuzzy): .gov.cn] with its note."
+  },
+  {
+    "path": "source/db/asset_intercept_match.go",
+    "line": 14,
+    "old": "// AssetInterceptKindLabel 返回 kind 的中文标签，用于给 agent 的说明消息。",
+    "new": "// AssetInterceptKindLabel returns the label for kind in explanatory messages to the agent."
+  },
+  {
+    "path": "source/db/asset_intercept_match.go",
+    "line": 12,
+    "old": "// insert_assets）在下发意图 / 插入资产前调用，命中则拒绝。",
+    "new": "// insert_assets) call this before dispatching intents/inserting assets and reject matches."
+  },
+  {
+    "path": "source/db/asset_intercept_match.go",
+    "line": 11,
+    "old": "// 「目标资产」的域名/IP/URL 与启用中的规则做匹配。供 agent 工具（add_intent、",
+    "new": "// target-asset domains/IPs/URLs against enabled rules. Agent tools (add_intent,"
+  },
+  {
+    "path": "source/db/asset_intercept_match.go",
+    "line": 10,
+    "old": "// 资产拦截规则的匹配/执行层。asset_intercept.go 只负责规则存储，这里负责把",
+    "new": "// Asset interception matching/execution layer. asset_intercept.go only stores rules; here we match"
+  },
+  {
+    "path": "source/db/asset_intercept_match_test.go",
+    "line": 123,
+    "old": "// URL host 是 IP 时应归入 IP 候选，可被 CIDR 命中。",
+    "new": "// An IP URL host must become an IP candidate and match CIDR rules."
+  },
+  {
+    "path": "source/db/asset_intercept_match_test.go",
+    "line": 103,
+    "old": "// 只带 URL 的服务资产：host 应被拆出并归入域名候选，从而被 fuzzy_domain 命中。",
+    "new": "// URL-only service assets: extract the host as a domain candidate so fuzzy_domain matches."
+  },
+  {
+    "path": "source/db/asset_intercept_match_test.go",
+    "line": 92,
+    "old": "// 6. 拦截优先于允许：同一目标既命中拦截又命中允许 → 拒绝。",
+    "new": "// 6. Block precedes allow: a target matching both is rejected."
+  },
+  {
+    "path": "source/db/asset_intercept_match_test.go",
+    "line": 86,
+    "old": "// 5. 允许规则全部禁用 → 视为白名单未启用，放行。",
+    "new": "// 5. All allow rules disabled: treat the allowlist as disabled and allow."
+  },
+  {
+    "path": "source/db/asset_intercept_match_test.go",
+    "line": 81,
+    "old": "// 4. 无允许规则（白名单未启用）→ 未命中拦截即放行。",
+    "new": "// 4. No allow rules (allowlist disabled): allow unless blocked."
+  },
+  {
+    "path": "source/db/asset_intercept_match_test.go",
+    "line": 76,
+    "old": "// 3. 未命中拦截、命中允许规则 → 放行。",
+    "new": "// 3. No block match and an allow match: allow."
+  },
+  {
+    "path": "source/db/asset_intercept_match_test.go",
+    "line": 67,
+    "old": "// 2. 未命中拦截、有允许规则但不命中 → 拒绝（不允许）。",
+    "new": "// 2. No block match, but allow rules exist and none match: reject as not allowed."
+  },
+  {
+    "path": "source/db/asset_intercept_match_test.go",
+    "line": 62,
+    "old": "// 1. 命中拦截规则 → 拒绝（拦截原因优先）。",
+    "new": "// 1. A block-rule match rejects; the block reason takes precedence."
+  },
+  {
+    "path": "source/db/assets.go",
+    "line": 15,
+    "old": "// 统一资产表",
+    "new": "// Unified asset table."
+  },
+  {
+    "path": "source/db/assets_test.go",
+    "line": 757,
+    "old": "// UpsertSubdomain 会顺带建根域名资产,一并清掉",
+    "new": "// UpsertSubdomain also creates a root-domain asset; clean it up too."
+  },
+  {
+    "path": "source/db/assets_test.go",
+    "line": 742,
+    "old": "// 企业资产列表同样按页取,不被固定条数截断。",
+    "new": "// Company assets likewise paginate without fixed-count truncation."
+  },
+  {
+    "path": "source/db/assets_test.go",
+    "line": 643,
+    "old": "// 任务资产列表按页取,不再被固定条数截断:60 条资产用 25/页要能完整翻出来。",
+    "new": "// Task assets are paginated, not truncated at a fixed count: all 60 must be reachable at 25 per page."
+  },
+  {
+    "path": "source/db/assets_test.go",
+    "line": 585,
+    "old": "// shared 保留,且 task_ids 只剩 taskB",
+    "new": "// shared remains, with only taskB in task_ids."
+  },
+  {
+    "path": "source/db/assets_test.go",
+    "line": 581,
+    "old": "// solo 已删",
+    "new": "// solo was deleted."
+  },
+  {
+    "path": "source/db/assets_test.go",
+    "line": 565,
+    "old": "// host 反查(删资产前):应含两个域名",
+    "new": "// Host reverse lookup before deletion must contain both domains."
+  },
+  {
+    "path": "source/db/assets_test.go",
+    "line": 555,
+    "old": "// shared:先 taskA 再 taskB → task_ids={A,B}",
+    "new": "// shared: taskA first, then taskB, yielding task_ids={A,B}."
+  },
+  {
+    "path": "source/db/assets_test.go",
+    "line": 549,
+    "old": "// solo:仅属 taskA",
+    "new": "// solo: belongs only to taskA."
+  },
+  {
+    "path": "source/db/assets_test.go",
+    "line": 542,
+    "old": "// TestDeleteByTaskID: 独有资产被删,与其他任务共享的资产仅解除关联(保留),host 反查正确。",
+    "new": "// TestDeleteByTaskID: delete exclusive assets, only unlink shared assets, and verify host reverse lookups."
+  },
+  {
+    "path": "source/db/companies.go",
+    "line": 72,
+    "old": "// 只约束单条规则的长度,不限制条数。",
+    "new": "// Limit individual rule length, not the number of rules."
+  },
+  {
+    "path": "source/db/companies.go",
+    "line": 56,
+    "old": "// 拆成多个企业。请求体大小(server 侧 maxCompanyMutationBodyBytes)仍然兜底。",
+    "new": "// to split companies. Server request-body limits (maxCompanyMutationBodyBytes) remain a safeguard."
+  },
+  {
+    "path": "source/db/companies.go",
+    "line": 55,
+    "old": "// 企业范围不限制规则条数:逐个 IP / 域名录入的范围动辄上千条,封顶只会逼用户",
+    "new": "// Company scopes do not cap rule counts: individual IP/domain scopes can contain thousands; caps force users"
+  },
+  {
+    "path": "source/db/companies.go",
+    "line": 14,
+    "old": "// 公司主体层",
+    "new": "// Company entity layer."
+  },
+  {
+    "path": "source/db/company_scope.go",
+    "line": 157,
+    "old": "// 相等比较（见 companies.go 的 kind='icp' 归属查询），所以这类文本归为关键词。",
+    "new": "// equality (see the kind='icp' ownership query in companies.go), so classify such text as keywords."
+  },
+  {
+    "path": "source/db/company_scope.go",
+    "line": 156,
+    "old": "// 按 ICP 存下来只会得到一条永远匹配不上任何资产的死规则 —— ICP 归属走的是精确",
+    "new": "// Storing it as ICP would create a dead rule that never matches: ICP ownership uses exact"
+  },
+  {
+    "path": "source/db/company_scope_consistency_test.go",
+    "line": 196,
+    "old": "// 曾经封顶 256 条,逐个 IP / 域名录范围的企业很容易撞上;现在不限条数。",
+    "new": "// The former 256-rule cap was easily hit by companies listing individual IPs/domains; counts are now unlimited."
+  },
+  {
+    "path": "source/db/company_scope_consistency_test.go",
+    "line": 183,
+    "old": "// 条数不再设上限,只校验单条长度。",
+    "new": "// Rule counts are no longer capped; validate only individual lengths."
+  },
+  {
+    "path": "source/db/company_scope_test.go",
+    "line": 257,
+    "old": "// 不吞错误：清理失败会污染后续用例，必须让它在本次运行里显形。",
+    "new": "// Do not swallow errors: cleanup failures contaminate later tests and must surface in this run."
+  },
+  {
+    "path": "source/db/company_scope_test.go",
+    "line": 243,
+    "old": "// 就会莫名失败——排查成本极高。",
+    "new": "// fails unexpectedly, making diagnosis very expensive."
+  },
+  {
+    "path": "source/db/company_scope_test.go",
+    "line": 242,
+    "old": "// 一旦这个数字与别的用例的任务 id 撞上，那个用例按「恰好 N 个资产」的断言",
+    "new": "// If that number collides with another test's task ID, its exact-N-assets assertion"
+  },
+  {
+    "path": "source/db/company_scope_test.go",
+    "line": 241,
+    "old": "// `MAX(companies.id)+1` 当假 TaskID 给资产打标（见下方 suffix），",
+    "new": "// `MAX(companies.id)+1` as a fake TaskID for asset tags (see suffix below)."
+  },
+  {
+    "path": "source/db/company_scope_test.go",
+    "line": 240,
+    "old": "// 资产与公司就永久残留在库里。残留本身不会立刻报错，但本用例用",
+    "new": "// permanently leaking assets and companies. Leaks do not immediately fail, but this test uses"
+  },
+  {
+    "path": "source/db/company_scope_test.go",
+    "line": 239,
+    "old": "// 才执行，于是清理语句全落在**已关闭的连接**上、错误又被 `_, _ =` 丢弃，",
+    "new": "// leaving all cleanup statements on a CLOSED connection, with errors discarded by `_, _ =`,"
+  },
+  {
+    "path": "source/db/company_scope_test.go",
+    "line": 238,
+    "old": "// 原先这里是 `defer d.Close()`：defer 在函数返回时先跑，t.Cleanup 在那之后",
+    "new": "// Previously `defer d.Close()` ran on function return before t.Cleanup,"
+  },
+  {
+    "path": "source/db/company_scope_test.go",
+    "line": 237,
+    "old": "// 先注册关闭 → 关闭最后执行，下面的数据清理才连得上库。",
+    "new": "// so registering close first makes it run last, leaving the database available for cleanup below."
+  },
+  {
+    "path": "source/db/company_scope_test.go",
+    "line": 236,
+    "old": "// 关连接必须走 t.Cleanup 且**注册在清理之前**：t.Cleanup 是后进先出，",
+    "new": "// Close connections through t.Cleanup, registered BEFORE data cleanup: t.Cleanup is LIFO,"
+  },
+  {
+    "path": "source/db/company_scope_test.go",
+    "line": 64,
+    "old": "// 永远匹配不上的死 ICP 规则。",
+    "new": "// a dead ICP rule that can never match."
+  },
+  {
+    "path": "source/db/company_scope_test.go",
+    "line": 63,
+    "old": "// 备案号不含点号：掺了域名/版本号的描述性文字归关键词，否则会存成一条",
+    "new": "// Filing numbers contain no dots: descriptive domain/version text becomes a keyword, not"
+  },
+  {
+    "path": "source/db/config.go",
+    "line": 685,
+    "old": "// 枚举做白名单校验,非法值回落默认,避免脏数据把调度 pump 带偏。",
+    "new": "// Validate enum allowlists and fall back to defaults so dirty data cannot misdirect the scheduling pump."
+  },
+  {
+    "path": "source/db/config.go",
+    "line": 684,
+    "old": "// runMode(serial|parallel) / mergeMode(by_task|all|none) / maxParallel(parallel 用,0=不限)。",
+    "new": "// runMode(serial|parallel) / mergeMode(by_task|all|none) / maxParallel(parallel only; 0=unlimited)."
+  },
+  {
+    "path": "source/db/config.go",
+    "line": 683,
+    "old": "// SetAgentTriggerBehavior stores an agent's P3 trigger post-processing策略:",
+    "new": "// SetAgentTriggerBehavior stores an agent's P3 trigger post-processing policy:"
+  },
+  {
+    "path": "source/db/config.go",
+    "line": 511,
+    "old": "// mean zero. Used to show \"MCP N · Skill N · 工具 N\" on the agent cards.",
+    "new": "// mean zero. Used to show MCP, Skill and Tool counts on agent cards."
+  },
+  {
+    "path": "source/db/config.go",
+    "line": 461,
+    "old": "// TriggerMaxParallel — 仅 parallel 用的每 agent 并发上限;0=不限",
+    "new": "// TriggerMaxParallel: per-agent concurrency cap for parallel mode only; 0 means unlimited."
+  },
+  {
+    "path": "source/db/config.go",
+    "line": 460,
+    "old": "// TriggerMergeMode by_task|all|none — 仅 serial 用:同任务合并 / 全部合并 / 不合并",
+    "new": "// TriggerMergeMode by_task|all|none: serial only; merge per task / merge all / no merging."
+  },
+  {
+    "path": "source/db/config.go",
+    "line": 459,
+    "old": "// TriggerRunMode  serial|parallel — 串行排队 / 每次触发各自并发一个会话",
+    "new": "// TriggerRunMode  serial|parallel: serial queue / one concurrent conversation per trigger."
+  },
+  {
+    "path": "source/db/config.go",
+    "line": 458,
+    "old": "// P3 触发后处理策略(仅自定义 agent 有意义):",
+    "new": "// P3 post-trigger processing policy (meaningful only for custom agents):"
+  },
+  {
+    "path": "source/db/config.go",
+    "line": 455,
+    "old": "// 任务级超时收尾词(与 per-run 两套;仅 worker/planner 用);空/0=用代码内置默认。",
+    "new": "// Task-level timeout wrap-up prompts (separate from per-run; worker/planner only); empty/0 uses built-in defaults."
+  },
+  {
+    "path": "source/db/config.go",
+    "line": 71,
+    "old": "// that are per-endpoint: 建连(connect) / 空响应(empty) / 同 provider 安全窗口",
+    "new": "// that are per-endpoint: connection / empty-response / same-provider safe-window retries."
+  },
+  {
+    "path": "source/db/config.go",
+    "line": 32,
+    "old": "// \"low\"/\"medium\"/\"high\"/\"xhigh\"/\"max\" = 对应强度. 见 agent.Config.NewProvider.",
+    "new": "// \"low\"/\"medium\"/\"high\"/\"xhigh\"/\"max\" select intensity. See agent.Config.NewProvider."
+  },
+  {
+    "path": "source/db/config.go",
+    "line": 31,
+    "old": "// ReasoningEffort 独立控制思考「强度」:\"\" = 不发送(默认);",
+    "new": "// ReasoningEffort independently controls thinking intensity: \"\" omits it (default);"
+  },
+  {
+    "path": "source/db/config.go",
+    "line": 29,
+    "old": "// \"disabled\" = 显式关闭; \"enabled\" = 开启. 与 ReasoningEffort 解耦.",
+    "new": "// \"disabled\" explicitly disables it; \"enabled\" enables it. Independent of ReasoningEffort."
+  },
+  {
+    "path": "source/db/config.go",
+    "line": 28,
+    "old": "// ThinkingType 独立控制思考「开关」(thinking.type):\"\" = 不发送(默认);",
+    "new": "// ThinkingType independently controls the thinking switch (thinking.type): \"\" omits it (default);"
+  },
+  {
+    "path": "source/db/constants.go",
+    "line": 28,
+    "old": "// StateIntentDeleted marks an intent the user假删除(soft delete): it drops out of",
+    "new": "// StateIntentDeleted marks a user-soft-deleted intent: it drops out of"
+  },
+  {
+    "path": "source/db/db.go",
+    "line": 550,
+    "old": "// v1. Unlike the old guard.go floor, these are plain [内置] rules — the user can",
+    "new": "// v1. Unlike the old guard.go floor, these are ordinary built-in rules — the user can"
+  },
+  {
+    "path": "source/db/db.go",
+    "line": 496,
+    "old": "//   3. JS/通用脚本里的 method: 'DELETE' / method=\"DELETE\"",
+    "new": "//   3. method: 'DELETE' / method=\"DELETE\" in JS or other scripts"
+  },
+  {
+    "path": "source/db/db.go",
+    "line": 495,
+    "old": "//   2. Python HTTP 客户端 .delete() 方法",
+    "new": "//   2. Python HTTP client .delete() methods"
+  },
+  {
+    "path": "source/db/db.go",
+    "line": 494,
+    "old": "//   1. curl -X DELETE / --request DELETE（Bash 工具直接执行或写入脚本）",
+    "new": "//   1. curl -X DELETE / --request DELETE (direct Bash execution or a script)"
+  },
+  {
+    "path": "source/db/db.go",
+    "line": 493,
+    "old": "// Agent 发送 DELETE 请求的三种常见方式：",
+    "new": "// Three common ways agents send DELETE requests:"
+  },
+  {
+    "path": "source/db/db.go",
+    "line": 492,
+    "old": "// ── HTTP 破坏性请求 (priority 80) ──────────────────────────────────",
+    "new": "// -- Destructive HTTP requests (priority 80) --"
+  },
+  {
+    "path": "source/db/db.go",
+    "line": 455,
+    "old": "// ── 数据库破坏性操作 (priority 90) ─────────────────────────────────",
+    "new": "// -- Destructive database operations (priority 90) --"
+  },
+  {
+    "path": "source/db/db.go",
+    "line": 373,
+    "old": "// ── 系统破坏性命令 (priority 100) ──────────────────────────────────",
+    "new": "// -- Destructive system commands (priority 100) --"
+  },
+  {
+    "path": "source/db/db.go",
+    "line": 256,
+    "old": "// 需要时自行启用), no proxy by default. The traffic-capture toggle injects/strips",
+    "new": "// enable it when needed), no proxy by default. The traffic-capture toggle injects/strips"
+  },
+  {
+    "path": "source/db/db.go",
+    "line": 255,
+    "old": "// Seed the built-in browser (Playwright) MCP once — DISABLED by default (用户",
+    "new": "// Seed the built-in browser (Playwright) MCP once — DISABLED by default (users"
+  },
+  {
+    "path": "source/db/db.go",
+    "line": 242,
+    "old": "// 会与全局项撞名(前端变量列表 key 重复);一并清掉。",
+    "new": "// that collides with the global variable (duplicate frontend list keys); remove it too."
+  },
+  {
+    "path": "source/db/db.go",
+    "line": 241,
+    "old": "// 'Now' 从各 agent 目录提升为全局 runtime 变量后,旧库里 goals 仍残留一条 'Now'",
+    "new": "// After promoting 'Now' from agent catalogs to global runtime scope, old databases retain a goals 'Now' entry"
+  },
+  {
+    "path": "source/db/db.go",
+    "line": 212,
+    "old": "// 渗透测试:内置「独立渗透」agent。经对话页驱动,一人从侦察到收尾走完整条渗透链,自己规划自己执行自己验证。默认开启交互式 shell。",
+    "new": "// Pentest: built-in standalone agent, driven from chat, planning, executing and verifying the full reconnaissance-to-wrap-up chain itself. Interactive shell defaults on."
+  },
+  {
+    "path": "source/db/db.go",
+    "line": 210,
+    "old": "// Auto:内置「平台操作」agent。不参与渗透编排循环,经对话页驱动,用工具操作平台。",
+    "new": "// Auto: built-in platform-operations agent. Driven from chat, it uses platform tools outside the pentest orchestration loop."
+  },
+  {
+    "path": "source/db/db.go",
+    "line": 195,
+    "old": "// 重复定义,否则 withGlobalVars 追加时会与全局项撞名。",
+    "new": "// avoiding name collisions when withGlobalVars appends global entries."
+  },
+  {
+    "path": "source/db/db.go",
+    "line": 194,
+    "old": "// Now 是全局 runtime 变量(见 server.globalPromptVars),不再在各 agent 目录里",
+    "new": "// Now is a global runtime variable (see server.globalPromptVars), no longer defined separately in agent catalogs,"
+  },
+  {
+    "path": "source/db/db.go",
+    "line": 190,
+    "old": "// 块统一置 true（尊重后续 toggle）；这里的 interactiveShell 只给需要「建行即默认开」的新 agent。",
+    "new": "// below, respecting later toggles. interactiveShell here only enables newly created agents by default."
+  },
+  {
+    "path": "source/db/db.go",
+    "line": 189,
+    "old": "// 注：planner/worker/mainagent/auto 的交互式 shell 默认由下方 interactive_shell_default_v1",
+    "new": "// Note: interactive shell defaults for planner/worker/mainagent/auto are enabled by interactive_shell_default_v1"
+  },
+  {
+    "path": "source/db/db.go",
+    "line": 188,
+    "old": "// builtinAgents mirrors docs §5(a). 内置工具不入库；这里只 seed agent + 变量目录。",
+    "new": "// builtinAgents mirrors docs §5(a). Built-in tools are not stored; seed only agents and variable catalogs here."
+  },
+  {
+    "path": "source/db/db.go",
+    "line": 185,
+    "old": "// intp 返回 v 的指针，用于给 builtinAgent 可选字段(如 runSeconds)显式取值。",
+    "new": "// intp returns a pointer to v for explicit values in optional builtinAgent fields such as runSeconds."
+  },
+  {
+    "path": "source/db/db.go",
+    "line": 146,
+    "old": "// 可能并存的其他实例；若 max_connections 调低过，这里也要跟着往下调。",
+    "new": "// other concurrent instances; lower it here too if max_connections is reduced."
+  },
+  {
+    "path": "source/db/db.go",
+    "line": 145,
+    "old": "// \"读不到\"和\"没有\"。maxOpenConns 要留出余量给 psql / reset-password.sh 以及",
+    "new": "// unavailable reads from absent data. maxOpenConns must leave headroom for psql / reset-password.sh and"
+  },
+  {
+    "path": "source/db/db.go",
+    "line": 144,
+    "old": "// 排队等待空闲连接——同样的负载下变成变慢而不是报错，调用方不必再去区分",
+    "new": "// wait for idle connections: the same load becomes slower, not erroneous, and callers need not distinguish"
+  },
+  {
+    "path": "source/db/db.go",
+    "line": 143,
+    "old": "// `FATAL: sorry, too many clients already` 这种**错误**。封顶之后超额查询改为",
+    "new": "// errors such as `FATAL: sorry, too many clients already`. With a cap, excess queries instead"
+  },
+  {
+    "path": "source/db/db.go",
+    "line": 142,
+    "old": "// PostgreSQL 的 max_connections（默认 100）才被拒，于是高峰期的查询拿到的是",
+    "new": "// PostgreSQL rejects it at max_connections (default 100), so peak-load queries receive"
+  },
+  {
+    "path": "source/db/db.go",
+    "line": 141,
+    "old": "// database/sql 默认不限制连接数：池里没有空闲连接时会无条件新建，一路顶到",
+    "new": "// database/sql defaults to unlimited connections: without an idle connection it opens another until"
+  },
+  {
+    "path": "source/db/db.go",
+    "line": 27,
+    "old": "// advisory lock 会在持有一条连接的同时让 seedBuiltins 另取连接），不会自锁。",
+    "new": "// advisory lock holds one connection while seedBuiltins acquires another), preventing self-deadlock."
+  },
+  {
+    "path": "source/db/db.go",
+    "line": 26,
+    "old": "// max_connections=100，同时远高于应用自身的嵌套取连接深度（启动期的 schema",
+    "new": "// max_connections=100, yet well above the application's nested connection depth (the startup schema"
+  },
+  {
+    "path": "source/db/db.go",
+    "line": 25,
+    "old": "// maxOpenConns 是连接池上限，见 Open 里的说明。取值远低于 PostgreSQL 默认的",
+    "new": "// maxOpenConns caps the pool; see Open. It is well below PostgreSQL's default"
+  },
+  {
+    "path": "source/db/exploration.go",
+    "line": 325,
+    "old": "// done/open/running are left untouched. Returns whether a row changed. Used by \"重跑\".",
+    "new": "// done/open/running are left untouched. Returns whether a row changed. Used by rerun."
+  },
+  {
+    "path": "source/server/assets.go",
+    "line": 350,
+    "old": "// \"测试资产\" search); 0 means the global asset view.",
+    "new": "// Test Assets search); 0 means the global asset view."
+  },
+  {
+    "path": "source/server/auth_test.go",
+    "line": 22,
+    "old": "// 关掉池子，让后续 GetSetting 返回 error 而不是 sql.ErrNoRows。",
+    "new": "// Close the pool so subsequent GetSetting calls return an error, not sql.ErrNoRows."
+  },
+  {
+    "path": "source/server/auth_test.go",
+    "line": 15,
+    "old": "// 这两个测试把 handler 的连接池关掉来制造读取失败，断言两处都 fail closed。",
+    "new": "// These tests close the handler's connection pool to force read failures and assert both paths fail closed."
+  },
+  {
+    "path": "source/server/auth_test.go",
+    "line": 13,
+    "old": "// authStatus 则会把前端直接送到 /setup 去照着做这件事。",
+    "new": "// while authStatus would direct the frontend to /setup to do just that."
+  },
+  {
+    "path": "source/server/auth_test.go",
+    "line": 12,
+    "old": "// 敞开初始化入口——authInit 会放行一个未认证请求去覆盖已有的管理员密码，",
+    "new": "// open initialization: authInit would allow an unauthenticated request to overwrite the administrator password,"
+  },
+  {
+    "path": "source/server/auth_test.go",
+    "line": 11,
+    "old": "// 空串。密码相关的 handler 一旦把 error 当成\"还没设置密码\"，就会在数据库抖动期间",
+    "new": "// an empty value. If password handlers treat errors as an unset password, transient database failures"
+  },
+  {
+    "path": "source/server/auth_test.go",
+    "line": 10,
+    "old": "// GetSetting 对\"键不存在\"和\"读取出错\"的返回值只差一个 error：两种情况 value 都是",
+    "new": "// GetSetting distinguishes missing keys from read failures only by error: both return"
+  },
+  {
+    "path": "source/server/chat_llm_resolve_test.go",
+    "line": 63,
+    "old": "// rejecting it with \"LLM 未配置\".",
+    "new": "// rejecting it as LLM not configured."
+  },
+  {
+    "path": "source/server/conversations.go",
+    "line": 626,
+    "old": "// agent's策略 decides concurrency + merge: serial → run one at a time (optionally",
+    "new": "// agent's policy decides concurrency and merging: serial runs one at a time (optionally"
+  },
+  {
+    "path": "source/server/conversations.go",
+    "line": 603,
+    "old": "// readTriggerBehavior loads an agent's策略, falling back to safe defaults",
+    "new": "// readTriggerBehavior loads an agent's policy, falling back to safe defaults"
+  },
+  {
+    "path": "source/server/conversations.go",
+    "line": 600,
+    "old": "// parallel 用的每 agent 并发上限;<=0=不限",
+    "new": "// Per-agent concurrency cap in parallel mode; <=0 means unlimited."
+  },
+  {
+    "path": "source/server/conversations.go",
+    "line": 599,
+    "old": "// by_task | all | none (serial 用;parallel 忽略,每条各自一个会话)",
+    "new": "// by_task | all | none (serial only; parallel ignores it and gives each entry its own conversation)."
+  },
+  {
+    "path": "source/server/conversations.go",
+    "line": 594,
+    "old": "// triggerBehavior is an agent's cached P3 trigger post-processing策略 (see the",
+    "new": "// triggerBehavior is an agent's cached P3 trigger post-processing policy (see the"
+  },
+  {
+    "path": "source/server/conversations.go",
+    "line": 580,
+    "old": "// On a manual stop ctx is cancelled; Chat already emits a clean \"已手动停止\"",
+    "new": "// On manual stop ctx is cancelled; Chat already emits a clean manually-stopped notice"
+  },
+  {
+    "path": "source/server/conversations.go",
+    "line": 396,
+    "old": "// 方式1 上传的文件(路径相对会话工作目录)",
+    "new": "// Method 1: uploaded files (paths relative to the conversation work directory)."
+  },
+  {
+    "path": "source/server/customtool.go",
+    "line": 418,
+    "old": "// ---------- http:原生请求 + 代理 ----------",
+    "new": "// ---------- http: native requests and proxy ----------"
+  },
+  {
+    "path": "source/server/customtool.go",
+    "line": 407,
+    "old": "// 参数 JSON 走 stdin",
+    "new": "// Pass argument JSON on stdin."
+  },
+  {
+    "path": "source/server/customtool.go",
+    "line": 401,
+    "old": "// 标量参数镜像成 TOOL_<NAME>",
+    "new": "// Mirror scalar arguments into TOOL_<NAME>."
+  },
+  {
+    "path": "source/server/customtool.go",
+    "line": 400,
+    "old": "// 会话代理 env",
+    "new": "// Conversation proxy environment."
+  },
+  {
+    "path": "source/server/customtool.go",
+    "line": 349,
+    "old": "// ---------- script(仅 Python):临时文件 + stdin JSON + env ----------",
+    "new": "// ---------- script (Python only): temporary file, stdin JSON and environment ----------"
+  },
+  {
+    "path": "source/server/customtool.go",
+    "line": 339,
+    "old": "// 代理 env/输出溢出。工具与 Bash 平级、共用底层,不经过 Bash 这个工具让模型调。",
+    "new": "// proxy environment and output spill. This tool is a Bash peer sharing its internals, not a model call through the Bash tool."
+  },
+  {
+    "path": "source/server/customtool.go",
+    "line": 338,
+    "old": "// 复用 Bash 也在用的底层 run(经 Bash CoreTool.Call):自动继承安全 floor/超时/",
+    "new": "// Reuse Bash's underlying run through Bash CoreTool.Call, inheriting the safety floor, timeouts,"
+  },
+  {
+    "path": "source/server/customtool.go",
+    "line": 329,
+    "old": "// ---------- command:渲染命令 → 复用 Bash 底层 run ----------",
+    "new": "// ---------- command: render commands and reuse Bash's underlying run ----------"
+  },
+  {
+    "path": "source/server/customtool.go",
+    "line": 264,
+    "old": "// {args:string} (薄壳工具), so command/http templates can use {args}.",
+    "new": "// {args:string} (thin-wrapper tool), so command/http templates can use {args}."
+  },
+  {
+    "path": "source/server/customtool.go",
+    "line": 243,
+    "old": "// ---------- 通用工具构造 ----------",
+    "new": "// ---------- Common tool construction ----------"
+  },
+  {
+    "path": "source/server/customtool.go",
+    "line": 216,
+    "old": "// ---------- exec 规格 ----------",
+    "new": "// ---------- exec specification ----------"
+  },
+  {
+    "path": "source/server/customtool.go",
+    "line": 181,
+    "old": "// ---------- Python 解释器(检测 + 入库 + 覆盖) ----------",
+    "new": "// ---------- Python interpreter (detection, persistence and overrides) ----------"
+  },
+  {
+    "path": "source/server/customtool.go",
+    "line": 43,
+    "old": "// 同 agent key 规则:小写字母开头 + 小写字母/数字/下划线",
+    "new": "// Same as agent keys: start with a lowercase letter, followed by lowercase letters/digits/underscores."
+  },
+  {
+    "path": "source/server/customtool.go",
+    "line": 30,
+    "old": "// ---------- 自定义工具 CRUD ----------",
+    "new": "// ---------- Custom tool CRUD ----------"
+  },
+  {
+    "path": "source/server/customtool.go",
+    "line": 28,
+    "old": "// 像流量/编排工具一样 seed 不需要(它们本就在 tools 表),经 hostTools 注入、按绑定过滤。",
+    "new": "// need no seeding like traffic/orchestration tools because they already exist in tools; hostTools injects them, filtered by bindings."
+  },
+  {
+    "path": "source/server/customtool.go",
+    "line": 27,
+    "old": "// stdin=参数 JSON + env TOOL_*、用配置的解释器)、http(原生请求+可设代理)。这些工具",
+    "new": "// passing JSON arguments on stdin and TOOL_* environment variables to the configured interpreter; http uses native requests with an optional proxy. These tools"
+  },
+  {
+    "path": "source/server/customtool.go",
+    "line": 26,
+    "old": "// kind 分派:command(渲染命令→复用 Bash 底层 run)、script(仅 Python;写临时文件、",
+    "new": "// Dispatch by kind: command renders commands and reuses Bash's underlying run; script supports Python only, writing temporary files,"
+  },
+  {
+    "path": "source/server/engine.go",
+    "line": 540,
+    "old": "// label 形如 \"worker-1 · #42\"，只用于日志。",
+    "new": "// label looks like \"worker-1 · #42\" and is used only in logs."
+  },
+  {
+    "path": "source/server/engine.go",
+    "line": 538,
+    "old": "// 次数」解析而来。<=0 = 不介入(用户显式关掉了这层)。",
+    "new": "// count. <=0 disables intervention (the user explicitly disabled this layer)."
+  },
+  {
+    "path": "source/server/engine.go",
+    "line": 537,
+    "old": "// limit 是空转续跑的次数上限，由 Engine.emptyTurnNudgeLimit() 从「空响应重试",
+    "new": "// limit caps idle-turn continuations, resolved by Engine.emptyTurnNudgeLimit() from the empty-response retry"
+  },
+  {
+    "path": "source/server/engine.go",
+    "line": 535,
+    "old": "// steerHooks 的值拷贝，计数必须共享同一份。",
+    "new": "// a value copy of steerHooks, so the count must be shared."
+  },
+  {
+    "path": "source/server/engine.go",
+    "line": 534,
+    "old": "// nudges 是本条意图已注入的空转续跑次数，上限 limit。指针:harness 持有的是",
+    "new": "// nudges counts idle-turn continuations injected for this intent, capped by limit. It is a pointer because the harness holds"
+  },
+  {
+    "path": "source/server/engine.go",
+    "line": 530,
+    "old": "// 它同时负责「空转回合」的续跑，见 Stop。",
+    "new": "// It also continues idle turns; see Stop."
+  },
+  {
+    "path": "source/server/engine.go",
+    "line": 144,
+    "old": "// taskID -> bool, deadline 协调器是否已启动(Run/reload 去重)",
+    "new": "// taskID -> bool: whether the deadline coordinator started (deduplicate Run/reload)."
+  },
+  {
+    "path": "source/server/engine.go",
+    "line": 143,
+    "old": "// taskID -> *int64, 在跑的 planner.Plan + worker.Execute 计数(用于 drain)",
+    "new": "// taskID -> *int64: active planner.Plan and worker.Execute count for draining."
+  },
+  {
+    "path": "source/server/engine.go",
+    "line": 142,
+    "old": "// taskID -> bool, first_run_at 是否已盖章(本进程内只盖一次)",
+    "new": "// taskID -> bool: whether first_run_at is stamped (once per process)."
+  },
+  {
+    "path": "source/server/engine.go",
+    "line": 141,
+    "old": "// taskID -> int64 unix, 绝对截止时刻(首次运行时盖章;0/缺省=不限)",
+    "new": "// taskID -> int64 Unix absolute deadline (stamped on first run; 0/absent means unlimited)."
+  },
+  {
+    "path": "source/server/engine.go",
+    "line": 140,
+    "old": "// taskID -> bool, 任务已进入收尾时序(停止派/领新意图)",
+    "new": "// taskID -> bool: task has entered wrap-up (stop dispatching/claiming new intents)."
+  },
+  {
+    "path": "source/server/engine.go",
+    "line": 73,
+    "old": "// 每次重试前的退避",
+    "new": "// Backoff before each retry."
+  },
+  {
+    "path": "source/server/engine.go",
+    "line": 72,
+    "old": "// model_error 收场后额外重试的次数",
+    "new": "// Additional retries after model_error termination."
+  },
+  {
+    "path": "source/server/engine.go",
+    "line": 70,
+    "old": "// provider 恢复的时间；重试期间若被暂停/终止/取消则立即让位给对应分支处理。",
+    "new": "// provider recovery. Pause/termination/cancellation during retries immediately yields to the corresponding handler."
+  },
+  {
+    "path": "source/server/engine.go",
+    "line": 69,
+    "old": "// blocked 会白丢一条意图，所以这里对该终态额外重跑几次，每次之间退避一下，给",
+    "new": "// blocked would waste an intent, so rerun this terminal state a few times with backoff, allowing"
+  },
+  {
+    "path": "source/server/engine.go",
+    "line": 68,
+    "old": "// 收场的 work 不是「试过没做完」也不是真失败，而是外部抖动。默认把它当永久",
+    "new": "// means external instability, not unfinished exploration or a genuine failure. Treating it as permanently"
+  },
+  {
+    "path": "source/server/engine.go",
+    "line": 67,
+    "old": "// model_error（provider/API 故障：LLM 层瞬时重试耗尽，或流已开始后中途断流）",
+    "new": "// model_error (provider/API failure: transient LLM retries exhausted or a stream interrupted after starting)"
+  }
+]

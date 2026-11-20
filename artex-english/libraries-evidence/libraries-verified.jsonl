@@ -1,0 +1,589 @@
+{"Time":"2026-11-20T00:24:47.256540152Z","Action":"start","Package":"github.com/Autumn-27/artex/config"}
+{"Time":"2026-11-20T00:24:47.259969311Z","Action":"run","Package":"github.com/Autumn-27/artex/config","Test":"TestPostgresDSNPrecedence"}
+{"Time":"2026-11-20T00:24:47.260035851Z","Action":"output","Package":"github.com/Autumn-27/artex/config","Test":"TestPostgresDSNPrecedence","Output":"=== RUN   TestPostgresDSNPrecedence\n"}
+{"Time":"2026-11-20T00:24:47.262078036Z","Action":"output","Package":"github.com/Autumn-27/artex/config","Test":"TestPostgresDSNPrecedence","Output":"--- PASS: TestPostgresDSNPrecedence (0.00s)\n"}
+{"Time":"2026-11-20T00:24:47.262110716Z","Action":"pass","Package":"github.com/Autumn-27/artex/config","Test":"TestPostgresDSNPrecedence","Elapsed":0}
+{"Time":"2026-11-20T00:24:47.262115847Z","Action":"output","Package":"github.com/Autumn-27/artex/config","Output":"PASS\n"}
+{"Time":"2026-11-20T00:24:47.263122729Z","Action":"output","Package":"github.com/Autumn-27/artex/config","Output":"ok  \tgithub.com/Autumn-27/artex/config\t0.006s\n"}
+{"Time":"2026-11-20T00:24:47.263166369Z","Action":"pass","Package":"github.com/Autumn-27/artex/config","Elapsed":0.007}
+{"Time":"2026-11-20T00:24:47.612689926Z","Action":"start","Package":"github.com/Autumn-27/artex/llmpool"}
+{"Time":"2026-11-20T00:24:47.617113647Z","Action":"run","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestSetPolicyOverridesThresholdAndCooldown"}
+{"Time":"2026-11-20T00:24:47.617205488Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestSetPolicyOverridesThresholdAndCooldown","Output":"=== RUN   TestSetPolicyOverridesThresholdAndCooldown\n"}
+{"Time":"2026-11-20T00:24:47.617219478Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestSetPolicyOverridesThresholdAndCooldown","Output":"--- PASS: TestSetPolicyOverridesThresholdAndCooldown (0.00s)\n"}
+{"Time":"2026-11-20T00:24:47.617223658Z","Action":"pass","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestSetPolicyOverridesThresholdAndCooldown","Elapsed":0}
+{"Time":"2026-11-20T00:24:47.617229558Z","Action":"run","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestSetPolicyDisablesSoftTrip"}
+{"Time":"2026-11-20T00:24:47.617232548Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestSetPolicyDisablesSoftTrip","Output":"=== RUN   TestSetPolicyDisablesSoftTrip\n"}
+{"Time":"2026-11-20T00:24:47.617236758Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestSetPolicyDisablesSoftTrip","Output":"--- PASS: TestSetPolicyDisablesSoftTrip (0.00s)\n"}
+{"Time":"2026-11-20T00:24:47.617239838Z","Action":"pass","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestSetPolicyDisablesSoftTrip","Elapsed":0}
+{"Time":"2026-11-20T00:24:47.617242798Z","Action":"run","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestZeroPolicyKeepsDefaults"}
+{"Time":"2026-11-20T00:24:47.617245398Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestZeroPolicyKeepsDefaults","Output":"=== RUN   TestZeroPolicyKeepsDefaults\n"}
+{"Time":"2026-11-20T00:24:47.617248538Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestZeroPolicyKeepsDefaults","Output":"--- PASS: TestZeroPolicyKeepsDefaults (0.00s)\n"}
+{"Time":"2026-11-20T00:24:47.617251398Z","Action":"pass","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestZeroPolicyKeepsDefaults","Elapsed":0}
+{"Time":"2026-11-20T00:24:47.617255018Z","Action":"run","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestFailoverOnNoCredit"}
+{"Time":"2026-11-20T00:24:47.617257678Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestFailoverOnNoCredit","Output":"=== RUN   TestFailoverOnNoCredit\n"}
+{"Time":"2026-11-20T00:24:47.617344457Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestFailoverOnNoCredit","Output":"2026/11/20 00:24:47 [llmpool] Profile \"a\"(ma) circuit open: anthropic: status 402: nope\n"}
+{"Time":"2026-11-20T00:24:47.617366718Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestFailoverOnNoCredit","Output":"2026/11/20 00:24:47 [llmpool] LLM failover: \"a\"(ma) → \"b\"(mb), reason: anthropic: status 402: nope\n"}
+{"Time":"2026-11-20T00:24:47.617393288Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestFailoverOnNoCredit","Output":"--- PASS: TestFailoverOnNoCredit (0.00s)\n"}
+{"Time":"2026-11-20T00:24:47.617401958Z","Action":"pass","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestFailoverOnNoCredit","Elapsed":0}
+{"Time":"2026-11-20T00:24:47.617406678Z","Action":"run","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestHardFailureTripsBreakerImmediately"}
+{"Time":"2026-11-20T00:24:47.617410598Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestHardFailureTripsBreakerImmediately","Output":"=== RUN   TestHardFailureTripsBreakerImmediately\n"}
+{"Time":"2026-11-20T00:24:47.617414948Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestHardFailureTripsBreakerImmediately","Output":"2026/11/20 00:24:47 [llmpool] Profile \"a\"(ma) circuit open: anthropic: status 402: nope\n"}
+{"Time":"2026-11-20T00:24:47.617420628Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestHardFailureTripsBreakerImmediately","Output":"2026/11/20 00:24:47 [llmpool] LLM failover: \"a\"(ma) → \"b\"(mb), reason: anthropic: status 402: nope\n"}
+{"Time":"2026-11-20T00:24:47.617424588Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestHardFailureTripsBreakerImmediately","Output":"--- PASS: TestHardFailureTripsBreakerImmediately (0.00s)\n"}
+{"Time":"2026-11-20T00:24:47.617427688Z","Action":"pass","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestHardFailureTripsBreakerImmediately","Elapsed":0}
+{"Time":"2026-11-20T00:24:47.617430688Z","Action":"run","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestSoftFailureNeedsRepeats"}
+{"Time":"2026-11-20T00:24:47.617433368Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestSoftFailureNeedsRepeats","Output":"=== RUN   TestSoftFailureNeedsRepeats\n"}
+{"Time":"2026-11-20T00:24:47.617439628Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestSoftFailureNeedsRepeats","Output":"--- PASS: TestSoftFailureNeedsRepeats (0.00s)\n"}
+{"Time":"2026-11-20T00:24:47.617442508Z","Action":"pass","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestSoftFailureNeedsRepeats","Elapsed":0}
+{"Time":"2026-11-20T00:24:47.617445608Z","Action":"run","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestPassResetsCounters"}
+{"Time":"2026-11-20T00:24:47.617448148Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestPassResetsCounters","Output":"=== RUN   TestPassResetsCounters\n"}
+{"Time":"2026-11-20T00:24:47.617451828Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestPassResetsCounters","Output":"--- PASS: TestPassResetsCounters (0.00s)\n"}
+{"Time":"2026-11-20T00:24:47.617454688Z","Action":"pass","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestPassResetsCounters","Elapsed":0}
+{"Time":"2026-11-20T00:24:47.617459138Z","Action":"run","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestBackoffLadderGrows"}
+{"Time":"2026-11-20T00:24:47.617461828Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestBackoffLadderGrows","Output":"=== RUN   TestBackoffLadderGrows\n"}
+{"Time":"2026-11-20T00:24:47.617465079Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestBackoffLadderGrows","Output":"--- PASS: TestBackoffLadderGrows (0.00s)\n"}
+{"Time":"2026-11-20T00:24:47.617468018Z","Action":"pass","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestBackoffLadderGrows","Elapsed":0}
+{"Time":"2026-11-20T00:24:47.617470818Z","Action":"run","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestNoFailoverAfterEmit"}
+{"Time":"2026-11-20T00:24:47.617473388Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestNoFailoverAfterEmit","Output":"=== RUN   TestNoFailoverAfterEmit\n"}
+{"Time":"2026-11-20T00:24:47.618016729Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestNoFailoverAfterEmit","Output":"--- PASS: TestNoFailoverAfterEmit (0.00s)\n"}
+{"Time":"2026-11-20T00:24:47.618033939Z","Action":"pass","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestNoFailoverAfterEmit","Elapsed":0}
+{"Time":"2026-11-20T00:24:47.618039699Z","Action":"run","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestNoFailoverOnCancel"}
+{"Time":"2026-11-20T00:24:47.61804384Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestNoFailoverOnCancel","Output":"=== RUN   TestNoFailoverOnCancel\n"}
+{"Time":"2026-11-20T00:24:47.61804888Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestNoFailoverOnCancel","Output":"--- PASS: TestNoFailoverOnCancel (0.00s)\n"}
+{"Time":"2026-11-20T00:24:47.61805313Z","Action":"pass","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestNoFailoverOnCancel","Elapsed":0}
+{"Time":"2026-11-20T00:24:47.61805744Z","Action":"run","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestShouldFailoverByStatus"}
+{"Time":"2026-11-20T00:24:47.61806094Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestShouldFailoverByStatus","Output":"=== RUN   TestShouldFailoverByStatus\n"}
+{"Time":"2026-11-20T00:24:47.61806552Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestShouldFailoverByStatus","Output":"--- PASS: TestShouldFailoverByStatus (0.00s)\n"}
+{"Time":"2026-11-20T00:24:47.61806969Z","Action":"pass","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestShouldFailoverByStatus","Elapsed":0}
+{"Time":"2026-11-20T00:24:47.618073629Z","Action":"run","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestHardVsSoftClassification"}
+{"Time":"2026-11-20T00:24:47.61807728Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestHardVsSoftClassification","Output":"=== RUN   TestHardVsSoftClassification\n"}
+{"Time":"2026-11-20T00:24:47.61808189Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestHardVsSoftClassification","Output":"--- PASS: TestHardVsSoftClassification (0.00s)\n"}
+{"Time":"2026-11-20T00:24:47.61808818Z","Action":"pass","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestHardVsSoftClassification","Elapsed":0}
+{"Time":"2026-11-20T00:24:47.61809221Z","Action":"run","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestSkipsMembersTooSmallForRequest"}
+{"Time":"2026-11-20T00:24:47.61809587Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestSkipsMembersTooSmallForRequest","Output":"=== RUN   TestSkipsMembersTooSmallForRequest\n"}
+{"Time":"2026-11-20T00:24:47.61810022Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestSkipsMembersTooSmallForRequest","Output":"--- PASS: TestSkipsMembersTooSmallForRequest (0.00s)\n"}
+{"Time":"2026-11-20T00:24:47.61810443Z","Action":"pass","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestSkipsMembersTooSmallForRequest","Elapsed":0}
+{"Time":"2026-11-20T00:24:47.61810965Z","Action":"run","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestAllTrippedStillProbesHead"}
+{"Time":"2026-11-20T00:24:47.61811334Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestAllTrippedStillProbesHead","Output":"=== RUN   TestAllTrippedStillProbesHead\n"}
+{"Time":"2026-11-20T00:24:47.61811762Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestAllTrippedStillProbesHead","Output":"--- PASS: TestAllTrippedStillProbesHead (0.00s)\n"}
+{"Time":"2026-11-20T00:24:47.61812183Z","Action":"pass","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestAllTrippedStillProbesHead","Elapsed":0}
+{"Time":"2026-11-20T00:24:47.61812595Z","Action":"run","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestExhaustedChainReportsClearly"}
+{"Time":"2026-11-20T00:24:47.61813044Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestExhaustedChainReportsClearly","Output":"=== RUN   TestExhaustedChainReportsClearly\n"}
+{"Time":"2026-11-20T00:24:47.61813696Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestExhaustedChainReportsClearly","Output":"2026/11/20 00:24:47 [llmpool] Profile \"a\"(ma) circuit open: anthropic: status 402: nope\n"}
+{"Time":"2026-11-20T00:24:47.61814175Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestExhaustedChainReportsClearly","Output":"2026/11/20 00:24:47 [llmpool] LLM failover: \"a\"(ma) → \"b\"(mb), reason: anthropic: status 402: nope\n"}
+{"Time":"2026-11-20T00:24:47.61814638Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestExhaustedChainReportsClearly","Output":"2026/11/20 00:24:47 [llmpool] Profile \"b\"(mb) circuit open: anthropic: status 402: nope\n"}
+{"Time":"2026-11-20T00:24:47.61815083Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestExhaustedChainReportsClearly","Output":"2026/11/20 00:24:47 [llmpool] Failover chain exhausted (all 2 profiles failed), last error: anthropic: status 402: nope\n"}
+{"Time":"2026-11-20T00:24:47.61815591Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestExhaustedChainReportsClearly","Output":"--- PASS: TestExhaustedChainReportsClearly (0.00s)\n"}
+{"Time":"2026-11-20T00:24:47.61816002Z","Action":"pass","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestExhaustedChainReportsClearly","Elapsed":0}
+{"Time":"2026-11-20T00:24:47.61816377Z","Action":"run","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestEqualRankRotates"}
+{"Time":"2026-11-20T00:24:47.61816769Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestEqualRankRotates","Output":"=== RUN   TestEqualRankRotates\n"}
+{"Time":"2026-11-20T00:24:47.61817191Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestEqualRankRotates","Output":"2026/11/20 00:24:47 [llmpool] Profile \"head\"(mhead) circuit open: anthropic: status 402: nope\n"}
+{"Time":"2026-11-20T00:24:47.618176171Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestEqualRankRotates","Output":"2026/11/20 00:24:47 [llmpool] LLM failover: \"head\"(mhead) → \"a\"(ma), reason: anthropic: status 402: nope\n"}
+{"Time":"2026-11-20T00:24:47.618181441Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestEqualRankRotates","Output":"--- PASS: TestEqualRankRotates (0.00s)\n"}
+{"Time":"2026-11-20T00:24:47.61818547Z","Action":"pass","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestEqualRankRotates","Elapsed":0}
+{"Time":"2026-11-20T00:24:47.61818953Z","Action":"run","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestHeadAlwaysFirst"}
+{"Time":"2026-11-20T00:24:47.61819308Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestHeadAlwaysFirst","Output":"=== RUN   TestHeadAlwaysFirst\n"}
+{"Time":"2026-11-20T00:24:47.618197269Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestHeadAlwaysFirst","Output":"--- PASS: TestHeadAlwaysFirst (0.00s)\n"}
+{"Time":"2026-11-20T00:24:47.61820117Z","Action":"pass","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestHeadAlwaysFirst","Elapsed":0}
+{"Time":"2026-11-20T00:24:47.61820524Z","Action":"run","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestSingleMemberPassthrough"}
+{"Time":"2026-11-20T00:24:47.618209Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestSingleMemberPassthrough","Output":"=== RUN   TestSingleMemberPassthrough\n"}
+{"Time":"2026-11-20T00:24:47.61821333Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestSingleMemberPassthrough","Output":"--- PASS: TestSingleMemberPassthrough (0.00s)\n"}
+{"Time":"2026-11-20T00:24:47.618217389Z","Action":"pass","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestSingleMemberPassthrough","Elapsed":0}
+{"Time":"2026-11-20T00:24:47.61822269Z","Action":"run","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestNewEmptyChainIsNil"}
+{"Time":"2026-11-20T00:24:47.61822647Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestNewEmptyChainIsNil","Output":"=== RUN   TestNewEmptyChainIsNil\n"}
+{"Time":"2026-11-20T00:24:47.61823082Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestNewEmptyChainIsNil","Output":"--- PASS: TestNewEmptyChainIsNil (0.00s)\n"}
+{"Time":"2026-11-20T00:24:47.61823467Z","Action":"pass","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestNewEmptyChainIsNil","Elapsed":0}
+{"Time":"2026-11-20T00:24:47.61823846Z","Action":"run","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestExpiredWindowIsClosed"}
+{"Time":"2026-11-20T00:24:47.61824214Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestExpiredWindowIsClosed","Output":"=== RUN   TestExpiredWindowIsClosed\n"}
+{"Time":"2026-11-20T00:24:47.61824664Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestExpiredWindowIsClosed","Output":"--- PASS: TestExpiredWindowIsClosed (0.00s)\n"}
+{"Time":"2026-11-20T00:24:47.61825054Z","Action":"pass","Package":"github.com/Autumn-27/artex/llmpool","Test":"TestExpiredWindowIsClosed","Elapsed":0}
+{"Time":"2026-11-20T00:24:47.61825516Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Output":"PASS\n"}
+{"Time":"2026-11-20T00:24:47.618682501Z","Action":"output","Package":"github.com/Autumn-27/artex/llmpool","Output":"ok  \tgithub.com/Autumn-27/artex/llmpool\t0.006s\n"}
+{"Time":"2026-11-20T00:24:47.618707691Z","Action":"pass","Package":"github.com/Autumn-27/artex/llmpool","Elapsed":0.006}
+{"Time":"2026-11-20T00:24:48.594013667Z","Action":"start","Package":"github.com/Autumn-27/artex/llmrec"}
+{"Time":"2026-11-20T00:24:48.600371833Z","Action":"run","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestCaptureFromNilAndMissing"}
+{"Time":"2026-11-20T00:24:48.600570134Z","Action":"output","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestCaptureFromNilAndMissing","Output":"=== RUN   TestCaptureFromNilAndMissing\n"}
+{"Time":"2026-11-20T00:24:48.600595524Z","Action":"output","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestCaptureFromNilAndMissing","Output":"--- PASS: TestCaptureFromNilAndMissing (0.00s)\n"}
+{"Time":"2026-11-20T00:24:48.600599004Z","Action":"pass","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestCaptureFromNilAndMissing","Elapsed":0}
+{"Time":"2026-11-20T00:24:48.600605894Z","Action":"run","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestNilCaptureIsInert"}
+{"Time":"2026-11-20T00:24:48.600610944Z","Action":"output","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestNilCaptureIsInert","Output":"=== RUN   TestNilCaptureIsInert\n"}
+{"Time":"2026-11-20T00:24:48.600615094Z","Action":"output","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestNilCaptureIsInert","Output":"--- PASS: TestNilCaptureIsInert (0.00s)\n"}
+{"Time":"2026-11-20T00:24:48.600618064Z","Action":"pass","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestNilCaptureIsInert","Elapsed":0}
+{"Time":"2026-11-20T00:24:48.600621764Z","Action":"run","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestCaptureSingleAttemptKeepsBytesVerbatim"}
+{"Time":"2026-11-20T00:24:48.600634894Z","Action":"output","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestCaptureSingleAttemptKeepsBytesVerbatim","Output":"=== RUN   TestCaptureSingleAttemptKeepsBytesVerbatim\n"}
+{"Time":"2026-11-20T00:24:48.601573986Z","Action":"output","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestCaptureSingleAttemptKeepsBytesVerbatim","Output":"--- PASS: TestCaptureSingleAttemptKeepsBytesVerbatim (0.00s)\n"}
+{"Time":"2026-11-20T00:24:48.601590406Z","Action":"pass","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestCaptureSingleAttemptKeepsBytesVerbatim","Elapsed":0}
+{"Time":"2026-11-20T00:24:48.601597676Z","Action":"run","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestCaptureRetriedAttemptsAreAllKept"}
+{"Time":"2026-11-20T00:24:48.601601386Z","Action":"output","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestCaptureRetriedAttemptsAreAllKept","Output":"=== RUN   TestCaptureRetriedAttemptsAreAllKept\n"}
+{"Time":"2026-11-20T00:24:48.601606796Z","Action":"output","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestCaptureRetriedAttemptsAreAllKept","Output":"--- PASS: TestCaptureRetriedAttemptsAreAllKept (0.00s)\n"}
+{"Time":"2026-11-20T00:24:48.601610476Z","Action":"pass","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestCaptureRetriedAttemptsAreAllKept","Elapsed":0}
+{"Time":"2026-11-20T00:24:48.601614576Z","Action":"run","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestCaptureEmptyWhenNoHTTPHappened"}
+{"Time":"2026-11-20T00:24:48.601618016Z","Action":"output","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestCaptureEmptyWhenNoHTTPHappened","Output":"=== RUN   TestCaptureEmptyWhenNoHTTPHappened\n"}
+{"Time":"2026-11-20T00:24:48.601669556Z","Action":"output","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestCaptureEmptyWhenNoHTTPHappened","Output":"--- PASS: TestCaptureEmptyWhenNoHTTPHappened (0.00s)\n"}
+{"Time":"2026-11-20T00:24:48.601673257Z","Action":"pass","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestCaptureEmptyWhenNoHTTPHappened","Elapsed":0}
+{"Time":"2026-11-20T00:24:48.601677097Z","Action":"run","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestTaskIDContextUsesExplicitRegistryID"}
+{"Time":"2026-11-20T00:24:48.601680556Z","Action":"output","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestTaskIDContextUsesExplicitRegistryID","Output":"=== RUN   TestTaskIDContextUsesExplicitRegistryID\n"}
+{"Time":"2026-11-20T00:24:48.601685377Z","Action":"output","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestTaskIDContextUsesExplicitRegistryID","Output":"--- PASS: TestTaskIDContextUsesExplicitRegistryID (0.00s)\n"}
+{"Time":"2026-11-20T00:24:48.601689226Z","Action":"pass","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestTaskIDContextUsesExplicitRegistryID","Elapsed":0}
+{"Time":"2026-11-20T00:24:48.601693347Z","Action":"run","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestParseSessionFallbackIsExplorationScoped"}
+{"Time":"2026-11-20T00:24:48.601697327Z","Action":"output","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestParseSessionFallbackIsExplorationScoped","Output":"=== RUN   TestParseSessionFallbackIsExplorationScoped\n"}
+{"Time":"2026-11-20T00:24:48.601701907Z","Action":"output","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestParseSessionFallbackIsExplorationScoped","Output":"--- PASS: TestParseSessionFallbackIsExplorationScoped (0.00s)\n"}
+{"Time":"2026-11-20T00:24:48.601724837Z","Action":"pass","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestParseSessionFallbackIsExplorationScoped","Elapsed":0}
+{"Time":"2026-11-20T00:24:48.601729177Z","Action":"run","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestCompleteForwardsAtomicResponse"}
+{"Time":"2026-11-20T00:24:48.601732607Z","Action":"output","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestCompleteForwardsAtomicResponse","Output":"=== RUN   TestCompleteForwardsAtomicResponse\n"}
+{"Time":"2026-11-20T00:24:48.601741377Z","Action":"output","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestCompleteForwardsAtomicResponse","Output":"--- PASS: TestCompleteForwardsAtomicResponse (0.00s)\n"}
+{"Time":"2026-11-20T00:24:48.601745547Z","Action":"pass","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestCompleteForwardsAtomicResponse","Elapsed":0}
+{"Time":"2026-11-20T00:24:48.601749427Z","Action":"run","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestSideUsageRecordedOnceOnConsumerCancellation"}
+{"Time":"2026-11-20T00:24:48.601752887Z","Action":"output","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestSideUsageRecordedOnceOnConsumerCancellation","Output":"=== RUN   TestSideUsageRecordedOnceOnConsumerCancellation\n"}
+{"Time":"2026-11-20T00:24:48.601756527Z","Action":"output","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestSideUsageRecordedOnceOnConsumerCancellation","Output":"    llmrec_test.go:88: requires isolated ARTEX_PG_DSN\n"}
+{"Time":"2026-11-20T00:24:48.601760887Z","Action":"output","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestSideUsageRecordedOnceOnConsumerCancellation","Output":"--- SKIP: TestSideUsageRecordedOnceOnConsumerCancellation (0.00s)\n"}
+{"Time":"2026-11-20T00:24:48.601764787Z","Action":"skip","Package":"github.com/Autumn-27/artex/llmrec","Test":"TestSideUsageRecordedOnceOnConsumerCancellation","Elapsed":0}
+{"Time":"2026-11-20T00:24:48.601768397Z","Action":"output","Package":"github.com/Autumn-27/artex/llmrec","Output":"PASS\n"}
+{"Time":"2026-11-20T00:24:48.602150108Z","Action":"output","Package":"github.com/Autumn-27/artex/llmrec","Output":"ok  \tgithub.com/Autumn-27/artex/llmrec\t0.008s\n"}
+{"Time":"2026-11-20T00:24:48.602172068Z","Action":"pass","Package":"github.com/Autumn-27/artex/llmrec","Elapsed":0.008}
+{"Time":"2026-11-20T00:24:49.357766142Z","Action":"start","Package":"github.com/Autumn-27/artex/evidence"}
+{"Time":"2026-11-20T00:24:49.363312697Z","Action":"run","Package":"github.com/Autumn-27/artex/evidence","Test":"TestEvidenceBindingLifecycle"}
+{"Time":"2026-11-20T00:24:49.363355377Z","Action":"output","Package":"github.com/Autumn-27/artex/evidence","Test":"TestEvidenceBindingLifecycle","Output":"=== RUN   TestEvidenceBindingLifecycle\n"}
+{"Time":"2026-11-20T00:24:49.363361317Z","Action":"output","Package":"github.com/Autumn-27/artex/evidence","Test":"TestEvidenceBindingLifecycle","Output":"    store_test.go:76: ARTEX_PG_DSN is required for evidence integration tests\n"}
+{"Time":"2026-11-20T00:24:49.363369707Z","Action":"output","Package":"github.com/Autumn-27/artex/evidence","Test":"TestEvidenceBindingLifecycle","Output":"--- SKIP: TestEvidenceBindingLifecycle (0.00s)\n"}
+{"Time":"2026-11-20T00:24:49.363373067Z","Action":"skip","Package":"github.com/Autumn-27/artex/evidence","Test":"TestEvidenceBindingLifecycle","Elapsed":0}
+{"Time":"2026-11-20T00:24:49.363378227Z","Action":"run","Package":"github.com/Autumn-27/artex/evidence","Test":"TestEvidenceAtomicFailuresAndLegacy"}
+{"Time":"2026-11-20T00:24:49.363381077Z","Action":"output","Package":"github.com/Autumn-27/artex/evidence","Test":"TestEvidenceAtomicFailuresAndLegacy","Output":"=== RUN   TestEvidenceAtomicFailuresAndLegacy\n"}
+{"Time":"2026-11-20T00:24:49.363384447Z","Action":"output","Package":"github.com/Autumn-27/artex/evidence","Test":"TestEvidenceAtomicFailuresAndLegacy","Output":"    store_test.go:172: ARTEX_PG_DSN is required for evidence integration tests\n"}
+{"Time":"2026-11-20T00:24:49.363388127Z","Action":"output","Package":"github.com/Autumn-27/artex/evidence","Test":"TestEvidenceAtomicFailuresAndLegacy","Output":"--- SKIP: TestEvidenceAtomicFailuresAndLegacy (0.00s)\n"}
+{"Time":"2026-11-20T00:24:49.363391077Z","Action":"skip","Package":"github.com/Autumn-27/artex/evidence","Test":"TestEvidenceAtomicFailuresAndLegacy","Elapsed":0}
+{"Time":"2026-11-20T00:24:49.363406397Z","Action":"run","Package":"github.com/Autumn-27/artex/evidence","Test":"TestEvidenceConcurrentBindAndDelete"}
+{"Time":"2026-11-20T00:24:49.363410417Z","Action":"output","Package":"github.com/Autumn-27/artex/evidence","Test":"TestEvidenceConcurrentBindAndDelete","Output":"=== RUN   TestEvidenceConcurrentBindAndDelete\n"}
+{"Time":"2026-11-20T00:24:49.363414427Z","Action":"output","Package":"github.com/Autumn-27/artex/evidence","Test":"TestEvidenceConcurrentBindAndDelete","Output":"    store_test.go:225: ARTEX_PG_DSN is required for evidence integration tests\n"}
+{"Time":"2026-11-20T00:24:49.363419197Z","Action":"output","Package":"github.com/Autumn-27/artex/evidence","Test":"TestEvidenceConcurrentBindAndDelete","Output":"--- SKIP: TestEvidenceConcurrentBindAndDelete (0.00s)\n"}
+{"Time":"2026-11-20T00:24:49.363423766Z","Action":"skip","Package":"github.com/Autumn-27/artex/evidence","Test":"TestEvidenceConcurrentBindAndDelete","Elapsed":0}
+{"Time":"2026-11-20T00:24:49.363428846Z","Action":"run","Package":"github.com/Autumn-27/artex/evidence","Test":"TestEvidenceGCGraceAndActiveRestore"}
+{"Time":"2026-11-20T00:24:49.363435836Z","Action":"output","Package":"github.com/Autumn-27/artex/evidence","Test":"TestEvidenceGCGraceAndActiveRestore","Output":"=== RUN   TestEvidenceGCGraceAndActiveRestore\n"}
+{"Time":"2026-11-20T00:24:49.363440416Z","Action":"output","Package":"github.com/Autumn-27/artex/evidence","Test":"TestEvidenceGCGraceAndActiveRestore","Output":"    store_test.go:274: ARTEX_PG_DSN is required for evidence integration tests\n"}
+{"Time":"2026-11-20T00:24:49.363445927Z","Action":"output","Package":"github.com/Autumn-27/artex/evidence","Test":"TestEvidenceGCGraceAndActiveRestore","Output":"--- SKIP: TestEvidenceGCGraceAndActiveRestore (0.00s)\n"}
+{"Time":"2026-11-20T00:24:49.363450487Z","Action":"skip","Package":"github.com/Autumn-27/artex/evidence","Test":"TestEvidenceGCGraceAndActiveRestore","Elapsed":0}
+{"Time":"2026-11-20T00:24:49.363454666Z","Action":"output","Package":"github.com/Autumn-27/artex/evidence","Output":"PASS\n"}
+{"Time":"2026-11-20T00:24:49.365643113Z","Action":"output","Package":"github.com/Autumn-27/artex/evidence","Output":"ok  \tgithub.com/Autumn-27/artex/evidence\t0.008s\n"}
+{"Time":"2026-11-20T00:24:49.365670742Z","Action":"pass","Package":"github.com/Autumn-27/artex/evidence","Elapsed":0.008}
+{"Time":"2026-11-20T00:24:49.99726965Z","Action":"start","Package":"github.com/Autumn-27/artex/report"}
+{"Time":"2026-11-20T00:24:50.004366158Z","Action":"run","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishFindingExportsRetainUnicodeData"}
+{"Time":"2026-11-20T00:24:50.004390098Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishFindingExportsRetainUnicodeData","Output":"=== RUN   TestEnglishFindingExportsRetainUnicodeData\n"}
+{"Time":"2026-11-20T00:24:50.004583279Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishFindingExportsRetainUnicodeData","Output":"--- PASS: TestEnglishFindingExportsRetainUnicodeData (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.004599768Z","Action":"pass","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishFindingExportsRetainUnicodeData","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.004606629Z","Action":"run","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence"}
+{"Time":"2026-11-20T00:24:50.004619719Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"=== RUN   TestEnglishReportPreservesEvidence\n"}
+{"Time":"2026-11-20T00:24:50.004762129Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"--- PASS: TestEnglishReportPreservesEvidence (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.004771849Z","Action":"pass","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.00485658Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Output":"PASS\n"}
+{"Time":"2026-11-20T00:24:50.005610811Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Output":"ok  \tgithub.com/Autumn-27/artex/report\t0.008s\n"}
+{"Time":"2026-11-20T00:24:50.005627091Z","Action":"pass","Package":"github.com/Autumn-27/artex/report","Elapsed":0.008}
+{"Time":"2026-11-20T00:24:50.283734349Z","Action":"start","Package":"github.com/Autumn-27/artex/selfupdate"}
+{"Time":"2026-11-20T00:24:50.28803593Z","Action":"run","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestEnglishUpdateDisabled"}
+{"Time":"2026-11-20T00:24:50.288056561Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestEnglishUpdateDisabled","Output":"=== RUN   TestEnglishUpdateDisabled\n"}
+{"Time":"2026-11-20T00:24:50.288097041Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestEnglishUpdateDisabled","Output":"--- PASS: TestEnglishUpdateDisabled (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.288100691Z","Action":"pass","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestEnglishUpdateDisabled","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.28810598Z","Action":"run","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestFetchLatestDisabledMakesNoRequest"}
+{"Time":"2026-11-20T00:24:50.28810884Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestFetchLatestDisabledMakesNoRequest","Output":"=== RUN   TestFetchLatestDisabledMakesNoRequest\n"}
+{"Time":"2026-11-20T00:24:50.28811329Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestFetchLatestDisabledMakesNoRequest","Output":"--- PASS: TestFetchLatestDisabledMakesNoRequest (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.28812297Z","Action":"pass","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestFetchLatestDisabledMakesNoRequest","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.28812769Z","Action":"run","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestStageDisabledMakesNoRequest"}
+{"Time":"2026-11-20T00:24:50.28813035Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestStageDisabledMakesNoRequest","Output":"=== RUN   TestStageDisabledMakesNoRequest\n"}
+{"Time":"2026-11-20T00:24:50.28813414Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestStageDisabledMakesNoRequest","Output":"--- PASS: TestStageDisabledMakesNoRequest (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.28813719Z","Action":"pass","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestStageDisabledMakesNoRequest","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.28814023Z","Action":"run","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestCompareVersions"}
+{"Time":"2026-11-20T00:24:50.28814297Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestCompareVersions","Output":"=== RUN   TestCompareVersions\n"}
+{"Time":"2026-11-20T00:24:50.288148111Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestCompareVersions","Output":"--- PASS: TestCompareVersions (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.288150991Z","Action":"pass","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestCompareVersions","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.28815397Z","Action":"run","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestResolvePathsNaming"}
+{"Time":"2026-11-20T00:24:50.2881566Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestResolvePathsNaming","Output":"=== RUN   TestResolvePathsNaming\n"}
+{"Time":"2026-11-20T00:24:50.289291063Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestResolvePathsNaming","Output":"--- PASS: TestResolvePathsNaming (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.289331263Z","Action":"pass","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestResolvePathsNaming","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.289338514Z","Action":"run","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestVerifyStagedRejectsTamperedBinary"}
+{"Time":"2026-11-20T00:24:50.289342384Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestVerifyStagedRejectsTamperedBinary","Output":"=== RUN   TestVerifyStagedRejectsTamperedBinary\n"}
+{"Time":"2026-11-20T00:24:50.290505707Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestVerifyStagedRejectsTamperedBinary","Output":"--- PASS: TestVerifyStagedRejectsTamperedBinary (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.290725808Z","Action":"pass","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestVerifyStagedRejectsTamperedBinary","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.290749858Z","Action":"run","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestVerifyStagedRejectsUnrunnableBinary"}
+{"Time":"2026-11-20T00:24:50.290765817Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestVerifyStagedRejectsUnrunnableBinary","Output":"=== RUN   TestVerifyStagedRejectsUnrunnableBinary\n"}
+{"Time":"2026-11-20T00:24:50.294081056Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestVerifyStagedRejectsUnrunnableBinary","Output":"--- PASS: TestVerifyStagedRejectsUnrunnableBinary (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.294197846Z","Action":"pass","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestVerifyStagedRejectsUnrunnableBinary","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.294218936Z","Action":"run","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestApplyStagedHappyPath"}
+{"Time":"2026-11-20T00:24:50.294243457Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestApplyStagedHappyPath","Output":"=== RUN   TestApplyStagedHappyPath\n"}
+{"Time":"2026-11-20T00:24:50.296210061Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestApplyStagedHappyPath","Output":"2026/11/20 00:24:50 [update] Replaced with 0.3.8; exiting to restart (exit 75)\n"}
+{"Time":"2026-11-20T00:24:50.298332206Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestApplyStagedHappyPath","Output":"--- PASS: TestApplyStagedHappyPath (0.01s)\n"}
+{"Time":"2026-11-20T00:24:50.298605767Z","Action":"pass","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestApplyStagedHappyPath","Elapsed":0.01}
+{"Time":"2026-11-20T00:24:50.298676758Z","Action":"run","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestApplyStagedKeepsCurrentWhenVerifyFails"}
+{"Time":"2026-11-20T00:24:50.298695188Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestApplyStagedKeepsCurrentWhenVerifyFails","Output":"=== RUN   TestApplyStagedKeepsCurrentWhenVerifyFails\n"}
+{"Time":"2026-11-20T00:24:50.299843851Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestApplyStagedKeepsCurrentWhenVerifyFails","Output":"2026/11/20 00:24:50 [update] Staged version failed verification and was discarded; continuing with current version: SHA256 mismatch (download corrupted or tampered with)\n"}
+{"Time":"2026-11-20T00:24:50.302235357Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestApplyStagedKeepsCurrentWhenVerifyFails","Output":"--- PASS: TestApplyStagedKeepsCurrentWhenVerifyFails (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.302252067Z","Action":"pass","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestApplyStagedKeepsCurrentWhenVerifyFails","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.302257657Z","Action":"run","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestSwapOverwritesPreviousBackup"}
+{"Time":"2026-11-20T00:24:50.302324838Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestSwapOverwritesPreviousBackup","Output":"=== RUN   TestSwapOverwritesPreviousBackup\n"}
+{"Time":"2026-11-20T00:24:50.302334377Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestSwapOverwritesPreviousBackup","Output":"--- PASS: TestSwapOverwritesPreviousBackup (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.302339348Z","Action":"pass","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestSwapOverwritesPreviousBackup","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.302346137Z","Action":"run","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestConfirmCountsAttemptsThenRollsBack"}
+{"Time":"2026-11-20T00:24:50.302349917Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestConfirmCountsAttemptsThenRollsBack","Output":"=== RUN   TestConfirmCountsAttemptsThenRollsBack\n"}
+{"Time":"2026-11-20T00:24:50.302354137Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestConfirmCountsAttemptsThenRollsBack","Output":"2026/11/20 00:24:50 [update] Starting new version (attempt 1/3); the upgrade will be confirmed after stable operation\n"}
+{"Time":"2026-11-20T00:24:50.302359367Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestConfirmCountsAttemptsThenRollsBack","Output":"2026/11/20 00:24:50 [update] Starting new version (attempt 2/3); the upgrade will be confirmed after stable operation\n"}
+{"Time":"2026-11-20T00:24:50.302646438Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestConfirmCountsAttemptsThenRollsBack","Output":"2026/11/20 00:24:50 [update] Starting new version (attempt 3/3); the upgrade will be confirmed after stable operation\n"}
+{"Time":"2026-11-20T00:24:50.303001969Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestConfirmCountsAttemptsThenRollsBack","Output":"2026/11/20 00:24:50 [update] New version failed to start 3 times consecutively; rolled back to 0.3.7 and exiting to restart (exit 75)\n"}
+{"Time":"2026-11-20T00:24:50.303805131Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestConfirmCountsAttemptsThenRollsBack","Output":"--- PASS: TestConfirmCountsAttemptsThenRollsBack (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.304121272Z","Action":"pass","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestConfirmCountsAttemptsThenRollsBack","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.304132171Z","Action":"run","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestManualRollbackIsReversible"}
+{"Time":"2026-11-20T00:24:50.304135762Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestManualRollbackIsReversible","Output":"=== RUN   TestManualRollbackIsReversible\n"}
+{"Time":"2026-11-20T00:24:50.304944384Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestManualRollbackIsReversible","Output":"--- PASS: TestManualRollbackIsReversible (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.304973374Z","Action":"pass","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestManualRollbackIsReversible","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.304988285Z","Action":"run","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestParseSums"}
+{"Time":"2026-11-20T00:24:50.305015263Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestParseSums","Output":"=== RUN   TestParseSums\n"}
+{"Time":"2026-11-20T00:24:50.305049174Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestParseSums","Output":"--- PASS: TestParseSums (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.306357407Z","Action":"pass","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestParseSums","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.306373297Z","Action":"run","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestExtractBinaryFindsNestedEntry"}
+{"Time":"2026-11-20T00:24:50.306377438Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestExtractBinaryFindsNestedEntry","Output":"=== RUN   TestExtractBinaryFindsNestedEntry\n"}
+{"Time":"2026-11-20T00:24:50.308122012Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestExtractBinaryFindsNestedEntry","Output":"--- PASS: TestExtractBinaryFindsNestedEntry (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.308161862Z","Action":"pass","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestExtractBinaryFindsNestedEntry","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.308179632Z","Action":"run","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestExtractBinaryMissingEntry"}
+{"Time":"2026-11-20T00:24:50.308232523Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestExtractBinaryMissingEntry","Output":"=== RUN   TestExtractBinaryMissingEntry\n"}
+{"Time":"2026-11-20T00:24:50.308980675Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestExtractBinaryMissingEntry","Output":"--- PASS: TestExtractBinaryMissingEntry (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.309058094Z","Action":"pass","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestExtractBinaryMissingEntry","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.309161415Z","Action":"run","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestCheckURLRejectsNonGitHub"}
+{"Time":"2026-11-20T00:24:50.309193285Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestCheckURLRejectsNonGitHub","Output":"=== RUN   TestCheckURLRejectsNonGitHub\n"}
+{"Time":"2026-11-20T00:24:50.309354595Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestCheckURLRejectsNonGitHub","Output":"--- PASS: TestCheckURLRejectsNonGitHub (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.309417356Z","Action":"pass","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestCheckURLRejectsNonGitHub","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.309574466Z","Action":"run","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestAssetNameMatchesBuildScript"}
+{"Time":"2026-11-20T00:24:50.309587486Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestAssetNameMatchesBuildScript","Output":"=== RUN   TestAssetNameMatchesBuildScript\n"}
+{"Time":"2026-11-20T00:24:50.309600456Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestAssetNameMatchesBuildScript","Output":"--- PASS: TestAssetNameMatchesBuildScript (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.309605006Z","Action":"pass","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestAssetNameMatchesBuildScript","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.309691156Z","Action":"run","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestSettleClearsMarkerAndStopsRollback"}
+{"Time":"2026-11-20T00:24:50.309695866Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestSettleClearsMarkerAndStopsRollback","Output":"=== RUN   TestSettleClearsMarkerAndStopsRollback\n"}
+{"Time":"2026-11-20T00:24:50.310040497Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestSettleClearsMarkerAndStopsRollback","Output":"2026/11/20 00:24:50 [update] New version is stable; upgrade complete (previous version retained as /home/iveri/.hermes/cache/scratch/TestSettleClearsMarkerAndStopsRollback3635840206/001/artex.old)\n"}
+{"Time":"2026-11-20T00:24:50.310530158Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestSettleClearsMarkerAndStopsRollback","Output":"--- PASS: TestSettleClearsMarkerAndStopsRollback (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.310556159Z","Action":"pass","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestSettleClearsMarkerAndStopsRollback","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.310561039Z","Action":"run","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestSettleIsNoopWithoutMarker"}
+{"Time":"2026-11-20T00:24:50.310564599Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestSettleIsNoopWithoutMarker","Output":"=== RUN   TestSettleIsNoopWithoutMarker\n"}
+{"Time":"2026-11-20T00:24:50.311443061Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestSettleIsNoopWithoutMarker","Output":"--- PASS: TestSettleIsNoopWithoutMarker (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.31145672Z","Action":"pass","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestSettleIsNoopWithoutMarker","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.3114613Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Output":"PASS\n"}
+{"Time":"2026-11-20T00:24:50.312478273Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Output":"ok  \tgithub.com/Autumn-27/artex/selfupdate\t0.029s\n"}
+{"Time":"2026-11-20T00:24:50.312495864Z","Action":"pass","Package":"github.com/Autumn-27/artex/selfupdate","Elapsed":0.029}
+{"Time":"2026-11-20T00:24:50.622389314Z","Action":"start","Package":"github.com/Autumn-27/artex/sidequestion"}
+{"Time":"2026-11-20T00:24:50.626928555Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideTwentyExchangeBoundaryAndRestart"}
+{"Time":"2026-11-20T00:24:50.626947535Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideTwentyExchangeBoundaryAndRestart","Output":"=== RUN   TestSideTwentyExchangeBoundaryAndRestart\n"}
+{"Time":"2026-11-20T00:24:50.627565167Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideTwentyExchangeBoundaryAndRestart/19"}
+{"Time":"2026-11-20T00:24:50.627582507Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideTwentyExchangeBoundaryAndRestart/19","Output":"=== RUN   TestSideTwentyExchangeBoundaryAndRestart/19\n"}
+{"Time":"2026-11-20T00:24:50.627736668Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideTwentyExchangeBoundaryAndRestart/19","Output":"--- PASS: TestSideTwentyExchangeBoundaryAndRestart/19 (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.627791528Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideTwentyExchangeBoundaryAndRestart/19","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.627840707Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideTwentyExchangeBoundaryAndRestart/20"}
+{"Time":"2026-11-20T00:24:50.627854207Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideTwentyExchangeBoundaryAndRestart/20","Output":"=== RUN   TestSideTwentyExchangeBoundaryAndRestart/20\n"}
+{"Time":"2026-11-20T00:24:50.628304359Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideTwentyExchangeBoundaryAndRestart/20","Output":"--- PASS: TestSideTwentyExchangeBoundaryAndRestart/20 (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.628404699Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideTwentyExchangeBoundaryAndRestart/20","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.628490779Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideTwentyExchangeBoundaryAndRestart/21"}
+{"Time":"2026-11-20T00:24:50.630539235Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideTwentyExchangeBoundaryAndRestart/21","Output":"=== RUN   TestSideTwentyExchangeBoundaryAndRestart/21\n"}
+{"Time":"2026-11-20T00:24:50.630559155Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideTwentyExchangeBoundaryAndRestart/21","Output":"--- PASS: TestSideTwentyExchangeBoundaryAndRestart/21 (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.630563035Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideTwentyExchangeBoundaryAndRestart/21","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.630575035Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideTwentyExchangeBoundaryAndRestart/50"}
+{"Time":"2026-11-20T00:24:50.630577845Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideTwentyExchangeBoundaryAndRestart/50","Output":"=== RUN   TestSideTwentyExchangeBoundaryAndRestart/50\n"}
+{"Time":"2026-11-20T00:24:50.630581355Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideTwentyExchangeBoundaryAndRestart/50","Output":"--- PASS: TestSideTwentyExchangeBoundaryAndRestart/50 (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.630584784Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideTwentyExchangeBoundaryAndRestart/50","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.630587955Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideTwentyExchangeBoundaryAndRestart","Output":"--- PASS: TestSideTwentyExchangeBoundaryAndRestart (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.630590965Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideTwentyExchangeBoundaryAndRestart","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.630594035Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideBudgetCountsContentNotJSONCharacters"}
+{"Time":"2026-11-20T00:24:50.630596645Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideBudgetCountsContentNotJSONCharacters","Output":"=== RUN   TestSideBudgetCountsContentNotJSONCharacters\n"}
+{"Time":"2026-11-20T00:24:50.638345844Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideBudgetCountsContentNotJSONCharacters","Output":"--- PASS: TestSideBudgetCountsContentNotJSONCharacters (0.01s)\n"}
+{"Time":"2026-11-20T00:24:50.638469666Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideBudgetCountsContentNotJSONCharacters","Elapsed":0.01}
+{"Time":"2026-11-20T00:24:50.638560055Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideLongExchangeAndSnapshotCompactionAreBounded"}
+{"Time":"2026-11-20T00:24:50.638581945Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideLongExchangeAndSnapshotCompactionAreBounded","Output":"=== RUN   TestSideLongExchangeAndSnapshotCompactionAreBounded\n"}
+{"Time":"2026-11-20T00:24:50.638692996Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideLongExchangeAndSnapshotCompactionAreBounded/true"}
+{"Time":"2026-11-20T00:24:50.638728275Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideLongExchangeAndSnapshotCompactionAreBounded/true","Output":"=== RUN   TestSideLongExchangeAndSnapshotCompactionAreBounded/true\n"}
+{"Time":"2026-11-20T00:24:50.641225302Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideLongExchangeAndSnapshotCompactionAreBounded/true","Output":"--- PASS: TestSideLongExchangeAndSnapshotCompactionAreBounded/true (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.641244322Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideLongExchangeAndSnapshotCompactionAreBounded/true","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.641250242Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideLongExchangeAndSnapshotCompactionAreBounded/false"}
+{"Time":"2026-11-20T00:24:50.641254632Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideLongExchangeAndSnapshotCompactionAreBounded/false","Output":"=== RUN   TestSideLongExchangeAndSnapshotCompactionAreBounded/false\n"}
+{"Time":"2026-11-20T00:24:50.649876224Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideLongExchangeAndSnapshotCompactionAreBounded/false","Output":"--- PASS: TestSideLongExchangeAndSnapshotCompactionAreBounded/false (0.01s)\n"}
+{"Time":"2026-11-20T00:24:50.649917615Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideLongExchangeAndSnapshotCompactionAreBounded/false","Elapsed":0.01}
+{"Time":"2026-11-20T00:24:50.649927904Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideLongExchangeAndSnapshotCompactionAreBounded","Output":"--- PASS: TestSideLongExchangeAndSnapshotCompactionAreBounded (0.01s)\n"}
+{"Time":"2026-11-20T00:24:50.649933885Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideLongExchangeAndSnapshotCompactionAreBounded","Elapsed":0.01}
+{"Time":"2026-11-20T00:24:50.649937905Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideOverflowRecoveryOnceAndFailureUsage"}
+{"Time":"2026-11-20T00:24:50.649941885Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideOverflowRecoveryOnceAndFailureUsage","Output":"=== RUN   TestSideOverflowRecoveryOnceAndFailureUsage\n"}
+{"Time":"2026-11-20T00:24:50.649947205Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideOverflowRecoveryOnceAndFailureUsage/false"}
+{"Time":"2026-11-20T00:24:50.649950594Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideOverflowRecoveryOnceAndFailureUsage/false","Output":"=== RUN   TestSideOverflowRecoveryOnceAndFailureUsage/false\n"}
+{"Time":"2026-11-20T00:24:50.650711707Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideOverflowRecoveryOnceAndFailureUsage/false","Output":"--- PASS: TestSideOverflowRecoveryOnceAndFailureUsage/false (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.650731656Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideOverflowRecoveryOnceAndFailureUsage/false","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.650736946Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideOverflowRecoveryOnceAndFailureUsage/true"}
+{"Time":"2026-11-20T00:24:50.650740836Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideOverflowRecoveryOnceAndFailureUsage/true","Output":"=== RUN   TestSideOverflowRecoveryOnceAndFailureUsage/true\n"}
+{"Time":"2026-11-20T00:24:50.651400588Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideOverflowRecoveryOnceAndFailureUsage/true","Output":"--- PASS: TestSideOverflowRecoveryOnceAndFailureUsage/true (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.651416838Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideOverflowRecoveryOnceAndFailureUsage/true","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.651617499Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideOverflowRecoveryOnceAndFailureUsage","Output":"--- PASS: TestSideOverflowRecoveryOnceAndFailureUsage (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.651632909Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideOverflowRecoveryOnceAndFailureUsage","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.651638389Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory"}
+{"Time":"2026-11-20T00:24:50.651642109Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory","Output":"=== RUN   TestSideSummaryCancellationAndFailureDoNotAdvanceMemory\n"}
+{"Time":"2026-11-20T00:24:50.651707379Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/cancel"}
+{"Time":"2026-11-20T00:24:50.651714689Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/cancel","Output":"=== RUN   TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/cancel\n"}
+{"Time":"2026-11-20T00:24:50.651847569Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/cancel","Output":"--- PASS: TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/cancel (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.651861359Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/cancel","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.651869099Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/error"}
+{"Time":"2026-11-20T00:24:50.651873229Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/error","Output":"=== RUN   TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/error\n"}
+{"Time":"2026-11-20T00:24:50.65199692Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/error","Output":"--- PASS: TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/error (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.652008211Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/error","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.652036381Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/empty"}
+{"Time":"2026-11-20T00:24:50.65204371Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/empty","Output":"=== RUN   TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/empty\n"}
+{"Time":"2026-11-20T00:24:50.65212121Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/empty","Output":"--- PASS: TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/empty (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.65217995Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/empty","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.652250081Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/truncated"}
+{"Time":"2026-11-20T00:24:50.652255281Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/truncated","Output":"=== RUN   TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/truncated\n"}
+{"Time":"2026-11-20T00:24:50.652967512Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/truncated","Output":"--- PASS: TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/truncated (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.653098253Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/truncated","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.653111343Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/too-large"}
+{"Time":"2026-11-20T00:24:50.653115323Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/too-large","Output":"=== RUN   TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/too-large\n"}
+{"Time":"2026-11-20T00:24:50.653202113Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/too-large","Output":"--- PASS: TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/too-large (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.653207463Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/too-large","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.653211373Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/tool"}
+{"Time":"2026-11-20T00:24:50.653214983Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/tool","Output":"=== RUN   TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/tool\n"}
+{"Time":"2026-11-20T00:24:50.653272493Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/tool","Output":"--- PASS: TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/tool (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.653277254Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/tool","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.653281063Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/save-failed"}
+{"Time":"2026-11-20T00:24:50.653284313Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/save-failed","Output":"=== RUN   TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/save-failed\n"}
+{"Time":"2026-11-20T00:24:50.653489484Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/save-failed","Output":"--- PASS: TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/save-failed (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.653498224Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory/save-failed","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.653503564Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory","Output":"--- PASS: TestSideSummaryCancellationAndFailureDoNotAdvanceMemory (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.653507564Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCancellationAndFailureDoNotAdvanceMemory","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.653511334Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCallCapAndStaticBudget"}
+{"Time":"2026-11-20T00:24:50.653515114Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCallCapAndStaticBudget","Output":"=== RUN   TestSideSummaryCallCapAndStaticBudget\n"}
+{"Time":"2026-11-20T00:24:50.689468486Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCallCapAndStaticBudget","Output":"--- PASS: TestSideSummaryCallCapAndStaticBudget (0.04s)\n"}
+{"Time":"2026-11-20T00:24:50.689603637Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideSummaryCallCapAndStaticBudget","Elapsed":0.04}
+{"Time":"2026-11-20T00:24:50.689644297Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideTwentyLongRepliesRespectSmallWindow"}
+{"Time":"2026-11-20T00:24:50.689666707Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideTwentyLongRepliesRespectSmallWindow","Output":"=== RUN   TestSideTwentyLongRepliesRespectSmallWindow\n"}
+{"Time":"2026-11-20T00:24:50.691621373Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideTwentyLongRepliesRespectSmallWindow","Output":"--- PASS: TestSideTwentyLongRepliesRespectSmallWindow (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.691686462Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideTwentyLongRepliesRespectSmallWindow","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.691730282Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideOverflowWithoutReductionDoesNotRepeatAnswer"}
+{"Time":"2026-11-20T00:24:50.691746563Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideOverflowWithoutReductionDoesNotRepeatAnswer","Output":"=== RUN   TestSideOverflowWithoutReductionDoesNotRepeatAnswer\n"}
+{"Time":"2026-11-20T00:24:50.691769513Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideOverflowWithoutReductionDoesNotRepeatAnswer","Output":"--- PASS: TestSideOverflowWithoutReductionDoesNotRepeatAnswer (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.691786403Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSideOverflowWithoutReductionDoesNotRepeatAnswer","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.691804843Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestEnglishSideQuestionSafetyInstructions"}
+{"Time":"2026-11-20T00:24:50.691829543Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestEnglishSideQuestionSafetyInstructions","Output":"=== RUN   TestEnglishSideQuestionSafetyInstructions\n"}
+{"Time":"2026-11-20T00:24:50.691846653Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestEnglishSideQuestionSafetyInstructions","Output":"--- PASS: TestEnglishSideQuestionSafetyInstructions (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.691862674Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestEnglishSideQuestionSafetyInstructions","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.691879073Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestCheckpointDeepCopyAndBoundaries"}
+{"Time":"2026-11-20T00:24:50.691897693Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestCheckpointDeepCopyAndBoundaries","Output":"=== RUN   TestCheckpointDeepCopyAndBoundaries\n"}
+{"Time":"2026-11-20T00:24:50.692004363Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestCheckpointDeepCopyAndBoundaries","Output":"--- PASS: TestCheckpointDeepCopyAndBoundaries (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.692030434Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestCheckpointDeepCopyAndBoundaries","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.692048023Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSnapshotExcludesPartialStreamAndSelectsPoolMember"}
+{"Time":"2026-11-20T00:24:50.692063234Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSnapshotExcludesPartialStreamAndSelectsPoolMember","Output":"=== RUN   TestSnapshotExcludesPartialStreamAndSelectsPoolMember\n"}
+{"Time":"2026-11-20T00:24:50.692209184Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSnapshotExcludesPartialStreamAndSelectsPoolMember","Output":"2026/11/20 00:24:50 [llmpool] LLM failover: \"failed\"() → \"selected\"(), reason: HTTP 503 unavailable\n"}
+{"Time":"2026-11-20T00:24:50.692389194Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSnapshotExcludesPartialStreamAndSelectsPoolMember","Output":"2026/11/20 00:24:50 [llmpool] LLM failover: \"failed\"() → \"selected\"(), reason: HTTP 503 unavailable\n"}
+{"Time":"2026-11-20T00:24:50.692424054Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSnapshotExcludesPartialStreamAndSelectsPoolMember","Output":"--- PASS: TestSnapshotExcludesPartialStreamAndSelectsPoolMember (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.692461344Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestSnapshotExcludesPartialStreamAndSelectsPoolMember","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.692491425Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestBuildRequestCompactionToolPairingAndBudget"}
+{"Time":"2026-11-20T00:24:50.692508785Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestBuildRequestCompactionToolPairingAndBudget","Output":"=== RUN   TestBuildRequestCompactionToolPairingAndBudget\n"}
+{"Time":"2026-11-20T00:24:50.692811855Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestBuildRequestCompactionToolPairingAndBudget","Output":"--- PASS: TestBuildRequestCompactionToolPairingAndBudget (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.692846316Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestBuildRequestCompactionToolPairingAndBudget","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.692864865Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestServiceNoToolsAndUsageOnFailure"}
+{"Time":"2026-11-20T00:24:50.692880526Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestServiceNoToolsAndUsageOnFailure","Output":"=== RUN   TestServiceNoToolsAndUsageOnFailure\n"}
+{"Time":"2026-11-20T00:24:50.692900145Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestServiceNoToolsAndUsageOnFailure/atomic"}
+{"Time":"2026-11-20T00:24:50.692916456Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestServiceNoToolsAndUsageOnFailure/atomic","Output":"=== RUN   TestServiceNoToolsAndUsageOnFailure/atomic\n"}
+{"Time":"2026-11-20T00:24:50.692951496Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestServiceNoToolsAndUsageOnFailure/atomic","Output":"--- PASS: TestServiceNoToolsAndUsageOnFailure/atomic (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.692968646Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestServiceNoToolsAndUsageOnFailure/atomic","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.692985186Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestServiceNoToolsAndUsageOnFailure/stream"}
+{"Time":"2026-11-20T00:24:50.693006895Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestServiceNoToolsAndUsageOnFailure/stream","Output":"=== RUN   TestServiceNoToolsAndUsageOnFailure/stream\n"}
+{"Time":"2026-11-20T00:24:50.693110526Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestServiceNoToolsAndUsageOnFailure/stream","Output":"--- PASS: TestServiceNoToolsAndUsageOnFailure/stream (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.693133306Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestServiceNoToolsAndUsageOnFailure/stream","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.693149466Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestServiceNoToolsAndUsageOnFailure","Output":"--- PASS: TestServiceNoToolsAndUsageOnFailure (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.693585558Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestServiceNoToolsAndUsageOnFailure","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.693610008Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestMainSideConcurrencyAndIndependentCancellation"}
+{"Time":"2026-11-20T00:24:50.693624468Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestMainSideConcurrencyAndIndependentCancellation","Output":"=== RUN   TestMainSideConcurrencyAndIndependentCancellation\n"}
+{"Time":"2026-11-20T00:24:50.693649738Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestMainSideConcurrencyAndIndependentCancellation/stop-side"}
+{"Time":"2026-11-20T00:24:50.693664497Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestMainSideConcurrencyAndIndependentCancellation/stop-side","Output":"=== RUN   TestMainSideConcurrencyAndIndependentCancellation/stop-side\n"}
+{"Time":"2026-11-20T00:24:50.693699238Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestMainSideConcurrencyAndIndependentCancellation/stop-side","Output":"--- PASS: TestMainSideConcurrencyAndIndependentCancellation/stop-side (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.693714017Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestMainSideConcurrencyAndIndependentCancellation/stop-side","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.693728977Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestMainSideConcurrencyAndIndependentCancellation/stop-main"}
+{"Time":"2026-11-20T00:24:50.693743098Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestMainSideConcurrencyAndIndependentCancellation/stop-main","Output":"=== RUN   TestMainSideConcurrencyAndIndependentCancellation/stop-main\n"}
+{"Time":"2026-11-20T00:24:50.693757978Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestMainSideConcurrencyAndIndependentCancellation/stop-main","Output":"--- PASS: TestMainSideConcurrencyAndIndependentCancellation/stop-main (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.693772858Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestMainSideConcurrencyAndIndependentCancellation/stop-main","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.693788998Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestMainSideConcurrencyAndIndependentCancellation","Output":"--- PASS: TestMainSideConcurrencyAndIndependentCancellation (0.00s)\n"}
+{"Time":"2026-11-20T00:24:50.693809178Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestMainSideConcurrencyAndIndependentCancellation","Elapsed":0}
+{"Time":"2026-11-20T00:24:50.693823368Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Output":"PASS\n"}
+{"Time":"2026-11-20T00:24:50.696315485Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Output":"ok  \tgithub.com/Autumn-27/artex/sidequestion\t0.074s\n"}
+{"Time":"2026-11-20T00:24:50.696337524Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Elapsed":0.074}
+{"Time":"2026-11-20T00:24:51.403658902Z","Action":"start","Package":"github.com/Autumn-27/artex/traffic"}
+{"Time":"2026-11-20T00:24:51.409738699Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestTrafficArchiveRoundTripAndCurrentRowWins"}
+{"Time":"2026-11-20T00:24:51.409772469Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestTrafficArchiveRoundTripAndCurrentRowWins","Output":"=== RUN   TestTrafficArchiveRoundTripAndCurrentRowWins\n"}
+{"Time":"2026-11-20T00:24:51.551479165Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestTrafficArchiveRoundTripAndCurrentRowWins","Output":"--- PASS: TestTrafficArchiveRoundTripAndCurrentRowWins (0.14s)\n"}
+{"Time":"2026-11-20T00:24:51.551511535Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestTrafficArchiveRoundTripAndCurrentRowWins","Elapsed":0.14}
+{"Time":"2026-11-20T00:24:51.551541675Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestRecoverArchiveHostDeleteStageRollsBackBeforePostgresCommit"}
+{"Time":"2026-11-20T00:24:51.551545165Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestRecoverArchiveHostDeleteStageRollsBackBeforePostgresCommit","Output":"=== RUN   TestRecoverArchiveHostDeleteStageRollsBackBeforePostgresCommit\n"}
+{"Time":"2026-11-20T00:24:51.679220886Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestRecoverArchiveHostDeleteStageRollsBackBeforePostgresCommit","Output":"--- PASS: TestRecoverArchiveHostDeleteStageRollsBackBeforePostgresCommit (0.13s)\n"}
+{"Time":"2026-11-20T00:24:51.679315016Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestRecoverArchiveHostDeleteStageRollsBackBeforePostgresCommit","Elapsed":0.13}
+{"Time":"2026-11-20T00:24:51.679327176Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestRecoverArchiveHostDeleteStageCompletesAfterPostgresCommit"}
+{"Time":"2026-11-20T00:24:51.679331907Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestRecoverArchiveHostDeleteStageCompletesAfterPostgresCommit","Output":"=== RUN   TestRecoverArchiveHostDeleteStageCompletesAfterPostgresCommit\n"}
+{"Time":"2026-11-20T00:24:51.752754626Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestRecoverArchiveHostDeleteStageCompletesAfterPostgresCommit","Output":"--- PASS: TestRecoverArchiveHostDeleteStageCompletesAfterPostgresCommit (0.07s)\n"}
+{"Time":"2026-11-20T00:24:51.753058496Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestRecoverArchiveHostDeleteStageCompletesAfterPostgresCommit","Elapsed":0.07}
+{"Time":"2026-11-20T00:24:51.753088667Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestEnglishTrafficSearchContract"}
+{"Time":"2026-11-20T00:24:51.753106676Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestEnglishTrafficSearchContract","Output":"=== RUN   TestEnglishTrafficSearchContract\n"}
+{"Time":"2026-11-20T00:24:51.753194477Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestEnglishTrafficSearchContract","Output":"--- PASS: TestEnglishTrafficSearchContract (0.00s)\n"}
+{"Time":"2026-11-20T00:24:51.753216047Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestEnglishTrafficSearchContract","Elapsed":0}
+{"Time":"2026-11-20T00:24:51.753240858Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestHostOnly"}
+{"Time":"2026-11-20T00:24:51.753920909Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestHostOnly","Output":"=== RUN   TestHostOnly\n"}
+{"Time":"2026-11-20T00:24:51.753950128Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestHostOnly","Output":"--- PASS: TestHostOnly (0.00s)\n"}
+{"Time":"2026-11-20T00:24:51.753967959Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestHostOnly","Elapsed":0}
+{"Time":"2026-11-20T00:24:51.753985209Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestProxyCausedErr"}
+{"Time":"2026-11-20T00:24:51.754000539Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestProxyCausedErr","Output":"=== RUN   TestProxyCausedErr\n"}
+{"Time":"2026-11-20T00:24:51.754017379Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestProxyCausedErr","Output":"--- PASS: TestProxyCausedErr (0.00s)\n"}
+{"Time":"2026-11-20T00:24:51.754045809Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestProxyCausedErr","Elapsed":0}
+{"Time":"2026-11-20T00:24:51.754063009Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestMaybePassthroughFlagsHostOnce"}
+{"Time":"2026-11-20T00:24:51.75408023Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestMaybePassthroughFlagsHostOnce","Output":"=== RUN   TestMaybePassthroughFlagsHostOnce\n"}
+{"Time":"2026-11-20T00:24:51.75410796Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestMaybePassthroughFlagsHostOnce","Output":"2026/11/20 00:24:51 [traffic] MITM error with target.test; switching to passthrough (subsequent requests for this host connect directly without recording, but continue normally): protocol error: received DATA on a HEAD request\n"}
+{"Time":"2026-11-20T00:24:51.75412973Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestMaybePassthroughFlagsHostOnce","Output":"--- PASS: TestMaybePassthroughFlagsHostOnce (0.00s)\n"}
+{"Time":"2026-11-20T00:24:51.75414586Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestMaybePassthroughFlagsHostOnce","Elapsed":0}
+{"Time":"2026-11-20T00:24:51.75416177Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestValidateProxyURL"}
+{"Time":"2026-11-20T00:24:51.754179889Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestValidateProxyURL","Output":"=== RUN   TestValidateProxyURL\n"}
+{"Time":"2026-11-20T00:24:51.754196609Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestValidateProxyURL","Output":"--- PASS: TestValidateProxyURL (0.00s)\n"}
+{"Time":"2026-11-20T00:24:51.754213189Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestValidateProxyURL","Elapsed":0}
+{"Time":"2026-11-20T00:24:51.75423182Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestSetUpstreamProxyStoreClear"}
+{"Time":"2026-11-20T00:24:51.75424742Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestSetUpstreamProxyStoreClear","Output":"=== RUN   TestSetUpstreamProxyStoreClear\n"}
+{"Time":"2026-11-20T00:24:51.75427126Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestSetUpstreamProxyStoreClear","Output":"--- PASS: TestSetUpstreamProxyStoreClear (0.00s)\n"}
+{"Time":"2026-11-20T00:24:51.75429796Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestSetUpstreamProxyStoreClear","Elapsed":0}
+{"Time":"2026-11-20T00:24:51.75431105Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestProxyAddr"}
+{"Time":"2026-11-20T00:24:51.754580161Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestProxyAddr","Output":"=== RUN   TestProxyAddr\n"}
+{"Time":"2026-11-20T00:24:51.75461606Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestProxyAddr","Output":"--- PASS: TestProxyAddr (0.00s)\n"}
+{"Time":"2026-11-20T00:24:51.75465021Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestProxyAddr","Elapsed":0}
+{"Time":"2026-11-20T00:24:51.754664341Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestNewIndexEnablesIncrementalVacuum"}
+{"Time":"2026-11-20T00:24:51.754676961Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestNewIndexEnablesIncrementalVacuum","Output":"=== RUN   TestNewIndexEnablesIncrementalVacuum\n"}
+{"Time":"2026-11-20T00:24:51.831088158Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestNewIndexEnablesIncrementalVacuum","Output":"--- PASS: TestNewIndexEnablesIncrementalVacuum (0.08s)\n"}
+{"Time":"2026-11-20T00:24:51.831197329Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestNewIndexEnablesIncrementalVacuum","Elapsed":0.08}
+{"Time":"2026-11-20T00:24:51.831216269Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteReclaimsIndexSpace"}
+{"Time":"2026-11-20T00:24:51.831229869Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteReclaimsIndexSpace","Output":"=== RUN   TestDeleteReclaimsIndexSpace\n"}
+{"Time":"2026-11-20T00:24:52.062294366Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteReclaimsIndexSpace","Output":"--- PASS: TestDeleteReclaimsIndexSpace (0.23s)\n"}
+{"Time":"2026-11-20T00:24:52.062331267Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteReclaimsIndexSpace","Elapsed":0.23}
+{"Time":"2026-11-20T00:24:52.062342867Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestReclaimMergesFTSTombstones"}
+{"Time":"2026-11-20T00:24:52.062347017Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestReclaimMergesFTSTombstones","Output":"=== RUN   TestReclaimMergesFTSTombstones\n"}
+{"Time":"2026-11-20T00:24:52.301871368Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestReclaimMergesFTSTombstones","Output":"--- PASS: TestReclaimMergesFTSTombstones (0.24s)\n"}
+{"Time":"2026-11-20T00:24:52.302281289Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestReclaimMergesFTSTombstones","Elapsed":0.24}
+{"Time":"2026-11-20T00:24:52.302292939Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestReclaimOnLegacyIndexIsHarmless"}
+{"Time":"2026-11-20T00:24:52.302297429Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestReclaimOnLegacyIndexIsHarmless","Output":"=== RUN   TestReclaimOnLegacyIndexIsHarmless\n"}
+{"Time":"2026-11-20T00:24:52.334428763Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestReclaimOnLegacyIndexIsHarmless","Output":"2026/11/20 00:24:52 [traffic] Index has no incremental reclamation (auto_vacuum=0): deleting traffic will not shrink index.sqlite; run storage compaction once to convert it\n"}
+{"Time":"2026-11-20T00:24:52.435590844Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestReclaimOnLegacyIndexIsHarmless","Output":"--- PASS: TestReclaimOnLegacyIndexIsHarmless (0.13s)\n"}
+{"Time":"2026-11-20T00:24:52.435629974Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestReclaimOnLegacyIndexIsHarmless","Elapsed":0.13}
+{"Time":"2026-11-20T00:24:52.435639565Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteAllPurgesAndCompacts"}
+{"Time":"2026-11-20T00:24:52.435644265Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteAllPurgesAndCompacts","Output":"=== RUN   TestDeleteAllPurgesAndCompacts\n"}
+{"Time":"2026-11-20T00:24:52.604716223Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteAllPurgesAndCompacts","Output":"--- PASS: TestDeleteAllPurgesAndCompacts (0.17s)\n"}
+{"Time":"2026-11-20T00:24:52.604757323Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteAllPurgesAndCompacts","Elapsed":0.17}
+{"Time":"2026-11-20T00:24:52.604769544Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteAllConvertsLegacyIndex"}
+{"Time":"2026-11-20T00:24:52.604773714Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteAllConvertsLegacyIndex","Output":"=== RUN   TestDeleteAllConvertsLegacyIndex\n"}
+{"Time":"2026-11-20T00:24:52.625819147Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteAllConvertsLegacyIndex","Output":"2026/11/20 00:24:52 [traffic] Index has no incremental reclamation (auto_vacuum=0): deleting traffic will not shrink index.sqlite; run storage compaction once to convert it\n"}
+{"Time":"2026-11-20T00:24:52.788176678Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteAllConvertsLegacyIndex","Output":"--- PASS: TestDeleteAllConvertsLegacyIndex (0.18s)\n"}
+{"Time":"2026-11-20T00:24:52.788216409Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteAllConvertsLegacyIndex","Elapsed":0.18}
+{"Time":"2026-11-20T00:24:52.788223979Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestRecordKeepsBodiesInIndex"}
+{"Time":"2026-11-20T00:24:52.788228329Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestRecordKeepsBodiesInIndex","Output":"=== RUN   TestRecordKeepsBodiesInIndex\n"}
+{"Time":"2026-11-20T00:24:52.891654657Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestRecordKeepsBodiesInIndex","Output":"--- PASS: TestRecordKeepsBodiesInIndex (0.10s)\n"}
+{"Time":"2026-11-20T00:24:52.891692307Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestRecordKeepsBodiesInIndex","Elapsed":0.1}
+{"Time":"2026-11-20T00:24:52.891700477Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestFullTextSearchMatchesBodies"}
+{"Time":"2026-11-20T00:24:52.891705887Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestFullTextSearchMatchesBodies","Output":"=== RUN   TestFullTextSearchMatchesBodies\n"}
+{"Time":"2026-11-20T00:24:52.994177932Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestFullTextSearchMatchesBodies","Output":"--- PASS: TestFullTextSearchMatchesBodies (0.10s)\n"}
+{"Time":"2026-11-20T00:24:52.994304443Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestFullTextSearchMatchesBodies","Elapsed":0.1}
+{"Time":"2026-11-20T00:24:52.994340114Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestLargeBodySpillsButStaysSearchable"}
+{"Time":"2026-11-20T00:24:52.994343354Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestLargeBodySpillsButStaysSearchable","Output":"=== RUN   TestLargeBodySpillsButStaysSearchable\n"}
+{"Time":"2026-11-20T00:24:53.090859033Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestLargeBodySpillsButStaysSearchable","Output":"--- PASS: TestLargeBodySpillsButStaysSearchable (0.10s)\n"}
+{"Time":"2026-11-20T00:24:53.090931704Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestLargeBodySpillsButStaysSearchable","Elapsed":0.1}
+{"Time":"2026-11-20T00:24:53.090981005Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestBinaryBodyStaysOutOfIndex"}
+{"Time":"2026-11-20T00:24:53.090985005Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestBinaryBodyStaysOutOfIndex","Output":"=== RUN   TestBinaryBodyStaysOutOfIndex\n"}
+{"Time":"2026-11-20T00:24:53.202473264Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestBinaryBodyStaysOutOfIndex","Output":"--- PASS: TestBinaryBodyStaysOutOfIndex (0.11s)\n"}
+{"Time":"2026-11-20T00:24:53.202572504Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestBinaryBodyStaysOutOfIndex","Elapsed":0.11}
+{"Time":"2026-11-20T00:24:53.202617274Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestGetFallsBackToLegacyTree"}
+{"Time":"2026-11-20T00:24:53.202624314Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestGetFallsBackToLegacyTree","Output":"=== RUN   TestGetFallsBackToLegacyTree\n"}
+{"Time":"2026-11-20T00:24:53.292459037Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestGetFallsBackToLegacyTree","Output":"--- PASS: TestGetFallsBackToLegacyTree (0.09s)\n"}
+{"Time":"2026-11-20T00:24:53.292502387Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestGetFallsBackToLegacyTree","Elapsed":0.09}
+{"Time":"2026-11-20T00:24:53.292510698Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestGCCollectsBlobsAndEmptyBuckets"}
+{"Time":"2026-11-20T00:24:53.292514317Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestGCCollectsBlobsAndEmptyBuckets","Output":"=== RUN   TestGCCollectsBlobsAndEmptyBuckets\n"}
+{"Time":"2026-11-20T00:24:53.424605921Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestGCCollectsBlobsAndEmptyBuckets","Output":"--- PASS: TestGCCollectsBlobsAndEmptyBuckets (0.13s)\n"}
+{"Time":"2026-11-20T00:24:53.424662681Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestGCCollectsBlobsAndEmptyBuckets","Elapsed":0.13}
+{"Time":"2026-11-20T00:24:53.424674231Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestPageSearchesBodies"}
+{"Time":"2026-11-20T00:24:53.424678201Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestPageSearchesBodies","Output":"=== RUN   TestPageSearchesBodies\n"}
+{"Time":"2026-11-20T00:24:53.533221773Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestPageSearchesBodies","Output":"--- PASS: TestPageSearchesBodies (0.11s)\n"}
+{"Time":"2026-11-20T00:24:53.533735455Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestPageSearchesBodies","Elapsed":0.11}
+{"Time":"2026-11-20T00:24:53.534209235Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestPageFiltersAndSort"}
+{"Time":"2026-11-20T00:24:53.534231175Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestPageFiltersAndSort","Output":"=== RUN   TestPageFiltersAndSort\n"}
+{"Time":"2026-11-20T00:24:53.617719442Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestPageFiltersAndSort","Output":"--- PASS: TestPageFiltersAndSort (0.08s)\n"}
+{"Time":"2026-11-20T00:24:53.617759102Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestPageFiltersAndSort","Elapsed":0.08}
+{"Time":"2026-11-20T00:24:53.617785472Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestQueryHostPortAndURLForms"}
+{"Time":"2026-11-20T00:24:53.617790472Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestQueryHostPortAndURLForms","Output":"=== RUN   TestQueryHostPortAndURLForms\n"}
+{"Time":"2026-11-20T00:24:53.718574785Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestQueryHostPortAndURLForms/bare_host"}
+{"Time":"2026-11-20T00:24:53.718611284Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestQueryHostPortAndURLForms/bare_host","Output":"=== RUN   TestQueryHostPortAndURLForms/bare_host\n"}
+{"Time":"2026-11-20T00:24:53.718623374Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestQueryHostPortAndURLForms/bare_host","Output":"--- PASS: TestQueryHostPortAndURLForms/bare_host (0.00s)\n"}
+{"Time":"2026-11-20T00:24:53.718633754Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestQueryHostPortAndURLForms/bare_host","Elapsed":0}
+{"Time":"2026-11-20T00:24:53.718645835Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestQueryHostPortAndURLForms/host_and_port"}
+{"Time":"2026-11-20T00:24:53.718649374Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestQueryHostPortAndURLForms/host_and_port","Output":"=== RUN   TestQueryHostPortAndURLForms/host_and_port\n"}
+{"Time":"2026-11-20T00:24:53.718653755Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestQueryHostPortAndURLForms/host_and_port","Output":"--- PASS: TestQueryHostPortAndURLForms/host_and_port (0.00s)\n"}
+{"Time":"2026-11-20T00:24:53.718658184Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestQueryHostPortAndURLForms/host_and_port","Elapsed":0}
+{"Time":"2026-11-20T00:24:53.718662024Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestQueryHostPortAndURLForms/full_URL"}
+{"Time":"2026-11-20T00:24:53.718665374Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestQueryHostPortAndURLForms/full_URL","Output":"=== RUN   TestQueryHostPortAndURLForms/full_URL\n"}
+{"Time":"2026-11-20T00:24:53.718669384Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestQueryHostPortAndURLForms/full_URL","Output":"--- PASS: TestQueryHostPortAndURLForms/full_URL (0.00s)\n"}
+{"Time":"2026-11-20T00:24:53.718673134Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestQueryHostPortAndURLForms/full_URL","Elapsed":0}
+{"Time":"2026-11-20T00:24:53.718679645Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestQueryHostPortAndURLForms/IPv6_host_and_port"}
+{"Time":"2026-11-20T00:24:53.718685664Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestQueryHostPortAndURLForms/IPv6_host_and_port","Output":"=== RUN   TestQueryHostPortAndURLForms/IPv6_host_and_port\n"}
+{"Time":"2026-11-20T00:24:53.718690255Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestQueryHostPortAndURLForms/IPv6_host_and_port","Output":"--- PASS: TestQueryHostPortAndURLForms/IPv6_host_and_port (0.00s)\n"}
+{"Time":"2026-11-20T00:24:53.718694725Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestQueryHostPortAndURLForms/IPv6_host_and_port","Elapsed":0}
+{"Time":"2026-11-20T00:24:53.72458778Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestQueryHostPortAndURLForms","Output":"--- PASS: TestQueryHostPortAndURLForms (0.11s)\n"}
+{"Time":"2026-11-20T00:24:53.72472658Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestQueryHostPortAndURLForms","Elapsed":0.11}
+{"Time":"2026-11-20T00:24:53.727567828Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestNormalizeSearchHost"}
+{"Time":"2026-11-20T00:24:53.727587758Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestNormalizeSearchHost","Output":"=== RUN   TestNormalizeSearchHost\n"}
+{"Time":"2026-11-20T00:24:53.727596278Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestNormalizeSearchHost","Output":"--- PASS: TestNormalizeSearchHost (0.00s)\n"}
+{"Time":"2026-11-20T00:24:53.727601148Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestNormalizeSearchHost","Elapsed":0}
+{"Time":"2026-11-20T00:24:53.727606847Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestTruncateUTF8"}
+{"Time":"2026-11-20T00:24:53.727610658Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestTruncateUTF8","Output":"=== RUN   TestTruncateUTF8\n"}
+{"Time":"2026-11-20T00:24:53.727615478Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestTruncateUTF8","Output":"--- PASS: TestTruncateUTF8 (0.00s)\n"}
+{"Time":"2026-11-20T00:24:53.727659658Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestTruncateUTF8","Elapsed":0}
+{"Time":"2026-11-20T00:24:53.727664168Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestIsBinaryBody"}
+{"Time":"2026-11-20T00:24:53.727667928Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestIsBinaryBody","Output":"=== RUN   TestIsBinaryBody\n"}
+{"Time":"2026-11-20T00:24:53.727672428Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestIsBinaryBody","Output":"--- PASS: TestIsBinaryBody (0.00s)\n"}
+{"Time":"2026-11-20T00:24:53.727676458Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestIsBinaryBody","Elapsed":0}
+{"Time":"2026-11-20T00:24:53.727680408Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestRecordConcurrent"}
+{"Time":"2026-11-20T00:24:53.727684018Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestRecordConcurrent","Output":"=== RUN   TestRecordConcurrent\n"}
+{"Time":"2026-11-20T00:24:53.999424744Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestRecordConcurrent","Output":"--- PASS: TestRecordConcurrent (0.27s)\n"}
+{"Time":"2026-11-20T00:24:53.999620615Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestRecordConcurrent","Elapsed":0.27}
+{"Time":"2026-11-20T00:24:53.999714114Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestRequestHeaderLinesIncludesHost"}
+{"Time":"2026-11-20T00:24:53.999733685Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestRequestHeaderLinesIncludesHost","Output":"=== RUN   TestRequestHeaderLinesIncludesHost\n"}
+{"Time":"2026-11-20T00:24:53.999811935Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestRequestHeaderLinesIncludesHost","Output":"--- PASS: TestRequestHeaderLinesIncludesHost (0.00s)\n"}
+{"Time":"2026-11-20T00:24:53.999886766Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestRequestHeaderLinesIncludesHost","Elapsed":0}
+{"Time":"2026-11-20T00:24:53.999978265Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteHost"}
+{"Time":"2026-11-20T00:24:54.000081806Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteHost","Output":"=== RUN   TestDeleteHost\n"}
+{"Time":"2026-11-20T00:24:54.208131237Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteHost","Output":"--- PASS: TestDeleteHost (0.21s)\n"}
+{"Time":"2026-11-20T00:24:54.208294628Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteHost","Elapsed":0.21}
+{"Time":"2026-11-20T00:24:54.208363878Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestHosts"}
+{"Time":"2026-11-20T00:24:54.208386228Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestHosts","Output":"=== RUN   TestHosts\n"}
+{"Time":"2026-11-20T00:24:54.347768361Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestHosts","Output":"--- PASS: TestHosts (0.14s)\n"}
+{"Time":"2026-11-20T00:24:54.348358672Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestHosts","Elapsed":0.14}
+{"Time":"2026-11-20T00:24:54.348384012Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteHostsExact"}
+{"Time":"2026-11-20T00:24:54.348388302Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteHostsExact","Output":"=== RUN   TestDeleteHostsExact\n"}
+{"Time":"2026-11-20T00:24:54.43966955Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteHostsExact","Output":"--- PASS: TestDeleteHostsExact (0.09s)\n"}
+{"Time":"2026-11-20T00:24:54.43971082Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteHostsExact","Elapsed":0.09}
+{"Time":"2026-11-20T00:24:54.43971839Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteHostsExactReportsTreeRemovalFailure"}
+{"Time":"2026-11-20T00:24:54.43972157Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteHostsExactReportsTreeRemovalFailure","Output":"=== RUN   TestDeleteHostsExactReportsTreeRemovalFailure\n"}
+{"Time":"2026-11-20T00:24:54.5509382Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteHostsExactReportsTreeRemovalFailure","Output":"--- PASS: TestDeleteHostsExactReportsTreeRemovalFailure (0.11s)\n"}
+{"Time":"2026-11-20T00:24:54.55098413Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteHostsExactReportsTreeRemovalFailure","Elapsed":0.11}
+{"Time":"2026-11-20T00:24:54.550994069Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteHostsExactRollsBackWholeIndexBatch"}
+{"Time":"2026-11-20T00:24:54.55099888Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteHostsExactRollsBackWholeIndexBatch","Output":"=== RUN   TestDeleteHostsExactRollsBackWholeIndexBatch\n"}
+{"Time":"2026-11-20T00:24:54.720094139Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteHostsExactRollsBackWholeIndexBatch","Output":"--- PASS: TestDeleteHostsExactRollsBackWholeIndexBatch (0.16s)\n"}
+{"Time":"2026-11-20T00:24:54.720144429Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteHostsExactRollsBackWholeIndexBatch","Elapsed":0.16}
+{"Time":"2026-11-20T00:24:54.72015395Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestStageDeleteHostsExactRollbackRestoresIndexAndTree"}
+{"Time":"2026-11-20T00:24:54.72015712Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestStageDeleteHostsExactRollbackRestoresIndexAndTree","Output":"=== RUN   TestStageDeleteHostsExactRollbackRestoresIndexAndTree\n"}
+{"Time":"2026-11-20T00:24:54.991046545Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestStageDeleteHostsExactRollbackRestoresIndexAndTree","Output":"--- PASS: TestStageDeleteHostsExactRollbackRestoresIndexAndTree (0.28s)\n"}
+{"Time":"2026-11-20T00:24:54.991084675Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestStageDeleteHostsExactRollbackRestoresIndexAndTree","Elapsed":0.28}
+{"Time":"2026-11-20T00:24:54.991093605Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestStageDeleteHostsExactRollbackReportsRestoreFailure"}
+{"Time":"2026-11-20T00:24:54.991097985Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestStageDeleteHostsExactRollbackReportsRestoreFailure","Output":"=== RUN   TestStageDeleteHostsExactRollbackReportsRestoreFailure\n"}
+{"Time":"2026-11-20T00:24:55.06947475Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestStageDeleteHostsExactRollbackReportsRestoreFailure","Output":"--- PASS: TestStageDeleteHostsExactRollbackReportsRestoreFailure (0.08s)\n"}
+{"Time":"2026-11-20T00:24:55.069512829Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestStageDeleteHostsExactRollbackReportsRestoreFailure","Elapsed":0.08}
+{"Time":"2026-11-20T00:24:55.06954003Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteHostGCBlobs"}
+{"Time":"2026-11-20T00:24:55.069544329Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteHostGCBlobs","Output":"=== RUN   TestDeleteHostGCBlobs\n"}
+{"Time":"2026-11-20T00:24:55.248647187Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteHostGCBlobs","Output":"--- PASS: TestDeleteHostGCBlobs (0.18s)\n"}
+{"Time":"2026-11-20T00:24:55.248686547Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDeleteHostGCBlobs","Elapsed":0.18}
+{"Time":"2026-11-20T00:24:55.248699067Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestUpgradeFromOldInstall"}
+{"Time":"2026-11-20T00:24:55.248703347Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestUpgradeFromOldInstall","Output":"=== RUN   TestUpgradeFromOldInstall\n"}
+{"Time":"2026-11-20T00:24:55.303561091Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestUpgradeFromOldInstall","Output":"2026/11/20 00:24:55 [traffic] Index has no incremental reclamation (auto_vacuum=0): deleting traffic will not shrink index.sqlite; run storage compaction once to convert it\n"}
+{"Time":"2026-11-20T00:24:55.44920705Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestUpgradeFromOldInstall","Output":"    upgrade_test.go:87: 旧库 69632 字节，新版本接管后仍是同一文件\n"}
+{"Time":"2026-11-20T00:24:55.459834817Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestUpgradeFromOldInstall","Output":"--- PASS: TestUpgradeFromOldInstall (0.21s)\n"}
+{"Time":"2026-11-20T00:24:55.459864988Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestUpgradeFromOldInstall","Elapsed":0.21}
+{"Time":"2026-11-20T00:24:55.459873048Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDowngradeToOldBinary"}
+{"Time":"2026-11-20T00:24:55.459877088Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDowngradeToOldBinary","Output":"=== RUN   TestDowngradeToOldBinary\n"}
+{"Time":"2026-11-20T00:24:55.554127914Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDowngradeToOldBinary","Output":"--- PASS: TestDowngradeToOldBinary (0.09s)\n"}
+{"Time":"2026-11-20T00:24:55.554213793Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestDowngradeToOldBinary","Elapsed":0.09}
+{"Time":"2026-11-20T00:24:55.554223273Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Output":"PASS\n"}
+{"Time":"2026-11-20T00:24:55.559976719Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Output":"ok  \tgithub.com/Autumn-27/artex/traffic\t4.156s\n"}
+{"Time":"2026-11-20T00:24:55.560026389Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Elapsed":4.156}

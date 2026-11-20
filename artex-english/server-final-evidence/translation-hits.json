@@ -1,0 +1,1337 @@
+{
+  "server/asset_intercept.go": [
+    {
+      "old": "cidr 不是有效网段（形如 192.168.0.0/16）：%s",
+      "new": "cidr is not a valid network (for example 192.168.0.0/16): %s",
+      "count": 1
+    },
+    {
+      "old": "exact_ip 不是有效 IP 地址：%s",
+      "new": "exact_ip is not a valid IP address: %s",
+      "count": 1
+    },
+    {
+      "old": "kind 无效：%s",
+      "new": "Invalid kind: %s",
+      "count": 1
+    }
+  ],
+  "server/constraints_api.go": [
+    {
+      "old": "Task is being deleted,无法新增约束",
+      "new": "Task is being deleted; cannot add constraints",
+      "count": 1
+    },
+    {
+      "old": "Task is being deleted,无法修改约束",
+      "new": "Task is being deleted; cannot update constraints",
+      "count": 1
+    },
+    {
+      "old": "Task is being deleted,无法删除约束",
+      "new": "Task is being deleted; cannot delete constraints",
+      "count": 1
+    },
+    {
+      "old": "kind 必须是 allow 或 deny",
+      "new": "kind must be allow or deny",
+      "count": 2
+    },
+    {
+      "old": "约束内容不能为空",
+      "new": "Constraint content must not be empty",
+      "count": 2
+    }
+  ],
+  "server/customtool.go": [
+    {
+      "old": "kind 需为 command / script / http / shell",
+      "new": "kind must be command / script / http / shell",
+      "count": 2
+    },
+    {
+      "old": "[custom-tool] 自动检测到 python 解释器: %s",
+      "new": "[custom-tool] Automatically detected Python interpreter: %s",
+      "count": 1
+    },
+    {
+      "old": "This key already exists(内置或自定义工具)",
+      "new": "This key already exists (built-in or custom tool)",
+      "count": 1
+    },
+    {
+      "old": "http 工具必须提供参数 JSON Schema(不能留空)",
+      "new": "HTTP tools require a nonempty parameter JSON Schema",
+      "count": 2
+    },
+    {
+      "old": "未配置且未检测到 python 解释器(在系统配置里设置)",
+      "new": "No Python interpreter configured or detected (set it in system settings)",
+      "count": 1
+    },
+    {
+      "old": "shell 类型工具是 bash 环境声明，无可执行内容",
+      "new": "Shell tools declare the Bash environment and have no executable content",
+      "count": 1
+    },
+    {
+      "old": "Unknown自定义工具类型: ",
+      "new": "Unknown custom tool kind: ",
+      "count": 1
+    },
+    {
+      "old": "script code 为空",
+      "new": "script code is empty",
+      "count": 1
+    },
+    {
+      "old": "Unknown工具类型: ",
+      "new": "Unknown tool kind: ",
+      "count": 1
+    },
+    {
+      "old": "命令/参数(自由文本)",
+      "new": "Command/arguments (free text)",
+      "count": 1
+    },
+    {
+      "old": "http url 为空",
+      "new": "HTTP URL is empty",
+      "count": 1
+    },
+    {
+      "old": "command 为空",
+      "new": "command is empty",
+      "count": 1
+    },
+    {
+      "old": "只能编辑自定义工具",
+      "new": "Only custom tools can be edited",
+      "count": 1
+    },
+    {
+      "old": "无效的请求体",
+      "new": "Invalid request body",
+      "count": 1
+    },
+    {
+      "old": "超时终止",
+      "new": "terminated on timeout",
+      "count": 1
+    }
+  ],
+  "server/engine.go": [
+    {
+      "old": "内置默认",
+      "new": "Built-in default",
+      "count": 1
+    }
+  ],
+  "server/finding_retests.go": [
+    {
+      "old": "为当前复测会话保存唯一结论；原漏洞证据与报告保持不变。会话成功结束且结论为 fixed 时，系统自动将漏洞状态改为已修复；其他结论保留原状态。必须提供本次实际检查的证据，无法确认时写明阻塞原因。",
+      "new": "Save the single result for this retest conversation without modifying the original finding evidence or report. When the conversation ends successfully with a fixed result, the system marks the finding as fixed; other results retain its status. Supply evidence from actual checks and explain blockers when verification is inconclusive.",
+      "count": 1
+    },
+    {
+      "old": "读取当前复测会话关联的漏洞证据快照、复测状态、补充说明与当前任务约束。无参数，只能读取本会话。",
+      "new": "Read the finding evidence snapshot, retest status, notes, and current task constraints associated with this retest conversation. No parameters; only this conversation is accessible.",
+      "count": 1
+    },
+    {
+      "old": "Markdown：本次实际步骤、观察、对照、结论依据；无法确认则列出已检查内容和阻塞原因",
+      "new": "Markdown: actual steps, observations, controls, and evidence supporting the result; if inconclusive, list completed checks and blockers",
+      "count": 1
+    },
+    {
+      "old": "漏洞复测 Agent 不存在或未启用，请在 Agent 管理中配置 retester",
+      "new": "The finding retest agent is missing or disabled; configure retester in Agent management",
+      "count": 1
+    },
+    {
+      "old": "从漏洞详情手动启动，读取原证据并保存独立复测结论。",
+      "new": "Manually started from finding details; reads original evidence and saves an independent retest result.",
+      "count": 1
+    },
+    {
+      "old": "当前会话未关联复测记录，请从漏洞详情发起复测",
+      "new": "This conversation has no associated retest record; start a retest from the finding details",
+      "count": 1
+    },
+    {
+      "old": "请为复测 Agent 启用并绑定工具：",
+      "new": "Enable and bind this tool for the retest agent: ",
+      "count": 1
+    },
+    {
+      "old": "复测补充说明最多 4000 个字符",
+      "new": "Retest notes must not exceed 4000 characters",
+      "count": 1
+    },
+    {
+      "old": "本次复测结论摘要",
+      "new": "Summary of this retest result",
+      "count": 1
+    },
+    {
+      "old": "服务正在停止",
+      "new": "Service is stopping",
+      "count": 1
+    },
+    {
+      "old": "漏洞复测",
+      "new": "Finding retest",
+      "count": 1
+    },
+    {
+      "old": "内置默认",
+      "new": "Built-in default",
+      "count": 1
+    }
+  ],
+  "server/finding_traffic.go": [
+    {
+      "old": "offset / length 不能为负数",
+      "new": "offset / length must not be negative",
+      "count": 1
+    },
+    {
+      "old": "[二进制正文，%d 字节；请下载查看]",
+      "new": "[Binary body, %d bytes; download to view]",
+      "count": 1
+    },
+    {
+      "old": "继承漏洞只读，请在来源任务中修改",
+      "new": "Inherited findings are read-only; edit them in the source task",
+      "count": 1
+    },
+    {
+      "old": "version 和有效请求体必填",
+      "new": "version and a valid request body are required",
+      "count": 1
+    },
+    {
+      "old": "binding_ids 必填",
+      "new": "binding_ids is required",
+      "count": 1
+    },
+    {
+      "old": "offset 超出正文长度",
+      "new": "offset exceeds the body length",
+      "count": 1
+    },
+    {
+      "old": "请选择流量",
+      "new": "Select traffic",
+      "count": 1
+    }
+  ],
+  "server/finding_workflow.go": [
+    {
+      "old": "%w：finding_id=%d。证据工具使用独立漏洞记录 ID，请从 list_task_findings / get_task_node_detail 的 finding_id 字段读取；不要传 id / finding_node_id",
+      "new": "%w: finding_id=%d. Evidence tools use the standalone finding record ID from the finding_id field of list_task_findings / get_task_node_detail; do not pass id / finding_node_id",
+      "count": 1
+    },
+    {
+      "old": "为已登记漏洞补绑经核实的真实 HTTP 流量。finding_id 使用独立漏洞记录 ID；不要传探索节点 ID。同批引用全部成功或全部失败，重复引用不覆盖已有说明。补绑会使已有报告标记待更新；不要为补包重新探测或重复创建漏洞。",
+      "new": "Bind verified real HTTP traffic to a recorded finding. Use the standalone finding record ID for finding_id, not an exploration node ID. References in one batch succeed or fail together; duplicate references do not overwrite existing notes. Binding marks existing reports as pending update; do not probe again or create duplicate findings just to add traffic.",
+      "count": 1
+    },
+    {
+      "old": "独立漏洞记录 ID，从 list_task_findings / get_task_node_detail 的 finding_id 字段读取",
+      "new": "Standalone finding record ID from the finding_id field of list_task_findings / get_task_node_detail",
+      "count": 1
+    },
+    {
+      "old": "可选：本任务中对应此漏洞的 hint ID；读取该提示保存的 traffic_refs 一并绑定，无提示时省略",
+      "new": "Optional: the hint ID for this finding in the current task; also bind traffic_refs saved with that hint. Omit if there is no hint.",
+      "count": 1
+    },
+    {
+      "old": "补绑需要至少一条已核实的 traffic_refs；无流量无需调用此工具",
+      "new": "Binding requires at least one verified traffic_refs entry; do not call this tool without traffic",
+      "count": 1
+    },
+    {
+      "old": "Agent 自动绑定流量已关闭；请在系统设置开启，或使用页面人工绑定。",
+      "new": "Automatic agent traffic binding is disabled; enable it in system settings or bind manually in the UI.",
+      "count": 1
+    },
+    {
+      "old": "finding_id 必须为独立漏洞记录 ID；不是探索节点 ID",
+      "new": "finding_id must be the standalone finding record ID, not an exploration node ID",
+      "count": 1
+    },
+    {
+      "old": "继承漏洞的流量证据只读，请到来源任务修改",
+      "new": "Traffic evidence of inherited findings is read-only; edit it in the source task",
+      "count": 1
+    },
+    {
+      "old": "当前任务不可读取该漏洞",
+      "new": "This task cannot read the finding",
+      "count": 1
+    },
+    {
+      "old": "任务不存在",
+      "new": "Task not found",
+      "count": 1
+    },
+    {
+      "old": "提示内容",
+      "new": "Hint content",
+      "count": 1
+    }
+  ],
+  "server/findings_groups.go": [
+    {
+      "old": "人工提交漏洞深入利用意图",
+      "new": "Manually submitted in-depth finding exploitation intent",
+      "count": 1
+    }
+  ],
+  "server/findings_groups_test.go": [
+    {
+      "old": "人工提交漏洞深入利用意图",
+      "new": "Manually submitted in-depth finding exploitation intent",
+      "count": 1
+    }
+  ],
+  "server/goals.go": [
+    {
+      "old": "任务当前无法解析可运行的 Planner/Worker LLM，已释放并发槽；配置恢复后按队列顺序继续",
+      "new": "No runnable Planner/Worker LLM can currently be resolved. The concurrency slot has been released; resumes in queue order when configuration recovers",
+      "count": 1
+    },
+    {
+      "old": "任务正在等待并发队列或准入状态提交，本次执行已停止；只有获得运行槽后才会重新领取意图",
+      "new": "The task is waiting for the concurrency queue or admission state commit. This execution has stopped; intents will only be claimed again after obtaining a running slot",
+      "count": 1
+    },
+    {
+      "old": "已排队：已有更早的任务等待运行，将按 FIFO 顺序自动开始",
+      "new": "Queued: earlier tasks are waiting; starts automatically in FIFO order",
+      "count": 1
+    },
+    {
+      "old": "已排队：当前没有可运行的 LLM 配置，配置恢复后自动开始",
+      "new": "Queued: no runnable LLM profile; starts automatically when configuration recovers",
+      "count": 2
+    },
+    {
+      "old": "已排队：达到并发上限 %d，等待空位后自动开始",
+      "new": "Queued: concurrency limit %d reached; starts automatically when a slot is available",
+      "count": 1
+    },
+    {
+      "old": "LLM 不可用，任务进入等待队列",
+      "new": "LLM unavailable; task queued",
+      "count": 1
+    },
+    {
+      "old": "仅Paused的任务可以继续",
+      "new": "Only paused tasks can be resumed",
+      "count": 1
+    },
+    {
+      "old": "终态任务不能执行继续",
+      "new": "Terminal tasks cannot be resumed",
+      "count": 1
+    },
+    {
+      "old": "第 0 轮目标拆解",
+      "new": "Round 0 goal decomposition",
+      "count": 2
+    },
+    {
+      "old": "任务等待运行准入",
+      "new": "Task awaiting execution admission",
+      "count": 1
+    }
+  ],
+  "server/goals_api.go": [
+    {
+      "old": "Task is being deleted,无法新增目标",
+      "new": "Task is being deleted; cannot add goals",
+      "count": 1
+    },
+    {
+      "old": "Task is being deleted,无法修改目标",
+      "new": "Task is being deleted; cannot update goals",
+      "count": 1
+    },
+    {
+      "old": "Task is being deleted,无法删除目标",
+      "new": "Task is being deleted; cannot delete goals",
+      "count": 1
+    },
+    {
+      "old": "目标写入后读取失败",
+      "new": "Failed to read goal after creation",
+      "count": 1
+    },
+    {
+      "old": "目标更新后读取失败",
+      "new": "Failed to read goal after update",
+      "count": 1
+    },
+    {
+      "old": "目标内容不能为空",
+      "new": "Goal content must not be empty",
+      "count": 2
+    },
+    {
+      "old": "目标不存在",
+      "new": "Goal not found",
+      "count": 2
+    }
+  ],
+  "server/intent_intervention.go": [
+    {
+      "old": "request_id 必须是 1-128 位字母、数字、-、_、. 或 :",
+      "new": "request_id must contain 1-128 letters, digits, -, _, . or :",
+      "count": 1
+    },
+    {
+      "old": "Task is being deleted，无法向 Worker 发送消息",
+      "new": "Task is being deleted; cannot send Worker messages",
+      "count": 1
+    },
+    {
+      "old": "任务Paused，请先恢复任务再向 Worker 发送消息",
+      "new": "Task is paused; resume it before sending Worker messages",
+      "count": 1
+    },
+    {
+      "old": "仅Paused的 Worker 可以发送消息，请先暂停",
+      "new": "Only paused Workers can receive messages; pause the Worker first",
+      "count": 1
+    },
+    {
+      "old": "任务正在收尾，无法向 Worker 发送消息",
+      "new": "Task is settling; cannot send Worker messages",
+      "count": 1
+    },
+    {
+      "old": "继承意图为只读，不能发送 Worker 消息",
+      "new": "Inherited intents are read-only; cannot send Worker messages",
+      "count": 1
+    },
+    {
+      "old": "排队中的任务无法向 Worker 发送消息",
+      "new": "Cannot send Worker messages to queued tasks",
+      "count": 1
+    },
+    {
+      "old": "终态任务无法向 Worker 发送消息",
+      "new": "Cannot send Worker messages to terminal tasks",
+      "count": 1
+    },
+    {
+      "old": "消息不能超过 4000 个字符",
+      "new": "Message must not exceed 4000 characters",
+      "count": 1
+    },
+    {
+      "old": "请求体过大",
+      "new": "Request body too large",
+      "count": 1
+    }
+  ],
+  "server/llmpool.go": [
+    {
+      "old": "配置 #%d",
+      "new": "Profile #%d",
+      "count": 1
+    }
+  ],
+  "server/llmretry.go": [
+    {
+      "old": "内置默认",
+      "new": "Built-in default",
+      "count": 1
+    }
+  ],
+  "server/llmretry_test.go": [
+    {
+      "old": "内置默认",
+      "new": "Built-in default",
+      "count": 1
+    }
+  ],
+  "server/manager.go": [
+    {
+      "old": "归档流量暂存日志缺少任务 ID",
+      "new": "Archived traffic staging journal is missing a task ID",
+      "count": 1
+    },
+    {
+      "old": "workers 必须 >0",
+      "new": "workers must be >0",
+      "count": 1
+    }
+  ],
+  "server/mcpdiscover.go": [
+    {
+      "old": "Unknown传输方式 %q",
+      "new": "Unknown transport %q",
+      "count": 1
+    },
+    {
+      "old": "http 传输缺少 URL",
+      "new": "HTTP transport requires a URL",
+      "count": 1
+    },
+    {
+      "old": "stdio 传输缺少命令",
+      "new": "stdio transport requires a command",
+      "count": 1
+    },
+    {
+      "old": "sse 传输缺少 URL",
+      "new": "SSE transport requires a URL",
+      "count": 1
+    }
+  ],
+  "server/native_reporter.go": [
+    {
+      "old": "finding 触发 · task#%d",
+      "new": "Finding trigger · task#%d",
+      "count": 1
+    }
+  ],
+  "server/notifier.go": [
+    {
+      "old": "渠道类型 %q 未注册",
+      "new": "Channel kind %q is not registered",
+      "count": 2
+    }
+  ],
+  "server/notify_api.go": [
+    {
+      "old": "这是 ARTEX 推送渠道的测试消息，收到即表示该渠道配置可用。",
+      "new": "This is an ARTEX notification channel test message. Receiving it confirms that the channel configuration works.",
+      "count": 1
+    },
+    {
+      "old": "推送模式无效，可选：realtime / digest",
+      "new": "Invalid delivery mode; choose realtime / digest",
+      "count": 2
+    },
+    {
+      "old": "渠道Name must not be empty",
+      "new": "Channel name must not be empty",
+      "count": 1
+    },
+    {
+      "old": "请求体不是合法 JSON: ",
+      "new": "Request body is not valid JSON: ",
+      "count": 2
+    },
+    {
+      "old": "测试消息 · 渠道配置正常",
+      "new": "Test message · Channel configured successfully",
+      "count": 1
+    },
+    {
+      "old": "渠道类型无效，可选：%s",
+      "new": "Invalid channel kind; choose from: %s",
+      "count": 2
+    },
+    {
+      "old": "渠道类型 %q 未注册",
+      "new": "Channel kind %q is not registered",
+      "count": 1
+    },
+    {
+      "old": "渠道 id 无效",
+      "new": "Invalid channel id",
+      "count": 3
+    },
+    {
+      "old": "投递 id 无效",
+      "new": "Invalid delivery id",
+      "count": 1
+    },
+    {
+      "old": "限流值不能为负",
+      "new": "Rate limit must not be negative",
+      "count": 2
+    },
+    {
+      "old": "通知渠道不存在",
+      "new": "Notification channel not found",
+      "count": 1
+    },
+    {
+      "old": "缺少渠道名称",
+      "new": "Channel name is required",
+      "count": 1
+    },
+    {
+      "old": "连通性测试",
+      "new": "Connectivity test",
+      "count": 1
+    }
+  ],
+  "server/notify_api_test.go": [
+    {
+      "old": "缺少渠道名称",
+      "new": "Channel name is required",
+      "count": 1
+    }
+  ],
+  "server/orchestration.go": [
+    {
+      "old": "LLM 配置 #%d 不存在或未设置 API Key",
+      "new": "LLM profile #%d is missing or has no API Key",
+      "count": 1
+    },
+    {
+      "old": "关联Invalid task id或重复",
+      "new": "Invalid or duplicate source task id",
+      "count": 1
+    },
+    {
+      "old": "关联任务最多选择 %d 个",
+      "new": "At most %d source tasks may be selected",
+      "count": 1
+    },
+    {
+      "old": "关联任务 #%d 不存在",
+      "new": "Source task #%d not found",
+      "count": 1
+    },
+    {
+      "old": "未命名任务",
+      "new": "Untitled task",
+      "count": 1
+    },
+    {
+      "old": "提示内容",
+      "new": "Hint content",
+      "count": 2
+    }
+  ],
+  "server/platform_tools.go": [
+    {
+      "old": "【重要】当安装一些平台没有的工具时，调用该工具将安装的工具放入平台中，让平台可以调用！创建一个自定义工具(shell/command/script/http)。shell=bash 环境声明，只需 key+description+agents，无需 exec/schema。",
+      "new": "IMPORTANT: after installing tools not included in the platform, register them here so the platform can call them. Creates a custom tool (shell/command/script/http). shell declares the Bash environment and only needs key+description+agents, not exec/schema.",
+      "count": 1
+    },
+    {
+      "old": "执行规格(shell 类型不需要): command→{command}; script→{code}; http→{method,url,headers,body,proxy,use_recording_proxy}",
+      "new": "Execution specification (not required for shell): command->{command}; script->{code}; http->{method,url,headers,body,proxy,use_recording_proxy}",
+      "count": 1
+    },
+    {
+      "old": "shell | command | script(仅Python) | http。shell=bash 环境声明(仅告知模型该工具可在 bash 中直接调用，无需 exec/schema)；其余三种需提供 exec",
+      "new": "shell | command | script (Python only) | http. shell declares the Bash environment (tells the model the tool can be called directly in Bash; no exec/schema required). The other three kinds require exec",
+      "count": 1
+    },
+    {
+      "old": "传根域名(如 example.com)会连带删除它的子域名及其服务/接口；传子域名(如 a.example.com)或 IP 只删该 host 自身及其服务/接口。",
+      "new": "A root domain (for example example.com) also deletes its subdomains and their services/endpoints; a subdomain (for example a.example.com) or IP deletes only that host and its services/endpoints.",
+      "count": 1
+    },
+    {
+      "old": "要删除的 host：域名/子域名/IP。完全匹配，如 example.com 或 a.example.com 或 1.2.3.4",
+      "new": "Host to delete: exact domain/subdomain/IP, for example example.com, a.example.com, or 1.2.3.4",
+      "count": 1
+    },
+    {
+      "old": "参数 JSON-Schema(shell/command/script 可留空; http 必填且需含 properties)",
+      "new": "Parameter JSON Schema (optional for shell/command/script; required for http and must include properties)",
+      "count": 1
+    },
+    {
+      "old": "按 host 精确删除资产：删掉该 host 的域名/子域名，以及其下的服务(service)、接口(endpoint)。",
+      "new": "Delete assets by exact host: removes the host domain/subdomain and its services and endpoints.",
+      "count": 1
+    },
+    {
+      "old": "创建一个新 skill(写 SKILL.md，agentskills.io 规范)。name 小写字母/数字/连字符。",
+      "new": "Create a skill (writes SKILL.md using the agentskills.io specification). name uses lowercase letters, digits, and hyphens.",
+      "count": 1
+    },
+    {
+      "old": "创建一个 MCP 服务器(stdio/http/sse)。创建后其工具需按 agent 可见性授权。",
+      "new": "Create an MCP server (stdio/http/sse). Its tools require agent visibility authorization after creation.",
+      "count": 1
+    },
+    {
+      "old": "写/覆盖某个 skill 内的一个文件(默认 SKILL.md)。用于修改技能内容或加脚本/引用。",
+      "new": "Write/overwrite a file within a skill (default SKILL.md). Use to edit instructions or add scripts/references.",
+      "count": 1
+    },
+    {
+      "old": "是否延迟(shell 类型无效；仅 command/script/http 的不常用工具才开)",
+      "new": "Whether to defer (not applicable to shell; enable only for infrequently used command/script/http tools)",
+      "count": 1
+    },
+    {
+      "old": "http: 跳过 TLS 证书校验(自签证书时置 true, 默认 false)",
+      "new": "http: skip TLS certificate verification (set true for self-signed certificates; default false)",
+      "count": 1
+    },
+    {
+      "old": "kind 需为 shell / command / script / http",
+      "new": "kind must be shell / command / script / http",
+      "count": 2
+    },
+    {
+      "old": "相对路径(可选，默认 SKILL.md，如 scripts/run.py)",
+      "new": "Relative path (optional; default SKILL.md, for example scripts/run.py)",
+      "count": 1
+    },
+    {
+      "old": "skill 名不合法(小写字母开头，仅字母/数字/连字符，≤64)",
+      "new": "Invalid skill name (must start with a lowercase letter; letters/digits/hyphens only; at most 64 characters)",
+      "count": 1
+    },
+    {
+      "old": "http 工具必须提供参数 JSON Schema(不能留空)",
+      "new": "HTTP tools require a nonempty parameter JSON Schema",
+      "count": 2
+    },
+    {
+      "old": "⚠️ 硬删除、作用于全局资产库(跨任务共享)、不可撤销。",
+      "new": "WARNING: irreversible hard deletion from the global asset store shared across tasks.",
+      "count": 1
+    },
+    {
+      "old": "host 完全匹配(小写、去空格)，不是模糊/通配。",
+      "new": "host uses an exact match (lowercased and trimmed), not fuzzy or wildcard matching.",
+      "count": 1
+    },
+    {
+      "old": "skill 名(小写字母开头，字母/数字/连字符)",
+      "new": "Skill name (starts with a lowercase letter; letters/digits/hyphens)",
+      "count": 1
+    },
+    {
+      "old": "工具 key(小写字母开头，字母/数字/下划线)",
+      "new": "Tool key (starts with a lowercase letter; letters/digits/underscores)",
+      "count": 1
+    },
+    {
+      "old": "skill 描述(必填，说明它做什么/何时用)",
+      "new": "Skill description (required; explain what it does and when to use it)",
+      "count": 1
+    },
+    {
+      "old": "修改一个已有的 MCP 服务器(按 id)。",
+      "new": "Update an existing MCP server by id.",
+      "count": 1
+    },
+    {
+      "old": "修改一个已有的自定义工具(按 key)。",
+      "new": "Update an existing custom tool by key.",
+      "count": 1
+    },
+    {
+      "old": "name / transport 必填",
+      "new": "name / transport are required",
+      "count": 1
+    },
+    {
+      "old": "stdio 的启动命令(如 npx)",
+      "new": "stdio launch command (for example npx)",
+      "count": 1
+    },
+    {
+      "old": "Markdown 正文说明(可选)",
+      "new": "Markdown instructions (optional)",
+      "count": 1
+    },
+    {
+      "old": "绑定的 agent key(可选)",
+      "new": "Agent keys to bind (optional)",
+      "count": 1
+    },
+    {
+      "old": "环境变量 {KEY:VALUE}",
+      "new": "Environment variables {KEY:VALUE}",
+      "count": 1
+    },
+    {
+      "old": "要修改的 MCP 服务器 id",
+      "new": "MCP server id to update",
+      "count": 1
+    },
+    {
+      "old": "description 必填",
+      "new": "description is required",
+      "count": 1
+    },
+    {
+      "old": "http/sse 的 URL",
+      "new": "http/sse URL",
+      "count": 1
+    },
+    {
+      "old": "是否启用(默认 true)",
+      "new": "Whether enabled (default true)",
+      "count": 2
+    },
+    {
+      "old": "要修改的自定义工具 key",
+      "new": "Custom tool key to update",
+      "count": 1
+    },
+    {
+      "old": "skill 不存在: ",
+      "new": "Skill not found: ",
+      "count": 1
+    },
+    {
+      "old": "只能修改自定义工具: ",
+      "new": "Only custom tools can be updated: ",
+      "count": 1
+    },
+    {
+      "old": "skill 名不合法",
+      "new": "Invalid skill name",
+      "count": 1
+    },
+    {
+      "old": "host 不能为空",
+      "new": "host must not be empty",
+      "count": 1
+    },
+    {
+      "old": "MCP 服务器名",
+      "new": "MCP server name",
+      "count": 1
+    },
+    {
+      "old": "资产库未初始化",
+      "new": "Asset store is not initialized",
+      "count": 1
+    },
+    {
+      "old": "skill 名",
+      "new": "Skill name",
+      "count": 1
+    },
+    {
+      "old": "发给模型的描述",
+      "new": "Description supplied to the model",
+      "count": 1
+    },
+    {
+      "old": "删除失败: ",
+      "new": "Deletion failed: ",
+      "count": 1
+    },
+    {
+      "old": "文件完整内容",
+      "new": "Complete file content",
+      "count": 1
+    },
+    {
+      "old": "命令参数数组",
+      "new": "Command argument array",
+      "count": 1
+    },
+    {
+      "old": "id 必填",
+      "new": "id is required",
+      "count": 1
+    }
+  ],
+  "server/scheduler.go": [
+    {
+      "old": "【本次由任务发现 finding 触发】",
+      "new": "[Triggered by a task finding]",
+      "count": 1
+    },
+    {
+      "old": "finding 触发 · task#%d",
+      "new": "Finding trigger · task#%d",
+      "count": 1
+    },
+    {
+      "old": "工具触发 · %s · task#%d",
+      "new": "Tool trigger · %s · task#%d",
+      "count": 1
+    },
+    {
+      "old": "…(truncated,共 %d 字)",
+      "new": "…(truncated, %d characters total)",
+      "count": 1
+    },
+    {
+      "old": "任务创建触发 · task#%d",
+      "new": "Task creation trigger · task#%d",
+      "count": 1
+    },
+    {
+      "old": "发现: [%s/%s] %s",
+      "new": "Finding: [%s/%s] %s",
+      "count": 1
+    },
+    {
+      "old": "目标触发 · task#%d",
+      "new": "Goal trigger · task#%d",
+      "count": 1
+    },
+    {
+      "old": "超时触发 · task#%d",
+      "new": "Timeout trigger · task#%d",
+      "count": 1
+    },
+    {
+      "old": "【本次由任务完成目标触发】",
+      "new": "[Triggered by task goal completion]",
+      "count": 1
+    },
+    {
+      "old": "【本次由任务超时触发】",
+      "new": "[Triggered by task timeout]",
+      "count": 1
+    },
+    {
+      "old": "【本次由任务创建触发】",
+      "new": "[Triggered by task creation]",
+      "count": 1
+    },
+    {
+      "old": "【本次由工具调用触发】",
+      "new": "[Triggered by a tool call]",
+      "count": 1
+    },
+    {
+      "old": "【本次为定时触发】",
+      "new": "[Scheduled trigger]",
+      "count": 1
+    },
+    {
+      "old": "定时触发 · %s",
+      "new": "Scheduled trigger · %s",
+      "count": 1
+    },
+    {
+      "old": "达成目标: %s",
+      "new": "Completed goal: %s",
+      "count": 1
+    },
+    {
+      "old": "返回: %s%s",
+      "new": "Output: %s%s",
+      "count": 1
+    },
+    {
+      "old": "工具: %s",
+      "new": "Tool: %s",
+      "count": 1
+    },
+    {
+      "old": "入参: %s",
+      "new": "Input: %s",
+      "count": 1
+    }
+  ],
+  "server/server.go": [
+    {
+      "old": "没有已激活的 LLM 配置：请到 系统 → LLM 配置 激活一个，或在本对话为该会话指定一个配置",
+      "new": "No active LLM profile: activate one in System -> LLM Profiles or select a profile for this conversation",
+      "count": 1
+    },
+    {
+      "old": "Task is being deleted and cannot be controlled意图",
+      "new": "Task is being deleted; cannot control intents",
+      "count": 1
+    },
+    {
+      "old": "该意图不是可重跑状态(仅 blocked/exhausted/stopped 可重跑)",
+      "new": "Intent is not in a rerunnable state (only blocked/exhausted/stopped can be rerun)",
+      "count": 1
+    },
+    {
+      "old": "未检测到 python(python3/python 均不在 PATH)",
+      "new": "Python not detected (neither python3 nor python is in PATH)",
+      "count": 1
+    },
+    {
+      "old": "尚未配置 LLM：请到 系统 → LLM 配置 添加一个配置",
+      "new": "No LLM configured: add a profile in System -> LLM Profiles",
+      "count": 1
+    },
+    {
+      "old": "Task is being deleted，无法发送新消息",
+      "new": "Task is being deleted; cannot send new messages",
+      "count": 2
+    },
+    {
+      "old": "Task is being deleted，无法重跑意图",
+      "new": "Task is being deleted; cannot rerun intents",
+      "count": 2
+    },
+    {
+      "old": "Task is being deleted，无法新建会话",
+      "new": "Task is being deleted; cannot create conversations",
+      "count": 1
+    },
+    {
+      "old": "LLM 配置 #%d 不存在或未设置 API Key",
+      "new": "LLM profile #%d is missing or has no API Key",
+      "count": 1
+    },
+    {
+      "old": "搜索返回 0 条结果（可能被限流或代理不通）",
+      "new": "Search returned 0 results (possibly rate limited or proxy unavailable)",
+      "count": 1
+    },
+    {
+      "old": "主 Agent 正在处理上一条消息，请稍候",
+      "new": "The main Agent is processing the previous message; please wait",
+      "count": 1
+    },
+    {
+      "old": "关联Invalid task id或重复",
+      "new": "Invalid or duplicate source task id",
+      "count": 1
+    },
+    {
+      "old": "关联企业无效：最多选择 %d 个有效企业",
+      "new": "Invalid associated companies: select at most %d valid companies",
+      "count": 1
+    },
+    {
+      "old": "汇总周期需在 1 到 1440 分钟之间",
+      "new": "Digest interval must be between 1 and 1440 minutes",
+      "count": 1
+    },
+    {
+      "old": "完成任务目标：%s（任务：%s）",
+      "new": "Complete task goal: %s (task: %s)",
+      "count": 1
+    },
+    {
+      "old": "LLM 配置 id 无效或重复",
+      "new": "Invalid or duplicate LLM profile id",
+      "count": 1
+    },
+    {
+      "old": "asset store 未启用",
+      "new": "Asset store is disabled",
+      "count": 5
+    },
+    {
+      "old": "已记录提示，规划者下次会读到：",
+      "new": "Hint recorded for the planner's next run: ",
+      "count": 1
+    },
+    {
+      "old": "关联任务最多选择 %d 个",
+      "new": "At most %d source tasks may be selected",
+      "count": 1
+    },
+    {
+      "old": "关联任务 #%d 不存在",
+      "new": "Source task #%d not found",
+      "count": 1
+    },
+    {
+      "old": "（主 Agent 出错：",
+      "new": "(Main Agent error: ",
+      "count": 1
+    },
+    {
+      "old": "已注入一条高优先级意图：",
+      "new": "Injected a high-priority intent: ",
+      "count": 1
+    },
+    {
+      "old": "由任务描述或目标初始化",
+      "new": "Initialized from task description or goal",
+      "count": 1
+    },
+    {
+      "old": "需要 asset_id",
+      "new": "asset_id is required",
+      "count": 1
+    },
+    {
+      "old": "任务级拦截规则无效：",
+      "new": "Invalid task-level intercept rules: ",
+      "count": 1
+    },
+    {
+      "old": "任务分类不存在或无效",
+      "new": "Task category is missing or invalid",
+      "count": 1
+    },
+    {
+      "old": "关联企业不存在或无效",
+      "new": "Associated company is missing or invalid",
+      "count": 1
+    },
+    {
+      "old": "skill 名",
+      "new": "Skill name",
+      "count": 1
+    },
+    {
+      "old": "未命名任务",
+      "new": "Untitled task",
+      "count": 1
+    }
+  ],
+  "server/server_mgmt.go": [
+    {
+      "old": "内置默认",
+      "new": "Built-in default",
+      "count": 5
+    }
+  ],
+  "server/side_questions.go": [
+    {
+      "old": "模型配置已删除或变化，请先运行主 Agent 更新上下文",
+      "new": "Model configuration was deleted or changed; run the main Agent to update context first",
+      "count": 2
+    },
+    {
+      "old": "问题须为 1–4000 字符，并提供有效请求 ID",
+      "new": "Question must contain 1-4000 characters and include a valid request ID",
+      "count": 1
+    },
+    {
+      "old": "尚无上下文快照，请先运行主 Agent",
+      "new": "No context snapshot yet; run the main Agent first",
+      "count": 1
+    },
+    {
+      "old": "同一请求 ID 不能用于不同问题",
+      "new": "The same request ID cannot be used for different questions",
+      "count": 1
+    },
+    {
+      "old": "旁路请求已达并发上限，请稍后重试",
+      "new": "Side-question concurrency limit reached; retry later",
+      "count": 1
+    },
+    {
+      "old": "旁路回答超过 120 秒，已停止",
+      "new": "Side-question answer exceeded 120 seconds and was stopped",
+      "count": 1
+    },
+    {
+      "old": "旁路上下文尚未保存，请重试",
+      "new": "Side-question context has not been saved; retry",
+      "count": 1
+    },
+    {
+      "old": "任务已归档或正在删除",
+      "new": "Task is archived or being deleted",
+      "count": 1
+    },
+    {
+      "old": "Worker 已删除",
+      "new": "Worker has been deleted",
+      "count": 1
+    },
+    {
+      "old": "任务正在归档或删除",
+      "new": "Task is being archived or deleted",
+      "count": 1
+    },
+    {
+      "old": "旁路服务不可用",
+      "new": "Side-question service is unavailable",
+      "count": 1
+    },
+    {
+      "old": "回答已停止",
+      "new": "Answer stopped",
+      "count": 1
+    }
+  ],
+  "server/sync_scopesentry.go": [
+    {
+      "old": "dimension 必须是 project 或 task",
+      "new": "dimension must be project or task",
+      "count": 1
+    },
+    {
+      "old": "%s(%s) 达到 %d 条上限，truncated",
+      "new": "%s(%s) reached the %d-entry limit; truncated",
+      "count": 1
+    },
+    {
+      "old": "list_projects_data 失败: ",
+      "new": "list_projects_data failed: ",
+      "count": 1
+    },
+    {
+      "old": "数据源 %s 未配置 URL，请先配置",
+      "new": "Data source %s has no URL; configure it first",
+      "count": 1
+    },
+    {
+      "old": "Unknown资产类型，已跳过: ",
+      "new": "Unknown asset type; skipped: ",
+      "count": 1
+    },
+    {
+      "old": "项目 %s 详情获取失败: %v",
+      "new": "Failed to fetch project %s details: %v",
+      "count": 1
+    },
+    {
+      "old": "subdomain 解析失败: ",
+      "new": "subdomain parse failed: ",
+      "count": 1
+    },
+    {
+      "old": "数据源 %s 不存在，请先创建",
+      "new": "Data source %s not found; create it first",
+      "count": 1
+    },
+    {
+      "old": "list_tasks 失败: ",
+      "new": "list_tasks failed: ",
+      "count": 1
+    },
+    {
+      "old": "%s(%s) 拉取失败: %v",
+      "new": "%s(%s) fetch failed: %v",
+      "count": 1
+    },
+    {
+      "old": "公司 %s 创建失败: %v",
+      "new": "Failed to create company %s: %v",
+      "count": 1
+    },
+    {
+      "old": "service 解析失败: ",
+      "new": "service parse failed: ",
+      "count": 1
+    },
+    {
+      "old": "targets 不能为空",
+      "new": "targets must not be empty",
+      "count": 1
+    },
+    {
+      "old": "解析项目列表失败: ",
+      "new": "Failed to parse project list: ",
+      "count": 1
+    },
+    {
+      "old": "解析任务列表失败: ",
+      "new": "Failed to parse task list: ",
+      "count": 1
+    },
+    {
+      "old": "app 解析失败: ",
+      "new": "app parse failed: ",
+      "count": 1
+    }
+  ],
+  "server/task_archive_package.go": [
+    {
+      "old": "归档包原文件和删除暂存文件同时存在",
+      "new": "Both the original archive package and deletion staging file exist",
+      "count": 1
+    }
+  ],
+  "server/task_assets.go": [
+    {
+      "old": "scope 与 asset_ids 不能同时提交",
+      "new": "scope and asset_ids cannot be submitted together",
+      "count": 1
+    }
+  ],
+  "server/task_llm.go": [
+    {
+      "old": "用户手动将任务 LLM 从 %s 切换到 %s",
+      "new": "User manually switched task LLM from %s to %s",
+      "count": 1
+    },
+    {
+      "old": "用户手动切换任务 LLM",
+      "new": "User manually switched task LLM",
+      "count": 1
+    },
+    {
+      "old": "，后续调用切换到 %s",
+      "new": "; subsequent calls switch to %s",
+      "count": 1
+    },
+    {
+      "old": "%s 额度不足",
+      "new": "%s quota exhausted",
+      "count": 1
+    },
+    {
+      "old": "，配置链已耗尽",
+      "new": "; profile chain exhausted",
+      "count": 1
+    },
+    {
+      "old": "配置 #%d",
+      "new": "Profile #%d",
+      "count": 2
+    },
+    {
+      "old": "内置默认",
+      "new": "Built-in default",
+      "count": 1
+    },
+    {
+      "old": "默认配置",
+      "new": "Default profile",
+      "count": 1
+    }
+  ],
+  "server/task_metadata.go": [
+    {
+      "old": "任务Name must not be empty",
+      "new": "Task name must not be empty",
+      "count": 1
+    },
+    {
+      "old": "至少需要提供 name 或 pinned",
+      "new": "At least one of name or pinned is required",
+      "count": 1
+    },
+    {
+      "old": "任务名称最多 %d 个字符",
+      "new": "Task name must not exceed %d characters",
+      "count": 1
+    }
+  ],
+  "server/trigger_merge_test.go": [
+    {
+      "old": "【本次由工具调用触发】",
+      "new": "[Triggered by a tool call]",
+      "count": 1
+    }
+  ],
+  "server/triggers.go": [
+    {
+      "old": "至少选择一种触发条件(定时/发现finding/目标达成/任务超时/工具调用/任务创建)",
+      "new": "Select at least one trigger condition (schedule/finding/goal completion/task timeout/tool call/task creation)",
+      "count": 1
+    },
+    {
+      "old": "触发器仅支持自定义 agent",
+      "new": "Triggers only support custom agents",
+      "count": 1
+    },
+    {
+      "old": "工具调用触发至少选择一个工具",
+      "new": "Select at least one tool for a tool-call trigger",
+      "count": 1
+    }
+  ],
+  "server/webui_stub.go": [
+    {
+      "old": "前端未内嵌到此二进制（开发用 next dev；发布用 -tags embedui 构建）",
+      "new": "Frontend is not embedded in this binary (use next dev for development; build releases with -tags embedui)",
+      "count": 1
+    }
+  ]
+}

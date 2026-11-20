@@ -1,0 +1,142 @@
+[
+  {
+    "path": "notify/mask.go",
+    "line": 68,
+    "text": "\tChanged []string // 发生变化的目的地键"
+  },
+  {
+    "path": "notify/mask.go",
+    "line": 69,
+    "text": "\tMissing []string // 未显式表态的凭据键"
+  },
+  {
+    "path": "notify/mask.go",
+    "line": 240,
+    "text": "\t\t\t\tcontinue // 掩码值 = 未修改，保留 stored"
+  },
+  {
+    "path": "notify/notify.go",
+    "line": 16,
+    "text": "\tKindDingTalk = \"dingtalk\" // 钉钉自定义机器人"
+  },
+  {
+    "path": "notify/notify.go",
+    "line": 17,
+    "text": "\tKindFeishu   = \"feishu\"   // 飞书(含 Lark)自定义机器人"
+  },
+  {
+    "path": "notify/notify.go",
+    "line": 18,
+    "text": "\tKindWeCom    = \"wecom\"    // 企业微信群机器人"
+  },
+  {
+    "path": "notify/notify.go",
+    "line": 19,
+    "text": "\tKindWebhook  = \"webhook\"  // 通用 Webhook：自定义方法/头/JSON 模板"
+  },
+  {
+    "path": "notify/notify.go",
+    "line": 21,
+    "text": "\tKindEmail    = \"email\"    // SMTP 邮件"
+  },
+  {
+    "path": "report/findings.go",
+    "line": 24,
+    "text": "\t\t\treturn ri < rj // sevRank 越小越严重"
+  },
+  {
+    "path": "report/findings.go",
+    "line": 187,
+    "text": "\t\tout.WriteString(\"证据已变更，Detailed report待更新。\\n\\n\")"
+  },
+  {
+    "path": "report/findings.go",
+    "line": 190,
+    "text": "\t\tfmt.Fprintf(&out, \"%d. **Evidence #%d · %s** — `%s %s`，Status码 %d\\n\", i+1, b.ID, b.Role, b.Snapshot.Method, strings.ReplaceAll(b.Snapshot.URL, \"`\", \"%60\"), b.Snapshot.Status)"
+  },
+  {
+    "path": "selfupdate/bootstrap.go",
+    "line": 37,
+    "text": "\tPending     bool   // 换装后尚未确认稳定"
+  },
+  {
+    "path": "selfupdate/bootstrap.go",
+    "line": 38,
+    "text": "\tRolledBack  bool   // 本次启动刚刚执行过自动回滚"
+  },
+  {
+    "path": "selfupdate/bootstrap.go",
+    "line": 39,
+    "text": "\tFailedStage bool   // 暂存件校验/冒烟未通过，已丢弃"
+  },
+  {
+    "path": "selfupdate/bootstrap.go",
+    "line": 40,
+    "text": "\tDetail      string // 面向用户的一句话说明"
+  },
+  {
+    "path": "selfupdate/bootstrap.go",
+    "line": 147,
+    "text": "\t\treturn // 不是升级后的启动，无事可做"
+  },
+  {
+    "path": "selfupdate/github.go",
+    "line": 41,
+    "text": "\t\"objects.githubusercontent.com\":        true, // release 资产实际落地的对象存储"
+  },
+  {
+    "path": "selfupdate/github.go",
+    "line": 81,
+    "text": "\t\tTimeout:   30 * time.Minute, // 下载整包，不能按请求级超时卡死"
+  },
+  {
+    "path": "selfupdate/selfupdate.go",
+    "line": 44,
+    "text": "\tDir     string // 可执行文件所在目录"
+  },
+  {
+    "path": "selfupdate/selfupdate.go",
+    "line": 45,
+    "text": "\tCurrent string // 当前运行的二进制        artex      / artex.exe"
+  },
+  {
+    "path": "selfupdate/selfupdate.go",
+    "line": 46,
+    "text": "\tNew     string // 暂存的新版本            artex.new  / artex.new.exe"
+  },
+  {
+    "path": "selfupdate/selfupdate.go",
+    "line": 47,
+    "text": "\tSum     string // 新版本的 sha256（hex）  artex.new.sha256 / artex.new.exe.sha256"
+  },
+  {
+    "path": "selfupdate/selfupdate.go",
+    "line": 48,
+    "text": "\tOld     string // 换装前备份的旧版本      artex.old  / artex.old.exe"
+  },
+  {
+    "path": "selfupdate/selfupdate.go",
+    "line": 49,
+    "text": "\tMarker  string // 升级Status标记            artex.upgrade.json"
+  },
+  {
+    "path": "selfupdate/selfupdate.go",
+    "line": 66,
+    "text": "\text := filepath.Ext(name) // Windows 上是 \".exe\"，Unix 上通常为空"
+  },
+  {
+    "path": "selfupdate/selfupdate.go",
+    "line": 82,
+    "text": "\tFrom     string `json:\"from\"`     // 升级前的版本"
+  },
+  {
+    "path": "selfupdate/selfupdate.go",
+    "line": 83,
+    "text": "\tTo       string `json:\"to\"`       // 目标版本"
+  },
+  {
+    "path": "selfupdate/selfupdate.go",
+    "line": 84,
+    "text": "\tAttempts int    `json:\"attempts\"` // 换装后已尝试启动的次数"
+  }
+]

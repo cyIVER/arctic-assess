@@ -1,0 +1,653 @@
+test_actual_blocked_canary_cannot_be_overridden_by_local_pass (test_validate.ReadinessTests.test_actual_blocked_canary_cannot_be_overridden_by_local_pass) ... ok
+test_exact_bool_and_counter_types (test_validate.ReadinessTests.test_exact_bool_and_counter_types) ... 
+  test_exact_bool_and_counter_types (test_validate.ReadinessTests.test_exact_bool_and_counter_types) (kind='unit', field='runtime_proof') ... FAIL
+  test_exact_bool_and_counter_types (test_validate.ReadinessTests.test_exact_bool_and_counter_types) (kind='unit', field='synthetic') ... FAIL
+  test_exact_bool_and_counter_types (test_validate.ReadinessTests.test_exact_bool_and_counter_types) (kind='unit', field='tests') ... FAIL
+  test_exact_bool_and_counter_types (test_validate.ReadinessTests.test_exact_bool_and_counter_types) (kind='unit', field='failures') ... FAIL
+  test_exact_bool_and_counter_types (test_validate.ReadinessTests.test_exact_bool_and_counter_types) (kind='unit', field='errors') ... FAIL
+  test_exact_bool_and_counter_types (test_validate.ReadinessTests.test_exact_bool_and_counter_types) (kind='unit', field='skips') ... FAIL
+  test_exact_bool_and_counter_types (test_validate.ReadinessTests.test_exact_bool_and_counter_types) (kind='canary', field='runtime_proof') ... FAIL
+  test_exact_bool_and_counter_types (test_validate.ReadinessTests.test_exact_bool_and_counter_types) (kind='native', field='standalone_acceptance_claimed') ... FAIL
+  test_exact_bool_and_counter_types (test_validate.ReadinessTests.test_exact_bool_and_counter_types) (kind='native', field='whole_operational_goal_complete') ... FAIL
+  test_exact_bool_and_counter_types (test_validate.ReadinessTests.test_exact_bool_and_counter_types) (kind='native', field='limited_owned_chat_workflow_acceptance') ... FAIL
+test_exact_envelope_types_and_nonempty_reports (test_validate.ReadinessTests.test_exact_envelope_types_and_nonempty_reports) ... 
+  test_exact_envelope_types_and_nonempty_reports (test_validate.ReadinessTests.test_exact_envelope_types_and_nonempty_reports) (field='schema_version', value=True) ... FAIL
+  test_exact_envelope_types_and_nonempty_reports (test_validate.ReadinessTests.test_exact_envelope_types_and_nonempty_reports) (field='schema_version', value=1.0) ... FAIL
+  test_exact_envelope_types_and_nonempty_reports (test_validate.ReadinessTests.test_exact_envelope_types_and_nonempty_reports) (field='reports', value=[]) ... FAIL
+  test_exact_envelope_types_and_nonempty_reports (test_validate.ReadinessTests.test_exact_envelope_types_and_nonempty_reports) (field='reports', value=None) ... FAIL
+test_exact_reference_types_and_confined_paths (test_validate.ReadinessTests.test_exact_reference_types_and_confined_paths) ... 
+  test_exact_reference_types_and_confined_paths (test_validate.ReadinessTests.test_exact_reference_types_and_confined_paths) (field='bytes', value=True) ... FAIL
+  test_exact_reference_types_and_confined_paths (test_validate.ReadinessTests.test_exact_reference_types_and_confined_paths) (field='bytes', value=85.0) ... FAIL
+  test_exact_reference_types_and_confined_paths (test_validate.ReadinessTests.test_exact_reference_types_and_confined_paths) (field='path', value='../outside') ... FAIL
+  test_exact_reference_types_and_confined_paths (test_validate.ReadinessTests.test_exact_reference_types_and_confined_paths) (field='path', value='/etc/passwd') ... FAIL
+  test_exact_reference_types_and_confined_paths (test_validate.ReadinessTests.test_exact_reference_types_and_confined_paths) (field='provenance', value='APPROVED') ... FAIL
+  test_exact_reference_types_and_confined_paths (test_validate.ReadinessTests.test_exact_reference_types_and_confined_paths) (field='kind', value='arbitrary') ... FAIL
+  test_exact_reference_types_and_confined_paths (test_validate.ReadinessTests.test_exact_reference_types_and_confined_paths) (field='sha256', value='NOT_A_HASH') ... FAIL
+test_hash_and_byte_length_bind_actual_bytes (test_validate.ReadinessTests.test_hash_and_byte_length_bind_actual_bytes) ... 
+  test_hash_and_byte_length_bind_actual_bytes (test_validate.ReadinessTests.test_hash_and_byte_length_bind_actual_bytes) (field='sha256') ... FAIL
+  test_hash_and_byte_length_bind_actual_bytes (test_validate.ReadinessTests.test_hash_and_byte_length_bind_actual_bytes) (field='bytes') ... FAIL
+test_limited_native_chat_is_not_full_assessment (test_validate.ReadinessTests.test_limited_native_chat_is_not_full_assessment) ... ok
+test_local_failures_errors_skips_or_no_tests_fail (test_validate.ReadinessTests.test_local_failures_errors_skips_or_no_tests_fail) ... 
+  test_local_failures_errors_skips_or_no_tests_fail (test_validate.ReadinessTests.test_local_failures_errors_skips_or_no_tests_fail) (field='tests', value=0) ... FAIL
+  test_local_failures_errors_skips_or_no_tests_fail (test_validate.ReadinessTests.test_local_failures_errors_skips_or_no_tests_fail) (field='tests', value=-1) ... FAIL
+  test_local_failures_errors_skips_or_no_tests_fail (test_validate.ReadinessTests.test_local_failures_errors_skips_or_no_tests_fail) (field='failures', value=1) ... FAIL
+  test_local_failures_errors_skips_or_no_tests_fail (test_validate.ReadinessTests.test_local_failures_errors_skips_or_no_tests_fail) (field='errors', value=1) ... FAIL
+  test_local_failures_errors_skips_or_no_tests_fail (test_validate.ReadinessTests.test_local_failures_errors_skips_or_no_tests_fail) (field='skips', value=1) ... FAIL
+test_missing_report_returns_failed (test_validate.ReadinessTests.test_missing_report_returns_failed) ... FAIL
+test_missing_required_unit_fields_fail (test_validate.ReadinessTests.test_missing_required_unit_fields_fail) ... 
+  test_missing_required_unit_fields_fail (test_validate.ReadinessTests.test_missing_required_unit_fields_fail) (field='tests') ... FAIL
+  test_missing_required_unit_fields_fail (test_validate.ReadinessTests.test_missing_required_unit_fields_fail) (field='runtime_proof') ... FAIL
+  test_missing_required_unit_fields_fail (test_validate.ReadinessTests.test_missing_required_unit_fields_fail) (field='skips') ... FAIL
+test_synthetic_complete_control_is_unit_only (test_validate.ReadinessTests.test_synthetic_complete_control_is_unit_only) ... ok
+test_synthetic_runtime_claim_cannot_qualify (test_validate.ReadinessTests.test_synthetic_runtime_claim_cannot_qualify) ... FAIL
+test_truncated_duplicate_key_or_nonobject_json_fails (test_validate.ReadinessTests.test_truncated_duplicate_key_or_nonobject_json_fails) ... 
+  test_truncated_duplicate_key_or_nonobject_json_fails (test_validate.ReadinessTests.test_truncated_duplicate_key_or_nonobject_json_fails) (raw=b'{') ... FAIL
+  test_truncated_duplicate_key_or_nonobject_json_fails (test_validate.ReadinessTests.test_truncated_duplicate_key_or_nonobject_json_fails) (raw=b'[]') ... FAIL
+  test_truncated_duplicate_key_or_nonobject_json_fails (test_validate.ReadinessTests.test_truncated_duplicate_key_or_nonobject_json_fails) (raw=b'{"synthetic":true,"synthetic":false}') ... FAIL
+
+======================================================================
+FAIL: test_exact_bool_and_counter_types (test_validate.ReadinessTests.test_exact_bool_and_counter_types) (kind='unit', field='runtime_proof')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 116, in test_exact_bool_and_counter_types
+    self.assert_failed(bundle())
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 59, in assert_failed
+    self.assertEqual(result["readiness"], "FAILED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'REVIEW_REQUIRED' != 'FAILED'
+- REVIEW_REQUIRED
++ FAILED
+
+
+======================================================================
+FAIL: test_exact_bool_and_counter_types (test_validate.ReadinessTests.test_exact_bool_and_counter_types) (kind='unit', field='synthetic')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 116, in test_exact_bool_and_counter_types
+    self.assert_failed(bundle())
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 59, in assert_failed
+    self.assertEqual(result["readiness"], "FAILED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'REVIEW_REQUIRED' != 'FAILED'
+- REVIEW_REQUIRED
++ FAILED
+
+
+======================================================================
+FAIL: test_exact_bool_and_counter_types (test_validate.ReadinessTests.test_exact_bool_and_counter_types) (kind='unit', field='tests')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 116, in test_exact_bool_and_counter_types
+    self.assert_failed(bundle())
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 59, in assert_failed
+    self.assertEqual(result["readiness"], "FAILED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'REVIEW_REQUIRED' != 'FAILED'
+- REVIEW_REQUIRED
++ FAILED
+
+
+======================================================================
+FAIL: test_exact_bool_and_counter_types (test_validate.ReadinessTests.test_exact_bool_and_counter_types) (kind='unit', field='failures')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 116, in test_exact_bool_and_counter_types
+    self.assert_failed(bundle())
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 59, in assert_failed
+    self.assertEqual(result["readiness"], "FAILED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'REVIEW_REQUIRED' != 'FAILED'
+- REVIEW_REQUIRED
++ FAILED
+
+
+======================================================================
+FAIL: test_exact_bool_and_counter_types (test_validate.ReadinessTests.test_exact_bool_and_counter_types) (kind='unit', field='errors')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 116, in test_exact_bool_and_counter_types
+    self.assert_failed(bundle())
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 59, in assert_failed
+    self.assertEqual(result["readiness"], "FAILED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'REVIEW_REQUIRED' != 'FAILED'
+- REVIEW_REQUIRED
++ FAILED
+
+
+======================================================================
+FAIL: test_exact_bool_and_counter_types (test_validate.ReadinessTests.test_exact_bool_and_counter_types) (kind='unit', field='skips')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 116, in test_exact_bool_and_counter_types
+    self.assert_failed(bundle())
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 59, in assert_failed
+    self.assertEqual(result["readiness"], "FAILED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'REVIEW_REQUIRED' != 'FAILED'
+- REVIEW_REQUIRED
++ FAILED
+
+
+======================================================================
+FAIL: test_exact_bool_and_counter_types (test_validate.ReadinessTests.test_exact_bool_and_counter_types) (kind='canary', field='runtime_proof')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 116, in test_exact_bool_and_counter_types
+    self.assert_failed(bundle())
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 59, in assert_failed
+    self.assertEqual(result["readiness"], "FAILED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'BLOCKED' != 'FAILED'
+- BLOCKED
++ FAILED
+
+
+======================================================================
+FAIL: test_exact_bool_and_counter_types (test_validate.ReadinessTests.test_exact_bool_and_counter_types) (kind='native', field='standalone_acceptance_claimed')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 116, in test_exact_bool_and_counter_types
+    self.assert_failed(bundle())
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 59, in assert_failed
+    self.assertEqual(result["readiness"], "FAILED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'BLOCKED' != 'FAILED'
+- BLOCKED
++ FAILED
+
+
+======================================================================
+FAIL: test_exact_bool_and_counter_types (test_validate.ReadinessTests.test_exact_bool_and_counter_types) (kind='native', field='whole_operational_goal_complete')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 116, in test_exact_bool_and_counter_types
+    self.assert_failed(bundle())
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 59, in assert_failed
+    self.assertEqual(result["readiness"], "FAILED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'BLOCKED' != 'FAILED'
+- BLOCKED
++ FAILED
+
+
+======================================================================
+FAIL: test_exact_bool_and_counter_types (test_validate.ReadinessTests.test_exact_bool_and_counter_types) (kind='native', field='limited_owned_chat_workflow_acceptance')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 116, in test_exact_bool_and_counter_types
+    self.assert_failed(bundle())
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 59, in assert_failed
+    self.assertEqual(result["readiness"], "FAILED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'BLOCKED' != 'FAILED'
+- BLOCKED
++ FAILED
+
+
+======================================================================
+FAIL: test_exact_envelope_types_and_nonempty_reports (test_validate.ReadinessTests.test_exact_envelope_types_and_nonempty_reports) (field='schema_version', value=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 92, in test_exact_envelope_types_and_nonempty_reports
+    self.assert_failed(bundle)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 59, in assert_failed
+    self.assertEqual(result["readiness"], "FAILED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'REVIEW_REQUIRED' != 'FAILED'
+- REVIEW_REQUIRED
++ FAILED
+
+
+======================================================================
+FAIL: test_exact_envelope_types_and_nonempty_reports (test_validate.ReadinessTests.test_exact_envelope_types_and_nonempty_reports) (field='schema_version', value=1.0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 92, in test_exact_envelope_types_and_nonempty_reports
+    self.assert_failed(bundle)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 59, in assert_failed
+    self.assertEqual(result["readiness"], "FAILED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'REVIEW_REQUIRED' != 'FAILED'
+- REVIEW_REQUIRED
++ FAILED
+
+
+======================================================================
+FAIL: test_exact_envelope_types_and_nonempty_reports (test_validate.ReadinessTests.test_exact_envelope_types_and_nonempty_reports) (field='reports', value=[])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 92, in test_exact_envelope_types_and_nonempty_reports
+    self.assert_failed(bundle)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 59, in assert_failed
+    self.assertEqual(result["readiness"], "FAILED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'REVIEW_REQUIRED' != 'FAILED'
+- REVIEW_REQUIRED
++ FAILED
+
+
+======================================================================
+FAIL: test_exact_envelope_types_and_nonempty_reports (test_validate.ReadinessTests.test_exact_envelope_types_and_nonempty_reports) (field='reports', value=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 56, in assert_failed
+    result = validate(bundle, ROOT)
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/validate.py", line 10, in validate
+    for ref in bundle['reports']:
+               ~~~~~~^^^^^^^^^^^
+TypeError: 'NoneType' object is not iterable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 92, in test_exact_envelope_types_and_nonempty_reports
+    self.assert_failed(bundle)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 58, in assert_failed
+    self.fail("Validator must return FAILED rather than raise: " + type(exc).__name__)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Validator must return FAILED rather than raise: TypeError
+
+======================================================================
+FAIL: test_exact_reference_types_and_confined_paths (test_validate.ReadinessTests.test_exact_reference_types_and_confined_paths) (field='bytes', value=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 101, in test_exact_reference_types_and_confined_paths
+    self.assert_failed(bundle)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 59, in assert_failed
+    self.assertEqual(result["readiness"], "FAILED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'REVIEW_REQUIRED' != 'FAILED'
+- REVIEW_REQUIRED
++ FAILED
+
+
+======================================================================
+FAIL: test_exact_reference_types_and_confined_paths (test_validate.ReadinessTests.test_exact_reference_types_and_confined_paths) (field='bytes', value=85.0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 101, in test_exact_reference_types_and_confined_paths
+    self.assert_failed(bundle)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 59, in assert_failed
+    self.assertEqual(result["readiness"], "FAILED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'REVIEW_REQUIRED' != 'FAILED'
+- REVIEW_REQUIRED
++ FAILED
+
+
+======================================================================
+FAIL: test_exact_reference_types_and_confined_paths (test_validate.ReadinessTests.test_exact_reference_types_and_confined_paths) (field='path', value='../outside')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 56, in assert_failed
+    result = validate(bundle, ROOT)
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/validate.py", line 11, in validate
+    report = json.loads((Path(root) / ref['path']).read_bytes())
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/iveri/.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/pathlib/__init__.py", line 777, in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/iveri/.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/../outside'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 101, in test_exact_reference_types_and_confined_paths
+    self.assert_failed(bundle)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 58, in assert_failed
+    self.fail("Validator must return FAILED rather than raise: " + type(exc).__name__)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Validator must return FAILED rather than raise: FileNotFoundError
+
+======================================================================
+FAIL: test_exact_reference_types_and_confined_paths (test_validate.ReadinessTests.test_exact_reference_types_and_confined_paths) (field='path', value='/etc/passwd')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 56, in assert_failed
+    result = validate(bundle, ROOT)
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/validate.py", line 11, in validate
+    report = json.loads((Path(root) / ref['path']).read_bytes())
+  File "/home/iveri/.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/json/__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/home/iveri/.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/iveri/.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/json/decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 101, in test_exact_reference_types_and_confined_paths
+    self.assert_failed(bundle)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 58, in assert_failed
+    self.fail("Validator must return FAILED rather than raise: " + type(exc).__name__)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Validator must return FAILED rather than raise: JSONDecodeError
+
+======================================================================
+FAIL: test_exact_reference_types_and_confined_paths (test_validate.ReadinessTests.test_exact_reference_types_and_confined_paths) (field='provenance', value='APPROVED')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 101, in test_exact_reference_types_and_confined_paths
+    self.assert_failed(bundle)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 59, in assert_failed
+    self.assertEqual(result["readiness"], "FAILED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'REVIEW_REQUIRED' != 'FAILED'
+- REVIEW_REQUIRED
++ FAILED
+
+
+======================================================================
+FAIL: test_exact_reference_types_and_confined_paths (test_validate.ReadinessTests.test_exact_reference_types_and_confined_paths) (field='kind', value='arbitrary')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 101, in test_exact_reference_types_and_confined_paths
+    self.assert_failed(bundle)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 59, in assert_failed
+    self.assertEqual(result["readiness"], "FAILED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'REVIEW_REQUIRED' != 'FAILED'
+- REVIEW_REQUIRED
++ FAILED
+
+
+======================================================================
+FAIL: test_exact_reference_types_and_confined_paths (test_validate.ReadinessTests.test_exact_reference_types_and_confined_paths) (field='sha256', value='NOT_A_HASH')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 101, in test_exact_reference_types_and_confined_paths
+    self.assert_failed(bundle)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 59, in assert_failed
+    self.assertEqual(result["readiness"], "FAILED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'REVIEW_REQUIRED' != 'FAILED'
+- REVIEW_REQUIRED
++ FAILED
+
+
+======================================================================
+FAIL: test_hash_and_byte_length_bind_actual_bytes (test_validate.ReadinessTests.test_hash_and_byte_length_bind_actual_bytes) (field='sha256')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 84, in test_hash_and_byte_length_bind_actual_bytes
+    self.assert_failed(bundle)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 59, in assert_failed
+    self.assertEqual(result["readiness"], "FAILED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'REVIEW_REQUIRED' != 'FAILED'
+- REVIEW_REQUIRED
++ FAILED
+
+
+======================================================================
+FAIL: test_hash_and_byte_length_bind_actual_bytes (test_validate.ReadinessTests.test_hash_and_byte_length_bind_actual_bytes) (field='bytes')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 84, in test_hash_and_byte_length_bind_actual_bytes
+    self.assert_failed(bundle)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 59, in assert_failed
+    self.assertEqual(result["readiness"], "FAILED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'REVIEW_REQUIRED' != 'FAILED'
+- REVIEW_REQUIRED
++ FAILED
+
+
+======================================================================
+FAIL: test_local_failures_errors_skips_or_no_tests_fail (test_validate.ReadinessTests.test_local_failures_errors_skips_or_no_tests_fail) (field='tests', value=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 125, in test_local_failures_errors_skips_or_no_tests_fail
+    self.assert_failed(bundle())
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 59, in assert_failed
+    self.assertEqual(result["readiness"], "FAILED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'REVIEW_REQUIRED' != 'FAILED'
+- REVIEW_REQUIRED
++ FAILED
+
+
+======================================================================
+FAIL: test_local_failures_errors_skips_or_no_tests_fail (test_validate.ReadinessTests.test_local_failures_errors_skips_or_no_tests_fail) (field='tests', value=-1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 125, in test_local_failures_errors_skips_or_no_tests_fail
+    self.assert_failed(bundle())
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 59, in assert_failed
+    self.assertEqual(result["readiness"], "FAILED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'REVIEW_REQUIRED' != 'FAILED'
+- REVIEW_REQUIRED
++ FAILED
+
+
+======================================================================
+FAIL: test_local_failures_errors_skips_or_no_tests_fail (test_validate.ReadinessTests.test_local_failures_errors_skips_or_no_tests_fail) (field='failures', value=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 125, in test_local_failures_errors_skips_or_no_tests_fail
+    self.assert_failed(bundle())
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 59, in assert_failed
+    self.assertEqual(result["readiness"], "FAILED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'REVIEW_REQUIRED' != 'FAILED'
+- REVIEW_REQUIRED
++ FAILED
+
+
+======================================================================
+FAIL: test_local_failures_errors_skips_or_no_tests_fail (test_validate.ReadinessTests.test_local_failures_errors_skips_or_no_tests_fail) (field='errors', value=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 125, in test_local_failures_errors_skips_or_no_tests_fail
+    self.assert_failed(bundle())
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 59, in assert_failed
+    self.assertEqual(result["readiness"], "FAILED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'REVIEW_REQUIRED' != 'FAILED'
+- REVIEW_REQUIRED
++ FAILED
+
+
+======================================================================
+FAIL: test_local_failures_errors_skips_or_no_tests_fail (test_validate.ReadinessTests.test_local_failures_errors_skips_or_no_tests_fail) (field='skips', value=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 125, in test_local_failures_errors_skips_or_no_tests_fail
+    self.assert_failed(bundle())
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 59, in assert_failed
+    self.assertEqual(result["readiness"], "FAILED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'REVIEW_REQUIRED' != 'FAILED'
+- REVIEW_REQUIRED
++ FAILED
+
+
+======================================================================
+FAIL: test_missing_report_returns_failed (test_validate.ReadinessTests.test_missing_report_returns_failed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 56, in assert_failed
+    result = validate(bundle, ROOT)
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/validate.py", line 11, in validate
+    report = json.loads((Path(root) / ref['path']).read_bytes())
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/iveri/.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/pathlib/__init__.py", line 777, in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/iveri/.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/inputs/does-not-exist.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 77, in test_missing_report_returns_failed
+    self.assert_failed(bundle)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 58, in assert_failed
+    self.fail("Validator must return FAILED rather than raise: " + type(exc).__name__)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Validator must return FAILED rather than raise: FileNotFoundError
+
+======================================================================
+FAIL: test_missing_required_unit_fields_fail (test_validate.ReadinessTests.test_missing_required_unit_fields_fail) (field='tests')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 146, in test_missing_required_unit_fields_fail
+    self.assert_failed(bundle())
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 59, in assert_failed
+    self.assertEqual(result["readiness"], "FAILED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'REVIEW_REQUIRED' != 'FAILED'
+- REVIEW_REQUIRED
++ FAILED
+
+
+======================================================================
+FAIL: test_missing_required_unit_fields_fail (test_validate.ReadinessTests.test_missing_required_unit_fields_fail) (field='runtime_proof')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 146, in test_missing_required_unit_fields_fail
+    self.assert_failed(bundle())
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 59, in assert_failed
+    self.assertEqual(result["readiness"], "FAILED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'REVIEW_REQUIRED' != 'FAILED'
+- REVIEW_REQUIRED
++ FAILED
+
+
+======================================================================
+FAIL: test_missing_required_unit_fields_fail (test_validate.ReadinessTests.test_missing_required_unit_fields_fail) (field='skips')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 146, in test_missing_required_unit_fields_fail
+    self.assert_failed(bundle())
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 59, in assert_failed
+    self.assertEqual(result["readiness"], "FAILED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'REVIEW_REQUIRED' != 'FAILED'
+- REVIEW_REQUIRED
++ FAILED
+
+
+======================================================================
+FAIL: test_synthetic_runtime_claim_cannot_qualify (test_validate.ReadinessTests.test_synthetic_runtime_claim_cannot_qualify)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 131, in test_synthetic_runtime_claim_cannot_qualify
+    self.assert_failed(bundle())
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 59, in assert_failed
+    self.assertEqual(result["readiness"], "FAILED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'REVIEW_REQUIRED' != 'FAILED'
+- REVIEW_REQUIRED
++ FAILED
+
+
+======================================================================
+FAIL: test_truncated_duplicate_key_or_nonobject_json_fails (test_validate.ReadinessTests.test_truncated_duplicate_key_or_nonobject_json_fails) (raw=b'{')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 56, in assert_failed
+    result = validate(bundle, ROOT)
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/validate.py", line 11, in validate
+    report = json.loads((Path(root) / ref['path']).read_bytes())
+  File "/home/iveri/.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/json/__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/home/iveri/.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/iveri/.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/json/decoder.py", line 361, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ~~~~~~~~~~~~~~^^^^^^^^
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 138, in test_truncated_duplicate_key_or_nonobject_json_fails
+    self.assert_failed(bundle())
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 58, in assert_failed
+    self.fail("Validator must return FAILED rather than raise: " + type(exc).__name__)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Validator must return FAILED rather than raise: JSONDecodeError
+
+======================================================================
+FAIL: test_truncated_duplicate_key_or_nonobject_json_fails (test_validate.ReadinessTests.test_truncated_duplicate_key_or_nonobject_json_fails) (raw=b'[]')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 138, in test_truncated_duplicate_key_or_nonobject_json_fails
+    self.assert_failed(bundle())
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 59, in assert_failed
+    self.assertEqual(result["readiness"], "FAILED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'REVIEW_REQUIRED' != 'FAILED'
+- REVIEW_REQUIRED
++ FAILED
+
+
+======================================================================
+FAIL: test_truncated_duplicate_key_or_nonobject_json_fails (test_validate.ReadinessTests.test_truncated_duplicate_key_or_nonobject_json_fails) (raw=b'{"synthetic":true,"synthetic":false}')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 138, in test_truncated_duplicate_key_or_nonobject_json_fails
+    self.assert_failed(bundle())
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 59, in assert_failed
+    self.assertEqual(result["readiness"], "FAILED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'REVIEW_REQUIRED' != 'FAILED'
+- REVIEW_REQUIRED
++ FAILED
+
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.049s
+
+FAILED (failures=36)

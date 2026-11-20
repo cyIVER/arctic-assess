@@ -1,0 +1,12 @@
+{
+  "status": "Copied only; no execution or deployment",
+  "reason": "Subagents wrote /home/iveri/coordination-20261119 outside requested workspace; preserve original for audit, do not delete without separate approval. In-scope copies independently byte-verified.",
+  "source_dirs": [
+    "/home/iveri/coordination-20261119/dvwa-target",
+    "/home/iveri/coordination-20261119/qwen-standard-bridge"
+  ],
+  "in_scope_dirs": [
+    "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/dvwa-target",
+    "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/qwen-standard-bridge"
+  ]
+}

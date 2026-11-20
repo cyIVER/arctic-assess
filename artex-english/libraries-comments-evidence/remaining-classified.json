@@ -1,0 +1,4162 @@
+[
+  {
+    "path": "source/enrich/enrich.go",
+    "line": 2,
+    "text": "// in docs/资产模型与自动关联设计.md §5: an async worker pool that resolves domains",
+    "classifications": [
+      "intentional_existing_document_path_reference"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 23,
+    "text": "\t\t\tName:      `登录处 \"SQL注入\" 风险`,",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 24,
+    "text": "\t\t\tVulnClass: \"SQL注入\",",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 26,
+    "text": "\t\t\tSummary:   \"参数 id\\n未过滤 导致注入\",",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 39,
+    "text": "\t\t\tName:      \"漏洞\" + itoa(i+1),",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 42,
+    "text": "\t\t\tSummary:   \"反射型跨站脚本\",",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 57,
+    "text": "\t\t\t\tt.Errorf(\"请求体不是合法 JSON: %v\\n原文: %s\", err, raw)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 73,
+    "text": "\t\t\tt.Fatalf(\"有回链时应发 actionCard，得到 %v\", body[\"msgtype\"])",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 77,
+    "text": "\t\t\tt.Errorf(\"回链丢失: %v\", card[\"singleURL\"])",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 81,
+    "text": "\t\tt.Fatalf(\"投递失败: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 88,
+    "text": "\t\t\tt.Fatalf(\"汇总消息应发 markdown，得到 %v\", body[\"msgtype\"])",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 92,
+    "text": "\t\t\tt.Errorf(\"汇总正文缺少时间窗: %v\", md[\"text\"])",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 96,
+    "text": "\t\tt.Fatalf(\"投递失败: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 106,
+    "text": "\t\tt.Fatal(\"errcode 非 0 应报错\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 109,
+    "text": "\t\tt.Fatalf(\"关键词不匹配属于配置错误，应标记为永久失败，得到 %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 112,
+    "text": "\t\tt.Errorf(\"错误信息应带上平台错误码，得到 %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 123,
+    "text": "\t\t\tt.Fatal(\"截断后不是合法 UTF-8——企微会整条拒收\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 129,
+    "text": "\t\tt.Fatalf(\"投递失败: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 132,
+    "text": "\t\tt.Fatalf(\"正文 %d 字节超出企微上限 %d\", contentLen, weComMarkdownLimit)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 135,
+    "text": "\t\tt.Fatal(\"正文为空\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 143,
+    "text": "\t\tt.Fatalf(\"45009 是滚动窗口限流，应可重试，得到 %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 149,
+    "text": "\t\tt.Fatalf(\"93000 是 key 无效，重试不会自愈，应为永久失败，得到 %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 157,
+    "text": "\t\t\tt.Fatalf(\"应发交互式卡片，得到 %v\", body[\"msg_type\"])",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 162,
+    "text": "\t\t\tt.Errorf(\"high 级别应为 orange 配色，得到 %v\", header[\"template\"])",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 166,
+    "text": "\t\t\tt.Fatalf(\"缺少加签参数: %v\", body)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 185,
+    "text": "\t\t\tt.Fatal(\"卡片里没有指向详情页的按钮\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 190,
+    "text": "\t\tt.Fatalf(\"投递失败: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 197,
+    "text": "\t\t\tt.Fatalf(\"未配置 secret 时不应带加签参数: %v\", body)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 201,
+    "text": "\t\tt.Fatalf(\"投递失败: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 210,
+    "text": "\t\t\tt.Fatalf(\"应使用 HTML 解析模式，得到 %v\", body[\"parse_mode\"])",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 221,
+    "text": "\t\tt.Fatalf(\"投递失败: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 224,
+    "text": "\t\tt.Fatalf(\"未转义 HTML，存在注入: %q\", text)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 227,
+    "text": "\t\tt.Fatalf(\"期望转义后的实体，得到 %q\", text)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 230,
+    "text": "\t\tt.Fatalf(\"& 未转义，得到 %q\", text)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 239,
+    "text": "\t\tt.Fatalf(\"429 应可重试，得到 %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 246,
+    "text": "\t\tt.Fatalf(\"403 是配置问题，应为永久失败，得到 %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 254,
+    "text": "\t\tif body[\"title\"] != `[🟠 High] 登录处 \"SQL注入\" 风险` {",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 255,
+    "text": "\t\t\tt.Errorf(\"标题未正确还原: %v\", body[\"title\"])",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 259,
+    "text": "\t\t\tt.Fatalf(\"items 数量应为 1，得到 %d\", len(items))",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 262,
+    "text": "\t\tif it[\"summary\"] != \"参数 id\\n未过滤 导致注入\" {",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 263,
+    "text": "\t\t\tt.Errorf(\"摘要未正确还原: %v\", it[\"summary\"])",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 267,
+    "text": "\t\t\tt.Errorf(\"finding_id 应为数字，得到 %T\", it[\"finding_id\"])",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 271,
+    "text": "\t\tt.Fatalf(\"投递失败: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 278,
+    "text": "\t\t\tt.Errorf(\"自定义头丢失: %v\", r.Header)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 280,
+    "text": "\t\tif body[\"msg\"] != \"3 条\" {",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 281,
+    "text": "\t\t\tt.Errorf(\"自定义模板渲染有误: %v\", body[\"msg\"])",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 283,
+    "text": "\t\tif body[\"first\"] != \"漏洞1\" {",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 284,
+    "text": "\t\t\tt.Errorf(\"range 提取有误: %v\", body[\"first\"])",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 290,
+    "text": "\t\t\"body_template\": `{\"msg\": {{json (printf \"%d 条\" .Count)}}, \"first\": {{json (index .Items 0).Name}}}`,",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 293,
+    "text": "\t\tt.Fatalf(\"投递失败: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 301,
+    "text": "\t\tt.Fatalf(\"渲染结果非 JSON 应为永久失败（模板写错了，重试无用），得到 %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 314,
+    "text": "\t\t\tt.Errorf(\"第 %d 组配置应被拒绝: %v\", i, cfg)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 322,
+    "text": "\t\tt.Fatalf(\"组装邮件失败: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 325,
+    "text": "\t\tt.Fatalf(\"From 头有误:\\n%s\", msg)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 328,
+    "text": "\t\tt.Fatalf(\"To 头有误:\\n%s\", msg)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 332,
+    "text": "\t\tt.Fatalf(\"主题未做 RFC 2047 编码:\\n%s\", msg)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 335,
+    "text": "\t\tt.Fatalf(\"主题无法解码: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 336,
+    "text": "\t} else if !strings.Contains(dec, \"SQL注入\") {",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 337,
+    "text": "\t\tt.Fatalf(\"主题解码后内容有误: %q\", dec)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 343,
+    "text": "\t\tt.Fatal(\"邮件缺少头/体分隔\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 347,
+    "text": "\t\tt.Fatalf(\"正文 base64 解码失败: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 351,
+    "text": "\t\tt.Fatalf(\"正文不是 HTML: %.80s\", html)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 356,
+    "text": "\tif !strings.Contains(html, `\"SQL注入\"`) {",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 357,
+    "text": "\t\tt.Fatalf(\"标题中的引号在文本位置应原样保留: %.200s\", html)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 375,
+    "text": "\t\tt.Fatalf(\"标题未转义，可注入标签: %s\", html)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 378,
+    "text": "\t\tt.Fatalf(\"期望转义后的实体: %s\", html)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 381,
+    "text": "\t\tt.Fatalf(\"& 与 > 未转义: %s\", html)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 386,
+    "text": "\t\tt.Fatalf(\"href 属性未正确转义: %s\", html)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 389,
+    "text": "\t\tt.Fatalf(\"属性位置的引号应被转义: %s\", html)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 400,
+    "text": "\tt.Fatalf(\"未找到 %s 头\", name)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 423,
+    "text": "\t\t\tt.Fatalf(\"渠道 %s 未注册\", tc.kind)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 427,
+    "text": "\t\t\tt.Errorf(\"%s 配置 %v 应校验失败\", tc.kind, tc.cfg)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 431,
+    "text": "\t\t\tt.Errorf(\"%s 的错误信息应提到 %q，得到 %q\", tc.kind, tc.substr, err.Error())",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 456,
+    "text": "\t\terr := smtpStageError(\"收件人被拒\", errors.New(tc.reply))",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 458,
+    "text": "\t\t\tt.Errorf(\"应答 %q: 期望 permanent=%v 得到 %v\", tc.reply, tc.permanent, got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 462,
+    "text": "\t\t\tt.Errorf(\"应答 %q 的原文被丢弃: %v\", tc.reply, err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 472,
+    "text": "\t\tt.Fatalf(\"渠道数量应为 %d，得到 %d: %v\", len(want), len(got), got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 476,
+    "text": "\t\t\tt.Errorf(\"渠道 %s 未注册\", k)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 479,
+    "text": "\t\t\tt.Errorf(\"渠道 %s 的 Kind() 与注册键不一致\", k)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 483,
+    "text": "\t\tt.Error(\"未注册的类型不应通过校验\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 491,
+    "text": "\t\tt.Fatal(\"应识别为永久失败\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 494,
+    "text": "\t\tt.Fatalf(\"错误信息应透传底层: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 497,
+    "text": "\t\tt.Fatal(\"Permanent(nil) 必须返回 nil\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/channels_test.go",
+    "line": 500,
+    "text": "\t\tt.Fatal(\"nil 不是永久失败\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 54,
+    "text": "\t\tt.Fatal(\"非 TCP 监听地址\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 160,
+    "text": "\t\tt.Fatalf(\"投递失败: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 165,
+    "text": "\t\t\tt.Errorf(\"SMTP 会话里缺少 %q，实际命令：%v\", want, f.commands)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 171,
+    "text": "\t\tt.Fatal(\"DATA 阶段没有收到正文\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 174,
+    "text": "\t\tt.Errorf(\"缺少 Content-Type 头:\\n%s\", body)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 177,
+    "text": "\t\tt.Errorf(\"正文未按 base64 编码（长 HTML 行会破坏 SMTP 的 1000 字节行长限制）:\\n%s\", body)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 181,
+    "text": "\t\tt.Errorf(\"To 头未包含全部收件人:\\n%s\", body)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 190,
+    "text": "\t\tt.Fatalf(\"投递失败: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 193,
+    "text": "\t\tt.Errorf(\"未配账号却发了 AUTH: %v\", f.commands)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 206,
+    "text": "\t\t{\"收件人被 550 永久拒绝\", \"550 5.1.1 User unknown\", \"250 OK\", true},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 207,
+    "text": "\t\t{\"收件人遇 450 灰名单\", \"450 4.7.1 Greylisting in action\", \"250 OK\", false},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 208,
+    "text": "\t\t{\"收件人遇 452 邮箱满\", \"452 4.2.2 Mailbox full\", \"250 OK\", false},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 209,
+    "text": "\t\t{\"发件人被 553 永久拒绝\", \"250 OK\", \"553 5.1.3 Bad address\", true},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 210,
+    "text": "\t\t{\"发件人遇 451 临时错误\", \"250 OK\", \"451 4.3.0 Temporary failure\", false},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 219,
+    "text": "\t\t\t\tt.Fatal(\"应报错\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 222,
+    "text": "\t\t\t\tt.Fatalf(\"permanent 判定错误：期望 %v 得到 %v (%v)\", tc.permanent, got, err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 226,
+    "text": "\t\t\t\tt.Errorf(\"错误里应保留服务器的应答码: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 249,
+    "text": "\t\tt.Skip(\"本机 DNS 解析到了本地服务器，跳过（不影响其它用例）\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 252,
+    "text": "\tif !IsPermanent(err) && !strings.Contains(err.Error(), \"连接\") {",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 253,
+    "text": "\t\tt.Logf(\"错误：%v（非 localhost 下未能连上属预期）\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 264,
+    "text": "\t\t{\"缺 host\", map[string]any{\"port\": float64(25), \"from\": \"a@b.c\", \"to\": []any{\"d@e.f\"}}},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 265,
+    "text": "\t\t{\"缺 port\", map[string]any{\"host\": \"smtp.example.com\"}},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 266,
+    "text": "\t\t{\"port 越界\", map[string]any{\"host\": \"h\", \"port\": float64(70000), \"from\": \"a@b.c\", \"to\": []any{\"d@e.f\"}}},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 267,
+    "text": "\t\t{\"缺 from\", map[string]any{\"host\": \"h\", \"port\": float64(25), \"to\": []any{\"d@e.f\"}}},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 268,
+    "text": "\t\t{\"缺 to\", map[string]any{\"host\": \"h\", \"port\": float64(25), \"from\": \"a@b.c\"}},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 273,
+    "text": "\t\t\t\tt.Fatalf(\"应校验失败: %v\", tc.cfg)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 290,
+    "text": "\t\tt.Fatalf(\"应容忍字符串形式的数值: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 293,
+    "text": "\t\tt.Errorf(\"cfgInt 未解析字符串端口，得到 %d\", got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 296,
+    "text": "\t\tt.Error(\"cfgBool 未解析字符串 \\\"true\\\"\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 299,
+    "text": "\t\tt.Errorf(\"cfgStrings 未兼容单字符串，得到 %v\", to)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 309,
+    "text": "\t\t\tt.Errorf(\"合法门槛 %q 被拒: %v\", s, err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 313,
+    "text": "\tfor _, s := range []string{\"hgih\", \"HIGH\", \"严重\", \"high \", \"crit\"} {",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 316,
+    "text": "\t\t\tt.Errorf(\"非法门槛 %q 应被拒绝（否则过滤器静默失效、变成全推）\", s)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 321,
+    "text": "\t\t\tt.Errorf(\"错误信息应列出可选值，得到 %q\", err.Error())",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/email_test.go",
+    "line": 332,
+    "text": "\t\tt.Fatalf(\"读取路径应原样保留，得到 %q\", f.MinSeverity)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/english_test.go",
+    "line": 11,
+    "text": "\tm := Message{Items: []Item{{Name: \"原始证据\", Severity: \"high\", Summary: \"目标摘要\", VulnClass: \"SQL injection\", Assets: []string{\"example.com\"}, DetailURL: \"https://example.com/f/1\", FromStatus: \"pending\", ToStatus: \"fixed\"}}, HomeURL: \"https://example.com\"}",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/notify/english_test.go",
+    "line": 29,
+    "text": "\t\tfor _, want := range []string{\"原始证据\", \"目标摘要\", \"Status change\", \"Pending\", \"Fixed\", \"View details\"} {",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/notify/english_test.go",
+    "line": 34,
+    "text": "\t\tprose := strings.ReplaceAll(strings.ReplaceAll(got, \"原始证据\", \"\"), \"目标摘要\", \"\")",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/notify/english_test.go",
+    "line": 70,
+    "text": "\t\t} else if strings.ContainsAny(err.Error(), \"缺少至少端口\") {",
+    "classifications": [
+      "intentional_english_language_rejection_assertion"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 13,
+    "text": "\t\t{\"空输入\", \"\"},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 14,
+    "text": "\t\t{\"非法 JSON\", `{not json`},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 15,
+    "text": "\t\t{\"截断的 JSON\", `{\"min_severity\":`},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 16,
+    "text": "\t\t{\"类型不匹配\", `{\"min_severity\": 123, \"task_ids\": \"abc\"}`},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 17,
+    "text": "\t\t{\"顶层是数组\", `[1,2,3]`},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 23,
+    "text": "\t\t\t\tt.Fatalf(\"畸形配置应退化为零值 Filter，得到 %+v\", f)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 28,
+    "text": "\t\t\t\tt.Fatal(\"零值 Filter 应命中所有事件\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 59,
+    "text": "\t\t\tt.Errorf(\"min=%q sev=%q: 期望 %v 得到 %v\", tc.min, tc.sev, tc.expect, got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 70,
+    "text": "\t\tVulnClass: \"SQL注入\",",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 77,
+    "text": "\t\t{\"空范围=不限\", Filter{}, true},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 78,
+    "text": "\t\t{\"任务命中\", Filter{TaskIDs: []int64{7}}, true},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 79,
+    "text": "\t\t{\"任务未命中\", Filter{TaskIDs: []int64{8}}, false},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 80,
+    "text": "\t\t{\"任务多选含命中\", Filter{TaskIDs: []int64{8, 7}}, true},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 81,
+    "text": "\t\t{\"资产有交集\", Filter{AssetIDs: []int64{20, 99}}, true},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 82,
+    "text": "\t\t{\"资产无交集\", Filter{AssetIDs: []int64{99}}, false},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 83,
+    "text": "\t\t{\"任务与资产同时命中\", Filter{TaskIDs: []int64{7}, AssetIDs: []int64{10}}, true},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 84,
+    "text": "\t\t{\"任务命中但资产未命中\", Filter{TaskIDs: []int64{7}, AssetIDs: []int64{99}}, false},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 89,
+    "text": "\t\t\t\tt.Errorf(\"期望 %v 得到 %v\", tc.expect, got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 105,
+    "text": "\t\t{\"include 为空=全收\", Filter{}, \"任意类型\", true},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 106,
+    "text": "\t\t{\"include 命中\", Filter{VulnClassInclude: []string{\"SQL\"}}, \"SQL注入\", true},",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 107,
+    "text": "\t\t{\"include 未命中\", Filter{VulnClassInclude: []string{\"命令执行\"}}, \"SQL注入\", false},",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 108,
+    "text": "\t\t{\"include 多词任一命中\", Filter{VulnClassInclude: []string{\"命令执行\", \"SQL\"}}, \"SQL注入\", true},",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 109,
+    "text": "\t\t{\"大小写不敏感\", Filter{VulnClassInclude: []string{\"sql\"}}, \"SQL注入\", true},",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 110,
+    "text": "\t\t{\"exclude 命中即排除\", Filter{VulnClassExclude: []string{\"信息泄露\"}}, \"信息泄露\", false},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 111,
+    "text": "\t\t{\"exclude 未命中则放行\", Filter{VulnClassExclude: []string{\"信息泄露\"}}, \"SQL注入\", true},",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 113,
+    "text": "\t\t{\"排除优先于包含\", Filter{",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 115,
+    "text": "\t\t\tVulnClassExclude: []string{\"注入\"},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 116,
+    "text": "\t\t}, \"SQL注入\", false},",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 118,
+    "text": "\t\t{\"空白关键词被忽略\", Filter{VulnClassInclude: []string{\"\", \"  \"}}, \"SQL注入\", false},",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 123,
+    "text": "\t\t\t\tt.Errorf(\"期望 %v 得到 %v\", tc.expect, got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 133,
+    "text": "\t\tt.Fatal(\"状态变更事件在未开启时应被跳过\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 136,
+    "text": "\t\tt.Fatal(\"开启 on_status_change 后状态变更事件应命中\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/filter_test.go",
+    "line": 141,
+    "text": "\t\tt.Fatal(\"创建事件不应依赖 on_status_change\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "line": 36,
+    "text": "\t\t{\"200 成功不算错误\", 200, false},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "line": 37,
+    "text": "\t\t{\"429 限流可重试\", 429, false},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "line": 38,
+    "text": "\t\t{\"408 请求超时可重试\", 408, false},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "line": 39,
+    "text": "\t\t{\"500 服务端错误可重试\", 500, false},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "line": 40,
+    "text": "\t\t{\"502 网关错误可重试\", 502, false},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "line": 41,
+    "text": "\t\t{\"503 服务不可用可重试\", 503, false},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "line": 42,
+    "text": "\t\t{\"400 参数错误永久失败\", 400, true},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "line": 43,
+    "text": "\t\t{\"401 鉴权失败永久失败\", 401, true},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "line": 44,
+    "text": "\t\t{\"403 禁止访问永久失败\", 403, true},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "line": 45,
+    "text": "\t\t{\"404 地址不存在永久失败\", 404, true},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "line": 53,
+    "text": "\t\t\t\t\tt.Fatalf(\"2xx 不应报错: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "line": 58,
+    "text": "\t\t\t\tt.Fatal(\"非 2xx 应报错\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "line": 61,
+    "text": "\t\t\t\tt.Fatalf(\"HTTP %d 的 permanent 判定错误：期望 %v 得到 %v (%v)\",",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "line": 68,
+    "text": "\t\t\t\tt.Errorf(\"错误信息应带上 HTTP 状态码 %d，得到 %v\", tc.status, err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "line": 80,
+    "text": "\t\tt.Fatal(\"应报错\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "line": 83,
+    "text": "\t\tt.Errorf(\"错误信息应带回对端的说明，得到 %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "line": 95,
+    "text": "\t\tt.Fatal(\"应报错\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "line": 99,
+    "text": "\t\tt.Errorf(\"错误信息应压成单行，得到 %q\", msg)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "line": 103,
+    "text": "\t\tt.Errorf(\"错误信息过长（%d 字节），应被 snippet 截断: %q\", len(msg), msg)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "line": 114,
+    "text": "\t\tt.Fatal(\"应报错\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/http_test.go",
+    "line": 117,
+    "text": "\t\tt.Errorf(\"超大响应应被限长读取并截断，错误信息长度 %d\", len(err.Error()))",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask.go",
+    "line": 86,
+    "text": "//\ttelegram {config:{base_url:\"https://attacker.tld\"}} -> /bot<真Token>/sendMessage",
+    "classifications": [
+      "intentional_machine_identifier_or_archive_notation"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 13,
+    "text": "\t\tt.Fatalf(\"掩码值泄露了完整凭据: %q\", got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 16,
+    "text": "\t\tt.Fatalf(\"掩码值不应暴露地址主体: %q\", got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 20,
+    "text": "\t\tt.Fatalf(\"应保留末 6 位作为辨识提示: %q\", got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 23,
+    "text": "\t\tt.Fatalf(\"掩码值必须能被 IsMasked 识别: %q\", got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 32,
+    "text": "\t\t\tt.Fatalf(\"长度 %d 的凭据不应给出尾部提示，得到 %q\", len(s), got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 35,
+    "text": "\t\t\tt.Fatalf(\"掩码值包含了原值: %q\", got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 51,
+    "text": "\t\t\tt.Errorf(\"%s 应被掩码，得到 %q\", k, s)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 56,
+    "text": "\t\tt.Errorf(\"非凭据字段 port 不应改动: %v\", masked[\"port\"])",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 64,
+    "text": "\t\tt.Fatalf(\"未知渠道类型应返回空配置，得到 %v\", got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 73,
+    "text": "\t\tt.Fatal(\"MaskConfig 修改了入参，会导致真实凭据被掩码值覆盖\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 87,
+    "text": "\t\tt.Fatalf(\"掩码字段应保留库中原值，得到 %v\", got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 90,
+    "text": "\t\tt.Fatalf(\"被修改的字段应生效，得到 %v\", got[\"method\"])",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 98,
+    "text": "\t\tt.Fatalf(\"空串应清空该字段，得到 %v\", got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 102,
+    "text": "\t\tt.Fatalf(\"未提及的字段应保留，得到 %v\", got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 110,
+    "text": "\t\tt.Fatalf(\"未提及的字段应保留，得到 %v\", got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 113,
+    "text": "\t\tt.Fatalf(\"已提及的字段应更新，得到 %v\", got[\"port\"])",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 132,
+    "text": "\t\t\tname: \"通用 Webhook 改地址想沿用 Authorization 头\",",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 142,
+    "text": "\t\t\tname:        \"Telegram 改 base_url 想把 Bot Token 发到自己的端点\",",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 149,
+    "text": "\t\t\tname:        \"邮件改 SMTP 主机想交出密码\",",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 156,
+    "text": "\t\t\tname:        \"邮件关掉 TLS 也必须重新表态密码\",",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 164,
+    "text": "\t\t\tname:        \"回传掩码凭据 + 新地址\",",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 171,
+    "text": "\t\t\tname:        \"钉钉改 Webhook 想沿用加签密钥\",",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 182,
+    "text": "\t\t\t\tt.Fatalf(\"改地址却未重新表态凭据，应当被拒绝；得到配置 %v\", merged)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 186,
+    "text": "\t\t\t\tt.Fatalf(\"应返回专门的错误类型以便接口给出可操作提示，得到 %T: %v\", err, err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 195,
+    "text": "\t\t\t\tt.Fatalf(\"应点名缺失的凭据键 %q，得到 %v\", tc.wantMissing, target.Missing)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 199,
+    "text": "\t\t\t\tt.Errorf(\"错误信息应提到 %q: %v\", tc.wantMissing, err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 215,
+    "text": "\t\t\tname:     \"只改名字（配置原样回传）\",",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 221,
+    "text": "\t\t\tname:     \"只改请求方法，地址与凭据都不动\",",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 227,
+    "text": "\t\t\tname:     \"换地址并**同时**给新凭据\",",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 233,
+    "text": "\t\t\tname:     \"换地址并显式声明不再需要凭据\",",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 239,
+    "text": "\t\t\tname:     \"Telegram 改 chat_id（不是目的地）\",",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 245,
+    "text": "\t\t\tname:     \"邮件改收件人（不是目的地）\",",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 255,
+    "text": "\t\t\t\tt.Fatalf(\"合法编辑被误拦: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 258,
+    "text": "\t\t\t\tt.Fatal(\"应返回合并结果\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 272,
+    "text": "\t\tt.Fatalf(\"端口值相同（仅类型不同）不应被判为地址变更: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 276,
+    "text": "\t\tt.Fatal(\"端口变更应被拦下\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 307,
+    "text": "\t\tt.Fatalf(\"第一次保存被误拦: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 310,
+    "text": "\t\tt.Fatal(\"前提已变：空串应被 MergeConfig 删除——本用例要覆盖的正是「键消失之后」那一步\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 316,
+    "text": "\t\tt.Fatalf(\"第二次保存被误拦（用户什么都没改）: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 320,
+    "text": "\t\tt.Fatalf(\"第三次保存被误拦: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 324,
+    "text": "\t\tt.Fatalf(\"Bot Token 应沿用原值，得到 %v\", got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 339,
+    "text": "\t\tt.Fatal(\"从官方地址换到自建地址必须要求重新填写 Token\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 348,
+    "text": "\t\tt.Fatal(\"清空自建地址（换回官方 API）同样是地址变更，必须要求重新填写 Token\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 356,
+    "text": "\t\t\tt.Errorf(\"渠道 %s 未声明目的地键，改地址带出凭据的防护对它无效\", kind)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 359,
+    "text": "\t\t\tt.Errorf(\"渠道 %s 未声明凭据键\", kind)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 373,
+    "text": "\t\t\tt.Errorf(\"渠道 %s 未在测试中登记掩码预期\", kind)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 377,
+    "text": "\t\t\tt.Errorf(\"渠道 %s 未声明任何凭据字段，其配置会明文回显\", kind)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 396,
+    "text": "\t\tt.Fatal(\"结构体内部夹带掩码哨兵应被拒绝（否则会把字面量存进库）\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/mask_test.go",
+    "line": 401,
+    "text": "\t\tt.Fatalf(\"正常提交新请求头不应被拦: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 21,
+    "text": "\t\tt.Fatalf(\"正文 %d 字节超上限 %d\", len(body), weComMarkdownLimit)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 24,
+    "text": "\t\tt.Fatal(\"正文不是合法 UTF-8\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 27,
+    "text": "\t\tt.Fatalf(\"应只装下一部分（0 < kept < %d），得到 %d\", len(m.Items), kept)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 32,
+    "text": "\t\tt.Fatalf(\"头部应说明还有多少条未包含在本条里:\\n%s\", body[:minInt(400, len(body))])",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 36,
+    "text": "\t\tif !strings.Contains(body, \"漏洞\"+itoa(i+1)) {",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 37,
+    "text": "\t\t\tt.Fatalf(\"第 %d 条应在本条消息里:\\n%s\", i+1, body)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 40,
+    "text": "\tif strings.Contains(body, \"漏洞\"+itoa(kept+1)) {",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 41,
+    "text": "\t\tt.Fatalf(\"第 %d 条不该出现（它属于下一批）\", kept+1)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 49,
+    "text": "\t\tt.Fatalf(\"不限制长度时应全部保留，得到 kept=%d\", kept)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 52,
+    "text": "\t\tt.Fatalf(\"没有截断时不该出现截断提示:\\n%s\", body)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 62,
+    "text": "\t\tt.Fatalf(\"至少应保留 1 条，得到 %d\", kept)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 69,
+    "text": "\t\tt.Fatalf(\"单条消息应报送达 1 条，得到 %d\", kept)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 73,
+    "text": "\t\tt.Fatalf(\"空消息应报 0 条，得到 %d\", k)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 82,
+    "text": "\t\tt.Fatalf(\"正文 %d 字符超上限 %d\", n, telegramTextLimit)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 85,
+    "text": "\t\tt.Fatalf(\"应只装下一部分，得到 %d\", kept)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 88,
+    "text": "\t\tt.Fatalf(\"应说明还有余量未包含:\\n%.300s\", text)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 96,
+    "text": "\t\tt.Fatalf(\"卡片应只装下一部分，得到 %d\", kept)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 104,
+    "text": "\t\tt.Fatal(\"前置条件不成立\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 108,
+    "text": "\t\tt.Fatalf(\"不限制长度时应用全部，得到 %d\", k)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 122,
+    "text": "\t\t\tname: \"标题里的换行 + 外链\",",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 125,
+    "text": "\t\t\t\tName:     \"登录口 SQL 注入\\n[紧急：点此验证账号](http://attacker.tld)\",",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 129,
+    "text": "\t\t\tmust:  []string{`\\[紧急：点此验证账号\\]`, `\\(http://attacker.tld\\)`},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 130,
+    "text": "\t\t\twrong: []string{\"\\n[紧急\", \"\\n\\n[紧急\"},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 133,
+    "text": "\t\t\tname: \"标题里的图片信标\",",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 136,
+    "text": "\t\t\t\tName:     \"漏洞 ![](http://attacker.tld/beacon)\",",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 142,
+    "text": "\t\t\tname: \"资产名里的强调与引用\",",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 145,
+    "text": "\t\t\t\tName:     \"普通标题\",",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 146,
+    "text": "\t\t\t\tAssets:   []string{\"a.com/*注入*>引用\"},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 148,
+    "text": "\t\t\tmust:  []string{`\\*注入\\*`, `\\>`},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 149,
+    "text": "\t\t\twrong: []string{\"*注入*\"},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 152,
+    "text": "\t\t\tname: \"摘要里的反引号与竖线\",",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 155,
+    "text": "\t\t\t\tName:     \"标题\",",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 156,
+    "text": "\t\t\t\tSummary:  \"`code` | 表格\",",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 171,
+    "text": "\t\t\t\t\tt.Errorf(\"缺少转义形态 %q:\\n%s\", want, got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 176,
+    "text": "\t\t\t\t\tt.Errorf(\"出现了未转义形态 %q（可被用来注入结构或外链）:\\n%s\", bad, got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 188,
+    "text": "\t\tt.Fatalf(\"转义顺序有误，得到 %q\", got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 196,
+    "text": "\tm := Message{Items: []Item{{Severity: \"high\", Name: \"alert(1) *重点*\"}}}",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/notify/pack_test.go",
+    "line": 199,
+    "text": "\t\tt.Fatalf(\"Telegram 正文里出现了 markdown 的反斜杠转义:\\n%s\", text)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "line": 39,
+    "text": "\t\tname:   \"钉钉 access_token 在 query\",",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "line": 45,
+    "text": "\t\tname:   \"企业微信 key 在 query\",",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "line": 51,
+    "text": "\t\tname:   \"飞书 hook id 在路径末段\",",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "line": 57,
+    "text": "\t\tname:   \"Telegram bot token 在路径中段\",",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "line": 63,
+    "text": "\t\tname:   \"钉钉加签密钥\",",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "line": 79,
+    "text": "\t\t\t\tItems: []Item{{FindingID: 1, Severity: \"high\", Name: \"泄露探针\"}},",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "line": 82,
+    "text": "\t\t\t\tt.Fatal(\"对不可达地址应报错\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "line": 98,
+    "text": "\t\t{\"钉钉地址非法\", dingTalkChannel{}, map[string]any{\"webhook\": \"file:///\" + leakProbeToken}},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "line": 99,
+    "text": "\t\t{\"企微地址非法\", weComChannel{}, map[string]any{\"webhook\": \"gopher://\" + leakProbeToken}},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "line": 100,
+    "text": "\t\t{\"飞书地址非法\", feishuChannel{}, map[string]any{\"webhook\": \"ftp://\" + leakProbeToken + \"/hook\"}},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "line": 101,
+    "text": "\t\t{\"Telegram API 地址非法\", telegramChannel{}, map[string]any{\"bot_token\": \"tok\", \"chat_id\": \"1\", \"base_url\": \"file://\" + leakProbeToken}},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "line": 102,
+    "text": "\t\t{\"通用 Webhook 地址非法\", webhookChannel{}, map[string]any{\"url\": \"javascript:\" + leakProbeToken}},",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "line": 108,
+    "text": "\t\t\t\tt.Fatal(\"非法配置应报错\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "line": 118,
+    "text": "\t\tt.Fatalf(\"错误文本泄露了凭据 %q:\\n    %s\", secret, text)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "line": 133,
+    "text": "\t\t\tt.Errorf(\"redactRequestTarget(%q) = %q，期望 %q\", in, got, want)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "line": 139,
+    "text": "\t\t\t\t\tt.Errorf(\"脱敏后仍含路径/查询片段 %q: %q\", hostAndRest[1], got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "line": 147,
+    "text": "\t\t\tt.Errorf(\"不可解析输入 %q 被回显为 %q\", bad, got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "line": 164,
+    "text": "\t\tt.Errorf(\"应保留 host 以便排查，得到 %q\", got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "line": 167,
+    "text": "\t\tt.Errorf(\"应保留底层原因以便排查，得到 %q\", got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "line": 171,
+    "text": "\t\tt.Errorf(\"应保留操作名，得到 %q\", got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "line": 178,
+    "text": "\tin := fmt.Sprintf(\"拒绝跨主机重定向（a.example → http://b.example/bot%s/send）\", leakProbeToken)",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "line": 182,
+    "text": "\t\tt.Errorf(\"应把地址替换为脱敏形态，得到 %q\", got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "line": 186,
+    "text": "\t\tt.Error(\"不含地址的文本不应被改动\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "line": 210,
+    "text": "\t\tt.Fatal(\"跨主机重定向应被拒绝\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "line": 213,
+    "text": "\t\tt.Fatal(\"跳转目标被访问了——凭据已随重定向外泄\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/redact_test.go",
+    "line": 234,
+    "text": "\t\tt.Fatalf(\"同主机重定向不应被拒绝: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "line": 14,
+    "text": "\t\t\"中文测试内容\",",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "line": 15,
+    "text": "\t\t\"混合 mixed 内容 content\",",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "line": 16,
+    "text": "\t\t\"a中b文c测d试e\",",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "line": 18,
+    "text": "\t\tstrings.Repeat(\"漏洞\", 100),",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "line": 24,
+    "text": "\t\t\t\tt.Fatalf(\"输入 %q max=%d: 产出非法 UTF-8 %q\", in, max, got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "line": 27,
+    "text": "\t\t\t\tt.Fatalf(\"输入 %q max=%d: 结果 %d 字节超出上限\", in, max, len(got))",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "line": 31,
+    "text": "\t\t\t\tt.Fatalf(\"输入 %q max=%d: 未超限却改动了内容 -> %q\", in, max, got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "line": 40,
+    "text": "\t\tt.Fatal(\"max=0 应表示不限制\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "line": 43,
+    "text": "\t\tt.Fatal(\"max<0 应表示不限制\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "line": 51,
+    "text": "\t\tt.Fatalf(\"max=1 时结果 %q 长度 %d 超限\", got, len(got))",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "line": 55,
+    "text": "\t\tt.Fatalf(\"期望带省略号，得到 %q\", got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "line": 62,
+    "text": "\ts := \"一二三四五六七八九十\"",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "line": 65,
+    "text": "\t\tt.Fatalf(\"期望 5 个字符，得到 %d 个 (%q)\", n, got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "line": 69,
+    "text": "\t\tt.Fatal(\"字节口径不应产出与字符口径相同的字符数\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "line": 74,
+    "text": "\tgot := OneLine(\"第一行\\n\\n第二行\\t带制表   多空格\", 0)",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "line": 76,
+    "text": "\t\tt.Fatalf(\"应折叠所有空白，得到 %q\", got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "line": 79,
+    "text": "\t\tt.Fatalf(\"不应保留连续空格，得到 %q\", got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "line": 82,
+    "text": "\tgot = OneLine(\"一二三四五六七八九十\", 4)",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "line": 84,
+    "text": "\t\tt.Fatalf(\"期望 4 字符，得到 %d (%q)\", n, got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "line": 90,
+    "text": "\ts := `<b>标题</b>正文正文正文<a href=\"https://example.com/very/long/path\">查看详情</a>`",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "line": 94,
+    "text": "\t\t\tt.Fatalf(\"max=%d: 结果 %d 字符超限\", max, n)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "line": 98,
+    "text": "\t\t\tt.Fatalf(\"max=%d: 尾部标签被切断 -> %q\", max, got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "line": 105,
+    "text": "\t\tt.Fatalf(\"无资产应返回空串，得到 %q\", got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "line": 108,
+    "text": "\t\tt.Fatalf(\"未超限应全列，得到 %q\", got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "line": 113,
+    "text": "\t\tt.Fatalf(\"应标注总数 5，得到 %q\", got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "line": 119,
+    "text": "\t\tt.Fatal(\"空级别序数为 0，应被任何门槛挡住\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "line": 122,
+    "text": "\t\tt.Fatal(\"空门槛应放行\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "line": 125,
+    "text": "\t\tt.Fatalf(\"未知状态映射，得到 %q\", got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "line": 129,
+    "text": "\t\tt.Fatalf(\"未知状态应原样回显，得到 %q\", got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "line": 144,
+    "text": "\t\t\tt.Fatalf(\"max=%d: 尾部留下实体残片 %q\", max, got[amp:])",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/render_test.go",
+    "line": 147,
+    "text": "\t\t\tt.Fatalf(\"max=%d: 出现畸形实体\", max)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/sign_test.go",
+    "line": 27,
+    "text": "\t\tt.Fatalf(\"签名失败: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/sign_test.go",
+    "line": 31,
+    "text": "\t\tt.Fatalf(\"产出地址不可解析: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/sign_test.go",
+    "line": 35,
+    "text": "\t\tt.Errorf(\"签名不符\\n期望 %s\\n得到 %s\", dingTalkExpected, q.Get(\"sign\"))",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/sign_test.go",
+    "line": 38,
+    "text": "\t\tt.Errorf(\"时间戳应为毫秒且原样带上，得到 %q\", q.Get(\"timestamp\"))",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/sign_test.go",
+    "line": 42,
+    "text": "\t\tt.Errorf(\"原有 query 参数丢失，得到 %q\", q.Get(\"access_token\"))",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/sign_test.go",
+    "line": 49,
+    "text": "\t\tt.Errorf(\"签名不符\\n期望 %s\\n得到 %s\", feishuExpected, got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/sign_test.go",
+    "line": 64,
+    "text": "\t\tt.Fatal(\"钉钉与飞书签名相同，说明其中一家的算法实现错了\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/sign_test.go",
+    "line": 76,
+    "text": "\t\tt.Fatalf(\"未配置 secret 时地址不应改动，得到 %q\", got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/sign_test.go",
+    "line": 84,
+    "text": "\t\t\tt.Errorf(\"%q 应被接受: %v\", s, err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/sign_test.go",
+    "line": 91,
+    "text": "\t\t\tt.Errorf(\"%q 应被拒绝\", s)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "line": 43,
+    "text": "\t\tt.Fatal(\"默认不应允许投递到环回地址\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "line": 46,
+    "text": "\t\tt.Fatal(\"请求已经打到了本机服务——守卫没生效\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "line": 50,
+    "text": "\t\tt.Errorf(\"拒绝信息应说明如何显式放开: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "line": 65,
+    "text": "\t\tt.Fatalf(\"显式放开后应可投递: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "line": 81,
+    "text": "\t\t\tt.Errorf(\"%s 应被拒绝\", s)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "line": 90,
+    "text": "\t\t\tt.Errorf(\"%s 应被放行（私网是常见的合法投递目标）\", s)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "line": 105,
+    "text": "\t\t\tt.Errorf(\"%s 应在配置阶段被拒绝\", raw)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "line": 111,
+    "text": "\t\t\tt.Errorf(\"%s 应通过校验: %v\", raw, err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "line": 132,
+    "text": "\t\t\tt.Errorf(\"%q 本应解析失败，否则这条用例没有覆盖到目标分支\", raw)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "line": 137,
+    "text": "\t\t\tt.Errorf(\"%q 应校验失败\", raw)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "line": 146,
+    "text": "\t\tt.Fatal(\"非法地址应校验失败\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "line": 168,
+    "text": "\t\tt.Fatal(\"默认不应允许把邮件投递到环回地址\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "line": 172,
+    "text": "\t\tt.Fatal(\"SMTP 会话已经建立——守卫没生效\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "line": 176,
+    "text": "\t\tt.Errorf(\"拒绝信息应说明如何显式放开: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "line": 188,
+    "text": "\t\tt.Fatalf(\"显式放开后本机 SMTP 应可投递: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/ssrf_test.go",
+    "line": 191,
+    "text": "\t\tt.Fatal(\"未看到 EHLO——会话没真正建立\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "line": 34,
+    "text": "\t\t\tt.Fatalf(\"%s 暴露了 %d 个方法（%s）：text/template 可以调用它们，\"+",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "line": 35,
+    "text": "\t\t\t\t\"等于把这些方法的能力开放给了模板作者\", typ.Name(), n, strings.Join(names, \", \"))",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "line": 52,
+    "text": "\t\tt.Fatalf(\"模板函数集合变了：得到 %v，期望 %v。新增函数前请确认它不会扩大能力面\"+",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "line": 53,
+    "text": "\t\t\t\"（不能读写文件、不能发起网络请求、不能执行命令）\", got, want)",
+    "classifications": [
+      "remaining_test_literal_review"
+    ]
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "line": 62,
+    "text": "\t\tt.Fatal(\"访问不存在的字段应报错\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "line": 65,
+    "text": "\tfor _, leak := range []string{\"SQL注入\", \"参数 id\"} {",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "line": 67,
+    "text": "\t\t\tt.Errorf(\"模板错误泄露了消息内容 %q: %v\", leak, err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "line": 80,
+    "text": "\t\tt.Fatal(\"模板语法错误应在保存时就被拦下\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "line": 85,
+    "text": "\t\tt.Fatalf(\"坏模板应判永久失败，得到 %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "line": 95,
+    "text": "\t\tt.Fatalf(\"合法模板应通过校验: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "line": 101,
+    "text": "\t\tt.Fatalf(\"渲染出非 JSON 应判永久失败，得到 %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/notify/webhook_template_test.go",
+    "line": 104,
+    "text": "\t\tt.Errorf(\"错误信息应说明是 JSON 问题，得到 %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/report/english_test.go",
+    "line": 14,
+    "text": "\tf := &db.DBFinding{ID: 12, Name: \"原始证据\", Severity: \"high\", Status: \"pending\", Summary: \"原始摘要\", Evidence: \"原始流量\", Report: \"原始报告\", EvidenceVersion: 2, ReportEvidenceVersion: 1, CreatedAt: stamp}",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/report/english_test.go",
+    "line": 38,
+    "text": "\tevidence := \"用户原始证据 <tag>\"",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/selfupdate/github.go",
+    "line": 147,
+    "text": "// artex-<版本>-<os>-<arch>.zip (the version has no v prefix; naming notation preserved).",
+    "classifications": [
+      "intentional_machine_identifier_or_archive_notation"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 327,
+    "text": "// Real release layout: artex-<版本>-<os>-<arch>/artex, plus distracting files (naming notation preserved).",
+    "classifications": [
+      "intentional_machine_identifier_or_archive_notation"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 408,
+    "text": "// build.sh package_binary uses artex-<版本>-<os>-<arch>.zip, with the version",
+    "classifications": [
+      "intentional_machine_identifier_or_archive_notation"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 34,
+    "text": "\t\tt.Fatalf(\"写入假二进制 %s: %v\", path, err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 51,
+    "text": "\t\tt.Fatalf(\"计算校验和: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 54,
+    "text": "\t\tt.Fatalf(\"写入校验和: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 62,
+    "text": "\t\tt.Fatalf(\"读取 %s: %v\", path, err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 70,
+    "text": "\t\tt.Skip(\"假二进制用的是 sh 脚本，Windows 上跑不了\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 97,
+    "text": "\t\t\tt.Errorf(\"CompareVersions(%q,%q) comparable=%v, 期望 %v\", c.a, c.b, ok, c.comparable)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 101,
+    "text": "\t\t\tt.Errorf(\"CompareVersions(%q,%q)=%d, 期望 %d\", c.a, c.b, got, c.want)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 115,
+    "text": "\t\t\tt.Errorf(\"%s 不在可执行文件目录下: %s (期望 %s)\", name, path, p.Dir)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 121,
+    "text": "\t\t\tt.Errorf(\"Windows 上 .new/.old 必须以 .exe 结尾: new=%s old=%s\", p.New, p.Old)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 134,
+    "text": "\t\tt.Fatal(\"期望 SHA256 不匹配被拒绝，却通过了\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 144,
+    "text": "\t\tt.Fatal(\"期望冒烟测试失败被拒绝，却通过了\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 154,
+    "text": "\t\tt.Fatalf(\"写标记: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 159,
+    "text": "\t\tt.Fatalf(\"期望 Restart，得到 %v\", action)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 162,
+    "text": "\t\tt.Error(\"换装后状态应为 Pending\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 165,
+    "text": "\t\tt.Error(\"artex 应已被替换为新版本\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 168,
+    "text": "\t\tt.Error(\"旧版本应备份到 artex.old\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 171,
+    "text": "\t\tt.Error(\"换装后 artex.new 应已消失\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 174,
+    "text": "\t\tt.Error(\"换装后校验和文件应已清理\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 178,
+    "text": "\t\tt.Error(\"换装后升级标记应保留\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 191,
+    "text": "\t\tt.Fatalf(\"校验失败时期望 Continue，得到 %v\", action)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 194,
+    "text": "\t\tt.Error(\"状态应标记为 FailedStage\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 197,
+    "text": "\t\tt.Fatal(\"校验失败时绝不能动当前版本\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 200,
+    "text": "\t\tt.Error(\"校验失败的暂存件应被清理，否则下次启动会再试一遍\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 215,
+    "text": "\t\tt.Error(\"应换装到 v3\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 218,
+    "text": "\t\tt.Error(\"备份应更新为刚被换下的 v2\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 233,
+    "text": "\t\t\tt.Fatalf(\"第 %d 次尝试期望 Continue，得到 %v\", i, action)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 236,
+    "text": "\t\t\tt.Errorf(\"第 %d 次尝试状态应为 Pending\", i)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 240,
+    "text": "\t\t\tt.Fatalf(\"第 %d 次尝试后 attempts=%d（ok=%v），期望 %d\", i, got.Attempts, ok, i)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 248,
+    "text": "\t\tt.Fatalf(\"超过尝试上限时期望 Restart，得到 %v\", action)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 251,
+    "text": "\t\tt.Error(\"状态应标记为 RolledBack\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 254,
+    "text": "\t\tt.Fatal(\"应已回滚到旧版本\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 257,
+    "text": "\t\tt.Error(\"回滚后标记应清除，否则会无限回滚\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 261,
+    "text": "\t\tt.Error(\"失败的版本应保留为 .failed 供排查\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 283,
+    "text": "\t\tt.Error(\"回滚后当前版本应是 v1\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 286,
+    "text": "\t\tt.Error(\"回滚后备份应变成 v2，这样还能再滚回去\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 304,
+    "text": "\t\tt.Errorf(\"linux 条目解析错误: %v\", out)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 308,
+    "text": "\t\tt.Errorf(\"windows 条目错误（* 前缀应剥离、摘要应转小写）: %q\", got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 311,
+    "text": "\t\tt.Errorf(\"应忽略空行、非摘要行和长度不对的行，得到 %v\", out)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 317,
+    "text": "\t\tt.Skip(\"包内基名在 Windows 上是 artex.exe，此用例按 Unix 命名构造\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 352,
+    "text": "\t\tt.Errorf(\"解压出来的不是 artex 可执行文件: %q\", got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 359,
+    "text": "\t\tt.Error(\"解压出的二进制必须带执行位\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 377,
+    "text": "\t\tt.Fatal(\"包内没有可执行文件时应报错\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 391,
+    "text": "\t\t\tt.Errorf(\"checkURL(%q) 应当拒绝\", raw)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 402,
+    "text": "\t\t\tt.Errorf(\"checkURL(%q) 应当放行，却报错: %v\", raw, err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 422,
+    "text": "\t\tt.Fatalf(\"解析 %q: %v\", raw, err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 439,
+    "text": "\t\tt.Fatal(\"确认稳定后升级标记必须清除\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 443,
+    "text": "\t\tt.Error(\"标记读取应失败\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 447,
+    "text": "\t\tt.Error(\"确认稳定后仍应保留上一版本备份\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/selfupdate_test.go",
+    "line": 457,
+    "text": "\t\tt.Error(\"无标记时 settle 不应影响任何文件\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/selfupdate/stage.go",
+    "line": 246,
+    "text": "// Archive layout is artex-<版本>-<os>-<arch>/artex, but match by **basename**, not a constructed full",
+    "classifications": [
+      "intentional_machine_identifier_or_archive_notation"
+    ]
+  },
+  {
+    "path": "source/sidequestion/context_test.go",
+    "line": 96,
+    "text": "\tif EstimateInputTokens(llm.CompletionRequest{Messages: []llm.Message{llm.UserText(\"x\")}, System: []string{strings.Repeat(\"中\", 3000)}, Tools: fixture().Tools}) <= baseline+3000 {",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/sidequestion/context_test.go",
+    "line": 107,
+    "text": "\t\t\t\thistory = []Exchange{{Ordinal: 1, Question: \"earlier\", Answer: strings.Repeat(\"历史依据ABC\", 14000), Status: \"completed\"}}",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/sidequestion/context_test.go",
+    "line": 109,
+    "text": "\t\t\t\tsnap.Request.Messages = append([]llm.Message{llm.UserText(strings.Repeat(\"old tool evidence 中文\", 9000))}, snap.Request.Messages...)",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/sidequestion/context_test.go",
+    "line": 227,
+    "text": "\t\t\t\t\treturn assistant(strings.Repeat(\"中\", 5000)), \"end_turn\", usage, nil",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/traffic/reclaim_test.go",
+    "line": 26,
+    "text": "\t\tt.Fatal(\"新建索引库未启用增量回收\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/reclaim_test.go",
+    "line": 33,
+    "text": "\t\tt.Fatalf(\"auto_vacuum=%d，应为 %d\", mode, autoVacuumIncremental)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/reclaim_test.go",
+    "line": 48,
+    "text": "\t\tt.Fatalf(\"索引只有 %d 字节，样本不足以验证回收\", grown)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/reclaim_test.go",
+    "line": 52,
+    "text": "\t\tt.Fatalf(\"DeleteHostsExact=(%d,%v)，应为 (30,nil)\", n, err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/reclaim_test.go",
+    "line": 58,
+    "text": "\t\tt.Fatalf(\"删除后索引仍占 %d 字节（删除前 %d），空间没有还给文件系统\", after, grown)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/reclaim_test.go",
+    "line": 67,
+    "text": "\t\tt.Fatalf(\"仍有 %d 个空闲页未回收\", free)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/reclaim_test.go",
+    "line": 77,
+    "text": "\t\tt.Skip(\"驱动未启用 FTS5\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/reclaim_test.go",
+    "line": 85,
+    "text": "\t\t\t\t[]byte(strings.Repeat(\"secret token 中文正文 padding \", 200))))",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/traffic/reclaim_test.go",
+    "line": 101,
+    "text": "\t\tt.Fatalf(\"还剩 %d 条流量\", exchanges)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/reclaim_test.go",
+    "line": 105,
+    "text": "\t\tt.Fatalf(\"全文索引残留 %d 行段数据，tombstone 未被合并回收\", segments)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/reclaim_test.go",
+    "line": 137,
+    "text": "\t\tt.Fatal(\"旧库不应报告已启用增量回收\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/reclaim_test.go",
+    "line": 143,
+    "text": "\t\tt.Fatalf(\"DeleteHostsExact=(%d,%v)，应为 (8,nil)\", n, err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/reclaim_test.go",
+    "line": 154,
+    "text": "\t\tt.Fatal(\"旧库居然回收了空闲页，说明测试没有真的构造出旧库\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/reclaim_test.go",
+    "line": 179,
+    "text": "\t\tt.Fatalf(\"索引只有 %d 字节，样本不足\", grown)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/reclaim_test.go",
+    "line": 187,
+    "text": "\t\tt.Fatalf(\"deleted=%d，应为 22\", deleted)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/reclaim_test.go",
+    "line": 192,
+    "text": "\t\tt.Fatalf(\"只回收了 %d 字节（删除前索引 %d）\", reclaimed, grown)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/reclaim_test.go",
+    "line": 195,
+    "text": "\t\tt.Fatalf(\"清空后索引仍占 %d 字节（删除前 %d）\", after, grown)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/reclaim_test.go",
+    "line": 207,
+    "text": "\t\t\tt.Fatalf(\"%s = %d，应为 0\", q, c)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/reclaim_test.go",
+    "line": 211,
+    "text": "\t\tt.Fatalf(\"孤立的历史 host 目录未被清理：%v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/reclaim_test.go",
+    "line": 214,
+    "text": "\ttr.record(newFlow(\"d.example.com\", \"GET\", \"/after\", nil, []byte(\"清空后仍可录制\")))",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/traffic/reclaim_test.go",
+    "line": 216,
+    "text": "\t\tt.Fatalf(\"清空后 Count=(%d,%v)，应为 (1,nil)\", n, err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/reclaim_test.go",
+    "line": 236,
+    "text": "\t\tt.Fatal(\"旧库不应报告已启用增量回收\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/reclaim_test.go",
+    "line": 244,
+    "text": "\t\tt.Fatal(\"清空后旧库未被转换为增量回收模式\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/reclaim_test.go",
+    "line": 255,
+    "text": "\t\tt.Fatalf(\"转换后普通删除仍未回收：%d 字节（删除前 %d）\", after, grown)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 65,
+    "text": "\t\tt.Fatalf(\"读取 exchange id: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 78,
+    "text": "\t\t[]byte(`{\"token\":\"abc123\",\"note\":\"内网测试账号\"}`)))",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 82,
+    "text": "\t\tt.Fatalf(\"record 仍在磁盘上创建 host 目录（stat err=%v）\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 90,
+    "text": "\t\t\tt.Fatalf(\"data 目录下出现非内部目录 %q，说明仍在写文件树\", e.Name())",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 101,
+    "text": "\t\t\tt.Fatalf(\"请求原文缺少 %q，实际：\\n%s\", want, req)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 104,
+    "text": "\tfor _, want := range []string{\"HTTP 200\", `\"token\":\"abc123\"`, \"内网测试账号\"} {",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 106,
+    "text": "\t\t\tt.Fatalf(\"响应原文缺少 %q，实际：\\n%s\", want, resp)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 117,
+    "text": "\t\tt.Skip(\"驱动未启用 FTS5\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 122,
+    "text": "\t\t[]byte(`{\"token\":\"abc123\",\"note\":\"内网测试账号\"}`)))",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 129,
+    "text": "\t\t\tt.Fatalf(\"按正文搜索 %q 出错：%v\", term, err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 134,
+    "text": "\t\tt.Fatalf(\"搜 password 命中 %d 条，应为 1\", n)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 138,
+    "text": "\t\tt.Fatalf(\"搜子串 ssw0r 命中 %d 条，应为 1\", n)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 140,
+    "text": "\tif n := hits(\"内网测试\"); n != 1 {",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 141,
+    "text": "\t\tt.Fatalf(\"搜中文命中 %d 条，应为 1\", n)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 144,
+    "text": "\t\tt.Fatalf(\"无关关键词命中 %d 条，应为 0\", n)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 149,
+    "text": "\t\tt.Fatal(\"两字符正文关键词应返回明确错误\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 159,
+    "text": "\t\tt.Skip(\"驱动未启用 FTS5\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 166,
+    "text": "\t\tt.Fatalf(\"测试数据不够大：%d 字节\", len(big))",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 176,
+    "text": "\t\tt.Fatalf(\"resp_blob=%q，应为 64 位 sha256\", hash)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 181,
+    "text": "\t\tt.Fatalf(\"blob 未落盘到单层桶 %s：%v\", blob, err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 184,
+    "text": "\t\tt.Fatalf(\"blob 大小 %d，应为 %d\", st.Size(), len(big))",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 193,
+    "text": "\t\tt.Fatalf(\"blob_refs 行数 %d，应为 1\", refs)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 202,
+    "text": "\t\tt.Fatalf(\"响应缺少头部预览：\\n%s\", clip(resp, 300))",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 205,
+    "text": "\t\tt.Fatalf(\"响应缺少 blob 指针：\\n%s\", clip(resp, 300))",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 208,
+    "text": "\t\tt.Fatal(\"预览不应包含超出 blobPreview 的内容\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 211,
+    "text": "\t\tt.Fatalf(\"内联内容 %d 字节，远超预览上限\", len(resp))",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 220,
+    "text": "\t\tt.Fatalf(\"超大正文中的关键词命中 %d 条，应为 1\", len(rows))",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 229,
+    "text": "\t\tt.Fatalf(\"BlobRange total=%d，应为 %d\", total, len(big))",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 232,
+    "text": "\t\tt.Fatalf(\"BlobRange 读到 %q，应为 %q\", data, marker)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 235,
+    "text": "\t\tt.Fatal(\"非法 hash 应被拒绝\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 244,
+    "text": "\t\tt.Skip(\"驱动未启用 FTS5\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 257,
+    "text": "\t\tt.Fatalf(\"二进制正文不应进入全文索引，却命中 %d 条\", len(rows))",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 264,
+    "text": "\t\tt.Fatalf(\"二进制正文应展示类型与魔数，实际：\\n%s\", clip(resp, 300))",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 292,
+    "text": "\t\tt.Fatalf(\"历史记录应仍可读取：%v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 295,
+    "text": "\t\tt.Fatalf(\"历史请求原文错误：%q\", req)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 298,
+    "text": "\t\tt.Fatalf(\"历史响应原文错误：%q\", resp)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 321,
+    "text": "\t\tt.Fatalf(\"DeleteHostsExact=(%d,%v)，应为 (1,nil)\", n, err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 324,
+    "text": "\t\tt.Fatalf(\"失去引用的 blob 未被回收：%v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 327,
+    "text": "\t\tt.Fatalf(\"空桶目录未被清理：%v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 339,
+    "text": "\t\t\tt.Fatalf(\"%s = %d，应为 0\", q, c)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 348,
+    "text": "\t\t\tt.Fatalf(\"全文索引残留 %d 条\", c)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 358,
+    "text": "\t\tt.Skip(\"驱动未启用 FTS5\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 368,
+    "text": "\t\tt.Fatalf(\"正文关键词命中 total=%d rows=%d，应为 1/1\", total, len(rows))",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 372,
+    "text": "\t\tt.Fatalf(\"URL 关键词 total=%d err=%v，应为 1\", total, err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 389,
+    "text": "\t\tt.Fatalf(\"status=4xx 应命中 1 条 404，得 %d 条 err=%v\", len(rows), err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 393,
+    "text": "\t\tt.Fatalf(\"status=500 应命中 1 条，得 %d 条 err=%v\", len(rows), err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 397,
+    "text": "\t\tt.Fatalf(\"resp_min=60 应命中 1 条 100B，得 %d 条 err=%v\", len(rows), err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 401,
+    "text": "\t\tt.Fatalf(\"path=/api/admin 应命中 1 条，得 %d 条 err=%v\", len(rows), err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 406,
+    "text": "\t\tt.Fatalf(\"resp_len asc 应返回 3 条，得 %d 条 err=%v\", len(asc), err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 409,
+    "text": "\t\tt.Fatalf(\"resp_len asc 顺序错误：%d,%d,%d\", asc[0].RespLen, asc[1].RespLen, asc[2].RespLen)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 413,
+    "text": "\t\tt.Fatalf(\"resp_len desc 顺序错误 err=%v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 466,
+    "text": "\ts := \"内网测试账号\"",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 470,
+    "text": "\t\t\tt.Fatalf(\"n=%d 截断结果 %q 不是原串前缀\", n, got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 473,
+    "text": "\t\t\tt.Fatalf(\"n=%d 截断后 %d 字节，超出上限\", n, len(got))",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 477,
+    "text": "\t\tt.Fatalf(\"短于上限时应原样返回，得到 %q\", got)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 500,
+    "text": "\t\t\tt.Errorf(\"isBinaryBody(%q, %q)=%v，应为 %v\", c.ct, c.body, got, c.want)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/traffic_store_test.go",
+    "line": 526,
+    "text": "\t\tt.Fatalf(\"并发写入后 exchanges=%d bodies=%d，应各为 %d\", exchanges, bodies, n)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/upgrade_test.go",
+    "line": 55,
+    "text": "VALUES(?,'GET /x','','HTTP 200','老数据正文')`, row[0]); err != nil {",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/traffic/upgrade_test.go",
+    "line": 58,
+    "text": "\t\tif _, err := old.Exec(`INSERT INTO ex_fts(rowid,content) VALUES(?,?)`, i+1, \"老数据正文 secret-token\"); err != nil {",
+    "classifications": [
+      "intentional_target_evidence_or_unicode_test_fixture"
+    ]
+  },
+  {
+    "path": "source/traffic/upgrade_test.go",
+    "line": 73,
+    "text": "\t\tt.Fatalf(\"新版本无法打开旧库: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/upgrade_test.go",
+    "line": 79,
+    "text": "\t\tt.Fatalf(\"原索引文件异常: size=%v err=%v\", st2, err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/upgrade_test.go",
+    "line": 83,
+    "text": "\t\t\tt.Logf(\"_index 下: %s\", e.Name())",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/upgrade_test.go",
+    "line": 85,
+    "text": "\t\tt.Fatal(\"_index 下出现了预期外的文件，DSN 可能指向了别的库\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/upgrade_test.go",
+    "line": 87,
+    "text": "\tt.Logf(\"旧库 %d 字节，新版本接管后仍是同一文件\", stat.Size())",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/upgrade_test.go",
+    "line": 92,
+    "text": "\t\tt.Fatalf(\"Count=(%d,%v)，应为 (3,nil) —— 历史流量丢失\", n, err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/upgrade_test.go",
+    "line": 98,
+    "text": "\t\t\tt.Fatalf(\"历史全文搜索失败: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/upgrade_test.go",
+    "line": 101,
+    "text": "\t\t\tt.Fatalf(\"历史全文搜索命中 %d 条，应为 2\", len(rows))",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/upgrade_test.go",
+    "line": 106,
+    "text": "\t\tt.Fatalf(\"读取历史正文失败: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/upgrade_test.go",
+    "line": 108,
+    "text": "\t\tt.Fatal(\"历史响应为空\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/upgrade_test.go",
+    "line": 112,
+    "text": "\t\tt.Fatal(\"旧库被误判为已启用增量回收\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/upgrade_test.go",
+    "line": 117,
+    "text": "\t\tt.Fatalf(\"DeleteHostsExact=(%d,%v)，应为 (2,nil)\", deleted, err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/upgrade_test.go",
+    "line": 121,
+    "text": "\t\tt.Fatalf(\"删除后 Count=(%d,%v)，应为 (1,nil)\", n, err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/upgrade_test.go",
+    "line": 129,
+    "text": "\t\tt.Fatal(\"legacy 行的 path 被清空了\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/upgrade_test.go",
+    "line": 144,
+    "text": "\t\tt.Fatal(\"新库应启用增量回收\")",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/upgrade_test.go",
+    "line": 155,
+    "text": "\t\tt.Fatalf(\"旧版本读到 (%d,%v)，应为 (5,nil)\", n, err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/upgrade_test.go",
+    "line": 159,
+    "text": "\t\tt.Fatalf(\"旧版本写入失败: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  },
+  {
+    "path": "source/traffic/upgrade_test.go",
+    "line": 162,
+    "text": "\t\tt.Fatalf(\"旧版本删除失败: %v\", err)",
+    "classifications": [
+      "remaining_test_diagnostic"
+    ]
+  }
+]

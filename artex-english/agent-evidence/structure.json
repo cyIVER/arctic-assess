@@ -1,0 +1,17 @@
+{
+  "files": {
+    "agent/constraints.go": true,
+    "agent/finding_workflow.go": true,
+    "agent/goals.go": true,
+    "agent/mainagent.go": true,
+    "agent/planner.go": true,
+    "agent/prompt.go": true,
+    "agent/promptcatalog.go": true,
+    "agent/reporter_factories.go": true,
+    "agent/worker.go": true,
+    "agent/wrapup.go": true,
+    "guard/guard.go": true
+  },
+  "method": "Go scanner tokens equal after masking string/character values and omitting comments; verifies no control-flow, identifiers, numeric budgets, names of Go APIs, permissions or admission code edits. Does not prove natural-language semantic equivalence.",
+  "production_token_structure_unchanged": true
+}

@@ -1,0 +1,49 @@
+--- baseline/notify/mask.go
++++ candidate/notify/mask.go
+@@ -65,14 +65,14 @@
+ // ErrDestinationChangedWithoutCredentials 表示「目标地址变了，但调用方没有对
+ // 凭据字段表态」。返回它而不是默默放行或默默丢弃凭据，理由见 PrepareConfigUpdate。
+ type ErrDestinationChangedWithoutCredentials struct {
+-	Changed []string // 发生变化的目的地键
+-	Missing []string // 未显式表态的凭据键
++	Changed []string // Changed destination keys
++	Missing []string // Credential keys not explicitly supplied
+ }
+ 
+ func (e *ErrDestinationChangedWithoutCredentials) Error() string {
+-	return "目标地址（" + strings.Join(e.Changed, "、") + "）已变更，请同时重新填写凭据字段（" +
+-		strings.Join(e.Missing, "、") + "）：填入新值，或显式留空表示不再需要凭据。" +
+-		"原凭据只对旧地址有效，继续沿用等于把它交给新地址。"
++	return "Destination fields (" + strings.Join(e.Changed, ", ") + ") changed; re-enter credential fields (" +
++		strings.Join(e.Missing, ", ") + "): provide a new value, or explicitly leave empty if credentials are no longer needed. " +
++		"The original credentials were authorized only for the old destination; reusing them would disclose them to the new destination."
+ }
+ 
+ // PrepareConfigUpdate 合并渠道配置，并处理「目标地址变更」这一安全敏感情况。
+@@ -101,7 +101,7 @@
+ func PrepareConfigUpdate(kind string, stored, incoming map[string]any) (map[string]any, error) {
+ 	channel, ok := Get(kind)
+ 	if !ok {
+-		return nil, fmt.Errorf("渠道类型 %q 未注册", kind)
++		return nil, fmt.Errorf("Channel kind %q is not registered", kind)
+ 	}
+ 	secrets := channel.SecretKeys()
+ 	destinations := channel.DestinationKeys()
+@@ -174,7 +174,7 @@
+ 			continue
+ 		}
+ 		if strings.Contains(string(encoded), MaskedPrefix) {
+-			return fmt.Errorf("字段 %s 的内容里含掩码标记 %q：该字段只能整体留空表示沿用、或整体提交新值，不能在结构体内部夹带掩码占位",
++			return fmt.Errorf("Field %s contains mask marker %q: leave the entire field empty to retain its value, or submit a complete new value; embedded mask placeholders are not allowed",
+ 				key, MaskedPrefix)
+ 		}
+ 	}
+@@ -237,7 +237,7 @@
+ 	for k, v := range incoming {
+ 		if s, ok := v.(string); ok {
+ 			if IsMasked(s) {
+-				continue // 掩码值 = 未修改，保留 stored
++				continue // Masked value means unchanged; retain stored
+ 			}
+ 			if strings.TrimSpace(s) == "" {
+ 				delete(out, k)

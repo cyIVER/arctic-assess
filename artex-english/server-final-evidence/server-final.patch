@@ -1,0 +1,3749 @@
+--- before/server/assembly.go
++++ after/server/assembly.go
+@@ -87,13 +87,13 @@
+ 				}
+ 				cl, err := connectMCP(ctx, m)
+ 				if err != nil {
+-					log.Printf("[mcp] %s 连接失败: %v", m.Name, err)
++					log.Printf("[mcp] %s connection failed: %v", m.Name, err)
+ 					continue
+ 				}
+ 				closers = append(closers, cl)
+ 				ts, err := cl.Tools(ctx)
+ 				if err != nil {
+-					log.Printf("[mcp] %s tools/list 失败: %v", m.Name, err)
++					log.Printf("[mcp] %s tools/list failed: %v", m.Name, err)
+ 					continue
+ 				}
+ 				for _, t := range ts {
+@@ -197,11 +197,11 @@
+ 	for key, tmpl := range agent.BuiltinPromptSeeds() {
+ 		a, err := pg.GetAgentByKey(key)
+ 		if err != nil || a == nil {
+-			log.Printf("[prompts] seed %s 跳过: Agent not found (%v)", key, err)
++			log.Printf("[prompts] seed %s skipped: Agent not found (%v)", key, err)
+ 			continue
+ 		}
+ 		if err := pg.SeedPromptIfEmpty(a.ID, tmpl); err != nil {
+-			log.Printf("[prompts] seed %s 失败: %v", key, err)
++			log.Printf("[prompts] seed %s failed: %v", key, err)
+ 		}
+ 	}
+ }
+@@ -210,7 +210,7 @@
+ // edits survive restart) and wires the DB tools table into the agent runtime: at
+ // tool-assembly time each built-in tool is filtered by its agent binding / enabled
+ // flag and, if kept, wrapped so the model sees the DB-overridden description/schema
+-// and缺省入参 get injected. MCP/skill/host tools have no row and pass through.
++// and default arguments get injected. MCP/skill/host tools have no row and pass through.
+ func wireTools(pg *db.DB, domainReg map[string]actool.CoreTool) {
+ 	agent.FindingTrafficBindingEnabled = func() bool { return pg.GetBool(settingAgentTrafficBinding, false) }
+ 	// Seed the built-in domain tools (first-insert only; DO NOTHING preserves edits).
+@@ -220,7 +220,7 @@
+ 		schema, _ := json.Marshal(s.Schema)
+ 		agents, _ := json.Marshal(s.Agents)
+ 		if err := pg.SeedTool(s.Key, s.Desc, schema, agents); err != nil {
+-			log.Printf("[tools] seed %s 失败: %v", s.Key, err)
++			log.Printf("[tools] seed %s failed: %v", s.Key, err)
+ 		}
+ 	}
+ 	// Seed the traffic host tools so they're bindable per-agent like built-ins.
+@@ -231,20 +231,20 @@
+ 	for _, t := range traffic.SeedToolMetas() {
+ 		schema, _ := json.Marshal(t.InputSchema())
+ 		if err := pg.SeedTool(t.Name(), t.Description(), schema, trafficAgents); err != nil {
+-			log.Printf("[tools] seed %s 失败: %v", t.Name(), err)
++			log.Printf("[tools] seed %s failed: %v", t.Name(), err)
+ 		}
+ 	}
+ 	// bashInteractiveShellNote is appended to Bash's description ONLY for agents whose
+ 	// interactive_shell is on, so Bash points at shell_open for interactive programs
+ 	// without ever referencing a tool that isn't injected (§14.1/§14.2).
+-	const bashInteractiveShellNote = "\n\n需要【交互输入】的程序（msfconsole / ssh 交互登录 / mysql、psql、python 等 REPL / 密码或 yes/no 提示 / nc 反弹 shell）不要用 Bash（它没有 stdin、会卡住），改用 shell_open 开交互会话（用完 shell_close）。一次性、非交互命令仍用 Bash。"
++	const bashInteractiveShellNote = "\n\nDo not use Bash for programs requiring interactive input (msfconsole / interactive ssh login / mysql, psql, python and other REPLs / password or yes/no prompts / nc reverse shells): it has no stdin and will hang. Use shell_open for an interactive session and shell_close when finished. Continue using Bash for one-shot noninteractive commands."
+ 	agent.ToolResolve = func(ctx context.Context, agentKey string, tools []actool.CoreTool) []actool.CoreTool {
+ 		if agent.IsNativeRoleRun(ctx) {
+ 			return resolveNativeTools(pg, agentKey, tools)
+ 		}
+ 		rows, err := pg.ListTools()
+ 		if err != nil {
+-			log.Printf("[tools] 读取工具表失败，按代码默认放行: %v", err)
++			log.Printf("[tools] Failed to read tool table; allowing code defaults: %v", err)
+ 			return tools
+ 		}
+ 		byKey := make(map[string]*db.Tool, len(rows))
+@@ -302,7 +302,7 @@
+ 			}
+ 		}
+ 		if len(shellHints) > 0 {
+-			note := "\n\n以下工具已安装在此 bash 环境中，可直接通过 Bash 调用：\n" + strings.Join(shellHints, "\n")
++			note := "\n\nThe following tools are installed in this Bash environment and can be called directly through Bash:\n" + strings.Join(shellHints, "\n")
+ 			for i, t := range out {
+ 				if t.Name() == "Bash" {
+ 					out[i] = agent.DecorateTool(t, t.Description()+note, t.InputSchema())
+--- before/server/asset_intercept.go
++++ after/server/asset_intercept.go
+@@ -143,14 +143,14 @@
+ 		// free-form, no format check
+ 	case "exact_ip":
+ 		if net.ParseIP(req.Pattern) == nil {
+-			return fmt.Errorf("exact_ip 不是有效 IP 地址：%s", req.Pattern)
++			return fmt.Errorf("exact_ip is not a valid IP address: %s", req.Pattern)
+ 		}
+ 	case "cidr":
+ 		if _, _, err := net.ParseCIDR(req.Pattern); err != nil {
+-			return fmt.Errorf("cidr 不是有效网段（形如 192.168.0.0/16）：%s", req.Pattern)
++			return fmt.Errorf("cidr is not a valid network (for example 192.168.0.0/16): %s", req.Pattern)
+ 		}
+ 	default:
+-		return fmt.Errorf("kind 无效：%s", req.Kind)
++		return fmt.Errorf("Invalid kind: %s", req.Kind)
+ 	}
+ 	return nil
+ }
+--- before/server/constraints_api.go
++++ after/server/constraints_api.go
+@@ -9,19 +9,19 @@
+ 	"github.com/Autumn-27/artex/db"
+ )
+ 
+-// 总览「约束管理」的人工 CRUD 接口 + 注入范围开关的解析。操作约束(allow/deny)与 agent 侧的
+-// set_constraints 工具写同一张 task_constraints 表;这里是人类在 UI 上直接增删改。约束仅是
+-// 提示上下文——增删改后【不】通知 planner,下一轮规划自然读库生效(按产品决策)。每个变更 handler
+-// 都走 beginTaskOperation/decInflight,避免与任务删除竞态(与目标/意图 CRUD 一致)。
++// Manual constraint CRUD and injection-scope settings. Operation constraints (allow/deny) use
++// the same task_constraints table as the agent's set_constraints tool; here humans edit via the UI.
++// Constraints are prompt context only: edits do NOT notify the planner; the next round reads them.
++// Each mutation uses beginTaskOperation/decInflight to avoid task-deletion races, like goal/intent CRUD.
+ 
+-// 注入范围开关的 settings key,默认都开(GetBool 第二参数 = true)。
++// Injection-scope setting keys, all enabled by default (GetBool's second argument is true).
+ const (
+ 	settingConstraintsInjectPlanner = "constraints_inject_planner"
+ 	settingConstraintsInjectWorker  = "constraints_inject_worker"
+ )
+ 
+-// constraintInjectPlanner / constraintInjectWorker 报告是否把操作约束注入对应 agent 的
+-// 系统提示(默认开)。作为 resolver 传给 planner/worker,每轮读 → 改开关即时生效。
++// constraintInjectPlanner / constraintInjectWorker report whether operation constraints are injected
++// into the respective system prompt (default on). Resolved each planner/worker round for immediate updates.
+ func (s *Server) constraintInjectPlanner() bool {
+ 	return s.m.pg.GetBool(settingConstraintsInjectPlanner, true)
+ }
+@@ -30,7 +30,7 @@
+ 	return s.m.pg.GetBool(settingConstraintsInjectWorker, true)
+ }
+ 
+-// listConstraints 返回本任务的全部操作约束(allow 在前、deny 在后)。
++// listConstraints returns all task operation constraints (allow first, then deny).
+ func (s *Server) listConstraints(w http.ResponseWriter, r *http.Request) {
+ 	t, ok := s.m.Task(r.PathValue("id"))
+ 	if !ok {
+@@ -45,7 +45,7 @@
+ 	writeJSON(w, 200, map[string]any{"constraints": constraintDTOs(rows)})
+ }
+ 
+-// addConstraint 人工新增一条操作约束(kind=allow|deny)。不通知 planner。
++// addConstraint manually adds an operation constraint (kind=allow|deny), without notifying the planner.
+ func (s *Server) addConstraint(w http.ResponseWriter, r *http.Request) {
+ 	t, ok := s.m.Task(r.PathValue("id"))
+ 	if !ok {
+@@ -53,7 +53,7 @@
+ 		return
+ 	}
+ 	if !s.engine.beginTaskOperation(t.ID) {
+-		writeErr(w, 409, "Task is being deleted,无法新增约束")
++		writeErr(w, 409, "Task is being deleted; cannot add constraints")
+ 		return
+ 	}
+ 	defer s.engine.decInflight(t.ID)
+@@ -68,12 +68,12 @@
+ 	}
+ 	text := strings.TrimSpace(body.Text)
+ 	if text == "" {
+-		writeErr(w, 400, "约束内容不能为空")
++		writeErr(w, 400, "Constraint content must not be empty")
+ 		return
+ 	}
+ 	kind := normalizeConstraintKind(body.Kind)
+ 	if kind == "" {
+-		writeErr(w, 400, "kind 必须是 allow 或 deny")
++		writeErr(w, 400, "kind must be allow or deny")
+ 		return
+ 	}
+ 	id, err := t.Store.AddConstraint(kind, text, "human")
+@@ -84,7 +84,7 @@
+ 	writeJSON(w, 200, ConstraintDTO{ID: strconv.FormatInt(id, 10), Kind: kind, Text: text, Origin: "human"})
+ }
+ 
+-// editConstraint 人工修改一条约束(kind + text)。不通知 planner。
++// editConstraint manually edits a constraint (kind + text), without notifying the planner.
+ func (s *Server) editConstraint(w http.ResponseWriter, r *http.Request) {
+ 	t, ok := s.m.Task(r.PathValue("id"))
+ 	if !ok {
+@@ -92,7 +92,7 @@
+ 		return
+ 	}
+ 	if !s.engine.beginTaskOperation(t.ID) {
+-		writeErr(w, 409, "Task is being deleted,无法修改约束")
++		writeErr(w, 409, "Task is being deleted; cannot update constraints")
+ 		return
+ 	}
+ 	defer s.engine.decInflight(t.ID)
+@@ -112,12 +112,12 @@
+ 	}
+ 	text := strings.TrimSpace(body.Text)
+ 	if text == "" {
+-		writeErr(w, 400, "约束内容不能为空")
++		writeErr(w, 400, "Constraint content must not be empty")
+ 		return
+ 	}
+ 	kind := normalizeConstraintKind(body.Kind)
+ 	if kind == "" {
+-		writeErr(w, 400, "kind 必须是 allow 或 deny")
++		writeErr(w, 400, "kind must be allow or deny")
+ 		return
+ 	}
+ 	if err := t.Store.UpdateConstraint(cid, kind, text); err != nil {
+@@ -127,7 +127,7 @@
+ 	writeJSON(w, 200, ConstraintDTO{ID: strconv.FormatInt(cid, 10), Kind: kind, Text: text})
+ }
+ 
+-// deleteConstraint 人工删除一条约束。不通知 planner。
++// deleteConstraint manually deletes a constraint, without notifying the planner.
+ func (s *Server) deleteConstraint(w http.ResponseWriter, r *http.Request) {
+ 	t, ok := s.m.Task(r.PathValue("id"))
+ 	if !ok {
+@@ -135,7 +135,7 @@
+ 		return
+ 	}
+ 	if !s.engine.beginTaskOperation(t.ID) {
+-		writeErr(w, 409, "Task is being deleted,无法删除约束")
++		writeErr(w, 409, "Task is being deleted; cannot delete constraints")
+ 		return
+ 	}
+ 	defer s.engine.decInflight(t.ID)
+--- before/server/conversations.go
++++ after/server/conversations.go
+@@ -740,9 +740,9 @@
+ 		return ""
+ 	}
+ 	if goal != "" {
+-		return fmt.Sprintf("[Task #%d %s (goal: %s)]", taskID, trunc(desc, 200), trunc(goal, 500))
+-	}
+-	return fmt.Sprintf("[Task #%d %s]", taskID, trunc(desc, 200))
++		return fmt.Sprintf("[Task: #%d %s (goal: %s)]", taskID, trunc(desc, 200), trunc(goal, 500))
++	}
++	return fmt.Sprintf("[Task: #%d %s]", taskID, trunc(desc, 200))
+ }
+ 
+ // finalTriggerMessage renders the message actually sent to the agent for a single
+@@ -766,7 +766,7 @@
+ 	}
+ 	first := items[0]
+ 	var b strings.Builder
+-	fmt.Fprintf(&b, "[Task #%d: this conversation combines %d trigger events; process them together]\n", first.taskID, len(items))
++	fmt.Fprintf(&b, "[Task: #%d: this conversation combines %d trigger events; process them together]\n", first.taskID, len(items))
+ 	if h := taskContextHeader(first.taskID, first.taskDesc, first.taskGoal); h != "" {
+ 		fmt.Fprintf(&b, "%s\n", h) // same task → task context appears once
+ 	}
+--- before/server/customtool.go
++++ after/server/customtool.go
+@@ -58,15 +58,15 @@
+ 		return
+ 	}
+ 	if req.Kind != "command" && req.Kind != "script" && req.Kind != "http" && req.Kind != "shell" {
+-		writeErr(w, 400, "kind 需为 command / script / http / shell")
++		writeErr(w, 400, "kind must be command / script / http / shell")
+ 		return
+ 	}
+ 	if req.Kind == "http" && !hasSchemaProps(req.Schema) {
+-		writeErr(w, 400, "http 工具必须提供参数 JSON Schema(不能留空)")
++		writeErr(w, 400, "HTTP tools require a nonempty parameter JSON Schema")
+ 		return
+ 	}
+ 	if exist, _ := pg.GetTool(req.Key); exist != nil {
+-		writeErr(w, 409, "This key already exists(内置或自定义工具)")
++		writeErr(w, 409, "This key already exists (built-in or custom tool)")
+ 		return
+ 	}
+ 	if err := pg.CreateCustomTool(&db.Tool{
+@@ -91,7 +91,7 @@
+ 		return
+ 	}
+ 	if existing == nil || existing.System {
+-		writeErr(w, 400, "只能编辑自定义工具")
++		writeErr(w, 400, "Only custom tools can be edited")
+ 		return
+ 	}
+ 	var req customToolReq
+@@ -100,11 +100,11 @@
+ 		return
+ 	}
+ 	if req.Kind != "command" && req.Kind != "script" && req.Kind != "http" && req.Kind != "shell" {
+-		writeErr(w, 400, "kind 需为 command / script / http / shell")
++		writeErr(w, 400, "kind must be command / script / http / shell")
+ 		return
+ 	}
+ 	if req.Kind == "http" && !hasSchemaProps(req.Schema) {
+-		writeErr(w, 400, "http 工具必须提供参数 JSON Schema(不能留空)")
++		writeErr(w, 400, "HTTP tools require a nonempty parameter JSON Schema")
+ 		return
+ 	}
+ 	if err := pg.UpdateCustomTool(&db.Tool{
+@@ -150,7 +150,7 @@
+ 	}
+ 	var req testToolReq
+ 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+-		writeErr(w, 400, "无效的请求体")
++		writeErr(w, 400, "Invalid request body")
+ 		return
+ 	}
+ 	params := req.Params
+@@ -169,10 +169,10 @@
+ 	case "http":
+ 		res, _ = s.runHTTPTool(ctx, req.Exec, params, tc)
+ 	case "shell":
+-		writeErr(w, 400, "shell 类型工具是 bash 环境声明，无可执行内容")
++		writeErr(w, 400, "Shell tools declare the Bash environment and have no executable content")
+ 		return
+ 	default:
+-		writeErr(w, 400, "Unknown工具类型: "+req.Kind)
++		writeErr(w, 400, "Unknown tool kind: "+req.Kind)
+ 		return
+ 	}
+ 	writeJSON(w, 200, map[string]any{"output": res.Flatten(), "is_error": res.IsError})
+@@ -209,7 +209,7 @@
+ 	}
+ 	if p := detectPython(); p != "" {
+ 		_ = s.m.pg.SetSetting(settingPythonInterp, p)
+-		log.Printf("[custom-tool] 自动检测到 python 解释器: %s", p)
++		log.Printf("[custom-tool] Automatically detected Python interpreter: %s", p)
+ 	}
+ }
+ 
+@@ -281,7 +281,7 @@
+ 		case "http":
+ 			return s.runHTTPTool(ctx, execRaw, params, tc)
+ 		default:
+-			return actool.Errorf("Unknown自定义工具类型: " + kind), nil
++			return actool.Errorf("Unknown custom tool kind: " + kind), nil
+ 		}
+ 	}
+ 	return actool.Build(actool.Spec{
+@@ -321,7 +321,7 @@
+ 	return map[string]any{
+ 		"type": "object",
+ 		"properties": map[string]any{
+-			"args": map[string]any{"type": "string", "description": "命令/参数(自由文本)"},
++			"args": map[string]any{"type": "string", "description": "Command/arguments (free text)"},
+ 		},
+ 	}
+ }
+@@ -332,7 +332,7 @@
+ 	var spec commandExec
+ 	_ = json.Unmarshal(execRaw, &spec)
+ 	if strings.TrimSpace(spec.Command) == "" {
+-		return actool.Errorf("command 为空"), nil
++		return actool.Errorf("command is empty"), nil
+ 	}
+ 	cmd := renderTemplate(spec.Command, params, shellQuote)
+ 	// 复用 Bash 也在用的底层 run(经 Bash CoreTool.Call):自动继承安全 floor/超时/
+@@ -352,11 +352,11 @@
+ 	var spec scriptExec
+ 	_ = json.Unmarshal(execRaw, &spec)
+ 	if strings.TrimSpace(spec.Code) == "" {
+-		return actool.Errorf("script code 为空"), nil
++		return actool.Errorf("script code is empty"), nil
+ 	}
+ 	interp := s.pythonInterpreter()
+ 	if interp == "" {
+-		return actool.Errorf("未配置且未检测到 python 解释器(在系统配置里设置)"), nil
++		return actool.Errorf("No Python interpreter configured or detected (set it in system settings)"), nil
+ 	}
+ 	workDir := s.m.dir
+ 	var sessionEnv []string
+@@ -408,7 +408,7 @@
+ 	out, err := c.CombinedOutput()
+ 	body := string(out)
+ 	if runCtx.Err() == context.DeadlineExceeded {
+-		body += "\n... [超时终止] ..."
++		body += "\n... [terminated on timeout] ..."
+ 	} else if err != nil {
+ 		body += "\n[exit: " + err.Error() + "]"
+ 	}
+@@ -426,7 +426,7 @@
+ 	}
+ 	rawURL := renderTemplate(spec.URL, params, identity)
+ 	if strings.TrimSpace(rawURL) == "" {
+-		return actool.Errorf("http url 为空"), nil
++		return actool.Errorf("HTTP URL is empty"), nil
+ 	}
+ 	var bodyReader io.Reader
+ 	if spec.Body != "" {
+--- before/server/engine.go
++++ after/server/engine.go
+@@ -542,7 +542,7 @@
+ }
+ 
+ // 空转回合(只有思考、既无正文也无工具调用)续跑次数的默认值，与 SDK 空响应重试的
+-// 内置默认(norma/llm/openai.go 的 emptyResponseRetries)保持一致——两层共用同一个
++// Built-in default(norma/llm/openai.go 的 emptyResponseRetries)保持一致——两层共用同一个
+ // 旋钮，不配置时的行为也该对齐。解析见 Engine.emptyTurnNudgeLimit。
+ //
+ // 注意这个数是「一条意图的总量」，不是「连续几次」:harness 自身的 stopHookActive
+@@ -612,10 +612,10 @@
+ 	}
+ 	n := h.nudges.Add(1)
+ 	if n > int64(h.limit) {
+-		log.Printf("[work %s] 空转回合(仅思考、无正文无工具)已达续跑上限 %d，放行收场", h.label, h.limit)
++		log.Printf("[work %s] Idle turn (thinking only, no text or tools) reached continuation limit %d; allowing completion", h.label, h.limit)
+ 		return prevent, blocking, msg
+ 	}
+-	log.Printf("[work %s] 空转回合(仅思考、无正文无工具)，注入续跑指令 (%d/%d)", h.label, n, h.limit)
++	log.Printf("[work %s] Idle turn (thinking only, no text or tools); injecting continuation instruction (%d/%d)", h.label, n, h.limit)
+ 	return false, []string{emptyTurnNudge}, ""
+ }
+ 
+@@ -653,13 +653,13 @@
+ 		if isFKViolation(err) {
+ 			storeID := t.Store.ID()
+ 			if exists, refs, maxID, dErr := e.m.pg.ExplorationDiag(storeID); dErr != nil {
+-				diag = fmt.Sprintf(" | FK诊断查询失败(store.expID=%d task.ExpID=%d): %v", storeID, t.ExpID, dErr)
++				diag = fmt.Sprintf(" | FK diagnostic query failed(store.expID=%d task.ExpID=%d): %v", storeID, t.ExpID, dErr)
+ 			} else {
+-				diag = fmt.Sprintf(" | FK诊断: store.expID=%d task.ExpID=%d exploration存在=%v 引用它的task数=%d MAX(exploration.id)=%d",
++				diag = fmt.Sprintf(" | FK diagnostics: store.expID=%d task.ExpID=%d exploration_exists=%v referencing_tasks=%d MAX(exploration.id)=%d",
+ 					storeID, t.ExpID, exists, refs, maxID)
+ 			}
+ 		}
+-		log.Printf("[activity] task %s 丢弃活动记录(该任务累计第 %d 条) worker=%s kind=%s tool=%s tuid=%s reason=%s summary=%q: %v%s",
++		log.Printf("[activity] task %s dropped activity record (task cumulative count %d) worker=%s kind=%s tool=%s tuid=%s reason=%s summary=%q: %v%s",
+ 			t.ID, n, r.Worker, r.Kind, r.Tool, r.ToolUseID, dropReason(err), preview(r.Summary, 80), err, diag)
+ 		e.touch(t.ID)
+ 		return r
+@@ -684,12 +684,12 @@
+ 	for attempt := 1; attempt <= 3; attempt++ {
+ 		if id, err = t.Store.AppendActivity(r); err == nil {
+ 			if attempt > 1 {
+-				log.Printf("[activity] task %s 写入第 %d 次重试成功 (worker=%s kind=%s tool=%s)",
++				log.Printf("[activity] task %s write retry %d succeeded (worker=%s kind=%s tool=%s)",
+ 					t.ID, attempt, r.Worker, r.Kind, r.Tool)
+ 			}
+ 			return id, nil
+ 		}
+-		log.Printf("[activity] task %s 写入失败 (第 %d/3 次, worker=%s kind=%s tool=%s expID=%d): %v",
++		log.Printf("[activity] task %s write failed (attempt %d/3, worker=%s kind=%s tool=%s expID=%d): %v",
+ 			t.ID, attempt, r.Worker, r.Kind, r.Tool, t.Store.ID(), err)
+ 		time.Sleep(time.Duration(attempt) * 25 * time.Millisecond)
+ 	}
+@@ -848,7 +848,7 @@
+ 				// frontier 抽干且无在跑意图 → 收尾。用 Guarded 版做 CAS，避免踩到并发的
+ 				// pause/delete/超时收尾的状态转换。
+ 				if won, err := e.m.SetTaskStatusGuarded(t.ID, "done"); err != nil {
+-					log.Printf("[goalless] task %s 收尾落 done 失败: %v", t.ID, err)
++					log.Printf("[goalless] task %s failed to persist done on settlement: %v", t.ID, err)
+ 				} else if won {
+ 					e.emitActivity(t, db.Activity{Worker: "system", Kind: "text",
+ 						Summary: "All goals achieved and directly submitted intents completed; task finished"})
+@@ -867,7 +867,7 @@
+ 		if ectx.Err() != nil || e.IsDeleting(t.ID) {
+ 			return
+ 		}
+-		log.Printf("[planner] task %s 规划中…(%s 触发)", t.ID, src)
++		log.Printf("[planner] task %s planning... (triggered by %s)", t.ID, src)
+ 		// round marker: each Plan() is one planner round; emit a boundary so the
+ 		// UI can separate rounds in the transcript (kind='round').
+ 		e.emitActivity(t, db.Activity{Worker: "planner", Kind: "round",
+@@ -881,19 +881,19 @@
+ 		e.EndLLMCall(t.ID)
+ 		switch {
+ 		case err != nil && ectx.Err() == nil:
+-			log.Printf("[planner] task %s 规划出错: %v", t.ID, err)
++			log.Printf("[planner] task %s planning error: %v", t.ID, err)
+ 		case met:
+-			log.Printf("[planner] task %s 判定目标达成: %s", t.ID, reason)
++			log.Printf("[planner] task %s goal judged complete: %s", t.ID, reason)
+ 			// 所有目标达成 → 持久化任务状态为 done（前端 DTO 会优先展示该终态）。
+ 			if err := e.m.SetTaskStatus(t.ID, "done"); err != nil {
+-				log.Printf("[planner] task %s 标记完成落库失败: %v", t.ID, err)
++				log.Printf("[planner] task %s failed to persist completion: %v", t.ID, err)
+ 			}
+ 			// 任务已判完成 → 立刻取消在跑的 worker：它们手头的意图跑出来也没意义了。
+ 			// 下一轮 worker 循环撞终态门就不再领新意图;被取消的这批走下方"任务已完成"分支
+ 			// 归为 stopped(而非 blocked)。
+ 			e.cancelExec(t.ID, agent.AbortGoalMet)
+ 		default:
+-			log.Printf("[planner] task %s 规划完成", t.ID)
++			log.Printf("[planner] task %s planning complete", t.ID)
+ 		}
+ 		e.touch(t.ID)
+ 	}
+@@ -967,7 +967,7 @@
+ 	if intent == nil {
+ 		return false
+ 	}
+-	log.Printf("[worker %s] task %s 领取意图 #%d", name, t.ID, intent.ID)
++	log.Printf("[worker %s] task %s claimed intent #%d", name, t.ID, intent.ID)
+ 	return e.runIntent(ctx, t, name, worker, intent, "", "")
+ }
+ 
+@@ -987,7 +987,7 @@
+ 	ectx := e.clockCtx(e.execContextFor(ctx, t.ID), t, false) // cancellable by Pause; 带任务 deadline
+ 	if ectx.Err() != nil || e.IsDeleting(t.ID) {
+ 		if err := transitionIntentState(t.Store, intent.ID, "running", "open"); err != nil {
+-			log.Printf("[worker %s] task %s 意图 #%d 领取后回退失败: %v", name, t.ID, intent.ID, err)
++			log.Printf("[worker %s] task %s intent #%d rollback after claim failed: %v", name, t.ID, intent.ID, err)
+ 		}
+ 		return true
+ 	}
+@@ -1031,7 +1031,7 @@
+ 	for attempt := 1; attempt <= maxRetries &&
+ 		retryableWorkerModelError(reason, err) &&
+ 		workCtx.Err() == nil && ectx.Err() == nil && !e.IsPaused(t.ID) && !e.isSettling(t.ID); attempt++ {
+-		log.Printf("[worker %s] task %s 意图 #%d model_error 收场，%v 后重试 (%d/%d)",
++		log.Printf("[worker %s] task %s intent #%d ended with model_error; retrying after %v (%d/%d)",
+ 			name, t.ID, intent.ID, retryBackoff, attempt, maxRetries)
+ 		if sleepCtx(workCtx, retryBackoff) {
+ 			break // 退避期间被取消（终止/暂停）→ 交给下方分支处理
+@@ -1068,10 +1068,10 @@
+ 	if action == "pause" {
+ 		controlErr = transitionIntentState(t.Store, intent.ID, "running", "paused")
+ 		if controlErr != nil {
+-			log.Printf("[worker %s] task %s 意图 #%d 暂停状态落库失败: %v", name, t.ID, intent.ID, controlErr)
++			log.Printf("[worker %s] task %s intent #%d failed to persist paused state: %v", name, t.ID, intent.ID, controlErr)
+ 			return true
+ 		}
+-		log.Printf("[worker %s] task %s 意图 #%d Paused", name, t.ID, intent.ID)
++		log.Printf("[worker %s] task %s intent #%d Paused", name, t.ID, intent.ID)
+ 		e.touch(t.ID)
+ 		return true
+ 	}
+@@ -1081,10 +1081,10 @@
+ 		// a later cancel can finish cleanup instead of leaving a phantom running row.
+ 		controlErr = transitionIntentState(t.Store, intent.ID, "running", "paused")
+ 		if controlErr != nil {
+-			log.Printf("[worker %s] task %s 意图 #%d 取消栅栏落库失败: %v", name, t.ID, intent.ID, controlErr)
++			log.Printf("[worker %s] task %s intent #%d failed to persist cancellation barrier: %v", name, t.ID, intent.ID, controlErr)
+ 			return true
+ 		}
+-		log.Printf("[worker %s] task %s 意图 #%d 已停止，等待取消清理", name, t.ID, intent.ID)
++		log.Printf("[worker %s] task %s intent #%d stopped; awaiting cancellation cleanup", name, t.ID, intent.ID)
+ 		e.touch(t.ID)
+ 		return true
+ 	}
+@@ -1093,7 +1093,7 @@
+ 	// conversation from its transcript instead of restarting from scratch.
+ 	if ectx.Err() != nil && taskExecutionPaused(context.Cause(ectx)) {
+ 		if err := transitionIntentState(t.Store, intent.ID, "running", "open"); err != nil {
+-			log.Printf("[worker %s] task %s 意图 #%d 任务暂停回退失败: %v", name, t.ID, intent.ID, err)
++			log.Printf("[worker %s] task %s intent #%d rollback on task pause failed: %v", name, t.ID, intent.ID, err)
+ 		}
+ 		return true
+ 	}
+@@ -1101,9 +1101,9 @@
+ 	// 不要误标 blocked。此时 worker 通常已在 settlement 阶段把结果写回。
+ 	if ectx.Err() != nil && e.isSettling(t.ID) {
+ 		if err := transitionIntentState(t.Store, intent.ID, "running", "exhausted"); err != nil {
+-			log.Printf("[worker %s] task %s 意图 #%d 超时收尾状态落库失败: %v", name, t.ID, intent.ID, err)
+-		}
+-		log.Printf("[worker %s] task %s 意图 #%d 因任务超时收尾结束(exhausted)，写回 %s", name, t.ID, intent.ID, wrote)
++			log.Printf("[worker %s] task %s intent #%d failed to persist timeout settlement state: %v", name, t.ID, intent.ID, err)
++		}
++		log.Printf("[worker %s] task %s intent #%d ended on task timeout settlement (exhausted); wrote %s", name, t.ID, intent.ID, wrote)
+ 		e.touch(t.ID)
+ 		return true
+ 	}
+@@ -1111,18 +1111,18 @@
+ 	// 标 stopped(不是 blocked),别污染已完成任务的意图状态。
+ 	if ectx.Err() != nil && isTerminalStatus(e.m.TaskStatus(t.ID)) {
+ 		if err := transitionIntentState(t.Store, intent.ID, "running", "stopped"); err != nil {
+-			log.Printf("[worker %s] task %s 意图 #%d 终态停止落库失败: %v", name, t.ID, intent.ID, err)
+-		}
+-		log.Printf("[worker %s] task %s 意图 #%d 因任务已完成而取消(stopped)", name, t.ID, intent.ID)
++			log.Printf("[worker %s] task %s intent #%d failed to persist terminal stop: %v", name, t.ID, intent.ID, err)
++		}
++		log.Printf("[worker %s] task %s intent #%d canceled because task is complete (stopped)", name, t.ID, intent.ID)
+ 		e.touch(t.ID)
+ 		return true
+ 	}
+ 	// killed by the planner: mark stopped (don't write back results, don't auto-reclaim).
+ 	if killed {
+ 		if err := transitionIntentState(t.Store, intent.ID, "running", "stopped"); err != nil {
+-			log.Printf("[worker %s] task %s 意图 #%d planner 停止落库失败: %v", name, t.ID, intent.ID, err)
+-		}
+-		log.Printf("[worker %s] task %s 意图 #%d 被终止(stopped)", name, t.ID, intent.ID)
++			log.Printf("[worker %s] task %s intent #%d failed to persist planner stop: %v", name, t.ID, intent.ID, err)
++		}
++		log.Printf("[worker %s] task %s intent #%d terminated (stopped)", name, t.ID, intent.ID)
+ 		e.touch(t.ID)
+ 		t.Notify()
+ 		return true
+@@ -1138,19 +1138,19 @@
+ 		state = "blocked"
+ 	case reason == harness.ReasonMaxTurns:
+ 		state = "exhausted"
+-		log.Printf("[worker %s] intent %d 撞步数上限(exhausted)，本次写回 %s", name, intent.ID, wrote)
++		log.Printf("[worker %s] intent %d hit step limit (exhausted); wrote %s", name, intent.ID, wrote)
+ 	case reason == harness.ReasonTimeout:
+ 		state = "exhausted"
+-		log.Printf("[worker %s] intent %d 运行超时(exhausted)，收尾后写回 %s", name, intent.ID, wrote)
++		log.Printf("[worker %s] intent %d timed out (exhausted); wrote %s after settlement", name, intent.ID, wrote)
+ 	}
+ 	if state == "blocked" && isTaskLLMChainExhausted(err) {
+ 		_ = t.Store.SetIntentBlockedReason(intent.ID, db.IntentBlockedLLMQuota)
+ 	} else {
+ 		if stateErr := transitionIntentState(t.Store, intent.ID, "running", state); stateErr != nil {
+-			log.Printf("[worker %s] task %s 意图 #%d 终态 %s 落库失败: %v", name, t.ID, intent.ID, state, stateErr)
+-		}
+-	}
+-	log.Printf("[worker %s] task %s 意图 #%d 结束: %s (写回 %s)", name, t.ID, intent.ID, state, wrote)
++			log.Printf("[worker %s] task %s intent #%d failed to persist terminal state %s: %v", name, t.ID, intent.ID, state, stateErr)
++		}
++	}
++	log.Printf("[worker %s] task %s intent #%d ended: %s (wrote %s)", name, t.ID, intent.ID, state, wrote)
+ 	e.touch(t.ID)
+ 	t.NotifyDone(intent.ID) // results changed the graph -> wake the planner (with the just-finished intent id)
+ 	return true
+--- before/server/engine_timeout.go
++++ after/server/engine_timeout.go
+@@ -102,13 +102,13 @@
+ 	}
+ 	dl, err := e.m.StampTaskFirstRun(t.ID)
+ 	if err != nil {
+-		log.Printf("[deadline] task %s 盖章 first_run 失败: %v", t.ID, err)
++		log.Printf("[deadline] task %s failed to stamp first_run: %v", t.ID, err)
+ 		e.stamped.Delete(t.ID) // 允许下次重试
+ 		return
+ 	}
+ 	if dl > 0 {
+ 		e.deadline.Store(t.ID, dl)
+-		log.Printf("[deadline] task %s 首次运行,截止于 %s", t.ID, time.Unix(dl, 0).Format("2006-01-02 15:04:05"))
++		log.Printf("[deadline] task %s first run; deadline %s", t.ID, time.Unix(dl, 0).Format("2006-01-02 15:04:05"))
+ 	}
+ }
+ 
+@@ -185,14 +185,14 @@
+ 	if !e.markSettling(t.ID) {
+ 		return
+ 	}
+-	log.Printf("[deadline] task %s 到达超时上限,进入收尾时序", t.ID)
++	log.Printf("[deadline] task %s timeout reached; entering settlement", t.ID)
+ 
+ 	// ④ 等在跑 worker/planner drain(在跑 run 因夹逼的 MaxDuration 自行进收尾);
+ 	// 超过 grace 仍未清空 → 硬 cancel 该任务 exec ctx(settling-aware 分支正确归类)。
+ 	hardStop := time.Now().Add(settleDrainGrace)
+ 	for e.inflightCount(t.ID) > 0 {
+ 		if time.Now().After(hardStop) {
+-			log.Printf("[deadline] task %s drain 超时(%s),硬取消在跑 run", t.ID, settleDrainGrace)
++			log.Printf("[deadline] task %s drain timed out (%s); hard-canceling active runs", t.ID, settleDrainGrace)
+ 			e.cancelExec(t.ID, agent.AbortSettleDrainTimeout)
+ 			_ = sleepCtx(ctx, 3*time.Second) // 给 worker 分支一点时间落库/归类
+ 			break
+@@ -218,11 +218,11 @@
+ 	won, err := e.m.SetTaskStatusGuarded(t.ID, status)
+ 	switch {
+ 	case err != nil:
+-		log.Printf("[deadline] task %s 落终态失败: %v", t.ID, err)
++		log.Printf("[deadline] task %s failed to persist terminal state: %v", t.ID, err)
+ 	case won:
+-		log.Printf("[deadline] task %s 收尾完成,终态=%s", t.ID, status)
++		log.Printf("[deadline] task %s settlement complete; terminal state=%s", t.ID, status)
+ 	default:
+-		log.Printf("[deadline] task %s 收尾时已是终态,保留原状态", t.ID)
++		log.Printf("[deadline] task %s already terminal during settlement; retaining original state", t.ID)
+ 	}
+ }
+ 
+@@ -260,9 +260,9 @@
+ 	met, reason, err := planner.Plan(fctx, tTaskID, e.m.assets, t.Store, t.Goal, t.drainTriggers(), emit)
+ 	e.EndLLMCall(t.ID)
+ 	if err != nil {
+-		log.Printf("[deadline] task %s 终局规划出错: %v", t.ID, err)
++		log.Printf("[deadline] task %s final planning error: %v", t.ID, err)
+ 	} else if met {
+-		log.Printf("[deadline] task %s 终局判定目标达成: %s", t.ID, reason)
++		log.Printf("[deadline] task %s final goal judged complete: %s", t.ID, reason)
+ 	}
+ 	return met
+ }
+--- before/server/finding_retests.go
++++ after/server/finding_retests.go
+@@ -76,7 +76,7 @@
+ 	}
+ 	req.Notes = strings.TrimSpace(req.Notes)
+ 	if utf8.RuneCountInString(req.Notes) > 4000 {
+-		writeErr(w, 400, "复测补充说明最多 4000 个字符")
++		writeErr(w, 400, "Retest notes must not exceed 4000 characters")
+ 		return
+ 	}
+ 	f, err := pg.GetFinding(id)
+@@ -94,7 +94,7 @@
+ 		return
+ 	}
+ 	if a == nil || !a.Enabled {
+-		writeErr(w, 409, "漏洞复测 Agent 不存在或未启用，请在 Agent 管理中配置 retester")
++		writeErr(w, 409, "The finding retest agent is missing or disabled; configure retester in Agent management")
+ 		return
+ 	}
+ 	for _, key := range []string{"get_finding_retest_context", "record_finding_retest_result"} {
+@@ -104,7 +104,7 @@
+ 			return
+ 		}
+ 		if t == nil || !t.Enabled || !slices.Contains(t.Agents, a.Key) {
+-			writeErr(w, 409, "请为复测 Agent 启用并绑定工具："+key)
++			writeErr(w, 409, "Enable and bind this tool for the retest agent: "+key)
+ 			return
+ 		}
+ 	}
+@@ -113,7 +113,7 @@
+ 		return
+ 	}
+ 	if s.ctx.Err() != nil {
+-		writeErr(w, 503, "服务正在停止")
++		writeErr(w, 503, "Service is stopping")
+ 		return
+ 	}
+ 	retest, conv, created, err := pg.CreateFindingRetest(r.Context(), id, req.Notes)
+@@ -143,14 +143,14 @@
+ // arguments cannot redirect a result into a different finding or conversation.
+ func (s *Server) findingRetestTools() []actool.CoreTool {
+ 	return []actool.CoreTool{
+-		roTool("get_finding_retest_context", "读取当前复测会话关联的漏洞证据快照、复测状态、补充说明与当前任务约束。无参数，只能读取本会话。",
++		roTool("get_finding_retest_context", "Read the finding evidence snapshot, retest status, notes, and current task constraints associated with this retest conversation. No parameters; only this conversation is accessible.",
+ 			objSchema(map[string]any{}), func(ctx context.Context, _ json.RawMessage) (actool.Result, error) {
+ 				r, err := s.m.pg.FindingRetestForConversation(ctx, intercept.ConvIDFromContext(ctx))
+ 				if err != nil {
+ 					return actool.Errorf(err.Error()), nil
+ 				}
+ 				if r == nil {
+-					return actool.Errorf("当前会话未关联复测记录，请从漏洞详情发起复测"), nil
++					return actool.Errorf("This conversation has no associated retest record; start a retest from the finding details"), nil
+ 				}
+ 				var constraints []db.Constraint
+ 				f, err := s.m.pg.GetFinding(r.FindingID)
+@@ -167,11 +167,11 @@
+ 				}
+ 				return jsonResult(map[string]any{"retest": r, "current_constraints": constraints})
+ 			}),
+-		wrTool("record_finding_retest_result", "为当前复测会话保存唯一结论；原漏洞证据与报告保持不变。会话成功结束且结论为 fixed 时，系统自动将漏洞状态改为已修复；其他结论保留原状态。必须提供本次实际检查的证据，无法确认时写明阻塞原因。",
++		wrTool("record_finding_retest_result", "Save the single result for this retest conversation without modifying the original finding evidence or report. When the conversation ends successfully with a fixed result, the system marks the finding as fixed; other results retain its status. Supply evidence from actual checks and explain blockers when verification is inconclusive.",
+ 			objSchema(map[string]any{
+ 				"verdict":  map[string]any{"type": "string", "enum": []string{"reproduced", "fixed", "inconclusive"}},
+-				"summary":  strParam("本次复测结论摘要"),
+-				"evidence": strParam("Markdown：本次实际步骤、观察、对照、结论依据；无法确认则列出已检查内容和阻塞原因"),
++				"summary":  strParam("Summary of this retest result"),
++				"evidence": strParam("Markdown: actual steps, observations, controls, and evidence supporting the result; if inconclusive, list completed checks and blockers"),
+ 			}, "verdict", "summary", "evidence"), func(ctx context.Context, in json.RawMessage) (actool.Result, error) {
+ 				var a struct {
+ 					Verdict  string `json:"verdict"`
+@@ -219,7 +219,7 @@
+ 	}
+ 	var id int64
+ 	err = tx.QueryRow(`INSERT INTO agents(key,name,description,role,builtin,enabled)
+-	VALUES ($1,'漏洞复测','从漏洞详情手动启动，读取原证据并保存独立复测结论。','assistant',false,true)
++	VALUES ($1,'Finding retest','Manually started from finding details; reads original evidence and saves an independent retest result.','assistant',false,true)
+ 	ON CONFLICT (key) DO NOTHING RETURNING id`, db.FindingRetestAgentKey).Scan(&id)
+ 	if err != nil && !errors.Is(err, sql.ErrNoRows) {
+ 		return err
+@@ -227,7 +227,7 @@
+ 	if id > 0 {
+ 		var pid int64
+ 		if err = tx.QueryRow(`INSERT INTO agent_prompts(agent_id,version,template_text,note,updated_by)
+-		VALUES ($1,1,$2,'内置默认','system') RETURNING id`, id, agent.RetesterDefaultPrompt).Scan(&pid); err != nil {
++		VALUES ($1,1,$2,'Built-in default','system') RETURNING id`, id, agent.RetesterDefaultPrompt).Scan(&pid); err != nil {
+ 			return err
+ 		}
+ 		if _, err = tx.Exec(`UPDATE agents SET current_prompt_id=$1 WHERE id=$2`, pid, id); err != nil {
+--- before/server/finding_traffic.go
++++ after/server/finding_traffic.go
+@@ -128,7 +128,7 @@
+ 			return 0, false
+ 		}
+ 		if write && inherited {
+-			writeErr(w, 403, "继承漏洞只读，请在来源任务中修改")
++			writeErr(w, 403, "Inherited findings are read-only; edit them in the source task")
+ 			return 0, false
+ 		}
+ 	}
+@@ -171,7 +171,7 @@
+ 		return
+ 	}
+ 	if len(body.Refs) == 0 {
+-		writeErr(w, 400, "请选择流量")
++		writeErr(w, 400, "Select traffic")
+ 		return
+ 	}
+ 	out, err := s.evidenceStore().Bind(r.Context(), id, body.Refs)
+@@ -194,14 +194,14 @@
+ 		Order   []string `json:"binding_ids"`
+ 	}
+ 	if err := json.NewDecoder(http.MaxBytesReader(w, r.Body, 1<<20)).Decode(&body); err != nil || body.Version == nil {
+-		writeErr(w, 400, "version 和有效请求体必填")
++		writeErr(w, 400, "version and a valid request body are required")
+ 		return
+ 	}
+ 	var order []int64
+ 	bindingID := int64(0)
+ 	if r.Method == http.MethodPut {
+ 		if body.Order == nil {
+-			writeErr(w, 400, "binding_ids 必填")
++			writeErr(w, 400, "binding_ids is required")
+ 			return
+ 		}
+ 		order = []int64{}
+@@ -240,7 +240,7 @@
+ 
+ func readEvidencePreview(store *evidence.Store, snapshot db.TrafficEvidenceSnapshot, side string, offset, length int64) (out evidencePreview, err error) {
+ 	if offset < 0 || length < 0 {
+-		return out, errors.New("offset / length 不能为负数")
++		return out, errors.New("offset / length must not be negative")
+ 	}
+ 	if length == 0 || length > 8192 {
+ 		length = 8192
+@@ -251,7 +251,7 @@
+ 	}
+ 	defer f.Close()
+ 	if offset > total {
+-		return out, errors.New("offset 超出正文长度")
++		return out, errors.New("offset exceeds the body length")
+ 	}
+ 	if _, err = f.Seek(offset, io.SeekStart); err != nil {
+ 		return out, err
+@@ -274,7 +274,7 @@
+ 	out = evidencePreview{Offset: offset, Total: total, NextOffset: offset + int64(len(raw)), Truncated: offset+int64(len(raw)) < total,
+ 		Binary: bytes.IndexByte(raw, 0) >= 0 || (offset == 0 && !utf8.Valid(raw))}
+ 	if out.Binary {
+-		out.Content = fmt.Sprintf("[二进制正文，%d 字节；请下载查看]", total)
++		out.Content = fmt.Sprintf("[Binary body, %d bytes; download to view]", total)
+ 	} else {
+ 		out.Content = string(bytes.ToValidUTF8(raw, []byte("�")))
+ 	}
+--- before/server/finding_workflow.go
++++ after/server/finding_workflow.go
+@@ -19,7 +19,7 @@
+ 	if value, _, _ := s.m.pg.GetSetting(hostSearchDescriptionFlag); value != "true" {
+ 		// Only replace the original built-in text. A user-edited description is
+ 		// authoritative and must survive upgrades.
+-		legacy := "查询记录代理已抓取的目标流量（必须指定 host，可再按 URL 子串或正文关键词过滤）。body_contains 会在已抓取的请求/响应头与正文中做全文搜索，支持任意子串和中文（至少 3 个字符），可用来找响应里的密码、密钥、报错、内网地址等。仅返回极轻量索引(id/method/url/status/resp_len)，不含任何响应内容。默认只返回 3 条、每页最多 10 条；结果多时用 page 翻页（page=0 起）；要看某条的请求/响应原文用 traffic_get(id)。回看已访问资源、找端点先用它，避免重复 curl 同一 URL。"
++		legacy := "Query target traffic already captured by the recording proxy (host required; optionally filter by URL substring or body keyword). body_contains searches captured request/response headers and bodies, supports arbitrary substrings and Chinese text (at least 3 characters), and can locate passwords, keys, errors, and internal addresses. Returns only a lightweight index (id/method/url/status/resp_len), not response content. Default 3 entries; at most 10 per page. Use page starting at 0 for pagination and traffic_get(id) for raw request/response content. Use this first to revisit resources or find endpoints instead of repeating curl against the same URL."
+ 		if _, err := s.m.pg.Exec(`UPDATE tools SET description=$1,updated_at=now() WHERE key='traffic_search' AND system AND description=$2`, traffic.TrafficSearchDescription, legacy); err != nil {
+ 			// Log and leave the flag unset so the next startup retries; do not
+ 			// return, or a transient error here would also skip the reporter
+@@ -54,7 +54,7 @@
+ 		props := objectProperty(schema, "properties")
+ 		if key == "report_finding" {
+ 			if _, exists := props["evidence_hint_id"]; !exists {
+-				props["evidence_hint_id"] = map[string]any{"type": "integer", "description": "可选：本任务中对应此漏洞的 hint ID；读取该提示保存的 traffic_refs 一并绑定，无提示时省略"}
++				props["evidence_hint_id"] = map[string]any{"type": "integer", "description": "Optional: the hint ID for this finding in the current task; also bind traffic_refs saved with that hint. Omit if there is no hint."}
+ 			}
+ 		} else {
+ 			if _, exists := props["traffic_refs"]; !exists {
+@@ -69,7 +69,7 @@
+ 				items["type"] = "object"
+ 			}
+ 			itemProps := objectProperty(items, "properties")
+-			for name, value := range map[string]any{"text": strParam("提示内容"), "asset_ids": map[string]any{"type": "array", "items": map[string]any{"type": "integer"}}, "traffic_refs": agent.HintTrafficSchema()} {
++			for name, value := range map[string]any{"text": strParam("Hint content"), "asset_ids": map[string]any{"type": "array", "items": map[string]any{"type": "integer"}}, "traffic_refs": agent.HintTrafficSchema()} {
+ 				if _, exists := itemProps[name]; !exists {
+ 					itemProps[name] = value
+ 				}
+@@ -117,37 +117,37 @@
+ 
+ func (s *Server) agentFindingTrafficAccess(ctx context.Context, id int64, write bool) error {
+ 	if id <= 0 {
+-		return errors.New("finding_id 必须为独立漏洞记录 ID；不是探索节点 ID")
++		return errors.New("finding_id must be the standalone finding record ID, not an exploration node ID")
+ 	}
+ 	f, err := s.m.pg.GetFinding(id)
+ 	if err != nil {
+ 		return err
+ 	}
+ 	if f == nil {
+-		return fmt.Errorf("%w：finding_id=%d。证据工具使用独立漏洞记录 ID，请从 list_task_findings / get_task_node_detail 的 finding_id 字段读取；不要传 id / finding_node_id", db.ErrFindingNotFound, id)
++		return fmt.Errorf("%w: finding_id=%d. Evidence tools use the standalone finding record ID from the finding_id field of list_task_findings / get_task_node_detail; do not pass id / finding_node_id", db.ErrFindingNotFound, id)
+ 	}
+ 	if ri := agent.RunInfoFrom(ctx); ri.TaskID > 0 {
+ 		task := s.m.ResolveTask(strconv.FormatInt(ri.TaskID, 10))
+ 		if task == nil {
+-			return errors.New("任务不存在")
++			return errors.New("Task not found")
+ 		}
+ 		_, inherited, allowed := findingProvenanceInTask(task, f.TaskID)
+ 		if !allowed {
+-			return errors.New("当前任务不可读取该漏洞")
++			return errors.New("This task cannot read the finding")
+ 		}
+ 		if write && inherited {
+-			return errors.New("继承漏洞的流量证据只读，请到来源任务修改")
++			return errors.New("Traffic evidence of inherited findings is read-only; edit it in the source task")
+ 		}
+ 	}
+ 	return nil
+ }
+ 
+ func (s *Server) toolBindFindingTraffic() actool.CoreTool {
+-	return wrTool("bind_finding_traffic", "为已登记漏洞补绑经核实的真实 HTTP 流量。finding_id 使用独立漏洞记录 ID；不要传探索节点 ID。同批引用全部成功或全部失败，重复引用不覆盖已有说明。补绑会使已有报告标记待更新；不要为补包重新探测或重复创建漏洞。",
+-		objSchema(map[string]any{"finding_id": strParam("独立漏洞记录 ID，从 list_task_findings / get_task_node_detail 的 finding_id 字段读取"), "traffic_refs": agent.HintTrafficSchema()}, "finding_id", "traffic_refs"),
++	return wrTool("bind_finding_traffic", "Bind verified real HTTP traffic to a recorded finding. Use the standalone finding record ID for finding_id, not an exploration node ID. References in one batch succeed or fail together; duplicate references do not overwrite existing notes. Binding marks existing reports as pending update; do not probe again or create duplicate findings just to add traffic.",
++		objSchema(map[string]any{"finding_id": strParam("Standalone finding record ID from the finding_id field of list_task_findings / get_task_node_detail"), "traffic_refs": agent.HintTrafficSchema()}, "finding_id", "traffic_refs"),
+ 		func(ctx context.Context, raw json.RawMessage) (actool.Result, error) {
+ 			if !s.m.pg.GetBool(settingAgentTrafficBinding, false) {
+-				return actool.Errorf("Agent 自动绑定流量已关闭；请在系统设置开启，或使用页面人工绑定。"), nil
++				return actool.Errorf("Automatic agent traffic binding is disabled; enable it in system settings or bind manually in the UI."), nil
+ 			}
+ 			var args struct {
+ 				FindingID json.RawMessage `json:"finding_id"`
+@@ -161,7 +161,7 @@
+ 				return actool.Errorf(err.Error()), nil
+ 			}
+ 			if len(args.Refs) == 0 {
+-				return actool.Errorf("补绑需要至少一条已核实的 traffic_refs；无流量无需调用此工具"), nil
++				return actool.Errorf("Binding requires at least one verified traffic_refs entry; do not call this tool without traffic"), nil
+ 			}
+ 			list, err := s.evidenceStore().Bind(ctx, id, args.Refs)
+ 			if err != nil {
+--- before/server/findings_groups.go
++++ after/server/findings_groups.go
+@@ -145,7 +145,7 @@
+ 	audit := db.Activity{
+ 		Worker:  "system",
+ 		Kind:    "text",
+-		Summary: "人工提交漏洞深入利用意图",
++		Summary: "Manually submitted in-depth finding exploitation intent",
+ 		Detail:  description,
+ 	}
+ 	intentID, audit, err := t.Store.AddFindingFollowUpIntent(id, *finding.NodeID, description, audit)
+--- before/server/findings_groups_test.go
++++ after/server/findings_groups_test.go
+@@ -216,7 +216,7 @@
+ 	var persistedAudit db.Activity
+ 	auditCount := 0
+ 	for _, item := range activity {
+-		if item.Worker == "system" && strings.Contains(item.Summary, "人工提交漏洞深入利用意图") {
++		if item.Worker == "system" && strings.Contains(item.Summary, "Manually submitted in-depth finding exploitation intent") {
+ 			persistedAudit = item
+ 			auditCount++
+ 		}
+--- before/server/goals.go
++++ after/server/goals.go
+@@ -21,7 +21,7 @@
+ // path (HTTP createTask 或 orchestration spawn_task),避免两处复制粘贴:
+ //  1. seed 根资产,喂给事件驱动 loop;
+ //  2. 可选种子意图,worker 免等首轮 planner 直接开跑;
+-//  3. 后台异步做目标分解(发「第 0 轮目标拆解」round + LLM 分解步骤 + 逐条 goal,页面可见),
++//  3. 后台异步做目标分解(发「Round 0 goal decomposition」round + LLM 分解步骤 + 逐条 goal,页面可见),
+ //     分解完再 engine.Run —— 引擎在 goal 节点就绪后才启动,避免 planner 抢在 goal 之前跑的竞态。
+ //
+ // 异步(goroutine)所以调用方立即返回,两条路径行为一致:秒建任务、后台拆目标。
+@@ -35,7 +35,7 @@
+ 	}
+ 	s.engine.decInflight(t.ID)
+ 	if _, err := s.admitTask(t, "bootstrap"); err != nil {
+-		log.Printf("[concurrency] task %s 启动失败: %v", t.ID, err)
++		log.Printf("[concurrency] task %s start failed: %v", t.ID, err)
+ 	}
+ }
+ 
+@@ -45,7 +45,7 @@
+ 		return
+ 	}
+ 	s.engine.emitActivity(t, db.Activity{Worker: "planner", Kind: "round",
+-		Summary: "第 0 轮目标拆解"})
++		Summary: "Round 0 goal decomposition"})
+ 	goals := s.createGoals(ctx, t, func(r db.Activity) {
+ 		s.engine.emitActivity(t, r)
+ 	})
+@@ -130,10 +130,10 @@
+ 	lifecycle := t.lifecycleSnapshot()
+ 	if requirePaused {
+ 		if isTerminalStatus(lifecycle.Status) {
+-			return false, fmt.Errorf("终态任务不能执行继续")
++			return false, fmt.Errorf("Terminal tasks cannot be resumed")
+ 		}
+ 		if !lifecycle.Paused {
+-			return false, fmt.Errorf("仅Paused的任务可以继续")
++			return false, fmt.Errorf("Only paused tasks can be resumed")
+ 		}
+ 		mode = s.resumeAdmissionMode(t)
+ 	}
+@@ -177,8 +177,8 @@
+ 	// this ordering, its already-running worker loops can claim the newly-opened
+ 	// intent in the gap between status=running and queued=true.
+ 	if shouldQueue || wasTerminal || wasPaused || wasQueued {
+-		s.engine.Pause(t.ID, agent.Causef("queued_for_admission", "任务等待运行准入",
+-			"任务正在等待并发队列或准入状态提交，本次执行已停止；只有获得运行槽后才会重新领取意图"))
++		s.engine.Pause(t.ID, agent.Causef("queued_for_admission", "Task awaiting execution admission",
++			"The task is waiting for the concurrency queue or admission state commit. This execution has stopped; intents will only be claimed again after obtaining a running slot"))
+ 	}
+ 
+ 	status := lifecycle.Status
+@@ -199,12 +199,12 @@
+ 	}
+ 	if shouldQueue {
+ 		if !wasQueued {
+-			summary := fmt.Sprintf("已排队：达到并发上限 %d，等待空位后自动开始", limit)
++			summary := fmt.Sprintf("Queued: concurrency limit %d reached; starts automatically when a slot is available", limit)
+ 			switch {
+ 			case !ready:
+-				summary = "已排队：当前没有可运行的 LLM 配置，配置恢复后自动开始"
++				summary = "Queued: no runnable LLM profile; starts automatically when configuration recovers"
+ 			case readyBacklog:
+-				summary = "已排队：已有更早的任务等待运行，将按 FIFO 顺序自动开始"
++				summary = "Queued: earlier tasks are waiting; starts automatically in FIFO order"
+ 			}
+ 			s.engine.emitActivity(t, db.Activity{Worker: "system", Kind: "text", Summary: summary})
+ 		}
+@@ -266,15 +266,15 @@
+ 				continue
+ 			}
+ 			mode := s.resumeAdmissionMode(task)
+-			s.engine.Pause(task.ID, agent.Causef("llm_unavailable_queued", "LLM 不可用，任务进入等待队列",
+-				"任务当前无法解析可运行的 Planner/Worker LLM，已释放并发槽；配置恢复后按队列顺序继续"))
++			s.engine.Pause(task.ID, agent.Causef("llm_unavailable_queued", "LLM unavailable; task queued",
++				"No runnable Planner/Worker LLM can currently be resolved. The concurrency slot has been released; resumes in queue order when configuration recovers"))
+ 			if err := s.m.EnqueueTask(task.ID, mode); err != nil {
+ 				s.engine.Resume(task)
+-				log.Printf("[concurrency] task %s 因 LLM 不可用入队失败: %v", task.ID, err)
++				log.Printf("[concurrency] task %s failed to queue after LLM became unavailable: %v", task.ID, err)
+ 				continue
+ 			}
+ 			s.engine.emitActivity(task, db.Activity{Worker: "system", Kind: "text",
+-				Summary: "已排队：当前没有可运行的 LLM 配置，配置恢复后自动开始"})
++				Summary: "Queued: no runnable LLM profile; starts automatically when configuration recovers"})
+ 		}
+ 	}
+ 
+@@ -357,7 +357,7 @@
+ 		return
+ 	}
+ 	if _, err := s.admitTask(t, "resume"); err != nil {
+-		log.Printf("[revive] task %s 恢复失败: %v", t.ID, err)
++		log.Printf("[revive] task %s recovery failed: %v", t.ID, err)
+ 	}
+ }
+ 
+@@ -400,7 +400,7 @@
+ 		// as a single goal so the task still has something to judge against. This is the
+ 		// only path that writes here — decomposed goals are already persisted by the tool.
+ 		if g := strings.TrimSpace(t.Goal); g != "" {
+-			log.Printf("[goals] task %s: LLM 目标拆解无产出，回退为「原始目标作为单目标」", t.ID)
++			log.Printf("[goals] task %s: LLM goal decomposition produced no output; falling back to the original goal as a single goal", t.ID)
+ 			origin, _ := t.Store.OriginFactID()
+ 			id, _ := t.Store.AddNode(db.KindGoal, map[string]any{"text": g}, 0, "open", "system", nil)
+ 			if origin > 0 && id > 0 {
+--- before/server/goals_api.go
++++ after/server/goals_api.go
+@@ -9,12 +9,12 @@
+ 	"github.com/Autumn-27/artex/db"
+ )
+ 
+-// 总览「目标管理」的人工 CRUD 接口。与 agent 侧的 set_goals 工具写同一批 goal 节点,
+-// 但入口是人类在 UI 上直接增删改;新增/修改后复用「复活任务」逻辑(admitTask resume:
+-// 终态→running、解除暂停、必要时排队),删除不复活(按产品决策)。每个变更 handler 都走
+-// beginTaskOperation/decInflight,避免与任务删除竞态(与意图 CRUD 一致)。
++// Manual goal CRUD uses the same goal nodes as the agent's set_goals tool.
++// Humans edit via the UI; addition/update reuses task revival (admitTask resume:
++// terminal to running, unpause, queue if needed). Deletion does not revive. Each mutation uses
++// beginTaskOperation/decInflight to avoid task-deletion races, like intent CRUD.
+ 
+-// listGoals 返回本任务的全部目标(text/vulnclass/state 拆好),供目标管理卡片渲染。
++// listGoals returns task goals with text/vulnclass/state separated for goal-management cards.
+ func (s *Server) listGoals(w http.ResponseWriter, r *http.Request) {
+ 	t, ok := s.m.Task(r.PathValue("id"))
+ 	if !ok {
+@@ -29,8 +29,8 @@
+ 	writeJSON(w, 200, map[string]any{"goals": goalDTOs(goals)})
+ }
+ 
+-// addGoal 人工新增一个目标:落库(挂到任务根 spawns 下)→ 记一条「新增了目标」触发唤醒
+-// planner → 复活任务,让规划者据新目标重判是否达成。
++// addGoal manually adds a goal under the task root's spawns, records a goal-added trigger, wakes
++// the planner, and revives the task so the planner reevaluates completion against the new goal.
+ func (s *Server) addGoal(w http.ResponseWriter, r *http.Request) {
+ 	t, ok := s.m.Task(r.PathValue("id"))
+ 	if !ok {
+@@ -38,7 +38,7 @@
+ 		return
+ 	}
+ 	if !s.engine.beginTaskOperation(t.ID) {
+-		writeErr(w, 409, "Task is being deleted,无法新增目标")
++		writeErr(w, 409, "Task is being deleted; cannot add goals")
+ 		return
+ 	}
+ 	defer s.engine.decInflight(t.ID)
+@@ -53,7 +53,7 @@
+ 	}
+ 	text := strings.TrimSpace(body.Text)
+ 	if text == "" {
+-		writeErr(w, 400, "目标内容不能为空")
++		writeErr(w, 400, "Goal content must not be empty")
+ 		return
+ 	}
+ 	payload := map[string]any{"text": text}
+@@ -68,18 +68,18 @@
+ 	if of, _ := t.Store.OriginFactID(); of > 0 && id > 0 {
+ 		_ = t.Store.Link(of, db.RelSpawns, id) // goal descends from the task root (origin fact)
+ 	}
+-	t.NotifyGoal([]string{text}) // 记「人新增了目标:…」触发并唤醒 planner
+-	s.reviveTask(t)              // 把已完成/暂停的任务拉回运行态继续跑
++	t.NotifyGoal([]string{text}) // Record the human-added-goal trigger and wake the planner.
++	s.reviveTask(t)              // Return a completed/paused task to running.
+ 	node, _ := t.Store.GetNode(id)
+ 	if node == nil {
+-		writeErr(w, 500, "目标写入后读取失败")
++		writeErr(w, 500, "Failed to read goal after creation")
+ 		return
+ 	}
+ 	writeJSON(w, 200, goalDTO(node))
+ }
+ 
+-// editGoal 人工修改一个目标文本(及 vulnclass):改库 → 记「用户修改了目标由 old 变为 new」
+-// 触发唤醒 planner → 复活任务,让规划者据新目标调整方向。
++// editGoal manually edits goal text and vulnclass, persists the change, records the old/new goal,
++// wakes the planner, and revives the task to adjust direction against the new goal.
+ func (s *Server) editGoal(w http.ResponseWriter, r *http.Request) {
+ 	t, ok := s.m.Task(r.PathValue("id"))
+ 	if !ok {
+@@ -87,7 +87,7 @@
+ 		return
+ 	}
+ 	if !s.engine.beginTaskOperation(t.ID) {
+-		writeErr(w, 409, "Task is being deleted,无法修改目标")
++		writeErr(w, 409, "Task is being deleted; cannot update goals")
+ 		return
+ 	}
+ 	defer s.engine.decInflight(t.ID)
+@@ -107,7 +107,7 @@
+ 	}
+ 	text := strings.TrimSpace(body.Text)
+ 	if text == "" {
+-		writeErr(w, 400, "目标内容不能为空")
++		writeErr(w, 400, "Goal content must not be empty")
+ 		return
+ 	}
+ 	node, err := t.Store.GetNode(gid)
+@@ -116,7 +116,7 @@
+ 		return
+ 	}
+ 	if node == nil || node.Kind != db.KindGoal {
+-		writeErr(w, 404, "目标不存在")
++		writeErr(w, 404, "Goal not found")
+ 		return
+ 	}
+ 	oldText := goalDTO(node).Text
+@@ -124,18 +124,18 @@
+ 		writeErr(w, 500, err.Error())
+ 		return
+ 	}
+-	t.NotifyGoalEdited(oldText, text) // 记「人修改了目标由 old 变为 new」触发并唤醒 planner
+-	s.reviveTask(t)                   // 与新增一致:复活任务据新目标重判
++	t.NotifyGoalEdited(oldText, text) // Record the human-edited-goal trigger with old/new text and wake the planner.
++	s.reviveTask(t)                   // As with addition, revive the task to reevaluate the new goal.
+ 	updated, _ := t.Store.GetNode(gid)
+ 	if updated == nil {
+-		writeErr(w, 500, "目标更新后读取失败")
++		writeErr(w, 500, "Failed to read goal after update")
+ 		return
+ 	}
+ 	writeJSON(w, 200, goalDTO(updated))
+ }
+ 
+-// deleteGoal 人工删除一个目标(硬删除,级联删边/锚点):删库 → 记「用户删除了该目标 X」
+-// 触发唤醒 planner 据此重判剩余目标。按产品决策,删除【不】复活任务。
++// deleteGoal manually hard-deletes a goal with cascading edges/anchors, then records its deletion
++// and wakes the planner to reevaluate remaining goals. Deletion does NOT revive the task.
+ func (s *Server) deleteGoal(w http.ResponseWriter, r *http.Request) {
+ 	t, ok := s.m.Task(r.PathValue("id"))
+ 	if !ok {
+@@ -143,7 +143,7 @@
+ 		return
+ 	}
+ 	if !s.engine.beginTaskOperation(t.ID) {
+-		writeErr(w, 409, "Task is being deleted,无法删除目标")
++		writeErr(w, 409, "Task is being deleted; cannot delete goals")
+ 		return
+ 	}
+ 	defer s.engine.decInflight(t.ID)
+@@ -159,7 +159,7 @@
+ 		return
+ 	}
+ 	if node == nil || node.Kind != db.KindGoal {
+-		writeErr(w, 404, "目标不存在")
++		writeErr(w, 404, "Goal not found")
+ 		return
+ 	}
+ 	text := goalDTO(node).Text
+@@ -167,6 +167,6 @@
+ 		writeErr(w, 500, err.Error())
+ 		return
+ 	}
+-	t.NotifyGoalDeleted(text) // 记「人删除了该目标:…」触发并唤醒 planner(不复活任务)
++	t.NotifyGoalDeleted(text) // Record the human-deleted-goal trigger and wake the planner without reviving the task.
+ 	writeJSON(w, 200, map[string]bool{"ok": true})
+ }
+--- before/server/intent_intervention.go
++++ after/server/intent_intervention.go
+@@ -54,7 +54,7 @@
+ 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+ 		var tooLarge *http.MaxBytesError
+ 		if errors.As(err, &tooLarge) {
+-			writeErr(w, http.StatusRequestEntityTooLarge, "请求体过大")
++			writeErr(w, http.StatusRequestEntityTooLarge, "Request body too large")
+ 			return
+ 		}
+ 		writeErr(w, http.StatusBadRequest, "bad json: "+err.Error())
+@@ -67,11 +67,11 @@
+ 		return
+ 	}
+ 	if len([]rune(message)) > 4000 {
+-		writeErr(w, http.StatusBadRequest, "消息不能超过 4000 个字符")
++		writeErr(w, http.StatusBadRequest, "Message must not exceed 4000 characters")
+ 		return
+ 	}
+ 	if !validWorkerMessageRequestID(requestID) {
+-		writeErr(w, http.StatusBadRequest, "request_id 必须是 1-128 位字母、数字、-、_、. 或 :")
++		writeErr(w, http.StatusBadRequest, "request_id must contain 1-128 letters, digits, -, _, . or :")
+ 		return
+ 	}
+ 
+@@ -79,22 +79,22 @@
+ 	// instead of a silent no-op. The intent itself must be paused: the UI flow is
+ 	// interrupt (pause) first, then send.
+ 	if s.engine.IsDeleting(t.ID) {
+-		writeErr(w, http.StatusConflict, "Task is being deleted，无法向 Worker 发送消息")
++		writeErr(w, http.StatusConflict, "Task is being deleted; cannot send Worker messages")
+ 		return
+ 	}
+ 	lifecycle := t.lifecycleSnapshot()
+ 	switch {
+ 	case lifecycle.Paused || s.engine.IsPaused(t.ID):
+-		writeErr(w, http.StatusConflict, "任务Paused，请先恢复任务再向 Worker 发送消息")
++		writeErr(w, http.StatusConflict, "Task is paused; resume it before sending Worker messages")
+ 		return
+ 	case lifecycle.Queued:
+-		writeErr(w, http.StatusConflict, "排队中的任务无法向 Worker 发送消息")
++		writeErr(w, http.StatusConflict, "Cannot send Worker messages to queued tasks")
+ 		return
+ 	case isTerminalStatus(lifecycle.Status):
+-		writeErr(w, http.StatusConflict, "终态任务无法向 Worker 发送消息")
++		writeErr(w, http.StatusConflict, "Cannot send Worker messages to terminal tasks")
+ 		return
+ 	case s.engine.isSettling(t.ID):
+-		writeErr(w, http.StatusConflict, "任务正在收尾，无法向 Worker 发送消息")
++		writeErr(w, http.StatusConflict, "Task is settling; cannot send Worker messages")
+ 		return
+ 	}
+ 
+@@ -105,7 +105,7 @@
+ 	}
+ 	if node == nil {
+ 		if inherited, sourceErr := t.Store.GetNodeWithSources(iid); sourceErr == nil && inherited != nil && inherited.Inherited {
+-			writeErr(w, http.StatusConflict, "继承意图为只读，不能发送 Worker 消息")
++			writeErr(w, http.StatusConflict, "Inherited intents are read-only; cannot send Worker messages")
+ 			return
+ 		}
+ 		writeErr(w, http.StatusNotFound, "intent not found")
+@@ -116,7 +116,7 @@
+ 		return
+ 	}
+ 	if node.State != "paused" {
+-		writeErr(w, http.StatusConflict, "仅Paused的 Worker 可以发送消息，请先暂停")
++		writeErr(w, http.StatusConflict, "Only paused Workers can receive messages; pause the Worker first")
+ 		return
+ 	}
+ 	agentMessage, ok := s.prepareChatMentionMessage(w, message)
+--- before/server/intercept.go
++++ after/server/intercept.go
+@@ -378,7 +378,7 @@
+ 	writeJSON(w, 200, map[string]any{"ok": true})
+ }
+ 
+-// --- tool-config (全局工具拦截范围) ---
++// --- tool-config (global tool interception scope) ---
+ 
+ // interceptGetToolConfig returns the list of tool names that are currently
+ // configured to enter the intercept rule system.
+@@ -411,7 +411,7 @@
+ 	writeJSON(w, 200, map[string]any{"ok": true})
+ }
+ 
+-// --- LLM fallback judge config (全局模型兜底) ---
++// --- LLM fallback judge config (global model fallback) ---
+ 
+ // interceptGetJudgeConfig returns the resolved judge configuration. Prompt is the
+ // effective prompt (built-in template when unset), so the UI can prefill it.
+--- before/server/llmpool.go
++++ after/server/llmpool.go
+@@ -11,10 +11,10 @@
+ )
+ 
+ // LLM 轮询(故障转移)的服务端接线。设计见 docs/LLM轮询设计.md：
+-//   - 全局激活配置这条路径(agent 未绑定、任务未 pin)才轮询;
+-//   - 绑定/pin 的路径默认独占该配置,失败即失败(可由 llm_pool_bind_fallback 打开兜底);
+-//   - 链序 = 激活配置 → 其余按 priority DESC,排除 pool_exclude 的;
+-//   - 熔断状态进程级共享(s.llmHealth),重建 pool 不清空。
++//   - Rotate only the globally active profile path (agent unbound and task unpinned).
++//   - Bound/pinned paths exclusively use that profile by default; llm_pool_bind_fallback can enable fallback.
++//   - Chain order: active profile, then priority DESC, excluding pool_exclude profiles.
++//   - Circuit-breaker state is process-wide (s.llmHealth); rebuilding a pool does not reset it.
+ 
+ // newLLMHealthRegistry builds the process-wide circuit-breaker registry, mirroring
+ // state into PG so a cooling-off window survives a restart. Writes are async and
+@@ -31,7 +31,7 @@
+ 		}
+ 		go func() {
+ 			if err := pg.SaveLLMHealth(h); err != nil {
+-				log.Printf("[llmpool] 熔断状态落库失败: %v", err)
++				log.Printf("[llmpool] failed to persist circuit-breaker state: %v", err)
+ 			}
+ 		}()
+ 	}
+@@ -48,7 +48,7 @@
+ 				st.OpenUntil = *h.OpenUntil
+ 			}
+ 			reg.Restore(h.ProfileID, st)
+-			log.Printf("[llmpool] 恢复熔断状态: 配置 #%d 冷却至 %s", h.ProfileID, st.OpenUntil.Format(time.RFC3339))
++			log.Printf("[llmpool] restored circuit-breaker state: Profile #%d cooling down until %s", h.ProfileID, st.OpenUntil.Format(time.RFC3339))
+ 		}
+ 	}
+ 	return reg
+@@ -83,7 +83,7 @@
+ 	}
+ 	profs, err := s.m.pg.PoolProfiles()
+ 	if err != nil {
+-		log.Printf("[llmpool] 读取轮询链失败: %v", err)
++		log.Printf("[llmpool] failed to read rotation chain: %v", err)
+ 		return nil
+ 	}
+ 	var head *db.LLMProfile
+@@ -136,7 +136,7 @@
+ 	for _, m := range pool.Members() {
+ 		names = append(names, m.Name+"/"+m.Model)
+ 	}
+-	log.Printf("[llmpool] LLM 轮询已启用，链路(%d): %v", len(names), names)
++	log.Printf("[llmpool] LLM rotation enabled; chain (%d): %v", len(names), names)
+ 	return pool
+ }
+ 
+--- before/server/llmretry.go
++++ after/server/llmretry.go
+@@ -9,7 +9,7 @@
+ 
+ // 重试策略的服务端解析，见 docs/LLM重试设计.md。五层里：
+ //   - 建连 / 空响应 / 同 provider 安全窗口 是「跟着端点走」的，每个 LLM 配置可以覆盖
+-//     全局默认（profile 的某项留空就继承全局，全局也没配就用内置默认）；
++//     全局默认（profile 的某项留空就继承全局，全局也没配就用Built-in default）；
+ //   - 熔断 / 意图重跑 是进程级的，只有全局一份。
+ //
+ // 全局策略读一次 DB 一行 settings，调用点都在低频路径（构建 provider、work 收尾、
+--- before/server/llmretry_test.go
++++ after/server/llmretry_test.go
+@@ -8,7 +8,7 @@
+ 	"github.com/Autumn-27/artex/db"
+ )
+ 
+-// 没有任何配置时，解析结果必须是全零 —— 也就是 SDK 与 task_llm 各自的内置默认，
++// 没有任何配置时，解析结果必须是全零 —— 也就是 SDK 与 task_llm 各自的Built-in default，
+ // 与「重试可配」这个特性上线之前逐字节一致。
+ func TestResolveRetryUnconfigured(t *testing.T) {
+ 	got := resolveRetry(db.RetryOverride{}, db.LLMRetryPolicy{})
+--- before/server/manager.go
++++ after/server/manager.go
+@@ -44,7 +44,7 @@
+ 	// their real FIFO order.
+ 	QueuedAt           int64   `json:"queued_at,omitempty"`
+ 	QueueMode          string  `json:"queue_mode,omitempty"`
+-	ParentRef          string  `json:"parent_ref,omitempty"`     // 父任务 id(编排 spawn 记录)
++	ParentRef          string  `json:"parent_ref,omitempty"`     // 父Task id(编排 spawn 记录)
+ 	LLMProfileID       *int64  `json:"llm_profile_id,omitempty"` // 指定运行本任务 planner/worker 的 LLM 配置;nil=用全局激活配置
+ 	LLMProfileIDs      []int64 `json:"llm_profile_ids,omitempty"`
+ 	ActiveLLMProfileID *int64  `json:"active_llm_profile_id,omitempty"`
+@@ -332,7 +332,7 @@
+ // SetWorkers persists the concurrent work-agent count. Values <=0 are rejected.
+ func (m *Manager) SetWorkers(n int) error {
+ 	if n <= 0 {
+-		return fmt.Errorf("workers 必须 >0")
++		return fmt.Errorf("workers must be >0")
+ 	}
+ 	return m.pg.SetSetting(settingWorkers, strconv.Itoa(n))
+ }
+@@ -359,7 +359,7 @@
+ 	if err != nil {
+ 		return nil, err
+ 	}
+-	log.Printf("[pg] 数据库配置来源: %s", source)
++	log.Printf("[pg] Database configuration source: %s", source)
+ 	pg, err := pgdb.Open(dsn)
+ 	if err != nil {
+ 		return nil, err
+@@ -382,7 +382,7 @@
+ 		} else {
+ 			err = tr.RecoverHostDeleteStages(func(_ int64, taskID int64) (bool, error) {
+ 				if taskID <= 0 {
+-					return false, errors.New("归档流量暂存日志缺少任务 ID")
++					return false, errors.New("Archived traffic staging journal is missing a task ID")
+ 				}
+ 				task, taskErr := pg.GetTask(taskID)
+ 				if taskErr != nil {
+@@ -437,7 +437,7 @@
+ 	}
+ 	if m.traffic != nil {
+ 		if err := m.traffic.SetUpstreamProxy(m.globalProxy); err != nil {
+-			log.Printf("[proxy] 全局代理 %q 无效，已忽略: %v", m.globalProxy, err)
++			log.Printf("[proxy] Global proxy %q is invalid; ignored: %v", m.globalProxy, err)
+ 		}
+ 	}
+ 	m.enrich = enrich.New(m.assets, m.ProxyAddr, 4)
+@@ -641,7 +641,7 @@
+ func (m *Manager) syncBrowserMCPProxy() {
+ 	servers, err := m.pg.ListMCP()
+ 	if err != nil {
+-		log.Printf("[mcp] browser 代理同步: 读取 MCP 列表失败: %v", err)
++		log.Printf("[mcp] browser proxy sync: failed to read MCP list: %v", err)
+ 		return
+ 	}
+ 	var srv *pgdb.MCPServer
+@@ -670,13 +670,13 @@
+ 	srv.Args = encodeJSON(args)
+ 	srv.Env = encodeJSON(env)
+ 	if _, err := m.pg.SaveMCP(srv); err != nil {
+-		log.Printf("[mcp] browser 代理同步失败: %v", err)
++		log.Printf("[mcp] browser proxy sync failed: %v", err)
+ 		return
+ 	}
+ 	if proxy != "" {
+-		log.Printf("[mcp] browser MCP 已挂捕获代理 %s (CA %s)", proxy, cert)
++		log.Printf("[mcp] browser MCP attached recording proxy %s (CA %s)", proxy, cert)
+ 	} else {
+-		log.Printf("[mcp] browser MCP 已移除捕获代理配置")
++		log.Printf("[mcp] browser MCP recording proxy configuration removed")
+ 	}
+ }
+ 
+--- before/server/mcpdiscover.go
++++ after/server/mcpdiscover.go
+@@ -25,22 +25,22 @@
+ 	switch m.Transport {
+ 	case "stdio":
+ 		if m.Command == "" {
+-			return nil, fmt.Errorf("stdio 传输缺少命令")
++			return nil, fmt.Errorf("stdio transport requires a command")
+ 		}
+ 		return mcp.NewStdioClient(ctx, m.Name, m.Command, jsonStrMap(m.Env), jsonStrSlice(m.Args)...)
+ 	case "http":
+ 		if m.URL == "" {
+-			return nil, fmt.Errorf("http 传输缺少 URL")
++			return nil, fmt.Errorf("HTTP transport requires a URL")
+ 		}
+ 		// env map doubles as HTTP headers (e.g. Authorization).
+ 		return mcphttp.New(ctx, m.Name, m.URL, jsonStrMap(m.Env), m.Insecure)
+ 	case "sse":
+ 		if m.URL == "" {
+-			return nil, fmt.Errorf("sse 传输缺少 URL")
++			return nil, fmt.Errorf("SSE transport requires a URL")
+ 		}
+ 		return mcphttp.NewSSE(ctx, m.Name, m.URL, jsonStrMap(m.Env), m.Insecure)
+ 	default:
+-		return nil, fmt.Errorf("Unknown传输方式 %q", m.Transport)
++		return nil, fmt.Errorf("Unknown transport %q", m.Transport)
+ 	}
+ }
+ 
+@@ -63,7 +63,7 @@
+ 	if err := s.m.pg.SaveMCPTools(m.ID, tools); err != nil {
+ 		return err
+ 	}
+-	log.Printf("[mcp] %s 发现 %d 个工具并已缓存", m.Name, len(tools))
++	log.Printf("[mcp] %s discovered and cached %d tools", m.Name, len(tools))
+ 	return nil
+ }
+ 
+@@ -74,7 +74,7 @@
+ func (s *Server) discoverEmptyMCPsOnStartup() {
+ 	servers, err := s.m.pg.ListMCP()
+ 	if err != nil {
+-		log.Printf("[mcp] 启动自动发现: 读取列表失败: %v", err)
++		log.Printf("[mcp] startup discovery: failed to read list: %v", err)
+ 		return
+ 	}
+ 	for _, m := range servers {
+@@ -83,7 +83,7 @@
+ 		}
+ 		ctx, cancel := context.WithTimeout(s.ctx, 90*time.Second)
+ 		if err := s.discoverAndCacheMCP(ctx, m); err != nil {
+-			log.Printf("[mcp] 启动自动发现 %s 失败: %v", m.Name, err)
++			log.Printf("[mcp] startup discovery for %s failed: %v", m.Name, err)
+ 		}
+ 		cancel()
+ 	}
+--- before/server/native_reporter.go
++++ after/server/native_reporter.go
+@@ -65,7 +65,7 @@
+ 	}
+ 	// Queue the committed DB event itself. Report identity never crosses a text
+ 	// parser and must not be coalesced into another finding/task's conversation.
+-	sc.s.startTriggeredRun(triggeredRun{agentKey: "reporter", title: fmt.Sprintf("finding 触发 · task#%d", e.TaskID), message: tr.FindingMessage + tr.ToolCallMessage, taskID: e.TaskID, taskDesc: e.TaskDesc, taskGoal: e.TaskGoal, findingNodeID: e.NodeID})
++	sc.s.startTriggeredRun(triggeredRun{agentKey: "reporter", title: fmt.Sprintf("Finding trigger · task#%d", e.TaskID), message: tr.FindingMessage + tr.ToolCallMessage, taskID: e.TaskID, taskDesc: e.TaskDesc, taskGoal: e.TaskGoal, findingNodeID: e.NodeID})
+ 	return true
+ }
+ func (sc *Scheduler) nativeReporterTask(taskID int64) bool {
+--- before/server/notifier.go
++++ after/server/notifier.go
+@@ -123,12 +123,12 @@
+ 		return
+ 	}
+ 	if _, _, err := n.pg.FanOutPendingEvents(ctx, notifyFanOutPerTick); err != nil {
+-		log.Printf("[notify] 分派事件失败: %v", err)
++		log.Printf("[notify] failed to dispatch events: %v", err)
+ 		return
+ 	}
+ 	channels, err := n.pg.ListNotificationChannels(ctx)
+ 	if err != nil {
+-		log.Printf("[notify] 读取渠道失败: %v", err)
++		log.Printf("[notify] failed to read channels: %v", err)
+ 		return
+ 	}
+ 	baseURL := n.publicBaseURL()
+@@ -184,7 +184,7 @@
+ func (n *Notifier) stepRealtime(ctx context.Context, ch *db.NotificationChannel, allow int, baseURL string) {
+ 	deliveries, err := n.pg.ClaimRealtimeDeliveries(ctx, ch.ID, allow, notifyLease)
+ 	if err != nil {
+-		log.Printf("[notify] 领取实时投递失败 channel=%d: %v", ch.ID, err)
++		log.Printf("[notify] failed to claim realtime deliveries channel=%d: %v", ch.ID, err)
+ 		return
+ 	}
+ 	if len(deliveries) == 0 {
+@@ -192,7 +192,7 @@
+ 	}
+ 	channel, cfg, ok := n.adapt(ch)
+ 	if !ok {
+-		_ = n.pg.FailDeliveries(ctx, deliveryIDs(deliveries), fmt.Sprintf("渠道类型 %q 未注册", ch.Kind))
++		_ = n.pg.FailDeliveries(ctx, deliveryIDs(deliveries), fmt.Sprintf("Channel kind %q is not registered", ch.Kind))
+ 		return
+ 	}
+ 	for _, dl := range deliveries {
+@@ -211,7 +211,7 @@
+ 	window := n.digestInterval()
+ 	due, err := n.pg.DigestBatchDue(ctx, ch.ID, window)
+ 	if err != nil {
+-		log.Printf("[notify] 判断汇总批次失败 channel=%d: %v", ch.ID, err)
++		log.Printf("[notify] failed to check digest batch channel=%d: %v", ch.ID, err)
+ 		return
+ 	}
+ 	if !due {
+@@ -219,7 +219,7 @@
+ 	}
+ 	deliveries, err := n.pg.ClaimDigestBatch(ctx, ch.ID, allow, notifyLease)
+ 	if err != nil {
+-		log.Printf("[notify] 领取汇总批次失败 channel=%d: %v", ch.ID, err)
++		log.Printf("[notify] failed to claim digest batch channel=%d: %v", ch.ID, err)
+ 		return
+ 	}
+ 	if len(deliveries) == 0 {
+@@ -227,7 +227,7 @@
+ 	}
+ 	channel, cfg, ok := n.adapt(ch)
+ 	if !ok {
+-		_ = n.pg.FailDeliveries(ctx, deliveryIDs(deliveries), fmt.Sprintf("渠道类型 %q 未注册", ch.Kind))
++		_ = n.pg.FailDeliveries(ctx, deliveryIDs(deliveries), fmt.Sprintf("Channel kind %q is not registered", ch.Kind))
+ 		return
+ 	}
+ 	msg, included, err := n.renderBatch(ctx, deliveries, baseURL, int(window.Minutes()))
+@@ -239,11 +239,11 @@
+ 	// included 之外、既不进消息也不进失败列表——发送成功时它们的状态会被
+ 	// 之后的批量标记漏掉，永远停在 sending 直到租约过期被反复领取。
+ 	if skipped := excludeDeliveries(deliveries, included); len(skipped) > 0 {
+-		reason := "事件快照无法解析，本条漏洞无法渲染成消息"
++		reason := "Cannot parse event snapshot or render this finding as a message"
+ 		if fErr := n.pg.FailDeliveries(ctx, deliveryIDs(skipped), reason); fErr != nil {
+-			log.Printf("[notify] 标记坏快照投递失败 channel=%s ids=%v: %v", ch.Kind, deliveryIDs(skipped), fErr)
+-		}
+-		log.Printf("[notify] 跳过 %d 条快照无法解析的投递 channel=%d", len(skipped), ch.ID)
++			log.Printf("[notify] failed to mark bad-snapshot deliveries channel=%s ids=%v: %v", ch.Kind, deliveryIDs(skipped), fErr)
++		}
++		log.Printf("[notify] skipped %d deliveries with unparseable snapshots channel=%d", len(skipped), ch.ID)
+ 	}
+ 	// 只把进了消息的那些交给 send：included[i] 与 msg.Items[i] 严格对应，
+ 	// send 依赖这个对应关系把「渠道回报装下了前 K 条」落到正确的投递行上。
+@@ -267,21 +267,21 @@
+ 		if delivered > len(deliveries) {
+ 			// 渠道回报的条数不可能超过投递数；真发生了说明渲染层算错了，
+ 			// 按全部送达处理并把问题记下来，总好过把记录写乱。
+-			log.Printf("[notify] 渠道回报送达条数 %d 超过投递数 %d channel=%s，按全部送达处理",
++			log.Printf("[notify] Channel reported %d delivered, exceeding %d deliveries channel=%s; treating all as delivered",
+ 				delivered, len(deliveries), channel.Kind())
+ 			delivered = len(deliveries)
+ 		}
+ 		sent, rest := deliveries[:delivered], deliveries[delivered:]
+ 		if err := n.pg.MarkDeliveriesSent(ctx, deliveryIDs(sent)); err != nil {
+-			log.Printf("[notify] 标记已送达失败 channel=%s ids=%v: %v", channel.Kind(), deliveryIDs(sent), err)
++			log.Printf("[notify] failed to mark delivered channel=%s ids=%v: %v", channel.Kind(), deliveryIDs(sent), err)
+ 		}
+ 		if len(rest) > 0 {
+ 			// 本条消息已达渠道长度上限：剩下的立刻回队，由下一个 tick 续发。
+ 			// 用 DeferDeliveries 而非 RescheduleDeliveries —— 这不是失败，
+ 			// 不该消耗重试预算（领取时已经乐观 +1 了，那里会减回去）。
+ 			if err := n.pg.DeferDeliveries(ctx, deliveryIDs(rest),
+-				fmt.Sprintf("本条消息已达渠道长度上限，仅送达前 %d 条，其余留待下一批", delivered)); err != nil {
+-				log.Printf("[notify] 分段续发排队失败 channel=%s ids=%v: %v", channel.Kind(), deliveryIDs(rest), err)
++				fmt.Sprintf("Channel message length limit reached; delivered only the first %d entries, leaving the rest for the next batch", delivered)); err != nil {
++				log.Printf("[notify] failed to queue remaining segments channel=%s ids=%v: %v", channel.Kind(), deliveryIDs(rest), err)
+ 			}
+ 		}
+ 		return
+@@ -289,7 +289,7 @@
+ 	if err == nil {
+ 		// 渠道既没报错也没说送达了多少条。按失败处理（走退避），
+ 		// 免得这条投递被反复领取却永远标记不掉。
+-		err = fmt.Errorf("渠道未报告送达条数（delivered=%d）", delivered)
++		err = fmt.Errorf("Channel did not report delivered count (delivered=%d)", delivered)
+ 	}
+ 
+ 	// 失败处置**逐条**决定，而不是拿整批的最大尝试次数做判断。
+@@ -315,24 +315,24 @@
+ 
+ 	if len(failIDs) > 0 {
+ 		if fErr := n.pg.FailDeliveries(ctx, failIDs, err.Error()); fErr != nil {
+-			log.Printf("[notify] 标记失败状态出错 channel=%s ids=%v: %v", channel.Kind(), failIDs, fErr)
++			log.Printf("[notify] failed to mark failure state channel=%s ids=%v: %v", channel.Kind(), failIDs, fErr)
+ 		}
+ 	}
+ 	if len(exhaustedIDs) > 0 {
+-		reason := fmt.Sprintf("重试 %d 次后仍失败: %s", db.MaxNotifyAttempts, err)
++		reason := fmt.Sprintf("Still failed after %d retries: %s", db.MaxNotifyAttempts, err)
+ 		if fErr := n.pg.FailDeliveries(ctx, exhaustedIDs, reason); fErr != nil {
+-			log.Printf("[notify] 标记失败状态出错 channel=%s ids=%v: %v", channel.Kind(), exhaustedIDs, fErr)
++			log.Printf("[notify] failed to mark failure state channel=%s ids=%v: %v", channel.Kind(), exhaustedIDs, fErr)
+ 		}
+ 	}
+ 	// 按延迟分组重排：只有 3 档退避，分组数天然很小，不必为每条单独发一次
+ 	// UPDATE（那会让一个 500 条的批次产生 500 次往返）。
+ 	for delay, group := range byDelay {
+ 		if rErr := n.pg.RescheduleDeliveries(ctx, group, delay, err.Error()); rErr != nil {
+-			log.Printf("[notify] 重排投递失败 channel=%s ids=%v: %v", channel.Kind(), group, rErr)
++			log.Printf("[notify] failed to reschedule deliveries channel=%s ids=%v: %v", channel.Kind(), group, rErr)
+ 		}
+ 	}
+ 	if len(failIDs)+len(exhaustedIDs) > 0 {
+-		log.Printf("[notify] 投递失败 channel=%d kind=%s 永久失败=%d 重试耗尽=%d 待重试=%d: %s",
++		log.Printf("[notify] Delivery failed channel=%d kind=%s permanent_failures=%d retries_exhausted=%d pending_retries=%d: %s",
+ 			deliveries[0].ChannelID, channel.Kind(), len(failIDs), len(exhaustedIDs), len(byDelay), err)
+ 	}
+ }
+@@ -401,7 +401,7 @@
+ 		if err != nil {
+ 			// 坏快照不进消息，也不进 included——它的处置由调用方负责
+ 			// （显式标记失败，而不是混在「已送达」里蒙混过关）。
+-			log.Printf("[notify] 汇总批次中跳过无法解析的快照 delivery=%d: %v", dl.ID, err)
++			log.Printf("[notify] skipped unparseable snapshot in digest batch delivery=%d: %v", dl.ID, err)
+ 			continue
+ 		}
+ 		item, err := n.itemFor(ctx, snap, baseURL)
+@@ -412,7 +412,7 @@
+ 		included = append(included, dl)
+ 	}
+ 	if len(items) == 0 {
+-		return notify.Message{}, nil, fmt.Errorf("汇总批次 %d 条投递全部无法解析", len(deliveries))
++		return notify.Message{}, nil, fmt.Errorf("All %d deliveries in the digest batch are unparseable", len(deliveries))
+ 	}
+ 	return notify.Message{
+ 		Items:         items,
+@@ -428,7 +428,7 @@
+ 	if err != nil {
+ 		// 资产名解析失败不该阻止推送：读不到名字比收不到通知轻得多，
+ 		// 消息里少一行资产而已。
+-		log.Printf("[notify] 解析资产名失败 finding=%d: %v", snap.FindingID, err)
++		log.Printf("[notify] failed to resolve asset name finding=%d: %v", snap.FindingID, err)
+ 	}
+ 	item := notify.Item{
+ 		FindingID:  snap.FindingID,
+@@ -520,10 +520,10 @@
+ func parseSnapshot(dl *db.NotificationDelivery) (notify.Snapshot, error) {
+ 	var snap notify.Snapshot
+ 	if len(dl.Snapshot) == 0 {
+-		return snap, fmt.Errorf("投递 %d 的事件快照为空", dl.ID)
++		return snap, fmt.Errorf("Event snapshot for delivery %d is empty", dl.ID)
+ 	}
+ 	if err := json.Unmarshal(dl.Snapshot, &snap); err != nil {
+-		return snap, fmt.Errorf("解析投递 %d 的事件快照失败: %w", dl.ID, err)
++		return snap, fmt.Errorf("Failed to parse event snapshot for delivery %d: %w", dl.ID, err)
+ 	}
+ 	if snap.Kind == "" {
+ 		// 事件类型以事件行为准，快照里那份可能由旧版本写过。
+--- before/server/notify_api.go
++++ after/server/notify_api.go
+@@ -182,11 +182,11 @@
+ 	}
+ 	var req notifyChannelRequest
+ 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+-		writeErr(w, 400, "请求体不是合法 JSON: "+err.Error())
++		writeErr(w, 400, "Request body is not valid JSON: "+err.Error())
+ 		return
+ 	}
+ 	if req.Kind == nil || !notify.ValidKind(*req.Kind) {
+-		writeErr(w, 400, fmt.Sprintf("渠道类型无效，可选：%s", strings.Join(notify.Kinds(), " / ")))
++		writeErr(w, 400, fmt.Sprintf("Invalid channel kind; choose from: %s", strings.Join(notify.Kinds(), " / ")))
+ 		return
+ 	}
+ 	name := ""
+@@ -194,7 +194,7 @@
+ 		name = strings.TrimSpace(*req.Name)
+ 	}
+ 	if name == "" {
+-		writeErr(w, 400, "缺少渠道名称")
++		writeErr(w, 400, "Channel name is required")
+ 		return
+ 	}
+ 	channel, _ := notify.Get(*req.Kind)
+@@ -211,7 +211,7 @@
+ 	}
+ 	if req.Mode != nil {
+ 		if !db.ValidNotifyMode(*req.Mode) {
+-			writeErr(w, 400, "推送模式无效，可选：realtime / digest")
++			writeErr(w, 400, "Invalid delivery mode; choose realtime / digest")
+ 			return
+ 		}
+ 		ch.Mode = *req.Mode
+@@ -219,7 +219,7 @@
+ 	if req.RatePerMin != nil {
+ 		// 显式给值就照用——包括 0，它表示「不限流」，是合法配置。
+ 		if *req.RatePerMin < 0 {
+-			writeErr(w, 400, "限流值不能为负")
++			writeErr(w, 400, "Rate limit must not be negative")
+ 			return
+ 		}
+ 		ch.RatePerMin = *req.RatePerMin
+@@ -258,7 +258,7 @@
+ 	}
+ 	id, ok := pathInt(r, "id")
+ 	if !ok {
+-		writeErr(w, 400, "渠道 id 无效")
++		writeErr(w, 400, "Invalid channel id")
+ 		return
+ 	}
+ 	current, err := pg.NotificationChannelByID(r.Context(), id)
+@@ -268,7 +268,7 @@
+ 	}
+ 	var req notifyChannelRequest
+ 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+-		writeErr(w, 400, "请求体不是合法 JSON: "+err.Error())
++		writeErr(w, 400, "Request body is not valid JSON: "+err.Error())
+ 		return
+ 	}
+ 
+@@ -276,7 +276,7 @@
+ 	kind := current.Kind
+ 	if req.Kind != nil {
+ 		if !notify.ValidKind(*req.Kind) {
+-			writeErr(w, 400, fmt.Sprintf("渠道类型无效，可选：%s", strings.Join(notify.Kinds(), " / ")))
++			writeErr(w, 400, fmt.Sprintf("Invalid channel kind; choose from: %s", strings.Join(notify.Kinds(), " / ")))
+ 			return
+ 		}
+ 		kind = *req.Kind
+@@ -317,7 +317,7 @@
+ 	}
+ 	if req.Name != nil {
+ 		if ch.Name = strings.TrimSpace(*req.Name); ch.Name == "" {
+-			writeErr(w, 400, "渠道Name must not be empty")
++			writeErr(w, 400, "Channel name must not be empty")
+ 			return
+ 		}
+ 	}
+@@ -326,14 +326,14 @@
+ 	}
+ 	if req.Mode != nil {
+ 		if !db.ValidNotifyMode(*req.Mode) {
+-			writeErr(w, 400, "推送模式无效，可选：realtime / digest")
++			writeErr(w, 400, "Invalid delivery mode; choose realtime / digest")
+ 			return
+ 		}
+ 		ch.Mode = *req.Mode
+ 	}
+ 	if req.RatePerMin != nil {
+ 		if *req.RatePerMin < 0 {
+-			writeErr(w, 400, "限流值不能为负")
++			writeErr(w, 400, "Rate limit must not be negative")
+ 			return
+ 		}
+ 		ch.RatePerMin = *req.RatePerMin
+@@ -381,7 +381,7 @@
+ 	}
+ 	id, ok := pathInt(r, "id")
+ 	if !ok {
+-		writeErr(w, 400, "渠道 id 无效")
++		writeErr(w, 400, "Invalid channel id")
+ 		return
+ 	}
+ 	if err := pg.DeleteNotificationChannel(r.Context(), id); err != nil {
+@@ -403,7 +403,7 @@
+ 	}
+ 	id, ok := pathInt(r, "id")
+ 	if !ok {
+-		writeErr(w, 400, "渠道 id 无效")
++		writeErr(w, 400, "Invalid channel id")
+ 		return
+ 	}
+ 	ch, err := pg.NotificationChannelByID(r.Context(), id)
+@@ -413,7 +413,7 @@
+ 	}
+ 	channel, ok := notify.Get(ch.Kind)
+ 	if !ok {
+-		writeErr(w, 400, fmt.Sprintf("渠道类型 %q 未注册", ch.Kind))
++		writeErr(w, 400, fmt.Sprintf("Channel kind %q is not registered", ch.Kind))
+ 		return
+ 	}
+ 	var cfg map[string]any
+@@ -445,10 +445,10 @@
+ 	return notify.Message{
+ 		Items: []notify.Item{{
+ 			FindingID: 0,
+-			Name:      "测试消息 · 渠道配置正常",
+-			VulnClass: "连通性测试",
++			Name:      "Test message · Channel configured successfully",
++			VulnClass: "Connectivity test",
+ 			Severity:  "low",
+-			Summary:   "这是 ARTEX 推送渠道的测试消息，收到即表示该渠道配置可用。",
++			Summary:   "This is an ARTEX notification channel test message. Receiving it confirms that the channel configuration works.",
+ 			Assets:    []string{"artex.example.com"},
+ 			DetailURL: baseURL,
+ 		}},
+@@ -495,7 +495,7 @@
+ 	}
+ 	id, ok := pathInt(r, "id")
+ 	if !ok {
+-		writeErr(w, 400, "投递 id 无效")
++		writeErr(w, 400, "Invalid delivery id")
+ 		return
+ 	}
+ 	if err := pg.RetryNotificationDelivery(r.Context(), id); err != nil {
+@@ -508,7 +508,7 @@
+ // notifyChannelLookupErr 把「渠道不存在」翻译成 404，其余错误 500。
+ func notifyChannelLookupErr(w http.ResponseWriter, err error) {
+ 	if errors.Is(err, db.ErrNotificationChannelNotFound) {
+-		writeErr(w, 404, "通知渠道不存在")
++		writeErr(w, 404, "Notification channel not found")
+ 		return
+ 	}
+ 	writeErr(w, 500, err.Error())
+--- before/server/notify_api_test.go
++++ after/server/notify_api_test.go
+@@ -348,7 +348,7 @@
+ 		wantSub string
+ 	}{
+ 		{"类型非法", map[string]any{"name": "x", "kind": "nope", "config": map[string]any{}}, "渠道类型无效"},
+-		{"缺名称", map[string]any{"kind": notify.KindDingTalk, "config": map[string]any{"webhook": "https://e.com/h"}}, "缺少渠道名称"},
++		{"缺名称", map[string]any{"kind": notify.KindDingTalk, "config": map[string]any{"webhook": "https://e.com/h"}}, "Channel name is required"},
+ 		{"缺 webhook", map[string]any{"name": "x", "kind": notify.KindDingTalk, "config": map[string]any{}}, "Webhook"},
+ 		{"webhook 协议非法", map[string]any{"name": "x", "kind": notify.KindDingTalk, "config": map[string]any{"webhook": "file:///etc/passwd"}}, "Webhook 地址无效"},
+ 		{"模式非法", map[string]any{"name": "x", "kind": notify.KindDingTalk, "mode": "sometimes", "config": map[string]any{"webhook": "https://e.com/h"}}, "推送模式无效"},
+--- before/server/orchestration.go
++++ after/server/orchestration.go
+@@ -43,7 +43,7 @@
+ 	tools = append(tools, s.platformTools()...) // 平台操作工具(建改 skill/工具/MCP，给 Auto 用)
+ 	custom, err := s.customTools()
+ 	if err != nil {
+-		log.Printf("[custom-tool] 加载失败: %v", err)
++		log.Printf("[custom-tool] load failed: %v", err)
+ 		return tools, nil
+ 	}
+ 	tools = append(tools, custom...)
+@@ -158,11 +158,11 @@
+ 	}
+ 	_ = json.Unmarshal(in, &head)
+ 	if strings.TrimSpace(head.TaskID) == "" {
+-		return actool.Errorf("task_id 为必填"), nil
++		return actool.Errorf("task_id is required"), nil
+ 	}
+ 	t, ok := s.m.Task(head.TaskID)
+ 	if !ok {
+-		return actool.Errorf("task 不存在: " + head.TaskID), nil
++		return actool.Errorf("Task not found: " + head.TaskID), nil
+ 	}
+ 	var m map[string]json.RawMessage
+ 	_ = json.Unmarshal(in, &m)
+@@ -181,7 +181,7 @@
+ 
+ func (s *Server) toolListTasks() actool.CoreTool {
+ 	return roTool("list_tasks",
+-		"列出所有任务(id/描述/目标/状态/运行时长/父任务/LLM 配置)，编排 agent 用它掌握全局、看哪些任务卡太久、各自用哪个 LLM。运行时长：运行中=创建→现在，终态=创建→最后活动(秒)。llm_profile：任务 planner/worker 用的配置名，(激活配置)=跟随全局激活。",
++		"List all tasks (id/description/goal/status/runtime/parent task/LLM profile) for orchestration overview, identifying stalled tasks and their LLMs. Runtime in seconds: running=creation to now; terminal=creation to last activity. llm_profile names the task planner/worker profile; (active profile) follows the globally active profile.",
+ 		objSchema(map[string]any{}),
+ 		func(context.Context, json.RawMessage) (actool.Result, error) {
+ 			lastAct, _ := s.m.PG().LastActivityAll()
+@@ -211,11 +211,11 @@
+ 				}
+ 				llmState := t.llmStateSnapshot()
+ 				if llmState.ProfileID == nil {
+-					row["llm_profile"] = "(激活配置)"
++					row["llm_profile"] = "(active profile)"
+ 				} else if n, ok := profName[*llmState.ProfileID]; ok {
+ 					row["llm_profile"] = n
+ 				} else {
+-					row["llm_profile"] = fmt.Sprintf("#%d(已删除)", *llmState.ProfileID)
++					row["llm_profile"] = fmt.Sprintf("#%d(deleted)", *llmState.ProfileID)
+ 				}
+ 				out = append(out, row)
+ 			}
+@@ -227,7 +227,7 @@
+ // orchestration agent can pick one for spawn_task's llm_profile. Never leaks keys.
+ func (s *Server) toolListLLMProfiles() actool.CoreTool {
+ 	return roTool("list_llm_profiles",
+-		"列出可用的 LLM 配置(profile)：id、名称、模型、格式、是否为当前激活配置。用 id 给 spawn_task 的 llm_profile_id 参数指定子任务专属 LLM（如侦察用便宜模型、利用用强模型）。不含 API Key。",
++		"List available LLM profiles: id, name, model, format, and whether currently active. Use id as spawn_task's llm_profile_id to assign a child task its own LLM (for example a cheaper reconnaissance model or a stronger exploitation model). Does not include API Keys.",
+ 		objSchema(map[string]any{}),
+ 		func(context.Context, json.RawMessage) (actool.Result, error) {
+ 			profs, err := s.m.pg.ListProfiles()
+@@ -246,16 +246,16 @@
+ 
+ func (s *Server) toolSpawnTask() actool.CoreTool {
+ 	return wrTool("spawn_task",
+-		"新建一个子任务并启动探索引擎，返回 task_id。用于把一件事(如一道题/一个目标)派成独立任务。parent_ref 可选：填当前编排关联的父任务 id 做父子关联。",
++		"Create a child task and start its exploration engine, returning task_id. Delegate one item (such as a challenge or target) as an independent task. Optional parent_ref links it to the parent task associated with the current orchestration.",
+ 		objSchema(map[string]any{
+-			"description":            strParam("任务描述(简短标题)"),
+-			"goal":                   strParam("任务目标(要达成什么)"),
+-			"parent_ref":             strParam("可选：父任务 id(做父子关联)"),
+-			"source_task_ids":        map[string]any{"type": "array", "items": map[string]any{"type": "string"}, "description": fmt.Sprintf("可选：只读继承的来源任务 id 列表(最多 %d 个)。子任务可只读引用这些任务已探明的资产/结论作为起点；与 parent_ref 的纯父子指针不同，这是内容继承。", db.MaxTaskSourceCount)},
+-			"llm_profile_id":         map[string]any{"type": "integer", "description": "可选：指定本子任务 planner/worker 用的 LLM 配置 id(见 list_llm_profiles)；留空则继承父任务、再回退全局激活配置"},
+-			"timeout_seconds":        map[string]any{"type": "integer", "description": "可选：任务级超时(秒)。到点后触发优雅收尾并进入 timeout 终态；留空或 0 = 不限时"},
+-			"plan_heartbeat_seconds": map[string]any{"type": "integer", "description": "可选：planner 心跳触发间隔(秒)。距上轮规划结束/任务开始满该值且期间无触发 → 触发一轮规划(兜底死锁 + 唤醒去监督飞行中的 worker)。留空或 0 = 默认 600(10min)；"},
+-			"seed_first_intent":      map[string]any{"type": "boolean", "description": "可选：对于简单任务可开启，创建时直接下发一条种子意图(内容=描述+目标)让 worker 免等首轮 planner 直接开跑测试；默认 false(走标准先规划再执行)。"},
++			"description":            strParam("Task description (short title)"),
++			"goal":                   strParam("Task goal (what to accomplish)"),
++			"parent_ref":             strParam("Optional parent task id (parent-child link)"),
++			"source_task_ids":        map[string]any{"type": "array", "items": map[string]any{"type": "string"}, "description": fmt.Sprintf("Optional source task id list for read-only inheritance (at most %d). The child can reference discovered assets/conclusions as a starting point; unlike the parent_ref link, this inherits content.", db.MaxTaskSourceCount)},
++			"llm_profile_id":         map[string]any{"type": "integer", "description": "Optional LLM profile id for this child's planner/worker (see list_llm_profiles); omit to inherit the parent task, then fall back to the globally active profile"},
++			"timeout_seconds":        map[string]any{"type": "integer", "description": "Optional task timeout in seconds. At the deadline, settle gracefully and enter terminal timeout status; omitted or 0 = unlimited"},
++			"plan_heartbeat_seconds": map[string]any{"type": "integer", "description": "Optional planner heartbeat interval in seconds. After this interval since the last planning round ended/task started with no intervening trigger, run a planning round (deadlock fallback and supervision of in-flight workers). Omitted or 0 = default 600 (10min);"},
++			"seed_first_intent":      map[string]any{"type": "boolean", "description": "Optional for simple tasks: issue a seed intent at creation (description+goal) so a worker can start without waiting for the first planner round; default false (standard plan-then-execute flow)."},
+ 		}, "description", "goal"),
+ 		func(_ context.Context, in json.RawMessage) (actool.Result, error) {
+ 			var a struct {
+@@ -270,27 +270,27 @@
+ 			}
+ 			_ = json.Unmarshal(in, &a)
+ 			if strings.TrimSpace(a.Description) == "" {
+-				a.Description = "未命名任务"
++				a.Description = "Untitled task"
+ 			}
+ 			if strings.TrimSpace(a.Goal) == "" {
+-				return actool.Errorf("goal 为必填"), nil
++				return actool.Errorf("goal is required"), nil
+ 			}
+ 			if a.TimeoutSeconds < 0 {
+ 				a.TimeoutSeconds = 0
+ 			}
+ 			// 只读继承来源任务：数量上限 + 每个 id 有效/去重/存在，校验规则与 HTTP 建任务一致。
+ 			if len(a.SourceTaskIDs) > db.MaxTaskSourceCount {
+-				return actool.Errorf(fmt.Sprintf("关联任务最多选择 %d 个", db.MaxTaskSourceCount)), nil
++				return actool.Errorf(fmt.Sprintf("At most %d source tasks may be selected", db.MaxTaskSourceCount)), nil
+ 			}
+ 			sourceIDs := make([]int64, 0, len(a.SourceTaskIDs))
+ 			seenSources := map[int64]bool{}
+ 			for _, raw := range a.SourceTaskIDs {
+ 				id, err := strconv.ParseInt(strings.TrimSpace(raw), 10, 64)
+ 				if err != nil || id <= 0 || seenSources[id] {
+-					return actool.Errorf("关联Invalid task id或重复"), nil
++					return actool.Errorf("Invalid or duplicate source task id"), nil
+ 				}
+ 				if _, ok := s.m.Task(strconv.FormatInt(id, 10)); !ok {
+-					return actool.Errorf(fmt.Sprintf("关联任务 #%d 不存在", id)), nil
++					return actool.Errorf(fmt.Sprintf("Source task #%d not found", id)), nil
+ 				}
+ 				seenSources[id] = true
+ 				sourceIDs = append(sourceIDs, id)
+@@ -299,7 +299,7 @@
+ 			var pin *int64
+ 			if id := parseProfileID(a.LLMProfileID); id > 0 {
+ 				if _, ok := s.loadProfileConfig(id); !ok {
+-					return actool.Errorf(fmt.Sprintf("LLM 配置 #%d 不存在或未设置 API Key", id)), nil
++					return actool.Errorf(fmt.Sprintf("LLM profile #%d is missing or has no API Key", id)), nil
+ 				}
+ 				pin = &id
+ 			} else if a.ParentRef != "" {
+@@ -335,8 +335,8 @@
+ }
+ 
+ func (s *Server) toolPauseTask() actool.CoreTool {
+-	return wrTool("pause_task", "暂停指定任务(停止其 planner/worker 循环)。",
+-		objSchema(map[string]any{"task_id": strParam("要暂停的任务 id")}, "task_id"),
++	return wrTool("pause_task", "Pause the specified task (stops its planner/worker loop).",
++		objSchema(map[string]any{"task_id": strParam("Task id to pause")}, "task_id"),
+ 		func(_ context.Context, in json.RawMessage) (actool.Result, error) {
+ 			var a struct {
+ 				TaskID string `json:"task_id"`
+@@ -344,7 +344,7 @@
+ 			_ = json.Unmarshal(in, &a)
+ 			t, ok := s.m.Task(a.TaskID)
+ 			if !ok {
+-				return actool.Errorf("task 不存在: " + a.TaskID), nil
++				return actool.Errorf("Task not found: " + a.TaskID), nil
+ 			}
+ 			if _, err := s.applyTaskControlWithCause(t, "pause", agent.AbortPausedByOrchestrator); err != nil {
+ 				return actool.Errorf(err.Error()), nil
+@@ -354,30 +354,30 @@
+ }
+ 
+ func (s *Server) toolGetTaskGraph() actool.CoreTool {
+-	return roTool("get_task_graph", "读指定任务的探索图总览(同 graph_overview：资产计数/frontier/发现/覆盖等)，用 task_id 指定任务。",
+-		objSchema(map[string]any{"task_id": strParam("任务 id")}, "task_id"),
++	return roTool("get_task_graph", "Read the specified task's exploration graph overview (same as graph_overview: asset counts/frontier/findings/coverage), using task_id.",
++		objSchema(map[string]any{"task_id": strParam("Task id")}, "task_id"),
+ 		func(ctx context.Context, in json.RawMessage) (actool.Result, error) {
+ 			return s.delegateToTask(ctx, in, (*agent.ToolSet).GraphOverviewTool)
+ 		})
+ }
+ 
+ func (s *Server) toolListTaskFindings() actool.CoreTool {
+-	return roTool("list_task_findings", "读指定任务的确认漏洞(含 flag/PoC；每条带 id/task_id/intent_id/vulnclass/severity/摘要/状态)，用 task_id 指定任务。",
+-		objSchema(map[string]any{"task_id": strParam("任务 id")}, "task_id"),
++	return roTool("list_task_findings", "Read confirmed findings for task_id (including flag/PoC; each includes id/task_id/intent_id/vulnclass/severity/summary/status).",
++		objSchema(map[string]any{"task_id": strParam("Task id")}, "task_id"),
+ 		func(ctx context.Context, in json.RawMessage) (actool.Result, error) {
+ 			return s.delegateToTask(ctx, in, (*agent.ToolSet).ListFindingsTool)
+ 		})
+ }
+ 
+ func (s *Server) toolAddHint() actool.CoreTool {
+-	return wrTool("add_task_hint", "给指定任务注入战略提示(该任务的 planner 下轮生成意图时会读到)。\n"+
+-		"★优先批量：多条提示放进 hints 数组一次提交（返回 ids 数组，与 hints 等长同序，失败项 id=0）；单条则省略 hints 直接给顶层 text。",
++	return wrTool("add_task_hint", "Inject strategic hints for the specified task (read by its planner when generating intents next round).\n"+
++		"Prefer batching: submit multiple hints in the hints array (returns an ids array of the same length and order; failed entries have id=0). For one hint, omit hints and supply top-level text.",
+ 		objSchema(map[string]any{
+-			"task_id":      strParam("任务 id"),
+-			"hints":        map[string]any{"type": "array", "description": "【优先用这个】提示数组，每个元素字段同顶层（text/asset_ids/traffic_refs）。", "items": objSchema(map[string]any{"text": strParam("提示内容"), "asset_ids": map[string]any{"type": "array", "items": map[string]any{"type": "integer"}}, "traffic_refs": agent.HintTrafficSchema()})},
+-			"text":         strParam("[单条] 提示内容"),
++			"task_id":      strParam("Task id"),
++			"hints":        map[string]any{"type": "array", "description": "Preferred: hints array; each entry uses the same fields as the top level (text/asset_ids/traffic_refs).", "items": objSchema(map[string]any{"text": strParam("Hint content"), "asset_ids": map[string]any{"type": "array", "items": map[string]any{"type": "integer"}}, "traffic_refs": agent.HintTrafficSchema()})},
++			"text":         strParam("[Single] Hint content"),
+ 			"traffic_refs": agent.HintTrafficSchema(),
+-			"asset_ids":    map[string]any{"type": "array", "items": map[string]any{"type": "integer"}, "description": "锚定的资产 id（可选，0/1/多个；该任务内的资产 id）"},
++			"asset_ids":    map[string]any{"type": "array", "items": map[string]any{"type": "integer"}, "description": "Anchored asset ids (optional, zero/one/many; assets within this task)"},
+ 		}, "task_id"),
+ 		func(ctx context.Context, in json.RawMessage) (actool.Result, error) {
+ 			return s.delegateToTask(ctx, in, (*agent.ToolSet).AddHintTool)
+@@ -386,11 +386,11 @@
+ 
+ func (s *Server) toolGetWorkerTrace() actool.CoreTool {
+ 	return roTool("get_task_worker_trace",
+-		"看指定任务里某个 work(意图)的执行过程：get_task_worker_trace(task_id, intent_id) 看步骤摘要；再带 step_ids=[...] 取那几步完整内容(一次最多 5 个,多传只返回前 5 个)。",
++		"Inspect a work item's (intent's) execution in the specified task: get_task_worker_trace(task_id, intent_id) returns step summaries; add step_ids=[...] for full step content (at most 5 per call; only the first 5 are returned if more are supplied).",
+ 		objSchema(map[string]any{
+-			"task_id":   strParam("任务 id"),
+-			"intent_id": map[string]any{"type": "integer", "description": "意图 id(该任务里的 work)"},
+-			"step_ids":  map[string]any{"type": "array", "items": map[string]any{"type": "integer"}, "description": "可选：要取完整内容的步骤 id(一次最多 5 个,多传只返回前 5 个,其余在 omitted_step_ids 里列出)"},
++			"task_id":   strParam("Task id"),
++			"intent_id": map[string]any{"type": "integer", "description": "Intent id (work item within the task)"},
++			"step_ids":  map[string]any{"type": "array", "items": map[string]any{"type": "integer"}, "description": "Optional step ids for full content (at most 5 per call; only the first 5 are returned and the rest appear in omitted_step_ids)"},
+ 		}, "task_id", "intent_id"),
+ 		func(ctx context.Context, in json.RawMessage) (actool.Result, error) {
+ 			return s.delegateToTask(ctx, in, (*agent.ToolSet).GetWorkerTraceTool)
+@@ -398,16 +398,16 @@
+ }
+ 
+ func (s *Server) toolListWorkerTraces() actool.CoreTool {
+-	return roTool("list_task_worker_traces", "列出指定任务里跑过哪些 work(意图) + 各自步数，用于发现哪些 work 值得翻看(再用 get_task_worker_trace)。",
+-		objSchema(map[string]any{"task_id": strParam("任务 id")}, "task_id"),
++	return roTool("list_task_worker_traces", "List work items (intents) executed in the specified task and their step counts to identify traces worth reading with get_task_worker_trace.",
++		objSchema(map[string]any{"task_id": strParam("Task id")}, "task_id"),
+ 		func(ctx context.Context, in json.RawMessage) (actool.Result, error) {
+ 			return s.delegateToTask(ctx, in, (*agent.ToolSet).ListWorkerTracesTool)
+ 		})
+ }
+ 
+ func (s *Server) toolSearchWorkerTraces() actool.CoreTool {
+-	return roTool("search_task_worker_traces", "在指定任务里按关键字搜索所有 work 的执行过程(返回命中步骤摘要 + intent_id)。",
+-		objSchema(map[string]any{"task_id": strParam("任务 id"), "q": strParam("搜索关键字")}, "task_id", "q"),
++	return roTool("search_task_worker_traces", "Search all work traces in the specified task by keyword (returns matching step summaries and intent_id).",
++		objSchema(map[string]any{"task_id": strParam("Task id"), "q": strParam("Search keyword")}, "task_id", "q"),
+ 		func(ctx context.Context, in json.RawMessage) (actool.Result, error) {
+ 			return s.delegateToTask(ctx, in, (*agent.ToolSet).SearchWorkerTracesTool)
+ 		})
+@@ -435,14 +435,14 @@
+ 			_ = json.Unmarshal(in, &a)
+ 			nodeID := parseProfileID(a.FindingID) // 复用「数字或数字字符串」解析
+ 			if nodeID <= 0 {
+-				return actool.Errorf("finding_id 无效"), nil
++				return actool.Errorf("Invalid finding_id"), nil
+ 			}
+ 			n, err := s.m.pg.SetFindingReportVersionByNodeID(ctx, nodeID, a.Report, a.EvidenceVersion)
+ 			if err != nil {
+ 				return actool.Errorf(err.Error()), nil
+ 			}
+ 			if n == 0 {
+-				return actool.Errorf(fmt.Sprintf("未找到 finding_id=%d 对应的漏洞记录(先用 report_finding 登记)", nodeID)), nil
++				return actool.Errorf(fmt.Sprintf("No finding record for finding_id=%d (record it with report_finding first)", nodeID)), nil
+ 			}
+ 			return actool.Text(fmt.Sprintf("finding %d report updated (%d chars)", nodeID, len(a.Report))), nil
+ 		})
+@@ -494,7 +494,7 @@
+ 	s.reseedMainAgentPrompt()         // mainagent 提示词加入「目标达成后 add_intent 反问是否建目标」(一次性)
+ 	s.reseedPlannerPrompt()           // planner 提示词:重写「0 意图」正当理由 + 加量化验收核对(一次性)
+ 	s.reseedWorkerPrompt()            // worker 提示词:加否定结论证据门槛(一次性)
+-	s.seedReporterAgent()             // 预置「报告撰写」agent + 工具绑定 + finding 触发器(一次性)
++	s.seedReporterAgent()             // 预置「Report writing」agent + 工具绑定 + finding 触发器(一次性)
+ 	s.upgradeReporterTriggerMessage() // 老库补迁移:让 reporter 回传 evidence_version(一次性)
+ 	s.seedFindingTrafficTools()       // 增加可选证据参数及只读证据工具，保留用户配置
+ 	s.seedFindingWorkflowTools()
+@@ -538,7 +538,7 @@
+ 		}
+ 	}
+ 	_ = s.m.pg.SetSetting(flag, "true")
+-	log.Printf("[tools] 已刷新 orchestration/platform 工具 schema 到代码默认(一次性)")
++	log.Printf("[tools] Refreshed orchestration/platform tool schemas to code defaults (one-time)")
+ }
+ 
+ // unbindGoalMetDefault removes goal_met's default "planner" binding ONCE (guarded by
+@@ -552,7 +552,7 @@
+ 		return
+ 	}
+ 	if err := s.m.pg.RemoveAgentFromTool("planner", "goal_met"); err != nil {
+-		log.Printf("[tools] goal_met 解绑 planner 失败: %v", err)
++		log.Printf("[tools] failed to unbind goal_met from planner: %v", err)
+ 		return
+ 	}
+ 	_ = s.m.pg.SetSetting(flag, "true")
+@@ -582,10 +582,10 @@
+ 		return
+ 	}
+ 	if _, err := s.m.pg.ResetPromptToDefault(a.ID, tmpl); err != nil {
+-		log.Printf("[prompts] goals 提示词重刷为新默认失败: %v", err)
+-		return
+-	}
+-	log.Printf("[prompts] goals 提示词已追加新默认版本(加入抽操作约束步,一次性)")
++		log.Printf("[prompts] goals failed to refresh prompt to the new default: %v", err)
++		return
++	}
++	log.Printf("[prompts] goals prompt new default version appended (adds operation-constraint extraction; one-time)")
+ }
+ 
+ // reseedMainAgentPrompt 把 mainagent 提示词刷成【当前代码默认】——默认正文新增了「目标全部
+@@ -612,10 +612,10 @@
+ 		return
+ 	}
+ 	if _, err := s.m.pg.ResetPromptToDefault(a.ID, tmpl); err != nil {
+-		log.Printf("[prompts] mainagent 提示词重刷为新默认失败: %v", err)
+-		return
+-	}
+-	log.Printf("[prompts] mainagent 提示词已追加新默认版本(加入目标达成后反问建目标,一次性)")
++		log.Printf("[prompts] mainagent failed to refresh prompt to the new default: %v", err)
++		return
++	}
++	log.Printf("[prompts] mainagent prompt new default version appended (asks about creating goals after goal completion; one-time)")
+ }
+ 
+ // reseedPlannerPrompt 把 planner 提示词刷成【当前代码默认】——默认正文做了精简重构,并把「克制」降级为
+@@ -643,10 +643,10 @@
+ 		return
+ 	}
+ 	if _, err := s.m.pg.ResetPromptToDefault(a.ID, tmpl); err != nil {
+-		log.Printf("[prompts] planner 提示词重刷为新默认失败: %v", err)
+-		return
+-	}
+-	log.Printf("[prompts] planner 提示词已追加新默认版本(精简重构+克制降级去重+深度优先+否定复核上界,一次性)")
++		log.Printf("[prompts] planner failed to refresh prompt to the new default: %v", err)
++		return
++	}
++	log.Printf("[prompts] planner prompt new default version appended (streamlining, restrained downgrade deduplication, depth-first, bounded negative rechecks; one-time)")
+ }
+ 
+ // reseedWorkerPrompt 把 worker 提示词刷成【当前代码默认】——默认正文 record_fact 段删掉了「否定类结论
+@@ -673,10 +673,10 @@
+ 		return
+ 	}
+ 	if _, err := s.m.pg.ResetPromptToDefault(a.ID, tmpl); err != nil {
+-		log.Printf("[prompts] worker 提示词重刷为新默认失败: %v", err)
+-		return
+-	}
+-	log.Printf("[prompts] worker 提示词已追加新默认版本(查上下文段收敛为 list_assets/list_findings,去掉 list_facts/node_detail/asset_neighbors,一次性)")
++		log.Printf("[prompts] worker failed to refresh prompt to the new default: %v", err)
++		return
++	}
++	log.Printf("[prompts] worker prompt new default version appended (context uses list_assets/list_findings instead of list_facts/node_detail/asset_neighbors; one-time)")
+ }
+ 
+ // reporterToolCallMessage 必须无条件要求先读一次 get_finding_traffic 再写报告。
+@@ -684,11 +684,11 @@
+ // 写成「启用自动绑定才读」,默认关闭配置下 reporter 就不会传 evidence_version,
+ // SetFindingReportVersionByNodeID 便按 legacy 语义写 -1,漏洞详情与 Markdown 导出
+ // 从此常驻「证据已变更，报告待更新」,而 UI 上没有任何入口能把它清掉。
+-const reporterToolCallMessage = "上面刚有一个漏洞被 report_finding 登记。请读取返回 JSON 的 finding_id（独立漏洞记录 ID）与 finding_node_id（探索节点 ID），" +
+-	"先用 get_finding_traffic(finding_id) 读取当前证据清单及其 version（空清单是正常情况，照常写报告）；" +
+-	"若运行指引启用自动绑定，在读取前先核实并关联本次漏洞的流量。节点详情使用 finding_node_id。" +
+-	"最后调用 update_finding_report(finding_id=finding_node_id, report, evidence_version=实际读取版本) 保存，" +
+-	"evidence_version 必须传，否则报告会被永久标记为待更新。不要混用两种编号。"
++const reporterToolCallMessage = "A finding was just recorded by report_finding. Read finding_id (standalone finding record ID) and finding_node_id (exploration node ID) from the returned JSON. " +
++	"First use get_finding_traffic(finding_id) to read the current evidence list and its version (an empty list is normal; write the report anyway). " +
++	"If runtime guidance enables automatic binding, verify and associate this finding's traffic before reading. Use finding_node_id for node details. " +
++	"Finally save with update_finding_report(finding_id=finding_node_id, report, evidence_version=the version actually read). " +
++	"evidence_version is required, or the report will remain marked as pending update. Do not confuse the two IDs."
+ 
+ // 旧版触发消息(0.3.8 及更早)。只有仍与它逐字相同的记录才会被迁移覆盖，用户改过的保持原样。
+ const reporterToolCallMessageV1 = "上面刚有一个漏洞被 report_finding 登记。请从触发上下文里取出 finding_id" +
+@@ -707,7 +707,7 @@
+ 	defer func() { _ = s.m.pg.SetSetting(flag, "true") }() // 只尝试一次
+ 	triggers, err := s.m.pg.ListTriggersFor("reporter")
+ 	if err != nil {
+-		log.Printf("[reporter] 读取触发器失败: %v", err)
++		log.Printf("[reporter] failed to read triggers: %v", err)
+ 		return
+ 	}
+ 	for _, t := range triggers {
+@@ -716,14 +716,14 @@
+ 		}
+ 		t.ToolCallMessage = reporterToolCallMessage
+ 		if err := s.m.pg.UpdateTrigger(t); err != nil {
+-			log.Printf("[reporter] 升级触发消息失败: %v", err)
++			log.Printf("[reporter] failed to upgrade trigger message: %v", err)
+ 			return
+ 		}
+-		log.Printf("[reporter] 触发消息已升级为读取并回传 evidence_version")
+-	}
+-}
+-
+-// seedReporterAgent 预置一个「报告撰写」自定义 agent(builtin=false，可在 UI 编辑/删除)：
++		log.Printf("[reporter] Trigger message upgraded to read and return evidence_version")
++	}
++}
++
++// seedReporterAgent 预置一个「Report writing」自定义 agent(builtin=false，可在 UI 编辑/删除)：
+ // 绑定 update_finding_report + 任务查询工具，并挂一个「report_finding 被调用即触发」的
+ // 触发器 —— 每登记一个漏洞就唤起它写详细报告。一次性(settings flag 守卫)：用户删掉后不再重建。
+ // 依赖：orchestration 工具已在本函数上方 SeedTool 入库，故绑定得上。
+@@ -737,20 +737,20 @@
+ 	if exist, _ := s.m.pg.GetAgentByKey("reporter"); exist != nil {
+ 		return // key 已被占用(用户手建过)——不覆盖
+ 	}
+-	a, err := s.m.pg.CreateAgent("reporter", "报告撰写",
+-		"漏洞详细报告撰写：发现漏洞时自动触发，查取证据与执行过程后写 Markdown 报告并回写。")
++	a, err := s.m.pg.CreateAgent("reporter", "Report writing",
++		"Write detailed finding reports: triggered automatically on a finding; inspect evidence and execution traces, then write and save a Markdown report.")
+ 	if err != nil {
+-		log.Printf("[reporter] 创建 agent 失败: %v", err)
++		log.Printf("[reporter] failed to create agent: %v", err)
+ 		return
+ 	}
+ 	if err := s.m.pg.SeedPromptIfEmpty(a.ID, agent.ReporterDefaultPrompt); err != nil {
+-		log.Printf("[reporter] seed prompt 失败: %v", err)
++		log.Printf("[reporter] seed prompt failed: %v", err)
+ 	}
+ 	// 触发运行策略：parallel + none —— 一漏洞一报告、多个 finding 并发各写各的。
+ 	// merge 必须为 none：否则(默认 all)一波 finding 会被合并成一次运行，并行就没意义。
+ 	// maxParallel=5：同时最多 5 个报告会话，避免瞬时太多 LLM 调用。
+ 	if err := s.m.pg.SetAgentTriggerBehavior("reporter", "parallel", "none", 5); err != nil {
+-		log.Printf("[reporter] 设置触发运行策略失败: %v", err)
++		log.Printf("[reporter] failed to set triggered-run policy: %v", err)
+ 	}
+ 	// 绑定它需要的工具：写报告 + 读证据/执行过程/态势。
+ 	if err := s.m.pg.AddAgentToToolBinding("reporter", []string{
+@@ -758,10 +758,10 @@
+ 		"get_task_worker_trace", "list_task_worker_traces", "search_task_worker_traces",
+ 		"get_task_graph",
+ 	}); err != nil {
+-		log.Printf("[reporter] 绑定工具失败: %v", err)
++		log.Printf("[reporter] failed to bind tools: %v", err)
+ 	}
+ 	// 触发器：report_finding 被调用即触发（工具返回 "finding recorded: <id>" 带上 finding_id，
+-	// 任务 id 也在触发消息里）。
++	// Task id 也在触发消息里）。
+ 	if _, err := s.m.pg.CreateTrigger(&db.AgentTrigger{
+ 		AgentKey:        "reporter",
+ 		Enabled:         true,
+@@ -769,9 +769,9 @@
+ 		ToolNames:       []string{"report_finding"},
+ 		ToolCallMessage: reporterToolCallMessage,
+ 	}); err != nil {
+-		log.Printf("[reporter] 创建触发器失败: %v", err)
+-	}
+-	log.Printf("[reporter] 已预置「报告撰写」agent + finding 触发器")
++		log.Printf("[reporter] failed to create trigger: %v", err)
++	}
++	log.Printf("[reporter] Seeded Report writing agent and finding trigger")
+ }
+ 
+ // seedAutoReportFindingBinding adds "auto" to report_finding's binding ONCE so
+@@ -782,7 +782,7 @@
+ 		return
+ 	}
+ 	if err := s.m.pg.AddAgentToToolBinding("auto", []string{"report_finding"}); err != nil {
+-		log.Printf("[auto] report_finding 默认绑定失败: %v", err)
++		log.Printf("[auto] report_finding default binding failed: %v", err)
+ 		return
+ 	}
+ 	_ = s.m.pg.SetSetting(flag, "true")
+@@ -798,7 +798,7 @@
+ 		return
+ 	}
+ 	if err := s.m.pg.AddAgentToToolBinding("planner", []string{"report_finding"}); err != nil {
+-		log.Printf("[planner] report_finding 默认绑定失败: %v", err)
++		log.Printf("[planner] report_finding default binding failed: %v", err)
+ 		return
+ 	}
+ 	_ = s.m.pg.SetSetting(flag, "true")
+@@ -815,7 +815,7 @@
+ 		return
+ 	}
+ 	if err := s.m.pg.AddAgentToToolBinding("planner", []string{"list_assets"}); err != nil {
+-		log.Printf("[planner] list_assets 默认绑定失败: %v", err)
++		log.Printf("[planner] list_assets default binding failed: %v", err)
+ 		return
+ 	}
+ 	_ = s.m.pg.SetSetting(flag, "true")
+@@ -833,11 +833,11 @@
+ 		return
+ 	}
+ 	if err := s.m.pg.AddAgentToToolBinding("planner", []string{"add_company_scope"}); err != nil {
+-		log.Printf("[planner] add_company_scope 默认绑定失败: %v", err)
++		log.Printf("[planner] add_company_scope default binding failed: %v", err)
+ 		return
+ 	}
+ 	if err := s.m.pg.RemoveAgentFromTool("worker", "add_company_scope"); err != nil {
+-		log.Printf("[worker] add_company_scope 解绑失败: %v", err)
++		log.Printf("[worker] add_company_scope unbind failed: %v", err)
+ 		return
+ 	}
+ 	_ = s.m.pg.SetSetting(flag, "true")
+@@ -864,7 +864,7 @@
+ 		"list_facts", "list_companies", "list_worker_traces",
+ 	} {
+ 		if err := s.m.pg.RemoveAgentFromTool("worker", k); err != nil {
+-			log.Printf("[worker] %s 从 worker 解绑失败: %v", k, err)
++			log.Printf("[worker] %s failed to unbind from worker: %v", k, err)
+ 			return // 出错则不落 flag，下次启动重试
+ 		}
+ 	}
+@@ -885,7 +885,7 @@
+ 	if err := s.m.pg.AddAgentToToolBinding("worker", []string{
+ 		"search_all_worker_traces", "get_worker_trace", "node_detail",
+ 	}); err != nil {
+-		log.Printf("[worker] 回看/详情工具补绑失败: %v", err)
++		log.Printf("[worker] failed to rebind readback/detail tools: %v", err)
+ 		return // 出错则不落 flag，下次启动重试
+ 	}
+ 	_ = s.m.pg.SetSetting(flag, "true")
+@@ -908,7 +908,7 @@
+ 	// 资产工具：Auto 操作平台常要看/登记资产、管理公司范围。
+ 	keys = append(keys, "insert_assets", "add_company_scope", "list_assets")
+ 	if err := s.m.pg.AddAgentToToolBinding("auto", keys); err != nil {
+-		log.Printf("[auto] 默认绑定失败: %v", err)
++		log.Printf("[auto] default binding failed: %v", err)
+ 		return
+ 	}
+ 	_ = s.m.pg.SetSetting(flag, "true")
+--- before/server/platform_tools.go
++++ after/server/platform_tools.go
+@@ -41,28 +41,28 @@
+ // Platform-level (not a per-task tool): operates on the global, cross-task asset库.
+ func (s *Server) toolDeleteAssetsByHost() actool.CoreTool {
+ 	return wrTool("delete_assets_by_host",
+-		"按 host 精确删除资产：删掉该 host 的域名/子域名，以及其下的服务(service)、接口(endpoint)。\n"+
+-			"host 完全匹配(小写、去空格)，不是模糊/通配。\n"+
+-			"传根域名(如 example.com)会连带删除它的子域名及其服务/接口；传子域名(如 a.example.com)或 IP 只删该 host 自身及其服务/接口。\n"+
+-			"⚠️ 硬删除、作用于全局资产库(跨任务共享)、不可撤销。",
++		"Delete assets by exact host: removes the host domain/subdomain and its services and endpoints.\n"+
++			"host uses an exact match (lowercased and trimmed), not fuzzy or wildcard matching.\n"+
++			"A root domain (for example example.com) also deletes its subdomains and their services/endpoints; a subdomain (for example a.example.com) or IP deletes only that host and its services/endpoints.\n"+
++			"WARNING: irreversible hard deletion from the global asset store shared across tasks.",
+ 		objSchema(map[string]any{
+-			"host": strParam("要删除的 host：域名/子域名/IP。完全匹配，如 example.com 或 a.example.com 或 1.2.3.4"),
++			"host": strParam("Host to delete: exact domain/subdomain/IP, for example example.com, a.example.com, or 1.2.3.4"),
+ 		}, "host"),
+ 		func(_ context.Context, in json.RawMessage) (actool.Result, error) {
+ 			as := s.assetStore()
+ 			if as == nil {
+-				return actool.Errorf("资产库未初始化"), nil
++				return actool.Errorf("Asset store is not initialized"), nil
+ 			}
+ 			var a struct {
+ 				Host string `json:"host"`
+ 			}
+ 			_ = json.Unmarshal(in, &a)
+ 			if strings.TrimSpace(a.Host) == "" {
+-				return actool.Errorf("host 不能为空"), nil
++				return actool.Errorf("host must not be empty"), nil
+ 			}
+ 			counts, err := as.DeleteByHost(a.Host)
+ 			if err != nil {
+-				return actool.Errorf("删除失败: " + err.Error()), nil
++				return actool.Errorf("Deletion failed: " + err.Error()), nil
+ 			}
+ 			var total int64
+ 			for _, n := range counts {
+@@ -80,20 +80,20 @@
+ 
+ func (s *Server) toolCreateSkill() actool.CoreTool {
+ 	return wrTool("create_skill",
+-		"创建一个新 skill(写 SKILL.md，agentskills.io 规范)。name 小写字母/数字/连字符。",
++		"Create a skill (writes SKILL.md using the agentskills.io specification). name uses lowercase letters, digits, and hyphens.",
+ 		objSchema(map[string]any{
+-			"name":         strParam("skill 名(小写字母开头，字母/数字/连字符)"),
+-			"description":  strParam("skill 描述(必填，说明它做什么/何时用)"),
+-			"instructions": strParam("Markdown 正文说明(可选)"),
++			"name":         strParam("Skill name (starts with a lowercase letter; letters/digits/hyphens)"),
++			"description":  strParam("Skill description (required; explain what it does and when to use it)"),
++			"instructions": strParam("Markdown instructions (optional)"),
+ 		}, "name", "description"),
+ 		func(_ context.Context, in json.RawMessage) (actool.Result, error) {
+ 			var a struct{ Name, Description, Instructions string }
+ 			_ = json.Unmarshal(in, &a)
+ 			if !validSkillName(a.Name) {
+-				return actool.Errorf("skill 名不合法(小写字母开头，仅字母/数字/连字符，≤64)"), nil
++				return actool.Errorf("Invalid skill name (must start with a lowercase letter; letters/digits/hyphens only; at most 64 characters)"), nil
+ 			}
+ 			if strings.TrimSpace(a.Description) == "" {
+-				return actool.Errorf("description 必填"), nil
++				return actool.Errorf("description is required"), nil
+ 			}
+ 			path := filepath.Join(s.skillDir, a.Name)
+ 			if _, err := os.Stat(path); err == nil {
+@@ -122,21 +122,21 @@
+ 
+ func (s *Server) toolUpdateSkillFile() actool.CoreTool {
+ 	return wrTool("update_skill_file",
+-		"写/覆盖某个 skill 内的一个文件(默认 SKILL.md)。用于修改技能内容或加脚本/引用。",
++		"Write/overwrite a file within a skill (default SKILL.md). Use to edit instructions or add scripts/references.",
+ 		objSchema(map[string]any{
+-			"name":    strParam("skill 名"),
+-			"file":    strParam("相对路径(可选，默认 SKILL.md，如 scripts/run.py)"),
+-			"content": strParam("文件完整内容"),
++			"name":    strParam("Skill name"),
++			"file":    strParam("Relative path (optional; default SKILL.md, for example scripts/run.py)"),
++			"content": strParam("Complete file content"),
+ 		}, "name", "content"),
+ 		func(_ context.Context, in json.RawMessage) (actool.Result, error) {
+ 			var a struct{ Name, File, Content string }
+ 			_ = json.Unmarshal(in, &a)
+ 			if !validSkillName(a.Name) {
+-				return actool.Errorf("skill 名不合法"), nil
++				return actool.Errorf("Invalid skill name"), nil
+ 			}
+ 			skillPath := filepath.Join(s.skillDir, a.Name)
+ 			if _, err := os.Stat(skillPath); os.IsNotExist(err) {
+-				return actool.Errorf("skill 不存在: " + a.Name), nil
++				return actool.Errorf("Skill not found: " + a.Name), nil
+ 			}
+ 			rel := strings.TrimSpace(a.File)
+ 			if rel == "" {
+@@ -173,13 +173,13 @@
+ func customToolSchema(keyDesc string) map[string]any {
+ 	return objSchema(map[string]any{
+ 		"key":         strParam(keyDesc),
+-		"description": strParam("发给模型的描述"),
+-		"kind":        strParam("shell | command | script(仅Python) | http。shell=bash 环境声明(仅告知模型该工具可在 bash 中直接调用，无需 exec/schema)；其余三种需提供 exec"),
+-		"exec":        map[string]any{"type": "object", "description": "执行规格(shell 类型不需要): command→{command}; script→{code}; http→{method,url,headers,body,proxy,use_recording_proxy}"},
+-		"schema":      map[string]any{"type": "object", "description": "参数 JSON-Schema(shell/command/script 可留空; http 必填且需含 properties)"},
+-		"agents":      map[string]any{"type": "array", "items": map[string]any{"type": "string"}, "description": "绑定的 agent key(可选)"},
+-		"deferred":    map[string]any{"type": "boolean", "description": "是否延迟(shell 类型无效；仅 command/script/http 的不常用工具才开)"},
+-		"enabled":     map[string]any{"type": "boolean", "description": "是否启用(默认 true)"},
++		"description": strParam("Description supplied to the model"),
++		"kind":        strParam("shell | command | script (Python only) | http. shell declares the Bash environment (tells the model the tool can be called directly in Bash; no exec/schema required). The other three kinds require exec"),
++		"exec":        map[string]any{"type": "object", "description": "Execution specification (not required for shell): command->{command}; script->{code}; http->{method,url,headers,body,proxy,use_recording_proxy}"},
++		"schema":      map[string]any{"type": "object", "description": "Parameter JSON Schema (optional for shell/command/script; required for http and must include properties)"},
++		"agents":      map[string]any{"type": "array", "items": map[string]any{"type": "string"}, "description": "Agent keys to bind (optional)"},
++		"deferred":    map[string]any{"type": "boolean", "description": "Whether to defer (not applicable to shell; enable only for infrequently used command/script/http tools)"},
++		"enabled":     map[string]any{"type": "boolean", "description": "Whether enabled (default true)"},
+ 	}, "key", "kind")
+ }
+ 
+@@ -195,8 +195,8 @@
+ }
+ 
+ func (s *Server) toolCreateCustomTool() actool.CoreTool {
+-	return wrTool("create_custom_tool", "【重要】当安装一些平台没有的工具时，调用该工具将安装的工具放入平台中，让平台可以调用！创建一个自定义工具(shell/command/script/http)。shell=bash 环境声明，只需 key+description+agents，无需 exec/schema。",
+-		customToolSchema("工具 key(小写字母开头，字母/数字/下划线)"),
++	return wrTool("create_custom_tool", "IMPORTANT: after installing tools not included in the platform, register them here so the platform can call them. Creates a custom tool (shell/command/script/http). shell declares the Bash environment and only needs key+description+agents, not exec/schema.",
++		customToolSchema("Tool key (starts with a lowercase letter; letters/digits/underscores)"),
+ 		func(_ context.Context, in json.RawMessage) (actool.Result, error) {
+ 			var a customToolToolInput
+ 			_ = json.Unmarshal(in, &a)
+@@ -205,10 +205,10 @@
+ 				return actool.Errorf("key must start with a lowercase letter and contain only lowercase letters, digits, or underscores"), nil
+ 			}
+ 			if a.Kind != "shell" && a.Kind != "command" && a.Kind != "script" && a.Kind != "http" {
+-				return actool.Errorf("kind 需为 shell / command / script / http"), nil
++				return actool.Errorf("kind must be shell / command / script / http"), nil
+ 			}
+ 			if a.Kind == "http" && !hasSchemaProps(a.Schema) {
+-				return actool.Errorf("http 工具必须提供参数 JSON Schema(不能留空)"), nil
++				return actool.Errorf("HTTP tools require a nonempty parameter JSON Schema"), nil
+ 			}
+ 			if exist, _ := s.m.pg.GetTool(a.Key); exist != nil {
+ 				return actool.Errorf("This key already exists: " + a.Key), nil
+@@ -221,20 +221,20 @@
+ }
+ 
+ func (s *Server) toolUpdateCustomTool() actool.CoreTool {
+-	return wrTool("update_custom_tool", "修改一个已有的自定义工具(按 key)。",
+-		customToolSchema("要修改的自定义工具 key"),
++	return wrTool("update_custom_tool", "Update an existing custom tool by key.",
++		customToolSchema("Custom tool key to update"),
+ 		func(_ context.Context, in json.RawMessage) (actool.Result, error) {
+ 			var a customToolToolInput
+ 			_ = json.Unmarshal(in, &a)
+ 			existing, _ := s.m.pg.GetTool(a.Key)
+ 			if existing == nil || existing.System {
+-				return actool.Errorf("只能修改自定义工具: " + a.Key), nil
++				return actool.Errorf("Only custom tools can be updated: " + a.Key), nil
+ 			}
+ 			if a.Kind != "shell" && a.Kind != "command" && a.Kind != "script" && a.Kind != "http" {
+-				return actool.Errorf("kind 需为 shell / command / script / http"), nil
++				return actool.Errorf("kind must be shell / command / script / http"), nil
+ 			}
+ 			if a.Kind == "http" && !hasSchemaProps(a.Schema) {
+-				return actool.Errorf("http 工具必须提供参数 JSON Schema(不能留空)"), nil
++				return actool.Errorf("HTTP tools require a nonempty parameter JSON Schema"), nil
+ 			}
+ 			if err := s.m.pg.UpdateCustomTool(toDBTool(a)); err != nil {
+ 				return actool.Errorf(err.Error()), nil
+@@ -259,18 +259,18 @@
+ 
+ func mcpSchema(withID bool) map[string]any {
+ 	props := map[string]any{
+-		"name":      strParam("MCP 服务器名"),
++		"name":      strParam("MCP server name"),
+ 		"transport": strParam("stdio | http / sse"),
+-		"command":   strParam("stdio 的启动命令(如 npx)"),
+-		"args":      map[string]any{"type": "array", "items": map[string]any{"type": "string"}, "description": "命令参数数组"},
+-		"env":       map[string]any{"type": "object", "description": "环境变量 {KEY:VALUE}"},
+-		"url":       strParam("http/sse 的 URL"),
+-		"enabled":   map[string]any{"type": "boolean", "description": "是否启用(默认 true)"},
+-		"insecure":  map[string]any{"type": "boolean", "description": "http: 跳过 TLS 证书校验(自签证书时置 true, 默认 false)"},
++		"command":   strParam("stdio launch command (for example npx)"),
++		"args":      map[string]any{"type": "array", "items": map[string]any{"type": "string"}, "description": "Command argument array"},
++		"env":       map[string]any{"type": "object", "description": "Environment variables {KEY:VALUE}"},
++		"url":       strParam("http/sse URL"),
++		"enabled":   map[string]any{"type": "boolean", "description": "Whether enabled (default true)"},
++		"insecure":  map[string]any{"type": "boolean", "description": "http: skip TLS certificate verification (set true for self-signed certificates; default false)"},
+ 	}
+ 	required := []string{"name", "transport"}
+ 	if withID {
+-		props["id"] = map[string]any{"type": "integer", "description": "要修改的 MCP 服务器 id"}
++		props["id"] = map[string]any{"type": "integer", "description": "MCP server id to update"}
+ 		required = []string{"id", "name", "transport"}
+ 	}
+ 	return objSchema(props, required...)
+@@ -292,14 +292,14 @@
+ }
+ 
+ func (s *Server) toolCreateMCP() actool.CoreTool {
+-	return wrTool("create_mcp", "创建一个 MCP 服务器(stdio/http/sse)。创建后其工具需按 agent 可见性授权。",
++	return wrTool("create_mcp", "Create an MCP server (stdio/http/sse). Its tools require agent visibility authorization after creation.",
+ 		mcpSchema(false),
+ 		func(_ context.Context, in json.RawMessage) (actool.Result, error) {
+ 			var a mcpToolInput
+ 			_ = json.Unmarshal(in, &a)
+ 			a.ID = 0
+ 			if strings.TrimSpace(a.Name) == "" || strings.TrimSpace(a.Transport) == "" {
+-				return actool.Errorf("name / transport 必填"), nil
++				return actool.Errorf("name / transport are required"), nil
+ 			}
+ 			id, err := s.m.pg.SaveMCP(a.toDB())
+ 			if err != nil {
+@@ -310,13 +310,13 @@
+ }
+ 
+ func (s *Server) toolUpdateMCP() actool.CoreTool {
+-	return wrTool("update_mcp", "修改一个已有的 MCP 服务器(按 id)。",
++	return wrTool("update_mcp", "Update an existing MCP server by id.",
+ 		mcpSchema(true),
+ 		func(_ context.Context, in json.RawMessage) (actool.Result, error) {
+ 			var a mcpToolInput
+ 			_ = json.Unmarshal(in, &a)
+ 			if a.ID == 0 {
+-				return actool.Errorf("id 必填"), nil
++				return actool.Errorf("id is required"), nil
+ 			}
+ 			if _, err := s.m.pg.SaveMCP(a.toDB()); err != nil {
+ 				return actool.Errorf(err.Error()), nil
+--- before/server/runtime_english_test.go
++++ after/server/runtime_english_test.go
+@@ -0,0 +1,81 @@
++package server
++
++import (
++	"github.com/Autumn-27/artex/db"
++	"strings"
++	"testing"
++	"unicode"
++)
++
++// Existing-behavior regression: both producer generations must pass through unchanged.
++func TestRuntimeEnglishApprovalCompatibility(t *testing.T) {
++	for _, summary := range []string{"Tool Bash requests approval (#42)", "工具 Bash 请求审批 (#42)"} {
++		for _, reason := range []string{"[Model] review", "[模型] review"} {
++			got := activityDTO(db.Activity{Kind: "intercept", Tool: "Bash", Summary: summary, Detail: reason})
++			if got.Summary != summary || got.Detail != reason || got.Tool != "Bash" {
++				t.Fatalf("approval evidence rewritten: %+v", got)
++			}
++		}
++	}
++}
++
++func TestRuntimeEnglishTaskContext(t *testing.T) {
++	got := finalTriggerMessage(triggeredRun{taskID: 72, taskDesc: "用户目标", taskGoal: "保留证据", message: "body"})
++	if !strings.HasPrefix(got, "[Task: #72 用户目标 (goal: 保留证据)]") {
++		t.Fatalf("reporter Task: # contract: %q", got)
++	}
++}
++
++func TestRuntimeEnglishValidation(t *testing.T) {
++	for _, tc := range []struct{ kind, pattern, want string }{
++		{"exact_ip", "not-an-ip", "exact_ip is not a valid IP address: not-an-ip"},
++		{"cidr", "not-a-network", "cidr is not a valid network (for example 192.168.0.0/16): not-a-network"},
++		{"unknown", "example.com", "Invalid kind: unknown"},
++	} {
++		t.Run(tc.kind, func(t *testing.T) {
++			req := assetInterceptRuleReq{Kind: tc.kind, Pattern: tc.pattern}
++			err := validateAssetInterceptRuleReq(&req)
++			if err == nil || err.Error() != tc.want {
++				t.Fatalf("error=%v want %q", err, tc.want)
++			}
++		})
++	}
++	for _, kind := range []string{"exact_ip", "cidr", "fuzzy_domain"} {
++		pattern := "例子.example"
++		if kind == "exact_ip" {
++			pattern = " 192.0.2.1 "
++		}
++		if kind == "cidr" {
++			pattern = "192.0.2.0/24"
++		}
++		req := assetInterceptRuleReq{Kind: kind, Pattern: pattern}
++		if err := validateAssetInterceptRuleReq(&req); err != nil {
++			t.Fatal(err)
++		}
++	}
++}
++
++func TestRuntimeEnglishToolDescriptions(t *testing.T) {
++	s := &Server{}
++	for _, tool := range s.platformTools() {
++		t.Run(tool.Name(), func(t *testing.T) {
++			for _, r := range tool.Description() {
++				if unicode.Is(unicode.Han, r) {
++					t.Fatalf("untranslated generated description: %s", tool.Description())
++				}
++			}
++		})
++	}
++}
++
++func TestRuntimeEnglishTruncationPreservesUnicode(t *testing.T) {
++	if got := trunc("证据abc", 2); got != "证据…(truncated, 5 characters total)" {
++		t.Fatalf("got %q", got)
++	}
++	if got := trunc("证据", 2); got != "证据" {
++		t.Fatalf("untruncated user evidence changed: %q", got)
++	}
++	if !strings.Contains(reporterToolCallMessage, "evidence_version") {
++		t.Fatal("reporter version contract lost")
++	}
++}
+--- before/server/scheduler.go
++++ after/server/scheduler.go
+@@ -142,8 +142,8 @@
+ 			continue
+ 		}
+ 		_ = sc.pg.TouchTriggerFire(tr.ID)
+-		ctx := "\n\n【本次为定时触发】" + now.Format(" 2006-01-02 15:04:05 MST")
+-		sc.s.StartTriggeredRun(tr.AgentKey, fmt.Sprintf("定时触发 · %s", now.Format("15:04")), tr.IntervalMessage+ctx, 0, false, "", "")
++		ctx := "\n\n[Scheduled trigger]" + now.Format(" 2006-01-02 15:04:05 MST")
++		sc.s.StartTriggeredRun(tr.AgentKey, fmt.Sprintf("Scheduled trigger · %s", now.Format("15:04")), tr.IntervalMessage+ctx, 0, false, "", "")
+ 	}
+ }
+ 
+@@ -172,7 +172,7 @@
+ 		if len(want) == 0 {
+ 			continue
+ 		}
+-		msgCtx := fmt.Sprintf("\n\n【本次由任务发现 finding 触发】\n发现: [%s/%s] %s",
++		msgCtx := fmt.Sprintf("\n\n[Triggered by a task finding]\nFinding: [%s/%s] %s",
+ 			e.VulnClass, e.Severity, e.Summary)
+ 		for _, tr := range want {
+ 			if sc.nativeReporterEvent(tr, e) {
+@@ -181,7 +181,7 @@
+ 			if !tr.OnFinding {
+ 				continue
+ 			}
+-			sc.s.StartTriggeredRun(tr.AgentKey, fmt.Sprintf("finding 触发 · task#%d", e.TaskID), tr.FindingMessage+msgCtx, e.TaskID, true, e.TaskDesc, e.TaskGoal)
++			sc.s.StartTriggeredRun(tr.AgentKey, fmt.Sprintf("Finding trigger · task#%d", e.TaskID), tr.FindingMessage+msgCtx, e.TaskID, true, e.TaskDesc, e.TaskGoal)
+ 		}
+ 	}
+ 	_ = sc.pg.SetSchedState(schedKeyLastFinding, strconv.FormatInt(maxID, 10))
+@@ -212,9 +212,9 @@
+ 		if len(want) == 0 {
+ 			continue
+ 		}
+-		msgCtx := fmt.Sprintf("\n\n【本次由任务完成目标触发】\n达成目标: %s", e.Summary)
+-		for _, tr := range want {
+-			sc.s.StartTriggeredRun(tr.AgentKey, fmt.Sprintf("目标触发 · task#%d", e.TaskID), tr.GoalMessage+msgCtx, e.TaskID, true, e.TaskDesc, e.TaskGoal)
++		msgCtx := fmt.Sprintf("\n\n[Triggered by task goal completion]\nCompleted goal: %s", e.Summary)
++		for _, tr := range want {
++			sc.s.StartTriggeredRun(tr.AgentKey, fmt.Sprintf("Goal trigger · task#%d", e.TaskID), tr.GoalMessage+msgCtx, e.TaskID, true, e.TaskDesc, e.TaskGoal)
+ 		}
+ 	}
+ 	if changed {
+@@ -245,9 +245,9 @@
+ 		if len(want) == 0 {
+ 			continue
+ 		}
+-		msgCtx := "\n\n【本次由任务超时触发】"
+-		for _, tr := range want {
+-			sc.s.StartTriggeredRun(tr.AgentKey, fmt.Sprintf("超时触发 · task#%d", e.TaskID), tr.TaskTimeoutMessage+msgCtx, e.TaskID, true, e.TaskDesc, e.TaskGoal)
++		msgCtx := "\n\n[Triggered by task timeout]"
++		for _, tr := range want {
++			sc.s.StartTriggeredRun(tr.AgentKey, fmt.Sprintf("Timeout trigger · task#%d", e.TaskID), tr.TaskTimeoutMessage+msgCtx, e.TaskID, true, e.TaskDesc, e.TaskGoal)
+ 		}
+ 	}
+ 	_ = sc.pg.SetSchedState(schedKeyLastTimeout, strconv.FormatInt(maxID, 10))
+@@ -276,9 +276,9 @@
+ 		if len(want) == 0 {
+ 			continue
+ 		}
+-		msgCtx := "\n\n【本次由任务创建触发】"
+-		for _, tr := range want {
+-			sc.s.StartTriggeredRun(tr.AgentKey, fmt.Sprintf("任务创建触发 · task#%d", e.TaskID), tr.TaskCreateMessage+msgCtx, e.TaskID, true, e.TaskDesc, e.TaskGoal)
++		msgCtx := "\n\n[Triggered by task creation]"
++		for _, tr := range want {
++			sc.s.StartTriggeredRun(tr.AgentKey, fmt.Sprintf("Task creation trigger · task#%d", e.TaskID), tr.TaskCreateMessage+msgCtx, e.TaskID, true, e.TaskDesc, e.TaskGoal)
+ 		}
+ 	}
+ 	_ = sc.pg.SetSchedState(schedKeyLastTaskCreate, strconv.FormatInt(maxID, 10))
+@@ -317,7 +317,7 @@
+ 		if e.ToolIsErr {
+ 			errTag = "[error] "
+ 		}
+-		msgCtx := fmt.Sprintf("\n\n【本次由工具调用触发】\n工具: %s\n入参: %s\n返回: %s%s",
++		msgCtx := fmt.Sprintf("\n\n[Triggered by a tool call]\nTool: %s\nInput: %s\nOutput: %s%s",
+ 			e.Tool, trunc(e.ToolInput, 1500), errTag, trunc(e.ToolOutput, 1500))
+ 		for _, tr := range want {
+ 			if tr.AgentKey == "reporter" && e.Tool == "report_finding" && sc.nativeReporterTask(e.TaskID) {
+@@ -326,7 +326,7 @@
+ 			if !containsFold(tr.ToolNames, e.Tool) {
+ 				continue
+ 			}
+-			sc.s.StartTriggeredRun(tr.AgentKey, fmt.Sprintf("工具触发 · %s · task#%d", e.Tool, e.TaskID), tr.ToolCallMessage+msgCtx, e.TaskID, true, e.TaskDesc, e.TaskGoal)
++			sc.s.StartTriggeredRun(tr.AgentKey, fmt.Sprintf("Tool trigger · %s · task#%d", e.Tool, e.TaskID), tr.ToolCallMessage+msgCtx, e.TaskID, true, e.TaskDesc, e.TaskGoal)
+ 		}
+ 	}
+ 	_ = sc.pg.SetSchedState(schedKeyLastToolCall, strconv.FormatInt(maxID, 10))
+@@ -348,7 +348,7 @@
+ 	if len(r) <= max {
+ 		return s
+ 	}
+-	return string(r[:max]) + fmt.Sprintf("…(truncated,共 %d 字)", len(r))
++	return string(r[:max]) + fmt.Sprintf("…(truncated, %d characters total)", len(r))
+ }
+ 
+ func (sc *Scheduler) mustState(key string) string {
+--- before/server/server.go
++++ after/server/server.go
+@@ -271,7 +271,7 @@
+ 		// clear stale 'running' intents from a prior crash/restart (no live worker
+ 		// owns them) so they re-claim instead of spinning forever in the UI.
+ 		if n, _ := t.Store.ResetRunningIntents(); n > 0 {
+-			log.Printf("[engine] task %s 重置 %d 个残留 running 意图为 open", t.ID, n)
++			log.Printf("[engine] task %s reset %d leftover running intents to open", t.ID, n)
+ 		}
+ 		if lifecycle.Paused {
+ 			s.engine.Pause(t.ID, agent.AbortPausedOnReload)
+@@ -549,10 +549,10 @@
+ func (s *Server) chatUnavailableReason() string {
+ 	if s.m.pg != nil {
+ 		if profiles, err := s.m.pg.ListProfiles(); err == nil && len(profiles) == 0 {
+-			return "尚未配置 LLM：请到 系统 → LLM 配置 添加一个配置"
++			return "No LLM configured: add a profile in System -> LLM Profiles"
+ 		}
+ 		if active, err := s.m.pg.ActiveProfile(); err == nil && active == nil {
+-			return "没有已激活的 LLM 配置：请到 系统 → LLM 配置 激活一个，或在本对话为该会话指定一个配置"
++			return "No active LLM profile: activate one in System -> LLM Profiles or select a profile for this conversation"
+ 		}
+ 	}
+ 	return "LLM unavailable: selected profile missing, invalid or failed construction; no fallback (DB native profiles unsupported)"
+@@ -882,7 +882,7 @@
+ 	mux.HandleFunc("POST /api/skills", s.fsCreateSkill)
+ 	mux.HandleFunc("POST /api/skills/upload", s.fsUploadSkill)
+ 	mux.HandleFunc("DELETE /api/skills/{name}", s.fsDeleteSkill)
+-	mux.HandleFunc("GET /api/skills/missing", s.fsMissingSkills)   // 未命中(想调但不存在)的 skill 名
++	mux.HandleFunc("GET /api/skills/missing", s.fsMissingSkills)   // 未命中(想调但不存在)的 Skill name
+ 	mux.HandleFunc("GET /api/skills/{name}/usage", s.fsSkillUsage) // 单个 skill 的最近调用
+ 	mux.HandleFunc("PUT /api/skills/{name}/meta", s.fsUpdateSkillMeta)
+ 	mux.HandleFunc("POST /api/skills/{name}/dirs", s.fsCreateDir)
+@@ -1149,7 +1149,7 @@
+ 		return
+ 	}
+ 	if !s.engine.beginTaskOperation(t.ID) {
+-		writeErr(w, 409, "Task is being deleted and cannot be controlled意图")
++		writeErr(w, 409, "Task is being deleted; cannot control intents")
+ 		return
+ 	}
+ 	defer s.engine.decInflight(t.ID)
+@@ -1206,7 +1206,7 @@
+ 		return
+ 	}
+ 	if !s.engine.beginTaskOperation(t.ID) {
+-		writeErr(w, 409, "Task is being deleted，无法重跑意图")
++		writeErr(w, 409, "Task is being deleted; cannot rerun intents")
+ 		return
+ 	}
+ 	defer s.engine.decInflight(t.ID)
+@@ -1221,7 +1221,7 @@
+ 		return
+ 	}
+ 	if !reopened {
+-		writeErr(w, 409, "该意图不是可重跑状态(仅 blocked/exhausted/stopped 可重跑)")
++		writeErr(w, 409, "Intent is not in a rerunnable state (only blocked/exhausted/stopped can be rerun)")
+ 		return
+ 	}
+ 	queued, err := s.admitTask(t, "resume")
+@@ -1232,7 +1232,7 @@
+ 		writeErr(w, 500, err.Error())
+ 		return
+ 	}
+-	log.Printf("[task] #%s 意图 #%d 已重开(重跑)", t.ID, iid)
++	log.Printf("[task] #%s intent #%d reopened (rerun)", t.ID, iid)
+ 	writeJSON(w, 200, map[string]any{"id": t.ID, "reopened": iid, "queued": queued})
+ }
+ 
+@@ -1245,7 +1245,7 @@
+ 		return
+ 	}
+ 	if !s.engine.beginTaskOperation(t.ID) {
+-		writeErr(w, 409, "Task is being deleted，无法重跑意图")
++		writeErr(w, 409, "Task is being deleted; cannot rerun intents")
+ 		return
+ 	}
+ 	defer s.engine.decInflight(t.ID)
+@@ -1282,7 +1282,7 @@
+ 			writeErr(w, 500, err.Error())
+ 			return
+ 		}
+-		log.Printf("[task] #%s 批量重开 %d 条 blocked 意图", t.ID, n)
++		log.Printf("[task] #%s batch reopened %d blocked intents", t.ID, n)
+ 	}
+ 	writeJSON(w, 200, map[string]any{"id": t.ID, "reopened": n, "queued": queued})
+ }
+@@ -1469,7 +1469,7 @@
+ 		return
+ 	}
+ 	if strings.TrimSpace(req.Description) == "" {
+-		req.Description = "未命名任务"
++		req.Description = "Untitled task"
+ 	}
+ 	if len(req.LLMProfileIDs) == 0 && req.LLMProfileID != nil {
+ 		req.LLMProfileIDs = []int64{*req.LLMProfileID}
+@@ -1482,7 +1482,7 @@
+ 		req.TimeoutSeconds = 0
+ 	}
+ 	if len(req.SourceTaskIDs) > db.MaxTaskSourceCount {
+-		writeErr(w, 400, fmt.Sprintf("关联任务最多选择 %d 个", db.MaxTaskSourceCount))
++		writeErr(w, 400, fmt.Sprintf("At most %d source tasks may be selected", db.MaxTaskSourceCount))
+ 		return
+ 	}
+ 	sourceIDs := make([]int64, 0, len(req.SourceTaskIDs))
+@@ -1490,11 +1490,11 @@
+ 	for _, raw := range req.SourceTaskIDs {
+ 		id, err := strconv.ParseInt(strings.TrimSpace(raw), 10, 64)
+ 		if err != nil || id <= 0 || seenSources[id] {
+-			writeErr(w, 400, "关联Invalid task id或重复")
++			writeErr(w, 400, "Invalid or duplicate source task id")
+ 			return
+ 		}
+ 		if _, ok := s.m.Task(strconv.FormatInt(id, 10)); !ok {
+-			writeErr(w, 400, fmt.Sprintf("关联任务 #%d 不存在", id))
++			writeErr(w, 400, fmt.Sprintf("Source task #%d not found", id))
+ 			return
+ 		}
+ 		seenSources[id] = true
+@@ -1502,13 +1502,13 @@
+ 	}
+ 	companyIDs, err := db.NormalizeTaskCompanyIDs(req.CompanyIDs)
+ 	if err != nil {
+-		writeErr(w, 400, fmt.Sprintf("关联企业无效：最多选择 %d 个有效企业", db.MaxTaskCompanyCount))
++		writeErr(w, 400, fmt.Sprintf("Invalid associated companies: select at most %d valid companies", db.MaxTaskCompanyCount))
+ 		return
+ 	}
+ 	req.CompanyIDs = companyIDs
+ 	interceptRules, err := buildTaskInterceptRules(req.InterceptRules)
+ 	if err != nil {
+-		writeErr(w, 400, "任务级拦截规则无效："+err.Error())
++		writeErr(w, 400, "Invalid task-level intercept rules: "+err.Error())
+ 		return
+ 	}
+ 	t, err := s.m.CreateTaskWithOptions(req.Description, req.Goal, db.TaskCreateOptions{
+@@ -1520,17 +1520,17 @@
+ 	})
+ 	if err != nil {
+ 		if errors.Is(err, db.ErrTaskCategoryInvalid) || errors.Is(err, db.ErrTaskCategoryNotFound) {
+-			writeErr(w, 400, "任务分类不存在或无效")
++			writeErr(w, 400, "Task category is missing or invalid")
+ 			return
+ 		}
+ 		if errors.Is(err, db.ErrTaskCompanyIDsInvalid) || errors.Is(err, db.ErrTaskCompanyNotFound) {
+-			writeErr(w, 400, "关联企业不存在或无效")
+-			return
+-		}
+-		writeErr(w, 500, err.Error())
+-		return
+-	}
+-	log.Printf("[task] 新建任务 #%s «%s» 目标: %s", t.ID, req.Description, req.Goal)
++			writeErr(w, 400, "Associated company is missing or invalid")
++			return
++		}
++		writeErr(w, 500, err.Error())
++		return
++	}
++	log.Printf("[task] Created task #%s «%s» goal: %s", t.ID, req.Description, req.Goal)
+ 	// 共享的建后流程(seed + 种子意图 + 后台目标分解 + engine.Run),与 spawn_task 复用同一段。
+ 	// launchTask 内部异步,不阻塞 UI —— 目标分解在后台可见地进行。
+ 	s.launchTask(t, req.Description+" "+req.Goal, req.SeedFirstIntent != nil && *req.SeedFirstIntent)
+@@ -1541,11 +1541,11 @@
+ 	seen := map[int64]bool{}
+ 	for _, id := range ids {
+ 		if id <= 0 || seen[id] {
+-			return fmt.Errorf("LLM 配置 id 无效或重复")
++			return fmt.Errorf("Invalid or duplicate LLM profile id")
+ 		}
+ 		seen[id] = true
+ 		if _, ok := s.loadProfileConfig(id); !ok {
+-			return fmt.Errorf("LLM 配置 #%d 不存在或未设置 API Key", id)
++			return fmt.Errorf("LLM profile #%d is missing or has no API Key", id)
+ 		}
+ 	}
+ 	return nil
+@@ -1675,12 +1675,12 @@
+ func (s *Server) seed(t *Task, text string) {
+ 	scheme, host, port, ok := parseTarget(text)
+ 	if !ok {
+-		log.Printf("[seed] task %s: 未能从 %q 解析出目标 host/IP，不创建站点（请手动配置 scope）", t.ID, text)
++		log.Printf("[seed] task %s: could not parse target host/IP from %q; not creating a site (configure scope manually)", t.ID, text)
+ 		return
+ 	}
+ 	// P0-1 guard: never treat the configured LLM gateway as a target.
+ 	if gw := s.llmHost(); gw != "" && host == gw {
+-		log.Printf("[seed] task %s: 目标 %q 是 LLM 网关，拒绝作为渗透目标", t.ID, host)
++		log.Printf("[seed] task %s: target %q is an LLM gateway; rejected as a penetration-testing target", t.ID, host)
+ 		return
+ 	}
+ 
+@@ -1699,7 +1699,7 @@
+ 			rootID, _ = as.UpsertRootDomain(db.UpsertRootDomainReq{Domain: host, TaskID: taskID})
+ 		}
+ 		if rootID > 0 {
+-			_ = as.SetTaskAssetSource(taskID, rootID, "task", "由任务描述或目标初始化", nil)
++			_ = as.SetTaskAssetSource(taskID, rootID, "task", "Initialized from task description or goal", nil)
+ 		}
+ 	}
+ 	// anchor the seeded assets to this task's begin root as lineage/provenance
+@@ -1709,7 +1709,7 @@
+ 			_ = t.Store.Anchor(begin, rootID)
+ 		}
+ 	}
+-	log.Printf("[seed] task %s: 目标站点 %s", t.ID, u)
++	log.Printf("[seed] task %s: target site %s", t.ID, u)
+ 	// 不在这里 Notify:首轮是否触发统一由 engine.Run 的 HasActiveIntent 决定(种子意图任务
+ 	// 跳过首轮)。seed 早于 Run 执行,若在此 Notify 会 buffered 到通道、被 plannerLoop 启动时
+ 	// 消费掉而绕过 Run 的门控 → 种子任务仍误触发首轮。
+@@ -1721,16 +1721,16 @@
+ // origin fact (RelDerivedFrom) so it still traces back to a fact node. Best-effort —
+ // a failure just falls back to the normal planner-driven flow.
+ func (s *Server) seedFirstIntent(t *Task) {
+-	summary := fmt.Sprintf("完成任务目标：%s（任务：%s）", t.Goal, t.Description)
++	summary := fmt.Sprintf("Complete task goal: %s (task: %s)", t.Goal, t.Description)
+ 	id, err := t.Store.AddIntent(map[string]any{"summary": summary}, 8, nil, "seed")
+ 	if err != nil {
+-		log.Printf("[seed] task %s: 下发种子意图失败: %v", t.ID, err)
++		log.Printf("[seed] task %s: failed to issue seed intent: %v", t.ID, err)
+ 		return
+ 	}
+ 	if origin, _ := t.Store.OriginFactID(); origin > 0 {
+ 		_ = t.Store.Link(origin, db.RelDerivedFrom, id)
+ 	}
+-	log.Printf("[seed] task %s: 已下发种子意图 #%d", t.ID, id)
++	log.Printf("[seed] task %s: issued seed intent #%d", t.ID, id)
+ }
+ 
+ func (s *Server) getTask(w http.ResponseWriter, r *http.Request) {
+@@ -1754,7 +1754,7 @@
+ 	}
+ 	as := s.m.Assets()
+ 	if as == nil {
+-		writeErr(w, 503, "asset store 未启用")
++		writeErr(w, 503, "Asset store is disabled")
+ 		return
+ 	}
+ 	// 资产覆盖度功能关闭 → 短路返回 {enabled:false}，前端据此隐藏覆盖度卡片/进度。
+@@ -1782,7 +1782,7 @@
+ 	}
+ 	as := s.m.Assets()
+ 	if as == nil {
+-		writeErr(w, 503, "asset store 未启用")
++		writeErr(w, 503, "Asset store is disabled")
+ 		return
+ 	}
+ 	taskID, _ := strconv.ParseInt(t.ID, 10, 64)
+@@ -1804,7 +1804,7 @@
+ 	}
+ 	assetID, _ := strconv.ParseInt(r.URL.Query().Get("asset_id"), 10, 64)
+ 	if assetID <= 0 {
+-		writeErr(w, 400, "需要 asset_id")
++		writeErr(w, 400, "asset_id is required")
+ 		return
+ 	}
+ 	refs, err := t.Store.AssetRefsWithSources(assetID)
+@@ -1838,7 +1838,7 @@
+ 	}
+ 	as := s.m.Assets()
+ 	if as == nil {
+-		writeErr(w, 503, "asset store 未启用")
++		writeErr(w, 503, "Asset store is disabled")
+ 		return
+ 	}
+ 	taskID, _ := strconv.ParseInt(t.ID, 10, 64)
+@@ -1858,7 +1858,7 @@
+ 	}
+ 	as := s.m.Assets()
+ 	if as == nil {
+-		writeErr(w, 503, "asset store 未启用")
++		writeErr(w, 503, "Asset store is disabled")
+ 		return
+ 	}
+ 	var body struct {
+@@ -1887,7 +1887,7 @@
+ 	}
+ 	as := s.m.Assets()
+ 	if as == nil {
+-		writeErr(w, 503, "asset store 未启用")
++		writeErr(w, 503, "Asset store is disabled")
+ 		return
+ 	}
+ 	taskID, _ := strconv.ParseInt(t.ID, 10, 64)
+@@ -2301,7 +2301,7 @@
+ 			return
+ 		}
+ 		if !notified && from != *body.Status {
+-			log.Printf("[notify] 状态变更事件未登记 finding=%d %s→%s（状态已更新）", id, from, *body.Status)
++			log.Printf("[notify] Status-change event not recorded finding=%d %s->%s (status was updated)", id, from, *body.Status)
+ 		}
+ 	}
+ 	if body.Severity != nil {
+@@ -3279,7 +3279,7 @@
+ 	w.Header().Set("Content-Length", strconv.FormatInt(size, 10))
+ 	w.Header().Set("Content-Disposition", fmt.Sprintf("attachment; filename=%q", hash+".bin"))
+ 	if _, err := io.Copy(w, f); err != nil {
+-		log.Printf("[traffic] 下载 blob %s 中断：%v", hash, err)
++		log.Printf("[traffic] blob %s download interrupted: %v", hash, err)
+ 	}
+ }
+ 
+@@ -3353,7 +3353,7 @@
+ func (s *Server) pgDetectPython(w http.ResponseWriter, r *http.Request) {
+ 	p := detectPython()
+ 	if p == "" {
+-		writeErr(w, 404, "未检测到 python(python3/python 均不在 PATH)")
++		writeErr(w, 404, "Python not detected (neither python3 nor python is in PATH)")
+ 		return
+ 	}
+ 	if err := s.m.pg.SetSetting(settingPythonInterp, p); err != nil {
+@@ -3434,7 +3434,7 @@
+ 		// 留着尾部斜杠会产出 "//function/..." 这种双斜杠路径。
+ 		base := trimTrailingSlash(strings.TrimSpace(*req.NotifyBaseURL))
+ 		if base != "" && !strings.HasPrefix(base, "http://") && !strings.HasPrefix(base, "https://") {
+-			writeErr(w, 400, "回链地址需以 http:// 或 https:// 开头")
++			writeErr(w, 400, "Backlink URL must start with http:// or https://")
+ 			return
+ 		}
+ 		if err := s.m.pg.SetSetting(settingNotifyPublicBaseURL, base); err != nil {
+@@ -3445,7 +3445,7 @@
+ 	if req.NotifyDigestMins != nil {
+ 		// 下限 1 分钟:更短的周期等于实时推送,那样应该直接把渠道改成 realtime 模式。
+ 		if *req.NotifyDigestMins < 1 || *req.NotifyDigestMins > 24*60 {
+-			writeErr(w, 400, "汇总周期需在 1 到 1440 分钟之间")
++			writeErr(w, 400, "Digest interval must be between 1 and 1440 minutes")
+ 			return
+ 		}
+ 		if err := s.m.pg.SetSetting(settingNotifyDigestMinutes, strconv.Itoa(*req.NotifyDigestMins)); err != nil {
+@@ -3617,7 +3617,7 @@
+ 		return
+ 	}
+ 	if len(results) == 0 {
+-		writeJSON(w, 200, map[string]any{"ok": false, "error": "搜索返回 0 条结果（可能被限流或代理不通）", "backend": backend})
++		writeJSON(w, 200, map[string]any{"ok": false, "error": "Search returned 0 results (possibly rate limited or proxy unavailable)", "backend": backend})
+ 		return
+ 	}
+ 	writeJSON(w, 200, map[string]any{"ok": true, "count": len(results), "backend": backend})
+@@ -3653,7 +3653,7 @@
+ 		return
+ 	}
+ 	if s.engine.IsDeleting(t.ID) {
+-		writeErr(w, 409, "Task is being deleted，无法新建会话")
++		writeErr(w, 409, "Task is being deleted; cannot create conversations")
+ 		return
+ 	}
+ 	m, err := t.Store.NewMainSession()
+@@ -3671,7 +3671,7 @@
+ 		return
+ 	}
+ 	if s.engine.IsDeleting(t.ID) {
+-		writeErr(w, 409, "Task is being deleted，无法发送新消息")
++		writeErr(w, 409, "Task is being deleted; cannot send new messages")
+ 		return
+ 	}
+ 	// 注意:任务暂停(paused)不拦截主 Agent 对话。主 Agent 编排会话独立于 planner/
+@@ -3695,12 +3695,12 @@
+ 	s.chatMu.Lock()
+ 	if s.engine.IsDeleting(t.ID) {
+ 		s.chatMu.Unlock()
+-		writeErr(w, 409, "Task is being deleted，无法发送新消息")
++		writeErr(w, 409, "Task is being deleted; cannot send new messages")
+ 		return
+ 	}
+ 	if s.chatBusy[t.ID] {
+ 		s.chatMu.Unlock()
+-		writeErr(w, 409, "主 Agent 正在处理上一条消息，请稍候")
++		writeErr(w, 409, "The main Agent is processing the previous message; please wait")
+ 		return
+ 	}
+ 	ctx, cancel := context.WithCancelCause(s.ctx)
+@@ -3760,7 +3760,7 @@
+ 			_, err := ma.Chat(ctx, maTaskID, mainSeg, s.m.Assets(), t.Store, t.Goal, agentMsg, emit, t.Notify, resume, t.NotifyGoal, t.NotifyHint)
+ 			s.engine.EndLLMCall(t.ID)
+ 			if err != nil && ctx.Err() == nil {
+-				s.engine.emitActivity(t, db.Activity{Worker: "mainagent", Kind: "text", IsError: true, Summary: "（主 Agent 出错：" + err.Error() + "）", MainSeg: segPtr})
++				s.engine.emitActivity(t, db.Activity{Worker: "mainagent", Kind: "text", IsError: true, Summary: "(Main Agent error: " + err.Error() + ")", MainSeg: segPtr})
+ 			}
+ 		}()
+ 		writeJSON(w, 202, map[string]any{"status": "accepted", "mode": "llm"})
+@@ -3829,11 +3829,11 @@
+ 	case strings.HasPrefix(m, "意图") || strings.HasPrefix(lower, "intent"):
+ 		text := strings.TrimSpace(strings.TrimPrefix(strings.TrimPrefix(m, "意图"), "intent"))
+ 		_, _ = t.Store.AddIntent(map[string]any{"summary": text}, 9, nil, "human")
+-		return "已注入一条高优先级意图：" + text
++		return "Injected a high-priority intent: " + text
+ 	case strings.HasPrefix(m, "提示") || strings.HasPrefix(lower, "hint"):
+ 		text := strings.TrimSpace(strings.TrimPrefix(strings.TrimPrefix(m, "提示"), "hint"))
+ 		_, _ = t.Store.AddNode(db.KindHint, map[string]any{"text": text}, 0, "active", "human", nil)
+-		return "已记录提示，规划者下次会读到：" + text
++		return "Hint recorded for the planner's next run: " + text
+ 	default:
+ 		assetCounts, _ := s.m.Assets().CountsByType()
+ 		assets := 0
+@@ -3842,7 +3842,7 @@
+ 		}
+ 		fnd, _ := t.Store.ListByKind(db.KindFinding, 1000)
+ 		fr, _ := t.Store.Frontier(1000)
+-		return fmt.Sprintf("（规则模式，未配置 LLM）当前态势：资产 %d，待领意图 %d，确认发现 %d。\n可用指令：以\"意图 ...\"注入意图，\"提示 ...\"给规划者提示。", assets, len(fr), len(fnd))
++		return fmt.Sprintf("(Rule mode, no LLM configured) Current state: %d assets, %d unclaimed intents, %d confirmed findings.\nAvailable commands: use intent ... to inject an intent, or hint ... to send a hint to the planner.", assets, len(fr), len(fnd))
+ 	}
+ }
+ 
+--- before/server/server_mgmt.go
++++ after/server/server_mgmt.go
+@@ -119,7 +119,7 @@
+ 			state := task.lifecycleSnapshot()
+ 			keepPaused = state.Paused || state.Queued
+ 			if getErr != nil {
+-				log.Printf("[task-delete] task %s 读取持久状态失败，使用内存状态恢复屏障: %v", taskID, getErr)
++				log.Printf("[task-delete] task %s failed to read persisted state; recovering barrier from in-memory state: %v", taskID, getErr)
+ 			}
+ 		} else if getErr == nil {
+ 			// The request targeted a task that does not exist. Do not retain a
+@@ -273,7 +273,7 @@
+ 	}
+ 	// starter prompt so the editor shows something editable from the start.
+ 	if err := pg.SeedPromptIfEmpty(a.ID, agent.DefaultAssistantPrompt); err != nil {
+-		log.Printf("[agents] seed starter prompt for %s 失败: %v", a.Key, err)
++		log.Printf("[agents] seed starter prompt for %s failed: %v", a.Key, err)
+ 	}
+ 	writeJSON(w, 200, agentDTO(a))
+ }
+@@ -321,10 +321,10 @@
+ 		return
+ 	}
+ 	if err := pg.RemoveAgentFromToolBindings(a.Key); err != nil {
+-		log.Printf("[agents] 清理 %s 工具绑定失败: %v", a.Key, err)
++		log.Printf("[agents] failed to clean up %s tool bindings: %v", a.Key, err)
+ 	}
+ 	if err := pg.DeleteTriggersForAgent(a.Key); err != nil {
+-		log.Printf("[agents] 清理 %s 触发器失败: %v", a.Key, err)
++		log.Printf("[agents] failed to clean up %s triggers: %v", a.Key, err)
+ 	}
+ 	writeJSON(w, 200, map[string]any{"deleted": a.Key})
+ }
+@@ -496,11 +496,11 @@
+ 		"visibility":   map[string]any{"mcp": mcp, "skill": sk},
+ 		"llm_profiles": llmProfiles, // 可绑定的 LLM 配置候选
+ 
+-		"wrapup_prompt":            a.WrapupPrompt,                  // 已保存的收尾提示词(空=用内置默认)
+-		"wrapup_default":           agent.WrapupDefault(a.Key),      // 内置默认(供占位/恢复默认)
+-		"wrapup_max_turns":         a.WrapupMaxTurns,                // 已保存的收尾轮数(0=用内置默认)
+-		"wrapup_max_turns_default": agent.WrapupTurnsDefault(a.Key), // 内置默认轮数(供 "0=默认N" 提示)
+-		// 任务级超时收尾词(仅 worker/planner 有内置默认;task_timeout_supported 供前端决定是否显示该分区)
++		"wrapup_prompt":            a.WrapupPrompt,                  // 已保存的收尾提示词(空=用Built-in default)
++		"wrapup_default":           agent.WrapupDefault(a.Key),      // Built-in default(供占位/恢复默认)
++		"wrapup_max_turns":         a.WrapupMaxTurns,                // 已保存的收尾轮数(0=用Built-in default)
++		"wrapup_max_turns_default": agent.WrapupTurnsDefault(a.Key), // Built-in default轮数(供 "0=默认N" 提示)
++		// 任务级超时收尾词(仅 worker/planner 有Built-in default;task_timeout_supported 供前端决定是否显示该分区)
+ 		"task_timeout_wrapup_supported":         agent.TaskTimeoutWrapupDefault(a.Key) != "",
+ 		"task_timeout_wrapup_prompt":            a.TaskTimeoutWrapupPrompt,
+ 		"task_timeout_wrapup_default":           agent.TaskTimeoutWrapupDefault(a.Key),
+@@ -757,7 +757,7 @@
+ 	// catalog query, so agent assembly never pays for this aggregate.
+ 	counts, countErr := pg.ToolUsageCounts()
+ 	if countErr != nil {
+-		log.Printf("[tools] 读取调用统计失败: %v", countErr)
++		log.Printf("[tools] failed to read call statistics: %v", countErr)
+ 	} else {
+ 		for _, tool := range ts {
+ 			tool.Calls = counts[tool.Key]
+@@ -883,7 +883,7 @@
+ 		m.ID = id
+ 		ctx, cancel := context.WithTimeout(r.Context(), 45*time.Second)
+ 		if derr := s.discoverAndCacheMCP(ctx, &m); derr != nil {
+-			log.Printf("[mcp] %s 添加后工具发现失败: %v", m.Name, derr)
++			log.Printf("[mcp] tool discovery after adding %s failed: %v", m.Name, derr)
+ 		}
+ 		cancel()
+ 	}
+@@ -994,7 +994,7 @@
+ 	if s.m.pg != nil {
+ 		stats, err := s.m.pg.SkillStats()
+ 		if err != nil {
+-			log.Printf("[skills] 读取调用统计失败: %v", err)
++			log.Printf("[skills] failed to read call statistics: %v", err)
+ 		}
+ 		for _, st := range stats {
+ 			statBySkill[st.Skill] = st
+--- before/server/side_questions.go
++++ after/server/side_questions.go
+@@ -168,7 +168,7 @@
+ 	defer s.side.mu.Unlock()
+ 	for _, snap := range s.side.pending {
+ 		if snap.Parent.TaskID == id {
+-			return errors.New("旁路上下文尚未保存，请重试")
++			return errors.New("Side-question context has not been saved; retry")
+ 		}
+ 	}
+ 	return nil
+@@ -196,7 +196,7 @@
+ 		// Validate the persisted reference even if a previous provider is cached.
+ 		current, exists := s.loadProfileConfig(model.ProfileID)
+ 		if !exists || sideModel(current, model.ProfileID, model.Name).Identity != model.Identity {
+-			return nil, errors.New("模型配置已删除或变化，请先运行主 Agent 更新上下文")
++			return nil, errors.New("Model configuration was deleted or changed; run the main Agent to update context first")
+ 		}
+ 		p, cfg, ok = s.providerForProfile(model.ProfileID)
+ 	} else {
+@@ -205,7 +205,7 @@
+ 		s.cfgMu.Unlock()
+ 	}
+ 	if !ok || p == nil || sideModel(cfg, model.ProfileID, model.Name).Identity != model.Identity {
+-		return nil, errors.New("模型配置已删除或变化，请先运行主 Agent 更新上下文")
++		return nil, errors.New("Model configuration was deleted or changed; run the main Agent to update context first")
+ 	}
+ 	return p, nil
+ }
+@@ -213,7 +213,7 @@
+ func (s *Server) sideParent(w http.ResponseWriter, r *http.Request, kind string) (sidequestion.Parent, bool) {
+ 	p := sidequestion.Parent{}
+ 	if s.side == nil || s.m.pg == nil {
+-		writeErr(w, 503, "旁路服务不可用")
++		writeErr(w, 503, "Side-question service is unavailable")
+ 		return p, false
+ 	}
+ 	id, err := strconv.ParseInt(r.PathValue("id"), 10, 64)
+@@ -245,7 +245,7 @@
+ 		return p, false
+ 	}
+ 	if pt == nil || s.engine.IsDeleting(t.ID) {
+-		writeErr(w, 409, "任务已归档或正在删除")
++		writeErr(w, 409, "Task is archived or being deleted")
+ 		return p, false
+ 	}
+ 	p.TaskID, p.ExplorationID = id, t.ExpID
+@@ -265,7 +265,7 @@
+ 			return p, false
+ 		}
+ 		if n.State == "stopped" {
+-			writeErr(w, 409, "Worker 已删除")
++			writeErr(w, 409, "Worker has been deleted")
+ 			return p, false
+ 		}
+ 		p.IntentID = iid
+@@ -352,13 +352,13 @@
+ 	}
+ 	in.Question = strings.TrimSpace(in.Question)
+ 	if in.Question == "" || len([]rune(in.Question)) > 4000 || !validWorkerMessageRequestID(in.ClientID) {
+-		writeErr(w, 400, "问题须为 1–4000 字符，并提供有效请求 ID")
++		writeErr(w, 400, "Question must contain 1-4000 characters and include a valid request ID")
+ 		return
+ 	}
+ 	s.side.commands.Lock()
+ 	defer s.side.commands.Unlock()
+ 	if p.TaskID > 0 && s.engine.IsDeleting(strconv.FormatInt(p.TaskID, 10)) {
+-		writeErr(w, 409, "任务正在归档或删除")
++		writeErr(w, 409, "Task is being archived or deleted")
+ 		return
+ 	}
+ 	if existing, err := s.m.pg.ExistingSideRequest(r.Context(), key, in.ClientID); err != nil {
+@@ -366,14 +366,14 @@
+ 		return
+ 	} else if existing != nil {
+ 		if existing.Question != in.Question {
+-			writeErr(w, 409, "同一请求 ID 不能用于不同问题")
++			writeErr(w, 409, "The same request ID cannot be used for different questions")
+ 			return
+ 		}
+ 		writeJSON(w, 200, existing)
+ 		return
+ 	}
+ 	if snap == nil {
+-		writeErr(w, 409, "尚无上下文快照，请先运行主 Agent")
++		writeErr(w, 409, "No context snapshot yet; run the main Agent first")
+ 		return
+ 	}
+ 	provider, err := s.sideProvider(snap.Model)
+@@ -395,7 +395,7 @@
+ 		return
+ 	}
+ 	if full {
+-		writeErr(w, 429, "旁路请求已达并发上限，请稍后重试")
++		writeErr(w, 429, "Side-question concurrency limit reached; retry later")
+ 		return
+ 	}
+ 	agentQuestion, ok := s.prepareChatMentionMessage(w, in.Question)
+@@ -491,10 +491,10 @@
+ 	e.Status = "completed"
+ 	if ctx.Err() != nil {
+ 		e.Status = "cancelled"
+-		e.Error = "回答已停止"
++		e.Error = "Answer stopped"
+ 		if errors.Is(ctx.Err(), context.DeadlineExceeded) {
+ 			e.Status = "failed"
+-			e.Error = "旁路回答超过 120 秒，已停止"
++			e.Error = "Side-question answer exceeded 120 seconds and was stopped"
+ 		}
+ 	} else if runErr != nil {
+ 		e.Status = "failed"
+--- before/server/sync_scopesentry.go
++++ after/server/sync_scopesentry.go
+@@ -50,10 +50,10 @@
+ 		return nil, err
+ 	}
+ 	if m == nil {
+-		return nil, fmt.Errorf("数据源 %s 不存在，请先创建", scopeSentryMCPName)
++		return nil, fmt.Errorf("Data source %s not found; create it first", scopeSentryMCPName)
+ 	}
+ 	if m.URL == "" {
+-		return nil, fmt.Errorf("数据源 %s 未配置 URL，请先配置", scopeSentryMCPName)
++		return nil, fmt.Errorf("Data source %s has no URL; configure it first", scopeSentryMCPName)
+ 	}
+ 	return mcphttp.New(ctx, m.Name, m.URL, jsonStrMap(m.Env), m.Insecure)
+ }
+@@ -185,7 +185,7 @@
+ 	}
+ 	text, err := cl.Call(ctx, "list_projects_data", args)
+ 	if err != nil {
+-		writeErr(w, 502, "list_projects_data 失败: "+err.Error())
++		writeErr(w, 502, "list_projects_data failed: "+err.Error())
+ 		return
+ 	}
+ 	// {result:{All:[{id,name,logo,AssetCount,tag}], <tag>:[...]}, tag:{...}}
+@@ -194,7 +194,7 @@
+ 		Tag    map[string]int             `json:"tag"`
+ 	}
+ 	if err := json.Unmarshal([]byte(text), &env); err != nil {
+-		writeErr(w, 502, "解析项目列表失败: "+err.Error())
++		writeErr(w, 502, "Failed to parse project list: "+err.Error())
+ 		return
+ 	}
+ 	projects := json.RawMessage("[]")
+@@ -228,14 +228,14 @@
+ 	}
+ 	text, err := cl.Call(ctx, "list_tasks", args)
+ 	if err != nil {
+-		writeErr(w, 502, "list_tasks 失败: "+err.Error())
++		writeErr(w, 502, "list_tasks failed: "+err.Error())
+ 		return
+ 	}
+ 	var env struct {
+ 		List json.RawMessage `json:"list"`
+ 	}
+ 	if err := json.Unmarshal([]byte(text), &env); err != nil {
+-		writeErr(w, 502, "解析任务列表失败: "+err.Error())
++		writeErr(w, 502, "Failed to parse task list: "+err.Error())
+ 		return
+ 	}
+ 	tasks := env.List
+@@ -271,11 +271,11 @@
+ 		return
+ 	}
+ 	if req.Dimension != "project" && req.Dimension != "task" {
+-		writeErr(w, 400, "dimension 必须是 project 或 task")
++		writeErr(w, 400, "dimension must be project or task")
+ 		return
+ 	}
+ 	if len(req.Targets) == 0 {
+-		writeErr(w, 400, "targets 不能为空")
++		writeErr(w, 400, "targets must not be empty")
+ 		return
+ 	}
+ 	if len(req.AssetTypes) == 0 {
+@@ -308,11 +308,11 @@
+ 			if req.CreateCompany {
+ 				name, roots, perr := s.ssProjectMeta(ctx, cl, target)
+ 				if perr != nil {
+-					warnings = append(warnings, fmt.Sprintf("项目 %s 详情获取失败: %v", target, perr))
++					warnings = append(warnings, fmt.Sprintf("Failed to fetch project %s details: %v", target, perr))
+ 				} else if name != "" {
+ 					cid, cerr := cs.UpsertByName(name)
+ 					if cerr != nil {
+-						warnings = append(warnings, fmt.Sprintf("公司 %s 创建失败: %v", name, cerr))
++						warnings = append(warnings, fmt.Sprintf("Failed to create company %s: %v", name, cerr))
+ 					} else {
+ 						companies = append(companies, name)
+ 						madeCompany = true
+@@ -329,16 +329,16 @@
+ 		for _, at := range req.AssetTypes {
+ 			ssType, ok := map[string]string{"subdomain": "subdomain", "service": "asset", "app": "app"}[at]
+ 			if !ok {
+-				warnings = append(warnings, "Unknown资产类型，已跳过: "+at)
++				warnings = append(warnings, "Unknown asset type; skipped: "+at)
+ 				continue
+ 			}
+ 			items, truncated, ferr := s.ssPageAll(ctx, cl, ssType, filter, pageSize)
+ 			if ferr != nil {
+-				errs = append(errs, fmt.Sprintf("%s(%s) 拉取失败: %v", at, target, ferr))
++				errs = append(errs, fmt.Sprintf("%s(%s) fetch failed: %v", at, target, ferr))
+ 				continue
+ 			}
+ 			if truncated {
+-				warnings = append(warnings, fmt.Sprintf("%s(%s) 达到 %d 条上限，truncated", at, target, syncMaxPerType))
++				warnings = append(warnings, fmt.Sprintf("%s(%s) reached the %d-entry limit; truncated", at, target, syncMaxPerType))
+ 			}
+ 			for _, raw := range items {
+ 				if e := s.ssIngest(as, at, raw, synced); e != "" {
+@@ -431,7 +431,7 @@
+ 			IP    []string `json:"ip"`
+ 		}
+ 		if err := json.Unmarshal(raw, &it); err != nil {
+-			return "subdomain 解析失败: " + err.Error()
++			return "subdomain parse failed: " + err.Error()
+ 		}
+ 		if it.Host == "" {
+ 			return ""
+@@ -455,7 +455,7 @@
+ 			ICP         string `json:"icp"`
+ 		}
+ 		if err := json.Unmarshal(raw, &it); err != nil {
+-			return "app 解析失败: " + err.Error()
++			return "app parse failed: " + err.Error()
+ 		}
+ 		if it.Name == "" {
+ 			return ""
+@@ -477,7 +477,7 @@
+ 			Icon     string   `json:"icon"`
+ 		}
+ 		if err := json.Unmarshal(raw, &it); err != nil {
+-			return "service 解析失败: " + err.Error()
++			return "service parse failed: " + err.Error()
+ 		}
+ 		if it.Service == "http" || it.URL != "" {
+ 			if it.URL == "" {
+--- before/server/task_archive_package.go
++++ after/server/task_archive_package.go
+@@ -503,7 +503,7 @@
+ 	staged := archivePath + fmt.Sprintf(".deleting-%d", archiveID)
+ 	if _, err := os.Lstat(staged); err == nil {
+ 		if _, originalErr := os.Lstat(archivePath); originalErr == nil {
+-			return staged, false, errors.New("归档包原文件和删除暂存文件同时存在")
++			return staged, false, errors.New("Both the original archive package and deletion staging file exist")
+ 		} else if !os.IsNotExist(originalErr) {
+ 			return staged, false, originalErr
+ 		}
+@@ -581,7 +581,7 @@
+ 			// 归档格式端到端只支持普通文件与目录（解包端对其它类型直接报错），
+ 			// 无法还原符号链接。跳过而非整包失败：不读取链接目标(lstat，不越出目录树)，
+ 			// 也不写入 symlink 条目；链接指向树内时目标文件本身仍会被单独遍历归档。
+-			log.Printf("[task-archive] 跳过符号链接（归档不支持，不影响其它文件）：%s", current)
++			log.Printf("[task-archive] Skipping symlink (unsupported in archives; other files unaffected): %s", current)
+ 			return nil
+ 		}
+ 		header, err := tar.FileInfoHeader(info, "")
+--- before/server/task_assets.go
++++ after/server/task_assets.go
+@@ -45,7 +45,7 @@
+ 	request.SourceSummary = strings.TrimSpace(request.SourceSummary)
+ 	taskID, _ := parseTaskID(task.ID)
+ 	if request.Scope != nil && len(request.AssetIDs) > 0 {
+-		writeErr(w, http.StatusBadRequest, "scope 与 asset_ids 不能同时提交")
++		writeErr(w, http.StatusBadRequest, "scope and asset_ids cannot be submitted together")
+ 		return
+ 	}
+ 	if request.Scope != nil {
+--- before/server/task_control.go
++++ after/server/task_control.go
+@@ -149,7 +149,7 @@
+ 	return out, nil
+ }
+ 
+-// intentSummaryOf 取意图 payload 里的 summary,供删除通知在意图节点消失(真删除)前留档。
++// intentSummaryOf reads the intent payload summary for deletion notifications before hard deletion.
+ func intentSummaryOf(n *db.Node) string {
+ 	if n == nil {
+ 		return ""
+@@ -201,12 +201,12 @@
+ 		t.Notify()
+ 		out.State = "open"
+ 	case "cancel":
+-		// 删除支持两种模式:
+-		//   soft(默认,假删除):意图停到 state='deleted'、删除原因记入 delete_reason 字段,
+-		//     保留意图节点与全部产出/血缘,不再在图上另挂 fact。
+-		//   hard(真删除):物理删除该意图及"仅由它支撑"的独占子孙节点(级联到叶子),避免留下
+-		//     孤立数据;共享节点、goal、任务根事实保留。
+-		// 两种模式都用 cancelled 触发告知 planner(意图内容 + 删除原因),让它据此重规划。
++		// Deletion supports two modes:
++		//   soft (default): stop the intent with state='deleted', recording the reason in delete_reason;
++		//     retain the intent and all output/lineage without adding a separate fact to the graph.
++		//   hard: physically delete the intent and exclusively supported descendants down to the leaves,
++		//     avoiding orphaned data; shared nodes, goals, and the task root fact remain.
++		// Both modes notify the planner with a cancelled trigger (intent + deletion reason) for replanning.
+ 		if node.State != "running" && node.State != "paused" && node.State != "open" {
+ 			return out, fmt.Errorf("Only pending, running, or paused intents can be deleted")
+ 		}
+@@ -228,7 +228,7 @@
+ 			s.cancelWorkerSide(t.ID, t.ExpID, iid)
+ 			t.NotifyCancelled(iid, summary, reason)
+ 			out.Deleted = &cleanup
+-			out.State = "" // 节点已删除,前端据 Deleted 从列表移除
++			out.State = "" // Node deleted; the frontend uses Deleted to remove it from the list
+ 		} else {
+ 			if _, err := t.Store.SoftDeleteIntent(iid, reason); err != nil {
+ 				return out, err
+--- before/server/task_intercept.go
++++ after/server/task_intercept.go
+@@ -7,8 +7,8 @@
+ 	"github.com/Autumn-27/artex/db"
+ )
+ 
+-// 任务级资产拦截/允许规则的 CRUD。规则按 task_id 归属，仅对该任务生效：
+-// action=block 拦截(禁止测试)，action=allow 允许(白名单)。执行判定见 db.EvaluateAssetGate。
++// Task-level asset block/allow CRUD. Rules belong to task_id and only affect that task:
++// action=block prohibits testing; action=allow permits it (allowlist). See db.EvaluateAssetGate.
+ 
+ type taskInterceptRuleReq struct {
+ 	Enabled bool   `json:"enabled"`
+@@ -18,7 +18,7 @@
+ 	Note    string `json:"note"`
+ }
+ 
+-// validateTaskInterceptRuleReq 归一并校验；复用全局规则的 kind/pattern 校验器。
++// validateTaskInterceptRuleReq normalizes and validates using the global kind/pattern validator.
+ func validateTaskInterceptRuleReq(req *taskInterceptRuleReq) error {
+ 	if req.Action == "" {
+ 		req.Action = "block"
+@@ -30,11 +30,11 @@
+ 	if err := validateAssetInterceptRuleReq(&v); err != nil {
+ 		return err
+ 	}
+-	req.Pattern = v.Pattern // 已 trim
++	req.Pattern = v.Pattern // Already trimmed
+ 	return nil
+ }
+ 
+-// buildTaskInterceptRules 校验创建任务时录入的任务级规则并转换为 db 输入形态。
++// buildTaskInterceptRules validates task-creation rules and converts them to database input.
+ func buildTaskInterceptRules(reqs []taskInterceptRuleReq) ([]db.TaskInterceptRuleInput, error) {
+ 	if len(reqs) == 0 {
+ 		return nil, nil
+--- before/server/task_llm.go
++++ after/server/task_llm.go
+@@ -92,7 +92,7 @@
+ 	profileID int64
+ 	revision  int64
+ 	provider  llm.Provider
+-	// retry 是这次选中的配置解析出来的重试参数(profile 覆盖 → 全局策略 → 内置默认)。
++	// retry 是这次选中的配置解析出来的重试参数(profile 覆盖 → 全局策略 → Built-in default)。
+ 	// 同 provider 安全窗口重试按它走,所以换了 profile 就换一套重试节奏。
+ 	retry agent.RetryConfig
+ }
+@@ -353,7 +353,7 @@
+ 			if callErr != nil && ctx.Err() == nil &&
+ 				attempt < retries && isRetryableStreamError(callErr) {
+ 				backoff := backoffOf(attempt)
+-				log.Printf("[task-llm] task %s 非流式调用失败,%v 后同 provider 重试 (%d/%d): %v",
++				log.Printf("[task-llm] task %s nonstreaming call failed; retrying the same provider after %v (%d/%d): %v",
+ 					taskID, backoff, attempt+1, retries, callErr)
+ 				if sleepCtx(ctx, backoff) {
+ 					break // 退避期间 ctx 取消 → 停止重试
+@@ -448,7 +448,7 @@
+ 				if streamErr != nil && !committed && ctx.Err() == nil &&
+ 					attempt < retries && isRetryableStreamError(streamErr) {
+ 					backoff := backoffOf(attempt)
+-					log.Printf("[task-llm] task %s 提交前流失败,%v 后同 provider 重试 (%d/%d): %v",
++					log.Printf("[task-llm] task %s stream failed before commit; retrying the same provider after %v (%d/%d): %v",
+ 						taskID, backoff, attempt+1, retries, streamErr)
+ 					if sleepCtx(ctx, backoff) {
+ 						break // 退避期间 ctx 取消 → 停止重试
+@@ -747,13 +747,13 @@
+ 	}
+ 	mode := "automatic"
+ 	kind := "llm_switch"
+-	summary := fmt.Sprintf("%s 额度不足", llmAuditProfileLabel(previous))
++	summary := fmt.Sprintf("%s quota exhausted", llmAuditProfileLabel(previous))
+ 	if transition.NextProfileID != nil {
+-		summary += fmt.Sprintf("，后续调用切换到 %s", llmAuditProfileLabel(next))
++		summary += fmt.Sprintf("; subsequent calls switch to %s", llmAuditProfileLabel(next))
+ 	} else {
+ 		mode = "exhausted"
+ 		kind = "llm_failover"
+-		summary += "，配置链已耗尽"
++		summary += "; profile chain exhausted"
+ 	}
+ 	metadata, _ := json.Marshal(llmActivityMetadata{LLMTransition: llmTransitionAudit{
+ 		Mode: mode, Reason: cause.Error(), Previous: previous, Next: next,
+@@ -768,18 +768,18 @@
+ 	}
+ 	p, err := s.m.pg.ProfileByID(id)
+ 	if err != nil || p == nil {
+-		return &llmAuditProfile{ID: id, Name: fmt.Sprintf("配置 #%d", id)}
++		return &llmAuditProfile{ID: id, Name: fmt.Sprintf("Profile #%d", id)}
+ 	}
+ 	return &llmAuditProfile{ID: p.ID, Name: p.Name, Format: p.Format, Model: p.Model}
+ }
+ 
+ func llmAuditProfileLabel(profile *llmAuditProfile) string {
+ 	if profile == nil {
+-		return "默认配置"
++		return "Default profile"
+ 	}
+ 	name := profile.Name
+ 	if name == "" {
+-		name = fmt.Sprintf("配置 #%d", profile.ID)
++		name = fmt.Sprintf("Profile #%d", profile.ID)
+ 	}
+ 	detail := []string{}
+ 	if profile.Format != "" {
+@@ -810,9 +810,9 @@
+ 	if nextID != nil {
+ 		next = s.llmAuditProfile(*nextID)
+ 	}
+-	summary := fmt.Sprintf("用户手动将任务 LLM 从 %s 切换到 %s", llmAuditProfileLabel(previous), llmAuditProfileLabel(next))
++	summary := fmt.Sprintf("User manually switched task LLM from %s to %s", llmAuditProfileLabel(previous), llmAuditProfileLabel(next))
+ 	metadata, _ := json.Marshal(llmActivityMetadata{LLMTransition: llmTransitionAudit{
+-		Mode: "manual", Reason: "用户手动切换任务 LLM", Previous: previous, Next: next,
++		Mode: "manual", Reason: "User manually switched task LLM", Previous: previous, Next: next,
+ 	}})
+ 	return s.engine.emitActivity(t, db.Activity{Worker: "system", Kind: "llm_switch", Summary: summary, Detail: summary, Metadata: metadata})
+ }
+--- before/server/task_metadata.go
++++ after/server/task_metadata.go
+@@ -38,17 +38,17 @@
+ 		return
+ 	}
+ 	if request.Name == nil && request.Pinned == nil {
+-		writeErr(w, http.StatusBadRequest, "至少需要提供 name 或 pinned")
++		writeErr(w, http.StatusBadRequest, "At least one of name or pinned is required")
+ 		return
+ 	}
+ 	if request.Name != nil {
+ 		name := strings.TrimSpace(*request.Name)
+ 		if name == "" {
+-			writeErr(w, http.StatusBadRequest, "任务Name must not be empty")
++			writeErr(w, http.StatusBadRequest, "Task name must not be empty")
+ 			return
+ 		}
+ 		if utf8.RuneCountInString(name) > maxTaskNameRunes {
+-			writeErr(w, http.StatusBadRequest, fmt.Sprintf("任务名称最多 %d 个字符", maxTaskNameRunes))
++			writeErr(w, http.StatusBadRequest, fmt.Sprintf("Task name must not exceed %d characters", maxTaskNameRunes))
+ 			return
+ 		}
+ 		request.Name = &name
+--- before/server/trigger_merge_test.go
++++ after/server/trigger_merge_test.go
+@@ -16,7 +16,7 @@
+ 	for i := range items {
+ 		items[i] = triggeredRun{
+ 			agentKey: "tec_benchmark", taskID: 72, taskDesc: "f2-05 逆向", taskGoal: longGoal,
+-			message: "【本次由工具调用触发】\n工具: submit_flag\n入参: {...}\n返回: {correct:false}", mergeable: true,
++			message: "[Triggered by a tool call]\n工具: submit_flag\n入参: {...}\n返回: {correct:false}", mergeable: true,
+ 		}
+ 	}
+ 	return items
+@@ -27,7 +27,7 @@
+ 	if got := strings.Count(out.message, longGoal); got != 1 {
+ 		t.Fatalf("same-task goal should appear exactly once in a merged-all run, got %d", got)
+ 	}
+-	if strings.Count(out.message, "── 触发 ") < 1 || !strings.Contains(out.message, "触发 39") {
++	if strings.Count(out.message, "-- Trigger ") < 1 || !strings.Contains(out.message, "Trigger 39") {
+ 		t.Fatalf("all 39 event bodies should be present: %q", out.message)
+ 	}
+ 	// A merged run embeds its header inline, so finalTriggerMessage must not re-add it.
+@@ -52,10 +52,10 @@
+ 	if got := strings.Count(out.message, "GOAL_B"); got != 1 {
+ 		t.Fatalf("task #2 goal should appear once despite interleaving, got %d", got)
+ 	}
+-	if !strings.Contains(out.message, "共 2 个任务") {
++	if !strings.Contains(out.message, "across 2 tasks") {
+ 		t.Fatalf("header should report 2 tasks: %q", out.message)
+ 	}
+-	if got := strings.Count(out.message, "── 触发 "); got != 4 {
++	if got := strings.Count(out.message, "-- Trigger "); got != 4 {
+ 		t.Fatalf("all 4 event bodies should be present, got %d", got)
+ 	}
+ }
+@@ -73,7 +73,7 @@
+ 	if got := strings.Count(msg, longGoal); got != 1 {
+ 		t.Fatalf("single fire should carry the task goal exactly once, got %d", got)
+ 	}
+-	if !strings.HasPrefix(msg, "【任务 #72") {
++	if !strings.HasPrefix(msg, "[Task: #72") {
+ 		t.Fatalf("single fire should be prefixed with the task-context header: %q", msg)
+ 	}
+ }
+--- before/server/triggers.go
++++ after/server/triggers.go
+@@ -42,10 +42,10 @@
+ // at least one condition, and on_tool_call requires a non-empty tool set.
+ func validateTrigger(req *triggerReq) string {
+ 	if req.IntervalSec == 0 && !req.OnFinding && !req.OnGoalMet && !req.OnTaskTimeout && !req.OnToolCall && !req.OnTaskCreate {
+-		return "至少选择一种触发条件(定时/发现finding/目标达成/任务超时/工具调用/任务创建)"
++		return "Select at least one trigger condition (schedule/finding/goal completion/task timeout/tool call/task creation)"
+ 	}
+ 	if req.OnToolCall && len(req.ToolNames) == 0 {
+-		return "工具调用触发至少选择一个工具"
++		return "Select at least one tool for a tool-call trigger"
+ 	}
+ 	return ""
+ }
+@@ -56,7 +56,7 @@
+ 		return
+ 	}
+ 	if a.Builtin {
+-		writeErr(w, 400, "触发器仅支持自定义 agent")
++		writeErr(w, 400, "Triggers only support custom agents")
+ 		return
+ 	}
+ 	var req triggerReq
+--- before/server/webui_embed.go
++++ after/server/webui_embed.go
+@@ -40,7 +40,7 @@
+ 		// 1) exact file (assets: _next/*, favicon.ico, ...)
+ 		// 2) route dir → <p>/index.html (trailingSlash export)
+ 		// 3) <p>.html
+-		// 4) SPA 兜底 → index.html（交给客户端路由）
++		// 4) SPA fallback -> index.html (client-side routing)
+ 		for _, cand := range []string{p, p + "/index.html", p + ".html"} {
+ 			if files.serveFileIfExists(w, r, cand) {
+ 				return
+--- before/server/webui_stub.go
++++ after/server/webui_stub.go
+@@ -13,6 +13,6 @@
+ //	go build -tags embedui ./cmd/artex
+ func (s *Server) webuiHandler() http.Handler {
+ 	return http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
+-		http.Error(w, "前端未内嵌到此二进制（开发用 next dev；发布用 -tags embedui 构建）", http.StatusNotFound)
++		http.Error(w, "Frontend is not embedded in this binary (use next dev for development; build releases with -tags embedui)", http.StatusNotFound)
+ 	})
+ }

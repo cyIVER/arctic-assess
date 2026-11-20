@@ -1,0 +1,20 @@
+{
+  "candidates": [
+    "/home/iveri/work/vindler-e2.SftLYa2R/continuation/NEWartex-worker-operational-review/gocache",
+    "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-assessment-runner/gocache",
+    "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-guest-canary-review/go-cache",
+    "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-executor-review/go-cache",
+    "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-isolation-review/go-cache",
+    "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-guest-canary-v2/build-cache"
+  ],
+  "active_refs": [],
+  "uninspectable_go": [],
+  "delete_candidates": [
+    "/home/iveri/work/vindler-e2.SftLYa2R/continuation/NEWartex-worker-operational-review/gocache",
+    "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-assessment-runner/gocache",
+    "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-guest-canary-review/go-cache",
+    "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-executor-review/go-cache",
+    "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-isolation-review/go-cache",
+    "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-guest-canary-v2/build-cache"
+  ]
+}

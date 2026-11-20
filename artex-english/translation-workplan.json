@@ -1,0 +1,1003 @@
+{
+  "scope": "English product-facing text, built-in prompts/help/docs/comments. Preserve identifiers, wire formats, licensing/provenance, multilingual security detection and original user/target evidence.",
+  "baseline_files": 669,
+  "cjk_files": 245,
+  "cjk_lines": 7018,
+  "groups": {
+    "frontend": [
+      {
+        "path": "web/next.config.mjs",
+        "cjk_lines": 10
+      },
+      {
+        "path": "web/src/app/(main)/function/tasks/page.tsx",
+        "cjk_lines": 2
+      },
+      {
+        "path": "web/src/app/(main)/system/skills/page.tsx",
+        "cjk_lines": 1
+      },
+      {
+        "path": "web/src/components/approval-records.tsx",
+        "cjk_lines": 4
+      },
+      {
+        "path": "web/src/components/exploration-graph.tsx",
+        "cjk_lines": 32
+      },
+      {
+        "path": "web/src/components/transcript.tsx",
+        "cjk_lines": 3
+      },
+      {
+        "path": "web/src/lib/chat-mentions.test.mjs",
+        "cjk_lines": 10
+      },
+      {
+        "path": "web/src/lib/chat-mentions.ts",
+        "cjk_lines": 10
+      },
+      {
+        "path": "web/src/lib/company-scope.ts",
+        "cjk_lines": 1
+      },
+      {
+        "path": "web/src/lib/mock/handler.ts",
+        "cjk_lines": 1
+      }
+    ],
+    "server": [
+      {
+        "path": "server/assembly.go",
+        "cjk_lines": 11
+      },
+      {
+        "path": "server/asset_intercept.go",
+        "cjk_lines": 4
+      },
+      {
+        "path": "server/assets.go",
+        "cjk_lines": 4
+      },
+      {
+        "path": "server/assets_scope_test.go",
+        "cjk_lines": 2
+      },
+      {
+        "path": "server/auth.go",
+        "cjk_lines": 38
+      },
+      {
+        "path": "server/auth_test.go",
+        "cjk_lines": 17
+      },
+      {
+        "path": "server/chat_llm_resolve_test.go",
+        "cjk_lines": 6
+      },
+      {
+        "path": "server/chat_mentions.go",
+        "cjk_lines": 12
+      },
+      {
+        "path": "server/chat_mentions_test.go",
+        "cjk_lines": 26
+      },
+      {
+        "path": "server/chatupload.go",
+        "cjk_lines": 12
+      },
+      {
+        "path": "server/constraints_api.go",
+        "cjk_lines": 18
+      },
+      {
+        "path": "server/conversations.go",
+        "cjk_lines": 36
+      },
+      {
+        "path": "server/core_test.go",
+        "cjk_lines": 1
+      },
+      {
+        "path": "server/customtool.go",
+        "cjk_lines": 37
+      },
+      {
+        "path": "server/dto.go",
+        "cjk_lines": 24
+      },
+      {
+        "path": "server/engine.go",
+        "cjk_lines": 138
+      },
+      {
+        "path": "server/engine_emptyturn_test.go",
+        "cjk_lines": 39
+      },
+      {
+        "path": "server/engine_timeout.go",
+        "cjk_lines": 29
+      },
+      {
+        "path": "server/finding_retests.go",
+        "cjk_lines": 11
+      },
+      {
+        "path": "server/finding_retests_test.go",
+        "cjk_lines": 8
+      },
+      {
+        "path": "server/finding_traffic.go",
+        "cjk_lines": 7
+      },
+      {
+        "path": "server/finding_traffic_test.go",
+        "cjk_lines": 3
+      },
+      {
+        "path": "server/finding_workflow.go",
+        "cjk_lines": 12
+      },
+      {
+        "path": "server/finding_workflow_test.go",
+        "cjk_lines": 5
+      },
+      {
+        "path": "server/findings_groups.go",
+        "cjk_lines": 5
+      },
+      {
+        "path": "server/findings_groups_test.go",
+        "cjk_lines": 2
+      },
+      {
+        "path": "server/goals.go",
+        "cjk_lines": 26
+      },
+      {
+        "path": "server/goals_api.go",
+        "cjk_lines": 25
+      },
+      {
+        "path": "server/intent_intervention.go",
+        "cjk_lines": 11
+      },
+      {
+        "path": "server/intercept.go",
+        "cjk_lines": 18
+      },
+      {
+        "path": "server/intercept_detail_test.go",
+        "cjk_lines": 2
+      },
+      {
+        "path": "server/intercept_filter_test.go",
+        "cjk_lines": 2
+      },
+      {
+        "path": "server/intercept_live_test.go",
+        "cjk_lines": 8
+      },
+      {
+        "path": "server/intercept_review_test.go",
+        "cjk_lines": 3
+      },
+      {
+        "path": "server/llmpool.go",
+        "cjk_lines": 9
+      },
+      {
+        "path": "server/llmpool_test.go",
+        "cjk_lines": 1
+      },
+      {
+        "path": "server/llmretry.go",
+        "cjk_lines": 21
+      },
+      {
+        "path": "server/llmretry_test.go",
+        "cjk_lines": 2
+      },
+      {
+        "path": "server/logsink.go",
+        "cjk_lines": 2
+      },
+      {
+        "path": "server/manager.go",
+        "cjk_lines": 51
+      },
+      {
+        "path": "server/mcpdiscover.go",
+        "cjk_lines": 7
+      },
+      {
+        "path": "server/mgmt_test.go",
+        "cjk_lines": 2
+      },
+      {
+        "path": "server/native_reporter.go",
+        "cjk_lines": 1
+      },
+      {
+        "path": "server/notifier.go",
+        "cjk_lines": 156
+      },
+      {
+        "path": "server/notify_api.go",
+        "cjk_lines": 59
+      },
+      {
+        "path": "server/notify_api_test.go",
+        "cjk_lines": 232
+      },
+      {
+        "path": "server/orchestration.go",
+        "cjk_lines": 180
+      },
+      {
+        "path": "server/platform_tools.go",
+        "cjk_lines": 55
+      },
+      {
+        "path": "server/scheduler.go",
+        "cjk_lines": 14
+      },
+      {
+        "path": "server/server.go",
+        "cjk_lines": 227
+      },
+      {
+        "path": "server/server_mgmt.go",
+        "cjk_lines": 85
+      },
+      {
+        "path": "server/side_questions.go",
+        "cjk_lines": 13
+      },
+      {
+        "path": "server/skill_upload_test.go",
+        "cjk_lines": 35
+      },
+      {
+        "path": "server/skill_zip.go",
+        "cjk_lines": 17
+      },
+      {
+        "path": "server/sync_scopesentry.go",
+        "cjk_lines": 23
+      },
+      {
+        "path": "server/task_archive_package.go",
+        "cjk_lines": 5
+      },
+      {
+        "path": "server/task_archive_package_test.go",
+        "cjk_lines": 1
+      },
+      {
+        "path": "server/task_archives.go",
+        "cjk_lines": 19
+      },
+      {
+        "path": "server/task_assets.go",
+        "cjk_lines": 2
+      },
+      {
+        "path": "server/task_categories.go",
+        "cjk_lines": 7
+      },
+      {
+        "path": "server/task_categories_test.go",
+        "cjk_lines": 1
+      },
+      {
+        "path": "server/task_control.go",
+        "cjk_lines": 20
+      },
+      {
+        "path": "server/task_delete_barrier_test.go",
+        "cjk_lines": 1
+      },
+      {
+        "path": "server/task_intercept.go",
+        "cjk_lines": 6
+      },
+      {
+        "path": "server/task_llm.go",
+        "cjk_lines": 56
+      },
+      {
+        "path": "server/task_llm_test.go",
+        "cjk_lines": 1
+      },
+      {
+        "path": "server/task_metadata.go",
+        "cjk_lines": 4
+      },
+      {
+        "path": "server/task_metadata_test.go",
+        "cjk_lines": 1
+      },
+      {
+        "path": "server/task_resolution.go",
+        "cjk_lines": 6
+      },
+      {
+        "path": "server/task_templates.go",
+        "cjk_lines": 6
+      },
+      {
+        "path": "server/task_templates_test.go",
+        "cjk_lines": 3
+      },
+      {
+        "path": "server/trigger_merge_test.go",
+        "cjk_lines": 11
+      },
+      {
+        "path": "server/triggers.go",
+        "cjk_lines": 4
+      },
+      {
+        "path": "server/update.go",
+        "cjk_lines": 63
+      },
+      {
+        "path": "server/update_test.go",
+        "cjk_lines": 29
+      },
+      {
+        "path": "server/webui_embed.go",
+        "cjk_lines": 1
+      },
+      {
+        "path": "server/webui_stub.go",
+        "cjk_lines": 1
+      },
+      {
+        "path": "server/workspace.go",
+        "cjk_lines": 19
+      }
+    ],
+    "agent-data-libraries": [
+      {
+        "path": "agent/assembly.go",
+        "cjk_lines": 2
+      },
+      {
+        "path": "agent/blackboard_inheritance_test.go",
+        "cjk_lines": 1
+      },
+      {
+        "path": "agent/cancelcause.go",
+        "cjk_lines": 36
+      },
+      {
+        "path": "agent/capture.go",
+        "cjk_lines": 1
+      },
+      {
+        "path": "agent/capture_usage_test.go",
+        "cjk_lines": 2
+      },
+      {
+        "path": "agent/chat.go",
+        "cjk_lines": 12
+      },
+      {
+        "path": "agent/coldgraph.go",
+        "cjk_lines": 1
+      },
+      {
+        "path": "agent/coldgraph_test.go",
+        "cjk_lines": 2
+      },
+      {
+        "path": "agent/compaction.go",
+        "cjk_lines": 26
+      },
+      {
+        "path": "agent/constraints.go",
+        "cjk_lines": 4
+      },
+      {
+        "path": "agent/finding_recorder.go",
+        "cjk_lines": 1
+      },
+      {
+        "path": "agent/finding_recorder_test.go",
+        "cjk_lines": 1
+      },
+      {
+        "path": "agent/finding_workflow.go",
+        "cjk_lines": 9
+      },
+      {
+        "path": "agent/goals.go",
+        "cjk_lines": 51
+      },
+      {
+        "path": "agent/insert_assets_test.go",
+        "cjk_lines": 8
+      },
+      {
+        "path": "agent/mainagent.go",
+        "cjk_lines": 33
+      },
+      {
+        "path": "agent/noa.go",
+        "cjk_lines": 12
+      },
+      {
+        "path": "agent/planner.go",
+        "cjk_lines": 103
+      },
+      {
+        "path": "agent/prompt.go",
+        "cjk_lines": 3
+      },
+      {
+        "path": "agent/prompt_now_test.go",
+        "cjk_lines": 6
+      },
+      {
+        "path": "agent/prompt_prefix_test.go",
+        "cjk_lines": 2
+      },
+      {
+        "path": "agent/prompt_test.go",
+        "cjk_lines": 11
+      },
+      {
+        "path": "agent/promptcatalog.go",
+        "cjk_lines": 70
+      },
+      {
+        "path": "agent/provider.go",
+        "cjk_lines": 70
+      },
+      {
+        "path": "agent/provider_quota_test.go",
+        "cjk_lines": 1
+      },
+      {
+        "path": "agent/reporter_factories.go",
+        "cjk_lines": 9
+      },
+      {
+        "path": "agent/retester.go",
+        "cjk_lines": 10
+      },
+      {
+        "path": "agent/review_context_test.go",
+        "cjk_lines": 4
+      },
+      {
+        "path": "agent/side_questions_test.go",
+        "cjk_lines": 1
+      },
+      {
+        "path": "agent/terminalreason.go",
+        "cjk_lines": 33
+      },
+      {
+        "path": "agent/terminalreason_test.go",
+        "cjk_lines": 10
+      },
+      {
+        "path": "agent/toolcatalog.go",
+        "cjk_lines": 36
+      },
+      {
+        "path": "agent/tools.go",
+        "cjk_lines": 242
+      },
+      {
+        "path": "agent/tools_digest.go",
+        "cjk_lines": 6
+      },
+      {
+        "path": "agent/tools_insert.go",
+        "cjk_lines": 116
+      },
+      {
+        "path": "agent/tools_nil_store_test.go",
+        "cjk_lines": 1
+      },
+      {
+        "path": "agent/tools_overview_test.go",
+        "cjk_lines": 1
+      },
+      {
+        "path": "agent/worker.go",
+        "cjk_lines": 77
+      },
+      {
+        "path": "agent/wrapup.go",
+        "cjk_lines": 32
+      },
+      {
+        "path": "cmd/artex/main.go",
+        "cjk_lines": 5
+      },
+      {
+        "path": "config/config.go",
+        "cjk_lines": 4
+      },
+      {
+        "path": "db/activity_page_test.go",
+        "cjk_lines": 2
+      },
+      {
+        "path": "db/asset_dsl.go",
+        "cjk_lines": 12
+      },
+      {
+        "path": "db/asset_intercept.go",
+        "cjk_lines": 2
+      },
+      {
+        "path": "db/asset_intercept_match.go",
+        "cjk_lines": 39
+      },
+      {
+        "path": "db/asset_intercept_match_test.go",
+        "cjk_lines": 33
+      },
+      {
+        "path": "db/assets.go",
+        "cjk_lines": 3
+      },
+      {
+        "path": "db/assets_test.go",
+        "cjk_lines": 14
+      },
+      {
+        "path": "db/chat_mentions.go",
+        "cjk_lines": 3
+      },
+      {
+        "path": "db/companies.go",
+        "cjk_lines": 12
+      },
+      {
+        "path": "db/company_scope.go",
+        "cjk_lines": 25
+      },
+      {
+        "path": "db/company_scope_consistency_test.go",
+        "cjk_lines": 4
+      },
+      {
+        "path": "db/company_scope_test.go",
+        "cjk_lines": 23
+      },
+      {
+        "path": "db/config.go",
+        "cjk_lines": 27
+      },
+      {
+        "path": "db/config_test.go",
+        "cjk_lines": 3
+      },
+      {
+        "path": "db/constants.go",
+        "cjk_lines": 1
+      },
+      {
+        "path": "db/constraints.go",
+        "cjk_lines": 4
+      },
+      {
+        "path": "db/db.go",
+        "cjk_lines": 91
+      },
+      {
+        "path": "db/exploration.go",
+        "cjk_lines": 41
+      },
+      {
+        "path": "db/exploration_test.go",
+        "cjk_lines": 3
+      },
+      {
+        "path": "db/finding_assets.go",
+        "cjk_lines": 61
+      },
+      {
+        "path": "db/finding_assets_test.go",
+        "cjk_lines": 32
+      },
+      {
+        "path": "db/finding_retests.go",
+        "cjk_lines": 21
+      },
+      {
+        "path": "db/finding_retests_test.go",
+        "cjk_lines": 3
+      },
+      {
+        "path": "db/finding_traffic.go",
+        "cjk_lines": 14
+      },
+      {
+        "path": "db/findings.go",
+        "cjk_lines": 48
+      },
+      {
+        "path": "db/findings_test.go",
+        "cjk_lines": 15
+      },
+      {
+        "path": "db/intent_delete_test.go",
+        "cjk_lines": 30
+      },
+      {
+        "path": "db/intercept.go",
+        "cjk_lines": 3
+      },
+      {
+        "path": "db/intercept_detail_test.go",
+        "cjk_lines": 4
+      },
+      {
+        "path": "db/intercept_execution.go",
+        "cjk_lines": 3
+      },
+      {
+        "path": "db/intercept_filter_test.go",
+        "cjk_lines": 1
+      },
+      {
+        "path": "db/intercept_seed_test.go",
+        "cjk_lines": 9
+      },
+      {
+        "path": "db/llmretry.go",
+        "cjk_lines": 13
+      },
+      {
+        "path": "db/llmretry_test.go",
+        "cjk_lines": 2
+      },
+      {
+        "path": "db/nkey.go",
+        "cjk_lines": 6
+      },
+      {
+        "path": "db/notification.go",
+        "cjk_lines": 116
+      },
+      {
+        "path": "db/notification_delivery.go",
+        "cjk_lines": 85
+      },
+      {
+        "path": "db/notification_test.go",
+        "cjk_lines": 201
+      },
+      {
+        "path": "db/schema.sql",
+        "cjk_lines": 168
+      },
+      {
+        "path": "db/settings.go",
+        "cjk_lines": 4
+      },
+      {
+        "path": "db/settings_insert_test.go",
+        "cjk_lines": 7
+      },
+      {
+        "path": "db/side_questions.go",
+        "cjk_lines": 4
+      },
+      {
+        "path": "db/task_archives.go",
+        "cjk_lines": 1
+      },
+      {
+        "path": "db/task_archives_restore.go",
+        "cjk_lines": 11
+      },
+      {
+        "path": "db/task_archives_test.go",
+        "cjk_lines": 1
+      },
+      {
+        "path": "db/task_assets.go",
+        "cjk_lines": 4
+      },
+      {
+        "path": "db/task_assets_context.go",
+        "cjk_lines": 1
+      },
+      {
+        "path": "db/task_assets_test.go",
+        "cjk_lines": 4
+      },
+      {
+        "path": "db/task_context.go",
+        "cjk_lines": 2
+      },
+      {
+        "path": "db/task_context_unit_test.go",
+        "cjk_lines": 1
+      },
+      {
+        "path": "db/task_intercept.go",
+        "cjk_lines": 1
+      },
+      {
+        "path": "db/task_scope.go",
+        "cjk_lines": 16
+      },
+      {
+        "path": "db/tasks.go",
+        "cjk_lines": 28
+      },
+      {
+        "path": "db/tasks_test.go",
+        "cjk_lines": 7
+      },
+      {
+        "path": "db/tools.go",
+        "cjk_lines": 2
+      },
+      {
+        "path": "db/triggers.go",
+        "cjk_lines": 5
+      },
+      {
+        "path": "enrich/enrich.go",
+        "cjk_lines": 3
+      },
+      {
+        "path": "evidence/store.go",
+        "cjk_lines": 5
+      },
+      {
+        "path": "guard/guard.go",
+        "cjk_lines": 7
+      },
+      {
+        "path": "intercept/intercept.go",
+        "cjk_lines": 20
+      },
+      {
+        "path": "intercept/prompt.go",
+        "cjk_lines": 85
+      },
+      {
+        "path": "intercept/prompt_test.go",
+        "cjk_lines": 14
+      },
+      {
+        "path": "intercept/review_context.go",
+        "cjk_lines": 1
+      },
+      {
+        "path": "intercept/review_context_test.go",
+        "cjk_lines": 14
+      },
+      {
+        "path": "intercept/trace.go",
+        "cjk_lines": 1
+      },
+      {
+        "path": "intercept/trace_test.go",
+        "cjk_lines": 2
+      },
+      {
+        "path": "llmpool/health.go",
+        "cjk_lines": 2
+      },
+      {
+        "path": "llmpool/pool.go",
+        "cjk_lines": 7
+      },
+      {
+        "path": "llmrec/llmrec.go",
+        "cjk_lines": 6
+      },
+      {
+        "path": "mcphttp/client.go",
+        "cjk_lines": 3
+      },
+      {
+        "path": "notify/channel.go",
+        "cjk_lines": 44
+      },
+      {
+        "path": "notify/channels_test.go",
+        "cjk_lines": 117
+      },
+      {
+        "path": "notify/dingtalk.go",
+        "cjk_lines": 42
+      },
+      {
+        "path": "notify/email.go",
+        "cjk_lines": 58
+      },
+      {
+        "path": "notify/email_test.go",
+        "cjk_lines": 75
+      },
+      {
+        "path": "notify/event.go",
+        "cjk_lines": 24
+      },
+      {
+        "path": "notify/feishu.go",
+        "cjk_lines": 39
+      },
+      {
+        "path": "notify/filter.go",
+        "cjk_lines": 33
+      },
+      {
+        "path": "notify/filter_test.go",
+        "cjk_lines": 42
+      },
+      {
+        "path": "notify/html.go",
+        "cjk_lines": 21
+      },
+      {
+        "path": "notify/http.go",
+        "cjk_lines": 87
+      },
+      {
+        "path": "notify/http_test.go",
+        "cjk_lines": 37
+      },
+      {
+        "path": "notify/markdown.go",
+        "cjk_lines": 63
+      },
+      {
+        "path": "notify/mask.go",
+        "cjk_lines": 81
+      },
+      {
+        "path": "notify/mask_test.go",
+        "cjk_lines": 100
+      },
+      {
+        "path": "notify/notify.go",
+        "cjk_lines": 38
+      },
+      {
+        "path": "notify/pack_test.go",
+        "cjk_lines": 68
+      },
+      {
+        "path": "notify/redact_test.go",
+        "cjk_lines": 59
+      },
+      {
+        "path": "notify/render.go",
+        "cjk_lines": 42
+      },
+      {
+        "path": "notify/render_test.go",
+        "cjk_lines": 53
+      },
+      {
+        "path": "notify/sign_test.go",
+        "cjk_lines": 20
+      },
+      {
+        "path": "notify/ssrf_test.go",
+        "cjk_lines": 61
+      },
+      {
+        "path": "notify/telegram.go",
+        "cjk_lines": 42
+      },
+      {
+        "path": "notify/webhook.go",
+        "cjk_lines": 40
+      },
+      {
+        "path": "notify/webhook_template_test.go",
+        "cjk_lines": 37
+      },
+      {
+        "path": "notify/wecom.go",
+        "cjk_lines": 22
+      },
+      {
+        "path": "report/findings.go",
+        "cjk_lines": 44
+      },
+      {
+        "path": "report/report.go",
+        "cjk_lines": 10
+      },
+      {
+        "path": "selfupdate/bootstrap.go",
+        "cjk_lines": 82
+      },
+      {
+        "path": "selfupdate/github.go",
+        "cjk_lines": 26
+      },
+      {
+        "path": "selfupdate/selfupdate.go",
+        "cjk_lines": 49
+      },
+      {
+        "path": "selfupdate/selfupdate_test.go",
+        "cjk_lines": 83
+      },
+      {
+        "path": "selfupdate/stage.go",
+        "cjk_lines": 61
+      },
+      {
+        "path": "sidequestion/context.go",
+        "cjk_lines": 11
+      },
+      {
+        "path": "sidequestion/context_test.go",
+        "cjk_lines": 5
+      },
+      {
+        "path": "sidequestion/request.go",
+        "cjk_lines": 5
+      },
+      {
+        "path": "sidequestion/service.go",
+        "cjk_lines": 3
+      },
+      {
+        "path": "sidequestion/sidequestion_test.go",
+        "cjk_lines": 1
+      },
+      {
+        "path": "traffic/evidence.go",
+        "cjk_lines": 4
+      },
+      {
+        "path": "traffic/reclaim_test.go",
+        "cjk_lines": 26
+      },
+      {
+        "path": "traffic/traffic.go",
+        "cjk_lines": 78
+      },
+      {
+        "path": "traffic/traffic_store_test.go",
+        "cjk_lines": 57
+      },
+      {
+        "path": "traffic/upgrade_test.go",
+        "cjk_lines": 30
+      }
+    ],
+    "documentation": [
+      {
+        "path": "CHANGELOG.md",
+        "cjk_lines": 460
+      },
+      {
+        "path": "skills/api-recon/reference.md",
+        "cjk_lines": 1
+      },
+      {
+        "path": "skills/api-recon/scripts/preload.js",
+        "cjk_lines": 1
+      }
+    ]
+  },
+  "ownership": {
+    "frontend": "deleg_2cc6af12/sa-0-5d606b39",
+    "server": "queued-unassigned",
+    "agent-data-libraries": "queued-unassigned",
+    "documentation": "queued-unassigned"
+  },
+  "deployment": "NOT_DEPLOYED; original frozen sources and current UI unchanged; build/independent review required"
+}

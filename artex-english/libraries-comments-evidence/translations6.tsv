@@ -1,0 +1,205 @@
+496	This file covers whole-item packing: when a batch exceeds a channel limit, truncate **by whole items**
+497	and accurately report excluded counts so callers mark only actually delivered entries.
+498	Previously the full rendered body was truncated and the entire batch marked delivered: later entries disappeared,
+499	while history showed total success, silently losing vulnerabilities with no way to detect it.
+500	A 200-item Chinese batch necessarily exceeds WeCom's 4096-byte limit.
+501	The header must accurately report included and remaining counts, or readers assume the header
+502	number covers everything.
+503	Include only the first kept items.
+504	0 = unlimited.
+505	Even if the budget cannot fit one item, send one anyway and rely on final truncation.
+506	Otherwise one oversized vulnerability permanently blocks the batch: every claim fits nothing and sends nothing.
+507	An empty message has no deliverable entries.
+508	Telegram limits **characters**; counting bytes compresses Chinese messages to one third.
+509	These two channels do not truncate bodies, so the entire batch counts as delivered.
+510	Verify indirectly through the renderer: unlimited markdownBody(0) retains everything.
+511	TestMarkdownEscapesUntrustedContent is a regression test that untrusted content cannot alter message structure.
+512	Titles and summaries come from model output informed by target responses; asset names come from target URLs.
+513	Must appear in the result, escaped.
+514	Must not appear in the result, unescaped.
+515	Fold newlines to prevent forged list items or blockquotes;
+516	escape square brackets and parentheses to prevent clickable external links.
+517	Single-item writeItem is the rendering path shared by three markdown channels.
+518	TestMarkdownEscapeBackslashFirst locks down escape order: handle backslashes first,
+519	or newly added backslashes are escaped again, producing double backslashes.
+520	TestTelegramTitleHasNoMarkdownEscapes locks down a specific regression:
+521	markdown escaping must not leak into Telegram HTML (previously the shared title function
+522	escaped titles, producing visible backslashes such as `\(1\)` in Telegram messages).
+523	This file tests the invariant that **no** error text from channel implementations may contain credentials.
+524	Why a separate file: initial channel tests covered only success and platform business errors,
+525	not transport failures, which are the most dangerous (connection refusal / DNS failure / timeout).
+526	http.Client.Do returns *url.Error including the **complete URL**, while provider
+527	credentials are in that URL. The error exposed credentials through four outlets:
+528	notification_deliveries.last_error -> plaintext storage.
+529	GET /api/notify/deliveries responses -> bypass configuration masking and echo to the browser.
+530	Server logs -> often forwarded for retention.
+531	Test-send endpoint 502 responses -> displayed directly in the frontend.
+532	Rather than testing only one function, each channel makes a real request guaranteed to fail; assert that error text
+533	does not contain the credential.
+534	credentialCases covers all channel shapes with credentials in URLs:
+535	DingTalk/WeCom in query, Feishu in the final path segment, Telegram in the middle path segment.
+536	leakProbeToken is a sentinel that cannot be a real credential, searched for in error text.
+537	TestChannelErrorsNeverLeakCredentials is the core invariant.
+538	Guaranteed-failure peer: nothing listens on 127.0.0.1:1, exercising connection refusal.
+539	TestChannelErrorsNeverLeakCredentialsInPermanentPath covers permanent failures:
+540	URL validation and platform business errors also expose text and must not contain credentials.
+541	Credential-bearing but malformed URL -> exercise validateHTTPURL / url.Parse.
+542	The redacted result must contain no original path/query fragments.
+543	Never echo the original unparseable input.
+544	TestRedactTransportErrorStripsURL directly checks *url.Error:
+545	it is the return type from http.Client.Do and the original source of the leak.
+546	Preserve Op too (POST versus GET helps diagnosis).
+547	TestRedactURLsInTextHandlesFallback covers non-*url.Error custom errors:
+548	URLs in redirect-policy errors and similar errors must also be removed.
+549	Preserve text without URLs unchanged.
+550	TestCrossHostRedirectRefused covers credentials in URLs plus cross-host redirects exposing those credentials.
+551	Two httptest servers use different 127.0.0.1 ports; different ports mean different Host values,
+552	which constitutes a cross-host redirect.
+553	TestSameHostRedirectAllowed is the inverse: same-host redirects, such as adding a slash, must remain usable,
+554	or normal workflows would also be blocked.
+555	Redirect on the same host and port.
+597	The package's most important invariant: WeCom limits **bytes**, Chinese takes 3 bytes per character,
+598	and hard byte slicing can split characters, producing invalid UTF-8 rejected by the platform.
+599	Use mixed Chinese/English inputs with coprime lengths to exercise every possible cut point.
+600	Four-byte emoji make incorrect cuts more obvious.
+601	Do not alter content when no truncation is needed.
+602	When max is shorter than the ellipsis, adding the ellipsis must not exceed the limit.
+603	Normally include an ellipsis.
+604	Keep the distinction from TruncateBytes: Telegram limits characters,
+605	whereas counting bytes would retain only one third of Chinese messages.
+606	The same string measured in bytes should be substantially shorter.
+607	The truncated result must remain readable and valid.
+608	Direct HTML truncation can leave fragments such as `<a href="htt`, causing rejection of the entire message.
+609	No unclosed trailing `<` (the final fragment cannot have `<` without `>`).
+610	Beyond the asset limit, show the total count so readers know how many are omitted.
+611	Echo unknown statuses unchanged; do not invent labels.
+612	TestTruncateHTMLNeverCutsEntity covers an audit finding: truncation must avoid
+613	partial HTML entities as well as partial tags.
+614	Cutting `&amp;` to `&amp` may cause an entity-only parser to reject the **whole** message;
+615	oversized batch messages are common, making that too costly.
+616	No partial trailing entity with & but no corresponding ;.
+617	Signature reference values were independently computed with OpenSSL, not this package's implementation;
+618	otherwise tests prove only unchanged code, not correct algorithms.
+619	DingTalk: printf '%s\n%s' "$TS" "$SECRET" | openssl dgst -sha256 -hmac "$SECRET" -binary | openssl base64 -A
+620	Feishu: printf '' | openssl dgst -sha256 -hmac "$(printf '%s\n%s' "$TS" "$SECRET")" -binary | openssl base64 -A
+621	Signing must not overwrite existing query parameters (access_token).
+622	TestSignAlgorithmsDiffer locks down the providers' reversed parameter roles:
+623	DingTalk key=secret, Feishu key=string-to-sign; copying the other's algorithm necessarily fails verification.
+624	This test prevents a future refactor from merging them into one function.
+625	Bots without signing must not acquire timestamp/sign parameters.
+626	Do not permit file:// and similar schemes; http.Client behavior for them exceeds the intended scope.
+627	This file covers two related hardening measures:
+628	1. Delivery URLs must not use the server as a relay to internal networks / cloud metadata (SSRF).
+629	2. URL validation errors must not expose credentials embedded in URLs.
+630	Test environment: many tests use httptest receivers on 127.0.0.1, blocked by default.
+631	TestMain enables AllowLocalTargetsEnv globally, and each SSRF test below explicitly
+632	clears it to assert **default-deny** behavior.
+633	Allow regular tests to reach fake local receivers; SSRF tests temporarily clear this themselves.
+634	TestDialGuardRejectsLoopbackByDefault is the core SSRF assertion:
+635	default configuration must reject loopback delivery at the **connection layer**.
+636	Disable the escape hatch = default behavior.
+637	Errors should explain how to opt in (a local SMTP relay is legitimate).
+638	TestDialGuardAllowsLoopbackWhenOptedIn is the inverse: explicit opt-in must work,
+639	or legitimate local postfix / internal relay deployments would become unusable.
+640	Cloud metadata endpoint: the main reason for this function.
+641	Unmap IPv4-mapped forms before checking, or they provide a bypass.
+642	RFC1918 private networks are **deliberately permitted**: internal Mattermost / SMTP relays are common legitimate uses.
+643	This assertion preserves that tradeoff; adding a private-network check later makes it fail,
+644	requiring a conscious decision rather than silently breaking deployments.
+645	TestValidateHTTPURLRejectsLiteralPrivateTargets covers early configuration feedback:
+646	reject literal IPs at save time instead of waiting for the first failed delivery.
+647	Public and private network addresses still pass (private addresses are left to dialing, which permits them).
+648	TestValidateHTTPURLErrorNeverLeaksCredentials covers the branch missed in the previous audit pass.
+649	Failed url.Parse returns *url.Error containing the complete original URL. The earlier pass only
+650	redacted http.Client.Do errors, missing this branch. Its permanent-failure tests
+651	(file://, gopher://, ftp://) all parsed successfully and exercised scheme validation instead,
+652	so green tests provided false assurance about this branch.
+653	Invalid percent escape.
+654	Nonnumeric port.
+655	Unbalanced bracket.
+656	First verify that this input **actually** makes url.Parse fail; otherwise it could unknowingly
+657	exercise another branch, recreating the earlier false assurance.
+658	Ensure channel-level wrapping does not expose the URL either.
+659	TestEmailDialGuardRejectsLoopbackByDefault covers the SMTP dial guard.
+660	Email previously used bare net.Dialer, the sole SSRF gap: host values
+661	169.254.169.254 or 127.0.0.1 could connect directly, and failed smtp.NewClient handshakes included
+662	the peer's response line in errors echoed through last_error and delivery history, providing the same
+663	semi-blind read primitive already closed in other channels. Refusal-versus-timeout timing also enabled port probing.
+664	TestMain globally enables AllowLocalTargetsEnv because many tests use fake receivers on 127.0.0.1,
+665	so this test must clear it; otherwise it passes whether or not the guard exists,
+666	which is why the original gap went undetected.
+667	Disable the escape hatch = default behavior.
+668	No connection should be established: the Control hook rejects it before EHLO can be sent.
+669	Errors must explain how to opt in (a local postfix relay is legitimate).
+670	TestEmailDialGuardAllowsLoopbackWhenOptedIn is the paired inverse: explicit opt-in
+671	must permit normal delivery. Internal SMTP / local relays are common, legitimate deployments and must not be blanket-blocked.
+731	This file locks down the generic Webhook template's **capability boundary**.
+732	This is the package's only place evaluating user-supplied strings as code, so specify what templates can
+733	and cannot do, and enforce those properties with tests. Otherwise adding a context
+734	method or a readFile FuncMap function could silently expand capabilities while the diff
+735	looks like a harmless helper.
+736	TestTemplateContextHasNoMethods is the most important assertion.
+737	text/template invokes exported methods ({{.Foo}} accesses fields or calls methods). Thus any
+738	reachable type with exported methods exposes those methods to template authors.
+739	This context deliberately contains only plain data: exported fields and no methods.
+740	Failure means a method was added to webhookTemplateData / webhookItem.
+741	Before permitting it, consider whether templates could use it to read unintended data.
+742	TestTemplateFuncsAreMinimal locks down the exposed function set.
+743	Every FuncMap entry adds a capability. Currently only json / jsons serialize values
+744	to JSON fragments: no file access, requests, or command execution.
+745	TestTemplateCannotReachUnknownData covers out-of-bounds template access:
+746	accessing nonexistent data must fail rather than echo anything; errors must not expose internal data.
+747	Errors must not include actual context content such as vulnerability titles/summaries.
+748	TestTemplateRenderFailsPermanently: malformed templates are configuration errors, not repairable by retry.
+749	If retryable, each delivery with a bad template wastes three backoff rounds.
+750	Even direct delivery bypassing validation must classify this as permanent, not repeatedly retry.
+751	TestTemplateCanOnlyProduceJSON enforces valid JSON template output.
+752	It also prevents generating plaintext to trigger other protocols.
+753	Valid templates pass.
+754	Reject non-JSON output rather than sending it unchanged.
+867	testPaths creates an isolated update directory. Do not use ResolvePaths(), which points at the test
+868	binary itself and would rename the go test executable.
+869	fakeBin writes an executable shell script standing in for artex. smokeTest only launches it with -h and checks its exit code;
+870	a script suffices and is much faster than compiling a real binary.
+871	stage prepares bin as staged for swapping by writing artex.new and its checksum.
+872	build.sh strips v while tags include v; accept both.
+873	Compare numerically, not lexicographically.
+874	Development builds must be noncomparable, or stable releases could overwrite uncommitted changes.
+875	Key invariant: all update files share the executable's directory. CWD would break service-mode swapping
+876	when the working directory is /.
+877	Windows .new/.old must retain .exe or smoke testing and post-swap execution fail.
+878	Modify the file after writing its checksum to simulate corruption or replacement.
+879	Executable but exits nonzero.
+880	Keep the marker: the next startup runs the new version and uses it to count attempts and roll back if needed.
+881	Corrupt the checksum.
+882	Backup left by the previous update.
+883	The first maxAttempts startups only count attempts, giving the new version a chance to stabilize.
+884	One more crash exceeds the limit and automatically restores the old version.
+885	Keep the unstartable version for diagnosis rather than deleting it.
+886	Rollback() uses ResolvePaths(); directly test the underlying swap semantics here.
+887	sha256sum separates with two spaces; shasum -a 256 binary mode prefixes filenames with *.
+888	Exactly two fields, but the first is not a digest.
+889	Incorrect digest length.
+890	Normalize digests to lowercase to avoid case-only mismatches.
+891	Real release layout: artex-<版本>-<os>-<arch>/artex, plus distracting files (naming notation preserved).
+892	Not HTTPS.
+893	Domain not allowlisted.
+894	Deceptive suffix.
+895	Domain matching is case-insensitive.
+896	build.sh package_binary uses artex-<版本>-<os>-<arch>.zip, with the version
+897	stripped of its v prefix. A one-character mismatch breaks asset discovery for updates on every platform.
+898	Without the marker, normal future restarts neither count attempts nor spuriously trigger rollback.
+899	Keep the backup so users can still roll back manually.
+900	Normal startup must neither panic nor modify any files.
+931	Reclamation runs in background chunks.
+932	Must converge, not get stuck within the budget.
+938	Three historical traffic entries, including a legacy path<>'' row.
+939	---- New version takes over.
+940	1. Must open the same file, not silently create a new empty database.
+941	2. All historical data remains visible.
+942	3. Historical full-text indexing remains searchable.
+943	4. Historical bodies remain readable.
+944	5. Do not misclassify the old database as supporting incremental reclamation.
+945	6. Deletion still works and reclamation converges on the old database.
+946	7. The legacy path<>'' row is unaffected.
+947	Old binary takes over.

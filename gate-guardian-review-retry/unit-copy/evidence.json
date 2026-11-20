@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "scope": "UNIT_ONLY_LOCAL_NO_CLOUD_OR_SSH_OR_TCP_SERVER",
+  "tests_run": 20,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "loader_errors": [],
+  "success": true,
+  "artifacts": {
+    "README.md": "a25d86352d6bbd8c4db486ed6e33bf92438a5eee3177a059e0e07813c54491f2",
+    "guard.py": "4dbee74525efc94a4262d7e297c0922e5ffeeba5c5583b6466454898d6f8a0cd",
+    "test_guard.py": "1bffcaf8ba0f1f0e757e46b3406331da62e83b0ad2a7f99bf1c7a6ebc28d7492",
+    "test_security.py": "11e14db83463b54b50e40335914a0ba42a855541f9bd105385466ebfee49da33",
+    "verify.py": "ad8ef603916605d8338dd64d2590275add3229d97b2961ac4615c955f1fdf2b6"
+  },
+  "output": "test_default_missing_scope_blocked (test_guard.ReadbackTests.test_default_missing_scope_blocked) ... ok\ntest_expiry_overflow_and_wrong_scope (test_guard.ReadbackTests.test_expiry_overflow_and_wrong_scope) ... ok\ntest_no_cache_on_query_failure (test_guard.ReadbackTests.test_no_cache_on_query_failure) ... ok\ntest_no_pid_and_bad_default_and_disk (test_guard.ReadbackTests.test_no_pid_and_bad_default_and_disk) ... ok\ntest_positive_fresh_real_readback_commands (test_guard.ReadbackTests.test_positive_fresh_real_readback_commands) ... ok\ntest_provider_fail_closed (test_guard.ReadbackTests.test_provider_fail_closed) ... ok\ntest_active_override_package_stale_inventory_deny (test_security.Guest.test_active_override_package_stale_inventory_deny) ... ok\ntest_default_socket_listener_denied_even_if_units_inactive (test_security.Guest.test_default_socket_listener_denied_even_if_units_inactive) ... ok\ntest_positive_reads_actual_package_and_service_commands (test_security.Guest.test_positive_reads_actual_package_and_service_commands) ... ok\ntest_controller_missing_and_current_rpc_process_denied (test_security.PathsAndProcess.test_controller_missing_and_current_rpc_process_denied) ... ok\ntest_controller_real_local_fixture_lifetime_and_identity_mismatch (test_security.PathsAndProcess.test_controller_real_local_fixture_lifetime_and_identity_mismatch) ... ok\ntest_default_entrypoint_missing_input_exit2_no_stdout (test_security.PathsAndProcess.test_default_entrypoint_missing_input_exit2_no_stdout) ... ok\ntest_exec_boundary_only_fixed_gcloud_read_and_mux_inventory (test_security.PathsAndProcess.test_exec_boundary_only_fixed_gcloud_read_and_mux_inventory) ... ok\ntest_protected_file_positive_synthetic_root_then_mode_symlink_hash_denials (test_security.PathsAndProcess.test_protected_file_positive_synthetic_root_then_mode_symlink_hash_denials) ... ok\ntest_root_context_source_review_and_lease_bindings (test_security.PathsAndProcess.test_root_context_source_review_and_lease_bindings) ... ok\ntest_unprotected_tree_and_noncanonical_origin_denied (test_security.PathsAndProcess.test_unprotected_tree_and_noncanonical_origin_denied) ... ok\ntest_authenticated_request_calls_readback (test_security.RPC.test_authenticated_request_calls_readback) ... ok\ntest_missing_wrong_key_and_caller_scope_fields (test_security.RPC.test_missing_wrong_key_and_caller_scope_fields) ... ok\ntest_private_socketpair_frame_effect (test_security.RPC.test_private_socketpair_frame_effect) ... ok\ntest_replay_stale_and_overflow (test_security.RPC.test_replay_stale_and_overflow) ... ok\n\n----------------------------------------------------------------------\nRan 20 tests in 0.108s\n\nOK\n",
+  "live_status": "BLOCKED_EXTERNAL_PARENT_INSTALL_REVIEW_CONTROLLER_PROVIDER_GUEST_AND_TIMEOUT_GATES"
+}

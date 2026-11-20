@@ -1,0 +1,8 @@
+{"Time":"2026-11-20T00:32:29.747094384Z","Action":"start","Package":"command-line-arguments"}
+{"Time":"2026-11-20T00:32:29.751694234Z","Action":"run","Package":"command-line-arguments","Test":"TestPrivatePostgresApprovalHistoryArchive"}
+{"Time":"2026-11-20T00:32:29.751759324Z","Action":"output","Package":"command-line-arguments","Test":"TestPrivatePostgresApprovalHistoryArchive","Output":"=== RUN   TestPrivatePostgresApprovalHistoryArchive\n"}
+{"Time":"2026-11-20T00:32:30.011377056Z","Action":"output","Package":"command-line-arguments","Test":"TestPrivatePostgresApprovalHistoryArchive","Output":"--- PASS: TestPrivatePostgresApprovalHistoryArchive (0.26s)\n"}
+{"Time":"2026-11-20T00:32:30.011438826Z","Action":"pass","Package":"command-line-arguments","Test":"TestPrivatePostgresApprovalHistoryArchive","Elapsed":0.26}
+{"Time":"2026-11-20T00:32:30.011460986Z","Action":"output","Package":"command-line-arguments","Output":"PASS\n"}
+{"Time":"2026-11-20T00:32:30.011713927Z","Action":"output","Package":"command-line-arguments","Output":"ok  \tcommand-line-arguments\t0.264s\n"}
+{"Time":"2026-11-20T00:32:30.011741307Z","Action":"pass","Package":"command-line-arguments","Elapsed":0.265}

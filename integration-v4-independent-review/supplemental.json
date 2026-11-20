@@ -1,0 +1,231 @@
+{
+  "results": [
+    {
+      "case": "same_real_entrypoints_positive",
+      "sha256": "8b8c7f732cafd90d71dba889cd43f133a980c7db9cc237480878395be0bc0b90",
+      "path": "/home/iveri/.hermes/cache/scratch/iv4p-x7u0fbp9/tmp2slsbja4/preflight.json",
+      "commands": 9
+    },
+    {
+      "case": "missing-schema",
+      "denied": [
+        "canary",
+        "guardian"
+      ],
+      "commands": 0
+    },
+    {
+      "case": "missing-status",
+      "denied": [
+        "canary",
+        "guardian"
+      ],
+      "commands": 0
+    },
+    {
+      "case": "missing-requirement",
+      "denied": [
+        "canary",
+        "guardian"
+      ],
+      "commands": 0
+    },
+    {
+      "case": "missing-vm",
+      "denied": [
+        "canary",
+        "guardian"
+      ],
+      "commands": 0
+    },
+    {
+      "case": "missing-created",
+      "denied": [
+        "canary",
+        "guardian"
+      ],
+      "commands": 0
+    },
+    {
+      "case": "missing-deadline",
+      "denied": [
+        "canary",
+        "guardian"
+      ],
+      "commands": 0
+    },
+    {
+      "case": "missing-parent_scope_lease",
+      "denied": [
+        "canary",
+        "guardian"
+      ],
+      "commands": 0
+    },
+    {
+      "case": "missing-default_service_changes_owner",
+      "denied": [
+        "canary",
+        "guardian"
+      ],
+      "commands": 0
+    },
+    {
+      "case": "missing-external_stop",
+      "denied": [
+        "canary",
+        "guardian"
+      ],
+      "commands": 0
+    },
+    {
+      "case": "missing-default_inventory",
+      "denied": [
+        "canary",
+        "guardian"
+      ],
+      "commands": 0
+    },
+    {
+      "case": "extra",
+      "denied": [
+        "canary",
+        "guardian"
+      ],
+      "commands": 0
+    },
+    {
+      "case": "inventory-extra",
+      "denied": [
+        "canary",
+        "guardian"
+      ],
+      "commands": 0
+    },
+    {
+      "case": "schema-bool",
+      "denied": [
+        "canary",
+        "guardian"
+      ],
+      "commands": 0
+    },
+    {
+      "case": "created-bool",
+      "denied": [
+        "canary",
+        "guardian"
+      ],
+      "commands": 0
+    },
+    {
+      "case": "deadline-bool",
+      "denied": [
+        "canary",
+        "guardian"
+      ],
+      "commands": 0
+    },
+    {
+      "case": "stop-bool",
+      "denied": [
+        "canary",
+        "guardian"
+      ],
+      "commands": 0
+    },
+    {
+      "case": "created-nan",
+      "denied": [
+        "canary",
+        "guardian"
+      ],
+      "commands": 0
+    },
+    {
+      "case": "created-infinity",
+      "denied": [
+        "canary",
+        "guardian"
+      ],
+      "commands": 0
+    },
+    {
+      "case": "old-status",
+      "denied": [
+        "canary",
+        "guardian"
+      ],
+      "commands": 0
+    },
+    {
+      "case": "lease-wrong",
+      "denied": [
+        "canary",
+        "guardian"
+      ],
+      "commands": 0
+    },
+    {
+      "case": "owner-wrong",
+      "denied": [
+        "canary",
+        "guardian"
+      ],
+      "commands": 0
+    },
+    {
+      "case": "vm-wrong",
+      "denied": [
+        "canary",
+        "guardian"
+      ],
+      "commands": 0
+    },
+    {
+      "case": "inventory-nonempty",
+      "denied": [
+        "canary",
+        "guardian"
+      ],
+      "commands": 0
+    },
+    {
+      "case": "time-999",
+      "validator": "canary",
+      "denied": true
+    },
+    {
+      "case": "time-999",
+      "validator": "guardian",
+      "denied": true
+    },
+    {
+      "case": "time-1121",
+      "validator": "canary",
+      "denied": true
+    },
+    {
+      "case": "time-1121",
+      "validator": "guardian",
+      "denied": true
+    },
+    {
+      "case": "time-1600",
+      "validator": "canary",
+      "denied": true
+    },
+    {
+      "case": "time-1600",
+      "validator": "guardian",
+      "denied": true
+    },
+    {
+      "case": "actual_guardian_protected_same_path_hash",
+      "passed": true,
+      "synthetic_root": true
+    }
+  ],
+  "runtime_qualified": false,
+  "all_passed": true
+}

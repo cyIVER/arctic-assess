@@ -1,0 +1,27 @@
+{
+  "verdict": "BLOCKED",
+  "scope": "Offline source review only; no live TCP/cloud/SSH/Docker/model, credential or service access",
+  "candidate": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/qwen-standard-bridge",
+  "sha256": {
+    "bridge.py": "f5aa88e790a243080ddadd9ad829c5973dae088ad358eefbbe4942a276508228",
+    "guest_gateway.py": "19285c1420ebd10e7e922f5e379b1a2faaf376a1529dde35b0728091196f93c6",
+    "test_bridge.py": "a8c78783ec47f26229e8591ee77a4dc02a43e37a0b755214f639e208b5637e70",
+    "HANDOFF.md": "6798956e65612e655cf78ce53b01e6cb5ca8b870a151afd773b29bda4519da1e",
+    "norma-v0.4.3/llm/openai.go": "76d7d83dd342181136f9bc46e45ad2ef6bb453b72c305eae19bc96e8cfa802b7",
+    "artex/db/config.go": "1f0d0ed48faf011957b5288ed03af72de8cd9261683c024d0b09296b7dc2d602",
+    "artex/server/llmretry.go": "b7e20926db5bde22e08882af3b47983a61d41fb68bc6c55e5301f827895d5ec0"
+  },
+  "tests": {
+    "inherited": {"command": "python -m unittest -v test_bridge", "passed": 16, "failed": 0, "skipped": 0},
+    "reviewer": {"command": "python -B repro.py", "passed": 5, "failed": 0, "skipped": 0},
+    "syntax": "python -B AST parse: 3 passed; python -m py_compile: passed (generated pycache cleaned)",
+    "network": "Socket creation forbidden in inherited/reviewer fixtures; no actual socket invocation"
+  },
+  "findings": [
+    {"severity": "HIGH", "id": "GUEST-AVAILABILITY", "location": "guest_gateway.py:52-55, bridge.py:193-207", "reproducer": "Static: HTTPServer is single-threaded, binds guest-interface address, Handler parses headers before Authorization and allows 60 seconds per connection. A routable unauthenticated peer can occupy the sole handler with partial headers, denying legitimate bridge requests, repeatedly during the session.", "fix": "Before launch prove network source restriction to only the ARTEX guest (and DVWA cannot route to listener); preferably dedicated peer-restricted socket/firewall plus bounded unauthenticated header budget and concurrent/isolated handling. Do not rely on bearer authentication to prevent pre-auth connection starvation."},
+    {"severity": "BLOCKING_DEPLOYMENT_GATE", "id": "UNPROVEN-SOURCE-CONFINEMENT", "location": "guest_gateway.py:48-53; HANDOFF.md:7-13", "reproducer": "Bind address alone does not enforce peer source identity. Offline source does not prove DVWA cannot reach 172.29.88.1:18761 or read the task key; no runtime network/FS topology was accessed under this review scope.", "fix": "Parent must verify actual guest/DVWA network routes, namespace/firewall isolation and key file mount/permissions, and deny every source except intended ARTEX peer before live connection; no authentication bypass was found without key."},
+    {"severity": "MEDIUM", "id": "NONSTANDARD-DATA-URL", "location": "bridge.py:110-119,152", "reproducer": "reviewer test_nonstandard_metadata_url_is_rejected: top-level metadata.url is denied despite being application data. Norma v0.4.3's actual oaReq does not emit metadata; tools and messages are deliberately exempt and passed.", "fix": "If future ARTEX sends metadata, validate transport routing only at top-level explicit selectors, not recursively into application payload; retain strict top-level model/path/auth/host restrictions."}
+  ],
+  "positive": ["Norma v0.4.3 openai.go:46-65,220-266 emits stream:false, tools, messages, optional max_tokens/max_completion_tokens (one), temperature, stop, thinking and reasoning_effort; normal shapes pass reviewer vectors, with URL-valued tool schema/data passed unchanged.", "TLS default context hostname/CA validation and fixed destination; no header forwarding, redirect, proxy or retry inside bridge. Constant-time bearer comparison, incoming fixed path, bounded request/response/count/aggregate budgets, daemon timeout terminal fence and credential-echo denial confirmed in source/tests.", "ARTEX profile uses streaming:false (not stream), max_tokens <=4096, max_tokens_field default or max_completion_tokens. Profile retry 0 inherits; -1 disables. Failover chain includes other keyed nonexcluded profiles; parent must constrain entire chain and global intent retries.", "Child server code contains no restart loop; parent owns one-shot lifecycle and must terminate at deadline."],
+  "unverified": ["Deployed ARTEX source/profile/actual Qwen response compatibility/context 65536", "DVWA-to-listener route/key isolation and native application execution boundary", "Actual TLS/upstream behavior and cloud completion", "Parent orchestration restart/failover configuration"]
+}

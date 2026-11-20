@@ -1,0 +1,118 @@
+{
+  "verdict": "HOLD \u2014 do not activate on the current shared ARTEX application network; no runtime qualification",
+  "review_scope": "Static source/pin/network review, independent public HTTPS registry metadata and mocked offline unit tests only; no Docker/cloud/SSH/image layer download or launch",
+  "source_dir": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/dvwa-target",
+  "source_sha256": {
+    "source-setup.php": "97082455623767a43eef6ef6ced586f9884e6cdd5d50bdcc5151b3a0d6a17028",
+    "acquire_metadata.py": "277633212fa272e0c6fd83a6480aa47fab4d3bb7258f1fb722e9f8dcd33de9e9",
+    "test_install.py": "f2bc566a3f89ed0dc47fc6922c9ab9145fb5b8676d9b5e15478de5d6d556fd09",
+    "tests-output.txt": "6c66ec5ef80c946583548dd83e442aacdee6d58aff5ced6b16e45c0e1a5d0782",
+    "source-config_config.inc.php.dist": "fb3633e82bdfc394e4b3440e9549a0885ed7d3ad70bb73ecd73abd9a9130df3b",
+    "pins.json": "826fb7bcde36d04c39219cebd028b416efaf69d46534ab95d086b66b2ff27e33",
+    "launch-plan.json": "ed8f95e64a1a45531cad1357c14845280a17aff31b01c90592775504eebc3c3b",
+    "source-Dockerfile": "a19f27e97070de51cc852b0aa7a1d3b7f601de539c0f03dfada1bfc1820a39bd",
+    "install.py": "09006a91f0b24a37d4fcef3bb58232ad1df8efc7960387a703e65627121f8df2",
+    "source-hashes.json": "871df9954a6be6ebbc8179d61c446b786ce067bdc682cc2c32825c6eb51f8555",
+    "source-compose.yml": "c9f84fe4f3e21666594efc718580d2b27a4ff97e05dc4144615aca43fe4d65de",
+    "source-dvwa_includes_DBMS_MySQL.php": "65b1c7f0714aba81e433a0bdef4a90cd3fb3e103a51984672030081d453b1feb",
+    "REPORT.md": "a6c322f66730442d227534583d3a5f6948889c5ebef3f23a629c9960f7c7233c"
+  },
+  "independent_checks": {
+    "tests": "11/11 passed, byte-identical copy in unit-copy; tests-output.txt",
+    "snapshot_hashes": "5/5 match source-hashes.json",
+    "registry_metadata": "Both current linux/amd64 index, manifest, config and layer descriptors match pins.json via HTTPS; no layer bytes retrieved",
+    "unique_compressed_layer_bytes": 317073552,
+    "budget_bytes": 1800000000
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "HIGH",
+      "title": "Deliberately vulnerable web joins shared ARTEX data plane with no east-west ACL",
+      "evidence": [
+        "install.py:19",
+        "install.py:68-70",
+        "install.py:161",
+        "install.py:89-90",
+        "../../artex-native-owned-acceptance/guest-containment.json:113-164",
+        "https://docs.docker.com/engine/network/drivers/bridge/"
+      ],
+      "impact": "The DVWA web container shares 172.29.88.0/24 with ARTEX app, PostgreSQL (172.29.88.2), and sink (172.29.88.4). Same-bridge ports are reachable by default; the alias does not restrict traffic. A DVWA RCE/SSRF exercise can target non-lab containers, and shared app/sink may reach vulnerable web. The backend DB is separate, but web is not constrained to only it and ARTEX ingress. No actual attack or reachability probe was performed.",
+      "required_action": "Before launch use a dedicated lab network plus a narrowly policy-enforced app-to-target ingress/proxy, or verified host firewall rules restricting DVWA web to its DB and approved ingress only; test denial to ARTEX PG/app/sink and allow intended paths, including teardown. Do not attach vulnerable web directly to the app data-plane network."
+    },
+    {
+      "id": "F2",
+      "severity": "HIGH",
+      "title": "Internal bridges do not prove host-management isolation",
+      "evidence": [
+        "install.py:69-70",
+        "install.py:155-158",
+        "../../artex-native-owned-acceptance/guest-containment.json:125-134",
+        "https://docs.docker.com/engine/network/port-publishing/#gateway-modes"
+      ],
+      "impact": "Existing internal bridge has host gateway 172.29.88.1; new backend internal bridge uses default gateway mode. Docker documents that internal bridges normally have host-accessible bridge addresses and containers can reach host listeners there or on wildcard addresses. No host INPUT restrictions or guest-level denial test exists, so host management surfaces cannot be called confined. Internet egress is restricted by internal networking under default rules, but DNS forwarding/host route policies were not observed.",
+      "required_action": "Verify host listeners and firewall/bridge gateway mode; enforce and test deny from both web and DB to gateway and management addresses, while retaining allowed lab DB and ingress. Do not infer host isolation from Internal=true."
+    },
+    {
+      "id": "F3",
+      "severity": "MEDIUM",
+      "title": "Real startup and inherited image filesystem compatibility remain untested",
+      "evidence": [
+        "install.py:43-56",
+        "install.py:75-80",
+        "install.py:163-171",
+        "pins.json:14-22",
+        "pins.json:161-173",
+        "REPORT.md:64",
+        "https://raw.githubusercontent.com/MariaDB/mariadb-docker/master/10.11/docker-entrypoint.sh"
+      ],
+      "impact": "Image config confirms default root entrypoints, not compatibility of nonroot Apache/MariaDB initialization with read-only root, noexec tmpfs, and dropped capabilities. MariaDB entrypoint creates datadir and initializes a temporary server; Apache must bind port 80 and write logs/runtime/session files. No image layers or daemon launch were examined; no proven startup failure, but readiness is unknown.",
+      "required_action": "In separately approved confined guest, retain exact run args; collect owned container logs and inspect results, verify temporary initialization, Apache HTTP/session and DB setup; stop/fail closed on error rather than relax guards."
+    },
+    {
+      "id": "F4",
+      "severity": "MEDIUM",
+      "title": "Authentication and seed checks do not prove the requested vulnerable SQLi path",
+      "evidence": [
+        "install.py:110-125",
+        "source-config_config.inc.php.dist:30-33",
+        "source-config_config.inc.php.dist:48-52",
+        "https://raw.githubusercontent.com/digininja/DVWA/502ac150ce37c20ca6e04cab7c5ca959f315f2d0/vulnerabilities/sqli/source/low.php"
+      ],
+      "impact": "The health gate posts setup, verifies seed counts, and authenticates but never requests /vulnerabilities/sqli/?id=...&Submit=Submit or checks security=low in session. Low-level source interpolates id into SQL, but image/source build identity is unproved and a real HTTP finding has not been shown.",
+      "required_action": "Within freshly created lab DB after confinement, GET a baseline id and a non-destructive comparison payload, require a changed response and explicit low security cookie/session; record HTTP response evidence without mutating non-lab resources."
+    },
+    {
+      "id": "F5",
+      "severity": "MEDIUM",
+      "title": "Digest integrity is not source-build provenance",
+      "evidence": [
+        "pins.json:3-11",
+        "pins.json:26-30",
+        "pins.json:153-185",
+        "REPORT.md:22"
+      ],
+      "impact": "Manifest and config digests match registry metadata, but OCI labels give only mutable source repository URL, not a build commit/attestation. The independently fetched current source commit is not demonstrated to be the content in the pinned image. No image-layer contents, SBOM, signature or vulnerability scan were reviewed.",
+      "required_action": "Bind reviewed image to a verifiable source revision/build attestation or explicitly accept this provenance gap; do not claim source/image equivalence. Check unpacked disk and image scan before acquisition as required."
+    },
+    {
+      "id": "F6",
+      "severity": "LOW",
+      "title": "Disposable credentials exposed in process command line and Docker inspect",
+      "evidence": [
+        "install.py:49-55",
+        "install.py:119",
+        "install.py:167"
+      ],
+      "impact": "Lab-only passwords are in docker run/exec argv and environment, visible in process inspection/log tooling to authorized guest operators. Not operator credentials, but avoid carrying them to other environments.",
+      "required_action": "Keep disposable and bounded to this lab; avoid publishing logs/argv and rotate if scope changes."
+    }
+  ],
+  "verified_controls": [
+    "Manifest/platform digest refs, --pull=never, config ID and amd64 preflight",
+    "No host port publishes/binds/socket mounts; explicit nonroot, readonly root, cap-drop, no-new-privileges, no restart, bounded tmpfs/resources",
+    "Dedicated internal backend DB network; no MAC/VLAN/nested virtual machine",
+    "Foreground deadline and exact owned-name stop path, with parent watchdog still required"
+  ],
+  "launch_gate": "Blocked on F1/F2 network policy and proof; F3/F4 must be runtime-qualified after separate authorization. No approval minted."
+}

@@ -1,0 +1,29 @@
+test_18_seconds_rejected_not_perstage_accepted (test_integration.ClientDeadline.test_18_seconds_rejected_not_perstage_accepted) ... ok
+test_send_time_counts_in_shared_deadline (test_integration.ClientDeadline.test_send_time_counts_in_shared_deadline) ... ok
+test_within10_positive_and_remaining_timeout (test_integration.ClientDeadline.test_within10_positive_and_remaining_timeout) ... ok
+test_contract_negatives_both_after_same_entrypoint_positive (test_integration.Integrated.test_contract_negatives_both_after_same_entrypoint_positive) ... ERROR
+test_same_serialized_path_hash_both_actual_validators_and_status (test_integration.Integrated.test_same_serialized_path_hash_both_actual_validators_and_status) ... ok
+
+======================================================================
+ERROR: test_contract_negatives_both_after_same_entrypoint_positive (test_integration.Integrated.test_contract_negatives_both_after_same_entrypoint_positive)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/integration-repair-v4/test_integration.py", line 63, in test_contract_negatives_both_after_same_entrypoint_positive
+    with self.assertRaises(guard.Blocked):inventory(c,raw+b' ')
+                                          ~~~~~~~~~^^^^^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/integration-repair-v4/test_integration.py", line 28, in inventory
+    out=guard.guest_inventory(c,runner=seam.runner,clock=lambda:c['created'],read=read)
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/integration-repair-v4/guardian/guard.py", line 251, in guest_inventory
+    raw=read(scope['preflight']['path'],scope['preflight']['sha256'])
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/integration-repair-v4/test_integration.py", line 26, in read
+    reads.append((path,sha));guest.need(guard.digest(raw)==sha,'test pinned read');return raw
+                             ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/integration-repair-v4/canary/guest.py", line 31, in need
+    if not value: raise Blocked(reason)
+                  ^^^^^^^^^^^^^^^^^^^^^
+guest.Blocked: test pinned read
+
+----------------------------------------------------------------------
+Ran 5 tests in 6.637s
+
+FAILED (errors=1)

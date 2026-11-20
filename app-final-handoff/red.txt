@@ -1,0 +1,162 @@
+test_hash_mismatch (test_verify_handoff.VerificationTests.test_hash_mismatch) ... FAIL
+test_malformed_manifest (test_verify_handoff.VerificationTests.test_malformed_manifest) ... 
+  test_malformed_manifest (test_verify_handoff.VerificationTests.test_malformed_manifest) (manifest={'a': 'not-a-hash'}) ... FAIL
+  test_malformed_manifest (test_verify_handoff.VerificationTests.test_malformed_manifest) (manifest={'../a': '0000000000000000000000000000000000000000000000000000000000000000'}) ... FAIL
+  test_malformed_manifest (test_verify_handoff.VerificationTests.test_malformed_manifest) (manifest=[]) ... FAIL
+  test_malformed_manifest (test_verify_handoff.VerificationTests.test_malformed_manifest) (manifest={}) ... FAIL
+test_missing_file (test_verify_handoff.VerificationTests.test_missing_file) ... FAIL
+test_missing_json (test_verify_handoff.VerificationTests.test_missing_json) ... FAIL
+test_required_fail_not_accepted (test_verify_handoff.VerificationTests.test_required_fail_not_accepted) ... FAIL
+test_required_pass_positive (test_verify_handoff.VerificationTests.test_required_pass_positive) ... ok
+test_required_skips_and_missing_not_accepted (test_verify_handoff.VerificationTests.test_required_skips_and_missing_not_accepted) ... FAIL
+test_symlink_rejected (test_verify_handoff.VerificationTests.test_symlink_rejected) ... FAIL
+test_truncated_and_duplicate_json (test_verify_handoff.VerificationTests.test_truncated_and_duplicate_json) ... 
+  test_truncated_and_duplicate_json (test_verify_handoff.VerificationTests.test_truncated_and_duplicate_json) (raw='{"success":') ... FAIL
+  test_truncated_and_duplicate_json (test_verify_handoff.VerificationTests.test_truncated_and_duplicate_json) (raw='{"x":1,"x":2}') ... FAIL
+  test_truncated_and_duplicate_json (test_verify_handoff.VerificationTests.test_truncated_and_duplicate_json) (raw='[1]') ... FAIL
+test_valid_actual_map (test_verify_handoff.VerificationTests.test_valid_actual_map) ... FAIL
+
+======================================================================
+FAIL: test_hash_mismatch (test_verify_handoff.VerificationTests.test_hash_mismatch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/app-final-handoff/test_verify_handoff.py", line 28, in test_hash_mismatch
+    with self.assertRaisesRegex(ValueError, 'mismatch'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_malformed_manifest (test_verify_handoff.VerificationTests.test_malformed_manifest) (manifest={'a': 'not-a-hash'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/app-final-handoff/test_verify_handoff.py", line 33, in test_malformed_manifest
+    with self.subTest(manifest=manifest), self.assertRaises(ValueError):
+                                          ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_malformed_manifest (test_verify_handoff.VerificationTests.test_malformed_manifest) (manifest={'../a': '0000000000000000000000000000000000000000000000000000000000000000'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/app-final-handoff/test_verify_handoff.py", line 33, in test_malformed_manifest
+    with self.subTest(manifest=manifest), self.assertRaises(ValueError):
+                                          ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_malformed_manifest (test_verify_handoff.VerificationTests.test_malformed_manifest) (manifest=[])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/app-final-handoff/test_verify_handoff.py", line 33, in test_malformed_manifest
+    with self.subTest(manifest=manifest), self.assertRaises(ValueError):
+                                          ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_malformed_manifest (test_verify_handoff.VerificationTests.test_malformed_manifest) (manifest={})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/app-final-handoff/test_verify_handoff.py", line 33, in test_malformed_manifest
+    with self.subTest(manifest=manifest), self.assertRaises(ValueError):
+                                          ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_missing_file (test_verify_handoff.VerificationTests.test_missing_file)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/app-final-handoff/test_verify_handoff.py", line 23, in test_missing_file
+    with self.assertRaisesRegex(ValueError, 'missing'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_missing_json (test_verify_handoff.VerificationTests.test_missing_json)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/app-final-handoff/test_verify_handoff.py", line 42, in test_missing_json
+    with self.assertRaises(ValueError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_required_fail_not_accepted (test_verify_handoff.VerificationTests.test_required_fail_not_accepted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/app-final-handoff/test_verify_handoff.py", line 59, in test_required_fail_not_accepted
+    self.assertEqual(v.required_gaps([{'Test': 'required', 'Action': 'fail'}], ['required']), ['required:fail'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [] != ['required:fail']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'required:fail'
+
+- []
++ ['required:fail']
+
+======================================================================
+FAIL: test_required_skips_and_missing_not_accepted (test_verify_handoff.VerificationTests.test_required_skips_and_missing_not_accepted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/app-final-handoff/test_verify_handoff.py", line 56, in test_required_skips_and_missing_not_accepted
+    self.assertEqual(v.required_gaps([{'Test': 'required', 'Action': 'skip'}], ['required', 'missing']), ['missing', 'required:skip'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [] != ['missing', 'required:skip']
+
+Second list contains 2 additional elements.
+First extra element 0:
+'missing'
+
+- []
++ ['missing', 'required:skip']
+
+======================================================================
+FAIL: test_symlink_rejected (test_verify_handoff.VerificationTests.test_symlink_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/app-final-handoff/test_verify_handoff.py", line 38, in test_symlink_rejected
+    with self.assertRaisesRegex(ValueError, 'symlink'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_truncated_and_duplicate_json (test_verify_handoff.VerificationTests.test_truncated_and_duplicate_json) (raw='{"success":')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/app-final-handoff/test_verify_handoff.py", line 48, in test_truncated_and_duplicate_json
+    with self.subTest(raw=raw), self.assertRaises(ValueError):
+                                ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_truncated_and_duplicate_json (test_verify_handoff.VerificationTests.test_truncated_and_duplicate_json) (raw='{"x":1,"x":2}')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/app-final-handoff/test_verify_handoff.py", line 48, in test_truncated_and_duplicate_json
+    with self.subTest(raw=raw), self.assertRaises(ValueError):
+                                ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_truncated_and_duplicate_json (test_verify_handoff.VerificationTests.test_truncated_and_duplicate_json) (raw='[1]')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/app-final-handoff/test_verify_handoff.py", line 48, in test_truncated_and_duplicate_json
+    with self.subTest(raw=raw), self.assertRaises(ValueError):
+                                ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_valid_actual_map (test_verify_handoff.VerificationTests.test_valid_actual_map)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/app-final-handoff/test_verify_handoff.py", line 19, in test_valid_actual_map
+    self.assertEqual(v.verify_map(self.root, self.manifest), 1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.008s
+
+FAILED (failures=14)

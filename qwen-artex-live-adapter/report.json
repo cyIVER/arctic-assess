@@ -1,0 +1,47 @@
+{
+  "outcome": "BLOCKED_UNSUPPORTED_QWEN_ADMISSION_EXECUTOR_SEAM",
+  "launch_ready": false,
+  "adapter_implemented": false,
+  "reason": "Normal OpenAI supports custom inference but selects legacy worker tools. Reviewed executor requires opaque admitted nativeRPC; native admission, preflight and wire hardcode gpt-6.1-sol/codex-native. An external adapter/config cannot honestly use Qwen and preserve this exact authority boundary.",
+  "source_root": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-admission/source",
+  "artifact": {
+    "path": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-ui-asset-final/bin/artex.gz",
+    "gzip_sha256": "8cf8506d32b48d015a9ed85a4306a909b9c0b9339901bd984b6908db2fa26be3",
+    "elf_sha256": "77aa59f362abe0c286bdd3cbd90c05e334c5c0d1779936b17aa42221fb317835",
+    "fresh_hashes_match_build_receipt": true,
+    "english_qualified": false,
+    "qwen_qualified": false
+  },
+  "intended_inference_base": "https://iverson-pc-1.tail8ccbd1.ts.net/v1",
+  "endpoint_contacted": false,
+  "credentials_read": false,
+  "model_calls": 0,
+  "tool_execution_roundtrip_tested": false,
+  "static_assertions_true": 9,
+  "seam_source_files_compared": 13,
+  "all_seam_files_match_production_build_source": true,
+  "verification_scope": "In-process offline source inspection and gzip/ELF byte verification, not runtime, UI, containment or inference qualification",
+  "normal_ui": {
+    "page": "/system/llm",
+    "login": "POST /api/auth/login",
+    "login_json_fields": ["username", "password"],
+    "username": "ARTEX",
+    "save_profile": "POST /api/llm/profiles",
+    "activate_profile": "POST /api/llm/profiles/active",
+    "profile_route_is_safe_execution_workaround": false
+  },
+  "blocking_files": [
+    "agent/native_admission.go",
+    "agent/native_rpc.go",
+    "agent/native_preflight.go",
+    "agent/native_executor_config.go",
+    "agent/native_task_role.go",
+    "agent/worker.go",
+    "server/task_llm.go"
+  ],
+  "required_next_step": "Separately authorize and review application source integration of explicit fixed Qwen inference identity with existing task admission and executor binding; rebuild and re-pin catalogs/artifacts; exercise real app tool-result roundtrip and deny cases before launch. No model aliasing, ordinary OpenAI worker fallback, replacement agent loop or private credential UI persistence.",
+  "safe_launch_command": null,
+  "approval_granted_by_this_report": false,
+  "parent_retains_launch_and_final_verification": true,
+  "files_created": ["REPORT.md", "report.json", "inspection.json"]
+}

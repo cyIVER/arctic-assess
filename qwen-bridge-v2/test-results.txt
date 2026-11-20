@@ -1,0 +1,32 @@
+test_bad_framing_and_unauthorized_body_never_reach_vendor (test_gateway_v2.GatewayTests.test_bad_framing_and_unauthorized_body_never_reach_vendor) ... {"status": 400, "calls": 0, "response_bytes": 0, "elapsed_ms": 0}
+{"status": 400, "calls": 0, "response_bytes": 0, "elapsed_ms": 0}
+{"status": 400, "calls": 0, "response_bytes": 0, "elapsed_ms": 0}
+ok
+test_excess_parallel_clients_fail_closed_without_vendor_call (test_gateway_v2.GatewayTests.test_excess_parallel_clients_fail_closed_without_vendor_call) ... ok
+test_header_cap_denies_and_large_authenticated_body_is_not_header (test_gateway_v2.GatewayTests.test_header_cap_denies_and_large_authenticated_body_is_not_header) ... {"status": 200, "calls": 1, "response_bytes": 14, "elapsed_ms": 0}
+ok
+test_partial_unauthenticated_header_cannot_occupy_handler_for_seconds (test_gateway_v2.GatewayTests.test_partial_unauthenticated_header_cannot_occupy_handler_for_seconds) ... ok
+test_two_slow_clients_do_not_starve_authorized_request (test_gateway_v2.GatewayTests.test_two_slow_clients_do_not_starve_authorized_request) ... {"status": 200, "calls": 1, "response_bytes": 14, "elapsed_ms": 0}
+ok
+test_actual_handler_fake_io (test_bridge.Tests.test_actual_handler_fake_io) ... {"status": 200, "calls": 1, "response_bytes": 14, "elapsed_ms": 0}
+ok
+test_call_cap (test_bridge.Tests.test_call_cap) ... ok
+test_denials_before_upstream (test_bridge.Tests.test_denials_before_upstream) ... ok
+test_expiry (test_bridge.Tests.test_expiry) ... ok
+test_fixed_transport_redirect_no_follow (test_bridge.Tests.test_fixed_transport_redirect_no_follow) ... ok
+test_gateway_fixed_loopback (test_bridge.Tests.test_gateway_fixed_loopback) ... ok
+test_non_utf8_duplicate_json_denied (test_bridge.Tests.test_non_utf8_duplicate_json_denied) ... ok
+test_positive_passthrough_and_real_owned_file_result (test_bridge.Tests.test_positive_passthrough_and_real_owned_file_result) ... ok
+test_redirect_and_error_sanitized (test_bridge.Tests.test_redirect_and_error_sanitized) ... ok
+test_request_cap (test_bridge.Tests.test_request_cap) ... ok
+test_response_cap (test_bridge.Tests.test_response_cap) ... ok
+test_secret_echo_denied (test_bridge.Tests.test_secret_echo_denied) ... ok
+test_slow_read_absolute_deadline (test_bridge.Tests.test_slow_read_absolute_deadline) ... ok
+test_tool_schema_url_is_data_not_routing (test_bridge.Tests.test_tool_schema_url_is_data_not_routing) ... ok
+test_total_cap (test_bridge.Tests.test_total_cap) ... ok
+test_unknown_non_transport_preserved (test_bridge.Tests.test_unknown_non_transport_preserved) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 2.101s
+
+OK

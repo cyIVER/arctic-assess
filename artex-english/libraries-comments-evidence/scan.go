@@ -1,0 +1,6 @@
+// Standalone stdlib-only comment-lane structural verifier.
+package main
+import("os";"encoding/json";"go/token";"go/scanner";"go/parser";"go/format";"bytes";"crypto/sha256";"fmt")
+type Comment struct{Start int; End int; Line int; Text string}
+type Result struct{Path string; SHA256 string; Tokens []string; Literals []string; Comments []Comment; AST string; Formatted bool}
+func main(){out:=[]Result{};for _,p:=range os.Args[1:]{b,e:=os.ReadFile(p);if e!=nil{panic(e)};r:=Result{Path:p,SHA256:fmt.Sprintf("%x",sha256.Sum256(b))};fs:=token.NewFileSet();f:=fs.AddFile(p,-1,len(b));var s scanner.Scanner;s.Init(f,b,func(pos token.Position,msg string){panic(msg)},scanner.ScanComments);for{pos,t,l:=s.Scan();if t==token.EOF{break};if t==token.COMMENT{off:=f.Offset(pos);r.Comments=append(r.Comments,Comment{off,off+len(l),f.Position(pos).Line,l});continue};r.Tokens=append(r.Tokens,t.String()+"\x00"+l);if t==token.STRING||t==token.CHAR{r.Literals=append(r.Literals,t.String()+"\x00"+l)}};a,e:=parser.ParseFile(token.NewFileSet(),p,b,0);if e!=nil{panic(e)};var buf bytes.Buffer;if e=format.Node(&buf,token.NewFileSet(),a);e!=nil{panic(e)};r.AST=fmt.Sprintf("%x",sha256.Sum256(buf.Bytes()));formatted,e:=format.Source(b);if e!=nil{panic(e)};r.Formatted=bytes.Equal(b,formatted);out=append(out,r)};if e:=json.NewEncoder(os.Stdout).Encode(out);e!=nil{panic(e)}}

@@ -1,0 +1,250 @@
+{
+  "snapshot_utc": "2026-11-19T23:00:17.696986+00:00",
+  "local_only": true,
+  "activation_authorized": false,
+  "verdict": "HOLD_RUNTIME_QUALIFICATION",
+  "disk_free_bytes": 2052804608,
+  "source_checks": [
+    {
+      "name": "admission",
+      "manifest": "artex-worker-admission/source-manifest.json",
+      "root": "artex-worker-admission/source",
+      "declared_count": 669,
+      "verified_count": 669,
+      "missing": [],
+      "unsafe_symlinks": [],
+      "changed": [],
+      "extra_paths": [],
+      "manifest_pin": "c3de72f42c8b9e4246e98d84f452254cf812cc0a66bec1748a0665ac28e47f95",
+      "manifest_file_sha256": "8d813a7b6b2d26ed4a2361ab9238c6d85145244f1f9104826a8688c9fe1b199c"
+    },
+    {
+      "name": "operational baseline",
+      "manifest": "artex-worker-admission/baseline-source-manifest.json",
+      "root": "artex-worker-operational/source",
+      "declared_count": 665,
+      "verified_count": 665,
+      "missing": [],
+      "unsafe_symlinks": [],
+      "changed": [],
+      "extra_paths": [],
+      "manifest_pin": "773799f9e1352f7ece63f0fccdedea344ee56d2d7c26122104f05bbdba4616b0",
+      "manifest_file_sha256": "067d40ffd666de7ed2cb9306939f9b768ff0823bb86e0f902b0f3a8b6a8a1b64"
+    }
+  ],
+  "source_delta": {
+    "added": [
+      "agent/native_observation.go",
+      "agent/native_observation_test.go",
+      "db/native_global_source.go",
+      "server/native_observation.go"
+    ],
+    "removed": [],
+    "modified": [
+      "agent/native_admission.go",
+      "agent/native_catalog_preflight.go",
+      "server/manager.go",
+      "server/native_preflight_test.go",
+      "server/server.go"
+    ],
+    "unchanged": 660
+  },
+  "assets": {
+    "root": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-ui-asset-final/assets",
+    "declared_count": 370,
+    "verified_count": 370,
+    "mismatches": [],
+    "extra_files": [],
+    "total_bytes": 9821770,
+    "canonical_pin": "bb24351ba69adefc6635c308ec093f721fdecf08da65ba3f72ca8f129265c220"
+  },
+  "binaries": [
+    {
+      "name": "artex-native-preflight",
+      "receipt_sha256": "ce400360edd9ec78ae0af167cc2d329a76fff3c54a37a9f8582b4ae28619ef68",
+      "path": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-ui-asset-final/bin/artex-native-preflight",
+      "exists_now": true,
+      "actual_sha256": "ce400360edd9ec78ae0af167cc2d329a76fff3c54a37a9f8582b4ae28619ef68"
+    },
+    {
+      "name": "artex",
+      "receipt_sha256": "77aa59f362abe0c286bdd3cbd90c05e334c5c0d1779936b17aa42221fb317835",
+      "path": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-ui-asset-final/bin/production/artex",
+      "exists_now": true,
+      "compressed_actual_sha256": "8cf8506d32b48d015a9ed85a4306a909b9c0b9339901bd984b6908db2fa26be3",
+      "compressed_receipt_sha256": "8cf8506d32b48d015a9ed85a4306a909b9c0b9339901bd984b6908db2fa26be3",
+      "streamed_uncompressed_sha256": "77aa59f362abe0c286bdd3cbd90c05e334c5c0d1779936b17aa42221fb317835",
+      "uncompressed_bytes": 40312994,
+      "matches_receipt": true
+    }
+  ],
+  "parse_errors": [
+    {
+      "path": "artex-ui-asset-final/report.json",
+      "error": "Unterminated string starting at: line 454 column 15 (char 45008)",
+      "bytes": 45056,
+      "sha256": "1ecdf4b85dca72acad6c0e9eb187b39a6293b1fe186301dec17db00b88eba223"
+    }
+  ],
+  "receipt_checks": {
+    "runner_manifest": {
+      "declared": 13,
+      "verified": 13,
+      "changed": [],
+      "missing": []
+    },
+    "producer_receipt_counts": [
+      {
+        "path": "20261119-215904-3998898.log",
+        "counts": {
+          "pass": 52
+        },
+        "package_terminals": [
+          "pass"
+        ],
+        "skips": []
+      },
+      {
+        "path": "20261119-215926-3999758.log",
+        "counts": {
+          "pass": 97,
+          "skip": 2
+        },
+        "package_terminals": [
+          "pass"
+        ],
+        "skips": [
+          {
+            "test": "TestNativeNormaNonStreamingEmptyTools",
+            "reason": "=== RUN   TestNativeNormaNonStreamingEmptyTools\n    native_admission_order_test.go:69: Python fixture required\n--- SKIP: TestNativeNormaNonStreamingEmptyTools (0.00s)\n"
+          },
+          {
+            "test": "TestNativeGoPythonSynthetic",
+            "reason": "=== RUN   TestNativeGoPythonSynthetic\n    native_crosslanguage_test.go:4: retained Python jsonschema unavailable; not cross-language proof\n--- SKIP: TestNativeGoPythonSynthetic (0.00s)\n"
+          }
+        ]
+      }
+    ],
+    "original_ui_map_equal": true,
+    "build_source_manifest_files": 669,
+    "build_source_changed": [],
+    "build_source_missing": [],
+    "build_source_extra_verification": "generated overlay entries recorded in local-build-receipt; no builds executed",
+    "saved_cloud_only": {
+      "observed_utc": "2026-11-19T22:34:19.448006+00:00",
+      "project": "syncfall-ir-range",
+      "zone": "us-central1-a",
+      "name": "vindler-lab-01",
+      "vm_id": "590620893136303309",
+      "vm_status": "TERMINATED",
+      "disk_id": "521979503200711885",
+      "disk_status": "READY",
+      "disk_size_gb": "100",
+      "auto_delete": false,
+      "service_accounts": [],
+      "has_external_ip": false,
+      "provider_stop": {
+        "automaticRestart": false,
+        "instanceTerminationAction": "STOP",
+        "onHostMaintenance": "MIGRATE",
+        "preemptible": false,
+        "provisioningModel": "STANDARD",
+        "terminationTime": "2026-11-19T22:59:03Z"
+      },
+      "live_checked": false
+    },
+    "budget": {
+      "authoritative_last_settled": "artex-ui-asset-retry",
+      "historical_compute_usd": "0.4716137476682435999999999999",
+      "unsettled_final_compute_usd": "0.015635998",
+      "proposed_total_usd": "0.4872497456682435999999999999",
+      "headroom_after_final_and_contingency_usd": "1.012750254331756400000000000",
+      "proposal_30min_compute_usd": "0.13402284",
+      "after_proposed_30min_and_contingency_usd": "0.878727414331756400000000000",
+      "final_settlement_not_applied_by_this_lane": true
+    },
+    "handoffs": {
+      "artex-worker-admission/HANDOFF.md": false,
+      "artex-worker-admission/receipts/REPORT.md": true,
+      "artex-ui-asset-final/HANDOFF.md": false,
+      "artex-worker-assessment-runner/HANDOFF.md": true
+    }
+  },
+  "completed_utc": "2026-11-19T23:02:57.552776+00:00",
+  "readiness_document": "READINESS.md",
+  "readiness_sha256": "324166b084b9f142bb23b3a7de6818ff9a5e47deed4a4d3f6880f821f145178a",
+  "status": "HOLD_PRODUCTION_POSITIVE_AND_FINAL_HANDOFF",
+  "scope": "local snapshot/hash/receipt audit only; no activation or cloud contact",
+  "blockers": [
+    "UID1001 normal production fixed-runtime authenticated admission 200 and same-entrypoint denials unexecuted",
+    "Final UI report JSON truncated; complete final handoff absent",
+    "Authoritative cost ledger does not yet settle final export",
+    "Runner frozen665 missing API/assets claims superseded; implementation activation hold still requires real proof",
+    "Guest canary/helper/image/fixture deployed identities and bootstrap no-dispatch qualification not complete",
+    "Original STOP and fresh controller/provider readback required before any new start"
+  ],
+  "superseded_blockers": [
+    "Missing UI bytes: recovered and independently verified all370",
+    "Missing app binary: durable gzip verified against real669 build receipt"
+  ],
+  "drift_classification": {
+    "admission": "none:669 exact",
+    "baseline": "none:665 exact",
+    "source_delta": "intentional reviewed 4 added/5 modified/660 unchanged",
+    "runner": "13 exact; handoff historical claims stale against later admission/UI evidence",
+    "build_source": "669 manifest files exact; generated UI overlay expected",
+    "final_report": "truncated invalid JSON, not a trustworthy complete machine handoff"
+  },
+  "proposal": {
+    "state": "DRAFT_NOT_AUTHORIZED_NOT_EXECUTED",
+    "action": "single runtime-only no-model production admission qualification",
+    "project": "syncfall-ir-range",
+    "zone": "us-central1-a",
+    "instance": "vindler-lab-01",
+    "vm_id": "590620893136303309",
+    "disk_id": "521979503200711885",
+    "max_starts": 1,
+    "max_minutes": 30,
+    "compute_reservation_estimate_usd": "0.13402284",
+    "transfer_reservation_bytes": 16777216,
+    "builds": 0,
+    "downloads": 0,
+    "model_dispatches": 0,
+    "task_resumes": 0,
+    "absolute_deadline": "MUST_BE_FRESH_EXPLICIT_OPERATOR_BOUND_UTC_AND_NO_LATER_THAN_ORIGINAL_STOP",
+    "preconditions": [
+      "Complete owner handoff and immutable bundle review",
+      "Settle final ledger exactly once/readback",
+      "Fresh exact cloud identity/status and original STOP authorization",
+      "Independent external controller live and provider STOP schedule readback",
+      "Explicit UID1001 isolated guest runtime scope and exact fixture identity",
+      "Fail-closed bootstrap no dispatch before observation"
+    ],
+    "verification": "Actual normal production authenticated200 no-intent observation plus same-entrypoint negatives, all IO/key ordering and zero-model-effect counters; see READINESS.md",
+    "rollback": "Revoke owned phase, close only approved owned processes, exact VM STOP success/failure/deadline; readback TERMINATED/disk READY/data retained; settle ledger"
+  },
+  "owner_reservations": [
+    {
+      "owner": "moving implementation owner",
+      "task": "Finalize truncated UI report and HANDOFF; audit lane does not edit peer artifacts"
+    },
+    {
+      "owner": "parent ledger/coordinator",
+      "task": "Settle final export and update evidence map without counters reset"
+    },
+    {
+      "owner": "runner owner",
+      "task": "Integrate actual669 runtime observation, preserve activation hold"
+    },
+    {
+      "owner": "guardian/canary reviewers",
+      "task": "Freeze helper/image/fixture IDs and verify startup/egress no-model gates"
+    },
+    {
+      "owner": "operator",
+      "task": "Approve or reject conditional new session; no authorization inferred"
+    }
+  ],
+  "lessons": "Handoff only in READINESS.md; no global skill/memory updates",
+  "disk_free_at_completion_bytes": 2048233472
+}

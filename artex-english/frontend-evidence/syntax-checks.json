@@ -1,0 +1,26 @@
+[
+  {
+    "command": "node --check /home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/source/web/next.config.mjs",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": "node --check /home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/source/web/src/lib/chat-mentions.ts",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": "node --check /home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/source/web/src/lib/chat-mentions.test.mjs",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": "node --check /home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/source/web/src/lib/english-interface.test.mjs",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+]

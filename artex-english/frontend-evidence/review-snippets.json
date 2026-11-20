@@ -1,0 +1,177 @@
+[
+  {
+    "path": "web/src/lib/chat-mentions.ts",
+    "line": 2,
+    "snippet": "{ kind: \"finding\", label: \"Finding\", alias: \"finding\", legacy: \"漏洞\" },"
+  },
+  {
+    "path": "web/src/lib/chat-mentions.ts",
+    "line": 3,
+    "snippet": "{ kind: \"asset\", label: \"Asset\", alias: \"asset\", legacy: \"资产\" },"
+  },
+  {
+    "path": "web/src/lib/chat-mentions.ts",
+    "line": 4,
+    "snippet": "{ kind: \"company\", label: \"Company\", alias: \"company\", legacy: \"企业\" },"
+  },
+  {
+    "path": "web/src/lib/chat-mentions.ts",
+    "line": 5,
+    "snippet": "{ kind: \"endpoint\", label: \"Endpoint\", alias: \"api\", legacy: \"接口\" },"
+  },
+  {
+    "path": "web/src/lib/chat-mentions.ts",
+    "line": 6,
+    "snippet": "{ kind: \"ip\", label: \"IP\", alias: \"ip\", legacy: \"IP\" },"
+  },
+  {
+    "path": "web/src/lib/chat-mentions.ts",
+    "line": 7,
+    "snippet": "{ kind: \"app\", label: \"App\", alias: \"app\", legacy: \"应用\" },"
+  },
+  {
+    "path": "web/src/lib/chat-mentions.ts",
+    "line": 8,
+    "snippet": "{ kind: \"root_domain\", label: \"Domain\", alias: \"domain\", legacy: \"域名\" },"
+  },
+  {
+    "path": "web/src/lib/chat-mentions.ts",
+    "line": 9,
+    "snippet": "{ kind: \"subdomain\", label: \"Subdomain\", alias: \"subdomain\", legacy: \"子域名\" },"
+  },
+  {
+    "path": "web/src/lib/chat-mentions.ts",
+    "line": 10,
+    "snippet": "{ kind: \"service\", label: \"Service\", alias: \"service\", legacy: \"服务\" },"
+  },
+  {
+    "path": "web/src/lib/chat-mentions.ts",
+    "line": 17,
+    "snippet": "label: string;"
+  },
+  {
+    "path": "web/src/lib/chat-mentions.ts",
+    "line": 56,
+    "snippet": "return [...value.matchAll(/@\\[(Finding|Asset|Company|Endpoint|IP|App|Domain|Subdomain|Service|漏洞|资产|企业|接口|应用|域名|子域名|服务)#([0-9]+)(?: ([^\\]\\r\\n]*))?\\]/g)].map("
+  },
+  {
+    "path": "web/src/lib/chat-mentions.ts",
+    "line": 59,
+    "snippet": "label: `${mentionKinds.find((item) => item.label === match[1] || item.legacy === match[1])?.label ?? match[1]} #${match[2]}${match[3] ? ` · ${match[3]}` : \"\"}`,"
+  },
+  {
+    "path": "web/src/components/exploration-graph.tsx",
+    "line": 48,
+    "snippet": "spawns: \"Spawns\","
+  },
+  {
+    "path": "web/src/components/exploration-graph.tsx",
+    "line": 70,
+    "snippet": "task: { label: \"Root task\", icon: Flag, iconBg: \"bg-slate-500\", chip: \"bg-slate-500/15 text-slate-600 dark:text-slate-300\", hex: \"#64748b\" },"
+  },
+  {
+    "path": "web/src/components/exploration-graph.tsx",
+    "line": 302,
+    "snippet": "const showPriority = (n.type === \"goal\" || n.type === \"intent\") && n.priority > 0;"
+  },
+  {
+    "path": "web/src/components/exploration-graph.tsx",
+    "line": 331,
+    "snippet": "{showPriority && ("
+  },
+  {
+    "path": "web/src/components/exploration-graph.tsx",
+    "line": 342,
+    "snippet": "<Badge variant=\"outline\" className=\"max-w-32 truncate\" title={`Inherited from task #${n.source_task_id}, read-only`}>"
+  },
+  {
+    "path": "web/src/components/exploration-graph.tsx",
+    "line": 384,
+    "snippet": "const [copied, setCopied] = React.useState(false);"
+  },
+  {
+    "path": "web/src/components/exploration-graph.tsx",
+    "line": 393,
+    "snippet": "setCopied(true);"
+  },
+  {
+    "path": "web/src/components/exploration-graph.tsx",
+    "line": 394,
+    "snippet": "window.setTimeout(() => setCopied(false), 1500);"
+  },
+  {
+    "path": "web/src/components/exploration-graph.tsx",
+    "line": 432,
+    "snippet": "<DetailRow label=\"Priority\">"
+  },
+  {
+    "path": "web/src/components/exploration-graph.tsx",
+    "line": 499,
+    "snippet": "{copied ? \"Copied\" : \"Copy\"}"
+  },
+  {
+    "path": "web/src/components/exploration-graph.tsx",
+    "line": 521,
+    "snippet": "emptyHint = \"No exploration data yet\","
+  },
+  {
+    "path": "web/src/components/transcript.tsx",
+    "line": 185,
+    "snippet": "// is extracted from the summary (format: \"Tool X requests approval (#N)\" — backend-provided)"
+  },
+  {
+    "path": "web/src/components/transcript.tsx",
+    "line": 194,
+    "snippet": "// extract pending_id from summary: \"Tool Bash requests approval (#42)\" (backend-provided)"
+  },
+  {
+    "path": "web/src/components/transcript.tsx",
+    "line": 201,
+    "snippet": "const m = /Tool\\s+(\\S+)\\s+requests approval/.exec(step.summary) ?? /工具\\s+(\\S+)\\s+请求/.exec(step.summary);"
+  },
+  {
+    "path": "web/src/app/(main)/function/tasks/page.tsx",
+    "line": 146,
+    "snippet": "// UPLOAD_MARKER labels the auto-appended block of uploaded-file paths inside the task"
+  },
+  {
+    "path": "web/src/app/(main)/function/tasks/page.tsx",
+    "line": 148,
+    "snippet": "const UPLOAD_MARKER = \"[Uploaded files (absolute paths)]\";"
+  },
+  {
+    "path": "web/src/app/(main)/function/tasks/page.tsx",
+    "line": 155,
+    "snippet": "if (desc.includes(UPLOAD_MARKER) || desc.includes(\"【上传文件（绝对路径）】\")) {"
+  },
+  {
+    "path": "web/src/app/(main)/function/tasks/page.tsx",
+    "line": 159,
+    "snippet": "return `${head}${UPLOAD_MARKER} workers can open these by path with Read/Bash:\\n${bullets}\\n`;"
+  },
+  {
+    "path": "web/src/app/(main)/function/tasks/page.tsx",
+    "line": 1690,
+    "snippet": "if (!/archive not found|archive does not exist|归档不存在/i.test(state.reason.message)) return;"
+  },
+  {
+    "path": "web/src/app/(main)/system/skills/page.tsx",
+    "line": 369,
+    "snippet": "// offer overwrite when the skill already exists"
+  },
+  {
+    "path": "web/src/app/(main)/system/skills/page.tsx",
+    "line": 370,
+    "snippet": "if (!overwrite && /already exists|已存在/i.test(msg)) {"
+  },
+  {
+    "path": "web/src/components/ui/calendar.tsx",
+    "line": 43,
+    "snippet": "date.toLocaleString(locale?.code ?? \"en-US\", { month: \"short\" }),"
+  },
+  {
+    "path": "web/src/components/ui/calendar.tsx",
+    "line": 202,
+    "snippet": "data-day={day.date.toLocaleDateString(locale?.code ?? \"en-US\")}"
+  }
+]

@@ -1,0 +1,43 @@
+{
+  "activation_authorized": false,
+  "assessment_accepted": false,
+  "cost_ledger": {
+    "last_settled_session": "artex-ui-asset-retry",
+    "ledger_modified": false,
+    "proposal_additional_compute_estimate_usd": "0.015635998",
+    "proposal_session": "artex-ui-asset-final",
+    "proposal_unsettled": true
+  },
+  "historical_invalid_report": {
+    "error": "invalid_json:/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-ui-asset-final/report.json:Unterminated string starting at: line 454 column 15 (char 45008)",
+    "path": "artex-ui-asset-final/report.json",
+    "sha256": "1ecdf4b85dca72acad6c0e9eb187b39a6293b1fe186301dec17db00b88eba223"
+  },
+  "local_byte_verification": "PASS",
+  "production_binary_bytes": 40312994,
+  "production_binary_sha256": "77aa59f362abe0c286bdd3cbd90c05e334c5c0d1779936b17aa42221fb317835",
+  "qualification_complete": false,
+  "required_skips": [
+    {
+      "reason": "=== RUN   TestNativeNormaNonStreamingEmptyTools\n    native_admission_order_test.go:69: Python fixture required\n--- SKIP: TestNativeNormaNonStreamingEmptyTools (0.00s)\n",
+      "test": "TestNativeNormaNonStreamingEmptyTools"
+    },
+    {
+      "reason": "=== RUN   TestNativeGoPythonSynthetic\n    native_crosslanguage_test.go:4: retained Python jsonschema unavailable; not cross-language proof\n--- SKIP: TestNativeGoPythonSynthetic (0.00s)\n",
+      "test": "TestNativeGoPythonSynthetic"
+    }
+  ],
+  "required_test_gaps": [
+    "TestNativeGoPythonSynthetic:skip",
+    "TestNativeNormaNonStreamingEmptyTools:skip"
+  ],
+  "runtime_accepted": false,
+  "source_pin": "c3de72f42c8b9e4246e98d84f452254cf812cc0a66bec1748a0665ac28e47f95",
+  "verified_file_counts": {
+    "admission": 669,
+    "baseline": 665,
+    "generated_build_source": 1039,
+    "runner": 13,
+    "ui": 370
+  }
+}

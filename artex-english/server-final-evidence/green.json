@@ -1,0 +1,87 @@
+{
+  "command": [
+    "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+    "test",
+    "-p",
+    "2",
+    "-json",
+    "./server",
+    "-run",
+    "^TestRuntimeEnglish",
+    "-count=1",
+    "-timeout=90s"
+  ],
+  "environment": {
+    "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+    "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+    "GOPROXY": "off",
+    "GOSUMDB": "off",
+    "GOFLAGS": "-mod=readonly"
+  },
+  "returncode": 0,
+  "top_level": {
+    "pass": 3,
+    "fail": 0,
+    "skip": 0
+  },
+  "subtests": {
+    "pass": 10,
+    "fail": 0,
+    "skip": 0
+  },
+  "package_failures": [],
+  "tests": [
+    {
+      "name": "TestRuntimeEnglishValidation/exact_ip",
+      "action": "pass"
+    },
+    {
+      "name": "TestRuntimeEnglishValidation/cidr",
+      "action": "pass"
+    },
+    {
+      "name": "TestRuntimeEnglishValidation/unknown",
+      "action": "pass"
+    },
+    {
+      "name": "TestRuntimeEnglishValidation",
+      "action": "pass"
+    },
+    {
+      "name": "TestRuntimeEnglishToolDescriptions/create_skill",
+      "action": "pass"
+    },
+    {
+      "name": "TestRuntimeEnglishToolDescriptions/update_skill_file",
+      "action": "pass"
+    },
+    {
+      "name": "TestRuntimeEnglishToolDescriptions/create_custom_tool",
+      "action": "pass"
+    },
+    {
+      "name": "TestRuntimeEnglishToolDescriptions/update_custom_tool",
+      "action": "pass"
+    },
+    {
+      "name": "TestRuntimeEnglishToolDescriptions/create_mcp",
+      "action": "pass"
+    },
+    {
+      "name": "TestRuntimeEnglishToolDescriptions/update_mcp",
+      "action": "pass"
+    },
+    {
+      "name": "TestRuntimeEnglishToolDescriptions/delete_assets_by_host",
+      "action": "pass"
+    },
+    {
+      "name": "TestRuntimeEnglishToolDescriptions",
+      "action": "pass"
+    },
+    {
+      "name": "TestRuntimeEnglishTruncationPreservesUnicode",
+      "action": "pass"
+    }
+  ]
+}

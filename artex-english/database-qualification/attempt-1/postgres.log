@@ -1,0 +1,11 @@
+2026-11-20 00:30:18.026 UTC [96084] LOG:  starting PostgreSQL 16.15 (Ubuntu 16.15-0ubuntu0.24.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-11-20 00:30:18.028 UTC [96084] LOG:  listening on Unix socket "/home/iveri/.hermes/cache/scratch/epg-zxzr4mco/.s.PGSQL.5432"
+2026-11-20 00:30:18.036 UTC [96088] LOG:  database system was shut down at 2026-11-20 00:30:17 UTC
+2026-11-20 00:30:18.048 UTC [96084] LOG:  database system is ready to accept connections
+2026-11-20 00:30:29.441 UTC [96084] LOG:  received fast shutdown request
+2026-11-20 00:30:29.445 UTC [96084] LOG:  aborting any active transactions
+2026-11-20 00:30:29.452 UTC [96084] LOG:  background worker "logical replication launcher" (PID 96091) exited with exit code 1
+2026-11-20 00:30:29.456 UTC [96086] LOG:  shutting down
+2026-11-20 00:30:29.457 UTC [96086] LOG:  checkpoint starting: shutdown immediate
+2026-11-20 00:30:29.657 UTC [96086] LOG:  checkpoint complete: wrote 1331 buffers (8.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.087 s, sync=0.106 s, total=0.201 s; sync files=661, longest=0.004 s, average=0.001 s; distance=6864 kB, estimate=6864 kB; lsn=0/1BA3890, redo lsn=0/1BA3890
+2026-11-20 00:30:29.672 UTC [96084] LOG:  database system is shut down

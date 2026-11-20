@@ -1,0 +1,57 @@
+{
+  "command": [
+    "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+    "test",
+    "-p=1",
+    "-json",
+    "-count=1",
+    "./agent",
+    "-run",
+    "TestEnglishOrchestrationBodies|TestEnglishReporterToolMetadata"
+  ],
+  "env": {
+    "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+    "GOMODCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/gomodcache",
+    "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+    "GOPROXY": "off",
+    "GOSUMDB": "off",
+    "GOTOOLCHAIN": "local",
+    "GOFLAGS": "-mod=readonly",
+    "GOMAXPROCS": "2"
+  },
+  "returncode": 1,
+  "seconds": 5.2665629386901855,
+  "top_level": {
+    "pass": 0,
+    "fail": 2,
+    "skip": 0
+  },
+  "subtests": {
+    "pass": 2,
+    "fail": 9,
+    "skip": 0
+  },
+  "package_failures": [
+    {
+      "Time": "2026-11-19T23:59:56.403822867Z",
+      "Action": "fail",
+      "Package": "github.com/Autumn-27/artex/agent",
+      "Elapsed": 0.015
+    }
+  ],
+  "tests": [
+    "TestEnglishOrchestrationBodies/mainagent",
+    "TestEnglishOrchestrationBodies/worker",
+    "TestEnglishOrchestrationBodies/auto",
+    "TestEnglishOrchestrationBodies/pentest",
+    "TestEnglishOrchestrationBodies/goals",
+    "TestEnglishOrchestrationBodies/planner",
+    "TestEnglishOrchestrationBodies/goals_scope",
+    "TestEnglishOrchestrationBodies/worker_wrapup",
+    "TestEnglishOrchestrationBodies/traffic",
+    "TestEnglishOrchestrationBodies/artifacts",
+    "TestEnglishOrchestrationBodies/worker_artifacts",
+    "TestEnglishOrchestrationBodies",
+    "TestEnglishReporterToolMetadata"
+  ]
+}

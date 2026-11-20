@@ -1,0 +1,77 @@
+{
+  "archive_hot_count": 0,
+  "ask_cancel_action": "deny",
+  "ask_cancel_reason": "Work was cancelled",
+  "ask_cancel_status": "denied",
+  "ask_execution_status": "not_executed",
+  "ask_original_reason": "[Model] Requires human approval",
+  "ask_summary": "Tool Read requests approval (#68)",
+  "hba": "local:peer,host:reject,host:reject,local:peer,host:reject,host:reject",
+  "independent_committed_readback": true,
+  "judge_message": "[Model] Allowed",
+  "judge_reviewer_calls": 1,
+  "listen_addresses": "",
+  "pending_archive_action": "deny",
+  "pending_archive_status": "timeout",
+  "pending_id": 66,
+  "rows": [
+    {
+      "name": "english",
+      "id": 59,
+      "reason": "[Model] Original 用户 evidence",
+      "source": "model",
+      "created": "2026-11-20T00:32:29.83964Z",
+      "decided": "2026-11-20T00:32:29.83964Z"
+    },
+    {
+      "name": "legacy",
+      "id": 60,
+      "reason": "[模型] Original 用户 evidence",
+      "source": "model",
+      "created": "2026-11-20T00:32:29.840608Z",
+      "decided": "2026-11-20T00:32:29.840608Z"
+    },
+    {
+      "name": "rule_english",
+      "id": 61,
+      "reason": "[Model] rule 用户 evidence",
+      "source": "rule",
+      "created": "2026-11-20T00:32:29.841214Z",
+      "decided": "2026-11-20T00:32:29.841214Z"
+    },
+    {
+      "name": "rule_legacy",
+      "id": 62,
+      "reason": "[模型] rule 用户 evidence",
+      "source": "rule",
+      "created": "2026-11-20T00:32:29.842845Z",
+      "decided": "2026-11-20T00:32:29.842845Z"
+    },
+    {
+      "name": "unknown",
+      "id": 63,
+      "reason": "Original 用户 evidence",
+      "source": "unknown",
+      "created": "2026-11-20T00:32:29.843878Z",
+      "decided": "2026-11-20T00:32:29.843878Z"
+    },
+    {
+      "name": "embedded",
+      "id": 64,
+      "reason": "evidence [Model] 用户",
+      "source": "unknown",
+      "created": "2026-11-20T00:32:29.844552Z",
+      "decided": "2026-11-20T00:32:29.844552Z"
+    },
+    {
+      "name": "persisted_override",
+      "id": 65,
+      "reason": "[Model] explicit 用户",
+      "source": "unknown",
+      "created": "2026-11-20T00:32:29.84513Z",
+      "decided": "2026-11-20T00:32:29.84513Z"
+    }
+  ],
+  "scope": "3",
+  "warnings": []
+}

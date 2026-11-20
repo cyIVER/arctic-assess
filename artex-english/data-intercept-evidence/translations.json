@@ -1,0 +1,836 @@
+[
+  {
+    "path": "intercept/intercept.go",
+    "old": "审查上下文不完整，需要人工确认：",
+    "new": "Review context is incomplete; human confirmation required: ",
+    "count": 1
+  },
+  {
+    "path": "intercept/intercept.go",
+    "old": "模型审批失败,按失败策略处理: ",
+    "new": "Model approval failed; applying failure policy: ",
+    "count": 1
+  },
+  {
+    "path": "intercept/intercept.go",
+    "old": "模型输出无法解析,按失败策略处理",
+    "new": "Model output could not be parsed; applying failure policy",
+    "count": 1
+  },
+  {
+    "path": "intercept/intercept.go",
+    "old": "[模型]",
+    "new": "[Model]",
+    "count": 3
+  },
+  {
+    "path": "intercept/intercept.go",
+    "old": "放行",
+    "new": "Allowed",
+    "count": 1
+  },
+  {
+    "path": "intercept/intercept.go",
+    "old": "拦截规则 [",
+    "new": "Intercept rule [",
+    "count": 2
+  },
+  {
+    "path": "intercept/intercept.go",
+    "old": "] 禁止执行此工具",
+    "new": "] prohibits this tool",
+    "count": 1
+  },
+  {
+    "path": "intercept/intercept.go",
+    "old": "] 要求用户审批，请等待",
+    "new": "] requires user approval; please wait",
+    "count": 1
+  },
+  {
+    "path": "intercept/intercept.go",
+    "old": "转人工审批",
+    "new": "Requires human approval",
+    "count": 1
+  },
+  {
+    "path": "intercept/intercept.go",
+    "old": "拦截",
+    "new": "Blocked",
+    "count": 1
+  },
+  {
+    "path": "intercept/intercept.go",
+    "old": "工具 %s 请求审批 (#%d)",
+    "new": "Tool %s requests approval (#%d)",
+    "count": 1
+  },
+  {
+    "path": "intercept/intercept.go",
+    "old": "执行前工作已取消",
+    "new": "Work was cancelled before execution",
+    "count": 2
+  },
+  {
+    "path": "intercept/intercept.go",
+    "old": "工作已取消",
+    "new": "Work was cancelled",
+    "count": 2
+  },
+  {
+    "path": "intercept/intercept.go",
+    "old": "审批超时，按超时策略处理",
+    "new": "Approval timed out; applying timeout policy",
+    "count": 1
+  },
+  {
+    "path": "intercept/intercept.go",
+    "old": "审批已处理或不存在，请刷新记录",
+    "new": "Approval was already decided or does not exist; refresh the record",
+    "count": 1
+  },
+  {
+    "path": "intercept/intercept.go",
+    "old": "人工拒绝执行",
+    "new": "Execution denied by a human",
+    "count": 1
+  },
+  {
+    "path": "intercept/intercept.go",
+    "old": "人工允许执行",
+    "new": "Execution allowed by a human",
+    "count": 1
+  },
+  {
+    "path": "intercept/review_context.go",
+    "old": "工具参数不是有效 JSON",
+    "new": "Tool arguments are not valid JSON",
+    "count": 1
+  },
+  {
+    "path": "intercept/trace.go",
+    "old": "执行结束但未收到工具结果",
+    "new": "Execution ended without a tool result",
+    "count": 1
+  },
+  {
+    "path": "db/asset_dsl.go",
+    "old": "DSL 语法错误：缺少右括号",
+    "new": "DSL syntax error: missing closing parenthesis",
+    "count": 1
+  },
+  {
+    "path": "db/asset_dsl.go",
+    "old": "DSL 语法错误：表达式不完整",
+    "new": "DSL syntax error: incomplete expression",
+    "count": 1
+  },
+  {
+    "path": "db/asset_dsl.go",
+    "old": "DSL 语法错误：意外的 token",
+    "new": "DSL syntax error: unexpected token",
+    "count": 1
+  },
+  {
+    "path": "db/asset_dsl.go",
+    "old": "DSL 语法错误：意外的内容",
+    "new": "DSL syntax error: unexpected content",
+    "count": 1
+  },
+  {
+    "path": "db/asset_dsl.go",
+    "old": "task_id 需要整数值:",
+    "new": "task_id requires an integer value:",
+    "count": 1
+  },
+  {
+    "path": "db/asset_dsl.go",
+    "old": "company_id 需要整数值:",
+    "new": "company_id requires an integer value:",
+    "count": 1
+  },
+  {
+    "path": "db/asset_dsl.go",
+    "old": "字段 %s 需要整数值:",
+    "new": "Field %s requires an integer value:",
+    "count": 1
+  },
+  {
+    "path": "db/asset_dsl.go",
+    "old": "字段 %s 不支持运算符 %s",
+    "new": "Field %s does not support operator %s",
+    "count": 3
+  },
+  {
+    "path": "db/asset_dsl.go",
+    "old": "未知字段:",
+    "new": "Unknown field:",
+    "count": 1
+  },
+  {
+    "path": "db/asset_intercept_match.go",
+    "old": "域名(全等)",
+    "new": "Domain (exact)",
+    "count": 1
+  },
+  {
+    "path": "db/asset_intercept_match.go",
+    "old": "IP(全等)",
+    "new": "IP (exact)",
+    "count": 1
+  },
+  {
+    "path": "db/asset_intercept_match.go",
+    "old": "URL(全等)",
+    "new": "URL (exact)",
+    "count": 1
+  },
+  {
+    "path": "db/asset_intercept_match.go",
+    "old": "域名(模糊)",
+    "new": "Domain (fuzzy)",
+    "count": 2
+  },
+  {
+    "path": "db/asset_intercept_match.go",
+    "old": "IP(模糊)",
+    "new": "IP (fuzzy)",
+    "count": 1
+  },
+  {
+    "path": "db/asset_intercept_match.go",
+    "old": "URL(模糊)",
+    "new": "URL (fuzzy)",
+    "count": 1
+  },
+  {
+    "path": "db/asset_intercept_match.go",
+    "old": "CIDR 网段",
+    "new": "CIDR range",
+    "count": 1
+  },
+  {
+    "path": "db/asset_intercept_match.go",
+    "old": "命中资产拦截规则 [%s: %s]",
+    "new": "Matched asset interception rule [%s: %s]",
+    "count": 1
+  },
+  {
+    "path": "db/asset_intercept_match.go",
+    "old": "资产#%d[%s] %s",
+    "new": "Asset#%d[%s] %s",
+    "count": 1
+  },
+  {
+    "path": "db/asset_intercept_match.go",
+    "old": "不在任务允许(白名单)范围内，不允许测试",
+    "new": "Outside the task allowlist; testing is not permitted",
+    "count": 1
+  },
+  {
+    "path": "db/assets.go",
+    "old": "ip 必须是 IPv4/IPv6 地址，收到 %q。若这是主机名，请改用 type=subdomain 并填 domain 字段；",
+    "new": "ip must be an IPv4/IPv6 address; got %q. For a hostname, use type=subdomain and set domain; ",
+    "count": 1
+  },
+  {
+    "path": "db/assets.go",
+    "old": "若确实要登记地址，请先解析出 A/AAAA 记录，再用解析出的地址填 ip",
+    "new": "to register an address, resolve the A/AAAA records first and put the resolved address in ip",
+    "count": 1
+  },
+  {
+    "path": "db/chat_mentions.go",
+    "old": "分页位置无效，请重新搜索",
+    "new": "Invalid pagination cursor; search again",
+    "count": 1
+  },
+  {
+    "path": "db/chat_mentions.go",
+    "old": "不支持的引用类型",
+    "new": "Unsupported mention type",
+    "count": 1
+  },
+  {
+    "path": "db/chat_mentions.go",
+    "old": "资产 #",
+    "new": "Asset #",
+    "count": 1
+  },
+  {
+    "path": "db/companies.go",
+    "old": "企业范围第 %d 条原始值过长: 最多 %d 个字符",
+    "new": "Company scope entry %d raw value is too long: maximum %d characters",
+    "count": 2
+  },
+  {
+    "path": "db/companies.go",
+    "old": "企业范围第 %d 条规范化值过长: 最多 %d 个字符",
+    "new": "Company scope entry %d normalized value is too long: maximum %d characters",
+    "count": 1
+  },
+  {
+    "path": "db/companies.go",
+    "old": "重新计算企业归属失败:",
+    "new": "Failed to recalculate company ownership:",
+    "count": 2
+  },
+  {
+    "path": "db/companies.go",
+    "old": "%d 条资产的 ip 字段不是合法 IP，已跳过 IP/CIDR 范围匹配（这些资产不会被网段规则归属到企业）：%s",
+    "new": "%d assets have invalid ip fields and were skipped for IP/CIDR scope matching (range rules will not assign them to companies): %s",
+    "count": 1
+  },
+  {
+    "path": "db/companies.go",
+    "old": " 等 %d 条",
+    "new": " (%d entries total)",
+    "count": 1
+  },
+  {
+    "path": "db/companies.go",
+    "old": "企业范围包含 %d 条无效规则，未覆盖原有范围",
+    "new": "Company scope contains %d invalid rules; existing scope was not overwritten",
+    "count": 1
+  },
+  {
+    "path": "db/company_scope.go",
+    "old": "%q 不是有效的 %s 范围",
+    "new": "%q is not a valid %s scope",
+    "count": 1
+  },
+  {
+    "path": "db/company_scope.go",
+    "old": "ICP 不能为空",
+    "new": "ICP must not be empty",
+    "count": 1
+  },
+  {
+    "path": "db/company_scope.go",
+    "old": "企业关键词不能为空",
+    "new": "Company keyword must not be empty",
+    "count": 1
+  },
+  {
+    "path": "db/company_scope.go",
+    "old": "不支持的范围类型:",
+    "new": "Unsupported scope type:",
+    "count": 1
+  },
+  {
+    "path": "db/company_scope.go",
+    "old": "空行",
+    "new": "Empty line",
+    "count": 2
+  },
+  {
+    "path": "db/company_scope.go",
+    "old": "无效 CIDR:",
+    "new": "Invalid CIDR:",
+    "count": 1
+  },
+  {
+    "path": "db/company_scope.go",
+    "old": "无效 IP:",
+    "new": "Invalid IP:",
+    "count": 2
+  },
+  {
+    "path": "db/company_scope.go",
+    "old": "主机名为空",
+    "new": "Hostname is empty",
+    "count": 2
+  },
+  {
+    "path": "db/company_scope.go",
+    "old": "缺少主机名",
+    "new": "Missing hostname",
+    "count": 1
+  },
+  {
+    "path": "db/company_scope.go",
+    "old": "域名超过 253 个字符",
+    "new": "Domain exceeds 253 characters",
+    "count": 1
+  },
+  {
+    "path": "db/company_scope.go",
+    "old": "域名至少需要两个标签",
+    "new": "Domain requires at least two labels",
+    "count": 1
+  },
+  {
+    "path": "db/company_scope.go",
+    "old": "域名标签无效",
+    "new": "Invalid domain label",
+    "count": 1
+  },
+  {
+    "path": "db/company_scope.go",
+    "old": "域名包含无效字符",
+    "new": "Domain contains invalid characters",
+    "count": 1
+  },
+  {
+    "path": "db/company_scope.go",
+    "old": "网段过宽(IPv4 需 >= /16):",
+    "new": "Range is too broad (IPv4 requires >= /16):",
+    "count": 1
+  },
+  {
+    "path": "db/company_scope.go",
+    "old": "网段过宽(IPv6 需 >= /32):",
+    "new": "Range is too broad (IPv6 requires >= /32):",
+    "count": 1
+  },
+  {
+    "path": "db/company_scope.go",
+    "old": "无法识别为有效域名/IP/CIDR:",
+    "new": "Not a valid domain/IP/CIDR:",
+    "count": 1
+  },
+  {
+    "path": "db/company_scope.go",
+    "old": "IP 段请用 CIDR 表示(如 1.2.3.0/24):",
+    "new": "Use CIDR notation for IP ranges (e.g. 1.2.3.0/24):",
+    "count": 1
+  },
+  {
+    "path": "db/company_scope.go",
+    "old": "不能用裸 TLD 作为范围:",
+    "new": "A bare TLD cannot be used as a scope:",
+    "count": 1
+  },
+  {
+    "path": "db/config.go",
+    "old": "\"内置默认\"",
+    "new": "\"Built-in default\"",
+    "count": 1
+  },
+  {
+    "path": "db/config.go",
+    "old": "\"恢复为内置默认\"",
+    "new": "\"Restored built-in default\"",
+    "count": 2
+  },
+  {
+    "path": "db/constraints.go",
+    "old": "kind 必须是 allow 或 deny",
+    "new": "kind must be allow or deny",
+    "count": 2
+  },
+  {
+    "path": "db/constraints.go",
+    "old": "约束不存在",
+    "new": "Constraint does not exist",
+    "count": 2
+  },
+  {
+    "path": "db/exploration.go",
+    "old": "目标不存在",
+    "new": "Goal does not exist",
+    "count": 2
+  },
+  {
+    "path": "db/exploration.go",
+    "old": "已取消意图 #%d 的 Token 计量",
+    "new": "Token accounting cancelled for intent #%d",
+    "count": 1
+  },
+  {
+    "path": "db/finding_assets.go",
+    "old": "\"未关联资产\"",
+    "new": "\"Unlinked asset\"",
+    "count": 1
+  },
+  {
+    "path": "db/finding_assets.go",
+    "old": "\"企业 #\"",
+    "new": "\"Company #\"",
+    "count": 1
+  },
+  {
+    "path": "db/finding_retests.go",
+    "old": "本次复测已结束或尚未开始，请从漏洞详情发起新的复测",
+    "new": "This retest has ended or has not started; start a new retest from finding details",
+    "count": 1
+  },
+  {
+    "path": "db/finding_retests.go",
+    "old": "未分类",
+    "new": "Unclassified",
+    "count": 1
+  },
+  {
+    "path": "db/finding_retests.go",
+    "old": "复测 #%d · %s",
+    "new": "Retest #%d · %s",
+    "count": 1
+  },
+  {
+    "path": "db/finding_retests.go",
+    "old": "请复测漏洞 #%d。先调用 get_finding_retest_context 读取本会话关联的原始证据与约束，再执行针对性验证，最后调用 record_finding_retest_result 保存结论。",
+    "new": "Retest finding #%d. First call get_finding_retest_context to read the original evidence and constraints associated with this conversation, perform targeted verification, then call record_finding_retest_result to save the conclusion.",
+    "count": 1
+  },
+  {
+    "path": "db/finding_retests.go",
+    "old": "请复测漏洞 #%d",
+    "new": "Retest finding #%d",
+    "count": 1
+  },
+  {
+    "path": "db/finding_retests.go",
+    "old": "本次复测补充说明：",
+    "new": "Additional retest notes:",
+    "count": 1
+  },
+  {
+    "path": "db/finding_retests.go",
+    "old": "verdict 必须为 reproduced / fixed / inconclusive",
+    "new": "verdict must be reproduced / fixed / inconclusive",
+    "count": 1
+  },
+  {
+    "path": "db/finding_retests.go",
+    "old": "summary 与 evidence 不能为空；无法确认时说明实际检查及阻塞原因",
+    "new": "summary and evidence must not be empty; if inconclusive, describe the actual checks and blockers",
+    "count": 1
+  },
+  {
+    "path": "db/finding_retests.go",
+    "old": "复测结论过长（summary ≤ 16KB，evidence ≤ 128KB）",
+    "new": "Retest conclusion is too long (summary <= 16KB, evidence <= 128KB)",
+    "count": 1
+  },
+  {
+    "path": "db/finding_retests.go",
+    "old": "Agent 未保存复测结论，请查看会话后重新复测",
+    "new": "Agent did not save a retest conclusion; review the conversation and retest",
+    "count": 1
+  },
+  {
+    "path": "db/finding_retests.go",
+    "old": "服务重启，复测已中断，请重新发起",
+    "new": "Service restarted; retest interrupted, please restart it",
+    "count": 1
+  },
+  {
+    "path": "db/finding_traffic.go",
+    "old": "流量证据已变更，请刷新后重试",
+    "new": "Traffic evidence changed; refresh and retry",
+    "count": 1
+  },
+  {
+    "path": "db/finding_traffic.go",
+    "old": "漏洞不存在",
+    "new": "Finding does not exist",
+    "count": 1
+  },
+  {
+    "path": "db/finding_traffic.go",
+    "old": "流量证据不存在",
+    "new": "Traffic evidence does not exist",
+    "count": 1
+  },
+  {
+    "path": "db/finding_traffic.go",
+    "old": "traffic_id 不能为空",
+    "new": "traffic_id must not be empty",
+    "count": 1
+  },
+  {
+    "path": "db/finding_traffic.go",
+    "old": "无效的流量用途",
+    "new": "Invalid traffic role",
+    "count": 2
+  },
+  {
+    "path": "db/finding_traffic.go",
+    "old": "证据快照元数据哈希不匹配",
+    "new": "Evidence snapshot metadata hash mismatch",
+    "count": 1
+  },
+  {
+    "path": "db/finding_traffic.go",
+    "old": "漏洞所属任务与探索记录不匹配",
+    "new": "Finding task does not match the exploration record",
+    "count": 1
+  },
+  {
+    "path": "db/finding_traffic.go",
+    "old": "intent_id 必须是本任务的意图（关联任务意图只读）",
+    "new": "intent_id must belong to this task (linked task intents are read-only)",
+    "count": 1
+  },
+  {
+    "path": "db/intercept_execution.go",
+    "old": "任务已被删除或归档",
+    "new": "Task was deleted or archived",
+    "count": 1
+  },
+  {
+    "path": "db/intercept_execution.go",
+    "old": "对应会话或执行记录已被删除或不存在",
+    "new": "Associated conversation or execution record was deleted or does not exist",
+    "count": 1
+  },
+  {
+    "path": "db/intercept_execution.go",
+    "old": "未找到可唯一关联的原始工具调用；记录可能已删除，或旧审批没有保存关联 ID",
+    "new": "No uniquely associated original tool call found; the record may have been deleted or the historical approval lacks correlation IDs",
+    "count": 1
+  },
+  {
+    "path": "db/notification.go",
+    "old": "通知渠道不存在",
+    "new": "Notification channel does not exist",
+    "count": 1
+  },
+  {
+    "path": "db/notification.go",
+    "old": "限流值不能为负",
+    "new": "Rate limit must not be negative",
+    "count": 1
+  },
+  {
+    "path": "db/notification.go",
+    "old": "\"渠道已停用\"",
+    "new": "\"Channel disabled\"",
+    "count": 1
+  },
+  {
+    "path": "db/notification.go",
+    "old": "序列化推送事件失败",
+    "new": "Failed to serialize notification event",
+    "count": 1
+  },
+  {
+    "path": "db/notification.go",
+    "old": "建立保存点失败",
+    "new": "Failed to create savepoint",
+    "count": 1
+  },
+  {
+    "path": "db/notification.go",
+    "old": "写入推送事件失败 finding=%d（漏洞记录不受影响）",
+    "new": "Failed to write notification event finding=%d (finding record unaffected)",
+    "count": 1
+  },
+  {
+    "path": "db/notification.go",
+    "old": "回滚到保存点失败",
+    "new": "Failed to roll back to savepoint",
+    "count": 1
+  },
+  {
+    "path": "db/notification.go",
+    "old": "序列化通知事件快照失败:",
+    "new": "Failed to serialize notification event snapshot:",
+    "count": 1
+  },
+  {
+    "path": "db/notification_delivery.go",
+    "old": "投递 %d 不存在或当前状态不允许重发",
+    "new": "Delivery %d does not exist or its current state does not allow retry",
+    "count": 1
+  },
+  {
+    "path": "db/side_questions.go",
+    "old": "当前会话已有旁路问题正在回答",
+    "new": "This conversation already has a side question being answered",
+    "count": 1
+  },
+  {
+    "path": "db/side_questions.go",
+    "old": "旁路父会话已删除或归档",
+    "new": "Side-question parent conversation was deleted or archived",
+    "count": 1
+  },
+  {
+    "path": "db/side_questions.go",
+    "old": "同一请求 ID 不能用于不同问题",
+    "new": "The same request ID cannot be used for different questions",
+    "count": 1
+  },
+  {
+    "path": "db/side_questions.go",
+    "old": "服务重启，回答已中断",
+    "new": "Service restarted; answer interrupted",
+    "count": 1
+  },
+  {
+    "path": "db/task_archives.go",
+    "old": "上次归档进程异常退出，请手动重试",
+    "new": "Previous archive process exited unexpectedly; retry manually",
+    "count": 1
+  },
+  {
+    "path": "db/task_archives_restore.go",
+    "old": "任务分类 %d 已删除，已恢复为未分类",
+    "new": "Task category %d was deleted; restored as uncategorized",
+    "count": 1
+  },
+  {
+    "path": "db/task_archives_restore.go",
+    "old": "任务企业 %d 已删除，企业关联已跳过",
+    "new": "Task company %d was deleted; company association skipped",
+    "count": 1
+  },
+  {
+    "path": "db/task_archives_restore.go",
+    "old": "LLM 配置 %d 已删除，已从任务配置中移除",
+    "new": "LLM profile %d was deleted and removed from task configuration",
+    "count": 1
+  },
+  {
+    "path": "db/task_archives_restore.go",
+    "old": "资产 %d 的企业 %d 已删除，已恢复为未归属",
+    "new": "Asset %d has deleted company %d; restored without ownership",
+    "count": 1
+  },
+  {
+    "path": "db/task_archives_restore.go",
+    "old": "资产 ID %d 已被占用，恢复为 %d",
+    "new": "Asset ID %d is occupied; restored as %d",
+    "count": 1
+  },
+  {
+    "path": "db/task_archives_restore.go",
+    "old": "来源任务 %d 不可用，继承关系已跳过",
+    "new": "Source task %d is unavailable; inheritance skipped",
+    "count": 1
+  },
+  {
+    "path": "db/task_archives_restore.go",
+    "old": "企业 %d 已删除，关联范围已跳过",
+    "new": "Company %d was deleted; linked scope skipped",
+    "count": 1
+  },
+  {
+    "path": "db/task_archives_restore.go",
+    "old": "LLM 配置 %d 已删除，配置链项已跳过",
+    "new": "LLM profile %d was deleted; profile-chain entry skipped",
+    "count": 1
+  },
+  {
+    "path": "db/task_archives_restore.go",
+    "old": "任务归档期间审批已超时",
+    "new": "Approval timed out while the task was archived",
+    "count": 2
+  },
+  {
+    "path": "db/task_assets.go",
+    "old": "用户在测试资产页手工新增",
+    "new": "Manually added by the user on the test assets page",
+    "count": 1
+  },
+  {
+    "path": "db/task_assets.go",
+    "old": "第 %d 条范围无效:",
+    "new": "Scope entry %d is invalid:",
+    "count": 1
+  },
+  {
+    "path": "db/task_assets.go",
+    "old": "无效 IP:",
+    "new": "Invalid IP:",
+    "count": 1
+  },
+  {
+    "path": "db/task_assets.go",
+    "old": "意图在黑板中锚定该资产",
+    "new": "Intent anchored this asset on the blackboard",
+    "count": 1
+  },
+  {
+    "path": "db/task_scope.go",
+    "old": "需要 task_id",
+    "new": "task_id is required",
+    "count": 1
+  },
+  {
+    "path": "db/task_scope.go",
+    "old": "value 不能为空",
+    "new": "value must not be empty",
+    "count": 1
+  },
+  {
+    "path": "db/task_scope.go",
+    "old": "company store 未启用",
+    "new": "company store is not enabled",
+    "count": 1
+  },
+  {
+    "path": "db/task_scope.go",
+    "old": "company 不存在: %s（先用 list_companies 确认，或建好企业）",
+    "new": "company does not exist: %s (check list_companies first, or create the company)",
+    "count": 1
+  },
+  {
+    "path": "db/task_scope.go",
+    "old": "无效根域:",
+    "new": "Invalid root domain:",
+    "count": 1
+  },
+  {
+    "path": "db/task_scope.go",
+    "old": "无效子域:",
+    "new": "Invalid subdomain:",
+    "count": 1
+  },
+  {
+    "path": "db/task_scope.go",
+    "old": "无效 ip/cidr:",
+    "new": "Invalid ip/cidr:",
+    "count": 2
+  },
+  {
+    "path": "db/task_scope.go",
+    "old": "不支持的 kind: %s（company/root_domain/subdomain/ip/cidr/icp/keyword）",
+    "new": "Unsupported kind: %s (company/root_domain/subdomain/ip/cidr/icp/keyword)",
+    "count": 1
+  },
+  {
+    "path": "db/tasks.go",
+    "old": "任务起点：",
+    "new": "Task starting point: ",
+    "count": 1
+  },
+  {
+    "path": "db/tasks.go",
+    "old": "；目标：",
+    "new": "; Goal: ",
+    "count": 1
+  },
+  {
+    "path": "db/tasks.go",
+    "old": "任务创建时关联企业：",
+    "new": "Company linked at task creation: ",
+    "count": 1
+  },
+  {
+    "path": "db/tasks.go",
+    "old": "任务创建时关联企业",
+    "new": "Company linked at task creation",
+    "count": 1
+  },
+  {
+    "path": "db/schema.sql",
+    "old": "任务执行期间自动关联",
+    "new": "Automatically linked during task execution",
+    "count": 1
+  },
+  {
+    "path": "db/schema.sql",
+    "old": "由历史任务资产关联迁移",
+    "new": "Migrated from historical task asset associations",
+    "count": 1
+  },
+  {
+    "path": "db/schema.sql",
+    "old": "复测会话已删除",
+    "new": "Retest conversation deleted",
+    "count": 1
+  }
+]

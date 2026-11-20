@@ -1,0 +1,237 @@
+source/agent/tools_insert.go
+16|assetInterceptCandidates extracts domain/IP/URL candidates from one asset input for intercept matching.
+17|Classify URL hosts too, so URL-only service/endpoint assets match domain/IP rules.
+45|assetInputLabel returns a short asset label for denial explanations.
+130|Do not expose task_id to the model: program-authoritative SetTaskID assigns worker ownership (see handler).
+190|service (other, non-HTTP)
+213|Program-authoritative task_id (worker: SetTaskID), never model-supplied, prevents missing/wrong
+214|task attribution. Callers without task context (auto/pentest/chat) have t.taskID=0.
+230|Load asset gate rules once; read failure skips evaluation without blocking insertion.
+231|Block rules = global ∪ task block; allow rules = task allow.
+242|Asset gate evaluates block before allow; denied assets skip Upsert and all subsequent side effects.
+355|Auto scope (source='auto'): conservatively scope only this explicitly inserted top-level worker item
+356|by type. Side-effect-derived assets do not pass here, avoiding blind scope expansion. taskID=0 is a no-op.
+357|Independent of coverage toggle: task_scope defines task boundaries and list/query filters.
+358|Coverage toggle controls using scope as metric denominator, not accumulating scope itself.
+458|Single-item mode.
+586|listCompanies enumerates companies with scope + asset counts.
+646|Keep list_findings: check confirmed task findings before reporting to avoid duplicates.
+650|No add_company_scope for workers: company scope belongs to planning/main/Auto; workers only explore.
+652|Cross-work review lets workers reuse observations and avoid duplicate work.
+653|search_all_worker_traces finds matching steps by keyword without needing intent_id first;
+654|get_worker_trace lists/searches steps or fetches full content after selecting work.
+656|node_detail lets workers inspect full node details once they have an intent/node id.
+658|Still withheld from workers: list_facts / list_companies / list_worker_traces. Context reading and
+659|cross-work analysis belong to planner/main; workers execute and write back only their assigned intent.
+669|steer_work injects live human corrections into running work without interrupting or losing progress.
+671|set_goals adds final goals at runtime so the planner can reassess completion.
+673|set_constraints adds/changes runtime operational allow/deny constraints on planner/worker exploration.
+679|list_untested_assets queries untested in-scope assets by type/page; agent decides whether to test further.
+source/agent/tools.go
+41|Upstream nodes from which this intent derives (multiple facts can jointly motivate one intent).
+44|Downstream facts/findings produced by this intent.
+97|notifyGoal, if set, wakes the planner AND records ONE human-added-N-goals trigger
+104|notifyHint, if set, wakes the planner AND records ONE human-added-N-strategic-hints trigger
+153|String renders the per-kind breakdown for logs, e.g. "facts1 assets25 findings0".
+187|agents responsible for scope definition keep it either way — in lockstep with insertAssets'
+312|inside a task (auto/pentest/reporter/custom agent/side conversation). Refusing there
+371|hints: human/main-agent strategic guidance attached via add_hint; folded in so the
+372|planner reads it each round when generating intents, instead of only writing without reading.
+418|priority DESC, id ASC: top N by priority; true total in frontier_open.
+430|Newest first (all ordered by id DESC); folded nodes excluded; output truncates to latest N.
+434|done_intents_total counts ended intents (done/blocked/exhausted), parallel to recent_done_intents,
+435|which is only a truncated latest-window view. The pair self-describes N out of total,
+436|so deduplication does not confuse not displayed with never dispatched; no extra prompt needed.
+440|frontier_open is the true open count; open_intents is only the top-N priority window.
+452|Confirmed finding total for goal assessment; latest-window details in finding_list.
+453|Exploration fact/conclusion count, including negative conclusions.
+454|Findings are the highest-value task outputs; include the latest window (≤10, vulnNodes ordered id DESC)
+455|so each planning round sees recent confirmed findings. Use list_findings for all/older findings.
+456|Each entry retains {id, summary, from_intent?}; from_intent identifies the producing intent.
+457|Full evidence/assets/vulnclass/severity/state remain available through list_findings / node_detail(id).
+468|Intent that produced this finding.
+473|recent_facts is the newest window of unfolded facts (≤N, factNodes ordered id DESC). Folded,
+474|still-cold hidden members are represented by cold_digests, not duplicated here. Entries: {id, summary, from_intent?,
+475|confidence?}; full evidence via node_detail(id), older facts via list_facts.
+483|Folded and still cold; see cold_digests.
+487|Intent that produced this fact.
+489|Include confidence so planners recognize inferred conclusions (especially negatives, not definitive).
+490|Long evidence remains available via node_detail(id).
+500|recent_done_intents is the latest unfolded ended-intent window (≤N, recentDone ordered id DESC).
+501|Use done_intents_total and node_detail(id) for older entries.
+507|cold-digest §6.1: top N cold digest bodies ordered by newest member time DESC. Older truncated
+508|digests get bare ids, still expandable via expand_digest, to bound the cold area's only output channel.
+511|[{id, body, member_count}]; read body directly (§6.1).
+513|Ids of older truncated digests; expand with expand_digest(id).
+525|coverage is a rough reference: fraction of in-scope (task_scope) assets touched by facts,
+526|plus by_type totals/tested. Agents may query list_untested_assets and decide what remains. Task context only.
+527|With coverageDisabled retain only host_count (awareness of target host count),
+528|dropping denominator/tested/pct/by_type/note to avoid context pollution and prompting use of
+529|hidden add_task_scope/list_untested_assets tools.
+548|Return only host count, not the full host list repeated in every graph_overview for large scopes.
+549|Specific hosts remain queryable on demand via list_assets; repetition adds little planning value.
+820|Older truncated digest ids; expand with expand_digest(id).
+915|finding id → producing intent id.
+976|Pass this cursor back for the next, older page.
+1026|intentItem is one exploration direction in a batch/single add_intent call.
+1034|addOneIntent creates an intent with upstream lineage and returns its id.
+1035|Enforce knowledge-grounded intents: every parent_id must be an existing fact/finding,
+1036|never an intent/goal/hint. New top-level directions leave parent_ids empty and fall back to origin fact.
+1037|The creation path enforces fact anchoring and discovery-driven, not invented, planning.
+1042|Validate anchors before creating nodes, avoiding orphan intents on invalid anchors.
+1058|Asset intercept: if bound assets hit system intercept rules, refuse to dispatch this intent.
+1110|Single-item mode: top-level summary/asset_ids/parent_ids/priority.
+1132|A human submits an intent via main agent; if the task is done (goalless branch with no open goals),
+1133|return it to running so workers can claim it. resumeTask is wired only by main-agent Chat
+1134|(SetResumeTask); the planner callback is nil, so its own add_intent calls are unaffected no-ops here.
+1135|The intent is already created open above, so revival cannot mistake the frontier for drained.
+1140|Single item: preserve original return shape.
+1191|After marking a goal met, check whether ALL task goals are met. If so, set GoalMet
+1192|automatically; no explicit model goal_met call is required.
+1251|"not_bound" with the disabled/manual-page-binding note, which is what the caller needs.
+1311|factItem is one fact in batch/single record_fact.
+1315|One line of key evidence (command + output) supports the conclusion and later review.
+1316|observed (directly seen) | inferred (deduced from observations).
+1321|recordOneFact writes a fact linked to its intent (intent→yields→fact). defaultIntent supplies
+1322|the batch default when an item omits intent_id.
+1379|Single-item mode + batch default intent_id.
+1387|Top-level intent_id is the batch default.
+1400|Single item: preserve original return shape.
+1420|addOneHint attaches an active/human hint, optionally anchored to assets, and returns its id.
+1442|Do not wake the planner per item; addHint wakes it once after the whole batch with hint texts,
+1443|avoiding one planner trigger per hint in a single add_hint call.
+1452|addOneGoal attaches an open goal to the task root (origin fact, relation spawns).
+1453|origin uses t.worker (default system): decomposer writes "goals", runtime main agent writes
+1454|"human". setGoals wakes the planner after the whole batch; this helper only persists.
+1478|setGoals adds goals to the CURRENT TASK, used both by the goal decomposer and the runtime main
+1479|agent. It is one managed tool with UI-editable descriptions/schema and per-agent bindings.
+1496|Single-item mode: top-level text/vulnclass.
+1518|Wake planner once per batch, preferring notifyGoal: one human-added-N-goals trigger per set_goals,
+1519|not one per item. Decomposer/worker lack the callback and fall back to notify (round-0 decomposer
+1520|does not even wire notify: no-op because the planner has not started).
+1527|Runtime main-agent goals return done/paused tasks to running (terminal-state gate swallows
+1528|ordinary notify, so explicit revival is required). Only mainagent wires this; decomposer/worker nil.
+1534|Single item: preserve original return shape.
+1553|addOneConstraint persists to task_constraints. origin uses t.worker (default system):
+1554|decomposer writes "goals", main agent writes "human".
+1562|Conservative default: unspecified type means deny.
+1570|setConstraints adds CURRENT TASK operational constraints (allow=permitted / deny=prohibited),
+1571|used by round-0 decomposition and runtime main agent. The same managed tool supports UI-editable
+1572|descriptions/schema and per-agent bindings. Inject into planner/worker system prompts to bound exploration.
+1590|Single-item mode: top-level text/type.
+1608|Single item: preserve simple return shape.
+1634|Single-item mode: top-level text/asset_ids.
+1656|Wake planner once per batch, preferring notifyHint: one human-added-N-strategic-hints trigger,
+1657|making the new-hint cause and hint text explicit for this round.
+1658|Without that callback, fall back to bare notify; hints remain in the graph for reading.
+1667|Single item: preserve original return shape.
+1711|nudges ("stop X, focus on Y"); if the whole direction is wrong use kill_work + a new intent.
+1745|getWorkerOutput returns final (or last pre-interruption) work conclusion by intent id.
+1954|Exclude the caller's own intent steps; worker already has its own trace in context.
+2046|report_finding: planner can register its own confirmed finding (same tool as worker).
+2048|list_companies: company list + scope + asset count (get company_id / understand attribution).
+2050|list_assets: DSL search complements list_untested_assets' in-scope untested perspective,
+2051|allowing searches by domain/fingerprint/port/status code across the asset store.
+2053|add_company_scope: add domain/IP/CIDR/ICP/keywords to company scope, automatically claiming matches.
+2055|add_task_scope: deliberately include whole root domain/company or exact subdomain/IP (coverage denominator).
+2057|list_untested_assets: query in-scope untested assets by type/page and decide whether to test further.
+source/agent/provider.go
+51|ThinkingType independently controls thinking.type:
+52|"" = omit (default, compatible with unsupported models); "disabled" = explicitly off;
+53|"enabled" = on. Decoupled from ReasoningEffort: some endpoints have no thinking field
+54|and activate reasoning through effort alone; either may be set independently.
+56|ReasoningEffort independently controls reasoning intensity:
+57|"" = omit (default); "low"/"medium"/"high"/"xhigh"/"max" = corresponding effort.
+58|OpenAI maps to top-level reasoning_effort; Anthropic to output_config.effort.
+60|Stream selects SSE for this profile. true(default)=streaming; false=actual
+61|non-streaming (stream:false, complete JSON response via Provider.Complete), avoiding
+62|poor gateway SSE implementations (empty frames, lost reasoning frames) at the cost
+63|of live progress/token counts. Maps to agentcore.Options.NonStreaming = !Stream.
+65|MaxTokens caps output tokens per response. 0 omits the field, using server default
+66|(historical behavior). Unlike ContextWindowK, the total capacity used only locally
+67|for compression thresholds, this value is sent with every request. Maps to agentcore.Options.MaxTokens.
+69|MaxTokensField selects the request field for MaxTokens, only for format=openai:
+70|"" = max_tokens(default); "max_completion_tokens" = newer field.
+71|OpenAI reasoning models (o series/GPT-5) accept only the latter and reject max_tokens
+72|as unsupported_parameter; most compatible gateways accept only the former. User selects per endpoint, no inference.
+74|Nonempty SessionHeaderKey adds a custom HTTP header to every LLM request; this value is its name
+75|and the current session id is its value (chat=conv-<id>, worker=exp<x>-worker-i<intent>,
+76|etc.; see WorkerSessionID). Supports gateway prompt caching/sticky routing keyed by session id.
+77|Empty means omit. transcript.WithSessionID places the value in request context; RoundTripper
+78|reads it, allowing different session header values through a shared provider.
+80|Retry holds resolved parameters (profile override → global policy → built-in default,
+81|resolved server-side). See RetryConfig for layers; zero uses built-in defaults entirely.
+85|RetryConfig accompanies an LLM profile. Each layer uses the same attempt semantics:
+86|0 = built-in default count; negative = disable that retry layer; >0 = explicit count. Intervals:
+87|0 = original exponential backoff; >0 = fixed interval.
+89|ConnectAttempts/ConnectInterval: SDK pre-stream connection retries (reset/timeout/429/5xx),
+90|mapped to llm.Config.MaxRetries / RetryInterval. Default 3 attempts; exponential from 0.5s, capped at 8s.
+93|EmptyAttempts/EmptyInterval: SDK empty-response retries (completed without content blocks, openai
+94|format only), mapped to llm.Config.EmptyResponseRetries / EmptyResponseInterval.
+95|Default 2 attempts on the same exponential ladder.
+98|StreamAttempts/StreamInterval: additional same-provider safe-window retry above the SDK;
+99|replays broken streams/overload/in-stream 429 only before ANY output reaches the caller. Invisible to SDK,
+100|consumed by server/task_llm.go. Default 2 attempts; exponential from 0.5s, capped at 4s.
+184|Streaming by default; ARTEX_LLM_STREAM=false/0/off explicitly selects non-streaming.
+223|Streaming default; callers override per profile.
+295|Pass thinking switch and effort independently (empty omits that field). Decoupled:
+296|may send thinking.type only, effort only, both, or neither.
+299|Output-cap field name (empty = max_tokens). The cap VALUE is not set here; every turn it comes via
+300|agentcore.Options.MaxTokens. Provider only selects the request key.
+302|Pass retries unchanged with SDK semantics (count 0=default/negative=off; interval 0=exponential/>0=fixed).
+431|Empty means direct; do not fall back to HTTP_PROXY/HTTPS_PROXY environment variables.
+450|connection test to the server log, so "Test connection" leaves a diagnosable trail of
+491|Capture raw wire responses: connection tests need the actual gateway status code and body,
+492|which norma's StreamEvent decoding would discard. quotaAwareTransport finds this Capture
+493|in context and fills status and body for every HTTP attempt.
+496|Connection testing is a one-shot path outside the agentcore session loop, so no session id is
+497|attached automatically. Endpoints configured with SessionHeaderKey (e.g. opencode zen requires
+498|x-opencode-session and returns 400 MissingSessionID without it) would work for chat but
+499|fail the test. Attach a one-off random session id to use the same header path as real chat.
+500|Endpoints without SessionHeaderKey ignore it, with no side effects.
+503|Allow sufficient MaxTokens: reasoning models (e.g. deepseek-v4-pro) generate extensive reasoning
+504|before answering (even "ping" consumed ~2900 tokens in testing). With only 32 tokens the model
+505|hits finish=length while reasoning and truncates; the request succeeds (err=nil) but displays
+506|interrupted/length/resume. Budget enough to emit OK cleanly with finish=stop.
+507|Keep EscalateMaxTokens false: no cap escalation/retry on truncation, avoiding wasteful resume loops.
+514|Test using the profile's actual streaming/non-streaming mode.
+520|err==nil is insufficient: requests may succeed without visible text (reasoning exhausts budget,
+521|safety suppresses body, compatibility layer loses content). Such profiles fail to answer chat yet
+522|would report test success. Eliminate that mismatch: no visible body always means failure.
+source/agent/toolcatalog.go
+10|Expose built-in tools as an enumerable, DB-overridable catalog rather than code alone:
+11|  - BuiltinToolSeeds() expands execution-agent tools into seed records (key +
+12|    description + argument schema + default agent bindings), idempotently seeded into tools at startup.
+13|  - ToolResolve filters assembled tools by agent at runtime using DB rows,
+14|    overriding descriptions/schema and injecting argument defaults. Keys/handlers stay in code; DB changes prose/defaults only.
+15|Call handlers ALWAYS come from code. DB cannot change behavior, only model-visible descriptions/default inputs.
+17|ToolSeed is a seedable built-in snapshot: key is CoreTool.Name(), fixed to its handler
+18|and read-only in UI. Desc/Schema come from code; Agents are code-default bindings.
+20|= CoreTool.Name(), immutable primary key.
+21|Top-level description (UI-overridable).
+22|Argument JSON Schema (structure read-only; description/default editable in UI).
+23|Default bound agent keys (worker/planner/mainagent).
+26|builtinToolsByAgent constructs each execution agent's domain tools using a read-only shell
+27|ToolSet with nil stores. Constructors only place closures in Spec, never dereferencing stores,
+28|so nil is safe. Only read Name()/Description()/InputSchema() here; NEVER Call.
+30|Deliberately exclude SDK generic tools actool.DefaultTools() (Read/Write/Edit/MultiEdit/LS/Glob/
+31|Grep/Bash): all agents always have them, so no binding decision. Most documentation lives in Prompt();
+32|this catalog only covers Description(), making partial overrides misleading. No seed → no DB row → ToolResolve
+33|passes them unchanged, preserving behavior. Only artex domain tools enter this managed catalog.
+40|goals (decomposer) defaults to set_goals + set_constraints to persist goals and extracted
+41|constraints. Shared managed tools with mainagent; UI edits description/schema and per-agent bindings.
+43|auto defaults to finding reporting + asset management; other domain tools are opt-in via UI.
+44|New databases seed here; existing ones migrate via seedAutoDefaultBindings.
+46|pentest (standalone) defaults to query/insert assets, report/list findings, and list companies.
+47|New databases seed here; existing ones migrate via seedPentestDefaultBindings.
+52|defaultUnbound system tools still enter the catalog (visible in UI for manual agent binding),
+53|but default to NO agents: ToolResolve drops empty-bound tools for every agent; explicit opt-in required.
+54|They remain in some base tool set (e.g. goal_met in PlannerTools) so seeds can obtain desc/schema,
+55|and explicit user binding can retain the tool at runtime through ToolResolve.
+57|goal_met bypasses individual prove_goal calls to declare the WHOLE TASK complete: high impact and
+58|misjudgment risk, redundant with last prove_goal auto-completion. Default unbound; manual opt-in only.
+61|BuiltinToolSeeds deduplicates agent tools into seeds: same-name tools (e.g. list_assets across
+62|agents) share one entry with unioned Agents; defaultUnbound tools force empty bindings.
+90|Cataloged, manually bindable, but default unbound; [] rather than null, like other tools.
+105|Default inputs get injected. Tools with no matching DB row (MCP/skill/host tools like
+141|null. Structure (names/types/required) is untouched; only default values are merged in.

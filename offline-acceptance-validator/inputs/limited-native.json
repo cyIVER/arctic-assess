@@ -1,0 +1,295 @@
+{
+  "schema_version": 1,
+  "status": "LIMITED_NATIVE_CHAT_OWNED_CURL_DURABLE_PASS__BROADER_WORKER_READINESS_BLOCKED",
+  "standalone_acceptance_claimed": false,
+  "whole_operational_goal_complete": false,
+  "limited_owned_chat_workflow_acceptance": true,
+  "criteria": [
+    {
+      "criterion": "frozen_image_binary_source_and_prior_tests",
+      "status": "PASS",
+      "evidence": "actual image/binary and 629-file source verified; prior build 12 top-level/26 including subtests PASS, no rebuild"
+    },
+    {
+      "criterion": "private_runtime_admission_env_cwd_and_egress",
+      "status": "PASS",
+      "evidence": "guest-runtime-preflight.json, containment, internal-only network with no default app route; no unauthorized-target probes"
+    },
+    {
+      "criterion": "real_ARTEX_auth_ui_and_native_global_config",
+      "status": "PASS",
+      "evidence": "api-preflight.json, HTTP auth init/login/401, actual embedded JS assets and llm_configured=true"
+    },
+    {
+      "criterion": "two_actual_native_OAuth_model_turns_no_fallback",
+      "status": "PASS",
+      "evidence": "two native receipts/intents; exact reviewed final backend hash now live-qualified"
+    },
+    {
+      "criterion": "actual_ARTEX_Bash_curl_and_independent_owned_GET",
+      "status": "PASS",
+      "evidence": "one guarded real Bash/curl, sink independently logged exactly one GET from 172.29.88.3"
+    },
+    {
+      "criterion": "matching_model_tool_result_and_final_nonce",
+      "status": "PASS",
+      "evidence": "tool_use_id, real result, independent sink nonce and second native final all match"
+    },
+    {
+      "criterion": "durable_transcript_authenticated_restart",
+      "status": "PASS",
+      "evidence": "same fresh app/PG containers restarted, old JWT/login/UI/activities/full transcript identity preserved without another model call"
+    },
+    {
+      "criterion": "read_only_actual_image_tool_inventory",
+      "status": "PASS",
+      "evidence": "23 commands: 18 present, 5 missing; 51 registered ARTEX DB tools versus native-chat Bash-only; static browser/MCP/Puppeteer metadata collected, no launches"
+    },
+    {
+      "criterion": "cleanup_retention_and_budget",
+      "status": "PASS",
+      "evidence": "task stack/units/native groups/listeners stopped, exact VM TERMINATED/disk READY; all old resources retained; ledger settled once"
+    },
+    {
+      "criterion": "broader_native_planner_main_subworker_readiness",
+      "status": "FAIL_NOT_QUALIFIED",
+      "evidence": "Unmarked role paths deliberately deny before IO; installed executables do not make those workers usable. No planner-to-worker-to-finding/report E2E performed."
+    }
+  ],
+  "criteria_counts": {
+    "PASS": 9,
+    "FAIL_NOT_QUALIFIED": 1
+  },
+  "image_id": "sha256:de6c8e66f6c0a7b34e043dac442d02e0d6e67e009814b78ce73effd51cf32683",
+  "binary_sha256": "8f22509572e44ac3fbb2fdc1cb06b4132df451a4247f7384d8635ba2af36d5e8",
+  "version": "v0.3.15-failsafe.3-clear-native-lab",
+  "baseline_source_commit": "fd6376ca392e9eed093f4e627138f0003223579d",
+  "source_manifest_sha256": "9cb2c5c10fe7826be4cbb5c061d26aa8a41f5ce9a4c6fd6cf48f589a250c5cda",
+  "derived_source_files": 629,
+  "original_source_post_run": {
+    "original_source_count": 622,
+    "preserved": true
+  },
+  "reviewed_bridge_pins": {
+    "backend.py": "642506e927044bc18d03d775c1b6cd5ed8881990a5bf08b8e1899e37909b8335",
+    "worker.py": "bc8a2396a18707500598817841eaa58e574f61c7949efce18094b2e4692224c2",
+    "catalog.json": "a1cce8cf6f2ca8c64749cccdddc057bab983f0b730e0664814f7ee5319f64140"
+  },
+  "new_directories": [
+    "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-native-owned-acceptance",
+    "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-native-owned-bridge"
+  ],
+  "vm_starts": 1,
+  "builds": 0,
+  "downloads_bytes": 0,
+  "application_model_tests_or_warmups": 0,
+  "workflow_submissions": 1,
+  "native_logical_calls": 2,
+  "native_model": "gpt-6.1-sol",
+  "native_binary_sha256": "b93f6811d3f653f0fb83be4050d857fb9abbb111dfa2ce160563327daff7f306",
+  "native_sdk_version": "0.1.0b3",
+  "auth": "Existing native HOME ChatGPT OAuth retained by official SDK; no OAuth credential read/copy, API key proxy or paid fallback",
+  "actual_native_usage": {
+    "input_tokens": 6561,
+    "output_tokens": 134,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0
+  },
+  "native_receipts": [
+    {
+      "path": "../artex-native-owned-bridge/receipt-229a9ed45e3f1439.json",
+      "thread_id": "01a1f46d-80c0-7bf3-aa41-33413ec564a5",
+      "turn_id": "01a1f46d-80ef-7ba1-b8a3-53f92bbe7cc9",
+      "completed": {
+        "thread_id": "01a1f46d-80c0-7bf3-aa41-33413ec564a5",
+        "turn_id": "01a1f46d-80ef-7ba1-b8a3-53f92bbe7cc9",
+        "status": "completed"
+      },
+      "usage": {
+        "totalTokens": 3273,
+        "inputTokens": 3188,
+        "cachedInputTokens": 0,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 85,
+        "reasoningOutputTokens": 0
+      },
+      "elapsed_seconds": 5.9549106527119875,
+      "native_reaped": true
+    },
+    {
+      "path": "../artex-native-owned-bridge/receipt-db5abcba5b2f53ad.json",
+      "thread_id": "01a1f46d-9872-7843-baae-413b280f9c97",
+      "turn_id": "01a1f46d-98a3-77d2-bd98-d78e0a98b2ab",
+      "completed": {
+        "thread_id": "01a1f46d-9872-7843-baae-413b280f9c97",
+        "turn_id": "01a1f46d-98a3-77d2-bd98-d78e0a98b2ab",
+        "status": "completed"
+      },
+      "usage": {
+        "totalTokens": 3422,
+        "inputTokens": 3373,
+        "cachedInputTokens": 0,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 49,
+        "reasoningOutputTokens": 0
+      },
+      "elapsed_seconds": 5.790564579889178,
+      "native_reaped": true
+    }
+  ],
+  "application_retries": 0,
+  "fallbacks": 0,
+  "builtin_native_retry_limits": {
+    "request": 4,
+    "stream": 5,
+    "absolute_turn_seconds": 90,
+    "raw_HTTP_attempt_count": null
+  },
+  "generation_token_cap": "UNSUPPORTED; explicitly time/bytes/calls profile, not an OpenAI-compliant API shim",
+  "native_thread_persistence": "fresh ephemeral native thread per logical call replaying actual ARTEX history; durable host transcript is ARTEX-owned",
+  "legacy_reviewed_worker_prefix": "Byte-identical reviewed worker retains SYNTHETIC NO-TARGET prompt framing; this phase provided real ARTEX host history and actual independent curl tool result, not a synthetic executor/result. No worker source edits.",
+  "workflow": {
+    "PASS": true,
+    "conversation_id": 1,
+    "tool_use_id": "call_248f7d7dc1acf9b610e5d34ee34fbcd1",
+    "sink_GET_count": 1,
+    "sink_peer": "172.29.88.3",
+    "nonce": "0ff548b30461a35041e9fb425ab8bd3651c6c6be9e234ffa",
+    "real_tool_result_equals_sink_and_native_final": true,
+    "synthetic_tool_results": 0,
+    "activities": 6
+  },
+  "durability": {
+    "PASS": true,
+    "actual_host_transcript_bytes_unchanged": true,
+    "same_durable_file_hashes": true,
+    "sink_GETs_after_restart": 1,
+    "logical_native_calls_after_restart": 2,
+    "no_model_call_for_restart": true
+  },
+  "http_native_correlation": {
+    "PASS": true,
+    "forwarded_requests": 2,
+    "all_selected_model": "gpt-6.1-sol",
+    "all_declarations": [
+      "Bash"
+    ],
+    "native_response_sha256_matches_http_response": true,
+    "raw_request_hashes": [
+      "6ef6b9a56dde15642816449a49d8328e3dc56ae5efb71fffc7d57a67f20b6776",
+      "608fdf0574160bd45de9cfddc78b274c4671a78c077557b95ee2de4451f32be9"
+    ],
+    "application_retries": 0,
+    "native_transport_raw_attempt_count": null
+  },
+  "actual_db_admission": {
+    "counts": {
+      "profiles": 0,
+      "agent_llm_bindings": 0,
+      "task_llm_profiles": 0,
+      "tasks": 0,
+      "enabled_mcp": 0,
+      "enabled_triggers": 1
+    },
+    "trigger_metadata": [
+      {
+        "agent_key": "reporter",
+        "enabled": true,
+        "interval_sec": 0,
+        "on_finding": false,
+        "on_goal_met": false,
+        "on_tool_call": true,
+        "on_task_create": false,
+        "tool_names": "[\"report_finding\"]",
+        "last_fire": null
+      }
+    ],
+    "scheduled_interval_triggers": 0,
+    "trigger_firings": 0,
+    "note": "Fresh ARTEX seeds one enabled reporter event for report_finding only. This tool is absent from native chat declarations. No interval scheduler, no tasks, no auto-chat triggers; row remains dormant. Not zero registered trigger rows."
+  },
+  "actual_image_inventory": "actual-image-inventory.json",
+  "worker_source_audit": "../artex-worker-tool-readiness/report.json",
+  "tool_inventory_counts": {
+    "commands": 23,
+    "present": 18,
+    "missing": 5,
+    "registered_ARTEX_DB_tools": 51,
+    "native_chat_declarations": 1
+  },
+  "missing_commands": [
+    "nuclei",
+    "httpx",
+    "naabu",
+    "ffuf",
+    "sqlmap"
+  ],
+  "retention": {
+    "containers": {
+      "old_count": 9,
+      "new_count": 12,
+      "removed": [],
+      "added": [
+        "1e588dea870a31bb7af34b5025970fd25c443c9eb485c7ac77050da8d6396348",
+        "64b24d130fd9ce0845763bf2d8e9061f22c47cb28f601875abc7efae723cf684",
+        "ed1d93f9937da86da0ddb91267270a6cf18c7a92b6ff03f7cb2163ac622325d2"
+      ]
+    },
+    "images": {
+      "old_count": 44,
+      "new_count": 44,
+      "removed": [],
+      "added": []
+    },
+    "volumes": {
+      "old_count": 4,
+      "new_count": 8,
+      "removed": [],
+      "added": [
+        "artex-native-owned-data",
+        "artex-native-owned-keys",
+        "artex-native-owned-pgdata",
+        "artex-native-owned-sinkledger"
+      ]
+    }
+  },
+  "cleanup": {
+    "external_controller": "proc_309ca42e657d",
+    "external_controller_exit_code": 0,
+    "provider_absolute_STOP_before_start": true,
+    "deadline": "2026-11-19T16:21:11+00:00",
+    "final_vm_status": "TERMINATED",
+    "vm_id": "590620893136303309",
+    "final_disk_status": "READY",
+    "disk_id": "521979503200711885",
+    "auto_delete": false,
+    "public_ip": false,
+    "task_stack_and_daemon_stopped": true,
+    "native_groups_absent": true,
+    "private_ports_closed": true,
+    "expected_connections_shutdown_after_persistence": true,
+    "remote_reverse_sshd_linger_closed_with_PID_starttime_binding": true
+  },
+  "spend": {
+    "session_id": "artex-native-owned-acceptance",
+    "start_request_utc": "2026-11-19T15:21:58.250355+00:00",
+    "stop_verified_utc": "2026-11-19T15:38:31.821260+00:00",
+    "conservative_compute_seconds": "993.570905",
+    "hourly_estimate_usd": "0.26804568",
+    "actual_session_duration_estimated_compute_delta_usd": "0.07397844134970566666666666667",
+    "prior_cumulative_compute_usd": "0.2940438644393730666666666666",
+    "new_cumulative_compute_usd": "0.3680223057890787333333333333",
+    "contingency_usd": "0.50",
+    "remaining_estimated_headroom_usd": "1.131977694210921266666666667",
+    "download_bytes": 0,
+    "estimate_not_invoice": true,
+    "settlement_application": "applied exactly once to artex-standing-cost-ledger.json; write tool verified"
+  },
+  "issues": [
+    "Runtime helpers corrected without core/source/policy changes or a new start: built-in network null Config; exact Python path /usr/local/bin/python3; post-start receipt local variable; root-cap-drop public sink file ownership; internal Docker ports required rehearsed bounded task loopback UI relay. All before inference and original deadline retained.",
+    "Fresh DB seeds one enabled reporter report_finding-only event trigger. It remained unfired (last_fire null), no interval triggers/tasks/LLM profiles/agent LLM bindings/enabled MCP. Not a claim of zero registered trigger rows.",
+    "Local SSH exit left a remote per-session reverse listener; exact UID/PID/starttime/listener-bound teardown verified, no global SSH change.",
+    "Installed browser/MCP/scanner dependencies were not admitted/executed for broader workloads. Prior npm/advisory risks remain uncleared outside this narrow Go/Bash/curl workflow."
+  ],
+  "next_gate": "Review role-bound native provider/tool admission, then a separately approved owned planner -> worker -> finding/report fixture; no unreviewed source/control widening, downloads or native SDK effects."
+}

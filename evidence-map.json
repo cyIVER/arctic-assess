@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "mode": "READ_ONLY_RECONCILIATION_NOT_ACCEPTANCE",
+  "root": "/home/iveri/work/vindler-e2.SftLYa2R/continuation",
+  "snapshot_utc": {"start": "2026-11-19T21:56:45Z", "last_hashed_source_observation": "2026-11-19T21:57:44.701199+00:00", "atomic": false, "polling": false},
+  "overall": "FULL_ASSESSMENT_UNQUALIFIED",
+  "routing": {"preferred": "current-session delegation or bounded local execution", "named_profile_start": "parent-reported routing limitation only", "telegram_required": false, "messaging_repairs_authorized": false},
+  "owners": {
+    "other_coordinator": {"session_id": "local-399487c441a2a80cd1b8990f686dfcdb43ac00b6a9ba5435d69099a28f817dfa", "evidence": "parent context; admission child metadata corroborates parent relationship", "reserved_lanes": ["artex-worker-guest-canary-v3", "artex-worker-live-guard", "artex-worker-admission", "artex-ui-asset-export"], "present_liveness_verified": false},
+    "admission_worker": {"session": "@session:default/20261119_214337_d6a8a8", "assignment_message": 148549, "write_scope": ["artex-worker-admission/source", "artex-worker-admission/receipts"], "final_completion_verified": false},
+    "v3_guard_individual_workers": {"status": "UNRESOLVED", "lane_reservation_remains": true},
+    "parent": {"retains": ["lane reservation", "implementation dispatch", "independent review", "operator/standing authority decisions", "final acceptance"]}
+  },
+  "evidence": [
+    {"id": "E1", "path": "artex-worker-guest-canary-review/report.json", "sha256": "bf44a15dd49f0b8a2c66841671d49988ad6e67f77c94abadcc67d5de0f0a5438", "classification": "current_artifact_containing_historical_review", "verdict": "BLOCKED", "runtime_proof": false, "findings": ["F1 root caller versus UID1001", "F2 fabricated authority accepted", "F3 unsafe ancestry and later pathname consumption", "F4 preexisting collision file deleted"], "local_saved_log": {"path": "artex-worker-guest-canary-review/unit-tests-final.log", "tests": 37, "outcome": "OK", "rerun": false}, "go_inclusive_pass_reported": 45, "go_count_independently_reparsed_here": false},
+    {"id": "E2", "path": "artex-worker-guest-canary-v3/GUARD-INTERFACE.md", "sha256": "9cc7ae95dbc95f32fcc7303c44223d108d0b9aa1b8f145993fa2c5b9cf4afced", "classification": "current_moving_interface", "default": "BLOCKED", "requires": ["protected fixed parent context", "actual independently reviewed tuple", "guardian fresh readback", "real guest UID1001 positive"], "final_report_observed": false, "documentation_conflict": "README describes v2 and evidence handles not present in inspected v3/evidence listing"},
+    {"id": "E3", "path": "artex-worker-guest-canary-v3/source-identity.json", "sha256": "68cc328c506dc55d0867354af19d4f1e5cb59a69142d272a3ccbe33d2c6cc0ba", "classification": "snapshot_file_hash_only", "source_manifest_consistency_verified": false},
+    {"id": "E4", "path": "artex-worker-live-guard/guard.py", "sha256": "66bdaabd12082a399174a4b52cab2db2735417bd2b897a75ae10285f077e0e24", "classification": "current_moving_source_partial_inspection", "companion": {"path": "artex-worker-live-guard/test_guard.py", "sha256": "1bffcaf8ba0f1f0e757e46b3406331da62e83b0ad2a7f99bf1c7a6ebc28d7492", "scope": "UNIT_ONLY injected provider/SSH/process boundaries"}, "final_report_observed": false, "executed_here": false, "live_qualification": false},
+    {"id": "E5", "path": "artex-worker-admission/INTERFACE.md", "sha256": "b7d8be7d9cfaa6ae5fce199230ca22602f2afcfd5ac6220839cdf42fc8050ab1", "classification": "current_moving_interface", "route": "GET /api/tasks/{id}/native-admission", "meaning": "opaque provider admission plus executor configuration verification only", "not_proof_of": ["executor socket connection", "inference approval", "runtime admission", "assessment acceptance", "VM/canary authority"], "final_report_observed": false},
+    {"id": "E6", "path": "artex-worker-assessment-runner/HANDOFF.md", "sha256": "c2ec4d9fea90862f71943f0ccbf2d46152ebf85cc7c7429b50df74804a5872e2", "classification": "current_artifact_containing_historical_candidate_report", "status": "PARTIAL_BOOTSTRAP_BLOCKED", "saved_python_log": {"path": "artex-worker-assessment-runner/green-local.log", "tests": 9, "outcome": "OK", "fixtures_not_live_api": true}, "status_receipt": "artex-worker-assessment-runner/blocked-status.json", "exit_code_recorded": 2, "missing": ["final admission seam in its frozen665 source", "verified actual retained UI bytes", "final independent source/helper reviews", "real all-no-model guest canaries", "full model workflow"]},
+    {"id": "E7", "path": "artex-ui-asset-export/report.json", "sha256": "ae326f294788eb69b535d68b72f79eecd4ae2c589ebe90c51aee619fa8e1ed19", "classification": "current_artifact_containing_historical_failure_cleanup_report", "outcome": "BLOCKED_NO_ASSETS_RETRIEVED", "assets_retrieved_recorded": 0, "guest_mutation_recorded": false, "one_start_consumed": true, "guard_fix": "FQDN hostname correction local tests only; VM not retried", "historical_cleanup": {"verified_terminated_utc": "2026-11-19T21:52:55.657822+00:00", "vm_status": "TERMINATED", "disk_status": "READY", "controller_exit_code": 0}, "live_provider_checked_here": false, "next_gate": "new separately authorized bounded export session by existing owner"},
+    {"id": "E8", "path": "artex-native-owned-acceptance/report.json", "sha256": "e37fc5e0b17222c86562df719330f74123dc057df9ae304e8b8e697745108d09", "classification": "current_artifact_containing_historical_limited_acceptance", "status": "LIMITED_NATIVE_CHAT_OWNED_CURL_DURABLE_PASS__BROADER_WORKER_READINESS_BLOCKED", "full_goal_complete": false, "not_transferable_to_new_sources_or_GPT_OSS": true},
+    {"id": "E9", "path": "NEWartex-worker-operational-review/report.json", "sha256": "19e6cffba86d903fe8dd480d11de3e1ee9b2ac975d3fe144e4f35caec2ce74ed", "classification": "current_artifact_containing_historical_static_review", "verdict": "BLOCKED", "finding": "P2 production preflight ignores persisted global DB-over-env source precedence", "reviewer_fresh_pg_executed": false, "addressed_by": "admission worker; final resolution unverified"},
+    {"id": "E10", "path": "artex-worker-admission/receipts/20261119-215319-3971179.log", "classification": "saved_execution_jsonl_parsed_now_not_rerun", "package": "github.com/Autumn-27/artex/server", "package_terminal": "pass", "test_terminal_counts": {"top_pass": 11, "subtest_pass": 41, "fail": 0, "skip": 0}, "final_whole_worker_completion": false},
+    {"id": "E11", "path": "artex-worker-admission/receipts/20261119-215410-3973053.log", "classification": "saved_execution_jsonl_parsed_now_not_rerun", "package": "github.com/Autumn-27/artex/agent", "package_terminal": "pass", "test_terminal_counts": {"top_pass": 30, "subtest_pass": 67, "top_skip": 2, "fail": 0}, "required_case_completeness_verified": false},
+    {"id": "E12", "path": "artex-worker-admission/receipts/latest.log", "classification": "mutable_saved_execution_jsonl_parsed_now_not_rerun", "package_terminal": "pass", "test_terminal_counts": {"top_pass": 1, "subtest_pass": 11, "fail": 0, "skip": 0}},
+    {"id": "E13", "path": "artex-worker-admission/receipts/loader-trace-summary.json", "classification": "saved_synthetic_test_syscall_metadata", "readonly_service_key_opens": 1, "readonly_executor_key_opens": 1, "connect_scope": "PostgreSQL UNIX socket", "all_no_key_claim_supported": false, "zero_connect_claim_supported": false, "test_log": "artex-worker-admission/receipts/loader-trace-test.log", "saved_test_outcome": "PASS", "auth_only_contrast_completion_verified": false}
+  ],
+  "scope_only_report_handles": [
+    {"path": "artex-worker-executor-review/report.json", "reported_verdict": "SCOPED_PASS", "runtime_approval": false},
+    {"path": "artex-worker-isolation-review/report.json", "reported_verdict": "SCOPED_PASS", "runtime_approval": false},
+    {"path": "artex-worker-build-cache/report.json", "reported_status": "VERIFIED_LOCAL_COMPILER_AND_53_FROZEN_SELECTED_MODULES__FULL_ALL_GRAPH_METADATA_BLOCKED"},
+    {"path": "artex-worker-tool-readiness/report.json", "reported_verdict": "NOT_FULL_WORKER_READY; source tool surfaces implemented, native worker admission deliberately blocked; image runtime inventory unverified"},
+    {"path": "artex-owned-assessment-fixture/report.json", "scope": "owned synthetic fixture only"}
+  ],
+  "history": {
+    "primary": {"link": "@session:default/20261119_214337_d6a8a8", "assignment_anchor": 148549, "trace_edit_and_invocation_anchors": [148923, 148926, 148928, 148932], "classification": "original historical messages and tool-call intents; not final successful completion"},
+    "queries": ["\"artex-worker\"", "\"Vindler\" OR \"ARTEX\"", "\"artex-worker-live-guard\" OR \"artex-worker-guest-canary-v3\""],
+    "last_query_excluded_lineage": "20261119_214337_d6a8a8",
+    "last_query_result_count": 0,
+    "parent_scroll": "parent ID plus anchor148549 transparently rebound to child; parent transcript not inspected",
+    "limitations": ["narrow discoverability; not proof other workers idle", "no independent v3/guard worker identities recovered", "discovery header date disagreed with original session-scroll date; do not infer chronology from header"]
+  },
+  "dependencies": [
+    {"from": ["final admission source and precedence regression", "independent admission review", "verified retained UI byte export"], "to": "real normal app build and running-app configuration observation"},
+    {"from": ["final canary-v3 source", "final guard source", "independent source/helper/orchestrator/guard reviews", "actual parent authority", "fresh protected context", "external provider STOP and controller", "budget and default-daemon preflight"], "to": "all required real no-model guest canaries"},
+    {"from": ["real normal app build and running-app configuration observation", "all required real no-model guest canaries", "separately authorized model workflow"], "to": "normal planner-to-worker-to-finding/report acceptance"},
+    {"from": ["normal planner-to-worker-to-finding/report acceptance", "revocation/quiescence", "model-off restart", "SQL/graph/versioned report/JWT/UI persistence readback"], "to": "parent full assessment decision"}
+  ],
+  "proposed_safe_local_lane": {
+    "status": "PROPOSED_NOT_RESERVED_OR_DISPATCHED",
+    "path": "coordination-20261119/offline-acceptance-validator/",
+    "task": "stdlib-only TDD offline receipt completeness/provenance validator; default BLOCKED and no authority issuance",
+    "first_red": "actual canary BLOCKED/runtime_proof:false plus local PASS logs must never promote to runtime or full assessment acceptance",
+    "control": "same-entrypoint schema-valid synthetic UNIT_ONLY parser control, never live acceptance",
+    "validation": ["real behavioral RED before implementation", "GREEN and explicit discovery/fail/skip counts", "required-case name inventory", "schema strict types and source/review hashes", "missing/moving/stale/revoked reports deny", "UI inventory alone denies", "config proof is not runtime proof", "limited chat is not full assessment", "synthetic negatives labeled", "no imported peer execution or external IO", "parent rerun and independent review"],
+    "command_contract": "PYTHONDONTWRITEBYTECODE=1 python3 -B -m unittest discover -s <owned-child>/tests -v; implementer must document explicit import setup",
+    "parent_reservation_required": true
+  },
+  "optional_gpt_oss_contract": {
+    "status": "UNQUALIFIED_NOT_CALLED_OR_CONFIGURED",
+    "unknown": ["endpoint", "exact served model/revision/quantization", "runtime/version", "host/hardware", "allocated per-slot context", "tool parser/template"],
+    "prerequisite": "operator supplies nonsecret identifiers, private route and explicitly approved bounded qualification budget",
+    "role": "scratch-only optional coding/test worker",
+    "forbidden_authority": ["approval", "guardian", "deployment", "provider STOP/controller", "final acceptance"],
+    "private_route": "exact approved loopback/private authenticated route; no redirects/proxies/public binding/fallback",
+    "round_trip": ["actual structured tool call with ID/name/schema-valid arguments", "parent adapter performs allowlisted scratch effect", "actual tool result bound to call ID", "second model turn demonstrably consumes result"],
+    "useful_task": "tiny fixture regression test plus minimal scratch-only fix; parent executes tests and reads diff",
+    "deny_before_dispatch": ["malformed JSON", "unknown tool", "extra arguments", "path traversal or symlink escape", "duplicate or missing call ID", "unsolicited parallel calls", "oversize or truncated output", "timeout/disconnect/cancel", "context overflow"],
+    "proposed_not_authorized_limits": {"workers": 1, "inference_slots": 1, "logical_model_requests": 4, "per_request_seconds": 60, "total_seconds": 300, "context_and_output_caps": "explicitly bound to actual server before use"},
+    "measure": ["TTFT", "end-to-end tool-loop latency", "prompt/prefill rate distinct from generation tokens per second", "actual filled prompt tokens", "server-allocated versus advertised context", "cancellation settlement", "operator-authorized memory measurements", "real task test outcome", "transport/model/host identity", "no fallback"],
+    "concurrency_scaling": "separate later approval and bounded measurement; not part of initial one-slot qualification",
+    "acceptance": "parent repeats actual tool loop and tests, reviews sanitized receipts and confines qualification to exact measured model/runtime/host/route/task class"
+  },
+  "actions": {"shared_source_mutations": [], "spawned_sessions": [], "spawned_processes": [], "network_calls": [], "inference_calls": [], "service_or_configuration_changes": [], "created_files": ["coordination-20261119/RECONCILIATION.md", "coordination-20261119/evidence-map.json"]},
+  "lessons_for_handoff_only": ["Missing artifact is not an unowned lane", "A saved PASS stream is not a final frozen source handoff", "Retained cloud cleanup receipt is not current provider state", "Configuration observation never grants runtime or operator authority", "Routing/profile launch limitations do not make messaging a project prerequisite"]
+}

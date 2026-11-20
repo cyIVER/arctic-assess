@@ -1,0 +1,98 @@
+{
+  "status": "partial_comments_complete_historical_changelog",
+  "changed_source_paths": [
+    "source/CHANGELOG.md",
+    "source/db/asset_dsl.go",
+    "source/db/asset_intercept.go",
+    "source/db/asset_intercept_match.go",
+    "source/db/asset_intercept_match_test.go",
+    "source/db/assets.go",
+    "source/db/assets_test.go",
+    "source/db/companies.go",
+    "source/db/company_scope.go",
+    "source/db/company_scope_consistency_test.go",
+    "source/db/company_scope_test.go",
+    "source/db/config.go",
+    "source/db/constants.go",
+    "source/db/db.go",
+    "source/db/exploration.go",
+    "source/server/assets.go",
+    "source/server/auth_test.go",
+    "source/server/chat_llm_resolve_test.go",
+    "source/server/conversations.go",
+    "source/server/customtool.go",
+    "source/server/engine.go"
+  ],
+  "changed_source_files": 21,
+  "go_files_checked": 228,
+  "comments_translated": 161,
+  "comment_files_changed": 20,
+  "historical_changelog": {
+    "versions": "0.3.15 through 0.3.2",
+    "entry_lines_translated": 270,
+    "cjk_lines_before": 452,
+    "cjk_lines_after": 7,
+    "unfinished_prose_outside_inline_code": 0,
+    "structure_unchanged": true,
+    "unreleased_bytes_unchanged": true
+  },
+  "verification": {
+    "commands": [
+      "python docs-comments-evidence/guard.py baseline",
+      "python docs-comments-evidence/apply_changelog.py",
+      "python docs-comments-evidence/apply_comments.py",
+      "python docs-comments-evidence/guard.py verify",
+      "python docs-comments-evidence/finalize.py"
+    ],
+    "result": "PASS: all 228 Go files retain exact non-comment bytes and literal bytes; all changelog structural checks pass.",
+    "pre_edit_self_tests": "Same bytes accepted, translated comments accepted, deliberate identifier mutation and deliberate literal mutation rejected.",
+    "parser_or_compiler_executed": false,
+    "parser_blocker": "No cached goparse found in task artifacts/scratch or PATH; Go builds/downloads forbidden. Scanner is a dependency-free Python state machine, not go/parser. Requested same-byte parse-positive fixture was NOT executed.",
+    "compile_claim": null,
+    "structural_mutation_tests": "Removed release, changed link and removed entry rejected after translation."
+  },
+  "remaining_classification_counts": {
+    "preserved_multilingual_test_fixture": 661,
+    "preserved_comment_reference_or_UTF8_example": 12,
+    "out_of_scope_runtime_or_SQL_literal": 33,
+    "unfinished_explanatory_comment": 1385,
+    "preserved_changelog_inline_code_or_reference": 7
+  },
+  "unfinished_scope_manifest": "docs-comments-evidence/remaining-classified.json",
+  "unfinished_scope": "All records categorized unfinished_explanatory_comment require further translation. Preserved reference/UTF-8 comment examples are exceptions. Runtime/SQL literals and multilingual test fixtures remain unchanged and outside comment-only ownership. Intercept has no remaining CJK comments.",
+  "limitations": [
+    "Bounded time: comment translation is partial, not complete.",
+    "No Go syntax parse or compile executed; exact non-comment-byte equivalence is verified instead.",
+    "No repository .git present at task root; source baseline/hashes and owned diff supply evidence."
+  ],
+  "lessons_handoff": [
+    "Use comment-span replacements, never global CJK replacements: SQL and multilingual fixtures must remain byte-identical.",
+    "Pin per-line inline-code multisets and release boundaries before translating historical prose; English may reorder inline references without changing tokens.",
+    "Locate a cached Go parser before assigning parse verification under a no-build constraint."
+  ],
+  "evidence_files": [
+    "docs-comments-evidence/after-sha256.json",
+    "docs-comments-evidence/apply_changelog.py",
+    "docs-comments-evidence/apply_comments.py",
+    "docs-comments-evidence/baseline.json",
+    "docs-comments-evidence/before-sha256.json",
+    "docs-comments-evidence/changed-paths.json",
+    "docs-comments-evidence/changelog-baseline.json",
+    "docs-comments-evidence/changelog-proof.json",
+    "docs-comments-evidence/changelog-translations-older.json",
+    "docs-comments-evidence/changelog-translations.json",
+    "docs-comments-evidence/comment-inventory-before.json",
+    "docs-comments-evidence/comment-translation-hits.json",
+    "docs-comments-evidence/comment-translations-server.json",
+    "docs-comments-evidence/comment-translations.json",
+    "docs-comments-evidence/finalize.py",
+    "docs-comments-evidence/guard.py",
+    "docs-comments-evidence/owned-changes.patch",
+    "docs-comments-evidence/red.json",
+    "docs-comments-evidence/remaining-cjk.json",
+    "docs-comments-evidence/remaining-classified.json",
+    "docs-comments-evidence/verification.json",
+    "docs-comments-evidence/report.json",
+    "docs-comments-evidence/REVIEW.md"
+  ]
+}

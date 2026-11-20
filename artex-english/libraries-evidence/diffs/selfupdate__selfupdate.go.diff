@@ -1,0 +1,56 @@
+--- baseline/selfupdate/selfupdate.go
++++ candidate/selfupdate/selfupdate.go
+@@ -37,16 +37,16 @@
+ // settleDelay 则清除标记；连崩 maxAttempts 次说明新版根本起不来，自动回滚。
+ const maxAttempts = 3
+ 
+-// Paths 是一次升级涉及的全部文件，统一挂在**可执行文件所在目录**下。
++// Paths 是一次升级涉及的全部文件，统一挂在**Executable directory**下。
+ // 刻意不用 CWD：服务化运行时工作目录可能是 / 或任意路径，用 CWD 会让暂存件落到
+ // 别处，换装逻辑直接失效。
+ type Paths struct {
+-	Dir     string // 可执行文件所在目录
+-	Current string // 当前运行的二进制        artex      / artex.exe
+-	New     string // 暂存的新版本            artex.new  / artex.new.exe
+-	Sum     string // 新版本的 sha256（hex）  artex.new.sha256 / artex.new.exe.sha256
+-	Old     string // 换装前备份的旧版本      artex.old  / artex.old.exe
+-	Marker  string // 升级状态标记            artex.upgrade.json
++	Dir     string // Executable directory
++	Current string // Currently running binary        artex      / artex.exe
++	New     string // Staged new version            artex.new  / artex.new.exe
++	Sum     string // New version SHA256 (hex)  artex.new.sha256 / artex.new.exe.sha256
++	Old     string // Previous version backed up before replacement      artex.old  / artex.old.exe
++	Marker  string // Upgrade state marker            artex.upgrade.json
+ }
+ 
+ // ResolvePaths 按当前可执行文件推导全部升级路径。
+@@ -56,14 +56,14 @@
+ func ResolvePaths() (Paths, error) {
+ 	exe, err := os.Executable()
+ 	if err != nil {
+-		return Paths{}, fmt.Errorf("定位可执行文件: %w", err)
++		return Paths{}, fmt.Errorf("Locate executable: %w", err)
+ 	}
+ 	if resolved, err := filepath.EvalSymlinks(exe); err == nil {
+ 		exe = resolved
+ 	}
+ 	dir := filepath.Dir(exe)
+ 	name := filepath.Base(exe)
+-	ext := filepath.Ext(name) // Windows 上是 ".exe"，Unix 上通常为空
++	ext := filepath.Ext(name) // ".exe" on Windows; usually empty on Unix
+ 	stem := strings.TrimSuffix(name, ext)
+ 
+ 	join := func(suffix string) string { return filepath.Join(dir, stem+suffix+ext) }
+@@ -79,9 +79,9 @@
+ 
+ // marker 记录一次换装的进度，用来在新版起不来时触发自动回滚。
+ type marker struct {
+-	From     string `json:"from"`     // 升级前的版本
+-	To       string `json:"to"`       // 目标版本
+-	Attempts int    `json:"attempts"` // 换装后已尝试启动的次数
++	From     string `json:"from"`     // Version before upgrade
++	To       string `json:"to"`       // Target version
++	Attempts int    `json:"attempts"` // Startup attempts since replacement
+ 	StagedAt int64  `json:"staged_at"`
+ }
+ 

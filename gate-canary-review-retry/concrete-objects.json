@@ -1,0 +1,12 @@
+{
+  "manifest_bytes_sha256": "85aef1698ef86d928f4767efcf6754cde410eef959c1bb290340463600e25206",
+  "canonical_map_sha256": "fe8a0c7e2df6e44b343cc2d77e5cce8df8fb64575c958f277ede1042feea279b",
+  "counts": {
+    "host": 11,
+    "source": 654
+  },
+  "mismatches": [],
+  "helper_sha256": "ea54b361fed9d575eaadcd069b59382d853c241abee4821dbd7f02f4fac765ac",
+  "fixture_sha256": "49e1f487b407ebff7bf0d79f5f2e6137b38d6955c4c1ca1e9a4becb15e20a08d",
+  "guardian_final_source_sha256": "b54b4b00627193105c3b23621b04b529f3c9ee422842597cd53ccb2901b295ef"
+}

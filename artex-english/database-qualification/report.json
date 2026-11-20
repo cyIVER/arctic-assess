@@ -1,0 +1,773 @@
+{
+  "status": "PASS bounded real PostgreSQL qualification; not a whole-package or integrated-tree pass",
+  "top_level": {
+    "pass": 14,
+    "fail": 0,
+    "skip": 0
+  },
+  "subtests": {
+    "pass": 25,
+    "fail": 0,
+    "skip": 0
+  },
+  "commands": [
+    [
+      "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+      "test",
+      "-p",
+      "1",
+      "-json",
+      "./db",
+      "./intercept",
+      "-run",
+      "^(TestOpenSeed|TestInterceptApprovalFilters|TestInterceptExecutionNavigation|TestTaskArchiveDatabaseRoundTrip|TestInterceptSourceEnglishLegacy|TestApprovalSQLRecognizesEnglishLegacy|TestRestoreApprovalEnglishLegacyEvidence|TestTaskArchiveFormatCompatibility|TestEnglishJudgeGeneratedReason|TestEnglishHandleAskSummaryAndCancellation|TestEnglishVerdictCompatibility|TestEnglishGeneratedDefaultsPreserveSuppliedNames|TestEnglishVerdictStrictRejections)$",
+      "-count=1",
+      "-timeout=180s"
+    ],
+    [
+      "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+      "test",
+      "-p",
+      "1",
+      "-json",
+      "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/database-qualification/qualification_v2_test.go",
+      "-run",
+      "^TestPrivatePostgresApprovalHistoryArchive$",
+      "-count=1",
+      "-timeout=180s"
+    ]
+  ],
+  "required_names_verified": {
+    "TestOpenSeed": "pass",
+    "TestInterceptApprovalFilters": "pass",
+    "TestInterceptExecutionNavigation": "pass",
+    "TestTaskArchiveDatabaseRoundTrip": "pass",
+    "TestInterceptSourceEnglishLegacy": "pass",
+    "TestApprovalSQLRecognizesEnglishLegacy": "pass",
+    "TestRestoreApprovalEnglishLegacyEvidence": "pass",
+    "TestTaskArchiveFormatCompatibility": "pass",
+    "TestEnglishJudgeGeneratedReason": "pass",
+    "TestEnglishHandleAskSummaryAndCancellation": "pass",
+    "TestEnglishVerdictCompatibility": "pass",
+    "TestEnglishGeneratedDefaultsPreserveSuppliedNames": "pass",
+    "TestEnglishVerdictStrictRejections": "pass",
+    "TestPrivatePostgresApprovalHistoryArchive": "pass"
+  },
+  "results": [
+    {
+      "command": [
+        "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+        "test",
+        "-p",
+        "1",
+        "-json",
+        "./db",
+        "./intercept",
+        "-run",
+        "^(TestOpenSeed|TestInterceptApprovalFilters|TestInterceptExecutionNavigation|TestTaskArchiveDatabaseRoundTrip|TestInterceptSourceEnglishLegacy|TestApprovalSQLRecognizesEnglishLegacy|TestRestoreApprovalEnglishLegacyEvidence|TestTaskArchiveFormatCompatibility|TestEnglishJudgeGeneratedReason|TestEnglishHandleAskSummaryAndCancellation|TestEnglishVerdictCompatibility|TestEnglishGeneratedDefaultsPreserveSuppliedNames|TestEnglishVerdictStrictRejections)$",
+        "-count=1",
+        "-timeout=180s"
+      ],
+      "returncode": 0,
+      "top_level": {
+        "pass": 13,
+        "fail": 0,
+        "skip": 0
+      },
+      "subtests": {
+        "pass": 25,
+        "fail": 0,
+        "skip": 0
+      },
+      "required": {
+        "TestOpenSeed": "pass",
+        "TestInterceptApprovalFilters": "pass",
+        "TestInterceptExecutionNavigation": "pass",
+        "TestTaskArchiveDatabaseRoundTrip": "pass",
+        "TestInterceptSourceEnglishLegacy": "pass",
+        "TestApprovalSQLRecognizesEnglishLegacy": "pass",
+        "TestRestoreApprovalEnglishLegacyEvidence": "pass",
+        "TestTaskArchiveFormatCompatibility": "pass",
+        "TestEnglishJudgeGeneratedReason": "pass",
+        "TestEnglishHandleAskSummaryAndCancellation": "pass",
+        "TestEnglishVerdictCompatibility": "pass",
+        "TestEnglishGeneratedDefaultsPreserveSuppliedNames": "pass",
+        "TestEnglishVerdictStrictRejections": "pass"
+      },
+      "tests": [
+        {
+          "name": "TestOpenSeed",
+          "action": "pass"
+        },
+        {
+          "name": "TestInterceptSourceEnglishLegacy/english",
+          "action": "pass"
+        },
+        {
+          "name": "TestInterceptSourceEnglishLegacy/legacy",
+          "action": "pass"
+        },
+        {
+          "name": "TestInterceptSourceEnglishLegacy/rule_precedes_english",
+          "action": "pass"
+        },
+        {
+          "name": "TestInterceptSourceEnglishLegacy/rule_precedes_legacy",
+          "action": "pass"
+        },
+        {
+          "name": "TestInterceptSourceEnglishLegacy/unknown",
+          "action": "pass"
+        },
+        {
+          "name": "TestInterceptSourceEnglishLegacy/embedded_not_prefix",
+          "action": "pass"
+        },
+        {
+          "name": "TestInterceptSourceEnglishLegacy",
+          "action": "pass"
+        },
+        {
+          "name": "TestApprovalSQLRecognizesEnglishLegacy",
+          "action": "pass"
+        },
+        {
+          "name": "TestInterceptExecutionNavigation/conversation_scope_and_old_paginated_call",
+          "action": "pass"
+        },
+        {
+          "name": "TestInterceptExecutionNavigation/task_sessions_and_result_pairing",
+          "action": "pass"
+        },
+        {
+          "name": "TestInterceptExecutionNavigation",
+          "action": "pass"
+        },
+        {
+          "name": "TestInterceptApprovalFilters/all",
+          "action": "pass"
+        },
+        {
+          "name": "TestInterceptApprovalFilters/pending",
+          "action": "pass"
+        },
+        {
+          "name": "TestInterceptApprovalFilters/allowed",
+          "action": "pass"
+        },
+        {
+          "name": "TestInterceptApprovalFilters/denied",
+          "action": "pass"
+        },
+        {
+          "name": "TestInterceptApprovalFilters/timeout",
+          "action": "pass"
+        },
+        {
+          "name": "TestInterceptApprovalFilters/model",
+          "action": "pass"
+        },
+        {
+          "name": "TestInterceptApprovalFilters/rule",
+          "action": "pass"
+        },
+        {
+          "name": "TestInterceptApprovalFilters/unknown",
+          "action": "pass"
+        },
+        {
+          "name": "TestInterceptApprovalFilters",
+          "action": "pass"
+        },
+        {
+          "name": "TestRestoreApprovalEnglishLegacyEvidence/english",
+          "action": "pass"
+        },
+        {
+          "name": "TestRestoreApprovalEnglishLegacyEvidence/legacy",
+          "action": "pass"
+        },
+        {
+          "name": "TestRestoreApprovalEnglishLegacyEvidence/rule",
+          "action": "pass"
+        },
+        {
+          "name": "TestRestoreApprovalEnglishLegacyEvidence/unknown",
+          "action": "pass"
+        },
+        {
+          "name": "TestRestoreApprovalEnglishLegacyEvidence",
+          "action": "pass"
+        },
+        {
+          "name": "TestTaskArchiveFormatCompatibility",
+          "action": "pass"
+        },
+        {
+          "name": "TestTaskArchiveDatabaseRoundTrip",
+          "action": "pass"
+        },
+        {
+          "name": "TestEnglishGeneratedDefaultsPreserveSuppliedNames",
+          "action": "pass"
+        },
+        {
+          "name": "TestEnglishVerdictStrictRejections",
+          "action": "pass"
+        },
+        {
+          "name": "TestEnglishJudgeGeneratedReason/allow",
+          "action": "pass"
+        },
+        {
+          "name": "TestEnglishJudgeGeneratedReason/ask",
+          "action": "pass"
+        },
+        {
+          "name": "TestEnglishJudgeGeneratedReason/deny",
+          "action": "pass"
+        },
+        {
+          "name": "TestEnglishJudgeGeneratedReason",
+          "action": "pass"
+        },
+        {
+          "name": "TestEnglishHandleAskSummaryAndCancellation",
+          "action": "pass"
+        },
+        {
+          "name": "TestEnglishVerdictCompatibility/Actual_operation:_Read_file;_Consequence_on_success:_Return_content;_Matched_rule:_A5",
+          "action": "pass"
+        },
+        {
+          "name": "TestEnglishVerdictCompatibility/\u5b9e\u9645\u64cd\u4f5c\uff1a\u8bfb\u53d6\u6587\u4ef6\uff1b\u6210\u529f\u540e\u7684\u540e\u679c\uff1a\u8fd4\u56de\u5185\u5bb9\uff1b\u547d\u4e2d\u89c4\u5219\uff1aA5",
+          "action": "pass"
+        },
+        {
+          "name": "TestEnglishVerdictCompatibility",
+          "action": "pass"
+        }
+      ],
+      "package_failures": [],
+      "byte_drift": [],
+      "lexical_noncomment_drift": []
+    },
+    {
+      "command": [
+        "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+        "test",
+        "-p",
+        "1",
+        "-json",
+        "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/database-qualification/qualification_v2_test.go",
+        "-run",
+        "^TestPrivatePostgresApprovalHistoryArchive$",
+        "-count=1",
+        "-timeout=180s"
+      ],
+      "returncode": 0,
+      "top_level": {
+        "pass": 1,
+        "fail": 0,
+        "skip": 0
+      },
+      "subtests": {
+        "pass": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "required": {
+        "TestPrivatePostgresApprovalHistoryArchive": "pass"
+      },
+      "tests": [
+        {
+          "name": "TestPrivatePostgresApprovalHistoryArchive",
+          "action": "pass"
+        }
+      ],
+      "package_failures": [],
+      "byte_drift": [],
+      "lexical_noncomment_drift": []
+    }
+  ],
+  "sql_proof": {
+    "archive_hot_count": 0,
+    "ask_cancel_action": "deny",
+    "ask_cancel_reason": "Work was cancelled",
+    "ask_cancel_status": "denied",
+    "ask_execution_status": "not_executed",
+    "ask_original_reason": "[Model] Requires human approval",
+    "ask_summary": "Tool Read requests approval (#68)",
+    "hba": "local:peer,host:reject,host:reject,local:peer,host:reject,host:reject",
+    "independent_committed_readback": true,
+    "judge_message": "[Model] Allowed",
+    "judge_reviewer_calls": 1,
+    "listen_addresses": "",
+    "pending_archive_action": "deny",
+    "pending_archive_status": "timeout",
+    "pending_id": 66,
+    "rows": [
+      {
+        "name": "english",
+        "id": 59,
+        "reason": "[Model] Original \u7528\u6237 evidence",
+        "source": "model",
+        "created": "2026-11-20T00:32:29.83964Z",
+        "decided": "2026-11-20T00:32:29.83964Z"
+      },
+      {
+        "name": "legacy",
+        "id": 60,
+        "reason": "[\u6a21\u578b] Original \u7528\u6237 evidence",
+        "source": "model",
+        "created": "2026-11-20T00:32:29.840608Z",
+        "decided": "2026-11-20T00:32:29.840608Z"
+      },
+      {
+        "name": "rule_english",
+        "id": 61,
+        "reason": "[Model] rule \u7528\u6237 evidence",
+        "source": "rule",
+        "created": "2026-11-20T00:32:29.841214Z",
+        "decided": "2026-11-20T00:32:29.841214Z"
+      },
+      {
+        "name": "rule_legacy",
+        "id": 62,
+        "reason": "[\u6a21\u578b] rule \u7528\u6237 evidence",
+        "source": "rule",
+        "created": "2026-11-20T00:32:29.842845Z",
+        "decided": "2026-11-20T00:32:29.842845Z"
+      },
+      {
+        "name": "unknown",
+        "id": 63,
+        "reason": "Original \u7528\u6237 evidence",
+        "source": "unknown",
+        "created": "2026-11-20T00:32:29.843878Z",
+        "decided": "2026-11-20T00:32:29.843878Z"
+      },
+      {
+        "name": "embedded",
+        "id": 64,
+        "reason": "evidence [Model] \u7528\u6237",
+        "source": "unknown",
+        "created": "2026-11-20T00:32:29.844552Z",
+        "decided": "2026-11-20T00:32:29.844552Z"
+      },
+      {
+        "name": "persisted_override",
+        "id": 65,
+        "reason": "[Model] explicit \u7528\u6237",
+        "source": "unknown",
+        "created": "2026-11-20T00:32:29.84513Z",
+        "decided": "2026-11-20T00:32:29.84513Z"
+      }
+    ],
+    "scope": "3",
+    "warnings": []
+  },
+  "fixture_runs": [
+    {
+      "state": "/home/iveri/.hermes/cache/scratch/english-pg-state-l8milwx0",
+      "socket": "/home/iveri/.hermes/cache/scratch/epg-zxzr4mco",
+      "fixture": "artex-local-pg/run_with_pg.py run_session; stable adapter identity override only",
+      "identity_checks": [
+        {
+          "pid": 96084,
+          "uid": 1000,
+          "start_ticks": "289874291",
+          "exe": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-local-pg/prefix/usr/lib/postgresql/16/bin/postgres"
+        },
+        {
+          "pid": 96084,
+          "uid": 1000,
+          "start_ticks": "289874291",
+          "exe": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-local-pg/prefix/usr/lib/postgresql/16/bin/postgres"
+        }
+      ],
+      "free_before": 1150205952,
+      "cache_before": 2969939149,
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "HOME": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local",
+        "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+        "GOMODCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/gomodcache",
+        "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+        "GOTMPDIR": "/home/iveri/.hermes/cache/scratch/english-pg-state-l8milwx0/gotmp",
+        "GOENV": "off",
+        "GOTOOLCHAIN": "local",
+        "GOPROXY": "off",
+        "GOSUMDB": "off",
+        "GOFLAGS": "-mod=readonly",
+        "CGO_ENABLED": "0",
+        "GOMAXPROCS": "2",
+        "GOMEMLIMIT": "1GiB",
+        "TMPDIR": "/home/iveri/.hermes/cache/scratch/english-pg-state-l8milwx0/gotmp",
+        "QUAL_EVIDENCE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/database-qualification"
+      },
+      "started": 1795134616.5277302,
+      "returncode": 1,
+      "closure": {
+        "closed": true,
+        "child_returncode": 1,
+        "postgres_pid": 96084,
+        "identity_verified": true,
+        "postgres_returncode": 0,
+        "pid_exited": true,
+        "socket_absent": true
+      },
+      "pidfile_absent": true,
+      "socket_entries": [],
+      "owned_pid_proc_absent": true,
+      "fixture_bytes": 52488135,
+      "new_cache_bytes": 13618496,
+      "free_after": 1083760640,
+      "finished": 1795134629.9548814,
+      "bounds_ok": true
+    },
+    {
+      "state": "/home/iveri/.hermes/cache/scratch/english-pg-state-zmzyvhi5",
+      "socket": "/home/iveri/.hermes/cache/scratch/epg-jv6g1wuf",
+      "fixture": "artex-local-pg/run_with_pg.py run_session; stable adapter identity override only",
+      "identity_checks": [
+        {
+          "pid": 98642,
+          "uid": 1000,
+          "start_ticks": "289886947",
+          "exe": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-local-pg/prefix/usr/lib/postgresql/16/bin/postgres"
+        },
+        {
+          "pid": 98642,
+          "uid": 1000,
+          "start_ticks": "289886947",
+          "exe": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-local-pg/prefix/usr/lib/postgresql/16/bin/postgres"
+        }
+      ],
+      "free_before": 1084248064,
+      "cache_before": 2983557645,
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "HOME": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local",
+        "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+        "GOMODCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/gomodcache",
+        "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+        "GOTMPDIR": "/home/iveri/.hermes/cache/scratch/english-pg-state-zmzyvhi5/gotmp",
+        "GOENV": "off",
+        "GOTOOLCHAIN": "local",
+        "GOPROXY": "off",
+        "GOSUMDB": "off",
+        "GOFLAGS": "-mod=readonly",
+        "CGO_ENABLED": "0",
+        "GOMAXPROCS": "2",
+        "GOMEMLIMIT": "1GiB",
+        "TMPDIR": "/home/iveri/.hermes/cache/scratch/english-pg-state-zmzyvhi5/gotmp",
+        "QUAL_EVIDENCE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/database-qualification"
+      },
+      "started": 1795134743.3854034,
+      "returncode": 0,
+      "closure": {
+        "closed": true,
+        "child_returncode": 0,
+        "postgres_pid": 98642,
+        "identity_verified": true,
+        "postgres_returncode": 0,
+        "pid_exited": true,
+        "socket_absent": true
+      },
+      "pidfile_absent": true,
+      "socket_entries": [],
+      "owned_pid_proc_absent": true,
+      "fixture_bytes": 52488135,
+      "new_cache_bytes": 512796,
+      "free_after": 1029865472,
+      "finished": 1795134750.636182,
+      "bounds_ok": true
+    }
+  ],
+  "fixture_pins": {
+    "artex-local-pg/run_with_pg.py": "ec8c7e3243dd44bea6b2bc85f8ac3b25c94a25e91466c0fd71e4d7803fcb7bdb",
+    "artex-worker-runtime-v2/run_with_pg.py": "8cecb341e200aba0dfebd951e9c56687bd6837ca0729d0a3b2839f750fd9d1ed",
+    "artex-local-pg/prefix/usr/lib/postgresql/16/bin/postgres": "201d8daff9a5bd9df70b820471b965c39f5a776d677f395232c477d051270722"
+  },
+  "cleanup": [
+    {
+      "state": "/home/iveri/.hermes/cache/scratch/english-pg-state-l8milwx0",
+      "socket": "/home/iveri/.hermes/cache/scratch/epg-zxzr4mco",
+      "state_absent": true,
+      "socket_directory_absent": true,
+      "scope": "only exact closed task-owned fixture directories"
+    },
+    {
+      "state": "/home/iveri/.hermes/cache/scratch/english-pg-state-zmzyvhi5",
+      "socket": "/home/iveri/.hermes/cache/scratch/epg-jv6g1wuf",
+      "state_absent": true,
+      "socket_directory_absent": true,
+      "scope": "only exact closed task-owned fixture directories"
+    }
+  ],
+  "build_inputs": {
+    "manifest": "build-inputs-go-list.jsonstream",
+    "pins": "build-inputs-pins.json",
+    "count": 2780,
+    "scope": "Resolved Go source/test/embed inputs from offline go list -deps -test; before manifest, not a frozen integrated-tree attestation. db/intercept/config pre/post per-command byte and lexical noncomment pins retained."
+  },
+  "candidate_limit": "Other workers may edit libraries and comment-only db/intercept/server. No byte or lexical noncomment drift observed within these two successful command windows in db/intercept/config; other source packages are not frozen by this claim. Lexical fingerprints preserve literals and discard comments/whitespace, not a compiler AST attestation.",
+  "omitted_tests": {
+    "db": [
+      "TestActivityPageSessions",
+      "TestAddFindingFollowUpIntent",
+      "TestAppendIPPort",
+      "TestApplySchemaRetriesOnlyDeadlocks",
+      "TestAssetIPRejectsHostname",
+      "TestAssetInterceptCandidates",
+      "TestAssetPaginationUsesStableIDTieBreaker",
+      "TestAssetUpsertWaitsForCompanyScopeMutation",
+      "TestBuildFindingAssetTree",
+      "TestCalcCSegment",
+      "TestCancelIntentPreservesOutputsYieldedByAnotherIntent",
+      "TestCancelIntentPreservesTokenMeteringWithoutDoubleCount",
+      "TestClaimDigestBatchHonorsCallerLimit",
+      "TestClaimExpiredLeaseRecovers",
+      "TestClaimRealtimeDeliveriesHonorsLeaseAndMode",
+      "TestClaimSkipsDisabledChannel",
+      "TestCompanyAttributionAtInsertTime",
+      "TestCompanyICPAttribution",
+      "TestCompanyScope",
+      "TestCompanyScopeAttribution",
+      "TestCompanyScopeCheckedReturnsSystemErrorSeparately",
+      "TestCompanyScopeInvalid",
+      "TestCompanyScopeLimitsAndCheckedErrors",
+      "TestCompanyScopeMutationLockDoesNotReuseInfrastructureLocks",
+      "TestCompanyUpsertAndGet",
+      "TestCompareAndSetIntentStateAllowsSingleWinner",
+      "TestConfigStores",
+      "TestConversationPinOrderingAndPatch",
+      "TestCountsByType",
+      "TestCreateCompanyWithScopeRejectsNormalizedDuplicate",
+      "TestCreateCompanyWithScopeRollsBackOnScopeWriteFailure",
+      "TestCreateConversationAndDeleteProfileDoNotDeadlock",
+      "TestCreateTaskRejectsMissingCategoryAtomically",
+      "TestCreateTaskRejectsTooManyCompaniesBeforeOpeningTransaction",
+      "TestCreateTaskRejectsTooManySourcesBeforeOpeningTransaction",
+      "TestCreateTaskWithCompanyScopes",
+      "TestCustomToolCRUD",
+      "TestDeleteByTaskID",
+      "TestDeleteChannelCascadesDeliveries",
+      "TestDeleteCompany",
+      "TestDeleteCompanyWithAssetsDeletesBoth",
+      "TestDeleteConversationsReturnsExistingIDs",
+      "TestDeleteEndpointPathPattern",
+      "TestDeleteFinding",
+      "TestDeleteProfileContextHonorsCancellation",
+      "TestDeleteProfileLocksNonTaskReferencesBeforeProfile",
+      "TestDeleteProfileRetriesReferenceCommittedAfterInitialScan",
+      "TestDeleteTaskTrafficHostsUseOneLockedTransaction",
+      "TestDeliveryStateTransitions",
+      "TestDigestBatchDueAndStableBatchID",
+      "TestEvaluateAssetGate",
+      "TestExplicitCompanyAttributionSurvivesScopeRebuild",
+      "TestExplorationDirectSourceReadView",
+      "TestExplorationFlow",
+      "TestFanOutMarksEventsWithNoMatchingChannel",
+      "TestFanOutRoutesEventsByFilter",
+      "TestFindingAssetScopeFilter",
+      "TestFindingEvidenceLockNamespace",
+      "TestFindingGroupsAndUnassignedPaging",
+      "TestFindingTrafficLegacyArchiveDefaults",
+      "TestFindingsPageAndStats",
+      "TestFinishFindingRetestEmitsStatusChange",
+      "TestHardDeleteCascadesExclusiveDescendants",
+      "TestHardDeletePreservesSharedAndGoal",
+      "TestInheritedActivityReadsRequireTerminalIntent",
+      "TestInsertSettingIfAbsentDoesNotOverwrite",
+      "TestIntentAssetsIncludesDirectSourceProvenance",
+      "TestIntentPauseResumeAndCancelCleanup",
+      "TestInterceptDetails",
+      "TestJsonbClean",
+      "TestLLMRecordsMigrateAddsRawColumnsToOldTable",
+      "TestLLMRetryPolicyRoundTrip",
+      "TestListByKindPage",
+      "TestListCompanies",
+      "TestListFindingsPageUsesStableIDTieBreaker",
+      "TestListNotificationDeliveriesPagingAndFilter",
+      "TestListTasksBulkHydratesTaskContext",
+      "TestListTasksOrderByIDDesc",
+      "TestMarshalStringArray",
+      "TestMatchAssetInterceptRules",
+      "TestNodesPageQueryMatchesID",
+      "TestNonTaskProfileMutationsLockReferenceBeforeProfile",
+      "TestNormalizeTaskCompanyIDs",
+      "TestNormalizeURL",
+      "TestNotificationAssetNamesResolvesAndPreservesOrder",
+      "TestNotificationChannelCRUDRoundTrip",
+      "TestNotificationStatsSnapshot",
+      "TestParseAutoScopeLine",
+      "TestParseScopeLine",
+      "TestParseStructuredCompanyScope",
+      "TestPoolProfilesOrder",
+      "TestProfileMaxTokensDefaults",
+      "TestProfileMaxTokensRoundTrip",
+      "TestProfileRetryClampedOnSave",
+      "TestProfileRetryRoundTrip",
+      "TestQueryArchiveRowsStreamsJSON",
+      "TestQueryByCompany",
+      "TestQueryByCompanyPaging",
+      "TestQueryByTask",
+      "TestQueryByTaskPaging",
+      "TestQueryByType",
+      "TestQueryDSLInScopeMembership",
+      "TestRecomputeAttribution",
+      "TestRecordNotificationEventTxUnwindsOnFailure",
+      "TestRecoverInterruptedArchiveRequiresManualRetry",
+      "TestRegisterTaskAssetScopesCreatesAssetsAndPersistsTextScope",
+      "TestResolveAndRecomputeUseStableCompanyIDTieBreak",
+      "TestResolveCompany",
+      "TestRetestAtomicDeduplicationAndHistory",
+      "TestRetestDeletionAndRestart",
+      "TestRetestFixedTriageOnlyAfterSuccessfulCompletion",
+      "TestRetestValidationAndRollback",
+      "TestSaveNotificationChannelKeepsExplicitZeroRate",
+      "TestSetFindingStatusWithNotifyOnlyEmitsOnRealChange",
+      "TestSetTasksCategoryBatch",
+      "TestSetTasksCategoryRejectsBadInputAtomically",
+      "TestSideArchiveRowsWithoutNewFields",
+      "TestSideClearLateWritersAndDeletedParent",
+      "TestSideHistoryIdempotencyPagingAndRecovery",
+      "TestSideMemoryClearRace",
+      "TestSideMemoryPagingClearAndRestart",
+      "TestSideTaskArchiveVersions",
+      "TestSkillUsageLedger",
+      "TestSoftDeleteIntent",
+      "TestStripHostPort",
+      "TestTaskArchiveBlockersIgnoreQueuedDependents",
+      "TestTaskAssetAttachDetachPreservesGlobalAssetAndAnchors",
+      "TestTaskAssetContextUsesDirectSourceScopeAndAnchors",
+      "TestTaskCategoryCRUDAndTaskAssignment",
+      "TestTaskContextRejectsDuplicatesAndAllowsTerminalLLMEdits",
+      "TestTaskDeleteCascadeAssets",
+      "TestTaskLLMProfileMutationsLockTaskBeforeProfile",
+      "TestTaskLifecycleAndDeleteCascade",
+      "TestTaskListMetricsAll",
+      "TestTaskPinOrderingAndRename",
+      "TestTaskQueuePreservesBootstrapAndFIFOPosition",
+      "TestTaskRelationsAndLLMFailoverChain",
+      "TestTaskTemplateCRUDAndNormalizedUniqueness",
+      "TestTaskTemplateDisjointPatchesCompose",
+      "TestTokenStatsBySessionUsesCompleteIntentHistory",
+      "TestToolUsageLedger",
+      "TestTruncateUTF8PreservesValidEncoding",
+      "TestTruncateUTF8RepairsInvalidInput",
+      "TestUpdateScope",
+      "TestUpdateScopeRollsBackOnInsertFailure",
+      "TestUpsertAppByBundle",
+      "TestUpsertAppByName",
+      "TestUpsertEndpoint",
+      "TestUpsertEndpointRequiredFields",
+      "TestUpsertHTTPService",
+      "TestUpsertHTTPServiceAuthAppend",
+      "TestUpsertIP",
+      "TestUpsertIPBoundDomains",
+      "TestUpsertOtherService",
+      "TestUpsertOtherServiceAuthAppend",
+      "TestUpsertRootDomain",
+      "TestUpsertRootDomainEmpty",
+      "TestUpsertSubdomain",
+      "TestUpsertSubdomainDedup",
+      "TestWriteArchiveRowsProducesJSONSequence"
+    ],
+    "intercept": [
+      "TestAuditAllowDropsSnapshot",
+      "TestAutomaticAllowRetainsActualReviewContext",
+      "TestEffectiveJudgePromptPreservesCustomPolicy",
+      "TestParseVerdict",
+      "TestParseVerdictKeepsCompleteChineseExplanation",
+      "TestParseVerdictRejectsIncompleteOrAmbiguousReplies",
+      "TestParseVerdictUnwrapsCodeFence",
+      "TestReviewInputAuditRetention",
+      "TestReviewInputBoundsAndInvalidContext",
+      "TestReviewInputExplicitBackgroundOnly",
+      "TestReviewInputIgnoresAuditHistoryAndPreservesCurrentCall",
+      "TestReviewWorkingDirectoryPreservesExplicitProvenance",
+      "TestTraceBoundsAndMissingResult",
+      "TestTraceConcurrentDistinctCalls",
+      "TestTraceExactCorrelationAndSnapshot",
+      "TestTraceIdenticalParallelCallsAreNeverGuessed",
+      "TestTraceSequentialIdenticalCallsAndRunIsolation"
+    ]
+  },
+  "omission_reason": "Exact reviewed 13-test allowlist plus new external real-SQL harness; all other package cases not executed. No claim to close all 139 earlier top-level DB skips. This closes approval/history/archive English-legacy SQL behavior only.",
+  "side_effect_review": {
+    "inspected": [
+      "db/db.go",
+      "db/testmain_test.go",
+      "db/db_test.go",
+      "db/intercept.go",
+      "db/intercept_detail.go ResolveIntercept and CompleteIntercept",
+      "db/intercept_filter_test.go",
+      "db/intercept_execution_test.go",
+      "db/intercept_english_test.go",
+      "db/intercept_restore_english_test.go",
+      "db/task_archives_test.go",
+      "db/task_archives.go",
+      "db/task_archives_restore.go",
+      "db/schema.sql (external-effect search)",
+      "intercept/intercept.go",
+      "intercept/english_test.go",
+      "intercept/english_generated_test.go"
+    ],
+    "findings": "Selected tests and invoked paths perform private SQL and in-memory parsing/context/reviewer callbacks. No HTTP server, TCP bind/dial, model client, external tool execution or init side effects found in db/intercept/config scan. Seeded MCP/profile records are inert SQL data; no commands/models launched. Metadata archive path is never written.",
+    "model": "One deterministic injected Reviewer call, not model inference.",
+    "network": "Only fresh PostgreSQL Unix socket; SHOW listen_addresses empty and HBA local peer/host reject. GOPROXY/GOSUMDB off, CGO disabled, no downloads or installs."
+  },
+  "failure_preserved": {
+    "directory": "attempt-1",
+    "test": "TestPrivatePostgresApprovalHistoryArchive",
+    "cause": "New harness incorrectly expected cancellation to overwrite intercept_pending.reason. Production ResolveIntercept intentionally preserves original reason and stores cancellation in audit.decision_reason. Original failed harness/logs/results/receipt preserved, no production repair.",
+    "correction": "New qualification_v2_test.go strengthens real SQL check across original reason plus audit decision_reason/effective_action/execution_status. Uses another fresh cluster; original failed harness not edited.",
+    "production_defect_found": false
+  },
+  "excluded": [
+    "Full db/intercept package suite",
+    "server/agent and moving libraries integrated qualification",
+    "HTTP/UI or model inference",
+    "tool execution or network egress confinement",
+    "external archive file compression/checksum lifecycle (DB metadata/snapshot/restore only)",
+    "production data or existing database membership"
+  ],
+  "lessons_handoff": [
+    "Check original reason versus audit.decision_reason separately: resolving an approval must not launder original evidence.",
+    "Exercise both Go insertion classification and SQL fallback/backfill; empty-source archive manifests require separate restoration coverage.",
+    "Use retained stable UID/startticks/exe identity and pidfd shutdown; mutable PostgreSQL titles are not lifecycle invariants."
+  ],
+  "free_bytes_after_owned_fixture_removal": 1136381952,
+  "closure_crosscheck": {
+    "logged_process_checks": [
+      {
+        "log": "attempt-1/postgres.log",
+        "logged_pids": [
+          96084,
+          96086,
+          96088,
+          96091
+        ],
+        "all_logged_pids_absent": true,
+        "shutdown_logged": true
+      },
+      {
+        "log": "postgres.log",
+        "logged_pids": [
+          98642,
+          98644,
+          98646,
+          98649
+        ],
+        "all_logged_pids_absent": true,
+        "shutdown_logged": true
+      }
+    ],
+    "remaining_processes_with_exact_owned_state_argv": [],
+    "no_signals_sent_in_crosscheck": true
+  },
+  "go_version": "go version go1.26.10 linux/amd64"
+}

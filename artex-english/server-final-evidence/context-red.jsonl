@@ -1,0 +1,9 @@
+{"Time":"2026-11-20T00:15:34.084859156Z","Action":"start","Package":"github.com/Autumn-27/artex/server"}
+{"Time":"2026-11-20T00:15:34.245858735Z","Action":"run","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishTaskContext"}
+{"Time":"2026-11-20T00:15:34.245895646Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishTaskContext","Output":"=== RUN   TestRuntimeEnglishTaskContext\n"}
+{"Time":"2026-11-20T00:15:34.245935896Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishTaskContext","Output":"    runtime_english_test.go:11: reporter Task: # contract: \"[Task #72 用户目标 (goal: 保留证据)]\\nbody\"\n"}
+{"Time":"2026-11-20T00:15:34.245945976Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishTaskContext","Output":"--- FAIL: TestRuntimeEnglishTaskContext (0.00s)\n"}
+{"Time":"2026-11-20T00:15:34.245950196Z","Action":"fail","Package":"github.com/Autumn-27/artex/server","Test":"TestRuntimeEnglishTaskContext","Elapsed":0}
+{"Time":"2026-11-20T00:15:34.245956166Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Output":"FAIL\n"}
+{"Time":"2026-11-20T00:15:34.259693775Z","Action":"output","Package":"github.com/Autumn-27/artex/server","Output":"FAIL\tgithub.com/Autumn-27/artex/server\t0.174s\n"}
+{"Time":"2026-11-20T00:15:34.259825446Z","Action":"fail","Package":"github.com/Autumn-27/artex/server","Elapsed":0.175}

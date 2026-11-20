@@ -1,0 +1,23 @@
+--- baseline/sidequestion/service.go
++++ candidate/sidequestion/service.go
+@@ -46,7 +46,7 @@
+ 			}
+ 		}
+ 		if err == nil && !complete {
+-			err = errors.New("模型响应中断，请重新提问")
++			err = errors.New("Model response interrupted; ask again")
+ 		}
+ 	} else {
+ 		var msg llm.Message
+@@ -58,9 +58,9 @@
+ 	}
+ 	if err == nil && strings.TrimSpace(out.Text) == "" {
+ 		if out.ToolUse {
+-			out.Text = "当前旁路提问不能执行工具操作，请在主会话中发出操作请求。"
++			out.Text = "This side question cannot execute tool operations; make operation requests in the main session."
+ 		} else {
+-			err = errors.New("模型没有返回回答")
++			err = errors.New("The model returned no answer")
+ 		}
+ 	}
+ 	return out, err

@@ -1,0 +1,21 @@
+{"Time":"2026-11-20T00:21:32.546352715Z","Action":"start","Package":"github.com/Autumn-27/artex/agent"}
+{"Time":"2026-11-20T00:21:32.562244017Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestSideActualChatCheckpointToolResultAndTranscriptIsolation"}
+{"Time":"2026-11-20T00:21:32.562286127Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestSideActualChatCheckpointToolResultAndTranscriptIsolation","Output":"=== RUN   TestSideActualChatCheckpointToolResultAndTranscriptIsolation\n"}
+{"Time":"2026-11-20T00:21:32.563605455Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestSideActualChatCheckpointToolResultAndTranscriptIsolation/atomic"}
+{"Time":"2026-11-20T00:21:32.563632514Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestSideActualChatCheckpointToolResultAndTranscriptIsolation/atomic","Output":"=== RUN   TestSideActualChatCheckpointToolResultAndTranscriptIsolation/atomic\n"}
+{"Time":"2026-11-20T00:21:32.567271666Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestSideActualChatCheckpointToolResultAndTranscriptIsolation/atomic","Output":"--- PASS: TestSideActualChatCheckpointToolResultAndTranscriptIsolation/atomic (0.00s)\n"}
+{"Time":"2026-11-20T00:21:32.567643348Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestSideActualChatCheckpointToolResultAndTranscriptIsolation/atomic","Elapsed":0}
+{"Time":"2026-11-20T00:21:32.567744779Z","Action":"run","Package":"github.com/Autumn-27/artex/agent","Test":"TestSideActualChatCheckpointToolResultAndTranscriptIsolation/stream"}
+{"Time":"2026-11-20T00:21:32.567751729Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestSideActualChatCheckpointToolResultAndTranscriptIsolation/stream","Output":"=== RUN   TestSideActualChatCheckpointToolResultAndTranscriptIsolation/stream\n"}
+{"Time":"2026-11-20T00:21:32.571061798Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestSideActualChatCheckpointToolResultAndTranscriptIsolation/stream","Output":"--- PASS: TestSideActualChatCheckpointToolResultAndTranscriptIsolation/stream (0.00s)\n"}
+{"Time":"2026-11-20T00:21:32.571171619Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestSideActualChatCheckpointToolResultAndTranscriptIsolation/stream","Elapsed":0}
+{"Time":"2026-11-20T00:21:32.571182519Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Test":"TestSideActualChatCheckpointToolResultAndTranscriptIsolation","Output":"--- PASS: TestSideActualChatCheckpointToolResultAndTranscriptIsolation (0.01s)\n"}
+{"Time":"2026-11-20T00:21:32.571186768Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Test":"TestSideActualChatCheckpointToolResultAndTranscriptIsolation","Elapsed":0.01}
+{"Time":"2026-11-20T00:21:32.571191878Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Output":"PASS\n"}
+{"Time":"2026-11-20T00:21:32.572946218Z","Action":"output","Package":"github.com/Autumn-27/artex/agent","Output":"ok  \tgithub.com/Autumn-27/artex/agent\t0.026s\n"}
+{"Time":"2026-11-20T00:21:32.572967309Z","Action":"pass","Package":"github.com/Autumn-27/artex/agent","Elapsed":0.027}
+{"Time":"2026-11-20T00:21:33.034229795Z","Action":"start","Package":"github.com/Autumn-27/artex/guard"}
+{"Time":"2026-11-20T00:21:33.039114463Z","Action":"output","Package":"github.com/Autumn-27/artex/guard","Output":"testing: warning: no tests to run\n"}
+{"Time":"2026-11-20T00:21:33.039183194Z","Action":"output","Package":"github.com/Autumn-27/artex/guard","Output":"PASS\n"}
+{"Time":"2026-11-20T00:21:33.041349706Z","Action":"output","Package":"github.com/Autumn-27/artex/guard","Output":"ok  \tgithub.com/Autumn-27/artex/guard\t0.007s [no tests to run]\n"}
+{"Time":"2026-11-20T00:21:33.041376806Z","Action":"pass","Package":"github.com/Autumn-27/artex/guard","Elapsed":0.007}

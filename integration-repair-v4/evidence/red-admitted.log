@@ -1,0 +1,77 @@
+test_18_seconds_rejected_not_perstage_accepted (test_integration.ClientDeadline.test_18_seconds_rejected_not_perstage_accepted) ... FAIL
+test_send_time_counts_in_shared_deadline (test_integration.ClientDeadline.test_send_time_counts_in_shared_deadline) ... FAIL
+test_within10_positive_and_remaining_timeout (test_integration.ClientDeadline.test_within10_positive_and_remaining_timeout) ... FAIL
+test_contract_negatives_both_after_same_entrypoint_positive (test_integration.Integrated.test_contract_negatives_both_after_same_entrypoint_positive) ... ERROR
+test_same_serialized_path_hash_both_actual_validators_and_status (test_integration.Integrated.test_same_serialized_path_hash_both_actual_validators_and_status) ... ERROR
+
+======================================================================
+ERROR: test_contract_negatives_both_after_same_entrypoint_positive (test_integration.Integrated.test_contract_negatives_both_after_same_entrypoint_positive)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/integration-repair-v4/test_integration.py", line 52, in test_contract_negatives_both_after_same_entrypoint_positive
+    raw=bind(c,context,a,good);self.assertIs(guest.validate(c,1000),c);inventory(c,raw)
+                                             ~~~~~~~~~~~~~~^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/integration-repair-v4/canary/guest.py", line 111, in validate
+    return validate_snapshot(c,now,current=True)
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/integration-repair-v4/canary/guest.py", line 80, in validate_snapshot
+    require_current(c)
+    ~~~~~~~~~~~~~~~^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/integration-repair-v4/canary/admission_v3.py", line 63, in require_current
+    need(checkpoint=={'status':'verified','requirement':'already-private-default-quiescent','vm':c['vm'],'created':c['created'],'deadline':c['deadline'],'parent_scope_lease':lease['handle'],'default_service_changes_owner':'parent'},'parent preflight checkpoint')
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/integration-repair-v4/canary/guest.py", line 31, in need
+    if not value: raise Blocked(reason)
+                  ^^^^^^^^^^^^^^^^^^^^^
+guest.Blocked: parent preflight checkpoint
+
+======================================================================
+ERROR: test_same_serialized_path_hash_both_actual_validators_and_status (test_integration.Integrated.test_same_serialized_path_hash_both_actual_validators_and_status)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/integration-repair-v4/test_integration.py", line 36, in test_same_serialized_path_hash_both_actual_validators_and_status
+    self.assertIs(guest.validate(c,1000),c)
+                  ~~~~~~~~~~~~~~^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/integration-repair-v4/canary/guest.py", line 111, in validate
+    return validate_snapshot(c,now,current=True)
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/integration-repair-v4/canary/guest.py", line 80, in validate_snapshot
+    require_current(c)
+    ~~~~~~~~~~~~~~~^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/integration-repair-v4/canary/admission_v3.py", line 63, in require_current
+    need(checkpoint=={'status':'verified','requirement':'already-private-default-quiescent','vm':c['vm'],'created':c['created'],'deadline':c['deadline'],'parent_scope_lease':lease['handle'],'default_service_changes_owner':'parent'},'parent preflight checkpoint')
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/integration-repair-v4/canary/guest.py", line 31, in need
+    if not value: raise Blocked(reason)
+                  ^^^^^^^^^^^^^^^^^^^^^
+guest.Blocked: parent preflight checkpoint
+
+======================================================================
+FAIL: test_18_seconds_rejected_not_perstage_accepted (test_integration.ClientDeadline.test_18_seconds_rejected_not_perstage_accepted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/integration-repair-v4/test_integration.py", line 85, in test_18_seconds_rejected_not_perstage_accepted
+    with self.assertRaises(guard.Blocked):self.exchange(9,0,9)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+AssertionError: Blocked not raised
+
+======================================================================
+FAIL: test_send_time_counts_in_shared_deadline (test_integration.ClientDeadline.test_send_time_counts_in_shared_deadline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/integration-repair-v4/test_integration.py", line 87, in test_send_time_counts_in_shared_deadline
+    with self.assertRaises(guard.Blocked):self.exchange(4,5,2)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+AssertionError: Blocked not raised
+
+======================================================================
+FAIL: test_within10_positive_and_remaining_timeout (test_integration.ClientDeadline.test_within10_positive_and_remaining_timeout)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/integration-repair-v4/test_integration.py", line 89, in test_within10_positive_and_remaining_timeout
+    result,elapsed,timeouts=self.exchange(2,1,5);self.assertTrue(result['alive']);self.assertEqual(elapsed,8);self.assertLessEqual(min(timeouts),2)
+                                                                                                              ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: 5.0 not less than or equal to 2
+
+----------------------------------------------------------------------
+Ran 5 tests in 5.779s
+
+FAILED (failures=3, errors=2)

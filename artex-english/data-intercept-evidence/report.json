@@ -1,0 +1,228 @@
+{
+  "status": "PARTIAL translation: generated runtime DB/interception prose and judge prompts translated; many database comments/test prose remain. Critical approval English/legacy compatibility implemented and offline regressions pass.",
+  "scope": "Only source/db/**, source/intercept/**, and new data-intercept-evidence/** written. No peer originals or other source directories modified. No services, PostgreSQL provisioning, downloads, installs, model calls, browser/session, cloud or credentials changes.",
+  "changed_paths": [
+    "db/asset_dsl.go",
+    "db/asset_intercept_match.go",
+    "db/assets.go",
+    "db/chat_mentions.go",
+    "db/companies.go",
+    "db/company_scope.go",
+    "db/config.go",
+    "db/constraints.go",
+    "db/db.go",
+    "db/exploration.go",
+    "db/finding_assets.go",
+    "db/finding_retests.go",
+    "db/finding_traffic.go",
+    "db/findings.go",
+    "db/intercept.go",
+    "db/intercept_english_test.go",
+    "db/intercept_execution.go",
+    "db/intercept_restore_english_test.go",
+    "db/notification.go",
+    "db/notification_delivery.go",
+    "db/schema.sql",
+    "db/side_questions.go",
+    "db/task_archives.go",
+    "db/task_archives_restore.go",
+    "db/task_archives_test.go",
+    "db/task_assets.go",
+    "db/task_scope.go",
+    "db/tasks.go",
+    "db/tasks_test.go",
+    "db/tools.go",
+    "db/triggers.go",
+    "intercept/english_generated_test.go",
+    "intercept/english_test.go",
+    "intercept/intercept.go",
+    "intercept/prompt.go",
+    "intercept/review_context.go",
+    "intercept/trace.go"
+  ],
+  "changed_path_count": 37,
+  "source_pins": {
+    "before": "before-sha256.json",
+    "after": "after-sha256.json",
+    "before_files": 106,
+    "after_files": 110
+  },
+  "translations": [
+    "translations.json",
+    "prompt-translations.json",
+    "seed-translations.json",
+    "comment-translations.json"
+  ],
+  "critical_contract": {
+    "summary": "Tool <name> requests approval (#<id>)",
+    "new_model_marker": "[Model]",
+    "legacy_marker": "[模型]",
+    "classification_paths": [
+      "db/intercept.go interceptSource",
+      "db/intercept.go approvalDecisionSource SQL expression",
+      "db/task_archives_restore.go restoreInterceptRows",
+      "db/schema.sql existing empty-decision_source backfill expression"
+    ],
+    "preservation": "Rule source precedence and explicit persisted decision_source retained. Archived settled reason text, IDs and timestamps preserved through actual restore helper with captured SQL payload. Multilingual user/target/custom-policy evidence remains unchanged. Pending archive timeout behavior remains fail-closed; only its newly generated reason is translated. No historical text-laundering migration added or executed."
+  },
+  "tdd": {
+    "red_receipt": "red.jsonl",
+    "red_top_level": {
+      "pass": 0,
+      "fail": 5,
+      "skip": 0
+    },
+    "red_subtests": {
+      "pass": 6,
+      "fail": 5,
+      "skip": 0
+    },
+    "meaningful_failures": "Actual Judge emitted localized marker/action labels; actual HandleAsk emitted localized approval summary; actual ParseVerdict rejected valid English explanations; interceptSource and production SQL lacked English marker. Legacy/precedence/unknown controls passed.",
+    "green_receipt": "green.jsonl",
+    "chronology_limits": "Initial five contract tests were run RED before production changes. Archive-helper capture and extra generated-default/strict-English regressions were added after implementation and are regression evidence, not test-first RED. Individual translation-only strings/comments/prompts were not each changed under separate TDD cycles."
+  },
+  "tests": {
+    "final": "final.json",
+    "raw": "final.jsonl",
+    "returncode": 0,
+    "top_level": {
+      "pass": 51,
+      "fail": 0,
+      "skip": 139
+    },
+    "subtests": {
+      "pass": 60,
+      "fail": 0,
+      "skip": 9
+    },
+    "per_package": {
+      "github.com/Autumn-27/artex/intercept": {
+        "top_level": {
+          "pass": 22
+        },
+        "subtests": {
+          "pass": 12
+        }
+      },
+      "github.com/Autumn-27/artex/db": {
+        "top_level": {
+          "skip": 139,
+          "pass": 29
+        },
+        "subtests": {
+          "pass": 48,
+          "skip": 9
+        }
+      }
+    },
+    "required_names_verified": [
+      "TestEnglishJudgeGeneratedReason",
+      "TestEnglishHandleAskSummaryAndCancellation",
+      "TestEnglishVerdictCompatibility",
+      "TestInterceptSourceEnglishLegacy",
+      "TestApprovalSQLRecognizesEnglishLegacy",
+      "TestRestoreApprovalEnglishLegacyEvidence",
+      "TestEnglishGeneratedDefaultsPreserveSuppliedNames",
+      "TestEnglishVerdictStrictRejections",
+      "TestDeleteEndpointPathPattern",
+      "TestParseVerdictRejectsIncompleteOrAmbiguousReplies",
+      "TestParseVerdictKeepsCompleteChineseExplanation"
+    ],
+    "package_failures": [],
+    "skips": "139 top-level and 9 subtest skips because no approved configured isolated PostgreSQL fixture was available. No PostgreSQL startup/provisioning attempted. Two top-level PASS containers have only skipped DB subtests (TestRetestFixedTriageOnlyAfterSuccessfulCompletion and TestSideTaskArchiveVersions); these establish no DB behavior.",
+    "limits": "Judge, HandleAsk, and archive restore are real production entrypoints with a synthetic database/sql driver at the external SQL seam. These do not prove PostgreSQL execution, schema application, persistence roundtrip, model inference, HTTP/UI integration, or end-to-end approval execution. Production SQL classifier text is checked structurally, not executed against PostgreSQL.",
+    "assertion_updates": "Two existing DB-only expectations translated to match generated archive warning and task-company provenance, retaining IDs/source/status/evidence checks; they remain skipped, not qualified."
+  },
+  "format": {
+    "receipt": "format-final.json",
+    "changed_go_files_formatted": true
+  },
+  "remaining_nonenglish": {
+    "complete": false,
+    "line_count": 1068,
+    "file_count": 56,
+    "classification_counts": {
+      "test_fixture_or_assertion_review_required_not_blanket_exempt": 440,
+      "untranslated_comment": 620,
+      "functional_multilingual_scope_detection": 1,
+      "functional_historical_seed_identity_idempotence_key": 1,
+      "functional_legacy_model_classification_or_reply_parsing": 6
+    },
+    "per_file": {
+      "db/activity_page_test.go": 2,
+      "db/asset_dsl.go": 1,
+      "db/asset_intercept.go": 2,
+      "db/asset_intercept_match.go": 27,
+      "db/asset_intercept_match_test.go": 33,
+      "db/assets.go": 1,
+      "db/assets_test.go": 14,
+      "db/companies.go": 4,
+      "db/company_scope.go": 4,
+      "db/company_scope_consistency_test.go": 4,
+      "db/company_scope_test.go": 23,
+      "db/config.go": 15,
+      "db/config_test.go": 3,
+      "db/constants.go": 1,
+      "db/db.go": 30,
+      "db/exploration.go": 37,
+      "db/exploration_test.go": 3,
+      "db/finding_assets.go": 59,
+      "db/finding_assets_test.go": 32,
+      "db/finding_retests.go": 10,
+      "db/finding_retests_test.go": 3,
+      "db/finding_traffic.go": 5,
+      "db/findings.go": 26,
+      "db/findings_test.go": 15,
+      "db/intent_delete_test.go": 30,
+      "db/intercept.go": 2,
+      "db/intercept_detail_test.go": 4,
+      "db/intercept_english_test.go": 4,
+      "db/intercept_filter_test.go": 1,
+      "db/intercept_restore_english_test.go": 4,
+      "db/intercept_seed_test.go": 9,
+      "db/llmretry.go": 13,
+      "db/llmretry_test.go": 2,
+      "db/nkey.go": 6,
+      "db/notification.go": 106,
+      "db/notification_delivery.go": 83,
+      "db/notification_test.go": 201,
+      "db/schema.sql": 165,
+      "db/settings.go": 4,
+      "db/settings_insert_test.go": 7,
+      "db/task_archives_restore.go": 1,
+      "db/task_assets_context.go": 1,
+      "db/task_assets_test.go": 4,
+      "db/task_context.go": 2,
+      "db/task_context_unit_test.go": 1,
+      "db/task_intercept.go": 1,
+      "db/task_scope.go": 1,
+      "db/tasks.go": 18,
+      "db/tasks_test.go": 6,
+      "db/triggers.go": 1,
+      "intercept/english_generated_test.go": 4,
+      "intercept/english_test.go": 1,
+      "intercept/prompt.go": 2,
+      "intercept/prompt_test.go": 14,
+      "intercept/review_context_test.go": 14,
+      "intercept/trace_test.go": 2
+    },
+    "exact_line_inventory": "remaining-nonenglish.json",
+    "caveat": "CJK-only inventory is not proof of all-language coverage. Tests include purposeful multilingual evidence AND untranslated test names/comments, so their category is not a blanket exemption. Existing historical V3 seed name is retained to preserve name-key idempotence, not presented as completed English display output."
+  },
+  "disk": {
+    "free_bytes_final": 1490288640,
+    "no_large_cache_copy": true,
+    "cache_limit": "Task-local cache directory symlinks retained compiler cache buckets. Bucket writes can therefore land in retained shared cache; this is not a fully isolated cache. No copies/downloads/installations or cache deletion performed."
+  },
+  "issues": [
+    "Automatic single-file lint helpers lack Go module context and reported undefined/import errors; supported offline package test run compiled both full owned packages successfully.",
+    "Two overlapping exact translation mappings initially produced mixed phrases in three lines; corrected before final regression and inventory."
+  ],
+  "lessons_handoff": [
+    "English approval markers require compatibility in producer, live classifier SQL, Go classifier, archive restore, schema backfill, and frontend.",
+    "Judge prompt output headings are a parse contract: translate the prompt and add English parsing without removing historical parsing or strict completeness checks.",
+    "Do not translate persisted seed identity keys as display prose without an idempotence-compatible identity plan.",
+    "Synthetic SQL capture can qualify real entrypoint payload preservation offline but is not PostgreSQL/persistence evidence.",
+    "Apply overlapping translation phrases longest-first and inspect remaining runtime CJK before claiming complete translation."
+  ]
+}

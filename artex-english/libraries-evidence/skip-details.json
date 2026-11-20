@@ -1,0 +1,72 @@
+[
+  {
+    "Time": "2026-11-20T00:24:48.601756527Z",
+    "Action": "output",
+    "Package": "github.com/Autumn-27/artex/llmrec",
+    "Test": "TestSideUsageRecordedOnceOnConsumerCancellation",
+    "Output": "    llmrec_test.go:88: requires isolated ARTEX_PG_DSN\n"
+  },
+  {
+    "Time": "2026-11-20T00:24:48.601760887Z",
+    "Action": "output",
+    "Package": "github.com/Autumn-27/artex/llmrec",
+    "Test": "TestSideUsageRecordedOnceOnConsumerCancellation",
+    "Output": "--- SKIP: TestSideUsageRecordedOnceOnConsumerCancellation (0.00s)\n"
+  },
+  {
+    "Time": "2026-11-20T00:24:49.363361317Z",
+    "Action": "output",
+    "Package": "github.com/Autumn-27/artex/evidence",
+    "Test": "TestEvidenceBindingLifecycle",
+    "Output": "    store_test.go:76: ARTEX_PG_DSN is required for evidence integration tests\n"
+  },
+  {
+    "Time": "2026-11-20T00:24:49.363369707Z",
+    "Action": "output",
+    "Package": "github.com/Autumn-27/artex/evidence",
+    "Test": "TestEvidenceBindingLifecycle",
+    "Output": "--- SKIP: TestEvidenceBindingLifecycle (0.00s)\n"
+  },
+  {
+    "Time": "2026-11-20T00:24:49.363384447Z",
+    "Action": "output",
+    "Package": "github.com/Autumn-27/artex/evidence",
+    "Test": "TestEvidenceAtomicFailuresAndLegacy",
+    "Output": "    store_test.go:172: ARTEX_PG_DSN is required for evidence integration tests\n"
+  },
+  {
+    "Time": "2026-11-20T00:24:49.363388127Z",
+    "Action": "output",
+    "Package": "github.com/Autumn-27/artex/evidence",
+    "Test": "TestEvidenceAtomicFailuresAndLegacy",
+    "Output": "--- SKIP: TestEvidenceAtomicFailuresAndLegacy (0.00s)\n"
+  },
+  {
+    "Time": "2026-11-20T00:24:49.363414427Z",
+    "Action": "output",
+    "Package": "github.com/Autumn-27/artex/evidence",
+    "Test": "TestEvidenceConcurrentBindAndDelete",
+    "Output": "    store_test.go:225: ARTEX_PG_DSN is required for evidence integration tests\n"
+  },
+  {
+    "Time": "2026-11-20T00:24:49.363419197Z",
+    "Action": "output",
+    "Package": "github.com/Autumn-27/artex/evidence",
+    "Test": "TestEvidenceConcurrentBindAndDelete",
+    "Output": "--- SKIP: TestEvidenceConcurrentBindAndDelete (0.00s)\n"
+  },
+  {
+    "Time": "2026-11-20T00:24:49.363440416Z",
+    "Action": "output",
+    "Package": "github.com/Autumn-27/artex/evidence",
+    "Test": "TestEvidenceGCGraceAndActiveRestore",
+    "Output": "    store_test.go:274: ARTEX_PG_DSN is required for evidence integration tests\n"
+  },
+  {
+    "Time": "2026-11-20T00:24:49.363445927Z",
+    "Action": "output",
+    "Package": "github.com/Autumn-27/artex/evidence",
+    "Test": "TestEvidenceGCGraceAndActiveRestore",
+    "Output": "--- SKIP: TestEvidenceGCGraceAndActiveRestore (0.00s)\n"
+  }
+]

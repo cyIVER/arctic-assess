@@ -1,0 +1,8 @@
+{"Time":"2026-11-20T00:22:59.507149153Z","Action":"start","Package":"github.com/Autumn-27/artex/enrich"}
+{"Time":"2026-11-20T00:22:59.507363744Z","Action":"output","Package":"github.com/Autumn-27/artex/enrich","Output":"?   \tgithub.com/Autumn-27/artex/enrich\t[no test files]\n"}
+{"Time":"2026-11-20T00:22:59.507380714Z","Action":"skip","Package":"github.com/Autumn-27/artex/enrich","Elapsed":0}
+{"Time":"2026-11-20T00:23:00.123162925Z","Action":"start","Package":"github.com/Autumn-27/artex/mcphttp"}
+{"Time":"2026-11-20T00:23:00.129499262Z","Action":"output","Package":"github.com/Autumn-27/artex/mcphttp","Output":"testing: warning: no tests to run\n"}
+{"Time":"2026-11-20T00:23:00.129646793Z","Action":"output","Package":"github.com/Autumn-27/artex/mcphttp","Output":"PASS\n"}
+{"Time":"2026-11-20T00:23:00.130656228Z","Action":"output","Package":"github.com/Autumn-27/artex/mcphttp","Output":"ok  \tgithub.com/Autumn-27/artex/mcphttp\t0.007s [no tests to run]\n"}
+{"Time":"2026-11-20T00:23:00.130744268Z","Action":"pass","Package":"github.com/Autumn-27/artex/mcphttp","Elapsed":0.008}

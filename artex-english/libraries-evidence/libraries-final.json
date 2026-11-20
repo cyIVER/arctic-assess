@@ -1,0 +1,49 @@
+{
+  "command": [
+    "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+    "test",
+    "-p=1",
+    "-json",
+    "-count=1",
+    "./config",
+    "./llmpool",
+    "./llmrec",
+    "./evidence",
+    "./report",
+    "./selfupdate",
+    "./sidequestion",
+    "./traffic"
+  ],
+  "env": {
+    "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+    "GOMODCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/gomodcache",
+    "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+    "GOPROXY": "off",
+    "GOSUMDB": "off",
+    "GOTOOLCHAIN": "local",
+    "GOFLAGS": "-mod=readonly",
+    "GOMAXPROCS": "2"
+  },
+  "returncode": 1,
+  "seconds": 11.47915530204773,
+  "top_level": {
+    "pass": 103,
+    "fail": 1,
+    "skip": 5
+  },
+  "subtests": {
+    "pass": 23,
+    "fail": 0,
+    "skip": 0
+  },
+  "package_failures": [
+    "github.com/Autumn-27/artex/report"
+  ],
+  "skipped": [
+    "github.com/Autumn-27/artex/llmrec/TestSideUsageRecordedOnceOnConsumerCancellation",
+    "github.com/Autumn-27/artex/evidence/TestEvidenceBindingLifecycle",
+    "github.com/Autumn-27/artex/evidence/TestEvidenceAtomicFailuresAndLegacy",
+    "github.com/Autumn-27/artex/evidence/TestEvidenceConcurrentBindAndDelete",
+    "github.com/Autumn-27/artex/evidence/TestEvidenceGCGraceAndActiveRestore"
+  ]
+}

@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-11-19T22:06:50.264150+00:00",
+  "scope": "offline evidence readiness only; bounded current-session fallback",
+  "readiness": "BLOCKED",
+  "actual_bundle_result": {
+    "readiness": "BLOCKED",
+    "evidence_class": "FROZEN_INPUT_ONLY",
+    "guest_accepted": false,
+    "assessment_accepted": false,
+    "runtime_accepted": false,
+    "reasons": [
+      "canary_runtime_not_qualified",
+      "limited_native_not_full_assessment"
+    ]
+  },
+  "acceptance_issued": false,
+  "test_command": "PYTHONDONTWRITEBYTECODE=1 python3 -B -m unittest discover -s tests -v",
+  "cwd": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator",
+  "verification": {
+    "top_level": 13,
+    "subcases": 34,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "discovery_errors": [],
+    "names": [
+      "test_validate.ReadinessTests.test_actual_blocked_canary_cannot_be_overridden_by_local_pass",
+      "test_validate.ReadinessTests.test_attached_actual_local_log_is_byte_bound_but_not_runtime_proof",
+      "test_validate.ReadinessTests.test_exact_bool_and_counter_types",
+      "test_validate.ReadinessTests.test_exact_envelope_types_and_nonempty_reports",
+      "test_validate.ReadinessTests.test_exact_reference_types_and_confined_paths",
+      "test_validate.ReadinessTests.test_hash_and_byte_length_bind_actual_bytes",
+      "test_validate.ReadinessTests.test_limited_native_chat_is_not_full_assessment",
+      "test_validate.ReadinessTests.test_local_failures_errors_skips_or_no_tests_fail",
+      "test_validate.ReadinessTests.test_missing_report_returns_failed",
+      "test_validate.ReadinessTests.test_missing_required_unit_fields_fail",
+      "test_validate.ReadinessTests.test_synthetic_complete_control_is_unit_only",
+      "test_validate.ReadinessTests.test_synthetic_runtime_claim_cannot_qualify",
+      "test_validate.ReadinessTests.test_truncated_duplicate_key_or_nonobject_json_fails"
+    ],
+    "final_standard_receipt": "receipts/08-green.txt",
+    "counted_repeat_receipt": "receipts/09-counted-green.txt"
+  },
+  "tdd_cycles": [
+    {
+      "red": "receipts/01-red.txt",
+      "red_test_count": 2,
+      "red_assertion_failures": 1,
+      "red_exit": 1,
+      "green": "receipts/02-green.txt",
+      "green_test_count": 2,
+      "green_exit": 0
+    },
+    {
+      "red": "receipts/03-red.txt",
+      "red_test_count": 3,
+      "red_assertion_failures": 1,
+      "red_exit": 1,
+      "green": "receipts/04-green.txt",
+      "green_test_count": 3,
+      "green_exit": 0
+    },
+    {
+      "red": "receipts/05-red.txt",
+      "red_test_count": 12,
+      "red_assertion_failures": 36,
+      "red_exit": 1,
+      "green": "receipts/06-green.txt",
+      "green_test_count": 12,
+      "green_exit": 0
+    },
+    {
+      "red": "receipts/07-red.txt",
+      "red_test_count": 13,
+      "red_assertion_failures": 1,
+      "red_exit": 1,
+      "green": "receipts/08-green.txt",
+      "green_test_count": 13,
+      "green_exit": 0
+    }
+  ],
+  "input_pins": [
+    {
+      "source_relative_path": "artex-worker-guest-canary-review/report.json",
+      "frozen_path": "inputs/canary-review.json",
+      "bytes": 13853,
+      "sha256": "bf44a15dd49f0b8a2c66841671d49988ad6e67f77c94abadcc67d5de0f0a5438",
+      "provenance": "ACTUAL_FROZEN_INPUT_NOT_RUNTIME_REVALIDATION"
+    },
+    {
+      "source_relative_path": "artex-worker-guest-canary-review/unit-tests-final.log",
+      "frozen_path": "inputs/canary-local-tests.log",
+      "bytes": 4469,
+      "sha256": "76bb59b4df6f283e47e6e960e0f4430e1b1a47660ff431d026f06f8607532aa7",
+      "provenance": "ACTUAL_FROZEN_INPUT_NOT_RUNTIME_REVALIDATION"
+    },
+    {
+      "source_relative_path": "artex-native-owned-acceptance/report.json",
+      "frozen_path": "inputs/limited-native.json",
+      "bytes": 12074,
+      "sha256": "e37fc5e0b17222c86562df719330f74123dc057df9ae304e8b8e697745108d09",
+      "provenance": "ACTUAL_FROZEN_INPUT_NOT_RUNTIME_REVALIDATION"
+    }
+  ],
+  "report_claimed_source_identities": {
+    "canary": {
+      "canary_source_identity_sha256": "c6c1506b64b855f1450515b2e348143941e01cf27fd461a9c11bcbdae1117f76",
+      "canary_freeze_sha256": "3e5284a5469f18d65b2aff97cdab7c3b1aeaa25327ecb2b37c48ebd610f7937d",
+      "source_entries": 23,
+      "combined_bundle_manifest_sha256": "85aef1698ef86d928f4767efcf6754cde410eef959c1bb290340463600e25206",
+      "combined_source_entries": 654,
+      "combined_host_entries": 11,
+      "new_helper_sha256": "ea54b361fed9d575eaadcd069b59382d853c241abee4821dbd7f02f4fac765ac",
+      "identity_domains": "source-identity.json names23 code/document/binary entries; FREEZE separately lists variable evidence hashes. Both domains independently checked before and after; review evidence is separate."
+    },
+    "native_baseline_source_commit": "fd6376ca392e9eed093f4e627138f0003223579d",
+    "native_source_manifest_sha256": "9cb2c5c10fe7826be4cbb5c061d26aa8a41f5ce9a4c6fd6cf48f589a250c5cda"
+  },
+  "uncertainty": [
+    "No live guest, full assessment, authority, source-revision or provenance authenticity was verified.",
+    "Parent must independently review/rerun; report claims are not repository readbacks.",
+    "Validator intentionally checks only documented minimal fields, not all proposed reconciliation denials.",
+    "Trusted frozen root and no concurrent writers are prerequisites; no hostile filesystem/TOCTOU guarantee."
+  ],
+  "issues": [
+    "No blocking execution issue. Cycle 3 preserved 36 assertion failures before integrity/type implementation; no missing import/API counted as RED."
+  ],
+  "reusable_lesson": "Bind exact bytes; retain scope boundaries; require same-entrypoint UNIT_ONLY controls. Parent handoff only; no skill writes.",
+  "files_excluding_self": [
+    {
+      "path": "README.md",
+      "bytes": 5170,
+      "sha256": "f24c1472da70f07389855270d7cd37917ca200a61b93d7549540121f435ed37c"
+    },
+    {
+      "path": "actual-bundle.json",
+      "bytes": 759,
+      "sha256": "21c6df7efca3c47287ecf0ca83f786d0a76d3e0422aa5e0cc1a890b982d3fa98"
+    },
+    {
+      "path": "inputs/canary-local-tests.log",
+      "bytes": 4469,
+      "sha256": "76bb59b4df6f283e47e6e960e0f4430e1b1a47660ff431d026f06f8607532aa7"
+    },
+    {
+      "path": "inputs/canary-review.json",
+      "bytes": 13853,
+      "sha256": "bf44a15dd49f0b8a2c66841671d49988ad6e67f77c94abadcc67d5de0f0a5438"
+    },
+    {
+      "path": "inputs/limited-native.json",
+      "bytes": 12074,
+      "sha256": "e37fc5e0b17222c86562df719330f74123dc057df9ae304e8b8e697745108d09"
+    },
+    {
+      "path": "inputs/pins.json",
+      "bytes": 913,
+      "sha256": "549bf3838f668bf118cbd1da4029b1e9fa3d89eff281189f43071e32f0e815a2"
+    },
+    {
+      "path": "receipts/01-red.txt",
+      "bytes": 1136,
+      "sha256": "459f6c9247d6e535dc6567f243c25862911d3c5be1a642f147362dcbb7a63e5b"
+    },
+    {
+      "path": "receipts/02-green.txt",
+      "bytes": 388,
+      "sha256": "5bf863fd0945ffc9a6587d6b0b96aebe53db761eb4f18b716428f7693d21bbcf"
+    },
+    {
+      "path": "receipts/03-red.txt",
+      "bytes": 1228,
+      "sha256": "00c0063f191f2d9c21b762f58525d5224825ebc5e158fe2b91a68d3981f4cef3"
+    },
+    {
+      "path": "receipts/04-green.txt",
+      "bytes": 522,
+      "sha256": "725968ed53acff782e672fac947fa9fe2f0f505b4ddf0fcd6488fa49906ca26d"
+    },
+    {
+      "path": "receipts/05-red.txt",
+      "bytes": 46051,
+      "sha256": "40bc98b590cce8a5ecbce1d5ef67b11e9fa93d1b5f2f7f188f0378db91023ffe"
+    },
+    {
+      "path": "receipts/06-green.txt",
+      "bytes": 1649,
+      "sha256": "c1c595ec15598d05220b75177b4ff4b7373284cbb422fd7dbb5c2e3187ec0ea2"
+    },
+    {
+      "path": "receipts/07-red.txt",
+      "bytes": 2802,
+      "sha256": "6f2687cb6ea0a929dc53f0fc07e2ca6bf5f5db6b72eb8f46c485927b19d4454b"
+    },
+    {
+      "path": "receipts/08-green.txt",
+      "bytes": 1821,
+      "sha256": "ae9243e190ba11b5bb769af99e5f953d486eec65edf411fe11c7500aea7e1cb4"
+    },
+    {
+      "path": "receipts/09-counted-green.txt",
+      "bytes": 1821,
+      "sha256": "1518d70af347bb92a8701ebeccbaca25c8d9fdf3c171b86ba608e679fd4045b0"
+    },
+    {
+      "path": "tests/test_validate.py",
+      "bytes": 7385,
+      "sha256": "a4fa34810a4c644b215343130349cb383ac7ea586d90d90605427734d099ad37"
+    },
+    {
+      "path": "tests/unit-report.json",
+      "bytes": 85,
+      "sha256": "18bb6b20629efe3e8a4c5ea2669f7dbdc77e030ddba0ef043508a12dba619a67"
+    },
+    {
+      "path": "validate.py",
+      "bytes": 5606,
+      "sha256": "901cd0f4014ed527d09a6116e31a3663b117819f5381ab6cd64bda78449538ed"
+    }
+  ]
+}

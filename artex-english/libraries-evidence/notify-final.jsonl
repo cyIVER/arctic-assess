@@ -1,0 +1,392 @@
+{"Time":"2026-11-20T00:22:52.010053987Z","Action":"start","Package":"github.com/Autumn-27/artex/notify"}
+{"Time":"2026-11-20T00:22:52.020295336Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestEmailMessageIsWellFormed"}
+{"Time":"2026-11-20T00:22:52.020347636Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestEmailMessageIsWellFormed","Output":"=== RUN   TestEmailMessageIsWellFormed\n"}
+{"Time":"2026-11-20T00:22:52.020727889Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestEmailMessageIsWellFormed","Output":"--- PASS: TestEmailMessageIsWellFormed (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.020815439Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestEmailMessageIsWellFormed","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.020879159Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestEmailEscapesStructuralInjection"}
+{"Time":"2026-11-20T00:22:52.02089561Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestEmailEscapesStructuralInjection","Output":"=== RUN   TestEmailEscapesStructuralInjection\n"}
+{"Time":"2026-11-20T00:22:52.02104392Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestEmailEscapesStructuralInjection","Output":"--- PASS: TestEmailEscapesStructuralInjection (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.02111037Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestEmailEscapesStructuralInjection","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.021126491Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestChannelValidateReportsMissingFields"}
+{"Time":"2026-11-20T00:22:52.021158611Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestChannelValidateReportsMissingFields","Output":"=== RUN   TestChannelValidateReportsMissingFields\n"}
+{"Time":"2026-11-20T00:22:52.022609689Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestChannelValidateReportsMissingFields","Output":"--- PASS: TestChannelValidateReportsMissingFields (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.022638329Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestChannelValidateReportsMissingFields","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.02269806Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestEmailSMTPErrorClassification"}
+{"Time":"2026-11-20T00:22:52.02270282Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestEmailSMTPErrorClassification","Output":"=== RUN   TestEmailSMTPErrorClassification\n"}
+{"Time":"2026-11-20T00:22:52.02270846Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestEmailSMTPErrorClassification","Output":"--- PASS: TestEmailSMTPErrorClassification (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.02271291Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestEmailSMTPErrorClassification","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.02271712Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestRegistryCoversAllKinds"}
+{"Time":"2026-11-20T00:22:52.022722849Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestRegistryCoversAllKinds","Output":"=== RUN   TestRegistryCoversAllKinds\n"}
+{"Time":"2026-11-20T00:22:52.02277665Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestRegistryCoversAllKinds","Output":"--- PASS: TestRegistryCoversAllKinds (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.02278109Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestRegistryCoversAllKinds","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.02278548Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestPermanentErrorUnwrap"}
+{"Time":"2026-11-20T00:22:52.02278919Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPermanentErrorUnwrap","Output":"=== RUN   TestPermanentErrorUnwrap\n"}
+{"Time":"2026-11-20T00:22:52.02279336Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPermanentErrorUnwrap","Output":"--- PASS: TestPermanentErrorUnwrap (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.02279715Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestPermanentErrorUnwrap","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.02280105Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestEnglishNotificationRenderersPreserveUnicodeEvidence"}
+{"Time":"2026-11-20T00:22:52.022840941Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestEnglishNotificationRenderersPreserveUnicodeEvidence","Output":"=== RUN   TestEnglishNotificationRenderersPreserveUnicodeEvidence\n"}
+{"Time":"2026-11-20T00:22:52.022858921Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestEnglishNotificationRenderersPreserveUnicodeEvidence","Output":"--- PASS: TestEnglishNotificationRenderersPreserveUnicodeEvidence (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.022876331Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestEnglishNotificationRenderersPreserveUnicodeEvidence","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.022907651Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestEnglishNotificationLabels"}
+{"Time":"2026-11-20T00:22:52.022913441Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestEnglishNotificationLabels","Output":"=== RUN   TestEnglishNotificationLabels\n"}
+{"Time":"2026-11-20T00:22:52.022918241Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestEnglishNotificationLabels","Output":"--- PASS: TestEnglishNotificationLabels (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.022922281Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestEnglishNotificationLabels","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.022926281Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestParseFilterMalformedFallsBackToMatchAll"}
+{"Time":"2026-11-20T00:22:52.022929881Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestParseFilterMalformedFallsBackToMatchAll","Output":"=== RUN   TestParseFilterMalformedFallsBackToMatchAll\n"}
+{"Time":"2026-11-20T00:22:52.022936371Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestParseFilterMalformedFallsBackToMatchAll/空输入"}
+{"Time":"2026-11-20T00:22:52.022949251Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestParseFilterMalformedFallsBackToMatchAll/空输入","Output":"=== RUN   TestParseFilterMalformedFallsBackToMatchAll/空输入\n"}
+{"Time":"2026-11-20T00:22:52.022954022Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestParseFilterMalformedFallsBackToMatchAll/空输入","Output":"--- PASS: TestParseFilterMalformedFallsBackToMatchAll/空输入 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.022958251Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestParseFilterMalformedFallsBackToMatchAll/空输入","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.022962081Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestParseFilterMalformedFallsBackToMatchAll/非法_JSON"}
+{"Time":"2026-11-20T00:22:52.022965441Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestParseFilterMalformedFallsBackToMatchAll/非法_JSON","Output":"=== RUN   TestParseFilterMalformedFallsBackToMatchAll/非法_JSON\n"}
+{"Time":"2026-11-20T00:22:52.022989321Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestParseFilterMalformedFallsBackToMatchAll/非法_JSON","Output":"--- PASS: TestParseFilterMalformedFallsBackToMatchAll/非法_JSON (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.022994642Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestParseFilterMalformedFallsBackToMatchAll/非法_JSON","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.022998922Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestParseFilterMalformedFallsBackToMatchAll/截断的_JSON"}
+{"Time":"2026-11-20T00:22:52.023002832Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestParseFilterMalformedFallsBackToMatchAll/截断的_JSON","Output":"=== RUN   TestParseFilterMalformedFallsBackToMatchAll/截断的_JSON\n"}
+{"Time":"2026-11-20T00:22:52.023008131Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestParseFilterMalformedFallsBackToMatchAll/截断的_JSON","Output":"--- PASS: TestParseFilterMalformedFallsBackToMatchAll/截断的_JSON (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.023012931Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestParseFilterMalformedFallsBackToMatchAll/截断的_JSON","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.023017242Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestParseFilterMalformedFallsBackToMatchAll/类型不匹配"}
+{"Time":"2026-11-20T00:22:52.023021202Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestParseFilterMalformedFallsBackToMatchAll/类型不匹配","Output":"=== RUN   TestParseFilterMalformedFallsBackToMatchAll/类型不匹配\n"}
+{"Time":"2026-11-20T00:22:52.023025832Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestParseFilterMalformedFallsBackToMatchAll/类型不匹配","Output":"--- PASS: TestParseFilterMalformedFallsBackToMatchAll/类型不匹配 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.023032152Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestParseFilterMalformedFallsBackToMatchAll/类型不匹配","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.023036452Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestParseFilterMalformedFallsBackToMatchAll/顶层是数组"}
+{"Time":"2026-11-20T00:22:52.023040282Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestParseFilterMalformedFallsBackToMatchAll/顶层是数组","Output":"=== RUN   TestParseFilterMalformedFallsBackToMatchAll/顶层是数组\n"}
+{"Time":"2026-11-20T00:22:52.023044982Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestParseFilterMalformedFallsBackToMatchAll/顶层是数组","Output":"--- PASS: TestParseFilterMalformedFallsBackToMatchAll/顶层是数组 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.023049202Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestParseFilterMalformedFallsBackToMatchAll/顶层是数组","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.023093823Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestParseFilterMalformedFallsBackToMatchAll","Output":"--- PASS: TestParseFilterMalformedFallsBackToMatchAll (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.023096962Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestParseFilterMalformedFallsBackToMatchAll","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.023099983Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchSeverityThreshold"}
+{"Time":"2026-11-20T00:22:52.023103663Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchSeverityThreshold","Output":"=== RUN   TestMatchSeverityThreshold\n"}
+{"Time":"2026-11-20T00:22:52.023106922Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchSeverityThreshold","Output":"--- PASS: TestMatchSeverityThreshold (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.023109943Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchSeverityThreshold","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.023112823Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions"}
+{"Time":"2026-11-20T00:22:52.023115593Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions","Output":"=== RUN   TestMatchScopeRestrictions\n"}
+{"Time":"2026-11-20T00:22:52.023118473Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/空范围=不限"}
+{"Time":"2026-11-20T00:22:52.023121682Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/空范围=不限","Output":"=== RUN   TestMatchScopeRestrictions/空范围=不限\n"}
+{"Time":"2026-11-20T00:22:52.023125143Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/空范围=不限","Output":"--- PASS: TestMatchScopeRestrictions/空范围=不限 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.023128033Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/空范围=不限","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.023160113Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/任务命中"}
+{"Time":"2026-11-20T00:22:52.023178703Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/任务命中","Output":"=== RUN   TestMatchScopeRestrictions/任务命中\n"}
+{"Time":"2026-11-20T00:22:52.023191313Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/任务命中","Output":"--- PASS: TestMatchScopeRestrictions/任务命中 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.023203013Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/任务命中","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.023228213Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/任务未命中"}
+{"Time":"2026-11-20T00:22:52.023232473Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/任务未命中","Output":"=== RUN   TestMatchScopeRestrictions/任务未命中\n"}
+{"Time":"2026-11-20T00:22:52.023235723Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/任务未命中","Output":"--- PASS: TestMatchScopeRestrictions/任务未命中 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.023238784Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/任务未命中","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.023241784Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/任务多选含命中"}
+{"Time":"2026-11-20T00:22:52.023251593Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/任务多选含命中","Output":"=== RUN   TestMatchScopeRestrictions/任务多选含命中\n"}
+{"Time":"2026-11-20T00:22:52.023254763Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/任务多选含命中","Output":"--- PASS: TestMatchScopeRestrictions/任务多选含命中 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.023257864Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/任务多选含命中","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.023260754Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/资产有交集"}
+{"Time":"2026-11-20T00:22:52.023269554Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/资产有交集","Output":"=== RUN   TestMatchScopeRestrictions/资产有交集\n"}
+{"Time":"2026-11-20T00:22:52.023273173Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/资产有交集","Output":"--- PASS: TestMatchScopeRestrictions/资产有交集 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.023276064Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/资产有交集","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.023278924Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/资产无交集"}
+{"Time":"2026-11-20T00:22:52.023281544Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/资产无交集","Output":"=== RUN   TestMatchScopeRestrictions/资产无交集\n"}
+{"Time":"2026-11-20T00:22:52.023284704Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/资产无交集","Output":"--- PASS: TestMatchScopeRestrictions/资产无交集 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.023287784Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/资产无交集","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.023308403Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/任务与资产同时命中"}
+{"Time":"2026-11-20T00:22:52.023311173Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/任务与资产同时命中","Output":"=== RUN   TestMatchScopeRestrictions/任务与资产同时命中\n"}
+{"Time":"2026-11-20T00:22:52.023314873Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/任务与资产同时命中","Output":"--- PASS: TestMatchScopeRestrictions/任务与资产同时命中 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.023318033Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/任务与资产同时命中","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.023320883Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/任务命中但资产未命中"}
+{"Time":"2026-11-20T00:22:52.023324303Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/任务命中但资产未命中","Output":"=== RUN   TestMatchScopeRestrictions/任务命中但资产未命中\n"}
+{"Time":"2026-11-20T00:22:52.023335823Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/任务命中但资产未命中","Output":"--- PASS: TestMatchScopeRestrictions/任务命中但资产未命中 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.023339133Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions/任务命中但资产未命中","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.023342253Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions","Output":"--- PASS: TestMatchScopeRestrictions (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.023345203Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchScopeRestrictions","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.023347923Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords"}
+{"Time":"2026-11-20T00:22:52.023351103Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords","Output":"=== RUN   TestMatchVulnClassKeywords\n"}
+{"Time":"2026-11-20T00:22:52.023354813Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/include_为空=全收"}
+{"Time":"2026-11-20T00:22:52.023357493Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/include_为空=全收","Output":"=== RUN   TestMatchVulnClassKeywords/include_为空=全收\n"}
+{"Time":"2026-11-20T00:22:52.023360623Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/include_为空=全收","Output":"--- PASS: TestMatchVulnClassKeywords/include_为空=全收 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.023364083Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/include_为空=全收","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.023367563Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/include_命中"}
+{"Time":"2026-11-20T00:22:52.023398723Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/include_命中","Output":"=== RUN   TestMatchVulnClassKeywords/include_命中\n"}
+{"Time":"2026-11-20T00:22:52.023415723Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/include_命中","Output":"--- PASS: TestMatchVulnClassKeywords/include_命中 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.023428274Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/include_命中","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.023440574Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/include_未命中"}
+{"Time":"2026-11-20T00:22:52.023461284Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/include_未命中","Output":"=== RUN   TestMatchVulnClassKeywords/include_未命中\n"}
+{"Time":"2026-11-20T00:22:52.023465024Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/include_未命中","Output":"--- PASS: TestMatchVulnClassKeywords/include_未命中 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.023469114Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/include_未命中","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.023473374Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/include_多词任一命中"}
+{"Time":"2026-11-20T00:22:52.023476834Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/include_多词任一命中","Output":"=== RUN   TestMatchVulnClassKeywords/include_多词任一命中\n"}
+{"Time":"2026-11-20T00:22:52.023481474Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/include_多词任一命中","Output":"--- PASS: TestMatchVulnClassKeywords/include_多词任一命中 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.023485454Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/include_多词任一命中","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.023489174Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/大小写不敏感"}
+{"Time":"2026-11-20T00:22:52.023501454Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/大小写不敏感","Output":"=== RUN   TestMatchVulnClassKeywords/大小写不敏感\n"}
+{"Time":"2026-11-20T00:22:52.023505834Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/大小写不敏感","Output":"--- PASS: TestMatchVulnClassKeywords/大小写不敏感 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.023509844Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/大小写不敏感","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.023514124Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/exclude_命中即排除"}
+{"Time":"2026-11-20T00:22:52.023643295Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/exclude_命中即排除","Output":"=== RUN   TestMatchVulnClassKeywords/exclude_命中即排除\n"}
+{"Time":"2026-11-20T00:22:52.023691445Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/exclude_命中即排除","Output":"--- PASS: TestMatchVulnClassKeywords/exclude_命中即排除 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.023804156Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/exclude_命中即排除","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.023811196Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/exclude_未命中则放行"}
+{"Time":"2026-11-20T00:22:52.023823736Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/exclude_未命中则放行","Output":"=== RUN   TestMatchVulnClassKeywords/exclude_未命中则放行\n"}
+{"Time":"2026-11-20T00:22:52.023827867Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/exclude_未命中则放行","Output":"--- PASS: TestMatchVulnClassKeywords/exclude_未命中则放行 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.023831046Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/exclude_未命中则放行","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.023834286Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/排除优先于包含"}
+{"Time":"2026-11-20T00:22:52.023837397Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/排除优先于包含","Output":"=== RUN   TestMatchVulnClassKeywords/排除优先于包含\n"}
+{"Time":"2026-11-20T00:22:52.023841056Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/排除优先于包含","Output":"--- PASS: TestMatchVulnClassKeywords/排除优先于包含 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.023844207Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/排除优先于包含","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.023847037Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/空白关键词被忽略"}
+{"Time":"2026-11-20T00:22:52.023849687Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/空白关键词被忽略","Output":"=== RUN   TestMatchVulnClassKeywords/空白关键词被忽略\n"}
+{"Time":"2026-11-20T00:22:52.023852967Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/空白关键词被忽略","Output":"--- PASS: TestMatchVulnClassKeywords/空白关键词被忽略 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.023855816Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords/空白关键词被忽略","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.023982177Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords","Output":"--- PASS: TestMatchVulnClassKeywords (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.023995497Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchVulnClassKeywords","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.024008438Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchStatusChangeRequiresOptIn"}
+{"Time":"2026-11-20T00:22:52.024043398Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchStatusChangeRequiresOptIn","Output":"=== RUN   TestMatchStatusChangeRequiresOptIn\n"}
+{"Time":"2026-11-20T00:22:52.024104948Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchStatusChangeRequiresOptIn","Output":"--- PASS: TestMatchStatusChangeRequiresOptIn (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.024109988Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMatchStatusChangeRequiresOptIn","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.024112948Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMaskedValueHidesBodyButKeepsTailHint"}
+{"Time":"2026-11-20T00:22:52.024115708Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMaskedValueHidesBodyButKeepsTailHint","Output":"=== RUN   TestMaskedValueHidesBodyButKeepsTailHint\n"}
+{"Time":"2026-11-20T00:22:52.024119308Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMaskedValueHidesBodyButKeepsTailHint","Output":"--- PASS: TestMaskedValueHidesBodyButKeepsTailHint (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.024122327Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMaskedValueHidesBodyButKeepsTailHint","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.024125308Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMaskedValueShortSecretGivesNoHint"}
+{"Time":"2026-11-20T00:22:52.024127808Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMaskedValueShortSecretGivesNoHint","Output":"=== RUN   TestMaskedValueShortSecretGivesNoHint\n"}
+{"Time":"2026-11-20T00:22:52.024131108Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMaskedValueShortSecretGivesNoHint","Output":"--- PASS: TestMaskedValueShortSecretGivesNoHint (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.024133968Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMaskedValueShortSecretGivesNoHint","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.024136758Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMaskConfigMasksOnlySecrets"}
+{"Time":"2026-11-20T00:22:52.024139697Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMaskConfigMasksOnlySecrets","Output":"=== RUN   TestMaskConfigMasksOnlySecrets\n"}
+{"Time":"2026-11-20T00:22:52.024142817Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMaskConfigMasksOnlySecrets","Output":"--- PASS: TestMaskConfigMasksOnlySecrets (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.024145537Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMaskConfigMasksOnlySecrets","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.024160158Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMaskConfigUnknownKindReturnsEmpty"}
+{"Time":"2026-11-20T00:22:52.024255549Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMaskConfigUnknownKindReturnsEmpty","Output":"=== RUN   TestMaskConfigUnknownKindReturnsEmpty\n"}
+{"Time":"2026-11-20T00:22:52.024270479Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMaskConfigUnknownKindReturnsEmpty","Output":"--- PASS: TestMaskConfigUnknownKindReturnsEmpty (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.024288319Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMaskConfigUnknownKindReturnsEmpty","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.024301939Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMaskConfigDoesNotMutateInput"}
+{"Time":"2026-11-20T00:22:52.024307819Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMaskConfigDoesNotMutateInput","Output":"=== RUN   TestMaskConfigDoesNotMutateInput\n"}
+{"Time":"2026-11-20T00:22:52.024311059Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMaskConfigDoesNotMutateInput","Output":"--- PASS: TestMaskConfigDoesNotMutateInput (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.02441283Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMaskConfigDoesNotMutateInput","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.02441844Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMergeConfigKeepsStoredOnMaskedIncoming"}
+{"Time":"2026-11-20T00:22:52.02442135Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMergeConfigKeepsStoredOnMaskedIncoming","Output":"=== RUN   TestMergeConfigKeepsStoredOnMaskedIncoming\n"}
+{"Time":"2026-11-20T00:22:52.02442475Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMergeConfigKeepsStoredOnMaskedIncoming","Output":"--- PASS: TestMergeConfigKeepsStoredOnMaskedIncoming (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.02442779Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMergeConfigKeepsStoredOnMaskedIncoming","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.02443058Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMergeConfigEmptyStringClears"}
+{"Time":"2026-11-20T00:22:52.02443406Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMergeConfigEmptyStringClears","Output":"=== RUN   TestMergeConfigEmptyStringClears\n"}
+{"Time":"2026-11-20T00:22:52.02443811Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMergeConfigEmptyStringClears","Output":"--- PASS: TestMergeConfigEmptyStringClears (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.02444198Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMergeConfigEmptyStringClears","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.02444477Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMergeConfigKeepsUnmentionedStoredKeys"}
+{"Time":"2026-11-20T00:22:52.02444743Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMergeConfigKeepsUnmentionedStoredKeys","Output":"=== RUN   TestMergeConfigKeepsUnmentionedStoredKeys\n"}
+{"Time":"2026-11-20T00:22:52.02445059Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMergeConfigKeepsUnmentionedStoredKeys","Output":"--- PASS: TestMergeConfigKeepsUnmentionedStoredKeys (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.0244541Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMergeConfigKeepsUnmentionedStoredKeys","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.02445697Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateBlocksDestinationSwap"}
+{"Time":"2026-11-20T00:22:52.02445952Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateBlocksDestinationSwap","Output":"=== RUN   TestPrepareConfigUpdateBlocksDestinationSwap\n"}
+{"Time":"2026-11-20T00:22:52.02446286Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateBlocksDestinationSwap/通用_Webhook_改地址想沿用_Authorization_头"}
+{"Time":"2026-11-20T00:22:52.0244658Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateBlocksDestinationSwap/通用_Webhook_改地址想沿用_Authorization_头","Output":"=== RUN   TestPrepareConfigUpdateBlocksDestinationSwap/通用_Webhook_改地址想沿用_Authorization_头\n"}
+{"Time":"2026-11-20T00:22:52.024575821Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateBlocksDestinationSwap/通用_Webhook_改地址想沿用_Authorization_头","Output":"--- PASS: TestPrepareConfigUpdateBlocksDestinationSwap/通用_Webhook_改地址想沿用_Authorization_头 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.024721552Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateBlocksDestinationSwap/通用_Webhook_改地址想沿用_Authorization_头","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.024733152Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateBlocksDestinationSwap/Telegram_改_base_url_想把_Bot_Token_发到自己的端点"}
+{"Time":"2026-11-20T00:22:52.024737742Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateBlocksDestinationSwap/Telegram_改_base_url_想把_Bot_Token_发到自己的端点","Output":"=== RUN   TestPrepareConfigUpdateBlocksDestinationSwap/Telegram_改_base_url_想把_Bot_Token_发到自己的端点\n"}
+{"Time":"2026-11-20T00:22:52.024742852Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateBlocksDestinationSwap/Telegram_改_base_url_想把_Bot_Token_发到自己的端点","Output":"--- PASS: TestPrepareConfigUpdateBlocksDestinationSwap/Telegram_改_base_url_想把_Bot_Token_发到自己的端点 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.024748132Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateBlocksDestinationSwap/Telegram_改_base_url_想把_Bot_Token_发到自己的端点","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.024753522Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateBlocksDestinationSwap/邮件改_SMTP_主机想交出密码"}
+{"Time":"2026-11-20T00:22:52.024757112Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateBlocksDestinationSwap/邮件改_SMTP_主机想交出密码","Output":"=== RUN   TestPrepareConfigUpdateBlocksDestinationSwap/邮件改_SMTP_主机想交出密码\n"}
+{"Time":"2026-11-20T00:22:52.024760712Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateBlocksDestinationSwap/邮件改_SMTP_主机想交出密码","Output":"--- PASS: TestPrepareConfigUpdateBlocksDestinationSwap/邮件改_SMTP_主机想交出密码 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.024764672Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateBlocksDestinationSwap/邮件改_SMTP_主机想交出密码","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.024840792Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateBlocksDestinationSwap/邮件关掉_TLS_也必须重新表态密码"}
+{"Time":"2026-11-20T00:22:52.024883602Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateBlocksDestinationSwap/邮件关掉_TLS_也必须重新表态密码","Output":"=== RUN   TestPrepareConfigUpdateBlocksDestinationSwap/邮件关掉_TLS_也必须重新表态密码\n"}
+{"Time":"2026-11-20T00:22:52.024928812Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateBlocksDestinationSwap/邮件关掉_TLS_也必须重新表态密码","Output":"--- PASS: TestPrepareConfigUpdateBlocksDestinationSwap/邮件关掉_TLS_也必须重新表态密码 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.024935842Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateBlocksDestinationSwap/邮件关掉_TLS_也必须重新表态密码","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.024941602Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateBlocksDestinationSwap/回传掩码凭据_+_新地址"}
+{"Time":"2026-11-20T00:22:52.025015963Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateBlocksDestinationSwap/回传掩码凭据_+_新地址","Output":"=== RUN   TestPrepareConfigUpdateBlocksDestinationSwap/回传掩码凭据_+_新地址\n"}
+{"Time":"2026-11-20T00:22:52.025023153Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateBlocksDestinationSwap/回传掩码凭据_+_新地址","Output":"--- PASS: TestPrepareConfigUpdateBlocksDestinationSwap/回传掩码凭据_+_新地址 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.025027523Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateBlocksDestinationSwap/回传掩码凭据_+_新地址","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.025031773Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateBlocksDestinationSwap/钉钉改_Webhook_想沿用加签密钥"}
+{"Time":"2026-11-20T00:22:52.025035273Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateBlocksDestinationSwap/钉钉改_Webhook_想沿用加签密钥","Output":"=== RUN   TestPrepareConfigUpdateBlocksDestinationSwap/钉钉改_Webhook_想沿用加签密钥\n"}
+{"Time":"2026-11-20T00:22:52.025039933Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateBlocksDestinationSwap/钉钉改_Webhook_想沿用加签密钥","Output":"--- PASS: TestPrepareConfigUpdateBlocksDestinationSwap/钉钉改_Webhook_想沿用加签密钥 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.025044153Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateBlocksDestinationSwap/钉钉改_Webhook_想沿用加签密钥","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.025170604Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateBlocksDestinationSwap","Output":"--- PASS: TestPrepareConfigUpdateBlocksDestinationSwap (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.025220544Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateBlocksDestinationSwap","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.025237694Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateAllowsLegitimateEdits"}
+{"Time":"2026-11-20T00:22:52.025242875Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateAllowsLegitimateEdits","Output":"=== RUN   TestPrepareConfigUpdateAllowsLegitimateEdits\n"}
+{"Time":"2026-11-20T00:22:52.025247384Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateAllowsLegitimateEdits/只改名字（配置原样回传）"}
+{"Time":"2026-11-20T00:22:52.025251104Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateAllowsLegitimateEdits/只改名字（配置原样回传）","Output":"=== RUN   TestPrepareConfigUpdateAllowsLegitimateEdits/只改名字（配置原样回传）\n"}
+{"Time":"2026-11-20T00:22:52.025256285Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateAllowsLegitimateEdits/只改名字（配置原样回传）","Output":"--- PASS: TestPrepareConfigUpdateAllowsLegitimateEdits/只改名字（配置原样回传） (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.025260835Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateAllowsLegitimateEdits/只改名字（配置原样回传）","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.025265285Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateAllowsLegitimateEdits/只改请求方法，地址与凭据都不动"}
+{"Time":"2026-11-20T00:22:52.025269335Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateAllowsLegitimateEdits/只改请求方法，地址与凭据都不动","Output":"=== RUN   TestPrepareConfigUpdateAllowsLegitimateEdits/只改请求方法，地址与凭据都不动\n"}
+{"Time":"2026-11-20T00:22:52.025274045Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateAllowsLegitimateEdits/只改请求方法，地址与凭据都不动","Output":"--- PASS: TestPrepareConfigUpdateAllowsLegitimateEdits/只改请求方法，地址与凭据都不动 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.025278645Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateAllowsLegitimateEdits/只改请求方法，地址与凭据都不动","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.025282665Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateAllowsLegitimateEdits/换地址并**同时**给新凭据"}
+{"Time":"2026-11-20T00:22:52.025288185Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateAllowsLegitimateEdits/换地址并**同时**给新凭据","Output":"=== RUN   TestPrepareConfigUpdateAllowsLegitimateEdits/换地址并**同时**给新凭据\n"}
+{"Time":"2026-11-20T00:22:52.025293015Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateAllowsLegitimateEdits/换地址并**同时**给新凭据","Output":"--- PASS: TestPrepareConfigUpdateAllowsLegitimateEdits/换地址并**同时**给新凭据 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.025297475Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateAllowsLegitimateEdits/换地址并**同时**给新凭据","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.025301465Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateAllowsLegitimateEdits/换地址并显式声明不再需要凭据"}
+{"Time":"2026-11-20T00:22:52.025305245Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateAllowsLegitimateEdits/换地址并显式声明不再需要凭据","Output":"=== RUN   TestPrepareConfigUpdateAllowsLegitimateEdits/换地址并显式声明不再需要凭据\n"}
+{"Time":"2026-11-20T00:22:52.025534807Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateAllowsLegitimateEdits/换地址并显式声明不再需要凭据","Output":"--- PASS: TestPrepareConfigUpdateAllowsLegitimateEdits/换地址并显式声明不再需要凭据 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.025593887Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateAllowsLegitimateEdits/换地址并显式声明不再需要凭据","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.026581472Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateAllowsLegitimateEdits/Telegram_改_chat_id（不是目的地）"}
+{"Time":"2026-11-20T00:22:52.026598072Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateAllowsLegitimateEdits/Telegram_改_chat_id（不是目的地）","Output":"=== RUN   TestPrepareConfigUpdateAllowsLegitimateEdits/Telegram_改_chat_id（不是目的地）\n"}
+{"Time":"2026-11-20T00:22:52.026605712Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateAllowsLegitimateEdits/Telegram_改_chat_id（不是目的地）","Output":"--- PASS: TestPrepareConfigUpdateAllowsLegitimateEdits/Telegram_改_chat_id（不是目的地） (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.026610792Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateAllowsLegitimateEdits/Telegram_改_chat_id（不是目的地）","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.026615662Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateAllowsLegitimateEdits/邮件改收件人（不是目的地）"}
+{"Time":"2026-11-20T00:22:52.026619502Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateAllowsLegitimateEdits/邮件改收件人（不是目的地）","Output":"=== RUN   TestPrepareConfigUpdateAllowsLegitimateEdits/邮件改收件人（不是目的地）\n"}
+{"Time":"2026-11-20T00:22:52.026624443Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateAllowsLegitimateEdits/邮件改收件人（不是目的地）","Output":"--- PASS: TestPrepareConfigUpdateAllowsLegitimateEdits/邮件改收件人（不是目的地） (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.026628912Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateAllowsLegitimateEdits/邮件改收件人（不是目的地）","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.026632963Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateAllowsLegitimateEdits","Output":"--- PASS: TestPrepareConfigUpdateAllowsLegitimateEdits (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.026637052Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateAllowsLegitimateEdits","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.026641022Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdatePortTypeTolerance"}
+{"Time":"2026-11-20T00:22:52.026644512Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdatePortTypeTolerance","Output":"=== RUN   TestPrepareConfigUpdatePortTypeTolerance\n"}
+{"Time":"2026-11-20T00:22:52.026653382Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdatePortTypeTolerance","Output":"--- PASS: TestPrepareConfigUpdatePortTypeTolerance (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.026657573Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdatePortTypeTolerance","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.026661862Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateSurvivesRepeatedSaveWithBlankDestination"}
+{"Time":"2026-11-20T00:22:52.026665603Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateSurvivesRepeatedSaveWithBlankDestination","Output":"=== RUN   TestPrepareConfigUpdateSurvivesRepeatedSaveWithBlankDestination\n"}
+{"Time":"2026-11-20T00:22:52.026670523Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateSurvivesRepeatedSaveWithBlankDestination","Output":"--- PASS: TestPrepareConfigUpdateSurvivesRepeatedSaveWithBlankDestination (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.026674453Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateSurvivesRepeatedSaveWithBlankDestination","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.026680992Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateStillGuardsBlankDestinationChanges"}
+{"Time":"2026-11-20T00:22:52.026684472Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateStillGuardsBlankDestinationChanges","Output":"=== RUN   TestPrepareConfigUpdateStillGuardsBlankDestinationChanges\n"}
+{"Time":"2026-11-20T00:22:52.026689153Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateStillGuardsBlankDestinationChanges","Output":"--- PASS: TestPrepareConfigUpdateStillGuardsBlankDestinationChanges (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.026693323Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateStillGuardsBlankDestinationChanges","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.026697153Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestDestinationKeysDeclaredForEveryKind"}
+{"Time":"2026-11-20T00:22:52.026700593Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestDestinationKeysDeclaredForEveryKind","Output":"=== RUN   TestDestinationKeysDeclaredForEveryKind\n"}
+{"Time":"2026-11-20T00:22:52.026704973Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestDestinationKeysDeclaredForEveryKind","Output":"--- PASS: TestDestinationKeysDeclaredForEveryKind (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.026709103Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestDestinationKeysDeclaredForEveryKind","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.026735663Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestSecretKeysDeclaredForEveryKind"}
+{"Time":"2026-11-20T00:22:52.026739723Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestSecretKeysDeclaredForEveryKind","Output":"=== RUN   TestSecretKeysDeclaredForEveryKind\n"}
+{"Time":"2026-11-20T00:22:52.026744183Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestSecretKeysDeclaredForEveryKind","Output":"--- PASS: TestSecretKeysDeclaredForEveryKind (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.026748133Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestSecretKeysDeclaredForEveryKind","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.026752223Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateRejectsMaskedInContainer"}
+{"Time":"2026-11-20T00:22:52.026755503Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateRejectsMaskedInContainer","Output":"=== RUN   TestPrepareConfigUpdateRejectsMaskedInContainer\n"}
+{"Time":"2026-11-20T00:22:52.026759903Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateRejectsMaskedInContainer","Output":"--- PASS: TestPrepareConfigUpdateRejectsMaskedInContainer (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.026763843Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestPrepareConfigUpdateRejectsMaskedInContainer","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.026767844Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownBodyPacksWholeItemsWithinByteLimit"}
+{"Time":"2026-11-20T00:22:52.026771423Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownBodyPacksWholeItemsWithinByteLimit","Output":"=== RUN   TestMarkdownBodyPacksWholeItemsWithinByteLimit\n"}
+{"Time":"2026-11-20T00:22:52.028914075Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownBodyPacksWholeItemsWithinByteLimit","Output":"--- PASS: TestMarkdownBodyPacksWholeItemsWithinByteLimit (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.029012706Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownBodyPacksWholeItemsWithinByteLimit","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.029083027Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownBodyKeepsEverythingWhenUnderLimit"}
+{"Time":"2026-11-20T00:22:52.029101957Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownBodyKeepsEverythingWhenUnderLimit","Output":"=== RUN   TestMarkdownBodyKeepsEverythingWhenUnderLimit\n"}
+{"Time":"2026-11-20T00:22:52.029285558Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownBodyKeepsEverythingWhenUnderLimit","Output":"--- PASS: TestMarkdownBodyKeepsEverythingWhenUnderLimit (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.029567849Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownBodyKeepsEverythingWhenUnderLimit","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.029578549Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownBodyAlwaysKeepsAtLeastOneItem"}
+{"Time":"2026-11-20T00:22:52.029582629Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownBodyAlwaysKeepsAtLeastOneItem","Output":"=== RUN   TestMarkdownBodyAlwaysKeepsAtLeastOneItem\n"}
+{"Time":"2026-11-20T00:22:52.030783877Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownBodyAlwaysKeepsAtLeastOneItem","Output":"--- PASS: TestMarkdownBodyAlwaysKeepsAtLeastOneItem (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.030803837Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownBodyAlwaysKeepsAtLeastOneItem","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.030943248Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownBodySingleReturnsOne"}
+{"Time":"2026-11-20T00:22:52.031009029Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownBodySingleReturnsOne","Output":"=== RUN   TestMarkdownBodySingleReturnsOne\n"}
+{"Time":"2026-11-20T00:22:52.031032457Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownBodySingleReturnsOne","Output":"--- PASS: TestMarkdownBodySingleReturnsOne (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.036190118Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownBodySingleReturnsOne","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.036231768Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestTelegramPackingUsesRuneBudget"}
+{"Time":"2026-11-20T00:22:52.036236798Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestTelegramPackingUsesRuneBudget","Output":"=== RUN   TestTelegramPackingUsesRuneBudget\n"}
+{"Time":"2026-11-20T00:22:52.036245988Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestTelegramPackingUsesRuneBudget","Output":"--- PASS: TestTelegramPackingUsesRuneBudget (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.036251078Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestTelegramPackingUsesRuneBudget","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.036255328Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestFeishuPackingReportsKept"}
+{"Time":"2026-11-20T00:22:52.036259248Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestFeishuPackingReportsKept","Output":"=== RUN   TestFeishuPackingReportsKept\n"}
+{"Time":"2026-11-20T00:22:52.049288024Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestFeishuPackingReportsKept","Output":"--- PASS: TestFeishuPackingReportsKept (0.02s)\n"}
+{"Time":"2026-11-20T00:22:52.049325424Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestFeishuPackingReportsKept","Elapsed":0.02}
+{"Time":"2026-11-20T00:22:52.049348374Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownEscapesUntrustedContent"}
+{"Time":"2026-11-20T00:22:52.049352554Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownEscapesUntrustedContent","Output":"=== RUN   TestMarkdownEscapesUntrustedContent\n"}
+{"Time":"2026-11-20T00:22:52.049359514Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownEscapesUntrustedContent/标题里的换行_+_外链"}
+{"Time":"2026-11-20T00:22:52.049364044Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownEscapesUntrustedContent/标题里的换行_+_外链","Output":"=== RUN   TestMarkdownEscapesUntrustedContent/标题里的换行_+_外链\n"}
+{"Time":"2026-11-20T00:22:52.049370554Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownEscapesUntrustedContent/标题里的换行_+_外链","Output":"--- PASS: TestMarkdownEscapesUntrustedContent/标题里的换行_+_外链 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.049375984Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownEscapesUntrustedContent/标题里的换行_+_外链","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.049380874Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownEscapesUntrustedContent/标题里的图片信标"}
+{"Time":"2026-11-20T00:22:52.049401354Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownEscapesUntrustedContent/标题里的图片信标","Output":"=== RUN   TestMarkdownEscapesUntrustedContent/标题里的图片信标\n"}
+{"Time":"2026-11-20T00:22:52.049407305Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownEscapesUntrustedContent/标题里的图片信标","Output":"--- PASS: TestMarkdownEscapesUntrustedContent/标题里的图片信标 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.049411954Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownEscapesUntrustedContent/标题里的图片信标","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.049416754Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownEscapesUntrustedContent/资产名里的强调与引用"}
+{"Time":"2026-11-20T00:22:52.049420924Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownEscapesUntrustedContent/资产名里的强调与引用","Output":"=== RUN   TestMarkdownEscapesUntrustedContent/资产名里的强调与引用\n"}
+{"Time":"2026-11-20T00:22:52.049426835Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownEscapesUntrustedContent/资产名里的强调与引用","Output":"--- PASS: TestMarkdownEscapesUntrustedContent/资产名里的强调与引用 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.049431545Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownEscapesUntrustedContent/资产名里的强调与引用","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.049435844Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownEscapesUntrustedContent/摘要里的反引号与竖线"}
+{"Time":"2026-11-20T00:22:52.049442145Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownEscapesUntrustedContent/摘要里的反引号与竖线","Output":"=== RUN   TestMarkdownEscapesUntrustedContent/摘要里的反引号与竖线\n"}
+{"Time":"2026-11-20T00:22:52.049447035Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownEscapesUntrustedContent/摘要里的反引号与竖线","Output":"--- PASS: TestMarkdownEscapesUntrustedContent/摘要里的反引号与竖线 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.049454285Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownEscapesUntrustedContent/摘要里的反引号与竖线","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.049459285Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownEscapesUntrustedContent","Output":"--- PASS: TestMarkdownEscapesUntrustedContent (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.049463565Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownEscapesUntrustedContent","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.049468155Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownEscapeBackslashFirst"}
+{"Time":"2026-11-20T00:22:52.049472775Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownEscapeBackslashFirst","Output":"=== RUN   TestMarkdownEscapeBackslashFirst\n"}
+{"Time":"2026-11-20T00:22:52.049486915Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownEscapeBackslashFirst","Output":"--- PASS: TestMarkdownEscapeBackslashFirst (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.049491415Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestMarkdownEscapeBackslashFirst","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.049495825Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestTelegramTitleHasNoMarkdownEscapes"}
+{"Time":"2026-11-20T00:22:52.049634665Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestTelegramTitleHasNoMarkdownEscapes","Output":"=== RUN   TestTelegramTitleHasNoMarkdownEscapes\n"}
+{"Time":"2026-11-20T00:22:52.049646015Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestTelegramTitleHasNoMarkdownEscapes","Output":"--- PASS: TestTelegramTitleHasNoMarkdownEscapes (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.049677595Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestTelegramTitleHasNoMarkdownEscapes","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.049682285Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestTruncateBytesKeepsValidUTF8"}
+{"Time":"2026-11-20T00:22:52.049686416Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestTruncateBytesKeepsValidUTF8","Output":"=== RUN   TestTruncateBytesKeepsValidUTF8\n"}
+{"Time":"2026-11-20T00:22:52.049714596Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestTruncateBytesKeepsValidUTF8","Output":"--- PASS: TestTruncateBytesKeepsValidUTF8 (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.049719016Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestTruncateBytesKeepsValidUTF8","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.049723366Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestTruncateBytesZeroMeansUnlimited"}
+{"Time":"2026-11-20T00:22:52.049727266Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestTruncateBytesZeroMeansUnlimited","Output":"=== RUN   TestTruncateBytesZeroMeansUnlimited\n"}
+{"Time":"2026-11-20T00:22:52.049731926Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestTruncateBytesZeroMeansUnlimited","Output":"--- PASS: TestTruncateBytesZeroMeansUnlimited (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.049736246Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestTruncateBytesZeroMeansUnlimited","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.049746966Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestTruncateBytesEllipsisBudget"}
+{"Time":"2026-11-20T00:22:52.049750906Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestTruncateBytesEllipsisBudget","Output":"=== RUN   TestTruncateBytesEllipsisBudget\n"}
+{"Time":"2026-11-20T00:22:52.049756696Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestTruncateBytesEllipsisBudget","Output":"--- PASS: TestTruncateBytesEllipsisBudget (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.049760726Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestTruncateBytesEllipsisBudget","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.049764986Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestTruncateRunesCountsCharactersNotBytes"}
+{"Time":"2026-11-20T00:22:52.049768906Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestTruncateRunesCountsCharactersNotBytes","Output":"=== RUN   TestTruncateRunesCountsCharactersNotBytes\n"}
+{"Time":"2026-11-20T00:22:52.049794536Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestTruncateRunesCountsCharactersNotBytes","Output":"--- PASS: TestTruncateRunesCountsCharactersNotBytes (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.049799377Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestTruncateRunesCountsCharactersNotBytes","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.049803777Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestOneLineCollapsesWhitespace"}
+{"Time":"2026-11-20T00:22:52.049807386Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestOneLineCollapsesWhitespace","Output":"=== RUN   TestOneLineCollapsesWhitespace\n"}
+{"Time":"2026-11-20T00:22:52.049811697Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestOneLineCollapsesWhitespace","Output":"--- PASS: TestOneLineCollapsesWhitespace (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.049835246Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestOneLineCollapsesWhitespace","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.049839547Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestTruncateHTMLNeverCutsTagInHalf"}
+{"Time":"2026-11-20T00:22:52.049843157Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestTruncateHTMLNeverCutsTagInHalf","Output":"=== RUN   TestTruncateHTMLNeverCutsTagInHalf\n"}
+{"Time":"2026-11-20T00:22:52.053117126Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestTruncateHTMLNeverCutsTagInHalf","Output":"--- PASS: TestTruncateHTMLNeverCutsTagInHalf (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.053136916Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestTruncateHTMLNeverCutsTagInHalf","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.053142606Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestAssetLineOmitsExcess"}
+{"Time":"2026-11-20T00:22:52.053146596Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestAssetLineOmitsExcess","Output":"=== RUN   TestAssetLineOmitsExcess\n"}
+{"Time":"2026-11-20T00:22:52.053151996Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestAssetLineOmitsExcess","Output":"--- PASS: TestAssetLineOmitsExcess (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.053156016Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestAssetLineOmitsExcess","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.053160086Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestSeverityAndStatusLabels"}
+{"Time":"2026-11-20T00:22:52.053164146Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestSeverityAndStatusLabels","Output":"=== RUN   TestSeverityAndStatusLabels\n"}
+{"Time":"2026-11-20T00:22:52.053168886Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestSeverityAndStatusLabels","Output":"--- PASS: TestSeverityAndStatusLabels (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.053173176Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestSeverityAndStatusLabels","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.053177186Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestTruncateHTMLNeverCutsEntity"}
+{"Time":"2026-11-20T00:22:52.053180816Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestTruncateHTMLNeverCutsEntity","Output":"=== RUN   TestTruncateHTMLNeverCutsEntity\n"}
+{"Time":"2026-11-20T00:22:52.053185216Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestTruncateHTMLNeverCutsEntity","Output":"--- PASS: TestTruncateHTMLNeverCutsEntity (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.053189406Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestTruncateHTMLNeverCutsEntity","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.053193376Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestDingTalkSignMatchesReference"}
+{"Time":"2026-11-20T00:22:52.053197677Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestDingTalkSignMatchesReference","Output":"=== RUN   TestDingTalkSignMatchesReference\n"}
+{"Time":"2026-11-20T00:22:52.053204786Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestDingTalkSignMatchesReference","Output":"--- PASS: TestDingTalkSignMatchesReference (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.053208726Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestDingTalkSignMatchesReference","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.053212477Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestFeishuSignMatchesReference"}
+{"Time":"2026-11-20T00:22:52.053216026Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestFeishuSignMatchesReference","Output":"=== RUN   TestFeishuSignMatchesReference\n"}
+{"Time":"2026-11-20T00:22:52.053220327Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestFeishuSignMatchesReference","Output":"--- PASS: TestFeishuSignMatchesReference (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.053224376Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestFeishuSignMatchesReference","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.053228367Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestSignAlgorithmsDiffer"}
+{"Time":"2026-11-20T00:22:52.053232007Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestSignAlgorithmsDiffer","Output":"=== RUN   TestSignAlgorithmsDiffer\n"}
+{"Time":"2026-11-20T00:22:52.053238557Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestSignAlgorithmsDiffer","Output":"--- PASS: TestSignAlgorithmsDiffer (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.053242517Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestSignAlgorithmsDiffer","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.053246397Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestDingTalkNoSecretLeavesURLUntouched"}
+{"Time":"2026-11-20T00:22:52.053250057Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestDingTalkNoSecretLeavesURLUntouched","Output":"=== RUN   TestDingTalkNoSecretLeavesURLUntouched\n"}
+{"Time":"2026-11-20T00:22:52.053254337Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestDingTalkNoSecretLeavesURLUntouched","Output":"--- PASS: TestDingTalkNoSecretLeavesURLUntouched (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.053258387Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestDingTalkNoSecretLeavesURLUntouched","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.053262527Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestValidateHTTPURL"}
+{"Time":"2026-11-20T00:22:52.053265957Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestValidateHTTPURL","Output":"=== RUN   TestValidateHTTPURL\n"}
+{"Time":"2026-11-20T00:22:52.053270277Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestValidateHTTPURL","Output":"--- PASS: TestValidateHTTPURL (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.053274367Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestValidateHTTPURL","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.053278047Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestValidateHTTPURLRejectsLiteralPrivateTargets"}
+{"Time":"2026-11-20T00:22:52.053281697Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestValidateHTTPURLRejectsLiteralPrivateTargets","Output":"=== RUN   TestValidateHTTPURLRejectsLiteralPrivateTargets\n"}
+{"Time":"2026-11-20T00:22:52.053286677Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestValidateHTTPURLRejectsLiteralPrivateTargets","Output":"--- PASS: TestValidateHTTPURLRejectsLiteralPrivateTargets (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.053291477Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestValidateHTTPURLRejectsLiteralPrivateTargets","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.053295427Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestValidateHTTPURLErrorNeverLeaksCredentials"}
+{"Time":"2026-11-20T00:22:52.053299197Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestValidateHTTPURLErrorNeverLeaksCredentials","Output":"=== RUN   TestValidateHTTPURLErrorNeverLeaksCredentials\n"}
+{"Time":"2026-11-20T00:22:52.053303867Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestValidateHTTPURLErrorNeverLeaksCredentials","Output":"--- PASS: TestValidateHTTPURLErrorNeverLeaksCredentials (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.053307837Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestValidateHTTPURLErrorNeverLeaksCredentials","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.053311817Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestTemplateContextHasNoMethods"}
+{"Time":"2026-11-20T00:22:52.053315267Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestTemplateContextHasNoMethods","Output":"=== RUN   TestTemplateContextHasNoMethods\n"}
+{"Time":"2026-11-20T00:22:52.053319577Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestTemplateContextHasNoMethods","Output":"--- PASS: TestTemplateContextHasNoMethods (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.053323467Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestTemplateContextHasNoMethods","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.053328727Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestTemplateFuncsAreMinimal"}
+{"Time":"2026-11-20T00:22:52.053332358Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestTemplateFuncsAreMinimal","Output":"=== RUN   TestTemplateFuncsAreMinimal\n"}
+{"Time":"2026-11-20T00:22:52.053336827Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestTemplateFuncsAreMinimal","Output":"--- PASS: TestTemplateFuncsAreMinimal (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.053340758Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestTemplateFuncsAreMinimal","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.053344697Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestTemplateCannotReachUnknownData"}
+{"Time":"2026-11-20T00:22:52.053349798Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestTemplateCannotReachUnknownData","Output":"=== RUN   TestTemplateCannotReachUnknownData\n"}
+{"Time":"2026-11-20T00:22:52.053353867Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestTemplateCannotReachUnknownData","Output":"--- PASS: TestTemplateCannotReachUnknownData (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.053358137Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestTemplateCannotReachUnknownData","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.053362118Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestTemplateRenderFailsPermanently"}
+{"Time":"2026-11-20T00:22:52.053365768Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestTemplateRenderFailsPermanently","Output":"=== RUN   TestTemplateRenderFailsPermanently\n"}
+{"Time":"2026-11-20T00:22:52.053370088Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestTemplateRenderFailsPermanently","Output":"--- PASS: TestTemplateRenderFailsPermanently (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.053374208Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestTemplateRenderFailsPermanently","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.053378008Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestTemplateCanOnlyProduceJSON"}
+{"Time":"2026-11-20T00:22:52.053381608Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestTemplateCanOnlyProduceJSON","Output":"=== RUN   TestTemplateCanOnlyProduceJSON\n"}
+{"Time":"2026-11-20T00:22:52.053386838Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestTemplateCanOnlyProduceJSON","Output":"--- PASS: TestTemplateCanOnlyProduceJSON (0.00s)\n"}
+{"Time":"2026-11-20T00:22:52.053390867Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestTemplateCanOnlyProduceJSON","Elapsed":0}
+{"Time":"2026-11-20T00:22:52.053394467Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Output":"PASS\n"}
+{"Time":"2026-11-20T00:22:52.055985522Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Output":"ok  \tgithub.com/Autumn-27/artex/notify\t0.045s\n"}
+{"Time":"2026-11-20T00:22:52.056007962Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Elapsed":0.046}

@@ -1,0 +1,17 @@
+{
+  "quota_collision": {
+    "exception": "FileExistsError",
+    "preexisting_file_deleted": false
+  },
+  "selfconsistent_unreviewed_input": {
+    "accepted_by_current_validator": false,
+    "real_approval": false,
+    "helper_is_public_non_executable": true
+  },
+  "pinned_writable_ancestor": {
+    "accepted": false,
+    "ancestor_mode": "0777",
+    "same_entrypoint_positive_first": true
+  },
+  "scope": "UNIT_ONLY actual reviewer operations; not authority/runtime proof"
+}

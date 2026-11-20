@@ -1,0 +1,27 @@
+{"ImportPath":"github.com/Autumn-27/artex/selfupdate [github.com/Autumn-27/artex/selfupdate.test]","Action":"build-output","Output":"# github.com/Autumn-27/artex/selfupdate [github.com/Autumn-27/artex/selfupdate.test]\n"}
+{"ImportPath":"github.com/Autumn-27/artex/selfupdate [github.com/Autumn-27/artex/selfupdate.test]","Action":"build-output","Output":"selfupdate/english_test.go:3:213: cannot use \"http://github.com/x\" (untyped string constant) as *url.URL value in argument to checkURL\n"}
+{"ImportPath":"github.com/Autumn-27/artex/selfupdate [github.com/Autumn-27/artex/selfupdate.test]","Action":"build-fail"}
+{"Time":"2026-11-20T00:15:59.725865579Z","Action":"start","Package":"github.com/Autumn-27/artex/selfupdate"}
+{"Time":"2026-11-20T00:15:59.72599356Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Output":"FAIL\tgithub.com/Autumn-27/artex/selfupdate [build failed]\n"}
+{"Time":"2026-11-20T00:15:59.72600558Z","Action":"fail","Package":"github.com/Autumn-27/artex/selfupdate","Elapsed":0,"FailedBuild":"github.com/Autumn-27/artex/selfupdate [github.com/Autumn-27/artex/selfupdate.test]"}
+{"Time":"2026-11-20T00:16:01.001243954Z","Action":"start","Package":"github.com/Autumn-27/artex/sidequestion"}
+{"Time":"2026-11-20T00:16:01.010498036Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestEnglishSideQuestionSafetyInstructions"}
+{"Time":"2026-11-20T00:16:01.010551986Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestEnglishSideQuestionSafetyInstructions","Output":"=== RUN   TestEnglishSideQuestionSafetyInstructions\n"}
+{"Time":"2026-11-20T00:16:01.01099872Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestEnglishSideQuestionSafetyInstructions","Output":"    english_test.go:3: missing \"no tool execution capability\"\n"}
+{"Time":"2026-11-20T00:16:01.011752694Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestEnglishSideQuestionSafetyInstructions","Output":"    english_test.go:3: missing \"do not promise\"\n"}
+{"Time":"2026-11-20T00:16:01.011788645Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestEnglishSideQuestionSafetyInstructions","Output":"    english_test.go:3: missing \"background\"\n"}
+{"Time":"2026-11-20T00:16:01.011811904Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestEnglishSideQuestionSafetyInstructions","Output":"    english_test.go:3: missing \"do not execute tools\"\n"}
+{"Time":"2026-11-20T00:16:01.011829375Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestEnglishSideQuestionSafetyInstructions","Output":"    english_test.go:3: missing \"instructions in the material\"\n"}
+{"Time":"2026-11-20T00:16:01.011846615Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestEnglishSideQuestionSafetyInstructions","Output":"    english_test.go:3: missing \"data to analyze\"\n"}
+{"Time":"2026-11-20T00:16:01.011863305Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestEnglishSideQuestionSafetyInstructions","Output":"    english_test.go:3: 旁路上下文压缩后仍超过模型预算，请缩小问题范围或调整模型上下文配置\n"}
+{"Time":"2026-11-20T00:16:01.011886165Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestEnglishSideQuestionSafetyInstructions","Output":"--- FAIL: TestEnglishSideQuestionSafetyInstructions (0.00s)\n"}
+{"Time":"2026-11-20T00:16:01.011904025Z","Action":"fail","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestEnglishSideQuestionSafetyInstructions","Elapsed":0}
+{"Time":"2026-11-20T00:16:01.011922105Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Output":"FAIL\n"}
+{"Time":"2026-11-20T00:16:01.012000926Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Output":"FAIL\tgithub.com/Autumn-27/artex/sidequestion\t0.009s\n"}
+{"Time":"2026-11-20T00:16:01.012045445Z","Action":"fail","Package":"github.com/Autumn-27/artex/sidequestion","Elapsed":0.011}
+{"ImportPath":"github.com/Autumn-27/artex/traffic [github.com/Autumn-27/artex/traffic.test]","Action":"build-output","Output":"# github.com/Autumn-27/artex/traffic [github.com/Autumn-27/artex/traffic.test]\n"}
+{"ImportPath":"github.com/Autumn-27/artex/traffic [github.com/Autumn-27/artex/traffic.test]","Action":"build-output","Output":"traffic/english_test.go:3:250: undefined: parseSearchHost\n"}
+{"ImportPath":"github.com/Autumn-27/artex/traffic [github.com/Autumn-27/artex/traffic.test]","Action":"build-fail"}
+{"Time":"2026-11-20T00:16:01.356605655Z","Action":"start","Package":"github.com/Autumn-27/artex/traffic"}
+{"Time":"2026-11-20T00:16:01.356771065Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Output":"FAIL\tgithub.com/Autumn-27/artex/traffic [build failed]\n"}
+{"Time":"2026-11-20T00:16:01.356814526Z","Action":"fail","Package":"github.com/Autumn-27/artex/traffic","Elapsed":0,"FailedBuild":"github.com/Autumn-27/artex/traffic [github.com/Autumn-27/artex/traffic.test]"}

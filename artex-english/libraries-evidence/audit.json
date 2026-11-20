@@ -1,0 +1,8 @@
+{
+  "issues": [],
+  "remaining_production_nonenglish_literals": [],
+  "classification_counts": {
+    "remaining_comment": 917,
+    "test_fixture_or_test_diagnostic_needs_review": 539
+  }
+}

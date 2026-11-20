@@ -1,0 +1,117 @@
+556	TruncateBytes truncates s to at most max bytes, preserving valid UTF-8 and whole characters.
+557	Why character boundaries matter: WeCom group bot markdown has a hard 4096 **byte** limit, not
+558	a character limit; Chinese characters take 3 bytes. Direct byte slicing can split a character and produce invalid
+559	UTF-8, causing rejection or garbled squares. Starting at the budget position,
+560	backtrack to the nearest rune start (utf8.RuneStart identifies continuation bytes 0b10xxxxxx).
+561	max<=0 means unlimited. Append an ellipsis after truncation unless max cannot fit it.
+562	If max is shorter than the ellipsis, omit it and truncate directly to avoid exceeding max.
+563	OneLine compresses multiline text to a single line: collapse all whitespace, then truncate by character count.
+564	Used for IM title lines; summaries often contain newlines that would disrupt tables or titles.
+565	max<=0 means no length limit.
+566	TruncateRunes truncates s to at most max characters, not bytes, appending an ellipsis when exceeded.
+567	max<=0 means unlimited.
+568	Unlike TruncateBytes, this follows platform character limits: WeCom counts bytes, Telegram counts characters.
+569	Using the wrong unit causes no error, only unexpectedly short messages (one Chinese character takes 3 bytes;
+570	a 4096-byte cut retains about 1365 characters), so retain both functions and select by channel.
+571	TruncateHTML truncates an HTML fragment by character count without leaving partial tags.
+572	Direct character truncation can produce a partial tag such as `<a href="htt`; the platform parser may
+573	reject the whole message or swallow following text as an attribute. First truncate by characters,
+574	then check for an unclosed trailing `<` and backtrack before it.
+575	Do not balance tags (such as adding </b>): Telegram's HTML parser closes open tags automatically;
+576	implementing balancing would require handling quoted attributes, comments, and self-closing tags for little benefit.
+577	If the tail starts with a partial `<` (no `>` after the last `<`), backtrack before it.
+578	Likewise, backtrack before a partial HTML entity (such as `&amp;` cut to `&amp`).
+579	An entity-only parser may reject the **entire message** for a partial entity. Oversized
+580	batch messages are common and should not cause the whole notification to be lost.
+581	packItemCount calculates how many **whole** items fit the budget for batch-message packing.
+582	Why pack whole items instead of rendering everything then truncating: truncation makes later entries disappear,
+583	while delivery records still mark them delivered. Neither the message nor history reveals the loss,
+584	so vulnerabilities silently vanish. Whole-item packing keeps excluded entries in the database for the next batch;
+585	kept tells the caller how many items this message actually delivered.
+586	Parameters: maxSize<=0 means unlimited; reserve allows for message headers and footers;
+587	size supplies platform-specific measurement (WeCom/DingTalk count bytes, Telegram counts characters;
+588	using the wrong unit silently compresses Chinese messages far below the limit);
+589	render produces the actual text of item idx, whose content-dependent length cannot be estimated.
+590	Return at least 1 when items remain. Even an extremely long single item must be sent, relying on the caller's
+591	final truncation, or it could block the entire batch forever.
+592	byteSize / runeSize name packItemCount's measurement units, avoiding anonymous
+593	func(s string) int closures that obscure which unit the call uses.
+594	assetLine renders assets as one display line, omitting those beyond limit and showing the total count.
+595	One vulnerability may anchor dozens of assets; listing all would overflow the message.
+596	itoa is a short alias for strconv.Itoa, used only in display text to avoid importing strconv everywhere.
+672	telegramTextLimit is the Telegram sendMessage text-field limit, in characters.
+673	telegramChannel implements the Telegram Bot API.
+674	Platform characteristics:
+675	  - Authentication is entirely in the URL path (/bot<token>/sendMessage); no signing needed.
+676	  - Use HTML parse mode rather than MarkdownV2: MarkdownV2 requires escaping `_*[]()~`>#+-=|{}.!`
+677	    (18 characters); missing one rejects the whole message. HTML needs only & < > escaped.
+678	  - Business errors also appear in HTTP 200 responses; inspect ok.
+679	Telegram allows about 1 message/second in private chats and 20/minute in groups. Use a conservative value.
+680	Bot Token is the complete credential; chat_id is only a recipient, not a secret (without a Token it cannot send messages).
+681	base_url determines which API endpoint receives the Token (such as a self-hosted reverse proxy); changing it requires explicit Token input.
+682	429 is rate limiting and can be retried after backoff; others (400 invalid parameters, 401 invalid token, 403 blocked,
+683	404 missing chat) are configuration errors that retries cannot repair.
+684	telegramEndpoint constructs the sendMessage URL. Empty base_url uses the official API;
+685	nonempty supports self-hosted Bot API reverse proxies, common on domestic networks.
+686	Do not pass err through: the URL contains the Bot Token, and even addr must not be echoed here.
+687	telegramHTML renders the HTML body and returns it with the number of entries actually included (see Channel.Send).
+688	Telegram limits **characters**, so packing also measures characters (runeSize).
+689	telegramReservedRunes reserves characters for the message title and possible truncation notice.
+690	telegramBatchLine renders one batch entry, unescaped; the caller escapes it consistently.
+691	telegramBatchTitle renders the batch title line. Count entries **actually included in this message**,
+692	not the batch total, or readers will assume the header number covers everything.
+693	telegramEscape escapes HTML text content.
+694	Telegram recognizes only these three entities. Existing entities such as &amp; are escaped again, deliberately:
+695	we want to display original characters, not allow HTML injection.
+696	telegramEscapeAttr escapes HTML attribute values, handling quotes in addition to text escaping:
+697	quotes in URLs could prematurely close href and turn subsequent content into an injection point.
+698	webhookChannel is a generic Webhook adapter with user-defined URL, method, headers, and JSON template.
+699	It avoids separate implementations for Slack / Mattermost / Discord / self-hosted systems;
+700	one configurable template can cover all of them.
+701	Generic Webhooks have no official limit; return 0 for unlimited by default, leaving users to match peer capacity.
+702	Mask url and headers: destinations often contain tokens and custom headers usually contain credentials;
+703	both appear in API responses and must be protected.
+704	Editing one header consequently requires resubmitting all headers (masked values mean keep unchanged).
+705	This tradeoff is deliberate: prefer re-entry over exposing credentials to the browser.
+706	The destination is url. Changing url requires explicit headers input, or the original Authorization header
+707	would be sent unchanged to the new destination, the primary masking-bypass path.
+708	webhookDefaultTemplate is the fallback request body when no template is provided: straightforward JSON
+709	covering most self-hosted receivers that store incoming JSON.
+710	webhookTemplateData is the context exposed to user templates.
+711	SentAt is this delivery's timestamp (RFC3339), for receiver records.
+712	StatusLabel describes a status transition, such as pending -> fixed; empty for other events.
+713	GET has no body. Adding content to query parameters exceeds template capabilities and conflicts with GET semantics,
+714	so GET suits only receivers triggered by an endpoint hit.
+715	The template renders JSON text; convert it to json.RawMessage and send unchanged,
+716	avoiding double escaping that would wrap the intended structure in a JSON string.
+717	Allow overrides, but apply after headers so explicit configuration takes precedence.
+718	Generic Webhooks do not truncate bodies (the receiver is user-controlled and body_template determines size),
+719	so the entire batch counts as delivered.
+720	renderWebhookBody renders the request body using the user template or default template.
+721	parseWebhookTemplate parses the template.
+722	missingkey=zero renders absent map keys as zero values rather than errors. This context is a struct;
+723	its main purpose is to avoid range errors when .Items is empty. The actual concern is nil .Items.
+724	webhookTemplateFuncs supplies helper functions exposed to templates.
+725	json serializes any value as JSON.
+726	This function is essential, not cosmetic: without it users can only interpolate {{.Title}} directly;
+727	a quote or newline in a vulnerability title then makes the entire request invalid JSON. The receiver
+728	rejects it with a JSON parse error, offering no obvious clue that a title quote caused the problem.
+729	jsons embeds a JSON fragment inside another JSON string value, applying one layer of string escaping.
+730	Remove outer quotes; callers decide whether to add them.
+755	weComMarkdownLimit is the WeCom group bot markdown content hard limit in bytes, not characters.
+756	It is the strictest limit among all six channels and the primary reason for TruncateBytes.
+757	weComChannel implements WeCom group bots.
+758	Platform characteristics:
+759	  - Authentication uses only the URL key; signing is unsupported, so the webhook URL is the entire credential.
+760	  - markdown content is limited to 4096 **bytes**; oversized messages are rejected, not truncated. Chinese uses 3 bytes per character,
+761	    leaving room for only a little over a thousand characters; client-side truncation is required.
+762	  - Rate limit is 20 messages/minute, also enforced client-side.
+763	WeCom has only one credential: the Webhook URL key. Signing is unsupported;
+764	the entire URL is the credential and no other fields need masking.
+765	WeCom's sole Webhook field is both destination and credential, so no old credential remains after changing the URL.
+766	Batch messages can be long (50 one-line items plus prefix), easily exceeding 4096 bytes.
+767	Truncate here rather than relying on platform rejection: rejection loses the whole batch, while truncation delivers some entries.
+768	45009 means the API limit was exceeded. The platform's rate window rolls, so retry after backoff can work;
+769	classify it explicitly as retryable. Reaching this means client rate_per_min is too aggressive;
+770	retrying is only a fallback. The real fix is lowering this channel's rate limit.
+771	93000 means an invalid webhook key: permanent failure, not repairable by retry.

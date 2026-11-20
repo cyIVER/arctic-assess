@@ -1,0 +1,43 @@
+{
+  "command": [
+    "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+    "test",
+    "-p=1",
+    "-json",
+    "-count=1",
+    "./agent",
+    "./guard",
+    "-run",
+    "^TestSideActualChatCheckpointToolResultAndTranscriptIsolation$"
+  ],
+  "env": {
+    "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+    "GOMODCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/gomodcache",
+    "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+    "GOPROXY": "off",
+    "GOSUMDB": "off",
+    "GOTOOLCHAIN": "local",
+    "GOFLAGS": "-mod=readonly",
+    "GOMAXPROCS": "2",
+    "TMPDIR": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/agent-final-evidence/scratch",
+    "GOTMPDIR": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/agent-final-evidence/scratch"
+  },
+  "returncode": 0,
+  "seconds": 4.562256672885269,
+  "top_level": {
+    "pass": 1,
+    "fail": 0,
+    "skip": 0
+  },
+  "subtests": {
+    "pass": 2,
+    "fail": 0,
+    "skip": 0
+  },
+  "package_failures": [],
+  "tests": [
+    "TestSideActualChatCheckpointToolResultAndTranscriptIsolation/atomic",
+    "TestSideActualChatCheckpointToolResultAndTranscriptIsolation/stream",
+    "TestSideActualChatCheckpointToolResultAndTranscriptIsolation"
+  ]
+}

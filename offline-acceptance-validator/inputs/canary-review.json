@@ -1,0 +1,82 @@
+{
+  "verdict": "BLOCKED",
+  "scope": "Independent frozen canary-v2 orchestrator, bounded transport, compiled literal caller and minimal proxy654 delta review. Local-only; not native/normal-model admission or real guest qualification.",
+  "runtime_proof": false,
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "High",
+      "title": "Future guest path runs the Go caller as root and cannot admit the required UID1001 client",
+      "references": ["driver.py:101,116-117,148,161", "guest.py:98-100", "host/hostbroker/control.py:20-24,49-51", "test_native_control_v2.py:55-64"],
+      "evidence": "Root is required by run(). Controller root is created root:root 0700; ControlServer creates root-owned 0600 control.sock; peer_uid is os.getuid()==0; Runner.Popen supplies no user/group/extra_groups override. Thus the current caller is UID0. A genuine UID1001/GID1002 caller cannot search the root, cannot write the socket, and would also fail SO_PEERCRED even after those DAC obstacles were independently corrected. Existing same-current-UID unit positives cannot qualify this boundary.",
+      "reproducer": "review_probes.py records exact Linux DAC mode/owner evaluation without changing UID. Source inspection confirms all three obstacles and inherited caller UID. No claim of an actual UID1001/root execution test is made.",
+      "minimal_fix": "Keep privileged phase/controller files root-owned 0700. Provide a separate fresh caller-accessible, root-controlled UDS directory, with explicit traversal policy, socket chowned1001:1002 mode0600 and server peer_uid1001. Actually launch caller with user1001/group1002/empty supplementary groups and an accessible safe cwd/executable ancestry; keep key stdin-only. Do not merely chown the socket or weaken the whole controller root. Add separate denied-UID/path tests and require the real guest UID1001 positive before admission."
+    },
+    {
+      "id": "F2",
+      "severity": "High",
+      "title": "Current admission verifies self-consistency, not independently established authority or an exact reviewed code tuple",
+      "references": ["admission_v2.py:9-21", "guest.py:49-88,133-139", "driver.py:277-278"],
+      "evidence": "The live validator accepts a whitespace-rehashed old653 manifest as a new source, a deliberately non-executable arbitrary helper with a different hash, made-up parent/code-review handle strings, and a matching made-up preflight object. review_probes.json records accepted_by_current_validator:true. Old-ID inequality is not new proxy654 identity validation. The guard implementation itself is an external selected executable: comparing its JSON return to expected values does not establish that it actually read provider/controller/default-daemon state. No actual qualifying guard source/current parent authority was provided to this review.",
+      "trust_boundary": "This is not a claim of HMAC bypass or remote root compromise. A genuinely trusted parent can enforce authority outside this component; untrusted JSON and unit-test fabricated reports cannot. The standalone --live path currently has no independently established parent allowlist or trusted-input provenance check, so its successful validate() is not evidence of approval.",
+      "minimal_fix": "Bind execution to the concrete independently reviewed parent-installed manifest/helper/orchestrator/caller/guard/fixture tuple and actual review handles under protected parent-owned ancestry. Parent must derive scoped lease/reports from standing authority and inspect the real pinned guard implementation for fresh provider/controller/default-daemon readbacks. Use the reviewed combined bundle identity recorded here; do not treat STAGED_NOT_APPROVED or arbitrary nonempty strings as admission. No new signing system or broad architecture is necessary."
+    },
+    {
+      "id": "F3",
+      "severity": "High",
+      "title": "Pinned leaf checks do not protect source/executable ancestry or later pathname execution",
+      "references": ["guest.py:32-47,65-86", "driver.py:161,278", "reviewed_imports.py:23", "stage_reviewed.py:13-23"],
+      "evidence": "pinned() rejects symlink ancestors and group/other-writable leaves, but never checks ancestor owner/mode or leaf owner. A private0600 leaf inside a0777 ancestor is accepted by the real function (review-probes.json). It closes the descriptor after hashing, while caller and guard are later executed by path. An untrusted writable ancestor permits replacement after review/hash verification. resolve() on own dependency paths also erases evidence of a symlinked original ancestry. Fresh root.mkdir under trusted /run is exclusive and fine; that does not secure arbitrary config/source/caller/guard paths.",
+      "minimal_fix": "Require trusted owner/non-worker-writable ancestors and trusted leaf owners for parent config, snapshots, review objects and executables; retain and consume verified source/executable objects where applicable, or execute only from an independently protected immutable staging tree. Validate the config itself before pathname execution. Test an ancestor rename/replacement between pin and consumption; do not rely only on leaf mode/hash."
+    },
+    {
+      "id": "F4",
+      "severity": "Medium",
+      "title": "Quota canary deletes a pre-existing file when exclusive filler creation fails",
+      "references": ["probes.py:42-52"],
+      "evidence": "names.append(name) precedes open(name,'xb'). If canary-fill-00 already exists, EEXIST fails the probe but finally unlinks that existing non-owned file. Executing the exact literal with only /work substituted for an owned local fixture reproduced AssertionError plus preexisting_file_deleted:true without allocating fillers.",
+      "minimal_fix": "Add a name to the cleanup-owned set only after successful exclusive creation; preferably retain opened object identity and refuse replacement on unlink. Preserve the original failure while attempting cleanup of every successfully created filler. Add the collision negative test without weakening assertions."
+    }
+  ],
+  "qualified_components": {
+    "bounded_transport": "SCOPED_PASS for narrow shared attached-output read-budget delta. The actual Phase uses RLock; read_chunk holds it through nonblocking read and charge, and charge reenters that RLock, so this exact callback is not self-deadlocking. Read size is bounded by remaining allowance; stdout, stderr and HELLO enter the same charged path. Exact-cap charge stops/refuses before incomplete delivery. Local owned-process test passes. No real Docker/guest transport proof follows.",
+    "proxy654_helper": "SCOPED_PASS for the narrow production Director-to-Rewrite/extracted-handler/X-Real-IP stripping delta. No SetXForwarded, no gateway widening. Independent full Go run:16 top-level plus29 subtests=45 inclusive passed, no failures/skips. Independent offline -trimpath helper rebuild exactly matches ea54b361fed9d575eaadcd069b59382d853c241abee4821dbd7f02f4fac765ac. The previously independently reviewed H2/registration/cleanup functions are unchanged and their prior narrow review is carried, not recertified as real Docker proof.",
+    "caller": "Actual offline independent build matches all supplied compiled caller bytes:7f9a360e2925e2bfaa257ce8975ac344e9e4f2ddfec879d5d0991821c22ba746. Key is stdin-only, not argv/env/command receipts; caller output encodes tool result, never its configuration/key. Actual guest caller UID provisioning remains F1."
+  },
+  "reviewed_controls_and_limits": [
+    "Dedicated fresh /run/artex-canary-12hex directory creation is exclusive; phase sentinel rejects a second actual Python process before image build/Docker and preserves persistent marker/counters. No claimed crash restart recovery is implemented.",
+    "Root-controlled Docker endpoint constant, socket UID/device/inode, daemon ID/root and initial exact9containers/44images/4volumes are compared before mutation. Final inventory preserves exact container/volume IDs and all original image IDs, permitting only the newly derived helper image; no prune or old-resource deletion.",
+    "Mount target is exact root/data with64MiB tmpfs uid1001/gid1002 mode0700 nodev/nosuid/noexec. Retained WorkspaceQuota FD binds dev/inode/capacity and rechecks before archive; work/work-output/fixture originate on that filesystem. Only /work RW and /fixture RO binds plus exact bounded tmpfs shadows are admitted; Config.Volumes must exactly equal /app/data. Private app/key/controller/target state are not helper mounts.",
+    "Target drops supplementary groups/GID/UID to1002/1001 before exec of already reviewed fixture bytes. Its separate /run/artex-target-nonce state directory is chowned1001:1002 0700 and file handling uses exclusive/no-follow private files. It does not chdir or close all inherited controller/quota FDs after fork: explicitly chdir to state and close non-required inherited FDs during correction, and verify real guest private-path startup. No target listener was started by reviewer.",
+    "Shared phase reserves create attempts and every correct-peer gateway request before method/origin rejection. Planned25effects+7HTTP fits32; accepted/rejected requests do not reset counters. ScopeBudget cancellation is local; second output scope shares the same Phase/Broker quota. No fake whole-phase cancellation is credited as second-scope continuation.",
+    "Inflight revocation is conditioned on observed runtime and payload-guard entry, then requires caller thread settlement, exact removal/ps absence, init PID namespace difference and empty owned cgroup before postcancel denial. Source swap hooks execute after host pins but before actual create and require mounted-object mismatch, zero ACK guard entries and no marker. These are future real Docker paths, not exercised here.",
+    "Observed runtime checks use Docker inspect plus /proc UID/GID/caps/nnp/namespaces/cgroup limits rather than dataclass claims. H2 uses typed equality against actual helper fstat/statfs identities. Several outer admission fields still use ordinary Python equality (e.g.schema True equals1/socket UID False equals0); tighten their numeric/boolean type checks rather than claiming all JSON is strictly typed.",
+    "Runner bounds commands/output/deadlines and kills/waits its caller process group. Broker uses independent uncancelled exact-name removal plus absence query on success and failure and retains quarantine/lock/FDs if unresolved. Orchestrator attempts component shutdown and inventory readback; archive/unmount occurs only if safe. Errors remain FAILED, not COMPLETE. Absolute original provider STOP remains external and must not be extended.",
+    "Archive accepts ordinary single-link files only, checksums every member, caps archive bytes, fsyncs and reads back before exact umount/mountinfo absence. It uses path-based traversal/read after lstat, not pinned leaf FDs: after F1 ancestry changes, maintain the no-writer settlement invariant and harden against path replacement rather than treating quota-root identity alone as archive leaf pinning.",
+    "COMPLETE is gated on all executed normal/swap/inflight/output/restart cases plus successful service settlement, inventory/archive/unmount observations. No current receipt satisfies these real-guest gates; no RuntimeModel HTTP or model/native target operations were performed."
+  ],
+  "verification": {
+    "python_local": {"tests":37,"failures":0,"errors":0,"skips":0,"evidence":"unit-tests-final.log","scope":"actual owned local nativeexec/control UDS, literal SDK/processes; Docker fake; not root-to1001 qualification"},
+    "go_proxy_and_client": {"top_level":16,"subtests":29,"inclusive":45,"failures":0,"skips":0,"evidence":"proxy-tests-final.json"},
+    "negative_reproducers":"review_probes.py and review-probes.json",
+    "compiled_caller":"caller-build.json and caller-independent",
+    "compiled_helper":"helper-build.json and helper-independent",
+    "source_before":"hashes-before.json",
+    "source_after":"hashes-after.json",
+    "combined_bundle":"bundle-pins.json",
+    "minimal_proxy_delta":"proxy-independent-delta.json"
+  },
+  "identity": {
+    "canary_source_identity_sha256":"c6c1506b64b855f1450515b2e348143941e01cf27fd461a9c11bcbdae1117f76",
+    "canary_freeze_sha256":"3e5284a5469f18d65b2aff97cdab7c3b1aeaa25327ecb2b37c48ebd610f7937d",
+    "source_entries":23,
+    "combined_bundle_manifest_sha256":"85aef1698ef86d928f4767efcf6754cde410eef959c1bb290340463600e25206",
+    "combined_source_entries":654,
+    "combined_host_entries":11,
+    "new_helper_sha256":"ea54b361fed9d575eaadcd069b59382d853c241abee4821dbd7f02f4fac765ac",
+    "identity_domains":"source-identity.json names23 code/document/binary entries; FREEZE separately lists variable evidence hashes. Both domains independently checked before and after; review evidence is separate."
+  },
+  "issues_encountered":"First Python run used long review-local TMPDIR and hit3 AF_UNIX path-length errors. Relative TMPDIR retry was unsuitable for canonical mount paths. Initial Go run similarly failed with long local socket paths. Preserved these harness-error receipts; final unchanged suites pass using approved short scratch TMPDIR. No expectations weakened and no candidate files changed.",
+  "created_or_modified":"Only new artex-worker-guest-canary-review durable artifacts: report, reviewer probes, hash/delta/build/test receipts, independent caller/helper and isolated Go cache. Owned ephemeral synthetic test fixtures use approved scratch. No frozen source changes; no Docker/mount/cloud/service/UID/model/secret/auth/profile/global writes.",
+  "admission":"BLOCKED until F1-F4 are addressed in a new frozen candidate, independent authority/guard review completed, and all required real guest canaries pass under a fresh external provider STOP within standing scope. This report is not an approval lease."
+}

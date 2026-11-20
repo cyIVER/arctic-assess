@@ -1,0 +1,17 @@
+{
+  "reviewed_file_count": 58,
+  "changed_original_paths": [],
+  "artifact_hash_mismatches": [],
+  "unit_copy_mismatches": [],
+  "integration_copy_matches": true,
+  "tests": {
+    "tests_run": 20,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "loader_errors": [],
+    "success": true
+  },
+  "free_bytes": 2054287360,
+  "test_python": "Python 3.12.3"
+}

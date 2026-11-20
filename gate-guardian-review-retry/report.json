@@ -1,0 +1,99 @@
+{
+  "schema": 1,
+  "verdict": "CHANGES_REQUIRED",
+  "status": "not_approved",
+  "live_admission": "BLOCKED",
+  "approval_minted": false,
+  "scope": "Independent source audit and safe LOCAL_ONLY test reproduction; no privileged/runtime qualification",
+  "path_base": "/home/iveri/work/vindler-e2.SftLYa2R/continuation",
+  "object_path": "artex-worker-live-guard/guard.py",
+  "object_sha256": "4dbee74525efc94a4262d7e297c0922e5ffeeba5c5583b6466454898d6f8a0cd",
+  "hash_domain": "SHA256 of source-file bytes, not patch or manifest bytes",
+  "integration_objects": {
+    "artex-worker-guest-canary-v3/GUARD-INTERFACE.md": "c4e506c883d592ec688e60cfcee42b3aaae1b2f7b8824d82bcf3a02c745a428a",
+    "artex-worker-guest-canary-v3/guest.py": "c51d2f0bddef4fe38af25378b3589437fc018fd8ed0bc07fd0ae3a5b714b3326",
+    "artex-worker-guest-canary-v3/admission_v3.py": "5aefde551ac5f900400c520162a2e582d5903a8cce2dac22ad6e9d8dc21a4387",
+    "artex-worker-guest-canary-v3/driver.py": "9dc6b99fdf9d99a3397164dec22a56e99d7c45d453b17bbf5973d0021e350e19"
+  },
+  "preservation": {
+    "before": "before.json",
+    "after": "after.json",
+    "non_cache_files_pinned": 58,
+    "original_file_changes": [],
+    "original_artifact_hash_mismatches": [],
+    "copy_hash_mismatches": [],
+    "note": "Preservation coverage is broader than direct security-review coverage. Final exact file-set check is in final-integrity.json."
+  },
+  "execution": {
+    "python": "Python 3.12.3 (/usr/bin/python3)",
+    "original_suite": {
+      "cwd": "unit-copy",
+      "command": "PYTHONDONTWRITEBYTECODE=1 TMPDIR=<owned-review-dir> /usr/bin/python3 -B verify.py",
+      "exit_code": 0,
+      "tests_run": 20,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "loader_errors": [],
+      "log": "unit-tests.log",
+      "receipt": "unit-copy/evidence.json"
+    },
+    "independent_boundary_probes": {
+      "command": "/usr/bin/python3 -B test_review_boundaries.py",
+      "exit_code": 0,
+      "tests_run": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "log": "boundary-tests.log"
+    },
+    "contract_reproduction": {
+      "command": "/usr/bin/python3 -B reproduce_contract.py",
+      "exit_code": 0,
+      "result": "contract-reproduction.json",
+      "external_commands": 0
+    },
+    "not_run": ["full canary-v3 suite", "cloud/SSH/Docker", "root staging", "mount/UID changes", "TCP listener", "services", "model/credentials/config/install/spend", "privileged/runtime/persistence acceptance"],
+    "test_limitations": ["Injected cloud/SSH/package/service readbacks", "Synthetic root metadata projection", "Projected parent identity for the positive fixture pidfd test", "Socketpair is not real IAP transport", "Virtual-clock timing reproduction is not network latency measurement"]
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "HIGH",
+      "classification": "integration blocker",
+      "title": "Same context-bound preflight bytes have mutually exclusive required schemas",
+      "references": ["guard.py:79-82", "guard.py:200-204", "admission_v3.py:43-44", "admission_v3.py:61-63"],
+      "reproduced": true,
+      "details": "v3 requires exact status=verified checkpoint without READY/inventory/external_stop fields; guard requires status=READY plus empty default_inventory and external_stop. Their shared preflight path/hash cannot satisfy both.",
+      "correction": "Agree and bind a shared schema, or separate evidence objects explicitly bound to the same real parent lease and original STOP; add a shared-byte integrated positive and re-freeze/re-review."
+    },
+    {
+      "id": "F2",
+      "severity": "MEDIUM",
+      "classification": "timing-contract defect, not an outer-timeout bypass",
+      "title": "Client timeout10 is not an end-to-end10-second bound",
+      "references": ["guard.py:269-270", "guard.py:225-234", "guest.py:173"],
+      "reproduced": true,
+      "details": "Independent virtual-clock test accepts a valid response after18 seconds across9-second connect and9-second readback/receive. Actual v3 separately enforces min(12, remaining_phase_time), so slow valid results fail closed rather than bypass that bound.",
+      "correction": "Apply one monotonic client-call deadline or specify per-stage bounds accurately and retain outer supervision."
+    }
+  ],
+  "notes": [
+    "Guard README timeout2 warning is stale: actual v3 uses deadline-limited12 seconds, independently probed.",
+    "Status response shape is compatible with actual guest.guard; input preflight is not.",
+    "Guard source implements fixed provider reads, stable pidfd/UID/starttime/exe checks, original STOP checks, no-SA/no-public-IP/original network and retained disk checks.",
+    "Protocol uses exact route/fields, nonce/HMAC/freshness/replay controls. Root allowlist/source/review pins depend on real trusted parent provenance, not approval strings.",
+    "No arbitrary command route was found in the fixed RPC interface; privileged/runtime installation remains unqualified.",
+    "The120-second preflight lifetime constrains phase timing; do not refresh timestamps synthetically."
+  ],
+  "external_gates": [
+    "Resolve F1/F2 and re-review frozen changed source; this report cannot serve as an approved guardian object.",
+    "Fresh exclusive VM ownership, authorized parent lease/cost headroom, exact live provider STOP/VM/disk/network/no-SA/no-public-IP readback, real independent controller stable identity and original deadline.",
+    "Root immutable staging of reviewed guard/controller/interpreter/full official SDK, canonical allowlist and real independent reports; correct fixed parent run-context and actual preflight provenance.",
+    "Existing private IAP mux, distinct loopback-only status forward, fresh task-only32-byte key stdin-only protected both sides, owned supervision/cleanup; normal root-run existing gcloud context without credential copying/logging.",
+    "Actual guest default package/unit/socket quiescence and fresh empty-default evidence without guard activation.",
+    "Actual root-to1001/GID1002 caller/control/isolation/runtime/mount canary; helper denial of guardian key/mux/host loopback/root paths; cleanup/cgroup settlement and persistence acceptance under approved bounds."
+  ],
+  "owned_outputs": ["REVIEW.md", "report.json", "before.json", "after.json", "verification.json", "final-integrity.json", "unit-tests.log", "unit-copy/", "integration-copy/guest.py", "reproduce_contract.py", "contract-reproduction.json", "test_review_boundaries.py", "boundary-tests.log"],
+  "lessons_handoff_only": "Test the same pinned preflight through both validators before runtime qualification; read actual timeout source rather than stale README. No global skill/profile changes."
+}

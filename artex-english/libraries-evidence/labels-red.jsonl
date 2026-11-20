@@ -1,0 +1,18 @@
+{"Time":"2026-11-20T00:13:21.789960108Z","Action":"start","Package":"github.com/Autumn-27/artex/notify"}
+{"Time":"2026-11-20T00:13:21.797409022Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestEnglishNotificationLabels"}
+{"Time":"2026-11-20T00:13:21.797443292Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestEnglishNotificationLabels","Output":"=== RUN   TestEnglishNotificationLabels\n"}
+{"Time":"2026-11-20T00:13:21.797862124Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestEnglishNotificationLabels","Output":"    english_test.go:9: high label = \"🟠 高危\"\n"}
+{"Time":"2026-11-20T00:13:21.797975435Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestEnglishNotificationLabels","Output":"    english_test.go:10: pending label = \"待处理\"\n"}
+{"Time":"2026-11-20T00:13:21.798063786Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestEnglishNotificationLabels","Output":"    english_test.go:11: asset line = \"one、two 等 3 个\"\n"}
+{"Time":"2026-11-20T00:13:21.79888853Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestEnglishNotificationLabels","Output":"    english_test.go:12: fallback title = \"(未命名漏洞)\"\n"}
+{"Time":"2026-11-20T00:13:21.798945131Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestEnglishNotificationLabels","Output":"    english_test.go:15: dingtalk error is not English: 缺少 Webhook 地址\n"}
+{"Time":"2026-11-20T00:13:21.79905069Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestEnglishNotificationLabels","Output":"    english_test.go:15: email error is not English: 缺少 SMTP 服务器地址\n"}
+{"Time":"2026-11-20T00:13:21.799056441Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestEnglishNotificationLabels","Output":"    english_test.go:15: feishu error is not English: 缺少 Webhook 地址\n"}
+{"Time":"2026-11-20T00:13:21.799060641Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestEnglishNotificationLabels","Output":"    english_test.go:15: telegram error is not English: 缺少 Bot Token\n"}
+{"Time":"2026-11-20T00:13:21.79906454Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestEnglishNotificationLabels","Output":"    english_test.go:15: webhook error is not English: 缺少目标 URL\n"}
+{"Time":"2026-11-20T00:13:21.79906861Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestEnglishNotificationLabels","Output":"    english_test.go:15: wecom error is not English: 缺少 Webhook 地址\n"}
+{"Time":"2026-11-20T00:13:21.79907762Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestEnglishNotificationLabels","Output":"--- FAIL: TestEnglishNotificationLabels (0.00s)\n"}
+{"Time":"2026-11-20T00:13:21.799240782Z","Action":"fail","Package":"github.com/Autumn-27/artex/notify","Test":"TestEnglishNotificationLabels","Elapsed":0}
+{"Time":"2026-11-20T00:13:21.799249622Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Output":"FAIL\n"}
+{"Time":"2026-11-20T00:13:21.800447849Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Output":"FAIL\tgithub.com/Autumn-27/artex/notify\t0.010s\n"}
+{"Time":"2026-11-20T00:13:21.80046605Z","Action":"fail","Package":"github.com/Autumn-27/artex/notify","Elapsed":0.011}

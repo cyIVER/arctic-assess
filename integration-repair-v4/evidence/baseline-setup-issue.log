@@ -1,0 +1,20 @@
+test_actual_final_client_accepts18_virtual_seconds (before_fix.BeforeFix.test_actual_final_client_accepts18_virtual_seconds) ... ok
+test_actual_mutual_rejection_after_both_own_positive_controls (before_fix.BeforeFix.test_actual_mutual_rejection_after_both_own_positive_controls) ... FAIL
+
+======================================================================
+FAIL: test_actual_mutual_rejection_after_both_own_positive_controls (before_fix.BeforeFix.test_actual_mutual_rejection_after_both_own_positive_controls)
+----------------------------------------------------------------------
+guest.Blocked: strict preflight timestamps
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/integration-repair-v4/before_fix.py", line 17, in test_actual_mutual_rejection_after_both_own_positive_controls
+    with self.assertRaisesRegex(t.guest.Blocked,'parent preflight checkpoint'):t.guest.validate(c,1000)
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "parent preflight checkpoint" does not match "strict preflight timestamps"
+
+----------------------------------------------------------------------
+Ran 2 tests in 4.632s
+
+FAILED (failures=1)

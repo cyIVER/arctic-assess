@@ -1,0 +1,330 @@
+{
+  "verdict": "CHANGES_REQUIRED",
+  "source_correction_verdict": "SCOPED_PASS",
+  "admission": "BLOCKED",
+  "runtime_proof": false,
+  "scope": "Independent frozen canary-v3 F1-F4 delta and actual final-guardian integration seam; local-only, no runtime clearance",
+  "object_sha256": "e7fa39bf9c062d1c1a53269730b9afca7eed371dcbd87596cc358a22b8944023",
+  "object_domain": "Exact bytes of artex-worker-guest-canary-v3/source-identity.json naming 34 source/doc/test/binary members; not a patch hash or approval",
+  "identity": {
+    "canary_source_identity_sha256": "e7fa39bf9c062d1c1a53269730b9afca7eed371dcbd87596cc358a22b8944023",
+    "canary_freeze_sha256": "f4644650e4d9e709150de28a24bc6dacfe6fe448bad2e413fc6a2bb1a692ba88",
+    "author_report_sha256": "9e2df8edf601e199e3cba32e84341086f9671e698edf38dcafc39bd348b2af9d",
+    "v2_source_identity_sha256": "c6c1506b64b855f1450515b2e348143941e01cf27fd461a9c11bcbdae1117f76",
+    "v2_freeze_sha256": "3e5284a5469f18d65b2aff97cdab7c3b1aeaa25327ecb2b37c48ebd610f7937d",
+    "manifest_bytes_sha256": "85aef1698ef86d928f4767efcf6754cde410eef959c1bb290340463600e25206",
+    "canonical_map_sha256": "fe8a0c7e2df6e44b343cc2d77e5cce8df8fb64575c958f277ede1042feea279b",
+    "counts": {
+      "host": 11,
+      "source": 654
+    },
+    "mismatches": [],
+    "helper_sha256": "ea54b361fed9d575eaadcd069b59382d853c241abee4821dbd7f02f4fac765ac",
+    "fixture_sha256": "49e1f487b407ebff7bf0d79f5f2e6137b38d6955c4c1ca1e9a4becb15e20a08d",
+    "guardian_final_source_sha256": "b54b4b00627193105c3b23621b04b529f3c9ee422842597cd53ccb2901b295ef"
+  },
+  "findings": [
+    {
+      "id": "C1",
+      "severity": "Medium",
+      "blocking": true,
+      "category": "fail-closed integration incompatibility, not security bypass",
+      "title": "Shared preflight checkpoint cannot satisfy canary and final guardian simultaneously",
+      "references": [
+        "artex-worker-guest-canary-v3/admission_v3.py:61-63",
+        "artex-worker-live-guard-final/guard.py:123-127,236-240"
+      ],
+      "evidence": "Canary requires exact status verified checkpoint without extra fields; guardian reads same context reference and requires status READY, default_inventory, external_stop. Actual guardian inventory with exact canary-required checkpoint raises Blocked(preflight stale/scope) before external runner (0 calls).",
+      "minimal_fix": "Reconcile shared checkpoint schema or explicitly bind distinct authority/inventory checkpoint references and returned digest. Freeze new identities and independently exercise combined source seam. Do not weaken authority checks."
+    }
+  ],
+  "original_findings": {
+    "F1": {
+      "verdict": "SCOPED_PASS",
+      "limit": "Actual Popen UID/GID kwargs and separate UDS/executable policy corrected; actual root-to1001 DAC/peer and target startup unexecuted. Local identity/chown substitutions and symbolic DAC only."
+    },
+    "F2": {
+      "verdict": "SCOPED_PASS",
+      "limit": "Concrete tuple and fixed protected context/report binding reject prior fabricated authority. Real parent installation, genuine approved reports and real guardian security qualification absent. C1 blocks combined seam."
+    },
+    "F3": {
+      "verdict": "SCOPED_PASS",
+      "limit": "Owner/ancestor/no-follow/regular/nlink checks and verified-byte imports corrected; root-trusted immutable bootstrap and no concurrent privileged writer remain explicit prerequisites."
+    },
+    "F4": {
+      "verdict": "SCOPED_PASS",
+      "limit": "Collision preserves valuable file/FileExistsError; inode replacement refused; archive pinned leaf and archive FD consumed. No assertion of atomic conditional unlink against arbitrary concurrent writers."
+    }
+  },
+  "verification": {
+    "local_tests": {
+      "tests": 54,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "collection_errors": [],
+      "successful": true,
+      "test_ids": [
+        "test_admission_v3.AdmissionV3Tests.test_actual_pinned_rejects_untrusted_owner",
+        "test_admission_v3.AdmissionV3Tests.test_actual_pinned_rejects_writable_ancestor_after_positive",
+        "test_admission_v3.AdmissionV3Tests.test_current_requires_external_parent_context_before_commands",
+        "test_admission_v3.AdmissionV3Tests.test_stage_created_directories_explicitly_protected",
+        "test_admission_v3.AdmissionV3Tests.test_strict_numeric_bool_schema_actual_snapshot",
+        "test_cases_v2.CasesV2.test_cancel_hook_settles_and_no_postcancel",
+        "test_cases_v2.CasesV2.test_fresh_guard_requires_external_quiescent_checkpoint",
+        "test_cases_v2.CasesV2.test_live_rejects_original_fixed_source_helper",
+        "test_cases_v2.CasesV2.test_proxy_probe_really_uses_environment_get_head",
+        "test_cases_v2.CasesV2.test_restart_child_actual_owned_process",
+        "test_cases_v2.CasesV2.test_sdk_finite_both_streams_actual_caller",
+        "test_cases_v2.CasesV2.test_shared_output_bound_no_refund",
+        "test_cases_v2.CasesV2.test_terminal_exhaustion_real_seam_and_denial",
+        "test_cases_v2.CasesV2.test_transport_reads_no_more_than_shared_remaining",
+        "test_data_v3.DataV3Tests.test_archive_never_reopens_leaf_by_path_after_metadata_check",
+        "test_data_v3.DataV3Tests.test_archive_swap_after_open_refused_by_same_fd_identity",
+        "test_data_v3.DataV3Tests.test_literal_collision_preserves_valuable_file",
+        "test_data_v3.DataV3Tests.test_literal_refuses_replaced_owned_filler_preserves_original_error",
+        "test_guest.ArtifactTests.test_archive_reads_all_members_no_socket",
+        "test_guest.ArtifactTests.test_archive_special_and_symlink_deny",
+        "test_guest.ArtifactTests.test_derived_image_only_helper_no_pull",
+        "test_guest.ArtifactTests.test_fact_parser_real_structure_rejects_marker",
+        "test_guest.ArtifactTests.test_probe_inputs_are_sdk_shapes",
+        "test_guest.ArtifactTests.test_runner_actual_literal_output",
+        "test_guest.ArtifactTests.test_runner_deadline_and_bytes_are_bounded",
+        "test_guest.GateTests.test_absolute_stop_readback_positive",
+        "test_guest.GateTests.test_cli_default_blocked2",
+        "test_guest.GateTests.test_entry_denies_without_commands_or_files",
+        "test_guest.GateTests.test_expired_guard_no_command",
+        "test_guest.GateTests.test_inventory_exact_ids_fakecli",
+        "test_guest.GateTests.test_missing_parent_authority_denied",
+        "test_guest.GateTests.test_pinned_bytes_and_symlink_denied",
+        "test_guest.GateTests.test_stop_guard_rejects_wrong_vm_no_mutation",
+        "test_guest.InspectTests.test_independent_inspect_denials",
+        "test_guest.InspectTests.test_independent_inspect_positive",
+        "test_guest.InspectTests.test_no_full_acceptance_status",
+        "test_image_stage.ImageStageTests.test_actual_staging_fake_build_positive",
+        "test_image_stage.ImageStageTests.test_bad_inherited_volumes_denied_after_readback",
+        "test_image_stage.ImageStageTests.test_existing_tag_denied_before_build",
+        "test_live_inputs.CurrentInputTests.test_actual_frozen_inventory_positive_readonly",
+        "test_live_inputs.CurrentInputTests.test_gate_rejects_current_schema_mutations",
+        "test_live_inputs.CurrentInputTests.test_missing_or_stale_reviews_deny",
+        "test_live_inputs.CurrentInputTests.test_reviewed_imports_use_pinned_source",
+        "test_native_control_v2.NativeControlCases.test_real_native_control_inflight_cancel_local_process",
+        "test_native_control_v2.NativeControlCases.test_real_native_control_sdk_aggregate_and_postcap",
+        "test_native_control_v2.NativeControlCases.test_real_native_control_uncertain_cleanup_holds_lock_fds",
+        "test_privilege_v3.PrivilegeTests.test_controller_private_and_separate_uds_policy",
+        "test_privilege_v3.PrivilegeTests.test_prepare_actual_public_copy_and_peer_policy_unit_only",
+        "test_privilege_v3.PrivilegeTests.test_real_popen_caller_identity_and_safe_cwd",
+        "test_privilege_v3.PrivilegeTests.test_target_actual_fork_drops_inherited_fds_no_uid_change",
+        "test_privilege_v3.PrivilegeTests.test_target_closes_inherited_fds_and_chdirs",
+        "test_protected_tuple_v3.ProtectedTupleTests.test_canonical_maps_not_raw_manifest_whitespace_and_concrete_helper",
+        "test_protected_tuple_v3.ProtectedTupleTests.test_guardian_and_orchestrator_reports_mandatory",
+        "test_protected_tuple_v3.ProtectedTupleTests.test_unit_only_positive_and_owning_context_required"
+      ],
+      "runtime_proof": false,
+      "scope": "UNIT_ONLY metadata substitutions; actual owned processes/UDS/SDK; fake Docker; no UID changes"
+    },
+    "supplemental": {
+      "guardian_checkpoint_seam": {
+        "checkpoint": {
+          "status": "verified",
+          "requirement": "already-private-default-quiescent",
+          "vm": {
+            "name": "vindler-lab-01",
+            "id": "590620893136303309",
+            "disk_id": "521979503200711885",
+            "project": "syncfall-ir-range",
+            "zone": "us-central1-a"
+          },
+          "created": 1000,
+          "deadline": 1600,
+          "parent_scope_lease": "UNIT_ONLY",
+          "default_service_changes_owner": "parent"
+        },
+        "guardian_result": {
+          "type": "Blocked",
+          "reason": "preflight stale/scope"
+        },
+        "runner_calls": 0,
+        "canary_requires_exact_verified_object": true,
+        "guardian_requires_READY_plus_default_inventory_external_stop": true,
+        "compatible": false
+      },
+      "archive_hash_consumes_original_fd": {
+        "passed": true,
+        "pathname_swapped": true,
+        "note": "Returned hash describes opened archive object; protected parent/no-writer invariant still required for final pathname."
+      },
+      "review_replay": {
+        "returncode": 0,
+        "result": {
+          "quota_collision": {
+            "exception": "FileExistsError",
+            "preexisting_file_deleted": false
+          },
+          "selfconsistent_unreviewed_input": {
+            "accepted_by_current_validator": false,
+            "real_approval": false,
+            "helper_is_public_non_executable": true
+          },
+          "pinned_writable_ancestor": {
+            "accepted": false,
+            "ancestor_mode": "0777",
+            "same_entrypoint_positive_first": true
+          },
+          "scope": "UNIT_ONLY actual reviewer operations; not authority/runtime proof"
+        }
+      },
+      "default_cli": {
+        "returncode": 2,
+        "stdout": {
+          "status": "BLOCKED",
+          "reason": "explicit --live plus current parent-approved input required",
+          "runtime_proof": false,
+          "unresolved_gates": [
+            "current-parent-scope-lease",
+            "new-reviewed-proxy-source-helper",
+            "independent-code-reviews",
+            "fresh-provider-controller-guard",
+            "parent-default-docker-quiescence",
+            "actual-guest-canary-observations"
+          ]
+        },
+        "stderr": ""
+      },
+      "inventory": {
+        "old_tests": 37,
+        "new_collected": 54,
+        "old_missing": [],
+        "required_guest_cases": [
+          "aggregate-output-exhaustion",
+          "app-data",
+          "confinement",
+          "environment-proxy",
+          "fifo-create",
+          "fifo-read",
+          "fixture-http",
+          "fixture-ordinary-swap",
+          "fixture-symlink-swap",
+          "host-absence",
+          "inflight-cancellation",
+          "phase-restart",
+          "quota-enospc",
+          "setsid-success",
+          "timeout-setsid",
+          "work-ordinary-swap",
+          "work-symlink-swap"
+        ],
+        "required_guest_count": 17,
+        "guest_executed": 0
+      }
+    },
+    "frozen_hashes_before_after_unchanged": true,
+    "v3_source_and_frozen_evidence_mismatches": [],
+    "guardian_source_unchanged": true,
+    "delta": {
+      "added": [
+        "GUARD-INTERFACE.md",
+        "V3-REPORT.md",
+        "admission_v3.py",
+        "replay_review_v3.py",
+        "review_repro_v3.py",
+        "test_admission_v3.py",
+        "test_data_v3.py",
+        "test_privilege_v3.py",
+        "test_protected_tuple_v3.py",
+        "unit_support_v3.py",
+        "verify_v3.py"
+      ],
+      "removed": [],
+      "changed": [
+        "README.md",
+        "driver.py",
+        "fixture_service.py",
+        "guest.py",
+        "probes.py",
+        "reviewed_imports.py",
+        "stage_reviewed.py"
+      ],
+      "unchanged": [
+        "admission_v2.py",
+        "bounded_transport.py",
+        "caller",
+        "caller.go",
+        "image_stage.py",
+        "proxy_contract_test.go",
+        "restart_probe.py",
+        "test_cases_v2.py",
+        "test_guest.py",
+        "test_image_stage.py",
+        "test_live_inputs.py",
+        "test_native_control_v2.py",
+        "v2_cases.py",
+        "vendor/lifecycle.py",
+        "vendor/runtime.py",
+        "verify_local.py"
+      ]
+    },
+    "go_tests": "NOT_RUN; no builds/cache; caller/helper existing bytes match previously reviewed concrete identities",
+    "guest_cases_executed": 0,
+    "required_guest_cases": 17,
+    "post_test_free_bytes": 2048434176
+  },
+  "commands": [
+    {
+      "command": "pwd; df -h .; id",
+      "result": "UID1000/GID1000; about2.0GB available; no privilege changes"
+    },
+    {
+      "command": "inline Python frozen SHA256/delta verifier",
+      "result": "Initial KeyError on v2 FREEZE source key; corrected reviewer schema before tests. All34 v3 source members and listed evidence matched, all23 v2 source members matched; before snapshot persisted and read back."
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 TMPDIR=/home/iveri/.hermes/cache/scratch python -B /home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/gate-canary-review-retry/run_local_review.py",
+      "exit_code": 0,
+      "result": "54 tests passed,0 failures,0 errors,0 skips,no collection errors; outputs redirected away from frozen evidence"
+    },
+    {
+      "command": "inline Python v2/v3 unified diff and concrete bundle manifest/member/helper/fixture identity verifier",
+      "exit_code": 0,
+      "result": "395 diff lines;654 source+11 host member hashes matched; real canonical/raw map/helper/fixture pins matched"
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 TMPDIR=/home/iveri/.hermes/cache/scratch python -B /home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/gate-canary-review-retry/supplemental_review.py",
+      "exit_code": 0,
+      "result": "Original review replay now rejects authority forgery and writable ancestor; preserves collision. ArchiveFD binding passed; guardian schema contradiction reproduced with zero external runner calls; default CLI blocked/2;37 inherited names preserved,54 local tests and17 required guest cases verified."
+    },
+    {
+      "command": "inline Python hashes-after verifier; df -h .",
+      "exit_code": 0,
+      "result": "No tracked frozen bytes changed; guardian source unchanged; hash receipt persisted/read back;2048434176 bytes free"
+    }
+  ],
+  "skips_and_setup_failures": {
+    "executed_suite_skips": 0,
+    "executed_suite_setup_errors": 0,
+    "reviewer_setup_failure": "Initial hash-checker KeyError on differing v2 freeze schema, corrected before tests; not a candidate defect",
+    "deliberately_not_executed": [
+      "verify_v3.py (would overwrite frozen evidence)",
+      "Go builds/tests",
+      "real guard status CLI/readbacks",
+      "all17 guest cases",
+      "root-to1001/real target startup",
+      "cloud/SSH/Docker/mount/services/TCP listeners/model/credentials/config/install/spend"
+    ]
+  },
+  "remaining_realguest_gates": [
+    "C1 shared preflight schema reconciliation and new frozen combined seam review",
+    "Independent guardian security review; this report inspects integration only",
+    "Actual source-bound approved guardian and orchestrator reports plus protected parent context and standing-authority-derived scoped lease",
+    "Trusted immutable root-owned staging/interpreter/import bootstrap",
+    "Fresh real provider/controller/default-daemon readbacks under original STOP and cost ceiling",
+    "Actual root-toUID1001/GID1002 caller executable DAC and UDS SO_PEERCRED positive/negative; target private cwd and inherited-FD startup proof",
+    "All17 guest runtime cases with actual Docker/H2/mount/quota/cancellation/process cleanup/inventory/archive/unmount observations"
+  ],
+  "created_or_modified": "Only new coordination-20261119/gate-canary-review-retry review artifacts; owned ephemeral scratch fixtures used by inspected local tests. No peer/frozen source/evidence repairs or global/profile/skill/config changes.",
+  "issues_encountered": "No disk shortage or persistence failure; initial reviewer v2 schema assumption fixed. No previous partial review assumed complete.",
+  "lessons_handoff": [
+    "Test paired shared references using identical serialized checkpoint bytes, not separately passing incompatible fixtures.",
+    "Redirect test outputs when frozen verifier overwrites immutable evidence; keep source and evidence hash domains separate."
+  ]
+}

@@ -1,0 +1,19 @@
+test_actual_blocked_canary_cannot_be_overridden_by_local_pass (test_validate.ReadinessTests.test_actual_blocked_canary_cannot_be_overridden_by_local_pass) ... FAIL
+test_synthetic_complete_control_is_unit_only (test_validate.ReadinessTests.test_synthetic_complete_control_is_unit_only) ... ok
+
+======================================================================
+FAIL: test_actual_blocked_canary_cannot_be_overridden_by_local_pass (test_validate.ReadinessTests.test_actual_blocked_canary_cannot_be_overridden_by_local_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/offline-acceptance-validator/tests/test_validate.py", line 40, in test_actual_blocked_canary_cannot_be_overridden_by_local_pass
+    self.assertEqual(result['readiness'], 'BLOCKED')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'REVIEW_REQUIRED' != 'BLOCKED'
+- REVIEW_REQUIRED
++ BLOCKED
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (failures=1)

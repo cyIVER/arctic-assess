@@ -1,0 +1,16 @@
+{
+  "tests": 5,
+  "failures": 0,
+  "errors": 1,
+  "skips": 0,
+  "loader_errors": [],
+  "ids": [
+    "test_integration.ClientDeadline.test_18_seconds_rejected_not_perstage_accepted",
+    "test_integration.ClientDeadline.test_send_time_counts_in_shared_deadline",
+    "test_integration.ClientDeadline.test_within10_positive_and_remaining_timeout",
+    "test_integration.Integrated.test_contract_negatives_both_after_same_entrypoint_positive",
+    "test_integration.Integrated.test_same_serialized_path_hash_both_actual_validators_and_status"
+  ],
+  "successful": false,
+  "runtime_qualified": false
+}

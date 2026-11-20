@@ -1,0 +1,46 @@
+{
+  "command": [
+    "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot/bin/go",
+    "test",
+    "-p",
+    "2",
+    "-json",
+    "./server",
+    "-run",
+    "^TestRuntimeEnglishTaskContext$",
+    "-count=1",
+    "-timeout=90s"
+  ],
+  "environment": {
+    "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+    "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+    "GOPROXY": "off",
+    "GOSUMDB": "off",
+    "GOFLAGS": "-mod=readonly"
+  },
+  "returncode": 1,
+  "top_level": {
+    "pass": 0,
+    "fail": 1,
+    "skip": 0
+  },
+  "subtests": {
+    "pass": 0,
+    "fail": 0,
+    "skip": 0
+  },
+  "package_failures": [
+    {
+      "Time": "2026-11-20T00:15:34.259825446Z",
+      "Action": "fail",
+      "Package": "github.com/Autumn-27/artex/server",
+      "Elapsed": 0.175
+    }
+  ],
+  "tests": [
+    {
+      "name": "TestRuntimeEnglishTaskContext",
+      "action": "fail"
+    }
+  ]
+}

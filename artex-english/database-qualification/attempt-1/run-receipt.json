@@ -1,0 +1,58 @@
+{
+  "state": "/home/iveri/.hermes/cache/scratch/english-pg-state-l8milwx0",
+  "socket": "/home/iveri/.hermes/cache/scratch/epg-zxzr4mco",
+  "fixture": "artex-local-pg/run_with_pg.py run_session; stable adapter identity override only",
+  "identity_checks": [
+    {
+      "pid": 96084,
+      "uid": 1000,
+      "start_ticks": "289874291",
+      "exe": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-local-pg/prefix/usr/lib/postgresql/16/bin/postgres"
+    },
+    {
+      "pid": 96084,
+      "uid": 1000,
+      "start_ticks": "289874291",
+      "exe": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-local-pg/prefix/usr/lib/postgresql/16/bin/postgres"
+    }
+  ],
+  "free_before": 1150205952,
+  "cache_before": 2969939149,
+  "environment": {
+    "PATH": "/usr/bin:/bin",
+    "HOME": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local",
+    "GOROOT": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/goroot",
+    "GOMODCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/cache/gomodcache",
+    "GOCACHE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/artex-worker-build-cache/local/gocache",
+    "GOTMPDIR": "/home/iveri/.hermes/cache/scratch/english-pg-state-l8milwx0/gotmp",
+    "GOENV": "off",
+    "GOTOOLCHAIN": "local",
+    "GOPROXY": "off",
+    "GOSUMDB": "off",
+    "GOFLAGS": "-mod=readonly",
+    "CGO_ENABLED": "0",
+    "GOMAXPROCS": "2",
+    "GOMEMLIMIT": "1GiB",
+    "TMPDIR": "/home/iveri/.hermes/cache/scratch/english-pg-state-l8milwx0/gotmp",
+    "QUAL_EVIDENCE": "/home/iveri/work/vindler-e2.SftLYa2R/continuation/coordination-20261119/artex-english/database-qualification"
+  },
+  "started": 1795134616.5277302,
+  "returncode": 1,
+  "closure": {
+    "closed": true,
+    "child_returncode": 1,
+    "postgres_pid": 96084,
+    "identity_verified": true,
+    "postgres_returncode": 0,
+    "pid_exited": true,
+    "socket_absent": true
+  },
+  "pidfile_absent": true,
+  "socket_entries": [],
+  "owned_pid_proc_absent": true,
+  "fixture_bytes": 52488135,
+  "new_cache_bytes": 13618496,
+  "free_after": 1083760640,
+  "finished": 1795134629.9548814,
+  "bounds_ok": true
+}

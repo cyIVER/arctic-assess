@@ -1,0 +1,40 @@
+{"Time":"2026-11-20T00:17:41.498737592Z","Action":"start","Package":"github.com/Autumn-27/artex/notify"}
+{"Time":"2026-11-20T00:17:41.504739537Z","Action":"run","Package":"github.com/Autumn-27/artex/notify","Test":"TestEnglishNotificationLabels"}
+{"Time":"2026-11-20T00:17:41.504955478Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestEnglishNotificationLabels","Output":"=== RUN   TestEnglishNotificationLabels\n"}
+{"Time":"2026-11-20T00:17:41.50528315Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Test":"TestEnglishNotificationLabels","Output":"--- PASS: TestEnglishNotificationLabels (0.00s)\n"}
+{"Time":"2026-11-20T00:17:41.505572351Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Test":"TestEnglishNotificationLabels","Elapsed":0}
+{"Time":"2026-11-20T00:17:41.505583982Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Output":"PASS\n"}
+{"Time":"2026-11-20T00:17:41.506206496Z","Action":"output","Package":"github.com/Autumn-27/artex/notify","Output":"ok  \tgithub.com/Autumn-27/artex/notify\t0.007s\n"}
+{"Time":"2026-11-20T00:17:41.506267647Z","Action":"pass","Package":"github.com/Autumn-27/artex/notify","Elapsed":0.008}
+{"Time":"2026-11-20T00:17:44.676118587Z","Action":"start","Package":"github.com/Autumn-27/artex/report"}
+{"Time":"2026-11-20T00:17:44.683282787Z","Action":"run","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence"}
+{"Time":"2026-11-20T00:17:44.683307658Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"=== RUN   TestEnglishReportPreservesEvidence\n"}
+{"Time":"2026-11-20T00:17:44.683893162Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Output":"--- PASS: TestEnglishReportPreservesEvidence (0.00s)\n"}
+{"Time":"2026-11-20T00:17:44.683993412Z","Action":"pass","Package":"github.com/Autumn-27/artex/report","Test":"TestEnglishReportPreservesEvidence","Elapsed":0}
+{"Time":"2026-11-20T00:17:44.684075432Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Output":"PASS\n"}
+{"Time":"2026-11-20T00:17:44.685147309Z","Action":"output","Package":"github.com/Autumn-27/artex/report","Output":"ok  \tgithub.com/Autumn-27/artex/report\t0.009s\n"}
+{"Time":"2026-11-20T00:17:44.685223299Z","Action":"pass","Package":"github.com/Autumn-27/artex/report","Elapsed":0.009}
+{"Time":"2026-11-20T00:17:45.337113244Z","Action":"start","Package":"github.com/Autumn-27/artex/selfupdate"}
+{"Time":"2026-11-20T00:17:45.342252595Z","Action":"run","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestEnglishUpdateDisabled"}
+{"Time":"2026-11-20T00:17:45.342286665Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestEnglishUpdateDisabled","Output":"=== RUN   TestEnglishUpdateDisabled\n"}
+{"Time":"2026-11-20T00:17:45.342317295Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestEnglishUpdateDisabled","Output":"--- PASS: TestEnglishUpdateDisabled (0.00s)\n"}
+{"Time":"2026-11-20T00:17:45.342320655Z","Action":"pass","Package":"github.com/Autumn-27/artex/selfupdate","Test":"TestEnglishUpdateDisabled","Elapsed":0}
+{"Time":"2026-11-20T00:17:45.342325545Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Output":"PASS\n"}
+{"Time":"2026-11-20T00:17:45.34311137Z","Action":"output","Package":"github.com/Autumn-27/artex/selfupdate","Output":"ok  \tgithub.com/Autumn-27/artex/selfupdate\t0.006s\n"}
+{"Time":"2026-11-20T00:17:45.34315481Z","Action":"pass","Package":"github.com/Autumn-27/artex/selfupdate","Elapsed":0.006}
+{"Time":"2026-11-20T00:17:45.999028919Z","Action":"start","Package":"github.com/Autumn-27/artex/sidequestion"}
+{"Time":"2026-11-20T00:17:46.003766256Z","Action":"run","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestEnglishSideQuestionSafetyInstructions"}
+{"Time":"2026-11-20T00:17:46.003794726Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestEnglishSideQuestionSafetyInstructions","Output":"=== RUN   TestEnglishSideQuestionSafetyInstructions\n"}
+{"Time":"2026-11-20T00:17:46.003826847Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestEnglishSideQuestionSafetyInstructions","Output":"--- PASS: TestEnglishSideQuestionSafetyInstructions (0.00s)\n"}
+{"Time":"2026-11-20T00:17:46.003830967Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Test":"TestEnglishSideQuestionSafetyInstructions","Elapsed":0}
+{"Time":"2026-11-20T00:17:46.003840767Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Output":"PASS\n"}
+{"Time":"2026-11-20T00:17:46.004631361Z","Action":"output","Package":"github.com/Autumn-27/artex/sidequestion","Output":"ok  \tgithub.com/Autumn-27/artex/sidequestion\t0.006s\n"}
+{"Time":"2026-11-20T00:17:46.004660361Z","Action":"pass","Package":"github.com/Autumn-27/artex/sidequestion","Elapsed":0.006}
+{"Time":"2026-11-20T00:17:47.542117453Z","Action":"start","Package":"github.com/Autumn-27/artex/traffic"}
+{"Time":"2026-11-20T00:17:47.548893482Z","Action":"run","Package":"github.com/Autumn-27/artex/traffic","Test":"TestEnglishTrafficSearchContract"}
+{"Time":"2026-11-20T00:17:47.548933772Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestEnglishTrafficSearchContract","Output":"=== RUN   TestEnglishTrafficSearchContract\n"}
+{"Time":"2026-11-20T00:17:47.548965842Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Test":"TestEnglishTrafficSearchContract","Output":"--- PASS: TestEnglishTrafficSearchContract (0.00s)\n"}
+{"Time":"2026-11-20T00:17:47.548975162Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Test":"TestEnglishTrafficSearchContract","Elapsed":0}
+{"Time":"2026-11-20T00:17:47.548980963Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Output":"PASS\n"}
+{"Time":"2026-11-20T00:17:47.550649251Z","Action":"output","Package":"github.com/Autumn-27/artex/traffic","Output":"ok  \tgithub.com/Autumn-27/artex/traffic\t0.008s\n"}
+{"Time":"2026-11-20T00:17:47.550673722Z","Action":"pass","Package":"github.com/Autumn-27/artex/traffic","Elapsed":0.009}

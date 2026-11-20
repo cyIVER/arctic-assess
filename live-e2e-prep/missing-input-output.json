@@ -1,0 +1,5 @@
+{
+  "returncode": 2,
+  "stdout": "{\"status\": \"BLOCKED\", \"reason\": \"untrusted artifact ancestry\", \"runtime_proof\": false}\n",
+  "stderr": ""
+}

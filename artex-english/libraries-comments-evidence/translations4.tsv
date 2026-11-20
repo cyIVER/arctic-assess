@@ -1,0 +1,130 @@
+772	smokeEnv makes subprocesses started by smoke tests skip Bootstrap directly.
+773	Strictly, omission would be harmless: os.Executable() is artex.new in the child, so all derived
+774	paths carry the .new prefix and cannot touch actual update files. Relying on this coincidence is fragile;
+775	an explicit short circuit is clear and avoids a needless filesystem probe in the child.
+776	Action is Bootstrap's instruction to main.
+777	Continue: start the server normally.
+778	Restart: exit immediately with ExitRestart so the supervisor script relaunches the process.
+779	State describes update status at this startup so /api/update/check can accurately tell the frontend
+780	whether the last update succeeded or was rolled back.
+781	Bootstrap runs at the very start of main, before listening on any port or opening a database.
+782	Three cases:
+783	1. Staged artex.new exists -> verify and smoke-test; swap and request restart on success, otherwise discard and keep the old version.
+784	2. Only the marker remains -> swap just completed; count an attempt and roll back after enough consecutive failures.
+785	3. Neither exists -> normal startup.
+786	applyStaged handles a staged binary: swap after successful verification, otherwise discard it.
+787	This is the only update path that overwrites the executable and the final gate: smoke tests catch
+788	corrupt downloads, wrong architectures, and missing dynamic libraries. If an unrunnable binary passes,
+789	the supervisor endlessly relaunches it while Go code never runs, so automatic rollback cannot execute.
+790	Swap succeeded. Keep the marker for the next startup, running the new version, to confirm stability.
+791	confirmOrRollback handles startup after a swap: count attempts and restore the old version above the limit.
+792	The counter increments only after Go code starts, covering executable binaries that crash during initialization
+793	(incompatible configuration, occupied ports, failed DB migrations). Pre-swap smoke tests catch binaries that
+794	cannot execute at all; both checks are needed for complete coverage.
+795	If even rollback fails, stop requesting restarts to avoid an infinite loop. Clear the marker
+796	and start in the current state; if startup fails, users can at least see the reason in logs.
+797	Settle confirms the new version is stable and removes the update marker.
+798	main calls it after a delay once HTTP is listening. The process must survive that interval; otherwise retain the marker,
+799	count attempts at subsequent startups, and eventually roll back.
+800	SettleDelay is the runtime required to consider the new version alive.
+801	verifyStaged checks the staged binary: compare SHA256, then actually launch it once.
+802	smokeTest launches the new binary with -h to confirm it can execute on this system.
+803	This catches truncated downloads, wrong architectures (exec format error), missing dependencies, and similar failures.
+804	swap replaces the current binary with the staged new version.
+805	Unix and Windows both permit renaming a running executable (Windows prohibits deletion and
+806	overwriting, not renaming), so no platform branch or prior self-shutdown is required.
+807	Windows rename cannot replace an existing destination; remove the previous update's .old first.
+808	If swapping fails after moving the current version aside, restore it unchanged or the next startup has no executable.
+809	rollback restores the old version backed up by swap.
+810	Move the unstartable new version to .failed for diagnosis rather than deleting it.
+811	Rollback implements /api/update/rollback: explicitly return to the preceding version.
+812	Only swap files; the supervisor script handles restart (the caller then exits with ExitRestart).
+813	Exchange current and backup so rollback can itself be reversed.
+814	HasBackup reports whether a previous version is available, allowing the frontend to show the rollback button.
+815	allowedHosts restricts domains accessible to the update path. Together with checkRedirect below,
+816	any redirect hop to an unlisted host fails immediately: the first gate against DNS poisoning / MITM
+817	replacing the binary. SHA256SUMS verification is the second gate.
+818	Release contains the GitHub Release fields used here.
+819	Asset is a file attached to a Release.
+820	NewClient constructs an HTTP client restricted to GitHub domains. Empty proxy means direct access.
+821	Deliberately do not reuse the default Transport: updates must enforce TLS and certificate verification,
+822	unaffected by settings such as InsecureSkipVerify elsewhere.
+823	checkURL enforces https and the domain allowlist.
+824	FetchLatest queries the latest stable release.
+825	Unauthenticated GitHub API access is limited to 60 requests per IP per hour, easily reached behind a shared outbound IP.
+826	AssetName returns the release archive name for the current platform, matching build.sh package_binary:
+827	artex-<版本>-<os>-<arch>.zip (the version has no v prefix; naming notation preserved).
+828	FindAsset finds a named asset in a Release.
+829	Package selfupdate implements ARTEX's one-click web update: fetch a new binary from GitHub Release,
+830	verify and stage it, then atomically swap it at the next startup.
+831	Responsibilities (see start.sh / start.bat):
+832	Startup script = simple supervisor loop, deciding whether to relaunch after exit based only on the exit code.
+833	This package = all error-prone logic (download / SHA256 verification / smoke test / swap / failure rollback).
+834	Swapping belongs in Go rather than scripts because checksum verification and smoke tests otherwise need separate
+835	sh and bat implementations (sha256sum / shasum / certutil). This is the least tolerable point for error: installing
+836	an unrunnable binary makes the supervisor relaunch endlessly and requires manual host recovery.
+837	A complete update spans three process startups:
+838	1. Old server receives /api/update/apply -> download and verify -> stage artex.new -> exit 75.
+839	2. Script relaunches old version -> Bootstrap finds artex.new -> verify and smoke-test -> swap -> exit 75.
+840	3. Script relaunches the new version -> Bootstrap counts an attempt -> clear marker after successful startup.
+841	Any failure falls back to the old version: at step 2, failed verification deletes staging and keeps running old code; at step 3,
+842	three consecutive failures before marker removal (startup crashes) automatically restore artex.old.
+843	ExitRestart requests supervisor relaunch (EX_TEMPFAIL). Startup scripts immediately restart on this code,
+844	without crash backoff. 0 means normal user shutdown (leave the loop); all other codes count as crashes.
+845	maxAttempts is the allowed number of post-swap startup attempts. Each new-version startup increments the count;
+846	surviving settleDelay removes the marker. maxAttempts consecutive crashes trigger automatic rollback.
+847	Paths contains all files for an update, consistently located under the **Executable directory**.
+848	Deliberately avoid CWD: service working directories may be / or any other path; staging there would
+849	break the swap logic.
+850	ResolvePaths derives all update paths from the current executable.
+851	On Windows, .new/.old must retain the .exe suffix or smoke tests and post-swap execution fail;
+852	strip the suffix before constructing names to keep naming symmetric across platforms.
+853	marker records swap progress to trigger automatic rollback if the new version cannot start.
+854	cleanStaged removes staged files after successful swap, failed verification, or user cancellation, preventing leftover
+855	artex.new from being retried at the next startup.
+856	CompareVersions compares versions, returning -1/0/1 for a<b / a==b / a>b.
+857	ok=false means at least one version is not comparable, such as a local development build "dev" or
+858	git describe output "0.3.7-2-gabc1234-dirty". Callers should disable one-click update in that case,
+859	or a development build could be overwritten by a stable release, losing uncommitted changes.
+860	parseVersion parses "v0.3.7" / "0.3.7" into [3]int.
+861	Accept only clean three-component versions: build.sh uses git describe for untagged builds,
+862	producing suffixed versions such as "0.3.7-2-gabc1234". These must be noncomparable, not interpreted as
+863	0.3.7, or development builds could be incorrectly considered current or overwritten by stable releases.
+864	InDocker reports whether the process runs in a container. A Docker swap writes the container's writable layer;
+865	`docker compose up -d` recreating the container restores the image version. This is expected
+866	(the user is pulling a new image then), but the frontend must explain it clearly.
+901	sumsAsset is the checksum manifest generated by release.yml, covering all Release zip files.
+902	maxBinarySize bounds extracted binary size to prevent malformed zip files from filling the disk.
+903	Phase is an update stage, used directly as the SSE event phase field.
+904	Progress is supplied by callers to push progress to the frontend. pct is meaningful only during download (0-100);
+905	other stages pass -1.
+906	Stage downloads the current-platform archive from the specified Release, verifies it, and stages the binary as artex.new.
+907	Use the full zip, not a bare binary, for two reasons: existing Release SHA256SUMS already
+908	cover only zip files, avoiding CI changes and supporting historical releases; archives also contain
+909	skills/, leaving room for future built-in skill synchronization. The only cost is a few hundred extra KB.
+910	Returning means staging is complete; callers then shut down gracefully and exit with ExitRestart.
+911	Place all temporary files in the destination directory so the final rename is atomic within the same filesystem
+912	(cross-device rename fails, and /tmp is often a separate mount).
+913	Store the staged binary's sha256 separately for rechecking before the next startup's swap,
+914	protecting against changes or corruption between staging and restart.
+915	The marker affects only automatic rollback; the staged file is ready, so marker failure does not interrupt updating.
+916	fetchSums downloads and parses SHA256SUMS, returning filename -> hexadecimal digest.
+917	parseSums parses a sha256sum-style manifest, returning filename -> hexadecimal digest.
+918	Accept an entry only when the first field is 64 hexadecimal digits. Checking only for two fields is insufficient:
+919	any two-word explanatory line would become an entry, inserting garbage in the checksum table,
+920	potentially matching a real asset with an incorrect digest.
+921	Format: "<sha256>  <filename>" (sha256sum uses two spaces; shasum binary
+922	mode prefixes filenames with *).
+923	download writes an asset to dst while computing SHA256 and reporting progress from Content-Length.
+924	get performs an allowlisted GET and returns the response body.
+925	extractBinary extracts the artex executable from the release archive.
+926	Archive layout is artex-<版本>-<os>-<arch>/artex, but match by **basename**, not a constructed full
+927	path: the version already appears in the archive name, and a single naming typo breaks updating; basename matching tolerates changes.
+928	checkWritable checks directory writability early. Otherwise non-root operation or binaries in system
+929	directories would fail only at swap time after downloading tens of MB.
+930	progressWriter counts written bytes and rate-limits reports, avoiding an SSE event for every 32KiB chunk.
+933	Even when the archive path has no historical host directories (new installs store traffic only in SQLite + _blobs),
+934	it must retain a journal. If a crash occurs between PostgreSQL and SQLite commits, restart
+935	rolls back the SQLite transaction; only the journal lets recovery complete host-row deletion. Without it,
+936	traffic exclusively owned by cold-tier tasks would remain in the hot database forever.
+937	Reduce to a minimal index: retain only locator fields plus response code/length, never response content.
